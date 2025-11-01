@@ -1,0 +1,10 @@
+url: https://andrewallenbruce.github.io/ccn/
+
+template:
+  bootstrap: 5
+  light-switch: true
+  bslib:
+    base_font: {google: "Roboto"}
+    heading_font: {google: "Roboto Slab"}
+    code_font: {google: "Source Code Pro"}
+
