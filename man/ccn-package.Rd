@@ -4,9 +4,18 @@
 \name{ccn-package}
 \alias{ccn}
 \alias{ccn-package}
-\title{ccn: What the Package Does (One Line, Title Case)}
+\title{CCN}
 \description{
-What the package does (one paragraph).
+An S7 class representing a \strong{CMS Certification Number}.
+}
+\details{
+CCNs are a uniform way of identifying providers or suppliers who currently
+or who ever have participated in the Medicare or Medicaid programs.
+
+A CCN is a 6- or 10-character alphanumeric string that encodes the provider
+or supplier's (respectively) State and facility type.
+
+CCNs are defined by \strong{CMS Manual System publication number 100-07 "State Operations Provider Certification"}.
 }
 \seealso{
 Useful links:

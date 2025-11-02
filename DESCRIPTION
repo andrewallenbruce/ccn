@@ -6,11 +6,17 @@ Authors@R:
 Maintainer: Andrew Allen Bruce <andrewallenbruce@gmail.com>
 Description: What the package does (one paragraph).
 License: MIT + file LICENSE
-URL: https://github.com/andrewallenbruce/ccn, https://andrewallenbruce.github.io/ccn/
+URL: https://github.com/andrewallenbruce/ccn,
+    https://andrewallenbruce.github.io/ccn/
 BugReports: https://github.com/andrewallenbruce/ccn/issues
+Imports: 
+    fastplyr,
+    ivs,
+    tibble,
+    tidyr
 Suggests: 
     roxyglobals (>= 1.0.0),
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
 Config/roxyglobals/filename: generated-globals.R
 Config/roxyglobals/unique: TRUE
 Config/testthat/edition: 3
