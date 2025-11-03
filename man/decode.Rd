@@ -18,4 +18,5 @@ Decode a CCN into its component parts.
 \examples{
 decode("670055")
 decode("21-0101")
+decode("21-T101")
 }

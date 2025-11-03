@@ -1,7 +1,7 @@
 #' @noRd
 #' @autoglobal
 MEDICAID <- list(
-  FACILITY_CODES = tibble::tribble(~ from, ~ to,
+  FACILITY_CODES = list(
     c("A", "B"), "NF (Formerly assigned to Medicaid SNF)",
     c("E", "F"), "NF (Formerly assigned to ICF)",
     c("G", "H"), "ICF/IID",
@@ -9,28 +9,31 @@ MEDICAID <- list(
     c("K"), "Medicaid HHA",
     c("L"), "Psychiatric Residential Treatment Facility (PRTF)",
     c("M"), "Psychiatric Unit of a CAH",
+    c("O"), "Organ Procurement Organization (OPO)",
     c("R"), "Rehabilitation Unit of a CAH",
     c("S"), "Psychiatric Unit",
     c("T"), "Rehabilitation Unit",
     c("U"), "Swing-Bed Approval for Short-Term Hospital",
     c("W"), "Swing-Bed Approval for Long-Term Care Hospital",
+    c("Y"), "Swing-Bed Approval for Rehabilitation Hospital",
     c("Z"), "Swing-Bed Approval for CAH"),
 
-  HOSPITAL_RANGES = tibble::tribble(~ from, ~ to,
-    ivs::iv(start = as.integer(001), end = as.integer(099)), "Short-term Acute Care Hospital",
-    ivs::iv(start = as.integer(100), end = as.integer(199)), "Children's Hospital",
-    ivs::iv(start = as.integer(200), end = as.integer(299)), "Children's Psychiatric Hospital",
-    ivs::iv(start = as.integer(300), end = as.integer(399)), "Psychiatric Hospital",
-    ivs::iv(start = as.integer(400), end = as.integer(499)), "Rehabilitation Hospital",
-    ivs::iv(start = as.integer(500), end = as.integer(599)), "Long-term Hospital") |>
-    tidyr::unnest(cols = c(from)),
+  # should be padded to three digits before use (001-099, etc.)
+  HOSPITAL_RANGES = list(
+    "Short-term Acute Care Hospital" = collapse::frange(c(1L, 99L)),
+    ivs::iv(start = 100L, end = 199L), "Children's Hospital",
+    ivs::iv(start = 200L, end = 299L), "Children's Psychiatric Hospital",
+    ivs::iv(start = 300L, end = 399L), "Psychiatric Hospital",
+    ivs::iv(start = 400L, end = 499L), "Rehabilitation Hospital",
+    ivs::iv(start = 500L, end = 599L), "Long-term Hospital"),
 
-  TYPE_CODES = c("A", "B", "E", "F", "G", "H", "K", "L", "J")
+  # from FACILITY_CODES above
+  TYPE_CODES = c("A", "B", "E", "F", "G", "H", "J", "K", "L")
 )
 
 #' @noRd
 #' @autoglobal
-FACILITY_RANGES = tibble::tribble(~ from, ~ to,
+FACILITY_RANGES = list(
   ivs::iv(start = as.integer(0001), end = as.integer(0879)), "Short-term (General and Specialty) Hospital",
   0880:0899, "Hospital participating in ORD demonstration project",
   0900:0999, "Multiple Hospital Component in a Medical Complex (Number Retired)",
@@ -74,18 +77,11 @@ FACILITY_RANGES = tibble::tribble(~ from, ~ to,
 
 #' @noRd
 #' @autoglobal
-EMERGENCY_CODES = list(
-  "E" = "Non-Federal Emergency Hospital",
-  "F" = "Federal Emergency Hospital"
-)
-
-#' @noRd
-#' @autoglobal
 IPPS <- list(
 
   EXCLUDED_TYPE_CODES = c("M", "R", "S", "T", "U", "W", "Z"),
 
-  PARENT_HOSPITAL_TYPES = tibble::tribble(~ from, ~ to,
+  PARENT_HOSPITAL_TYPES = list(
     "A", c("LTCH", "20"),
     "B", c("LTCH", "21"),
     "C", c("LTCH", "22"),

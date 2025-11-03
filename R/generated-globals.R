@@ -3,5 +3,9 @@
 utils::globalVariables(c(
   # <decode_six>
   "ccn",
+  # <make_switch>
+  "constant",
+  # <make_switch>
+  "field",
   NULL
 ))

@@ -7,14 +7,15 @@
 #' @examples
 #' decode("670055")
 #' decode("21-0101")
+#' decode("21-T101")
 #' @export
 #' @autoglobal
 decode <- function(x) {
 
-  # remove hyphen if present (typically in 3rd position)
-  if (grepl("-", x, fixed = TRUE)) x <- gsub("-", "", x, fixed = TRUE)
+  # remove hyphen (typically in 3rd position)
+  if (has_hyphen(x)) x <- rm_hyphen(x)
 
-  chars <- nchar(x)
+  chars <- get_nchars(x)
 
   switch(
     as.character(chars),
@@ -28,13 +29,18 @@ decode <- function(x) {
 #' @autoglobal
 decode_six <- function(x) {
 
-  # three <- substring(x, 3, 3)
-  # if (grepl("[^0-9]", three, perl = TRUE, ignore.case = TRUE)) "A" else "YYY"
+  unit <- get_unit_code(x)
 
+  # if the 3rd character is non-numeric, it's a unit code
   fastplyr::list_tidy(
     ccn = x,
-    CODE_state = substr(ccn, 1, 2),
-    CODE_facility_type = substr(ccn, 3, 6)
+    CODE_state = get_state_code(ccn),
+    CODE_unit = `if`(has_unit_code(unit), unit, NULL),
+    CODE_facility = get_facility_code(ccn, ifelse(has_unit_code(unit), 4L, 3L)),
+    .keep_null = FALSE
   )
-
 }
+
+# MedicaidOnlyProviderCCN <- function(x) {
+#
+# }
