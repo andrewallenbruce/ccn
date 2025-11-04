@@ -13,15 +13,19 @@
 decode <- function(x) {
 
   # remove hyphen (typically in 3rd position)
-  if (has_hyphen(x)) x <- rm_hyphen(x)
+  if (has_hyphen(x)) x <- remove_hyphen(x)
 
   chars <- get_nchars(x)
 
-  switch(
-    as.character(chars),
-    "6"  = decode_six(x),
+  switch(as.character(chars),
+    "6" = decode_six(x),
     # "10" = decode_ten(x),
-    stop("Invalid CCN length: ", chars, ". Must be 6 or 10 characters.", call. = FALSE)
+    stop(
+      "Invalid CCN length: ",
+      chars,
+      ". Must be 6 or 10 characters.",
+      call. = FALSE
+    )
   )
 }
 
@@ -29,18 +33,16 @@ decode <- function(x) {
 #' @autoglobal
 decode_six <- function(x) {
 
-  unit <- get_unit_code(x)
+  unit <- get_code_unit(x)
+  has  <- has_code_unit(unit)
+  unit <- if (has) unit else NULL
 
   # if the 3rd character is non-numeric, it's a unit code
   fastplyr::list_tidy(
-    ccn = x,
-    CODE_state = get_state_code(ccn),
-    CODE_unit = `if`(has_unit_code(unit), unit, NULL),
-    CODE_facility = get_facility_code(ccn, ifelse(has_unit_code(unit), 4L, 3L)),
-    .keep_null = FALSE
+    ccn           = x,
+    CODE_state    = get_code_state(ccn),
+    CODE_unit     = unit,
+    CODE_facility = get_code_facility(ccn, if (has) 4L else 3L),
+    .keep_null    = FALSE
   )
 }
-
-# MedicaidOnlyProviderCCN <- function(x) {
-#
-# }

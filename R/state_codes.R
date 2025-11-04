@@ -1,20 +1,5 @@
-#' @noRd
 #' @autoglobal
-EMERGENCY_CODES = list(
-  "Non-Federal Emergency Hospital" = "E",
-  "Federal Emergency Hospital"     = "F"
-)
-
 #' @noRd
-#' @autoglobal
-SUPPLIER_CODES <- list(
-  "Ambulatory Surgical Center"                                           = "C",
-  "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory" = "D",
-  "Portable X-Ray Facility"                                              = "X"
-)
-
-#' @noRd
-#' @autoglobal
 STATE_CODES <- list(
   "Arizona"                                           = c("00", "03"),
   "Alabama"                                           = c("01"),
@@ -76,3 +61,13 @@ STATE_CODES <- list(
   "Commonwealth of the Northern Marianas Islands"     = c("66"),
   "Foreign Countries (exceptions: Canada and Mexico)" = c("99")
 )
+
+#' State Code Lookup
+#' Convert state codes to standard state names.
+#' @param x `[character]` vector of state codes.
+#' @examples
+#' state_code(c("00", "01", "83", "A0"))
+#' @returns character vector of state names.
+#' @autoglobal
+#' @export
+state_code <- make_switch(x = STATE_CODES)
