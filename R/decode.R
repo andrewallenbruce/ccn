@@ -20,12 +20,11 @@ decode <- function(x) {
   switch(as.character(chars),
     "6" = decode_six(x),
     # "10" = decode_ten(x),
-    stop(
-      "Invalid CCN length: ",
-      chars,
-      ". Must be 6 or 10 characters.",
-      call. = FALSE
-    )
+    cli::cli_abort(
+      c("A {.strong CCN} must be {.emph 6 or 10 characters}.",
+        "x" = "{.var {x}} is {.val {chars}} characters."
+      ),
+      call = NULL)
   )
 }
 

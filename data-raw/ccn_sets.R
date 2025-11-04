@@ -1,7 +1,16 @@
+ccn_dataset_info |>
+  collapse::sbt(catalog == "prov") |>
+  collapse::fcount(alias) |>
+  collapse::roworder(alias) |>
+  print(n = Inf)
+  collapse::sbt(title == "Medicare Durable Medical Equipment, Devices & Supplies - by Supplier") |>
+  collapse::fcount(alias, field) |>
+  print(n = Inf)
+
 ccn_dataset_info <- providertwo:::field_table() |>
   collapse::sbt(
     catalog != "open" &
-      point != "temporal" &
+      point == "temporal" &
       stringr::str_detect(field, "ccn|CCN|Ccn|certification_number") &
       stringr::str_detect(alias, "_chow$", negate = TRUE)
   ) |>
@@ -12,7 +21,8 @@ ccn_dataset_info <- providertwo:::field_table() |>
 
 ccn_dataset_info |>
   collapse::sbt(catalog == "care") |>
-  _$alias
+  _$alias |>
+  cat(sep = "\n")
 
 c("fqhc_enroll",
   "hha_enroll",
@@ -21,24 +31,19 @@ c("fqhc_enroll",
   "snf_enroll",
   "spice_enroll")
 
-providertwo::endpoint("hha_enroll") |>
-  providertwo::list_resources() |>
-  collapse::sbt(ext == "csv") |>
-  _$download
+# "dial_facility"
+# "hha_cost"
+# "hosp_cost"
+"in_prov"
+"in_serv"
+"mds_nh_fac"
+"out_serv"
+# "snf_cost"
 
-providertwo:::the$clog$care$current |>
-  collapse::sbt(
-    title %in% c(
-      ccn_dataset_info |>
-        collapse::sbt(catalog == "prov") |>
-        _$title
-      )
-    )
-
-hha = list(
-  enroll = list(
-    path = fs::path("C:/Users/Andrew/Downloads/HHA_Enrollments_2025.10.01.csv"),
-    spec = readr::cols(
+############### CSVs ###############
+hha = list(enroll = list(
+  path = fs::path("C:/Users/Andrew/Downloads/HHA_Enrollments_2025.10.01.csv"),
+  spec = readr::cols(
     `ENROLLMENT ID`                = readr::col_character(),
     `ENROLLMENT STATE`             = readr::col_character(),
     `PROVIDER TYPE CODE`           = readr::col_character(),
@@ -61,22 +66,21 @@ hha = list(
     `ZIP CODE`                     = readr::col_character(),
     `PRACTICE LOCATION TYPE`       = readr::col_character(),
     `LOCATION OTHER TYPE TEXT`     = readr::col_logical()
-    )
-  ),
-  address = list(
-    path = fs::path("C:/Users/Andrew/Downloads/HHA_Additional_Addresses_2025.10.01.csv")),
-  npi     = list(
-    path = fs::path("C:/Users/Andrew/Downloads/HHA_Additional_NPIs_2025.10.01.csv"))
-)
+  )
+))
 
-hha_enroll <- readr::read_csv(file = hha$enroll$path, col_types = hha$enroll$spec, num_threads = 4L) |>
+hha_enroll <- readr::read_csv(
+  file = hha$enroll$path,
+  col_types = hha$enroll$spec,
+  num_threads = 4L
+) |>
   janitor::clean_names() |>
   collapse::mtt(
     inc_date = readr::parse_date(incorporation_date, format = "%m/%d/%Y"),
     inc_state = incorporation_state,
     address = providertwo:::make_address(address_line_1, address_line_2),
     multi_npi = cheapr::val_match(multiple_npi_flag, "Y" ~ 1L, "N" ~ 0L, .default = NA_integer_)
-    ) |>
+  ) |>
   collapse::slt(
     npi,
     ccn,
@@ -94,7 +98,12 @@ hha_enroll <- readr::read_csv(file = hha$enroll$path, col_types = hha$enroll$spe
     inc_date,
     enid_state = enrollment_state,
     inc_state,
-    loc_state = state)
+    loc_state = state
+  )
+
+hha_enroll$ccn |>
+  collapse::funique() |>
+  kit::psort(nThread = 4L)
 
 hha_enroll |>
   cheapr::overview()
@@ -142,14 +151,12 @@ hosp_spec <- readr::cols(
 )
 
 hosp_enroll <- fs::path("C:/Users/Andrew/Downloads/Hospital_Enrollments_2025.10.01.csv")
-# hospital_address <- fs::path("C:/Users/Andrew/Downloads/Hospital_Additional_Addresses_2025.10.01.csv")
-# hospital_npi <- fs::path("C:/Users/Andrew/Downloads/Hospital_Additional_NPIs_2025.10.01.csv")
+chr_bin <- function(x) cheapr::case(x == "Y" ~ 1L, x == "N" ~ 0L, .default = NA_integer_)
 
-chr_bin <- \(x) cheapr::case(x == "Y" ~ 1L, x == "N" ~ 0L, .default = NA_integer_)
-
-hosp <- readr::read_csv(file = hosp_enroll,
-                col_types = hosp_spec,
-                num_threads = 4L) |>
+hosp <- readr::read_csv(
+  file = hosp_enroll,
+  col_types = hosp_spec,
+  num_threads = 4L) |>
   janitor::clean_names() |>
   collapse::mtt(
     inc_date = readr::parse_date(incorporation_date, format = "%m/%d/%Y"),
@@ -217,3 +224,32 @@ hosp <- readr::read_csv(file = hosp_enroll,
 
 hosp |>
   cheapr::overview()
+
+affl <- readr::read_csv(
+  file = fs::path("C:/Users/Andrew/Downloads/Facility_Affiliation.csv"),
+  col_types = readr::cols(
+    NPI = readr::col_integer(),
+    Ind_PAC_ID = readr::col_character(),
+    `Provider Last Name` = readr::col_character(),
+    `Provider First Name` = readr::col_character(),
+    `Provider Middle Name` = readr::col_character(),
+    suff = readr::col_character(),
+    facility_type = readr::col_character(),
+    `Facility Affiliations Certification Number` = readr::col_character(),
+    `Facility Type Certification Number` = readr::col_character()),
+  num_threads = 4L) |>
+  janitor::clean_names() |>
+  collapse::frename(
+    ind_pac_id = "pac",
+    provider_last_name = "last",
+    provider_first_name = "first",
+    provider_middle_name = "middle",
+    suff = "suffix",
+    facility_affiliations_certification_number = "ccn_facility",
+    facility_type_certification_number = "ccn_facility_type") |>
+  dplyr::glimpse()
+
+
+affl |>
+  cheapr::overview()
+

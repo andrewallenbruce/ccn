@@ -2,5 +2,7 @@
 
 export(decode)
 export(emergency_code)
+export(is_ipps_excluded_type)
+export(is_medicaid_facility_type)
 export(state_code)
 export(supplier_code)

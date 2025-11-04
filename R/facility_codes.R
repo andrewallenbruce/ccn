@@ -1,16 +1,51 @@
-
 #' @autoglobal
 #' @keywords internal
 #' @noRd
 MEDICAID_FACILITY_TYPE_CODES <- stringfish::convert_to_sf(
   c("A", "B", "E", "F", "G", "H", "J", "K", "L"))
 
+#' Medicaid Facility Types
+#'
+#' Identify if a CCN corresponds to a Medicaid facility type.
+#'
+#' @param x A character vector, length 1
+#' @return A logical vector
+#' @examples
+#' LETTERS[is_medicaid_facility_type(LETTERS)]
+#' @export
 #' @autoglobal
-#' @keywords internal
+is_medicaid_facility_type <- function(x) {
+  stringfish::sf_grepl(
+    subject  = x,
+    pattern  = MEDICAID_FACILITY_TYPE_CODES,
+    fixed    = TRUE,
+    nthreads = 4L
+  )
+}
+
 #' @noRd
+#' @autoglobal
 IPPS_EXCLUDED_TYPE_CODES <- stringfish::convert_to_sf(
   c("M", "R", "S", "T", "U", "W", "Z"))
 
+#' IPPS-Excluded Types
+#'
+#' Identify if a CCN corresponds to an IPPS-excluded type.
+#'
+#' @param x A character vector, length 1
+#' @return A logical vector
+#' @examples
+#' LETTERS[is_ipps_excluded_type(LETTERS)]
+#' @export
+#' @autoglobal
+is_ipps_excluded_type <- function(x) {
+  stringfish::sf_grepl(
+    subject  = x,
+    pattern  = IPPS_EXCLUDED_TYPE_CODES,
+    fixed    = TRUE,
+    nthreads = 4L
+  )
+}
 
 #' @autoglobal
 #' @keywords internal
@@ -48,25 +83,3 @@ IPPS_PARENT_HOSPITAL_TYPES <- list(
   "J" = c("Psychiatric Hospital", "43"),
   "K" = c("Psychiatric Hospital", "44")
 )
-
-#' @noRd
-#' @autoglobal
-is_medicaid_facility_type <- function(x) {
-  stringfish::sf_grepl(
-    subject  = x,
-    pattern  = MEDICAID_FACILITY_TYPE_CODES,
-    fixed    = TRUE,
-    nthreads = 4L
-  )
-}
-
-#' @noRd
-#' @autoglobal
-is_ipps_excluded_type <- function(x) {
-  stringfish::sf_grepl(
-    subject  = x,
-    pattern  = IPPS_EXCLUDED_TYPE_CODES,
-    fixed    = TRUE,
-    nthreads = 4L
-  )
-}
