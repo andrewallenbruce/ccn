@@ -15,11 +15,9 @@
 decode <- function(x, arg = rlang::caller_arg(x), call = rlang::caller_env()) {
   if (!is.character(x)) {
     cli::cli_abort(
-      c(
-        "Input {.strong {arg}} must be a {.emph character} vector.",
-        "x" = "You supplied a {.emph {typeof(x)}} vector."
-      ),
-      arg = arg,
+      c("Input {.strong {arg}} must be a {.emph character} vector.",
+        "x" = "You supplied a {.emph {typeof(x)}} vector."),
+      arg  = arg,
       call = call
     )
   }
@@ -32,8 +30,9 @@ decode <- function(x, arg = rlang::caller_arg(x), call = rlang::caller_env()) {
     "6" = decode_six(x),
     # "10" = decode_ten(x),
     cli::cli_abort(
-      c("Input {.strong {arg}} must be {.emph 6 or 10 characters}.", "x" = "{.var {x}} is {.val {chars}} characters."),
-      arg = arg,
+      c("Input {.strong {arg}} must be {.emph 6 or 10 characters}.",
+        "x" = "{.var {x}} is {.val {chars}} characters."),
+      arg  = arg,
       call = call
     )
   )

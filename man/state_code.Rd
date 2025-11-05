@@ -8,7 +8,7 @@ Convert state codes to standard state names.}
 state_code(x)
 }
 \arguments{
-\item{x}{\verb{[character]} vector of state codes.}
+\item{x}{character vector of state codes.}
 }
 \value{
 character vector of state names.

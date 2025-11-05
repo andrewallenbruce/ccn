@@ -64,7 +64,7 @@ STATE_CODES <- list(
 
 #' State Code Lookup
 #' Convert state codes to standard state names.
-#' @param x `[character]` vector of state codes.
+#' @param x character vector of state codes.
 #' @examples
 #' state_code(c("00", "01", "83", "A0"))
 #' @returns character vector of state names.

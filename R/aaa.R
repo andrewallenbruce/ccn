@@ -1,5 +1,11 @@
 #' @autoglobal
 #' @noRd
+unlist_ <- function(x, ...) {
+  unlist(x, use.names = FALSE, ...)
+}
+
+#' @autoglobal
+#' @noRd
 make_switch <- function(x) {
 
   e <- purrr::map(x, \(x) cheapr::fast_df(field = x)) |>
@@ -8,8 +14,8 @@ make_switch <- function(x) {
 
   function(x) {
     kit::vswitch(
-      x = x,
-      values = e$field,
+      x       = x,
+      values  = e$field,
       outputs = e$constant,
       default = NA_character_,
       nThread = 4L

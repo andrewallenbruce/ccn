@@ -13,8 +13,8 @@ is_medicaid_facility_type(x)
 A logical vector
 }
 \description{
-Identify if a CCN corresponds to a Medicaid facility type.
+Identify a Medicaid facility type
 }
 \examples{
-LETTERS[is_medicaid_facility_type(LETTERS)]
+is_medicaid_facility_type(LETTERS)
 }

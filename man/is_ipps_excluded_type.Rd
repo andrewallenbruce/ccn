@@ -7,14 +7,14 @@
 is_ipps_excluded_type(x)
 }
 \arguments{
-\item{x}{A character vector, length 1}
+\item{x}{character vector}
 }
 \value{
-A logical vector
+logical vector
 }
 \description{
-Identify if a CCN corresponds to an IPPS-excluded type.
+Identify an IPPS-excluded type
 }
 \examples{
-LETTERS[purrr::map_lgl(LETTERS, is_ipps_excluded_type)]
+is_ipps_excluded_type(LETTERS)
 }
