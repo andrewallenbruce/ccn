@@ -25,7 +25,7 @@ get_code_state <- function(x) {
 #' @autoglobal
 #' @noRd
 has_code_unit <- function(x) {
-  stringfish::sf_grepl(x, "[^0-9]", nthreads = 4L)
+  stringfish::sf_grepl(x, "[A-Z]", nthreads = 4L)
 }
 
 #' @autoglobal

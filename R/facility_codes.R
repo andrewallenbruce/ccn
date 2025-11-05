@@ -35,7 +35,7 @@ IPPS_EXCLUDED_TYPE_CODES <- stringfish::convert_to_sf(
 #' @param x A character vector, length 1
 #' @return A logical vector
 #' @examples
-#' LETTERS[is_ipps_excluded_type(LETTERS)]
+#' LETTERS[purrr::map_lgl(LETTERS, is_ipps_excluded_type)]
 #' @export
 #' @autoglobal
 is_ipps_excluded_type <- function(x) {

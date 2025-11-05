@@ -16,5 +16,5 @@ A logical vector
 Identify if a CCN corresponds to an IPPS-excluded type.
 }
 \examples{
-LETTERS[is_ipps_excluded_type(LETTERS)]
+LETTERS[purrr::map_lgl(LETTERS, is_ipps_excluded_type)]
 }

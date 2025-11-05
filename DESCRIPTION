@@ -16,6 +16,7 @@ Imports:
     fastplyr (>= 0.9.9),
     kit,
     purrr,
+    rlang,
     stringfish (>= 0.17.0)
 Suggests: 
     roxyglobals (>= 1.0.0),
