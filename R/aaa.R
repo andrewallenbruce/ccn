@@ -1,5 +1,12 @@
 #' @autoglobal
 #' @noRd
+nchars_ <- function(x) {
+  stringfish::sf_nchar(x, nthreads = 4L) |> as.character()
+  # collapse::vlengths(c("adsfd", "sdgfahrf"), use.names = FALSE)
+}
+
+#' @autoglobal
+#' @noRd
 unlist_ <- function(x, ...) {
   unlist(x, use.names = FALSE, ...)
 }

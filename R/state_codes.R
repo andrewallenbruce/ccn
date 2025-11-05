@@ -66,8 +66,8 @@ STATE_CODES <- list(
 #' Convert state codes to standard state names.
 #' @param x character vector of state codes.
 #' @examples
-#' state_code(c("00", "01", "83", "A0"))
+#' state_name(c("00", "01", "83", "A0"))
 #' @returns character vector of state names.
 #' @autoglobal
 #' @export
-state_code <- make_switch(x = STATE_CODES)
+state_name <- make_switch(x = STATE_CODES)

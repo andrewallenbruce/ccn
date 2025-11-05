@@ -23,7 +23,7 @@ decode <- function(x, arg = rlang::caller_arg(x), call = rlang::caller_env()) {
   }
 
   x     <- if (has_hyphen(x)) remove_hyphen(x) else x
-  chars <- get_nchars(x) |> as.character()
+  chars <- nchars_(x)
 
   switch(
     chars,
@@ -40,17 +40,81 @@ decode <- function(x, arg = rlang::caller_arg(x), call = rlang::caller_env()) {
 
 #' @noRd
 #' @autoglobal
-decode_six <- function(x) {
-
-  unit <- get_code_unit(x)
-  has  <- has_code_unit(unit)
-  unit <- if (has) unit else NULL
-
+decode_state <- function(x) {
   fastplyr::list_tidy(
-    ccn           = x,
-    CODE_state    = get_code_state(ccn),
-    CODE_unit     = get_code_unit(ccn),
-    CODE_facility = get_code_facility(ccn, if (has) 4L else 3L),
-    .keep_null    = FALSE
+    code = get_code_state(x),
+    name = state_name(code)) |>
+    unlist()
+}
+
+#' @noRd
+#' @autoglobal
+decode_six <- function(x) {
+  three <- get_three(x)
+  alpha <- is_letter(three)
+}
+
+#' @noRd
+#' @autoglobal
+decode_six_medicare <- function(x) {
+  fastplyr::list_tidy(
+    ccn = x,
+    SS = decode_state(ccn),
+    Q36 = get_seq_Q36(ccn))
+}
+
+#' @noRd
+#' @autoglobal
+decode_six_medicare_organ <- function(x) {
+  fastplyr::list_tidy(
+    ccn = x,
+    SS = decode_state(ccn),
+    P = get_three(ccn),
+    Q46 = get_seq_Q46(ccn)
+  )
+}
+
+#' @noRd
+#' @autoglobal
+decode_six_medicaid_only <- function(x) {
+  fastplyr::list_tidy(
+    ccn = x,
+    SS = decode_state(ccn),
+    T = get_three(ccn),
+    Q46 = get_seq_Q46(ccn)
+  )
+}
+
+#' @noRd
+#' @autoglobal
+decode_six_ipps_excluded <- function(x) {
+  fastplyr::list_tidy(
+    ccn = x,
+    SS = decode_state(ccn),
+    T = get_three(ccn),
+    A = get_four(ccn),
+    Q56 = get_seq_Q56(ccn)
+  )
+}
+
+#' @noRd
+#' @autoglobal
+decode_six_emergency <- function(x) {
+  fastplyr::list_tidy(
+    ccn = x,
+    SS = decode_state(ccn),
+    Q35 = get_seq_Q35(ccn),
+    E = get_six(ccn)
+  )
+}
+
+#' @noRd
+#' @autoglobal
+decode_ten_supplier <- function(x) {
+  fastplyr::list_tidy(
+    ccn = x,
+    SS = decode_state(ccn),
+    T = get_three(ccn),
+    Q410 = get_seq_Q410(cnn)
   )
 }
