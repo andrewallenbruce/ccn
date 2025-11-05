@@ -41,8 +41,9 @@ MEDICAID_FACILITY_CODES <- list(
 MEDICAID_FACILITY_TYPE_CODES <- stringfish::sf_convert(
   unlist_(MEDICAID_FACILITY_CODES)[1:9])
 
-#' @noRd
 #' @autoglobal
+#' @keywords internal
+#' @noRd
 IPPS_EXCLUDED_TYPE_CODES <- stringfish::sf_convert(
   unlist_(MEDICAID_FACILITY_CODES)[c(10, 12:16, 18)])
 
