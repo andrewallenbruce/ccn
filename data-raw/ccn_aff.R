@@ -3,9 +3,9 @@ library(clitable)
 
 #-----FACILITY AFFILIATIONS-----
 affl <- readr::read_csv(
-  file = fs::path("C:/Users/Andrew/Downloads/Facility_Affiliation.csv"),
+  file      = fs::path("C:/Users/Andrew/Downloads/Facility_Affiliation.csv"),
   col_types = readr::cols(
-    NPI = readr::col_integer(),
+    NPI     = readr::col_integer(),
     Ind_PAC_ID = readr::col_character(),
     `Provider Last Name` = readr::col_character(),
     `Provider First Name` = readr::col_character(),
@@ -27,7 +27,24 @@ affl <- readr::read_csv(
 
 affl <- collapse::mtt(affl, i = seq_len(nrow(affl)))
 subs <- collapse::fcount(affl, ccn_facility_type) |> collapse::sbt(!cheapr::is_na(ccn_facility_type)) |> _$ccn_facility_type
-affl <- collapse::sbt(affl, ccn_facility_type %iin% subs) |> collapse::slt(i, facility_type, ccn_facility_type, ccn_facility, npi, pac)
+subs <- collapse::sbt(affl, ccn_facility_type %iin% subs)
+subi <- subs$i
+subs <- collapse::slt(subs, facility_type, ccn_facility_type, ccn_facility, npi, pac)
+affl <- collapse::sbt(affl, i %!iin% subi) |> collapse::slt(facility_type, ccn_facility_type, ccn_facility, npi, pac)
+subs <- collapse::slt(subs, facility_type, ccn_facility_type, ccn_facility, npi, pac)
+affl <- affl[, !cheapr::col_all_na(affl)] |> collapse::slt(facility_type, ccn_facility, npi, pac)
+
+pin_update(
+  subs,
+  name = "ccn_subunits",
+  title = "Subunit CCNs",
+  description = "Subunit CCNs Facility Affiliation")
+
+pin_update(
+  affl,
+  name = "ccn_parents",
+  title = "Parent CCNs",
+  description = "Parent CCNs Facility Affiliation")
 
 #-----SUBUNITS
 # facility_type                         N

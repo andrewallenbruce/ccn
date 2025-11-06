@@ -2,7 +2,6 @@ library(collapse)
 library(clitable)
 
 #-----HOSPITAL ENROLLMENT-----
-chr_bin <- function(x) cheapr::case(x == "Y" ~ 1L, x == "N" ~ 0L, .default = NA_integer_)
 hosp    <- readr::read_csv(
   file      = fs::path("C:/Users/Andrew/Downloads/Hospital_Enrollments_2025.10.01.csv"),
   num_threads = 4L,
@@ -109,7 +108,38 @@ hosp    <- readr::read_csv(
     sub_spec = subgroup_specialty_hospital,
     sub_other = subgroup_other,
     sub_otxt = subgroup_other_text) |>
-  dplyr::glimpse()
+  collapse::mtt(has_alpha = stringr::str_detect(ccn, "[A-Z]"))
 
-hosp |>
-  cheapr::overview()
+hosp <- collapse::mtt(hosp, i = seq_len(nrow(hosp))) |>
+  collapse::colorder(i) |>
+  collapse::rsplit(~ has_alpha) |>
+  rlang::set_names(c("numeric_ccn", "alphanumeric_ccn"))
+
+hosp$other_ccn <- collapse::rowbind(
+  collapse::sbt(hosp$alphanumeric_ccn, !is.na(sub_otxt)),
+  collapse::sbt(hosp$numeric_ccn, !is.na(sub_otxt)),
+  fill = TRUE)
+
+hosp$alphanumeric_ccn <- collapse::sbt(hosp$alphanumeric_ccn, i %!iin% hosp$other_ccn$i)
+hosp$numeric_ccn      <- collapse::sbt(hosp$numeric_ccn, i %!iin% hosp$other_ccn$i)
+
+# reh_date is all NA
+hosp$alphanumeric_ccn <- hosp$alphanumeric_ccn[, !cheapr::col_all_na(hosp$alphanumeric_ccn)]
+
+hosp
+
+pin_update(
+  hosp,
+  name = "hospital_enrollment",
+  title = "Hospital Enrollments",
+  description = "Hospital Enrollments 2025")
+
+# both enid and ccn are unique
+nms <- colnames(hosp$numeric_ccn)
+sub <- nms[stringr::str_starts(nms, "sub")]
+
+hosp$other_ccn <- collapse::rowbind(
+  collapse::slt(hosp$alphanumeric_ccn, c("i", "ccn", sub)) |>
+    collapse::sbt(!is.na(sub_otxt)),
+  collapse::slt(hosp$numeric_ccn, c("i", "ccn", sub)) |>
+    collapse::sbt(!is.na(sub_otxt)))

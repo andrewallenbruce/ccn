@@ -16,10 +16,13 @@ Imports:
     cli (>= 3.6.5),
     collapse (>= 2.1.4),
     fastplyr (>= 0.9.9),
+    fs (>= 1.6.6),
     kit (>= 0.0.2),
+    pins (>= 1.4.1),
     purrr (>= 1.2.0),
     rlang (>= 1.1.6),
-    stringfish (>= 0.17.0)
+    stringfish (>= 0.17.0),
+    qs (>= 0.27.3)
 Suggests: 
     roxyglobals (>= 1.0.0),
     testthat (>= 3.0.0)

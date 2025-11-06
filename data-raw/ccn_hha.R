@@ -1,5 +1,5 @@
 # HOME HEALTH AGENCY ENROLLMENT
-hha = list(enroll = list(
+hha <- list(enroll = list(
   path = fs::path("C:/Users/Andrew/Downloads/HHA_Enrollments_2025.10.01.csv"),
   spec = readr::cols(
     `ENROLLMENT ID`                = readr::col_character(),
@@ -23,22 +23,15 @@ hha = list(enroll = list(
     STATE                          = readr::col_character(),
     `ZIP CODE`                     = readr::col_character(),
     `PRACTICE LOCATION TYPE`       = readr::col_character(),
-    `LOCATION OTHER TYPE TEXT`     = readr::col_logical()
-  )
-))
+    `LOCATION OTHER TYPE TEXT`     = readr::col_logical())))
 
-hha_enroll <- readr::read_csv(
-  file = hha$enroll$path,
-  col_types = hha$enroll$spec,
-  num_threads = 4L
-) |>
+hha_enroll <- readr::read_csv(file = hha$enroll$path, col_types = hha$enroll$spec, num_threads = 4L) |>
   janitor::clean_names() |>
   collapse::mtt(
     inc_date = readr::parse_date(incorporation_date, format = "%m/%d/%Y"),
     inc_state = incorporation_state,
     address = providertwo:::make_address(address_line_1, address_line_2),
-    multi_npi = cheapr::val_match(multiple_npi_flag, "Y" ~ 1L, "N" ~ 0L, .default = NA_integer_)
-  ) |>
+    multi_npi = cheapr::val_match(multiple_npi_flag, "Y" ~ 1L, "N" ~ 0L, .default = NA_integer_)) |>
   collapse::slt(
     npi,
     ccn,
@@ -56,8 +49,7 @@ hha_enroll <- readr::read_csv(
     inc_date,
     enid_state = enrollment_state,
     inc_state,
-    loc_state = state
-  )
+    loc_state = state)
 
 hha_enroll$ccn |>
   collapse::funique() |>
