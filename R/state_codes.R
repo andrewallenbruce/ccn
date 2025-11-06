@@ -66,8 +66,23 @@ STATE_CODES <- list(
 #' Convert state codes to standard state names.
 #' @param x character vector of state codes.
 #' @examples
-#' state_name(c("00", "01", "83", "A0"))
+#' get_state_name(c("00", "01", "83", "A0"))
 #' @returns character vector of state names.
 #' @autoglobal
 #' @export
-state_name <- make_switch(x = STATE_CODES)
+get_state_name <- make_switch(x = STATE_CODES)
+
+#' @autoglobal
+#' @noRd
+get_state_code <- function(x) {
+  get_str_impl(x, c(1L, 2L))
+}
+
+#' @noRd
+#' @autoglobal
+decode_state <- function(x) {
+  fastplyr::list_tidy(
+    code = get_state_code(x),
+    full = get_state_name(code)) |>
+    unlist()
+}

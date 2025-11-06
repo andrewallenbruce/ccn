@@ -13,38 +13,19 @@
 #' @export
 #' @autoglobal
 decode <- function(x, arg = rlang::caller_arg(x), call = rlang::caller_env()) {
-  if (!is.character(x)) {
-    cli::cli_abort(
-      c("Input {.strong {arg}} must be a {.emph character} vector.",
-        "x" = "You supplied a {.emph {typeof(x)}} vector."),
-      arg  = arg,
-      call = call
-    )
-  }
 
-  x     <- if (has_hyphen(x)) remove_hyphen(x) else x
-  chars <- nchars_(x)
+  check_is_character(x, arg = arg, call = call)
 
-  switch(
-    chars,
-    "6" = decode_six(x),
-    # "10" = decode_ten(x),
-    cli::cli_abort(
-      c("Input {.strong {arg}} must be {.emph 6 or 10 characters}.",
-        "x" = "{.var {x}} is {.val {chars}} characters."),
-      arg  = arg,
-      call = call
-    )
-  )
+  x <- if (has_hyphen(x)) remove_hyphen(x) else x
+
+  switch(nchars_(x), `6` = decode_init(x), `10` = decode_init(x),
+    abort_wrong_length(nchars_(x), arg = arg, call = call))
 }
 
 #' @noRd
 #' @autoglobal
-decode_state <- function(x) {
-  fastplyr::list_tidy(
-    code = get_code_state(x),
-    name = state_name(code)) |>
-    unlist()
+decode_init <- function(x) {
+  fastplyr::list_tidy(ccn = x, state = decode_state(ccn))
 }
 
 #' @noRd
@@ -59,8 +40,8 @@ decode_six <- function(x) {
 decode_six_medicare <- function(x) {
   fastplyr::list_tidy(
     ccn = x,
-    SS = decode_state(ccn),
-    Q36 = get_seq_Q36(ccn))
+    state = decode_state(ccn),
+    q36 = sequence_number_q36(ccn))
 }
 
 #' @noRd
@@ -70,7 +51,7 @@ decode_six_medicare_organ <- function(x) {
     ccn = x,
     SS = decode_state(ccn),
     P = get_three(ccn),
-    Q46 = get_seq_Q46(ccn)
+    q46 = sequence_number_q46(ccn)
   )
 }
 
@@ -81,7 +62,7 @@ decode_six_medicaid_only <- function(x) {
     ccn = x,
     SS = decode_state(ccn),
     T = get_three(ccn),
-    Q46 = get_seq_Q46(ccn)
+    q46 = sequence_number_q46(ccn)
   )
 }
 
@@ -93,7 +74,7 @@ decode_six_ipps_excluded <- function(x) {
     SS = decode_state(ccn),
     T = get_three(ccn),
     A = get_four(ccn),
-    Q56 = get_seq_Q56(ccn)
+    q56 = sequence_number_q56(ccn)
   )
 }
 
@@ -103,7 +84,7 @@ decode_six_emergency <- function(x) {
   fastplyr::list_tidy(
     ccn = x,
     SS = decode_state(ccn),
-    Q35 = get_seq_Q35(ccn),
+    q35 = sequence_number_q35(ccn),
     E = get_six(ccn)
   )
 }
@@ -115,6 +96,6 @@ decode_ten_supplier <- function(x) {
     ccn = x,
     SS = decode_state(ccn),
     T = get_three(ccn),
-    Q410 = get_seq_Q410(cnn)
+    q410 = sequence_number_q410(cnn)
   )
 }

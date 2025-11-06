@@ -2,9 +2,9 @@
 
 export(decode)
 export(emergency_code)
+export(get_state_name)
 export(is_ipps_excluded_type)
 export(is_medicaid_facility_type)
-export(state_name)
 export(supplier_code)
 importFrom(collapse,`%!=%`)
 importFrom(collapse,`%!iin%`)
