@@ -134,12 +134,25 @@ pin_update(
   title = "Hospital Enrollments",
   description = "Hospital Enrollments 2025")
 
-# both enid and ccn are unique
-nms <- colnames(hosp$numeric_ccn)
-sub <- nms[stringr::str_starts(nms, "sub")]
 
-hosp$other_ccn <- collapse::rowbind(
-  collapse::slt(hosp$alphanumeric_ccn, c("i", "ccn", sub)) |>
-    collapse::sbt(!is.na(sub_otxt)),
-  collapse::slt(hosp$numeric_ccn, c("i", "ccn", sub)) |>
-    collapse::sbt(!is.na(sub_otxt)))
+#-----Transforming the Subunits-----
+hosp <- get_pin("hospital_enrollment")
+
+# both enid and ccn are unique
+x   <- colnames(hosp$numeric_ccn)
+sub <- x[startsWith(x, "sub")]
+
+sub_numeric <- hosp$numeric_ccn |>
+  collapse::slt(c('i', 'ccn', sub))
+
+sub_numeric |>
+  collapse::slt(-sub_otxt) |>
+  collapse::pivot(ids = c("i", "ccn")) |>
+  collapse::roworder(ccn) |>
+  collapse::sbt(value %==% 1L) |>
+  collapse::mtt(variable = stringr::str_remove(variable, "sub_")) |>
+  collapse::fcount(variable)
+
+hosp$other_ccn |>
+  collapse::sbt(!is.na(sub_otxt)) |>
+  collapse::slt(sub_other, sub_otxt)

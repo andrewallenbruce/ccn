@@ -2,5 +2,7 @@ ccn_parents:
 - ccn_parents/20251105T233252Z-efbc1/
 ccn_subunits:
 - ccn_subunits/20251105T233147Z-80457/
+hha_enrollment:
+- hha_enrollment/20251106T220232Z-63c29/
 hospital_enrollment:
 - hospital_enrollment/20251106T000531Z-b18e0/

@@ -18,14 +18,21 @@ decode <- function(x, arg = rlang::caller_arg(x), call = rlang::caller_env()) {
 
   x <- if (has_hyphen(x)) remove_hyphen(x) else x
 
-  switch(nchars_(x), `6` = decode_init(x), `10` = decode_init(x),
+  switch(
+    nchars_(x),
+    `6` = decode_init(x),
+    `10` = decode_init(x),
     abort_wrong_length(nchars_(x), arg = arg, call = call))
 }
 
 #' @noRd
 #' @autoglobal
 decode_init <- function(x) {
-  fastplyr::list_tidy(ccn = x, state = decode_state(ccn))
+  fastplyr::list_tidy(
+    ccn = x,
+    state = get_str_impl(ccn, c(1L, 2L)),
+    sequence = get_str_impl(ccn, c(1L, length(ccn)))
+  )
 }
 
 #' @noRd

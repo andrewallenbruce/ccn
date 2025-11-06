@@ -14,6 +14,7 @@
 "_PACKAGE"
 
 ## usethis namespace: start
-#' @importFrom collapse `%==%` `%!=%` `%iin%` `%!iin%`
+#' @importFrom collapse `%=%` `%==%` `%!=%` `%!in%` `%iin%` `%!iin%` .c
+#' @importFrom cheapr `%in_%` `%!in_%`
 ## usethis namespace: end
 NULL

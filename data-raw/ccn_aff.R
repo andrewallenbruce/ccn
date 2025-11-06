@@ -1,5 +1,4 @@
 library(collapse)
-library(clitable)
 
 #-----FACILITY AFFILIATIONS-----
 affl <- readr::read_csv(
@@ -60,11 +59,3 @@ pin_update(
 # Dialysis facility                   18242
 # Inpatient rehabilitation facility   11731
 # Long-term care hospital              3762
-
-
-clitable::cli_table(
-  head(affl, 10),
-  header_style = "gray",
-  border_style = "single",
-  NA_style = "red") |>
-  cat(sep = "\n")
