@@ -1,8 +1,31 @@
+library(providertwo)
+library(collapse)
+
+providertwo:::the$clog$prov$current |>
+  collapse::slt(
+    title,
+    group,
+    description,
+    identifier,
+    download,
+    site,
+    dictionary
+  ) |>
+  collapse::sbt(title %in% c(
+    "Hospital General Information"
+    # "Ambulatory Surgical Center Quality Measures - Facility",
+    # "National Downloadable File",
+    # "Dialysis Facility - Listing by Facility"
+  )) |>
+  dplyr::glimpse() |>
+  _$site
+
 ccn_dataset_info <- providertwo:::field_table()
 
 ccn_dataset_info |>
-  collapse::sbt(catalog == "care" & point == "temporal") |>
-  # collapse::fcount(alias) |>
+  collapse::sbt(catalog == "prov") |>
+  collapse::fcount(alias) |>
+  print(n = Inf)
   # collapse::roworder(alias) |>
   collapse::sbt(title == "Medicare Durable Medical Equipment, Devices & Supplies - by Supplier") |>
   collapse::fcount(alias, field) |>
@@ -40,8 +63,9 @@ c("fqhc_enroll",
 "out_serv"
 # "snf_cost"
 
-
-sources <- providertwo::endpoint("dme_supp") |>
-  providertwo::list_resources()
+"pdc_utilization"
+"pdc_clinician"
+"ltch_provider"
+providertwo::endpoint("pdc_clinician")@access@fields
 
 sources$download[2]

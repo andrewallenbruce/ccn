@@ -1,5 +1,4 @@
 library(collapse)
-library(clitable)
 
 #-----HOSPITAL ENROLLMENT-----
 hosp    <- readr::read_csv(

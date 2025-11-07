@@ -1,0 +1,73 @@
+library(collapse)
+
+#-----Ambulatory Surgical Center Quality Measures - Facility-----
+affl <- readr::read_csv(
+  file      = fs::path("C:/Users/Andrew/Downloads/ASC_Facility.csv"),
+  col_types = readr::cols(
+    `Facility Name`               = readr::col_character(),
+    `Facility ID`                 = readr::col_character(),
+    NPI                           = readr::col_integer(),
+    `City/Town`                   = readr::col_character(),
+    State                         = readr::col_character(),
+    `ZIP Code`                    = readr::col_character(),
+    Year                          = readr::col_character(),
+    `ASC-1 Rate*`                 = readr::col_character(),
+    `ASC-1 Footnote`              = readr::col_double(),
+    `ASC-2 Rate*`                 = readr::col_character(),
+    `ASC-2 Footnote`              = readr::col_double(),
+    `ASC-3 Rate*`                 = readr::col_character(),
+    `ASC-3 Footnote`              = readr::col_double(),
+    `ASC-4 Rate*`                 = readr::col_character(),
+    `ASC-4 Footnote`              = readr::col_double(),
+    `ASC-9 Rate*`                 = readr::col_character(),
+    `ASC-9 Footnote`              = readr::col_double(),
+    `ASC-11 Rate*`                = readr::col_character(),
+    `ASC-11 Footnote`             = readr::col_double(),
+    `ASC-12 Total Cases`          = readr::col_character(),
+    `ASC-12 Performance Category` = readr::col_character(),
+    `ASC-12 RSHV Rate`            = readr::col_character(),
+    `ASC-12 Interval Lower Limit` = readr::col_character(),
+    `ASC-12 Interval Upper Limit` = readr::col_character(),
+    `ASC-12 Footnote`             = readr::col_double(),
+    `ASC-13 Rate*`                = readr::col_character(),
+    `ASC-13 Footnote`             = readr::col_double(),
+    `ASC-14 Rate*`                = readr::col_character(),
+    `ASC-14 Footnote`             = readr::col_double(),
+    `ASC-17 Total Cases`          = readr::col_character(),
+    `ASC-17 Performance Category` = readr::col_character(),
+    `ASC-17 RSHV Rate`            = readr::col_character(),
+    `ASC-17 Interval Lower Limit` = readr::col_character(),
+    `ASC-17 Interval Upper Limit` = readr::col_character(),
+    `ASC-17 Footnote`             = readr::col_double(),
+    `ASC-18 Total Cases`          = readr::col_character(),
+    `ASC-18 Performance Category` = readr::col_character(),
+    `ASC-18 RSHV Rate`            = readr::col_character(),
+    `ASC-18 Interval Lower Limit` = readr::col_character(),
+    `ASC-18 Interval Upper Limit` = readr::col_character(),
+    `ASC-18 Footnote`             = readr::col_double(),
+    `ASC-19 Total Cases`          = readr::col_character(),
+    `ASC-19 Performance Category` = readr::col_character(),
+    `ASC-19 RSHV Rate`            = readr::col_character(),
+    `ASC-19 Interval Lower Limit` = readr::col_character(),
+    `ASC-19 Interval Upper Limit` = readr::col_character(),
+    `ASC-19 Footnote`             = readr::col_double(),
+    `ASC-20 Sample`               = readr::col_double(),
+    `ASC-20 Rate*`                = readr::col_character(),
+    `ASC-20 Footnote`             = readr::col_double()
+  ),
+  num_threads = 4L) |>
+  janitor::clean_names() |>
+  collapse::frename(
+    ind_pac_id = "pac",
+    provider_last_name = "last",
+    provider_first_name = "first",
+    provider_middle_name = "middle",
+    suff = "suffix",
+    facility_affiliations_certification_number = "ccn_facility",
+    facility_type_certification_number = "ccn_facility_type")
+
+# pin_update(
+#   hosp,
+#   name = "hospital_enrollment",
+#   title = "Hospital Enrollments",
+#   description = "Hospital Enrollments 2025")
