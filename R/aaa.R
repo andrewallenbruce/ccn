@@ -1,31 +1,5 @@
 #' @autoglobal
 #' @noRd
-abort_wrong_length <- function(x, arg = rlang::caller_arg(x), call = rlang::caller_env()) {
-  cli::cli_abort(
-    c("Input {.strong {arg}} must be {.emph 6 or 10 characters}.",
-      "x" = "{.var {x}} is {.val {chars}} characters."),
-    arg  = arg,
-    call = call
-  )
-}
-
-#' @autoglobal
-#' @noRd
-check_is_character <- function(x, arg = rlang::caller_arg(x), call = rlang::caller_env()) {
-  if (!is.character(x)) {
-    cli::cli_abort(
-      c(
-        "Input {.strong {arg}} must be a {.emph character} vector.",
-        "x" = "You supplied a {.emph {typeof(x)}} vector."
-      ),
-      arg  = arg,
-      call = call
-    )
-  }
-}
-
-#' @autoglobal
-#' @noRd
 nchars_ <- function(x) {
   stringfish::sf_nchar(x, nthreads = 4L) |> as.character()
   # collapse::vlengths(c("adsfd", "sdgfahrf"), use.names = FALSE)
@@ -39,7 +13,7 @@ unlist_ <- function(x, ...) {
 
 #' @autoglobal
 #' @noRd
-get_str_impl <- function(x, s) {
+get_str <- function(x, s) {
   stringfish::sf_substr(
     x        = x,
     start    = s[1],
@@ -65,5 +39,27 @@ make_switch <- function(x) {
       nThread = 4L
       # checkEnc = FALSE
     )
+  }
+}
+
+#' @autoglobal
+#' @noRd
+is_letter <- function(x) {
+  stringfish::sf_grepl(x, "[A-Z]", nthreads = 4L)
+}
+
+#' @autoglobal
+#' @noRd
+has_hyphen <- function(x) {
+  stringfish::sf_grepl(x, "-", fixed = TRUE, nthreads = 4L)
+}
+
+#' @autoglobal
+#' @noRd
+remove_hyphen <- function(x) {
+  if (has_hyphen(x)) {
+    stringfish::sf_gsub(x, "-", "", fixed = TRUE, nthreads = 4L)
+  } else {
+    x
   }
 }

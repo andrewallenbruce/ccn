@@ -136,7 +136,25 @@ pin_update(
 
 
 #-----Transforming the Subunits-----
-hosp <- get_pin("hospital_enrollment")
+hosp_ccn <- get_pin("hospital_enrollment")$alphanumeric_ccn$ccn
+
+fastplyr::new_tbl(
+  ccn = hosp_ccn,
+  chr = nchar(ccn),
+  # valid = (nchar(ccn) %in% c(6L, 10L)) |> as.integer(),
+  # ten = (nchar(ccn) == 10L) |> as.integer(),
+  state = get_state_code(ccn),
+  state_nm = get_state_name(state),
+  three = get_three(ccn),
+  four  = get_four(ccn),
+  six = get_six(ccn),
+  alpha3 = is_letter(three) |> as.integer(),
+  alpha4 = is_letter(four) |> as.integer(),
+  alpha6 = is_letter(six) |> as.integer()
+) |>
+  # collapse::fcount(chr) |>
+  collapse::sbt(chr > 6L) |>
+  print(n = Inf)
 
 # both enid and ccn are unique
 x   <- colnames(hosp$numeric_ccn)

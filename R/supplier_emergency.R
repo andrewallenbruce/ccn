@@ -1,6 +1,6 @@
 #' @autoglobal
 #' @noRd
-EMERGENCY_CODES <- list(
+EMERGENCY_HOSPITAL_CODES <- list(
   "Non-Federal Emergency Hospital" = "E",
   "Federal Emergency Hospital" = "F"
 )
@@ -23,12 +23,12 @@ SUPPLIER_CODES <- list(
 #' @export
 supplier_code <- make_switch(x = SUPPLIER_CODES)
 
-#' Emergency Code Lookup
+#' Emergency Hospital Code Lookup
 #' Convert emergency codes to standard emergency names.
 #' @param x character vector of emergency codes.
 #' @examples
-#' emergency_code(c("E", "F"))
+#' emergency_hospital_code(c("E", "F"))
 #' @returns character vector of emergency names.
 #' @autoglobal
 #' @export
-emergency_code <- make_switch(x = EMERGENCY_CODES)
+emergency_hospital_code <- make_switch(x = EMERGENCY_HOSPITAL_CODES)

@@ -13,27 +13,36 @@
 #' @export
 #' @autoglobal
 decode <- function(x, arg = rlang::caller_arg(x), call = rlang::caller_env()) {
-
-  check_is_character(x, arg = arg, call = call)
-
-  x <- if (has_hyphen(x)) remove_hyphen(x) else x
-
-  switch(
-    nchars_(x),
-    `6` = decode_init(x),
-    `10` = decode_init(x),
-    abort_wrong_length(nchars_(x), arg = arg, call = call))
+  check_character(x, arg = arg, call = call)
+  check_length(remove_hyphen(x), arg = arg, call = call)
+  decode_init(x)
 }
 
 #' @noRd
 #' @autoglobal
 decode_init <- function(x) {
   fastplyr::list_tidy(
-    ccn = x,
-    state = get_str_impl(ccn, c(1L, 2L)),
-    sequence = get_str_impl(ccn, c(1L, length(ccn)))
+    raw = x,
+    std = remove_hyphen(raw),
+    chr = nchar(std),
+    vec = stringfish::sf_split(std, "", fixed = TRUE, nthreads = 4L)[[1]]
   )
 }
+
+# decode_init <- function(x) {
+#   list(
+#     input = x,
+#     length = nchar(x),
+#     split = stringfish::sf_split(x, "", fixed = TRUE, nthreads = 4L)[[1]],
+#     state = get_str(x, c(1L, 2L)),
+#     check = c(
+#       "3" = get_str(x, c(3L, 3L)),
+#       "4" = get_str(x, c(4L, 4L)),
+#       "6" = get_str(x, c(6L, 6L))
+#     ),
+#     sequence = get_str(x, c(3L, nchar(x)))
+#   )
+# }
 
 #' @noRd
 #' @autoglobal

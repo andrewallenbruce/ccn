@@ -75,7 +75,7 @@ get_state_name <- make_switch(x = STATE_CODES)
 #' @autoglobal
 #' @noRd
 get_state_code <- function(x) {
-  get_str_impl(x, c(1L, 2L))
+  get_str(x, c(1L, 2L))
 }
 
 #' @noRd
