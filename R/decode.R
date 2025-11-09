@@ -25,7 +25,7 @@ decode_init <- function(x) {
     raw = x,
     std = remove_hyphen(raw),
     chr = nchar(std),
-    vec = stringfish::sf_split(std, "", fixed = TRUE, nthreads = 4L)[[1]]
+    vec = split_(std)
   )
 }
 

@@ -1,6 +1,48 @@
-#' @autoglobal
-#' @noRd
-STATE_CODES <- list(
+EMERGENCY_HOSPITAL_CODE_LIST <- list(
+  "Non-Federal Emergency Hospital" = "E",
+  "Federal Emergency Hospital"     = "F"
+)
+
+SUPPLIER_CODE_LIST <- list(
+  "Ambulatory Surgical Center"                                           = "C",
+  "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory" = "D",
+  "Portable X-Ray Facility"                                              = "X"
+)
+
+MEDICAID_FACILITY_CODE_LIST_ALL <- list(
+  "NF (Formerly assigned to Medicaid SNF)"            = c("A", "B"),
+  "NF (Formerly assigned to ICF)"                     = c("E", "F"),
+  "ICF/IID"                                           = c("G", "H"),
+  "Medicaid-Only Hospital"                            = "J",
+  "Medicaid HHA"                                      = "K",
+  "Psychiatric Residential Treatment Facility (PRTF)" = "L",
+  "Psychiatric Unit of a CAH"                         = "M",
+  "Rehabilitation Unit of a CAH"                      = "R",
+  "Psychiatric Unit"                                  = "S",
+  "Rehabilitation Unit"                               = "T",
+  "Swing-Bed Approval for Short-Term Hospital"        = "U",
+  "Swing-Bed Approval for Long-Term Care Hospital"    = "W",
+  "Swing-Bed Approval for Rehabilitation Hospital"    = "Y",
+  "Swing-Bed Approval for CAH"                        = "Z"
+)
+
+MEDICAID_FACILITY_CODE_LIST  <- MEDICAID_FACILITY_CODE_LIST_ALL[1:6]
+IPPS_EXCLUDED_TYPE_CODE_LIST <- MEDICAID_FACILITY_CODE_LIST_ALL[c(7, 9:12, 14)]
+
+IPPS_PARENT_HOSPITAL_TYPES <- list(
+  "A" = c("LTCH", "20"),
+  "B" = c("LTCH", "21"),
+  "C" = c("LTCH", "22"),
+  "D" = c("Rehabilitation Hospital", "30"),
+  "E" = c("Children's Hospital", "33"),
+  "F" = c("Psychiatric Hospital", "40"),
+  "G" = c("Psychiatric Hospital", "41"),
+  "H" = c("Psychiatric Hospital", "42"),
+  "J" = c("Psychiatric Hospital", "43"),
+  "K" = c("Psychiatric Hospital", "44")
+)
+
+STATE_CODE_LIST <- list(
   "Arizona"                                           = c("00", "03"),
   "Alabama"                                           = c("01"),
   "Alaska"                                            = c("02"),
@@ -61,28 +103,3 @@ STATE_CODES <- list(
   "Commonwealth of the Northern Marianas Islands"     = c("66"),
   "Foreign Countries (exceptions: Canada and Mexico)" = c("99")
 )
-
-#' State Code Lookup
-#' Convert state codes to standard state names.
-#' @param x character vector of state codes.
-#' @examples
-#' get_state_name(c("00", "01", "83", "A0"))
-#' @returns character vector of state names.
-#' @autoglobal
-#' @export
-get_state_name <- make_switch(STATE_CODES)
-
-#' @autoglobal
-#' @noRd
-get_state_code <- function(x) {
-  get_str(x, c(1L, 2L))
-}
-
-#' @noRd
-#' @autoglobal
-decode_state <- function(x) {
-  fastplyr::list_tidy(
-    code = get_state_code(x),
-    full = get_state_name(code)) |>
-    unlist()
-}
