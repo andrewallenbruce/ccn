@@ -5,7 +5,5 @@ utils::globalVariables(c(
   "constant",
   # <make_switch>
   "field",
-  # <decode_init>
-  "std",
   NULL
 ))

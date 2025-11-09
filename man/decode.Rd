@@ -4,14 +4,10 @@
 \alias{decode}
 \title{Decode a CCN}
 \usage{
-decode(x, arg = rlang::caller_arg(x), call = rlang::caller_env())
+decode(x)
 }
 \arguments{
 \item{x}{character vector of CCNs.}
-
-\item{arg}{argument used for error messaging.}
-
-\item{call}{environment used for error messaging.}
 }
 \value{
 list of CCN components.
@@ -20,7 +16,11 @@ list of CCN components.
 Decode a CCN into its component parts.
 }
 \examples{
+decode("67P055")
 decode("670055")
 decode("21-0101")
 decode("21-T101")
+decode("12345E")
+decode("12C4567890")
+decode("0-12C4567890")
 }

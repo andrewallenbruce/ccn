@@ -3,30 +3,77 @@
 #' Decode a CCN into its component parts.
 #'
 #' @param x character vector of CCNs.
-#' @param arg argument used for error messaging.
-#' @param call environment used for error messaging.
 #' @return list of CCN components.
 #' @examples
+#' decode("67P055")
 #' decode("670055")
 #' decode("21-0101")
 #' decode("21-T101")
+#' decode("12345E")
+#' decode("12C4567890")
+#' decode("0-12C4567890")
 #' @export
 #' @autoglobal
-decode <- function(x, arg = rlang::caller_arg(x), call = rlang::caller_env()) {
-  check_character(x, arg = arg, call = call)
-  # check_length(remove_hyphen(x), arg = arg, call = call)
-  decode_init(x)
-}
+decode <- S7::new_generic("decode", "x", function(x) {
+  S7::S7_dispatch()
+})
 
-#' @noRd
 #' @autoglobal
-decode_init <- function(x) {
-  fastplyr::list_tidy(
-    raw = x,
-    std = remove_hyphen(raw),
-    chr = nchar(std),
-    vec = split_(std)
+S7::method(convert, list(RawCCN, ProviderCCN)) <- function(from, to) {
+  ProviderCCN(
+    ccn = from@std,
+    state_code = string(from@vec[1:2]),
+    sequence_number = string(from@vec[3:6])
   )
 }
 
+#' @autoglobal
+S7::method(convert, list(RawCCN, SupplierCCN)) <- function(from, to) {
+  SupplierCCN(
+    ccn = from@std,
+    state_code = string(from@vec[1:2]),
+    sequence_number = string(from@vec[3:10])
+  )
+}
 
+#' @autoglobal
+S7::method(convert, list(RawCCN, MedicareProviderCCN)) <- function(from, to) {
+  MedicareProviderCCN(
+    ccn = from@std,
+    state_code = string(from@vec[1:2]),
+    sequence_number = string(if (from@vec[3] == "P") {
+      from@vec[4:6]
+    } else {
+      from@vec[3:6]
+    })
+  )
+}
+
+#' @autoglobal
+S7::method(convert, list(RawCCN, EmergencyHospitalCCN)) <- function(from, to) {
+  EmergencyHospitalCCN(
+    ccn = from@std,
+    state_code = string(from@vec[1:2]),
+    sequence_number = string(from@vec[3:5])
+  )
+}
+
+#' @autoglobal
+S7::method(decode, S7::class_character) <- function(x) {
+  x <- RawCCN(raw = x)
+
+  if (x@chr == 6L) {
+    if (all_numeric(x@std) || x@vec[3] == "P") {
+      return(S7::convert(x, MedicareProviderCCN))
+    }
+    if (is_emergency_hospital_code(x@vec[6])) {
+      return(S7::convert(x, EmergencyHospitalCCN))
+    }
+    return(S7::convert(x, ProviderCCN))
+  }
+
+  if (x@chr == 10L) {
+    return(S7::convert(x, SupplierCCN))
+  }
+  x
+}

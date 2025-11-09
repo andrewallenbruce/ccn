@@ -1,5 +1,29 @@
 #' @noRd
 #' @autoglobal
+RawCCN <- S7::new_class(
+  name = "RawCCN",
+  properties = list(
+    raw = S7::class_character,
+    std = S7::new_property(
+      S7::class_character,
+      getter = function(self)
+        remove_hyphen(self@raw)
+    ),
+    chr = S7::new_property(
+      S7::class_character,
+      getter = function(self)
+        nchar(self@std)
+    ),
+    vec = S7::new_property(
+      S7::class_character,
+      getter = function(self)
+        split_(self@std)
+    )
+  )
+)
+
+#' @noRd
+#' @autoglobal
 CCN <- S7::new_class(
   name              = "CCN",
   abstract          = TRUE,

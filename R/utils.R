@@ -7,7 +7,7 @@ nchars_ <- function(x) {
 
 #' @autoglobal
 #' @noRd
-collapse0 <- function(x) {
+string <- function(x) {
   paste0(x, collapse = "")
 }
 
