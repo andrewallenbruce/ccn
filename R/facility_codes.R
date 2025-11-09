@@ -25,7 +25,6 @@ MEDICAID_FACILITY_CODES <- list(
   "Medicaid HHA"                                      = "K",
   "Psychiatric Residential Treatment Facility (PRTF)" = "L",
   "Psychiatric Unit of a CAH"                         = "M",
-  "Organ Procurement Organization (OPO)"              = "O",
   "Rehabilitation Unit of a CAH"                      = "R",
   "Psychiatric Unit"                                  = "S",
   "Rehabilitation Unit"                               = "T",

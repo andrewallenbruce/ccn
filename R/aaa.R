@@ -7,6 +7,12 @@ nchars_ <- function(x) {
 
 #' @autoglobal
 #' @noRd
+collapse0 <- function(x) {
+  paste0(x, collapse = "")
+}
+
+#' @autoglobal
+#' @noRd
 unlist_ <- function(x, ...) {
   unlist(x, use.names = FALSE, ...)
 }
@@ -40,6 +46,13 @@ make_switch <- function(x) {
       # checkEnc = FALSE
     )
   }
+}
+
+#' @autoglobal
+#' @noRd
+all_numeric <- function(x) {
+  # stringr::str_detect(x, "[A-Z]", negate = TRUE)
+  stringfish::sf_grepl(x$std, "[^A-Z]", nthreads = 4L)
 }
 
 #' @autoglobal
