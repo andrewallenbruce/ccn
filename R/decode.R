@@ -14,7 +14,7 @@
 #' @autoglobal
 decode <- function(x, arg = rlang::caller_arg(x), call = rlang::caller_env()) {
   check_character(x, arg = arg, call = call)
-  check_length(remove_hyphen(x), arg = arg, call = call)
+  # check_length(remove_hyphen(x), arg = arg, call = call)
   decode_init(x)
 }
 

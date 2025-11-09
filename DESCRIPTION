@@ -37,6 +37,7 @@ Roxygen: list(markdown = TRUE, roclets = c("collate", "namespace", "rd",
 RoxygenNote: 7.3.3
 Collate: 
     '00-CONSTANTS.R'
+    '01-RANGES.R'
     'ccn-package.R'
     'checks.R'
     'classes.R'
@@ -46,5 +47,4 @@ Collate:
     'lookups.R'
     'pins.R'
     'predicates.R'
-    'ranges.R'
     'zzz.R'

@@ -65,12 +65,12 @@ make_switch <- function(x) {
 #' @autoglobal
 #' @noRd
 all_numeric <- function(x) {
-  stringfish::sf_grepl(x$std, "[^A-Z]", nthreads = 4L)
+  stringfish::sf_grepl(x, "[^A-Z]", nthreads = 4L)
 }
 
 #' @autoglobal
 #' @noRd
-is_letter <- function(x) {
+has_letter <- function(x) {
   stringfish::sf_grepl(x, "[A-Z]", nthreads = 4L)
 }
 

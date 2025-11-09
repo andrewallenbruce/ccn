@@ -1,27 +1,49 @@
-#' @noRd
-#' @autoglobal
+as_sf <- function(x) {
+  stringfish::sf_convert(as.character(x))
+}
+
+pad_three <- function(x) {
+  x         <- as.character(x)
+  n         <- nchar(x)
+
+  x[n == 1] <- paste0("00", x[n == 1])
+  x[n == 2] <- paste0("0",  x[n == 2])
+
+  stringfish::sf_convert(x)
+}
+
+pad_four <- function(x) {
+  x         <- as.character(x)
+  n         <- nchar(x)
+
+  x[n == 1] <- paste0("000", x[n == 1])
+  x[n == 2] <- paste0("00",  x[n == 2])
+  x[n == 3] <- paste0("0",   x[n == 3])
+
+  stringfish::sf_convert(x)
+}
+
 MEDICAID_HOSPITAL_RANGES = list(
-  # pad to THREE digits before use (001-099)
-  "Short-term Acute Care Hospital"  = c(1L, 99L),
-  "Children's Hospital"             = c(100L, 199L),
-  "Children's Psychiatric Hospital" = c(200L, 299L),
-  "Psychiatric Hospital"            = c(300L, 399L),
-  "Rehabilitation Hospital"         = c(400L, 499L),
-  "Long-term Hospital"              = c(500L, 599L)
+  "Short-term Acute Care Hospital"  = pad_three(1:99),
+  "Children's Hospital"             = as_sf(100:199),
+  "Children's Psychiatric Hospital" = as_sf(200:299),
+  "Psychiatric Hospital"            = as_sf(300:399),
+  "Rehabilitation Hospital"         = as_sf(400:499),
+  "Long-term Hospital"              = as_sf(500:599)
 )
 
-#' @noRd
-#' @autoglobal
 FACILITY_RANGES = list(
-  # pad to FOUR digits before use (0001-0879) / (0880-0899)
-  "Short-term (General and Specialty) Hospital"                                                            = c(1L, 879L),
-  "Hospital participating in ORD demonstration project"                                                    = c(880L, 899L),
-  "Multiple Hospital Component in a Medical Complex (Number Retired)"                                      = c(900L, 999L),
-  "Federally Qualified Health Center"                                                                      = list(c(1000L, 1199L), c(1800L, 1989L)),
-  "Alcohol/Drug Hospital (Number Retired)"                                                                 = c(1200L, 1224L),
-  "Medical Assistance Facility"                                                                            = c(1225L, 1299L),
-  "Critical Access Hospital"                                                                               = c(1300L, 1399L),
-  "Community Mental Health Center"                                                                         = list(c(1400L, 1499L), c(4600L, 4799L), c(4900L, 4999L)),
+  "Short-term (General and Specialty) Hospital"                                                            = pad_four(1:879),
+  "Hospital participating in ORD demonstration project"                                                    = pad_four(880:899),
+  "Multiple Hospital Component in a Medical Complex (Number Retired)"                                      = pad_four(900:999),
+  "Federally Qualified Health Center"                                                                      = as_sf(1000:1199),
+  "Federally Qualified Health Center"                                                                      = as_sf(1800:1989),
+  "Alcohol/Drug Hospital (Number Retired)"                                                                 = as_sf(1200:1224),
+  "Medical Assistance Facility"                                                                            = as_sf(1225:1299),
+  "Critical Access Hospital"                                                                               = as_sf(1300:1399),
+  "Community Mental Health Center"                                                                         = as_sf(1400:1499),
+  "Community Mental Health Center"                                                                         = as_sf(4600:4799),
+  "Community Mental Health Center"                                                                         = as_sf(4900:4999),
   "Hospice"                                                                                                = c(1500L, 1799L),
   "Religious Non-medical Health Care Institution (formerly Christian Science Sanatoria Hospital Services)" = c(1990L, 1999L),
   "Long-Term Care Hospital"                                                                                = c(2000L, 2299L),
