@@ -70,7 +70,7 @@ STATE_CODES <- list(
 #' @returns character vector of state names.
 #' @autoglobal
 #' @export
-get_state_name <- make_switch(x = STATE_CODES)
+get_state_name <- make_switch(STATE_CODES)
 
 #' @autoglobal
 #' @noRd

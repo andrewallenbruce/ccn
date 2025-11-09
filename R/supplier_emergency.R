@@ -2,8 +2,36 @@
 #' @noRd
 EMERGENCY_HOSPITAL_CODES <- list(
   "Non-Federal Emergency Hospital" = "E",
-  "Federal Emergency Hospital" = "F"
+  "Federal Emergency Hospital"     = "F"
 )
+
+#' Supplier Types
+#'
+#' Identify a Medicaid supplier type
+#'
+#' @param x A character vector, length 1
+#' @return A logical vector
+#' @examples
+#' is_emergency_hospital_code(LETTERS)
+#' @export
+#' @autoglobal
+is_emergency_hospital_code <- function(x) {
+  !cheapr::is_na(collapse::fmatch(x, unlist_(EMERGENCY_HOSPITAL_CODES)))
+}
+
+#' Emergency Hospital Codes
+#'
+#' Convert emergency codes to standard emergency names.
+#'
+#' @param x character vector of emergency codes.
+#'
+#' @examples
+#' emergency_hospital_name(c("E", "F"))
+#'
+#' @returns character vector of emergency code names.
+#' @autoglobal
+#' @export
+emergency_hospital_name <- make_switch(EMERGENCY_HOSPITAL_CODES)
 
 #' @autoglobal
 #' @noRd
@@ -13,22 +41,26 @@ SUPPLIER_CODES <- list(
   "Portable X-Ray Facility"                                              = "X"
 )
 
+#' Supplier Types
+#'
+#' Identify a Medicaid supplier type
+#'
+#' @param x A character vector, length 1
+#' @return A logical vector
+#' @examples
+#' is_supplier_code(LETTERS)
+#' @export
+#' @autoglobal
+is_supplier_code <- function(x) {
+  !cheapr::is_na(collapse::fmatch(x, unlist_(SUPPLIER_CODES)))
+}
+
 #' Supplier Code Lookup
 #' Convert supplier codes to standard supplier names.
 #' @param x character vector of supplier codes.
 #' @examples
-#' supplier_code(c("C", "D", "X"))
+#' supplier_name(c("C", "D", "X"))
 #' @returns character vector of supplier names.
 #' @autoglobal
 #' @export
-supplier_code <- make_switch(x = SUPPLIER_CODES)
-
-#' Emergency Hospital Code Lookup
-#' Convert emergency codes to standard emergency names.
-#' @param x character vector of emergency codes.
-#' @examples
-#' emergency_hospital_code(c("E", "F"))
-#' @returns character vector of emergency names.
-#' @autoglobal
-#' @export
-emergency_hospital_code <- make_switch(x = EMERGENCY_HOSPITAL_CODES)
+supplier_name <- make_switch(SUPPLIER_CODES)
