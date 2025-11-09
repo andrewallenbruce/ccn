@@ -5,7 +5,7 @@ Decode a CCN into its component parts.
 ## Usage
 
 ``` r
-decode(x, arg = rlang::caller_arg(x), call = rlang::caller_env())
+decode(x)
 ```
 
 ## Arguments
@@ -14,14 +14,6 @@ decode(x, arg = rlang::caller_arg(x), call = rlang::caller_env())
 
   character vector of CCNs.
 
-- arg:
-
-  argument used for error messaging.
-
-- call:
-
-  environment used for error messaging.
-
 ## Value
 
 list of CCN components.
@@ -29,43 +21,40 @@ list of CCN components.
 ## Examples
 
 ``` r
+decode("67P055")
+#> <ccn::MedicareProviderCCN>
+#>  @ ccn            : chr "67P055"
+#>  @ state_code     : chr "67"
+#>  @ sequence_number: chr "055"
 decode("670055")
-#> $raw
-#> [1] "670055"
-#> 
-#> $std
-#> [1] "670055"
-#> 
-#> $chr
-#> [1] 6
-#> 
-#> $vec
-#> [1] "6" "7" "0" "0" "5" "5"
-#> 
+#> <ccn::MedicareProviderCCN>
+#>  @ ccn            : chr "670055"
+#>  @ state_code     : chr "67"
+#>  @ sequence_number: chr "0055"
 decode("21-0101")
-#> $raw
-#> [1] "21-0101"
-#> 
-#> $std
-#> [1] "210101"
-#> 
-#> $chr
-#> [1] 6
-#> 
-#> $vec
-#> [1] "2" "1" "0" "1" "0" "1"
-#> 
+#> <ccn::MedicareProviderCCN>
+#>  @ ccn            : chr "210101"
+#>  @ state_code     : chr "21"
+#>  @ sequence_number: chr "0101"
 decode("21-T101")
-#> $raw
-#> [1] "21-T101"
-#> 
-#> $std
-#> [1] "21T101"
-#> 
-#> $chr
-#> [1] 6
-#> 
-#> $vec
-#> [1] "2" "1" "T" "1" "0" "1"
-#> 
+#> <ccn::MedicareProviderCCN>
+#>  @ ccn            : chr "21T101"
+#>  @ state_code     : chr "21"
+#>  @ sequence_number: chr "T101"
+decode("12345E")
+#> <ccn::MedicareProviderCCN>
+#>  @ ccn            : chr "12345E"
+#>  @ state_code     : chr "12"
+#>  @ sequence_number: chr "345E"
+decode("12C4567890")
+#> <ccn::SupplierCCN>
+#>  @ ccn            : chr "12C4567890"
+#>  @ state_code     : chr "12"
+#>  @ sequence_number: chr "C4567890"
+decode("0-12C4567890")
+#> <ccn::RawCCN>
+#>  @ raw: chr "0-12C4567890"
+#>  @ std: chr "012C4567890"
+#>  @ chr: int 11
+#>  @ vec: chr [1:11] "0" "1" "2" "C" "4" "5" "6" "7" "8" "9" "0"
 ```
