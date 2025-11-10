@@ -49,9 +49,9 @@
 <span></span>
 <span><span class="fu">is_ipps_excluded_type</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">is_emergency_hospital_code</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span><span class="fu">is_emergency_hospital_type</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">is_supplier_code</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">is_supplier_type</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -69,22 +69,14 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">is_medicaid_facility_type</span><span class="op">(</span><span class="va">LETTERS</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1]  TRUE  TRUE FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [25] FALSE FALSE</span>
-<span class="r-in"><span><span class="fu">is_ipps_excluded_type</span><span class="op">(</span><span class="va">LETTERS</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13]  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE FALSE  TRUE FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [25] FALSE  TRUE</span>
-<span class="r-in"><span><span class="fu">is_emergency_hospital_code</span><span class="op">(</span><span class="va">LETTERS</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [25] FALSE FALSE</span>
-<span class="r-in"><span><span class="fu">is_supplier_code</span><span class="op">(</span><span class="va">LETTERS</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [25] FALSE FALSE</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">LETTERS</span><span class="op">[</span><span class="fu">is_medicaid_facility_type</span><span class="op">(</span><span class="va">LETTERS</span><span class="op">)</span><span class="op">]</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "A" "B" "E" "F" "G" "H" "J" "K" "L"</span>
+<span class="r-in"><span><span class="va">LETTERS</span><span class="op">[</span><span class="fu">is_ipps_excluded_type</span><span class="op">(</span><span class="va">LETTERS</span><span class="op">)</span><span class="op">]</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "M" "S" "T" "U" "W" "Z"</span>
+<span class="r-in"><span><span class="va">LETTERS</span><span class="op">[</span><span class="fu">is_emergency_hospital_type</span><span class="op">(</span><span class="va">LETTERS</span><span class="op">)</span><span class="op">]</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "E" "F"</span>
+<span class="r-in"><span><span class="va">LETTERS</span><span class="op">[</span><span class="fu">is_supplier_type</span><span class="op">(</span><span class="va">LETTERS</span><span class="op">)</span><span class="op">]</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "C" "D" "X"</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
