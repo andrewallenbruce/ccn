@@ -45,13 +45,13 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">emergency_hospital_name</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_emergency_hospital_name</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">supplier_name</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span><span class="fu">get_supplier_name</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">state_abbr</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span><span class="fu">get_state_abbr</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">state_name</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">get_state_name</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -69,16 +69,11 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">emergency_hospital_name</span><span class="op">(</span><span class="va">LETTERS</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] NA        NA        NA        NA        "ER (NF)" "ER (F)"  NA       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [8] NA        NA        NA        NA        NA        NA        NA       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [15] NA        NA        NA        NA        NA        NA        NA       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [22] NA        NA        NA        NA        NA       </span>
-<span class="r-in"><span><span class="fu">supplier_name</span><span class="op">(</span><span class="va">LETTERS</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] NA     NA     "ASC"  "CLIA" NA     NA     NA     NA     NA     NA    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [11] NA     NA     NA     NA     NA     NA     NA     NA     NA     NA    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [21] NA     NA     NA     "XRAY" NA     NA    </span>
-<span class="r-in"><span><span class="fu">state_abbr</span><span class="op">(</span><span class="fu">ccn</span><span class="fu">:::</span><span class="va">state_ccn_codes</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">get_emergency_hospital_name</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"E"</span>, <span class="st">"F"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "ER (NF)" "ER (F)" </span>
+<span class="r-in"><span><span class="fu">get_supplier_name</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="st">"D"</span>, <span class="st">"X"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "ASC"  "CLIA" "XRAY"</span>
+<span class="r-in"><span><span class="fu">get_state_abbr</span><span class="op">(</span><span class="fu">ccn</span><span class="fu">:::</span><span class="va">state_ccn_codes</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "AZ"   "AL"   "AK"   "AZ"   "AR"   "CA"   "CO"   "CT"   "DE"   "DC"  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [11] "FL"   "GA"   "HI"   "ID"   "IL"   "IN"   "IA"   "KS"   "KY"   "LA"  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [21] "ME"   "MD"   "MA"   "MI"   "MN"   "MS"   "MO"   "MT"   "NE"   "NV"  </span>
@@ -90,15 +85,66 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [81] "PR"   "GA"   "NC"   "SC"   "TN"   "AR"   "OK"   "CO"   "CA"   "OR"  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [91] "WA"   "LA"   "NM"   "TX"   "FC"   "CA"   "CA"   "FL"   "LA"   "MI"  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [101] "MS"   "OH"   "PA"   "TN"   "TX"   "KY"   "WV"   "CA"  </span>
-<span class="r-in"><span><span class="fu">state_name</span><span class="op">(</span><span class="fu">ccn</span><span class="fu">:::</span><span class="va">state_abbreviations</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA </span>
+<span class="r-in"><span><span class="fu">get_state_name</span><span class="op">(</span><span class="fu">ccn</span><span class="fu">:::</span><span class="va">state_abbreviations</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "Alaska"                                           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [2] "Alabama"                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3] "Arkansas"                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "American Samoa"                                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "Arizona"                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] "California"                                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "Canada"                                           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [8] "Commonwealth of the Northern Marianas Islands"    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "Colorado"                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "Connecticut"                                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11] "District of Columbia"                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [12] "Delaware"                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "Foreign Countries (exceptions: Canada and Mexico)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [14] "Florida"                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [15] "Georgia"                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [16] "Guam"                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "Hawaii"                                           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [18] "Iowa"                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "Idaho"                                            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [20] "Illinois"                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [21] "Indiana"                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [22] "Kansas"                                           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [23] "Kentucky"                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [24] "Louisiana"                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [25] "Massachusetts"                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [26] "Maryland"                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [27] "Maine"                                            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [28] "Michigan"                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [29] "Minnesota"                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [30] "Missouri"                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [31] "Mississippi"                                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [32] "Montana"                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [33] "Mexico"                                           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [34] "North Carolina"                                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [35] "North Dakota"                                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [36] "Nebraska"                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [37] "New Hampshire"                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [38] "New Jersey"                                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [39] "New Mexico"                                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [40] "Nevada"                                           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [41] "New York"                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [42] "Ohio"                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [43] "Oklahoma"                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [44] "Oregon"                                           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [45] "Pennsylvania"                                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [46] "Puerto Rico"                                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [47] "Rhode Island"                                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [48] "South Carolina"                                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [49] "South Dakota"                                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [50] "Tennessee"                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [51] "Texas"                                            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [52] "Utah"                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [53] "Virginia"                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [54] "Virgin Islands"                                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [55] "Vermont"                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [56] "Washington"                                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [57] "Wisconsin"                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [58] "West Virginia"                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [59] "Wyoming"                                          </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
