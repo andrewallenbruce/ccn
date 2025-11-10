@@ -62,12 +62,6 @@ STATE_CODE_LIST <- list(
   "CNMI" = c("66"),
   "FC"   = c("99"))
 
-STATE_CODES <- kit::psort(unlist_(STATE_CODE_LIST), nThread = 4L)
-
-
-#' @autoglobal
-#' @noRd
-state_codes <- STATE_CODES
 
 STATE_NAME <- c(
   state.name,
@@ -82,10 +76,18 @@ STATE_NAME <- c(
   "Foreign Countries (exceptions: Canada and Mexico)"
 )
 
-#' @autoglobal
-#' @noRd
-state_names <- kit::psort(STATE_NAME, nThread = 4L)
-
 STATE_ABBR <- c(state.abb, "DC", "PR", "VI", "CN", "MX", "AS", "GU", "CNMI", "FC")
 
-STATE_NAME_to_STATE_ABBR <- rlang::set_names(STATE_NAME, STATE_ABBR)
+STATE_NAME_ABBR <- rlang::set_names(STATE_NAME, STATE_ABBR)
+
+#' @autoglobal
+#' @noRd
+state_abbreviations <- kit::psort(STATE_ABBR, nThread = 4L)
+
+#' @autoglobal
+#' @noRd
+state_ccn_codes <- kit::psort(unlist_(STATE_CODE_LIST), nThread = 4L)
+
+#' @autoglobal
+#' @noRd
+state_full_names <- kit::psort(STATE_NAME, nThread = 4L)

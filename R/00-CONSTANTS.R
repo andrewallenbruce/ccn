@@ -32,17 +32,17 @@ MEDICAID_FACILITY_NAMES_LONG_ALL <- list(
   "Nursing Facility (Formerly Assigned to Medicaid Skilled Nursing Facility)" = "NF (SNF)",
   "Nursing Facility (Formerly Assigned to Intermediate Care Facility)"        = "NF (ICF)",
   "Intermediate Care Facility for Individuals with Intellectual Disabilities" = "ICF/IID",
-  "Medicaid-Only Hospital" = "MCD HOSP",
-  "Medicaid Home Health Agency" = "MCD HHA",
-  "Psychiatric Residential Treatment Facility" = "PRTF",
-  "Psychiatric Unit of a Critical Access Hospital" = "PSYCH (CAH)",
-  "Rehabilitation Unit of a Critical Access Hospital" = "REHAB (CAH)",
-  "Psychiatric Unit" = "PSYCH",
-  "Rehabilitation Unit" = "REHAB",
-  "Swing-Bed Approval for Short-Term Hospital" = "SBA (STH)",
-  "Swing-Bed Approval for Long-Term Care Hospital" = "SBA (LTCH)",
-  "Swing-Bed Approval for Rehabilitation Hospital" = "SBA (REHAB)",
-  "Swing-Bed Approval for Critical Access Hospital" = "SBA (CAH)")
+  "Medicaid-Only Hospital"                                                    = "MCD HOSP",
+  "Medicaid Home Health Agency"                                               = "MCD HHA",
+  "Psychiatric Residential Treatment Facility"                                = "PRTF",
+  "Psychiatric Unit of a Critical Access Hospital"                            = "PSYCH (CAH)",
+  "Rehabilitation Unit of a Critical Access Hospital"                         = "REHAB (CAH)",
+  "Psychiatric Unit"                                                          = "PSYCH",
+  "Rehabilitation Unit"                                                       = "REHAB",
+  "Swing-Bed Approval for Short-Term Hospital"                                = "SBA (STH)",
+  "Swing-Bed Approval for Long-Term Care Hospital"                            = "SBA (LTCH)",
+  "Swing-Bed Approval for Rehabilitation Hospital"                            = "SBA (REHAB)",
+  "Swing-Bed Approval for Critical Access Hospital"                           = "SBA (CAH)")
 
 MEDICAID_FACILITY_CODE_LIST  <- MEDICAID_FACILITY_CODE_LIST_ALL[1:6]
 IPPS_EXCLUDED_TYPE_CODE_LIST <- MEDICAID_FACILITY_CODE_LIST_ALL[c(7, 9:12, 14)]

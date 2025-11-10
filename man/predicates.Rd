@@ -26,8 +26,9 @@ logical vector indicating if codes are of the specified type.
 Logical tests for various code types
 }
 \examples{
-LETTERS[is_medicaid_facility_type(LETTERS)]
-LETTERS[is_ipps_excluded_type(LETTERS)]
-LETTERS[is_emergency_hospital_type(LETTERS)]
-LETTERS[is_supplier_type(LETTERS)]
+x <- LETTERS
+x[is_medicaid_facility_type(x)]
+x[is_ipps_excluded_type(x)]
+x[is_emergency_hospital_type(x)]
+x[is_supplier_type(x)]
 }

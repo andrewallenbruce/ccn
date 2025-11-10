@@ -9,34 +9,31 @@ NULL
 #' @param x character vector of codes to look up.
 #' @name lookups
 #' @returns character vector of names associated with codes.
+#' @examples
+#' emergency_hospital_name(LETTERS)
+#' supplier_name(LETTERS)
+#' state_abbr(ccn:::state_ccn_codes)
+#' state_name(ccn:::state_abbreviations)
 NULL
 
 #' @rdname lookups
-#' @examples
-#' emergency_hospital_name(LETTERS)
 #' @autoglobal
 #' @export
 emergency_hospital_name <- make_switch(EMERGENCY_HOSPITAL_CODE_LIST)
 
 #' @rdname lookups
-#' @examples
-#' supplier_name(LETTERS)
 #' @autoglobal
 #' @export
 supplier_name <- make_switch(SUPPLIER_CODE_LIST)
 
 #' @rdname lookups
-#' @examples
-#' state_name(ccn:::state_codes)
 #' @autoglobal
 #' @export
-state_name <- make_switch(STATE_CODE_LIST)
+state_abbr <- make_switch(STATE_CODE_LIST)
 
 #' @rdname lookups
-#' @examples
-#' state_abbr(ccn:::state_names)
 #' @autoglobal
 #' @export
-state_abbr <- function(x) {
-  rlang::names2(STATE_NAME_to_STATE_ABBR)[collapse::fmatch(x, STATE_NAME_to_STATE_ABBR)]
+state_name <- function(x) {
+  unlist_(STATE_NAME_ABBR)[collapse::fmatch(x, STATE_NAME_ABBR)]
 }

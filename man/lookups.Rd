@@ -4,17 +4,17 @@
 \alias{lookups}
 \alias{emergency_hospital_name}
 \alias{supplier_name}
-\alias{state_name}
 \alias{state_abbr}
+\alias{state_name}
 \title{Lookups for Various Codes}
 \usage{
 emergency_hospital_name(x)
 
 supplier_name(x)
 
-state_name(x)
-
 state_abbr(x)
+
+state_name(x)
 }
 \arguments{
 \item{x}{character vector of codes to look up.}
@@ -28,6 +28,6 @@ Convert various codes to their associated names.
 \examples{
 emergency_hospital_name(LETTERS)
 supplier_name(LETTERS)
-state_name(ccn:::state_codes)
-state_abbr(ccn:::state_names)
+state_abbr(ccn:::state_ccn_codes)
+state_name(ccn:::state_abbreviations)
 }
