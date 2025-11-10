@@ -9,9 +9,9 @@ emergency_hospital_name(x)
 
 supplier_name(x)
 
-state_name(x)
-
 state_abbr(x)
+
+state_name(x)
 ```
 
 ## Arguments
@@ -36,7 +36,7 @@ supplier_name(LETTERS)
 #>  [1] NA     NA     "ASC"  "CLIA" NA     NA     NA     NA     NA     NA    
 #> [11] NA     NA     NA     NA     NA     NA     NA     NA     NA     NA    
 #> [21] NA     NA     NA     "XRAY" NA     NA    
-state_name(ccn:::state_codes)
+state_abbr(ccn:::state_ccn_codes)
 #>   [1] "AZ"   "AL"   "AK"   "AZ"   "AR"   "CA"   "CO"   "CT"   "DE"   "DC"  
 #>  [11] "FL"   "GA"   "HI"   "ID"   "IL"   "IN"   "IA"   "KS"   "KY"   "LA"  
 #>  [21] "ME"   "MD"   "MA"   "MI"   "MN"   "MS"   "MO"   "MT"   "NE"   "NV"  
@@ -48,11 +48,13 @@ state_name(ccn:::state_codes)
 #>  [81] "PR"   "GA"   "NC"   "SC"   "TN"   "AR"   "OK"   "CO"   "CA"   "OR"  
 #>  [91] "WA"   "LA"   "NM"   "TX"   "FC"   "CA"   "CA"   "FL"   "LA"   "MI"  
 #> [101] "MS"   "OH"   "PA"   "TN"   "TX"   "KY"   "WV"   "CA"  
-state_abbr(ccn:::state_names)
-#>  [1] "AL"   "AK"   "AS"   "AZ"   "AR"   "CA"   "CN"   "CO"   "CNMI" "CT"  
-#> [11] "DE"   "DC"   "FL"   "FC"   "GA"   "GU"   "HI"   "ID"   "IL"   "IN"  
-#> [21] "IA"   "KS"   "KY"   "LA"   "ME"   "MD"   "MA"   "MX"   "MI"   "MN"  
-#> [31] "MS"   "MO"   "MT"   "NE"   "NV"   "NH"   "NJ"   "NM"   "NY"   "NC"  
-#> [41] "ND"   "OH"   "OK"   "OR"   "PA"   "PR"   "RI"   "SC"   "SD"   "TN"  
-#> [51] "TX"   "UT"   "VT"   "VI"   "VA"   "WA"   "WV"   "WI"   "WY"  
+state_name(ccn:::state_abbreviations)
+#> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> 
+#>   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA 
+#> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> 
+#>   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA 
+#> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> 
+#>   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA 
+#> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> 
+#>   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA 
 ```

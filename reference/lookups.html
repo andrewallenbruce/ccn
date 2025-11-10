@@ -49,9 +49,9 @@
 <span></span>
 <span><span class="fu">supplier_name</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">state_name</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span><span class="fu">state_abbr</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">state_abbr</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">state_name</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -78,7 +78,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] NA     NA     "ASC"  "CLIA" NA     NA     NA     NA     NA     NA    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [11] NA     NA     NA     NA     NA     NA     NA     NA     NA     NA    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [21] NA     NA     NA     "XRAY" NA     NA    </span>
-<span class="r-in"><span><span class="fu">state_name</span><span class="op">(</span><span class="fu">ccn</span><span class="fu">:::</span><span class="va">state_codes</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">state_abbr</span><span class="op">(</span><span class="fu">ccn</span><span class="fu">:::</span><span class="va">state_ccn_codes</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "AZ"   "AL"   "AK"   "AZ"   "AR"   "CA"   "CO"   "CT"   "DE"   "DC"  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [11] "FL"   "GA"   "HI"   "ID"   "IL"   "IN"   "IA"   "KS"   "KY"   "LA"  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [21] "ME"   "MD"   "MA"   "MI"   "MN"   "MS"   "MO"   "MT"   "NE"   "NV"  </span>
@@ -90,13 +90,15 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [81] "PR"   "GA"   "NC"   "SC"   "TN"   "AR"   "OK"   "CO"   "CA"   "OR"  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [91] "WA"   "LA"   "NM"   "TX"   "FC"   "CA"   "CA"   "FL"   "LA"   "MI"  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [101] "MS"   "OH"   "PA"   "TN"   "TX"   "KY"   "WV"   "CA"  </span>
-<span class="r-in"><span><span class="fu">state_abbr</span><span class="op">(</span><span class="fu">ccn</span><span class="fu">:::</span><span class="va">state_names</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "AL"   "AK"   "AS"   "AZ"   "AR"   "CA"   "CN"   "CO"   "CNMI" "CT"  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [11] "DE"   "DC"   "FL"   "FC"   "GA"   "GU"   "HI"   "ID"   "IL"   "IN"  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [21] "IA"   "KS"   "KY"   "LA"   "ME"   "MD"   "MA"   "MX"   "MI"   "MN"  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [31] "MS"   "MO"   "MT"   "NE"   "NV"   "NH"   "NJ"   "NM"   "NY"   "NC"  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [41] "ND"   "OH"   "OK"   "OR"   "PA"   "PR"   "RI"   "SC"   "SD"   "TN"  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [51] "TX"   "UT"   "VT"   "VI"   "VA"   "WA"   "WV"   "WI"   "WY"  </span>
+<span class="r-in"><span><span class="fu">state_name</span><span class="op">(</span><span class="fu">ccn</span><span class="fu">:::</span><span class="va">state_abbreviations</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
