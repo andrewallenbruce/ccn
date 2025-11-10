@@ -1,9 +1,10 @@
 library(collapse)
 
 #-----Ambulatory Surgical Center Quality Measures - Facility-----
-affl <- readr::read_csv(
-  file      = fs::path("C:/Users/Andrew/Downloads/ASC_Facility.csv"),
-  col_types = readr::cols(
+asc <- readr::read_csv(
+  file                            = fs::path("C:/Users/Andrew/Downloads/ASC_Facility.csv"),
+  num_threads                     = 4L,
+  col_types                       = readr::cols(
     `Facility Name`               = readr::col_character(),
     `Facility ID`                 = readr::col_character(),
     NPI                           = readr::col_integer(),
@@ -54,20 +55,15 @@ affl <- readr::read_csv(
     `ASC-20 Sample`               = readr::col_double(),
     `ASC-20 Rate*`                = readr::col_character(),
     `ASC-20 Footnote`             = readr::col_double()
-  ),
-  num_threads = 4L) |>
+  )) |>
   janitor::clean_names() |>
-  collapse::frename(
-    ind_pac_id = "pac",
-    provider_last_name = "last",
-    provider_first_name = "first",
-    provider_middle_name = "middle",
-    suff = "suffix",
-    facility_affiliations_certification_number = "ccn_facility",
-    facility_type_certification_number = "ccn_facility_type")
+  collapse::slt(facility_name:year) |>
+  collapse::mtt(
+    year = cheapr::cheapr_if_else(year == "2024_Q3", "2024", year) |>
+      as.integer())
 
-# pin_update(
-#   hosp,
-#   name = "hospital_enrollment",
-#   title = "Hospital Enrollments",
-#   description = "Hospital Enrollments 2025")
+pin_update(
+  asc,
+  name = "asc_facility",
+  title = "Ambulatory Surgical Centers",
+  description = "Ambulatory Surgical Center Quality Measures - Facility")

@@ -5,6 +5,17 @@
 \alias{ccn}
 \alias{ccn-package}
 \title{CCN}
+\source{
+\href{https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf}{CMS Manual}
+
+\href{https://resdac.org/cms-data/variables/full-cms-certification-number-provider}{ResDAC 1}
+
+\href{https://resdac.org/cms-data/variables/provider-number}{ResDAC 2}
+
+\href{https://manual.jointcommission.org/releases/TJC2025A/DataElem0276.html}{The Joint Commission}
+
+\href{https://qcor.cms.gov/main.jsp}{QCOR}
+}
 \description{
 An S7 class representing a \strong{CMS Certification Number}.
 }

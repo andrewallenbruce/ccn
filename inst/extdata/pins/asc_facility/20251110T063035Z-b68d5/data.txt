@@ -1,0 +1,10 @@
+file: asc_facility.qs
+file_size: 180943
+pin_hash: b68d5f9472139ae2
+type: qs
+title: Ambulatory Surgical Centers
+description: Ambulatory Surgical Center Quality Measures - Facility
+tags: ~
+urls: ~
+created: 20251110T063035Z
+api_version: 1
