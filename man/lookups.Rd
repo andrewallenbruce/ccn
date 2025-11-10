@@ -5,6 +5,7 @@
 \alias{emergency_hospital_name}
 \alias{supplier_name}
 \alias{state_name}
+\alias{state_abbr}
 \title{Lookups for Various Codes}
 \usage{
 emergency_hospital_name(x)
@@ -12,6 +13,8 @@ emergency_hospital_name(x)
 supplier_name(x)
 
 state_name(x)
+
+state_abbr(x)
 }
 \arguments{
 \item{x}{character vector of codes to look up.}
@@ -26,4 +29,5 @@ Convert various codes to their associated names.
 emergency_hospital_name(LETTERS)
 supplier_name(LETTERS)
 state_name(c("00", "01", "83", "A0"))
+state_abbr(c("Georgia", "Florida"))
 }
