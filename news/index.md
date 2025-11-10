@@ -6,13 +6,13 @@
 
 ## ccn 0.0.0.9003 (2025-11-08)
 
-- `S7` classes
+- `S7` CCN classes
 
 ## ccn 0.0.0.9002 (2025-11-04)
 
-- `is_ipps_excluded_type`, `is_medicaid_facility_type`
-- decode
+- `is_ipps_excluded_type`, `is_medicaid_facility_type` tests
+- `decode` sketch
 
 ## ccn 0.0.0.9001 (2025-10-31)
 
-- Initial version.
+- Initial commit
