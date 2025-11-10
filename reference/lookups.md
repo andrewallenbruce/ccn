@@ -5,10 +5,6 @@ Convert various codes to their associated names.
 ## Usage
 
 ``` r
-state_codes
-
-state_names
-
 emergency_hospital_name(x)
 
 supplier_name(x)
@@ -17,12 +13,6 @@ state_name(x)
 
 state_abbr(x)
 ```
-
-## Format
-
-An object of class `character` of length 108.
-
-An object of class `character` of length 59.
 
 ## Arguments
 
@@ -37,13 +27,16 @@ character vector of names associated with codes.
 ## Examples
 
 ``` r
-LETTERS[emergency_hospital_name(LETTERS)]
-#>  [1] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
-#> [26] NA
-LETTERS[supplier_name(LETTERS)]
-#>  [1] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
-#> [26] NA
-state_name(state_codes)
+emergency_hospital_name(LETTERS)
+#>  [1] NA        NA        NA        NA        "ER (NF)" "ER (F)"  NA       
+#>  [8] NA        NA        NA        NA        NA        NA        NA       
+#> [15] NA        NA        NA        NA        NA        NA        NA       
+#> [22] NA        NA        NA        NA        NA       
+supplier_name(LETTERS)
+#>  [1] NA     NA     "ASC"  "CLIA" NA     NA     NA     NA     NA     NA    
+#> [11] NA     NA     NA     NA     NA     NA     NA     NA     NA     NA    
+#> [21] NA     NA     NA     "XRAY" NA     NA    
+state_name(ccn:::state_codes)
 #>   [1] "AZ"   "AL"   "AK"   "AZ"   "AR"   "CA"   "CO"   "CT"   "DE"   "DC"  
 #>  [11] "FL"   "GA"   "HI"   "ID"   "IL"   "IN"   "IA"   "KS"   "KY"   "LA"  
 #>  [21] "ME"   "MD"   "MA"   "MI"   "MN"   "MS"   "MO"   "MT"   "NE"   "NV"  
@@ -55,7 +48,7 @@ state_name(state_codes)
 #>  [81] "PR"   "GA"   "NC"   "SC"   "TN"   "AR"   "OK"   "CO"   "CA"   "OR"  
 #>  [91] "WA"   "LA"   "NM"   "TX"   "FC"   "CA"   "CA"   "FL"   "LA"   "MI"  
 #> [101] "MS"   "OH"   "PA"   "TN"   "TX"   "KY"   "WV"   "CA"  
-state_abbr(state_names)
+state_abbr(ccn:::state_names)
 #>  [1] "AL"   "AK"   "AS"   "AZ"   "AR"   "CA"   "CN"   "CO"   "CNMI" "CT"  
 #> [11] "DE"   "DC"   "FL"   "FC"   "GA"   "GU"   "HI"   "ID"   "IL"   "IN"  
 #> [21] "IA"   "KS"   "KY"   "LA"   "ME"   "MD"   "MA"   "MX"   "MI"   "MN"  
