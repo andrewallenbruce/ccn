@@ -1,0 +1,224 @@
+PRVDR_NUM_TB Provider Number Table
+
+ First two positions are the State in which the provider is located.
+           As two-digit state codes have been exhausted, CMS has implemented a
+           two-position alpha-numeric coding system for State Codes. The following
+           is a list of all CMS assigned State Codes to be used with the CCN:
+
+           Alabama                01
+           Alaska                 02
+           Arizona                03, 00
+           Arkansas               04, 89
+           California             05, 55, 75, 92, A0, A1, B2
+           Colorado               06, 91
+           Connecticut            07, 81
+           Delaware               08
+           District of Columbia   09
+           Florida                10, 68, 69, A2
+           Georgia                11, 85
+           Hawaii                 12, 98
+           Idaho                  13, 54
+           Illinois               14, 78
+           Indiana                15
+           Iowa                   16, 76
+           Kansas                 17, 70
+           Kentucky               18, B0
+           Louisiana              19, 71, 95, A3
+           Maine                  20
+           Maryland               21, 80
+           Massachusetts          22, 82
+           Michigan               23, A4
+           Minnesota              24, 77
+           Mississippi            25, A5
+           Missouri               26, 79
+           Montana                27
+           Nebraska               28
+           Nevada                 29
+           New Hampshire          30
+           New Jersey             31, 83
+           New Mexico             32, 96
+           New York               33, 57
+           North Carolina         34, 86
+           North Dakota           35
+           Ohio                   36, 72, A6
+           Oklahoma               37, 90
+           Oregon                 38, 93
+           Pennsylvania           39, 73, A7
+           Puerto Rico            40, 84
+           Rhode Island           41
+           South Carolina         42, 87
+           South Dakota           43
+           Tennessee              44, 88, A8
+           Texas                  45, 67, 74, 97, A9
+           Utah                   46
+           Vermont                47
+           Virgin Islands         48
+           Virginia               49
+           Washington             50, 94
+           West Virginia          51, 58, B1
+           Wisconsin              52
+           Wyoming                53
+           Canada                 56
+           Mexico                 59
+           American Samoa         64
+           Guam                   65
+           Commonwealth of the
+           Northern Marianas Islands
+           Foreign Countries
+           (exceptions: Canada and Mexico)    99
+
+       -   Positions 3 and sometimes 4 are used as a
+           category identifier.  The remaining positions
+           are serial numbers.  The following blocks of numbers
+           are reserved for the facilities indicated (NOTE:
+           may have different meanings dependent on the Type
+           of Bill (TOB):
+
+       -   A 'V' in the 5th position identifies a VA demo.
+
+           0001-0879   Short-term (general and specialty)
+                       hospitals where TOB = 11X; ESRD
+                       clinic where TOB = 72X
+           0880-0899   Reserved for hospitals participating
+                       in ORD demonstration projects where
+                       TOB = 11X; ESRD clinic where TOB =
+                       72X
+           0900-0999   Multiple hospital component in a
+                       medical complex (numbers retired)
+                       where TOB = 11X; ESRD clinic where
+                       TOB = 72X
+           1000-1199   Reserved for future use
+           1200-1224   Alcohol/drug hospitals (excluded
+                       from PPS-numbers retired)
+                       where TOB = 11X; ESRD clinic where
+                       TOB = 72X
+           1225-1299   Medical assistance facilities
+                       (Montana project); ESRD clinic where
+                       TOB = 72X
+           1300-1399   Rural Primary Care Hospital (RCPH) -
+                       eff. 10/97 changed to Critical Access
+                       Hospitals (CAH)
+           1400-1499   Continuation of 4900-4999 series (CMHC)
+           1500-1799   Hospices
+           1800-1989   Federally Qualified Health Centers
+                       (FQHC) where TOB = 73X; SNF (IP PTB)
+                       where TOB = 22X; HHA where TOB = 32X,
+                       33X, 34X
+           1990-1999   Christian Science Sanatoria
+                       (hospital services) - eff. 7/00 changed
+                       to Religious Nonmedical Health Care
+                       Institutions (RNHCI)
+           2000-2299   Long-term hospitals
+           2300-2499   Chronic renal disease facilities
+                       (hospital based)
+           2500-2899   Non-hospital renal disease
+                       treatment centers
+           2900-2999   Independent special purpose renal
+                       dialysis facility (1)
+           3000-3024   Formerly tuberculosis hospitals
+                       (numbers retired)
+           3025-3099   Rehabilitation hospitals
+           3100-3199   Continuation of Subunits of Nonprofit
+                       and Proprietary Home Health Agencies
+                       (7300-7399) Series (3) (eff. 4/96)
+           3200-3299   Continuation of 4800-4899 series (CORF)
+           3300-3399   Children's hospitals (excluded from PPS)
+                       where TOB = 11X; ESRD clinic where TOB =
+                       72X
+           3400-3499   Continuation of rural health clinics
+                       (provider-based) (3975-3999)
+           3500-3699   Renal disease treatment centers
+                       (hospital satellites)
+           3700-3799   Hospital based special purpose renal
+                       dialysis facility (1)
+           3800-3974   Rural health clinics (free-standing)
+           3975-3999   Rural health clinics (provider-based)
+           4000-4499   Psychiatric hospitals
+           4500-4599   Comprehensive Outpatient
+                       Rehabilitation Facilities (CORF)
+           4600-4799   Community Mental Health Centers (CMHC);
+                       9/30/91 - 3/31/97 used for clinic OPT
+                       where TOB = 74X
+           4800-4899   Continuation of 4500-4599 series (CORF)
+                        (eff. 10/95)
+           4900-4999   Continuation of 4600-4799 series (CMHC)
+                       (eff. 10/95); 9/30/91 - 3/31/97 used for
+                       clinic OPT where TOB = 74X
+           5000-6499   Skilled Nursing Facilities
+           6500-6989   CMHC / Outpatient physical therapy services
+                       where TOB = 74X; CORF where TOB =
+                       75X
+           6990-6999   Christian Science Sanatoria (skilled
+                       nursing services) - eff. 7/00 Numbers
+                       Reserved (formerly CS)
+           7000-7299   Home Health Agencies (HHA) (2)
+           7300-7399   Subunits of 'nonprofit' and
+                       'proprietary' Home Health Agencies (3)
+           7400-7799   Continuation of 7000-7299 series
+           7800-7999   Subunits of state and local governmental
+                       Home Health Agencies (3)
+           8000-8499   Continuation of 7400-7799 series (HHA)
+           8500-8899   Continuation of rural health
+                       center (provider based) (3400-3499)
+           8900-8999   Continuation of rural health
+                       center (free-standing) (3800-3974)
+           9000-9799   Continuation of 8000-8499 series (HHA)
+                       (eff. 10/95)
+           9800-9899   Transplant Centers (eff. 10/1/07)
+           9900-9999   Freestanding Opioid Treatment Pro-
+                       gram (eff. 1/2021)
+
+
+
+
+           Exception:
+
+           P001-P999   Organ procurement organization
+
+       (1) These facilities (SPRDFS) will be assigned
+           the same provider number whenever they
+           are recertified.
+
+       (2) The 6400-6499 series of provider numbers
+           in Iowa (16), South Dakota (43) and Texas (45)
+           have been used in reducing acute care costs (RACC)
+           experiments.
+
+       (3) In Virginia (49), the series 7100-7299 has
+           been reserved for statewide subunit components
+           of the Virginia state home health agencies.
+
+       (4) Parent agency must have a number in the
+           7000-7299, 7400-7799 or 8000-8499 series.
+
+       NOTE:
+         There is a special numbering system for units
+         of hospitals that are excluded from prospective
+         payment system (PPS) and hospitals with SNF
+         swing-bed designation.  An alpha character in
+         the third position of the provider number
+         identifies the type of unit or swing-bed
+         designation as follows:
+
+           M = Psychiatric Unit in Critical Access Hospital
+           R = Rehabilitation Unit in Critical Access Hospital
+           S = Psychiatric unit (excluded from PPS)
+           T = Rehabilitation unit (excluded from PPS)
+           U = Swing-Bed Hospital Designation for Short-
+               Term Hospitals
+           V = Alcohol drug unit (prior to 10/87 only)
+           W = Swing-Bed Hospital Designation for Long
+               Term Care Hospitals
+           Y = Swing-Bed Hospital Designation for
+               Rehabilitation Hospitals
+           Z = Swing Bed Designation for Critical Access
+               Hospitals
+
+         There is also a special numbering system for
+         assigning emergency hospital identification
+         numbers (non participating hospitals).  The
+         sixth position of the provider number is as
+         follows:
+
+           E = Non-federal emergency hospital
+           F = Federal emergency hospital

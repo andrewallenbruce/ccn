@@ -15,18 +15,18 @@
 \href{https://manual.jointcommission.org/releases/TJC2025A/DataElem0276.html}{The Joint Commission}
 
 \href{https://qcor.cms.gov/main.jsp}{QCOR}
+
+\href{https://www.cms.gov/Regulations-and-Guidance/Guidance/Transmittals/Downloads/R2SOM.pdf}{HHA Branch Identification Numbers}
 }
 \description{
-An S7 class representing a \strong{CMS Certification Number}.
+An S7 class representing a \strong{CMS Certification Number}, a uniform way of
+identifying providers or suppliers who currently or who ever have
+participated in the Medicare or Medicaid programs.
 }
 \details{
-CCNs are a uniform way of identifying providers or suppliers who currently
-or who ever have participated in the Medicare or Medicaid programs.
-
 A CCN is a 6- or 10-character alphanumeric string that encodes the provider
-or supplier's (respectively) State and facility type.
-
-CCNs are defined by \strong{CMS Manual System publication number 100-07 "State Operations Provider Certification"}.
+or supplier's state and facility type, as defined by
+\strong{CMS Manual System publication number 100-07 "State Operations Provider Certification"}.
 }
 \seealso{
 Useful links:

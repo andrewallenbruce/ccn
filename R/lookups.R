@@ -31,3 +31,12 @@ supplier_name <- make_switch(SUPPLIER_CODE_LIST)
 #' @autoglobal
 #' @export
 state_name <- make_switch(STATE_CODE_LIST)
+
+#' @rdname lookups
+#' @examples
+#' state_abbr(c("Georgia", "Florida"))
+#' @autoglobal
+#' @noRd
+state_abbr <- function(x) {
+  rlang::names2(STATE_NAME_to_STATE_ABBR)[collapse::fmatch(x, STATE_NAME_to_STATE_ABBR)]
+}

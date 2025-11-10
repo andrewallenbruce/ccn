@@ -4,21 +4,9 @@ RawCCN <- S7::new_class(
   name = "RawCCN",
   properties = list(
     raw = S7::class_character,
-    std = S7::new_property(
-      S7::class_character,
-      getter = function(self)
-        remove_hyphen(self@raw)
-    ),
-    chr = S7::new_property(
-      S7::class_character,
-      getter = function(self)
-        nchar(self@std)
-    ),
-    vec = S7::new_property(
-      S7::class_character,
-      getter = function(self)
-        split_(self@std)
-    )
+    std = S7::new_property(S7::class_character, getter = \(self) clean(self@raw)),
+    chr = S7::new_property(S7::class_character, getter = \(self) nchar_(self@std)),
+    vec = S7::new_property(S7::class_character, getter = \(self) split_(self@std))
   )
 )
 
@@ -44,34 +32,50 @@ ProviderCCN <- S7::new_class(
 #' @noRd
 #' @autoglobal
 SupplierCCN <- S7::new_class(
-  name   = "SupplierCCN",
-  parent = CCN
+  name = "SupplierCCN",
+  parent = CCN,
+  properties = list(
+    supplier_type = S7::class_character
+  )
 )
 
 #' @noRd
 #' @autoglobal
 MedicareProviderCCN <- S7::new_class(
   name   = "MedicareProviderCCN",
-  parent = ProviderCCN
+  parent = ProviderCCN,
+  properties = list(
+    facility_type = S7::class_character
+  )
 )
 
 #' @noRd
 #' @autoglobal
 MedicaidOnlyProviderCCN <- S7::new_class(
   name   = "MedicaidOnlyProviderCCN",
-  parent = ProviderCCN
+  parent = ProviderCCN,
+  properties = list(
+    facility_type = S7::class_character
+  )
 )
 
 #' @noRd
 #' @autoglobal
 IPPSExcludedProviderCCN <- S7::new_class(
   name   = "IPPSExcludedProviderCCN",
-  parent = ProviderCCN
+  parent = ProviderCCN,
+  properties = list(
+    facility_type = S7::class_character,
+    parent_type = S7::class_character
+  )
 )
 
 #' @noRd
 #' @autoglobal
 EmergencyHospitalCCN <- S7::new_class(
   name   = "EmergencyHospitalCCN",
-  parent = ProviderCCN
+  parent = ProviderCCN,
+  properties = list(
+    emergency_type = S7::class_character
+  )
 )

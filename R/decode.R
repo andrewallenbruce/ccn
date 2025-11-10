@@ -72,7 +72,7 @@ S7::method(decode, S7::class_character) <- function(x) {
     return(S7::convert(x, ProviderCCN))
   }
 
-  if (x@chr == 10L) {
+  if (x@chr == 10L && x@vec[3] %in% c("C", "D", "X")) {
     return(S7::convert(x, SupplierCCN))
   }
   x

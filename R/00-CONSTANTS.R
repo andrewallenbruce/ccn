@@ -10,8 +10,11 @@ SUPPLIER_CODE_LIST <- list(
 )
 
 MEDICAID_FACILITY_CODE_LIST_ALL <- list(
+  # NF = Nursing Facility
   "NF (Formerly assigned to Medicaid SNF)"            = c("A", "B"),
   "NF (Formerly assigned to ICF)"                     = c("E", "F"),
+  # ICF = Intermediate Care Facility
+  # IID = Individuals with Intellectual Disabilities
   "ICF/IID"                                           = c("G", "H"),
   "Medicaid-Only Hospital"                            = "J",
   "Medicaid HHA"                                      = "K",
@@ -103,3 +106,20 @@ STATE_CODE_LIST <- list(
   "Commonwealth of the Northern Marianas Islands"     = c("66"),
   "Foreign Countries (exceptions: Canada and Mexico)" = c("99")
 )
+
+STATE_NAME <- c(
+  state.name,
+  "District of Columbia",
+  "Puerto Rico",
+  "Virgin Islands",
+  "Canada",
+  "Mexico",
+  "American Samoa",
+  "Guam",
+  "Commonwealth of the Northern Marianas Islands",
+  "Foreign Countries (exceptions: Canada and Mexico)"
+)
+
+STATE_ABBR <- c(state.abb, "DC", "PR", "VI", "CN", "MX", "AS", "GU", "CNMI", "FC")
+
+STATE_NAME_to_STATE_ABBR <- rlang::set_names(STATE_NAME, STATE_ABBR)

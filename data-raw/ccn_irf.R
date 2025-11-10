@@ -1,11 +1,31 @@
 #-----Inpatient Rehabilitation Facility - Provider Data-----
 irf <- readr::read_csv(
   file = fs::path("C:/Users/Andrew/Downloads/Inpatient_Rehabilitation_Facility-Provider_Data_Sep2025.csv"),
-  num_threads = 4L
-) |> readr::spec()
+  num_threads = 4L,
+  col_types = readr::cols(
+    `CMS Certification Number (CCN)` = readr::col_character(),
+    `Provider Name`                  = readr::col_character(),
+    `Address Line 1`                 = readr::col_character(),
+    `Address Line 2`                 = readr::col_character(),
+    `City/Town`                      = readr::col_character(),
+    State                            = readr::col_character(),
+    `ZIP Code`                       = readr::col_character(),
+    `County/Parish`                  = readr::col_character(),
+    `Telephone Number`               = readr::col_character(),
+    `CMS Region`                     = readr::col_double(),
+    `Measure Code`                   = readr::col_character(),
+    Score                            = readr::col_character(),
+    Footnote                         = readr::col_character(),
+    `Start Date`                     = readr::col_character(),
+    `End Date`                       = readr::col_character(),
+    `Measure Date Range`             = readr::col_character()
+  )
+)
 
-# pin_update(
-#   hosp,
-#   name = "hospital_enrollment",
-#   title = "Hospital Enrollments",
-#   description = "Hospital Enrollments 2025")
+irf
+
+pin_update(
+  irf,
+  name = "irf_facility",
+  title = "Inpatient Rehabilitation Facility",
+  description = "Inpatient Rehabilitation Facility - Provider Data")

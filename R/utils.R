@@ -7,8 +7,15 @@ nchars_ <- function(x) {
 
 #' @autoglobal
 #' @noRd
+nchar_ <- function(x) {
+  stringfish::sf_nchar(x, nthreads = 4L)
+}
+
+#' @autoglobal
+#' @noRd
 string <- function(x) {
-  paste0(x, collapse = "")
+  stringfish::sf_collapse(x, collapse = "")
+  # paste0(x, collapse = "")
 }
 
 #' @autoglobal
@@ -20,6 +27,9 @@ unlist_ <- function(x, ...) {
 #' @autoglobal
 #' @noRd
 substr_ <- function(x, s) {
+
+  s <- if (length(s) == 1L) c(s, s) else s
+
   stringfish::sf_substr(
     x        = x,
     start    = s[1],
@@ -88,4 +98,10 @@ remove_hyphen <- function(x) {
   } else {
     x
   }
+}
+
+#' @autoglobal
+#' @noRd
+clean <- function(x) {
+  remove_hyphen(stringfish::sf_toupper(x))
 }
