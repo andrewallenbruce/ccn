@@ -15,20 +15,23 @@
 #' @export
 #' @autoglobal
 ccn <- function(x) {
-  x <- RawCCN(raw = x)
+  x <- Unknown(raw = x)
 
   if (x@chr == 6L) {
-    if (all_numeric(x@std) || x@vec[3] == "P") {
-      return(decode(x, MedicareProviderCCN()))
+    if (!has_letter(x@std)) {
+      return(decode(x, MedicareProvider()))
+    }
+    if (x@vec[3] == "P") {
+      return(decode(x, MedicareProviderOPO()))
     }
     if (is_emergency_hospital_type(x@vec[6])) {
-      return(decode(x, EmergencyHospitalCCN()))
+      return(decode(x, EmergencyHospital()))
     }
-    return(decode(x, ProviderCCN()))
+    return(decode(x, Provider()))
   }
 
   if (x@chr == 10L && is_supplier_type(x@vec[3])) {
-    return(decode(x, SupplierCCN()))
+    return(decode(x, Supplier()))
   }
   x
 }
@@ -39,38 +42,45 @@ decode <- S7::new_generic("decode", c("x", "y"), function(x, y) {
   S7::S7_dispatch()
 })
 
-S7::method(decode, list(RawCCN, ProviderCCN)) <- function(x, y) {
-  ProviderCCN(
-    ccn = x@std,
-    state_code = string(x@vec[1:2]),
-    sequence_number = string(x@vec[3:6])
+S7::method(decode, list(Unknown, Provider)) <- function(x, y) {
+  Provider(
+    ccn             = x@std,
+    state_code      = x@vec[1:2],
+    sequence_number = x@vec[3:6]
   )
 }
 
-S7::method(decode, list(RawCCN, SupplierCCN)) <- function(x, y) {
-  SupplierCCN(
-    ccn = x@std,
-    state_code = string(x@vec[1:2]),
-    sequence_number = string(x@vec[3:10])
+S7::method(decode, list(Unknown, Supplier)) <- function(x, y) {
+  Supplier(
+    ccn             = x@std,
+    state_code      = x@vec[1:2],
+    sequence_number = x@vec[4:10],
+    supplier_type   = x@vec[3]
   )
 }
 
-S7::method(decode, list(RawCCN, MedicareProviderCCN)) <- function(x, y) {
-  MedicareProviderCCN(
-    ccn = x@std,
-    state_code = string(x@vec[1:2]),
-    sequence_number = string(if (x@vec[3] == "P") {
-      x@vec[4:6]
-    } else {
-      x@vec[3:6]
-    })
+S7::method(decode, list(Unknown, MedicareProvider)) <- function(x, y) {
+  MedicareProvider(
+    ccn             = x@std,
+    state_code      = x@vec[1:2],
+    sequence_number = x@vec[3:6]
   )
 }
 
-S7::method(decode, list(RawCCN, EmergencyHospitalCCN)) <- function(x, y) {
-  EmergencyHospitalCCN(
-    ccn = x@std,
-    state_code = string(x@vec[1:2]),
-    sequence_number = string(x@vec[3:5])
+S7::method(decode, list(Unknown, MedicareProviderOPO)) <- function(x, y) {
+  MedicareProviderOPO(
+    ccn             = x@std,
+    state_code      = x@vec[1:2],
+    facility_type   = x@vec[3],
+    sequence_number = x@vec[4:6]
+  )
+}
+
+S7::method(decode, list(Unknown, EmergencyHospital)) <- function(x, y) {
+  EmergencyHospital(
+    ccn             = x@std,
+    state_code      = x@vec[1:2],
+    sequence_number = x@vec[3:5],
+    emergency_type  = x@vec[6]
   )
 }

@@ -1,12 +1,27 @@
 #' @noRd
 #' @autoglobal
-RawCCN <- S7::new_class(
-  name = "RawCCN",
+Unknown <- S7::new_class(
+  name = "Unknown",
   properties = list(
     raw = S7::class_character,
-    std = S7::new_property(S7::class_character, getter = \(self) clean(self@raw)),
-    chr = S7::new_property(S7::class_character, getter = \(self) nchar_(self@std)),
-    vec = S7::new_property(S7::class_character, getter = \(self) split_(self@std))
+    std = S7::new_property(
+      S7::class_character,
+      getter = function(self) {
+        clean(self@raw)
+      }
+    ),
+    chr = S7::new_property(
+      S7::class_character,
+      getter = function(self) {
+        nchar_(self@std)
+      }
+    ),
+    vec = S7::new_property(
+      S7::class_character,
+      getter = function(self) {
+        split_(self@std)
+      }
+    )
   )
 )
 
@@ -17,22 +32,34 @@ CCN <- S7::new_class(
   abstract          = TRUE,
   properties        = list(
     ccn             = S7::class_character,
-    state_code      = S7::class_character,
-    sequence_number = S7::class_character
+    state_code      = S7::new_property(
+      S7::class_character,
+      setter = function(self, value) {
+        self@state_code <- string(value)
+        self
+      }
+    ),
+    sequence_number = S7::new_property(
+      S7::class_character,
+      setter = function(self, value) {
+        self@sequence_number <- string(value)
+        self
+      }
+    )
   )
 )
 
 #' @noRd
 #' @autoglobal
-ProviderCCN <- S7::new_class(
-  name   = "ProviderCCN",
+Provider <- S7::new_class(
+  name   = "Provider",
   parent = CCN
 )
 
 #' @noRd
 #' @autoglobal
-SupplierCCN <- S7::new_class(
-  name = "SupplierCCN",
+Supplier <- S7::new_class(
+  name = "Supplier",
   parent = CCN,
   properties = list(
     supplier_type = S7::class_character
@@ -41,9 +68,39 @@ SupplierCCN <- S7::new_class(
 
 #' @noRd
 #' @autoglobal
-MedicareProviderCCN <- S7::new_class(
-  name   = "MedicareProviderCCN",
-  parent = ProviderCCN,
+MedicareProvider <- S7::new_class(
+  name   = "MedicareProvider",
+  parent = Provider
+)
+
+#' @noRd
+#' @autoglobal
+MedicareProviderOPO <- S7::new_class(
+  name   = "MedicareProviderOPO",
+  parent = MedicareProvider,
+  properties = list(
+    facility_type = S7::new_property(
+      S7::class_character,
+      default = "P"
+      )
+    )
+  )
+
+#' @noRd
+#' @autoglobal
+EmergencyHospital <- S7::new_class(
+  name   = "EmergencyHospital",
+  parent = Provider,
+  properties = list(
+    emergency_type = S7::class_character
+  )
+)
+
+#' @noRd
+#' @autoglobal
+MedicaidOnlyProvider <- S7::new_class(
+  name   = "MedicaidOnlyProvider",
+  parent = Provider,
   properties = list(
     facility_type = S7::class_character
   )
@@ -51,31 +108,11 @@ MedicareProviderCCN <- S7::new_class(
 
 #' @noRd
 #' @autoglobal
-MedicaidOnlyProviderCCN <- S7::new_class(
-  name   = "MedicaidOnlyProviderCCN",
-  parent = ProviderCCN,
-  properties = list(
-    facility_type = S7::class_character
-  )
-)
-
-#' @noRd
-#' @autoglobal
-IPPSExcludedProviderCCN <- S7::new_class(
-  name   = "IPPSExcludedProviderCCN",
-  parent = ProviderCCN,
+IPPSExcludedProvider <- S7::new_class(
+  name   = "IPPSExcludedProvider",
+  parent = Provider,
   properties = list(
     facility_type = S7::class_character,
     parent_type = S7::class_character
-  )
-)
-
-#' @noRd
-#' @autoglobal
-EmergencyHospitalCCN <- S7::new_class(
-  name   = "EmergencyHospitalCCN",
-  parent = ProviderCCN,
-  properties = list(
-    emergency_type = S7::class_character
   )
 )
