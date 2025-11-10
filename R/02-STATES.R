@@ -64,11 +64,9 @@ STATE_CODE_LIST <- list(
 
 STATE_CODES <- kit::psort(unlist_(STATE_CODE_LIST), nThread = 4L)
 
-#' @rdname lookups
-#'
+
 #' @autoglobal
-#' @keywords internal
-#' @export
+#' @noRd
 state_codes <- STATE_CODES
 
 STATE_NAME <- c(
@@ -84,11 +82,8 @@ STATE_NAME <- c(
   "Foreign Countries (exceptions: Canada and Mexico)"
 )
 
-#' @rdname lookups
-#'
 #' @autoglobal
-#' @keywords internal
-#' @export
+#' @noRd
 state_names <- kit::psort(STATE_NAME, nThread = 4L)
 
 STATE_ABBR <- c(state.abb, "DC", "PR", "VI", "CN", "MX", "AS", "GU", "CNMI", "FC")
