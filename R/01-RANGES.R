@@ -1,27 +1,5 @@
-as_sf <- function(x) {
-  stringfish::sf_convert(as.character(x))
-}
-
-pad_three <- function(x) {
-  x         <- as.character(x)
-  n         <- nchar(x)
-
-  x[n == 1] <- paste0("00", x[n == 1])
-  x[n == 2] <- paste0("0",  x[n == 2])
-
-  stringfish::sf_convert(x)
-}
-
-pad_four <- function(x) {
-  x         <- as.character(x)
-  n         <- nchar(x)
-
-  x[n == 1] <- paste0("000", x[n == 1])
-  x[n == 2] <- paste0("00",  x[n == 2])
-  x[n == 3] <- paste0("0",   x[n == 3])
-
-  stringfish::sf_convert(x)
-}
+#' @include utils.R
+NULL
 
 MEDICAID_HOSPITAL_RANGES = list(
   "001-099" = pad_three(1:99),

@@ -66,13 +66,13 @@ S7::method(decode, S7::class_character) <- function(x) {
     if (all_numeric(x@std) || x@vec[3] == "P") {
       return(S7::convert(x, MedicareProviderCCN))
     }
-    if (is_emergency_hospital_code(x@vec[6])) {
+    if (is_emergency_hospital_type(x@vec[6])) {
       return(S7::convert(x, EmergencyHospitalCCN))
     }
     return(S7::convert(x, ProviderCCN))
   }
 
-  if (x@chr == 10L && x@vec[3] %in% c("C", "D", "X")) {
+  if (x@chr == 10L && is_supplier_type(x@vec[3])) {
     return(S7::convert(x, SupplierCCN))
   }
   x

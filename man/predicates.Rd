@@ -4,17 +4,17 @@
 \alias{predicates}
 \alias{is_medicaid_facility_type}
 \alias{is_ipps_excluded_type}
-\alias{is_emergency_hospital_code}
-\alias{is_supplier_code}
+\alias{is_emergency_hospital_type}
+\alias{is_supplier_type}
 \title{Logical Predicates}
 \usage{
 is_medicaid_facility_type(x)
 
 is_ipps_excluded_type(x)
 
-is_emergency_hospital_code(x)
+is_emergency_hospital_type(x)
 
-is_supplier_code(x)
+is_supplier_type(x)
 }
 \arguments{
 \item{x}{character vector of codes to test.}
@@ -26,8 +26,8 @@ logical vector indicating if codes are of the specified type.
 Logical tests for various code types
 }
 \examples{
-is_medicaid_facility_type(LETTERS)
-is_ipps_excluded_type(LETTERS)
-is_emergency_hospital_code(LETTERS)
-is_supplier_code(LETTERS)
+LETTERS[is_medicaid_facility_type(LETTERS)]
+LETTERS[is_ipps_excluded_type(LETTERS)]
+LETTERS[is_emergency_hospital_type(LETTERS)]
+LETTERS[is_supplier_type(LETTERS)]
 }

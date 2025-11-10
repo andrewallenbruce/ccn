@@ -1,3 +1,6 @@
+#' @include utils.R
+NULL
+
 EMERGENCY_HOSPITAL_CODE_LIST  <- list("ER (NF)" = "E", "ER (F)" = "F")
 EMERGENCY_HOSPITAL_NAMES_LONG <- list(
   "Non-Federal Emergency Hospital" = "ER (NF)",

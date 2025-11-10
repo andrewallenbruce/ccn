@@ -13,28 +13,28 @@ NULL
 
 #' @rdname lookups
 #' @examples
-#' emergency_hospital_name(LETTERS)
+#' LETTERS[emergency_hospital_name(LETTERS)]
 #' @autoglobal
 #' @export
 emergency_hospital_name <- make_switch(EMERGENCY_HOSPITAL_CODE_LIST)
 
 #' @rdname lookups
 #' @examples
-#' supplier_name(LETTERS)
+#' LETTERS[supplier_name(LETTERS)]
 #' @autoglobal
 #' @export
 supplier_name <- make_switch(SUPPLIER_CODE_LIST)
 
 #' @rdname lookups
 #' @examples
-#' state_name(c("00", "01", "83", "A0"))
+#' state_name(state_codes)
 #' @autoglobal
 #' @export
 state_name <- make_switch(STATE_CODE_LIST)
 
 #' @rdname lookups
 #' @examples
-#' state_abbr(c("Georgia", "Florida"))
+#' state_abbr(state_names)
 #' @autoglobal
 #' @export
 state_abbr <- function(x) {
