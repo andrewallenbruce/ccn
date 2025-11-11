@@ -9,9 +9,9 @@ EMERGENCY = list(
 
 SUPPLIER = list(
   CODE = list("ASC" = "C", "CLIA" = "D", "XRAY" = "X"),
-  NAME = list("Ambulatory Surgical Center" = "ASC",
-              "CLIA Laboratory"            = "CLIA",
-              "Portable X-Ray Facility"    = "XRAY"))
+  NAME = list("Ambulatory Surgical Center"      = "ASC",
+              "CLIA Laboratory"                 = "CLIA",
+              "Portable X-Ray Facility"         = "XRAY"))
 
 MEDICAID_FACILITY_CODE_LIST_ALL = list(
   "NF (SNF)"    = c("A", "B"),

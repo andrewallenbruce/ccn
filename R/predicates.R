@@ -47,4 +47,4 @@ is_opo_type <- function(x) x == "P"
 #' @rdname predicates
 #' @autoglobal
 #' @export
-is_state_code <- make_test(STATE_CODE_LIST)
+is_state_code <- make_test(STATE$CODE)

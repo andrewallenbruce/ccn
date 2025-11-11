@@ -87,14 +87,19 @@ MedicareProvider <- S7::new_class(
     facility_range = S7::new_property(
       S7::class_character,
       getter = function(self) {
-        get_medicare_range(self@sequence_number)
+        get_care_range(self@sequence_number)
       }
     ),
-    facility_abbr = S7::class_character,
+    facility_abbr = S7::new_property(
+      S7::class_character,
+      getter = function(self) {
+        get_care_range_abbr(self@facility_range)
+      }
+    ),
     facility_name = S7::new_property(
       S7::class_character,
       getter = function(self) {
-        get_medicare_range_name(self@facility_range)
+        get_care_range_name(self@facility_abbr)
       }
     )
   )
