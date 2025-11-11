@@ -32,12 +32,12 @@ is_excluded_type <- make_test(IPPS_EXCLUDED_TYPE_CODE_LIST)
 #' @rdname predicates
 #' @autoglobal
 #' @export
-is_emergency_type <- make_test(EMERGENCY_HOSPITAL_CODE_LIST)
+is_emergency_type <- make_test(EMERGENCY$CODE)
 
 #' @rdname predicates
 #' @autoglobal
 #' @export
-is_supplier_type <- make_test(SUPPLIER_CODE_LIST)
+is_supplier_type <- make_test(SUPPLIER$CODE)
 
 #' @rdname predicates
 #' @autoglobal

@@ -1,27 +1,15 @@
 #' @noRd
 #' @autoglobal
 Unknown <- S7::new_class(
-  name = "Unknown",
+  name       = "Unknown",
   properties = list(
-    raw = S7::class_character,
-    std = S7::new_property(
-      S7::class_character,
-      getter = function(self) {
-        clean(self@raw)
-      }
-    ),
-    chr = S7::new_property(
-      S7::class_character,
-      getter = function(self) {
-        nchar_(self@std)
-      }
-    ),
-    vec = S7::new_property(
-      S7::class_character,
-      getter = function(self) {
-        split_(self@std)
-      }
-    )
+    raw      = S7::class_character,
+    std      = S7::new_property(S7::class_character,
+    getter   = function(self) clean(self@raw)),
+    chr      = S7::new_property(S7::class_character,
+    getter   = function(self) nchar_(self@std)),
+    vec      = S7::new_property(S7::class_character,
+    getter   = function(self) split_(self@std))
   )
 )
 

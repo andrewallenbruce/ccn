@@ -1,21 +1,22 @@
 #' @include utils.R
 NULL
 
-EMERGENCY_HOSPITAL_CODE_LIST  <- list("ER (NF)" = "E", "ER (F)" = "F")
-EMERGENCY_HOSPITAL_NAME_LONG <- list(
-  "Non-Federal Emergency Hospital" = "ER (NF)",
-  "Federal Emergency Hospital"     = "ER (F)")
+EMERGENCY = list(
+  CODE = list("ERH-NF" = "E", "ERH-F" = "F"),
+  NAME = list(
+    "Non-Federal Emergency Hospital (Non-Participating)" = "ERH-NF",
+    "Federal Emergency Hospital (Non-Participating)"     = "ERH-F"))
 
-SUPPLIER_CODE_LIST  <- list("ASC" = "C", "CLIA" = "D", "XRAY" = "X")
-SUPPLIER_NAME_LONG <- list(
-  "Ambulatory Surgical Center"                                           = "ASC",
-  "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory" = "CLIA",
-  "Portable X-Ray Facility"                                              = "XRAY")
+SUPPLIER = list(
+  CODE = list("ASC" = "C", "CLIA" = "D", "XRAY" = "X"),
+  NAME = list("Ambulatory Surgical Center" = "ASC",
+              "CLIA Laboratory"            = "CLIA",
+              "Portable X-Ray Facility"    = "XRAY"))
 
-MEDICAID_FACILITY_CODE_LIST_ALL <- list(
+MEDICAID_FACILITY_CODE_LIST_ALL = list(
   "NF (SNF)"    = c("A", "B"),
   "NF (ICF)"    = c("E", "F"),
-  "ICF/IID"     = c("G", "H"),
+  "ICF-IID"     = c("G", "H"),
   "MCD HOSP"    = "J",
   "MCD HHA"     = "K",
   "PRTF"        = "L",
@@ -28,10 +29,10 @@ MEDICAID_FACILITY_CODE_LIST_ALL <- list(
   "SBA (REHAB)" = "Y",
   "SBA (CAH)"   = "Z")
 
-MEDICAID_FACILITY_NAME_LONG_ALL <- list(
+MEDICAID_FACILITY_NAME_LONG_ALL = list(
   "Nursing Facility (Formerly Assigned to Medicaid Skilled Nursing Facility)" = "NF (SNF)",
   "Nursing Facility (Formerly Assigned to Intermediate Care Facility)"        = "NF (ICF)",
-  "Intermediate Care Facility for Individuals with Intellectual Disabilities" = "ICF/IID",
+  "Intermediate Care Facility for Individuals with Intellectual Disabilities" = "ICF-IID",
   "Medicaid-Only Hospital"                                                    = "MCD HOSP",
   "Medicaid Home Health Agency"                                               = "MCD HHA",
   "Psychiatric Residential Treatment Facility"                                = "PRTF",

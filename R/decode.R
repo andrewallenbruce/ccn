@@ -20,10 +20,10 @@ ccn <- function(x) {
 
   if (x@chr == 6L) {
 
-    if (is_numeric(x@std))           return(decode(x, MedicareProvider()))
-    if (is_opo_type(x@vec[3]))       return(decode(x, MedicareProviderOPO()))
+    if (is_numeric(          x@std)) return(decode(x, MedicareProvider()))
+    if (is_opo_type(      x@vec[3])) return(decode(x, MedicareProviderOPO()))
     if (is_emergency_type(x@vec[6])) return(decode(x, EmergencyHospital()))
-    if (is_medicaid_type(x@vec[3]))  return(decode(x, MedicaidOnlyProvider()))
+    if (is_medicaid_type( x@vec[3])) return(decode(x, MedicaidOnlyProvider()))
 
     return(decode(x, Provider()))
   }

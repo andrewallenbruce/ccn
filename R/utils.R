@@ -89,7 +89,7 @@ make_switch <- function(x) {
 
   e <- purrr::map(x, \(x) cheapr::fast_df(field = x)) |>
     purrr::list_rbind(names_to = "constant") |>
-    collapse::roworder(constant, field)
+    collapse::roworderv(c("constant", "field"))
 
   function(x) {
     kit::vswitch(
