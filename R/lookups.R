@@ -13,10 +13,12 @@ NULL
 #' get_emergency_abbr(c("E", "F"))
 #' get_supplier_abbr(c("C", "D", "X"))
 #' get_state_abbr(ccn:::state_codes)
+#' get_medicare_range(c("0055", "5232", "9999"))
 #'
 #' get_emergency_name(get_emergency_abbr(c("E", "F")))
 #' get_supplier_name(get_supplier_abbr(c("C", "D", "X")))
 #' get_state_name(get_state_abbr(ccn:::state_codes))
+#' get_medicare_range_name(get_medicare_range(c("0055", "5232", "9999")))
 NULL
 
 #' @rdname lookups
@@ -48,3 +50,13 @@ get_supplier_name <- make_switch(SUPPLIER_NAME_LONG)
 #' @autoglobal
 #' @export
 get_state_name <- make_switch(STATE_NAME_LIST)
+
+#' @rdname lookups
+#' @autoglobal
+#' @export
+get_medicare_range <- make_switch(MEDICARE_FACILITY_RANGES)
+
+#' @rdname lookups
+#' @autoglobal
+#' @export
+get_medicare_range_name <- make_switch(MEDICARE_FACILITY_RANGE_NAMES)

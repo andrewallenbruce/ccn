@@ -3,6 +3,8 @@
 export(ccn)
 export(get_emergency_abbr)
 export(get_emergency_name)
+export(get_medicare_range)
+export(get_medicare_range_name)
 export(get_state_abbr)
 export(get_state_name)
 export(get_supplier_abbr)

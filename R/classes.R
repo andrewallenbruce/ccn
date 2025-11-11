@@ -94,21 +94,34 @@ Supplier <- S7::new_class(
 #' @autoglobal
 MedicareProvider <- S7::new_class(
   name   = "MedicareProvider",
-  parent = Provider
+  parent = Provider,
+  properties = list(
+    facility_range = S7::new_property(
+      S7::class_character,
+      getter = function(self) {
+        get_medicare_range(self@sequence_number)
+      }
+    ),
+    facility_abbr = S7::class_character,
+    facility_name = S7::new_property(
+      S7::class_character,
+      getter = function(self) {
+        get_medicare_range_name(self@facility_range)
+      }
+    )
+  )
 )
 
 #' @noRd
 #' @autoglobal
 MedicareProviderOPO <- S7::new_class(
   name   = "MedicareProviderOPO",
-  parent = MedicareProvider,
+  parent = Provider,
   properties = list(
-    org_type = S7::new_property(
-      S7::class_character, default = "P"),
-    org_abbr = S7::new_property(
-      S7::class_character, default = "OPO"),
-    org_name = S7::new_property(
-      S7::class_character, default = "Organ Procurement Organization")
+    facility_type  = S7::new_property(S7::class_character, default = "P"),
+    facility_range = S7::new_property(S7::class_character, default = "001-099"),
+    facility_abbr  = S7::new_property(S7::class_character, default = "OPO"),
+    facility_name  = S7::new_property(S7::class_character, default = "Organ Procurement Organization")
   )
 )
 

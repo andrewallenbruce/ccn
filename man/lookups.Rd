@@ -8,6 +8,8 @@
 \alias{get_emergency_name}
 \alias{get_supplier_name}
 \alias{get_state_name}
+\alias{get_medicare_range}
+\alias{get_medicare_range_name}
 \title{Lookups for Various Codes}
 \usage{
 get_emergency_abbr(x)
@@ -21,6 +23,10 @@ get_emergency_name(x)
 get_supplier_name(x)
 
 get_state_name(x)
+
+get_medicare_range(x)
+
+get_medicare_range_name(x)
 }
 \arguments{
 \item{x}{character vector of codes to look up.}
@@ -35,8 +41,10 @@ Convert various codes to their associated names.
 get_emergency_abbr(c("E", "F"))
 get_supplier_abbr(c("C", "D", "X"))
 get_state_abbr(ccn:::state_codes)
+get_medicare_range(c("0055", "5232", "9999"))
 
 get_emergency_name(get_emergency_abbr(c("E", "F")))
 get_supplier_name(get_supplier_abbr(c("C", "D", "X")))
 get_state_name(get_state_abbr(ccn:::state_codes))
+get_medicare_range_name(get_medicare_range(c("0055", "5232", "9999")))
 }

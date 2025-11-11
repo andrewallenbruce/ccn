@@ -69,7 +69,6 @@ S7::method(decode, list(Unknown, MedicareProviderOPO)) <- function(x, y) {
   MedicareProviderOPO(
     ccn             = x@std,
     state_code      = x@vec[1:2],
-    org_type        = x@vec[3],
     sequence_number = x@vec[4:6]
   )
 }

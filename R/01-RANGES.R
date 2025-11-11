@@ -10,7 +10,7 @@ MEDICAID_HOSPITAL_RANGES = list(
   "500-599" = as_sf(500:599))
 
 
-MEDICAID_HOSPITAL_RANGES_NAMES_LONG = list(
+MEDICAID_HOSPITAL_RANGE_NAMES = list(
   "Short-term Acute Care Hospital"  = "001-099",
   "Children's Hospital"             = "100-199",
   "Children's Psychiatric Hospital" = "200-299",
@@ -18,7 +18,7 @@ MEDICAID_HOSPITAL_RANGES_NAMES_LONG = list(
   "Rehabilitation Hospital"         = "400-499",
   "Long-term Hospital"              = "500-599")
 
-FACILITY_RANGES = list(
+MEDICARE_FACILITY_RANGES = list(
   "0001-0879" = pad_four(1:879),
   "0880-0899" = pad_four(880:899),
   "0900-0999" = pad_four(900:999),
@@ -60,7 +60,7 @@ FACILITY_RANGES = list(
   "9900-9999" = as_sf(9900:9999)
 )
 
-FACILITY_RANGES_NAMES_LONG = list(
+MEDICARE_FACILITY_RANGE_NAMES = list(
   "Short-term (General and Specialty) Hospital"                                                            = "0001-0879",
   "Hospital participating in ORD demonstration project"                                                    = "0880-0899",
   "Multiple Hospital Component in a Medical Complex (Number Retired)"                                      = "0900-0999",
