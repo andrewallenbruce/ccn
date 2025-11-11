@@ -2,17 +2,23 @@
 % Please edit documentation in R/lookups.R
 \name{lookups}
 \alias{lookups}
-\alias{get_emergency_hospital_name}
-\alias{get_supplier_name}
+\alias{get_emergency_abbr}
+\alias{get_supplier_abbr}
 \alias{get_state_abbr}
+\alias{get_emergency_name}
+\alias{get_supplier_name}
 \alias{get_state_name}
 \title{Lookups for Various Codes}
 \usage{
-get_emergency_hospital_name(x)
+get_emergency_abbr(x)
 
-get_supplier_name(x)
+get_supplier_abbr(x)
 
 get_state_abbr(x)
+
+get_emergency_name(x)
+
+get_supplier_name(x)
 
 get_state_name(x)
 }
@@ -26,8 +32,11 @@ character vector of names associated with codes.
 Convert various codes to their associated names.
 }
 \examples{
-get_emergency_hospital_name(c("E", "F"))
-get_supplier_name(c("C", "D", "X"))
+get_emergency_abbr(c("E", "F"))
+get_supplier_abbr(c("C", "D", "X"))
 get_state_abbr(ccn:::state_ccn_codes)
-get_state_name(ccn:::state_abbreviations)
+
+get_emergency_name(get_emergency_abbr(c("E", "F")))
+get_supplier_name(get_supplier_abbr(c("C", "D", "X")))
+get_state_name(get_state_abbr(ccn:::state_ccn_codes))
 }

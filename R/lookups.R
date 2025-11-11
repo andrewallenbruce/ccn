@@ -10,21 +10,24 @@ NULL
 #' @name lookups
 #' @returns character vector of names associated with codes.
 #' @examples
-#' get_emergency_hospital_name(c("E", "F"))
-#' get_supplier_name(c("C", "D", "X"))
+#' get_emergency_abbr(c("E", "F"))
+#' get_supplier_abbr(c("C", "D", "X"))
 #' get_state_abbr(ccn:::state_ccn_codes)
-#' get_state_name(ccn:::state_abbreviations)
+#'
+#' get_emergency_name(get_emergency_abbr(c("E", "F")))
+#' get_supplier_name(get_supplier_abbr(c("C", "D", "X")))
+#' get_state_name(get_state_abbr(ccn:::state_ccn_codes))
 NULL
 
 #' @rdname lookups
 #' @autoglobal
 #' @export
-get_emergency_hospital_name <- make_switch(EMERGENCY_HOSPITAL_CODE_LIST)
+get_emergency_abbr <- make_switch(EMERGENCY_HOSPITAL_CODE_LIST)
 
 #' @rdname lookups
 #' @autoglobal
 #' @export
-get_supplier_name <- make_switch(SUPPLIER_CODE_LIST)
+get_supplier_abbr <- make_switch(SUPPLIER_CODE_LIST)
 
 #' @rdname lookups
 #' @autoglobal
@@ -34,5 +37,14 @@ get_state_abbr <- make_switch(STATE_CODE_LIST)
 #' @rdname lookups
 #' @autoglobal
 #' @export
+get_emergency_name <- make_switch(EMERGENCY_HOSPITAL_NAME_LONG)
+
+#' @rdname lookups
+#' @autoglobal
+#' @export
+get_supplier_name <- make_switch(SUPPLIER_NAME_LONG)
+
+#' @rdname lookups
+#' @autoglobal
+#' @export
 get_state_name <- make_switch(STATE_NAME_LIST)
-# unlist_(STATE_NAME_ABBR)[collapse::fmatch(x, rlang::names2(STATE_NAME_ABBR))]

@@ -2,12 +2,12 @@
 NULL
 
 EMERGENCY_HOSPITAL_CODE_LIST  <- list("ER (NF)" = "E", "ER (F)" = "F")
-EMERGENCY_HOSPITAL_NAMES_LONG <- list(
+EMERGENCY_HOSPITAL_NAME_LONG <- list(
   "Non-Federal Emergency Hospital" = "ER (NF)",
   "Federal Emergency Hospital"     = "ER (F)")
 
 SUPPLIER_CODE_LIST  <- list("ASC" = "C", "CLIA" = "D", "XRAY" = "X")
-SUPPLIER_NAMES_LONG <- list(
+SUPPLIER_NAME_LONG <- list(
   "Ambulatory Surgical Center"                                           = "ASC",
   "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory" = "CLIA",
   "Portable X-Ray Facility"                                              = "XRAY")
@@ -28,7 +28,7 @@ MEDICAID_FACILITY_CODE_LIST_ALL <- list(
   "SBA (REHAB)" = "Y",
   "SBA (CAH)"   = "Z")
 
-MEDICAID_FACILITY_NAMES_LONG_ALL <- list(
+MEDICAID_FACILITY_NAME_LONG_ALL <- list(
   "Nursing Facility (Formerly Assigned to Medicaid Skilled Nursing Facility)" = "NF (SNF)",
   "Nursing Facility (Formerly Assigned to Intermediate Care Facility)"        = "NF (ICF)",
   "Intermediate Care Facility for Individuals with Intellectual Disabilities" = "ICF/IID",

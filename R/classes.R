@@ -39,6 +39,18 @@ CCN <- S7::new_class(
         self
       }
     ),
+    state_abbr = S7::new_property(
+      S7::class_character,
+      getter = function(self) {
+        get_state_abbr(self@state_code)
+      }
+    ),
+    state_name = S7::new_property(
+      S7::class_character,
+      getter = function(self) {
+        get_state_abbr(self@state_abbr)
+      }
+    ),
     sequence_number = S7::new_property(
       S7::class_character,
       setter = function(self, value) {
@@ -62,7 +74,19 @@ Supplier <- S7::new_class(
   name = "Supplier",
   parent = CCN,
   properties = list(
-    supplier_type = S7::class_character
+    supplier_type = S7::class_character,
+    supplier_abbr = S7::new_property(
+      S7::class_character,
+      getter = function(self) {
+        get_supplier_abbr(self@supplier_type)
+      }
+    ),
+    supplier_name = S7::new_property(
+      S7::class_character,
+      getter = function(self) {
+        get_supplier_name(self@supplier_abbr)
+      }
+    )
   )
 )
 
@@ -79,10 +103,9 @@ MedicareProviderOPO <- S7::new_class(
   name   = "MedicareProviderOPO",
   parent = MedicareProvider,
   properties = list(
-    facility_type = S7::new_property(
-      S7::class_character,
-      default = "P"
-      )
+    facility_type = S7::new_property(S7::class_character, default = "P"),
+    facility_abbr = S7::new_property(S7::class_character, default = "OPO"),
+    facility_name = S7::new_property(S7::class_character, default = "Organ Procurement Organization")
     )
   )
 
