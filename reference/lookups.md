@@ -20,6 +20,10 @@ get_state_name(x)
 get_medicare_range(x)
 
 get_medicare_range_name(x)
+
+get_medicaid_range(x)
+
+get_medicaid_range_name(x)
 ```
 
 ## Arguments
@@ -36,7 +40,7 @@ character vector of names associated with codes.
 
 ``` r
 get_emergency_abbr(c("E", "F"))
-#> [1] "ER (NF)" "ER (F)" 
+#> [1] "ERH-NF" "ERH-F" 
 get_supplier_abbr(c("C", "D", "X"))
 #> [1] "ASC"  "CLIA" "XRAY"
 get_state_abbr(ccn:::state_codes)
@@ -53,13 +57,15 @@ get_state_abbr(ccn:::state_codes)
 #> [101] "MS"   "OH"   "PA"   "TN"   "TX"   "KY"   "WV"   "CA"  
 get_medicare_range(c("0055", "5232", "9999"))
 #> [1] "0001-0879" "5000-6499" "9900-9999"
+get_medicaid_range(c("055", "232", "599"))
+#> [1] "001-099" "200-299" "500-599"
 
 get_emergency_name(get_emergency_abbr(c("E", "F")))
-#> [1] "Non-Federal Emergency Hospital" "Federal Emergency Hospital"    
+#> [1] "Non-Federal Emergency Hospital (Non-Participating)"
+#> [2] "Federal Emergency Hospital (Non-Participating)"    
 get_supplier_name(get_supplier_abbr(c("C", "D", "X")))
-#> [1] "Ambulatory Surgical Center"                                          
-#> [2] "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory"
-#> [3] "Portable X-Ray Facility"                                             
+#> [1] "Ambulatory Surgical Center" "CLIA Laboratory"           
+#> [3] "Portable X-Ray Facility"   
 get_state_name(get_state_abbr(ccn:::state_codes))
 #>   [1] "Arizona"                                          
 #>   [2] "Alabama"                                          
@@ -173,4 +179,7 @@ get_medicare_range_name(get_medicare_range(c("0055", "5232", "9999")))
 #> [1] "Short-term (General and Specialty) Hospital"
 #> [2] "Skilled Nursing Facility"                   
 #> [3] "Reserved for Future Use"                    
+get_medicaid_range_name(get_medicaid_range(c("055", "232", "599")))
+#> [1] "Short-Term Acute Care Hospital"  "Children's Psychiatric Hospital"
+#> [3] "Long-Term Hospital"             
 ```

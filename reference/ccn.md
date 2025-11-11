@@ -67,8 +67,8 @@ ccn("12345E")
 #>  @ state_name     : chr "Hawaii"
 #>  @ sequence_number: chr "345"
 #>  @ emergency_type : chr "E"
-#>  @ emergency_abbr : chr "ER (NF)"
-#>  @ emergency_name : chr "Non-Federal Emergency Hospital"
+#>  @ emergency_abbr : chr "ERH-NF"
+#>  @ emergency_name : chr "Non-Federal Emergency Hospital (Non-Participating)"
 ccn("12C4567890")
 #> <ccn::Supplier>
 #>  @ ccn            : chr "12C4567890"
