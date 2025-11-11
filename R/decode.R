@@ -15,18 +15,16 @@
 #' @export
 #' @autoglobal
 ccn <- function(x) {
+
   x <- Unknown(raw = x)
 
   if (x@chr == 6L) {
-    if (!has_letter(x@std)) {
-      return(decode(x, MedicareProvider()))
-    }
-    if (x@vec[3] == "P") {
-      return(decode(x, MedicareProviderOPO()))
-    }
-    if (is_emergency_hospital_type(x@vec[6])) {
-      return(decode(x, EmergencyHospital()))
-    }
+
+    if (is_numeric(x@std))           return(decode(x, MedicareProvider()))
+    if (is_opo_type(x@vec[3]))       return(decode(x, MedicareProviderOPO()))
+    if (is_emergency_type(x@vec[6])) return(decode(x, EmergencyHospital()))
+    if (is_medicaid_type(x@vec[3]))  return(decode(x, MedicaidOnlyProvider()))
+
     return(decode(x, Provider()))
   }
 
@@ -71,7 +69,7 @@ S7::method(decode, list(Unknown, MedicareProviderOPO)) <- function(x, y) {
   MedicareProviderOPO(
     ccn             = x@std,
     state_code      = x@vec[1:2],
-    facility_type   = x@vec[3],
+    org_type        = x@vec[3],
     sequence_number = x@vec[4:6]
   )
 }
@@ -82,5 +80,14 @@ S7::method(decode, list(Unknown, EmergencyHospital)) <- function(x, y) {
     state_code      = x@vec[1:2],
     sequence_number = x@vec[3:5],
     emergency_type  = x@vec[6]
+  )
+}
+
+S7::method(decode, list(Unknown, MedicaidOnlyProvider)) <- function(x, y) {
+  MedicaidOnlyProvider(
+    ccn             = x@std,
+    state_code      = x@vec[1:2],
+    facility_type   = x@vec[3],
+    sequence_number = x@vec[4:6]
   )
 }

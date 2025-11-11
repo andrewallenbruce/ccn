@@ -48,7 +48,7 @@ CCN <- S7::new_class(
     state_name = S7::new_property(
       S7::class_character,
       getter = function(self) {
-        get_state_abbr(self@state_abbr)
+        get_state_name(self@state_abbr)
       }
     ),
     sequence_number = S7::new_property(
@@ -103,11 +103,14 @@ MedicareProviderOPO <- S7::new_class(
   name   = "MedicareProviderOPO",
   parent = MedicareProvider,
   properties = list(
-    facility_type = S7::new_property(S7::class_character, default = "P"),
-    facility_abbr = S7::new_property(S7::class_character, default = "OPO"),
-    facility_name = S7::new_property(S7::class_character, default = "Organ Procurement Organization")
-    )
+    org_type = S7::new_property(
+      S7::class_character, default = "P"),
+    org_abbr = S7::new_property(
+      S7::class_character, default = "OPO"),
+    org_name = S7::new_property(
+      S7::class_character, default = "Organ Procurement Organization")
   )
+)
 
 #' @noRd
 #' @autoglobal
@@ -115,7 +118,19 @@ EmergencyHospital <- S7::new_class(
   name   = "EmergencyHospital",
   parent = Provider,
   properties = list(
-    emergency_type = S7::class_character
+    emergency_type = S7::class_character,
+    emergency_abbr = S7::new_property(
+      S7::class_character,
+      getter = function(self) {
+        get_emergency_abbr(self@emergency_type)
+      }
+    ),
+    emergency_name = S7::new_property(
+      S7::class_character,
+      getter = function(self) {
+        get_emergency_name(self@emergency_abbr)
+      }
+    )
   )
 )
 

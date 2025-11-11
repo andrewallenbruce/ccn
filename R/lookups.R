@@ -12,11 +12,11 @@ NULL
 #' @examples
 #' get_emergency_abbr(c("E", "F"))
 #' get_supplier_abbr(c("C", "D", "X"))
-#' get_state_abbr(ccn:::state_ccn_codes)
+#' get_state_abbr(ccn:::state_codes)
 #'
 #' get_emergency_name(get_emergency_abbr(c("E", "F")))
 #' get_supplier_name(get_supplier_abbr(c("C", "D", "X")))
-#' get_state_name(get_state_abbr(ccn:::state_ccn_codes))
+#' get_state_name(get_state_abbr(ccn:::state_codes))
 NULL
 
 #' @rdname lookups

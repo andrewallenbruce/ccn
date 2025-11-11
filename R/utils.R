@@ -111,6 +111,12 @@ has_letter <- function(x) {
 
 #' @autoglobal
 #' @noRd
+is_numeric <- function(x) {
+  !has_letter(x)
+}
+
+#' @autoglobal
+#' @noRd
 has_hyphen <- function(x) {
   stringfish::sf_grepl(x, "-", fixed = TRUE, nthreads = 4L)
 }

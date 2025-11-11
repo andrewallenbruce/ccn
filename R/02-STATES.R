@@ -63,34 +63,22 @@ STATE_CODE_LIST <- list(
   "FC"   = c("99"))
 
 
-STATE_NAME <- c(
-  state.name,
-  "District of Columbia",
-  "Puerto Rico",
-  "Virgin Islands",
-  "Canada",
-  "Mexico",
-  "American Samoa",
-  "Guam",
-  "Commonwealth of the Northern Marianas Islands",
-  "Foreign Countries (exceptions: Canada and Mexico)"
+STATE_NAME_LIST <- rlang::set_names(
+  as.list(c(
+    state.abb, "DC", "PR", "VI", "CN", "MX", "AS", "GU", "CNMI", "FC")),
+  c(state.name,
+    "District of Columbia",
+    "Puerto Rico",
+    "Virgin Islands",
+    "Canada",
+    "Mexico",
+    "American Samoa",
+    "Guam",
+    "Commonwealth of the Northern Marianas Islands",
+    "Foreign Countries (exceptions: Canada and Mexico)"
+  )
 )
 
-
-STATE_NAME_LIST <- rlang::set_names(
-  as.list(c(state.abb, "DC", "PR", "VI", "CN", "MX", "AS", "GU", "CNMI", "FC")),
-  c(state.name, "District of Columbia", "Puerto Rico", "Virgin Islands", "Canada",
-    "Mexico", "American Samoa", "Guam", "Commonwealth of the Northern Marianas Islands",
-    "Foreign Countries (exceptions: Canada and Mexico)"))
-
 #' @autoglobal
 #' @noRd
-state_abbreviations <- kit::psort(unlist_(STATE_NAME_LIST), nThread = 4L)
-
-#' @autoglobal
-#' @noRd
-state_ccn_codes <- kit::psort(unlist_(STATE_CODE_LIST), nThread = 4L)
-
-#' @autoglobal
-#' @noRd
-state_full_names <- kit::psort(rlang::names2(STATE_NAME_LIST), nThread = 4L)
+state_codes <- kit::psort(unlist_(STATE_CODE_LIST), nThread = 4L)
