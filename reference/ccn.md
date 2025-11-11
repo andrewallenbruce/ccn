@@ -40,8 +40,8 @@ ccn("670055")
 #>  @ state_name     : chr "Texas"
 #>  @ sequence_number: chr "0055"
 #>  @ facility_range : chr "0001-0879"
-#>  @ facility_abbr  : chr(0) 
-#>  @ facility_name  : chr "Short-term (General and Specialty) Hospital"
+#>  @ facility_abbr  : chr "STH"
+#>  @ facility_name  : chr "Short-Term Hospital (General & Specialty)"
 ccn("21-0101")
 #> <ccn::MedicareProvider>
 #>  @ ccn            : chr "210101"
@@ -50,8 +50,8 @@ ccn("21-0101")
 #>  @ state_name     : chr "Maryland"
 #>  @ sequence_number: chr "0101"
 #>  @ facility_range : chr "0001-0879"
-#>  @ facility_abbr  : chr(0) 
-#>  @ facility_name  : chr "Short-term (General and Specialty) Hospital"
+#>  @ facility_abbr  : chr "STH"
+#>  @ facility_name  : chr "Short-Term Hospital (General & Specialty)"
 ccn("21-T101")
 #> <ccn::Provider>
 #>  @ ccn            : chr "21T101"

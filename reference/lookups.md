@@ -7,23 +7,15 @@ Convert various codes to their associated names.
 ``` r
 get_emergency_abbr(x)
 
-get_supplier_abbr(x)
-
-get_state_abbr(x)
-
 get_emergency_name(x)
+
+get_supplier_abbr(x)
 
 get_supplier_name(x)
 
+get_state_abbr(x)
+
 get_state_name(x)
-
-get_medicare_range(x)
-
-get_medicare_range_name(x)
-
-get_medicaid_range(x)
-
-get_medicaid_range_name(x)
 ```
 
 ## Arguments
@@ -55,10 +47,6 @@ get_state_abbr(ccn:::state_codes)
 #>  [81] "PR"   "GA"   "NC"   "SC"   "TN"   "AR"   "OK"   "CO"   "CA"   "OR"  
 #>  [91] "WA"   "LA"   "NM"   "TX"   "FC"   "CA"   "CA"   "FL"   "LA"   "MI"  
 #> [101] "MS"   "OH"   "PA"   "TN"   "TX"   "KY"   "WV"   "CA"  
-get_medicare_range(c("0055", "5232", "9999"))
-#> [1] "0001-0879" "5000-6499" "9900-9999"
-get_medicaid_range(c("055", "232", "599"))
-#> [1] "001-099" "200-299" "500-599"
 
 get_emergency_name(get_emergency_abbr(c("E", "F")))
 #> [1] "Non-Federal Emergency Hospital (Non-Participating)"
@@ -175,11 +163,4 @@ get_state_name(get_state_abbr(ccn:::state_codes))
 #> [106] "Kentucky"                                         
 #> [107] "West Virginia"                                    
 #> [108] "California"                                       
-get_medicare_range_name(get_medicare_range(c("0055", "5232", "9999")))
-#> [1] "Short-term (General and Specialty) Hospital"
-#> [2] "Skilled Nursing Facility"                   
-#> [3] "Reserved for Future Use"                    
-get_medicaid_range_name(get_medicaid_range(c("055", "232", "599")))
-#> [1] "Short-Term Acute Care Hospital"  "Children's Psychiatric Hospital"
-#> [3] "Long-Term Hospital"             
 ```
