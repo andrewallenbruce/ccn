@@ -35,7 +35,7 @@ get_emergency_abbr(c("E", "F"))
 #> [1] "ER (NF)" "ER (F)" 
 get_supplier_abbr(c("C", "D", "X"))
 #> [1] "ASC"  "CLIA" "XRAY"
-get_state_abbr(ccn:::state_ccn_codes)
+get_state_abbr(ccn:::state_codes)
 #>   [1] "AZ"   "AL"   "AK"   "AZ"   "AR"   "CA"   "CO"   "CT"   "DE"   "DC"  
 #>  [11] "FL"   "GA"   "HI"   "ID"   "IL"   "IN"   "IA"   "KS"   "KY"   "LA"  
 #>  [21] "ME"   "MD"   "MA"   "MI"   "MN"   "MS"   "MO"   "MT"   "NE"   "NV"  
@@ -54,7 +54,7 @@ get_supplier_name(get_supplier_abbr(c("C", "D", "X")))
 #> [1] "Ambulatory Surgical Center"                                          
 #> [2] "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory"
 #> [3] "Portable X-Ray Facility"                                             
-get_state_name(get_state_abbr(ccn:::state_ccn_codes))
+get_state_name(get_state_abbr(ccn:::state_codes))
 #>   [1] "Arizona"                                          
 #>   [2] "Alabama"                                          
 #>   [3] "Alaska"                                           

@@ -26,46 +26,48 @@ ccn("67P055")
 #>  @ ccn            : chr "67P055"
 #>  @ state_code     : chr "67"
 #>  @ state_abbr     : chr "TX"
-#>  @ state_name     : chr NA
+#>  @ state_name     : chr "Texas"
 #>  @ sequence_number: chr "055"
-#>  @ facility_type  : chr "P"
-#>  @ facility_abbr  : chr "OPO"
-#>  @ facility_name  : chr "Organ Procurement Organization"
+#>  @ org_type       : chr "P"
+#>  @ org_abbr       : chr "OPO"
+#>  @ org_name       : chr "Organ Procurement Organization"
 ccn("670055")
 #> <ccn::MedicareProvider>
 #>  @ ccn            : chr "670055"
 #>  @ state_code     : chr "67"
 #>  @ state_abbr     : chr "TX"
-#>  @ state_name     : chr NA
+#>  @ state_name     : chr "Texas"
 #>  @ sequence_number: chr "0055"
 ccn("21-0101")
 #> <ccn::MedicareProvider>
 #>  @ ccn            : chr "210101"
 #>  @ state_code     : chr "21"
 #>  @ state_abbr     : chr "MD"
-#>  @ state_name     : chr NA
+#>  @ state_name     : chr "Maryland"
 #>  @ sequence_number: chr "0101"
 ccn("21-T101")
 #> <ccn::Provider>
 #>  @ ccn            : chr "21T101"
 #>  @ state_code     : chr "21"
 #>  @ state_abbr     : chr "MD"
-#>  @ state_name     : chr NA
+#>  @ state_name     : chr "Maryland"
 #>  @ sequence_number: chr "T101"
 ccn("12345E")
 #> <ccn::EmergencyHospital>
 #>  @ ccn            : chr "12345E"
 #>  @ state_code     : chr "12"
 #>  @ state_abbr     : chr "HI"
-#>  @ state_name     : chr NA
+#>  @ state_name     : chr "Hawaii"
 #>  @ sequence_number: chr "345"
 #>  @ emergency_type : chr "E"
+#>  @ emergency_abbr : chr "ER (NF)"
+#>  @ emergency_name : chr "Non-Federal Emergency Hospital"
 ccn("12C4567890")
 #> <ccn::Supplier>
 #>  @ ccn            : chr "12C4567890"
 #>  @ state_code     : chr "12"
 #>  @ state_abbr     : chr "HI"
-#>  @ state_name     : chr NA
+#>  @ state_name     : chr "Hawaii"
 #>  @ sequence_number: chr "4567890"
 #>  @ supplier_type  : chr "C"
 #>  @ supplier_abbr  : chr "ASC"
