@@ -28,9 +28,10 @@ ccn("67P055")
 #>  @ state_abbr     : chr "TX"
 #>  @ state_name     : chr "Texas"
 #>  @ sequence_number: chr "055"
-#>  @ org_type       : chr "P"
-#>  @ org_abbr       : chr "OPO"
-#>  @ org_name       : chr "Organ Procurement Organization"
+#>  @ facility_type  : chr "P"
+#>  @ facility_range : chr "001-099"
+#>  @ facility_abbr  : chr "OPO"
+#>  @ facility_name  : chr "Organ Procurement Organization"
 ccn("670055")
 #> <ccn::MedicareProvider>
 #>  @ ccn            : chr "670055"
@@ -38,6 +39,9 @@ ccn("670055")
 #>  @ state_abbr     : chr "TX"
 #>  @ state_name     : chr "Texas"
 #>  @ sequence_number: chr "0055"
+#>  @ facility_range : chr "0001-0879"
+#>  @ facility_abbr  : chr(0) 
+#>  @ facility_name  : chr "Short-term (General and Specialty) Hospital"
 ccn("21-0101")
 #> <ccn::MedicareProvider>
 #>  @ ccn            : chr "210101"
@@ -45,6 +49,9 @@ ccn("21-0101")
 #>  @ state_abbr     : chr "MD"
 #>  @ state_name     : chr "Maryland"
 #>  @ sequence_number: chr "0101"
+#>  @ facility_range : chr "0001-0879"
+#>  @ facility_abbr  : chr(0) 
+#>  @ facility_name  : chr "Short-term (General and Specialty) Hospital"
 ccn("21-T101")
 #> <ccn::Provider>
 #>  @ ccn            : chr "21T101"

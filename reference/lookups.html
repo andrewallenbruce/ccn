@@ -55,7 +55,11 @@
 <span></span>
 <span><span class="fu">get_supplier_name</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">get_state_name</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">get_state_name</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">get_medicare_range</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">get_medicare_range_name</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -89,6 +93,8 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [81] "PR"   "GA"   "NC"   "SC"   "TN"   "AR"   "OK"   "CO"   "CA"   "OR"  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [91] "WA"   "LA"   "NM"   "TX"   "FC"   "CA"   "CA"   "FL"   "LA"   "MI"  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [101] "MS"   "OH"   "PA"   "TN"   "TX"   "KY"   "WV"   "CA"  </span>
+<span class="r-in"><span><span class="fu">get_medicare_range</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"0055"</span>, <span class="st">"5232"</span>, <span class="st">"9999"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "0001-0879" "5000-6499" "9900-9999"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">get_emergency_name</span><span class="op">(</span><span class="fu">get_emergency_abbr</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"E"</span>, <span class="st">"F"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Non-Federal Emergency Hospital" "Federal Emergency Hospital"    </span>
@@ -205,6 +211,10 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> [106] "Kentucky"                                         </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [107] "West Virginia"                                    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [108] "California"                                       </span>
+<span class="r-in"><span><span class="fu">get_medicare_range_name</span><span class="op">(</span><span class="fu">get_medicare_range</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"0055"</span>, <span class="st">"5232"</span>, <span class="st">"9999"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Short-term (General and Specialty) Hospital"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2] "Skilled Nursing Facility"                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [3] "Reserved for Future Use"                    </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
