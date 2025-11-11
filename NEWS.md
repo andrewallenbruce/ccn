@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9005 (2025-11-10)
+
+* added `asc` pin, redid `aff` pin
+
+
 # ccn 0.0.0.9004 (2025-11-09)
 
 * `decode` S7 generic first pass
