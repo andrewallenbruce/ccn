@@ -25,35 +25,51 @@ ccn("67P055")
 #> <ccn::MedicareProviderOPO>
 #>  @ ccn            : chr "67P055"
 #>  @ state_code     : chr "67"
+#>  @ state_abbr     : chr "TX"
+#>  @ state_name     : chr NA
 #>  @ sequence_number: chr "055"
 #>  @ facility_type  : chr "P"
+#>  @ facility_abbr  : chr "OPO"
+#>  @ facility_name  : chr "Organ Procurement Organization"
 ccn("670055")
 #> <ccn::MedicareProvider>
 #>  @ ccn            : chr "670055"
 #>  @ state_code     : chr "67"
+#>  @ state_abbr     : chr "TX"
+#>  @ state_name     : chr NA
 #>  @ sequence_number: chr "0055"
 ccn("21-0101")
 #> <ccn::MedicareProvider>
 #>  @ ccn            : chr "210101"
 #>  @ state_code     : chr "21"
+#>  @ state_abbr     : chr "MD"
+#>  @ state_name     : chr NA
 #>  @ sequence_number: chr "0101"
 ccn("21-T101")
 #> <ccn::Provider>
 #>  @ ccn            : chr "21T101"
 #>  @ state_code     : chr "21"
+#>  @ state_abbr     : chr "MD"
+#>  @ state_name     : chr NA
 #>  @ sequence_number: chr "T101"
 ccn("12345E")
 #> <ccn::EmergencyHospital>
 #>  @ ccn            : chr "12345E"
 #>  @ state_code     : chr "12"
+#>  @ state_abbr     : chr "HI"
+#>  @ state_name     : chr NA
 #>  @ sequence_number: chr "345"
 #>  @ emergency_type : chr "E"
 ccn("12C4567890")
 #> <ccn::Supplier>
 #>  @ ccn            : chr "12C4567890"
 #>  @ state_code     : chr "12"
+#>  @ state_abbr     : chr "HI"
+#>  @ state_name     : chr NA
 #>  @ sequence_number: chr "4567890"
 #>  @ supplier_type  : chr "C"
+#>  @ supplier_abbr  : chr "ASC"
+#>  @ supplier_name  : chr "Ambulatory Surgical Center"
 ccn("0-12C4567890")
 #> <ccn::Unknown>
 #>  @ raw: chr "0-12C4567890"
