@@ -24,6 +24,7 @@ ccn <- function(x) {
     if (is_opo_type(      x@vec[3])) return(decode(x, MedicareProviderOPO()))
     if (is_emergency_type(x@vec[6])) return(decode(x, EmergencyHospital()))
     if (is_medicaid_type( x@vec[3])) return(decode(x, MedicaidOnlyProvider()))
+    if (is_excluded_type( x@vec[3])) return(decode(x, IPPSExcludedProvider()))
 
     return(decode(x, Provider()))
   }
@@ -87,6 +88,16 @@ S7::method(decode, list(Unknown, MedicaidOnlyProvider)) <- function(x, y) {
     ccn             = x@std,
     state_code      = x@vec[1:2],
     facility_type   = x@vec[3],
+    sequence_number = x@vec[4:6]
+  )
+}
+
+S7::method(decode, list(Unknown, IPPSExcludedProvider)) <- function(x, y) {
+  IPPSExcludedProvider(
+    ccn             = x@std,
+    state_code      = x@vec[1:2],
+    facility_type   = x@vec[3],
+    # parent_type     = x@vec[4],
     sequence_number = x@vec[4:6]
   )
 }
