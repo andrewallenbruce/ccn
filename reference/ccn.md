@@ -53,12 +53,14 @@ ccn("21-0101")
 #>  @ facility_abbr  : chr "STH"
 #>  @ facility_name  : chr "Short-Term Hospital (General & Specialty)"
 ccn("21-T101")
-#> <ccn::Provider>
+#> <ccn::IPPSExcludedProvider>
 #>  @ ccn            : chr "21T101"
 #>  @ state_code     : chr "21"
 #>  @ state_abbr     : chr "MD"
 #>  @ state_name     : chr "Maryland"
-#>  @ sequence_number: chr "T101"
+#>  @ sequence_number: chr "101"
+#>  @ facility_type  : chr "T"
+#>  @ parent_type    : chr(0) 
 ccn("12345E")
 #> <ccn::EmergencyHospital>
 #>  @ ccn            : chr "12345E"
