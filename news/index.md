@@ -1,5 +1,11 @@
 # Changelog
 
+## ccn 0.0.0.9006 (2025-11-12)
+
+- Provider superclass is now child class of Unknown
+- Medicare range/name lookups
+- Added to `MedicareProvider` class
+
 ## ccn 0.0.0.9005 (2025-11-10)
 
 - added `asc` pin, redid `aff` pin

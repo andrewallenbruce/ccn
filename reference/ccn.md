@@ -60,7 +60,7 @@ ccn("21-T101")
 #>  @ state_name     : chr "Maryland"
 #>  @ sequence_number: chr "101"
 #>  @ facility_type  : chr "T"
-#>  @ parent_type    : chr(0) 
+#>  @ parent_type    : chr [1:2] "1" "0"
 ccn("12345E")
 #> <ccn::EmergencyHospital>
 #>  @ ccn            : chr "12345E"
