@@ -53,7 +53,7 @@ CCN <- S7::new_class(
 #' @autoglobal
 Provider <- S7::new_class(
   name   = "Provider",
-  parent = CCN
+  parent = Unknown
 )
 
 #' @noRd
@@ -82,7 +82,7 @@ Supplier <- S7::new_class(
 #' @autoglobal
 MedicareProvider <- S7::new_class(
   name   = "MedicareProvider",
-  parent = Provider,
+  parent = CCN,
   properties = list(
     facility_range = S7::new_property(
       S7::class_character,
@@ -109,7 +109,7 @@ MedicareProvider <- S7::new_class(
 #' @autoglobal
 MedicareProviderOPO <- S7::new_class(
   name   = "MedicareProviderOPO",
-  parent = Provider,
+  parent = CCN,
   properties = list(
     facility_type  = S7::new_property(S7::class_character, default = "P"),
     facility_range = S7::new_property(S7::class_character, default = "001-099"),
@@ -122,7 +122,7 @@ MedicareProviderOPO <- S7::new_class(
 #' @autoglobal
 EmergencyHospital <- S7::new_class(
   name   = "EmergencyHospital",
-  parent = Provider,
+  parent = CCN,
   properties = list(
     emergency_type = S7::class_character,
     emergency_abbr = S7::new_property(
@@ -144,7 +144,7 @@ EmergencyHospital <- S7::new_class(
 #' @autoglobal
 MedicaidOnlyProvider <- S7::new_class(
   name   = "MedicaidOnlyProvider",
-  parent = Provider,
+  parent = CCN,
   properties = list(
     facility_type = S7::class_character
   )
@@ -154,7 +154,7 @@ MedicaidOnlyProvider <- S7::new_class(
 #' @autoglobal
 IPPSExcludedProvider <- S7::new_class(
   name   = "IPPSExcludedProvider",
-  parent = Provider,
+  parent = CCN,
   properties = list(
     facility_type = S7::class_character,
     parent_type = S7::class_character

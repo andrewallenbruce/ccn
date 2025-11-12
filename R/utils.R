@@ -85,11 +85,23 @@ make_test <- function(named_list) {
 
 #' @autoglobal
 #' @noRd
+make_df <- function(x, col_names = NULL) {
+  x <- purrr::map(x, \(x) cheapr::fast_df(field = x)) |>
+    purrr::list_rbind(names_to = "constant") |>
+    collapse::roworderv(c("constant", "field"))
+
+  if (!is.null(col_names)) {
+    colnames(x) <- col_names
+  }
+  x
+}
+
+#' @autoglobal
+#' @noRd
 make_switch <- function(x) {
 
   e <- purrr::map(x, \(x) cheapr::fast_df(field = x)) |>
     purrr::list_rbind(names_to = "constant") |>
-    # collapse::roworder(constant, field)
     collapse::roworderv(c("constant", "field"))
 
   function(x) {

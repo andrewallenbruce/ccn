@@ -1,3 +1,7 @@
+---
+output: github_document
+---
+
 # CCN
 The _CMS Certification Number (CCN)_ is a unique identifier assigned to
 healthcare providers certified by Medicare, used for quality reporting and

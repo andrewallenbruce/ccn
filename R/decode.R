@@ -16,9 +16,10 @@
 #' @autoglobal
 ccn <- function(x) {
 
-  x <- Unknown(raw = x)
+  x <- Unknown(x)
 
   if (x@chr == 6L) {
+    x <- S7::convert(x, to = Provider)
 
     if (is_numeric(          x@std)) return(decode(x, MedicareProvider()))
     if (is_opo_type(      x@vec[3])) return(decode(x, MedicareProviderOPO()))
@@ -41,14 +42,6 @@ decode <- S7::new_generic("decode", c("x", "y"), function(x, y) {
   S7::S7_dispatch()
 })
 
-S7::method(decode, list(Unknown, Provider)) <- function(x, y) {
-  Provider(
-    ccn             = x@std,
-    state_code      = x@vec[1:2],
-    sequence_number = x@vec[3:6]
-  )
-}
-
 S7::method(decode, list(Unknown, Supplier)) <- function(x, y) {
   Supplier(
     ccn             = x@std,
@@ -58,7 +51,7 @@ S7::method(decode, list(Unknown, Supplier)) <- function(x, y) {
   )
 }
 
-S7::method(decode, list(Unknown, MedicareProvider)) <- function(x, y) {
+S7::method(decode, list(Provider, MedicareProvider)) <- function(x, y) {
   MedicareProvider(
     ccn             = x@std,
     state_code      = x@vec[1:2],
@@ -66,7 +59,7 @@ S7::method(decode, list(Unknown, MedicareProvider)) <- function(x, y) {
   )
 }
 
-S7::method(decode, list(Unknown, MedicareProviderOPO)) <- function(x, y) {
+S7::method(decode, list(Provider, MedicareProviderOPO)) <- function(x, y) {
   MedicareProviderOPO(
     ccn             = x@std,
     state_code      = x@vec[1:2],
@@ -74,7 +67,7 @@ S7::method(decode, list(Unknown, MedicareProviderOPO)) <- function(x, y) {
   )
 }
 
-S7::method(decode, list(Unknown, EmergencyHospital)) <- function(x, y) {
+S7::method(decode, list(Provider, EmergencyHospital)) <- function(x, y) {
   EmergencyHospital(
     ccn             = x@std,
     state_code      = x@vec[1:2],
@@ -83,7 +76,7 @@ S7::method(decode, list(Unknown, EmergencyHospital)) <- function(x, y) {
   )
 }
 
-S7::method(decode, list(Unknown, MedicaidOnlyProvider)) <- function(x, y) {
+S7::method(decode, list(Provider, MedicaidOnlyProvider)) <- function(x, y) {
   MedicaidOnlyProvider(
     ccn             = x@std,
     state_code      = x@vec[1:2],
@@ -92,12 +85,20 @@ S7::method(decode, list(Unknown, MedicaidOnlyProvider)) <- function(x, y) {
   )
 }
 
-S7::method(decode, list(Unknown, IPPSExcludedProvider)) <- function(x, y) {
+S7::method(decode, list(Provider, IPPSExcludedProvider)) <- function(x, y) {
   IPPSExcludedProvider(
     ccn             = x@std,
     state_code      = x@vec[1:2],
     facility_type   = x@vec[3],
-    # parent_type     = x@vec[4],
+    parent_type     = x@vec[4:5],
     sequence_number = x@vec[4:6]
   )
 }
+
+# S7::method(decode, list(Unknown, Provider)) <- function(x, y) {
+#   Provider(
+#     ccn             = x@std,
+#     state_code      = x@vec[1:2],
+#     sequence_number = x@vec[3:6]
+#   )
+# }
