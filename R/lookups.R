@@ -20,31 +20,25 @@ NULL
 NULL
 
 #' @rdname lookups
-#' @autoglobal
 #' @export
 get_emergency_abbr <- make_switch(EMERGENCY$CODE)
 
 #' @rdname lookups
-#' @autoglobal
 #' @export
 get_emergency_name <- make_switch(EMERGENCY$NAME)
 
 #' @rdname lookups
-#' @autoglobal
 #' @export
 get_supplier_abbr <- make_switch(SUPPLIER$CODE)
 
 #' @rdname lookups
-#' @autoglobal
 #' @export
 get_supplier_name <- make_switch(SUPPLIER$NAME)
 
 #' @rdname lookups
-#' @autoglobal
 #' @export
 get_state_abbr <- make_switch(STATE$CODE)
 
 #' @rdname lookups
-#' @autoglobal
 #' @export
 get_state_name <- make_switch(STATE$NAME)

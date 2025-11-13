@@ -4,23 +4,10 @@
 \name{ccn-package}
 \alias{ccn-package}
 \title{CCN}
-\source{
-\href{https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf}{CMS Manual}
-
-\href{https://resdac.org/cms-data/variables/full-cms-certification-number-provider}{ResDAC 1}
-
-\href{https://resdac.org/cms-data/variables/provider-number}{ResDAC 2}
-
-\href{https://manual.jointcommission.org/releases/TJC2025A/DataElem0276.html}{The Joint Commission}
-
-\href{https://qcor.cms.gov/main.jsp}{QCOR}
-
-\href{https://www.cms.gov/Regulations-and-Guidance/Guidance/Transmittals/Downloads/R2SOM.pdf}{HHA Branch Identification Numbers}
-}
 \description{
-An S7 class representing a \strong{CMS Certification Number}, a uniform way of
-identifying providers or suppliers who currently or who ever have
-participated in the Medicare or Medicaid programs.
+An \href{https://github.com/RConsortium/S7/}{S7} class representing a \strong{CMS Certification Number},
+a uniform way of identifying providers or suppliers who currently or who
+ever have participated in the Medicare or Medicaid programs.
 }
 \details{
 A CCN is a 6- or 10-character alphanumeric string that encodes the provider

@@ -2,6 +2,15 @@
 output: github_document
 ---
 
+# Sources
+
+  - [CMS Manual](https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf)
+  - [ResDAC 1](https://resdac.org/cms-data/variables/full-cms-certification-number-provider)
+  - [ResDAC 2](https://resdac.org/cms-data/variables/provider-number)
+  - [The Joint Commission](https://manual.jointcommission.org/releases/TJC2025A/DataElem0276.html)
+  - [QCOR](https://qcor.cms.gov/main.jsp)
+  - [HHA Branch Identification Numbers](https://www.cms.gov/Regulations-and-Guidance/Guidance/Transmittals/Downloads/R2SOM.pdf)
+
 # CCN
 The _CMS Certification Number (CCN)_ is a unique identifier assigned to
 healthcare providers certified by Medicare, used for quality reporting and

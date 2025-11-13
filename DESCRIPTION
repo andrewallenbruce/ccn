@@ -4,7 +4,7 @@ Version: 0.0.0.9007
 Authors@R: 
     person(c("Andrew", "Allen"), "Bruce", , "andrewallenbruce@gmail.com", role = c("aut", "cre", "cph"))
 Maintainer: Andrew Allen Bruce <andrewallenbruce@gmail.com>
-Description: What the package does (one paragraph).
+Description: Parse CMS Certification Numbers.
 License: MIT + file LICENSE
 URL: https://github.com/andrewallenbruce/ccn,
     https://andrewallenbruce.github.io/ccn/
@@ -24,15 +24,11 @@ Imports:
     S7 (>= 0.2.0),
     qs (>= 0.27.3)
 Suggests: 
-    roxyglobals (>= 1.0.0),
     testthat (>= 3.0.0)
-Config/roxyglobals/filename: generated-globals.R
-Config/roxyglobals/unique: TRUE
 Config/testthat/edition: 3
 Config/testthat/parallel: true
 Encoding: UTF-8
-Roxygen: list(markdown = TRUE, roclets = c("collate", "namespace", "rd",
-    "roxyglobals::global_roclet"))
+Roxygen: list(markdown = TRUE, roclets = c("collate", "namespace", "rd"))
 RoxygenNote: 7.3.3
 Collate: 
     'utils.R'
@@ -40,12 +36,11 @@ Collate:
     '01-RANGES.R'
     '02-STATES.R'
     'ccn-package.R'
+    'ccn.R'
     'checks.R'
     'classes.R'
-    'decode.R'
     'generated-globals.R'
     'lookups.R'
-    'pins.R'
     'predicates.R'
     'ranges.R'
     'zzz.R'
