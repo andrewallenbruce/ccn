@@ -82,8 +82,8 @@ ccn("21T101")
 #>  @ state_name     : chr "Maryland"
 #>  @ sequence_number: chr "101"
 #>  @ type_code      : chr "T"
-#>  @ type_abbr      : chr NA
-#>  @ type_name      : chr NA
+#>  @ type_abbr      : chr "REHAB"
+#>  @ type_name      : chr "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
 #>  @ facility_range : chr "100-199"
 #>  @ facility_abbr  : chr "CHILD"
 #>  @ facility_name  : chr "Medicaid-Only Children's Hospital"
@@ -97,8 +97,8 @@ ccn("21S101")
 #>  @ state_name     : chr "Maryland"
 #>  @ sequence_number: chr "101"
 #>  @ type_code      : chr "S"
-#>  @ type_abbr      : chr NA
-#>  @ type_name      : chr NA
+#>  @ type_abbr      : chr "PSYCH"
+#>  @ type_name      : chr "Psychiatric Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
 #>  @ facility_range : chr "100-199"
 #>  @ facility_abbr  : chr "CHILD"
 #>  @ facility_name  : chr "Medicaid-Only Children's Hospital"
@@ -112,8 +112,8 @@ ccn("21U101")
 #>  @ state_name     : chr "Maryland"
 #>  @ sequence_number: chr "101"
 #>  @ type_code      : chr "U"
-#>  @ type_abbr      : chr NA
-#>  @ type_name      : chr NA
+#>  @ type_abbr      : chr "SBA (STH)"
+#>  @ type_name      : chr "Swing-Bed Approval for Short-Term Hospital"
 #>  @ facility_range : chr "100-199"
 #>  @ facility_abbr  : chr "CHILD"
 #>  @ facility_name  : chr "Medicaid-Only Children's Hospital"
@@ -140,8 +140,8 @@ ccn("21SA26")
 #>  @ state_name     : chr "Maryland"
 #>  @ sequence_number: chr "A26"
 #>  @ type_code      : chr "S"
-#>  @ type_abbr      : chr NA
-#>  @ type_name      : chr NA
+#>  @ type_abbr      : chr "PSYCH"
+#>  @ type_name      : chr "Psychiatric Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
 #>  @ facility_range : chr NA
 #>  @ facility_abbr  : chr NA
 #>  @ facility_name  : chr NA
@@ -155,8 +155,8 @@ ccn("21TA26")
 #>  @ state_name     : chr "Maryland"
 #>  @ sequence_number: chr "A26"
 #>  @ type_code      : chr "T"
-#>  @ type_abbr      : chr NA
-#>  @ type_name      : chr NA
+#>  @ type_abbr      : chr "REHAB"
+#>  @ type_name      : chr "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
 #>  @ facility_range : chr NA
 #>  @ facility_abbr  : chr NA
 #>  @ facility_name  : chr NA
