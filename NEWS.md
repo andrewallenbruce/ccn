@@ -1,5 +1,11 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9008 (2025-11-13)
+
+* standardized facility type slots
+* removed roxyglobals dependency
+
+
 # ccn 0.0.0.9007 (2025-11-12)
 
 * `convert_` helpers
