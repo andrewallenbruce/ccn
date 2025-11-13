@@ -4,14 +4,20 @@ subtitle: "Numbering System for CCNs"
 date: "`r Sys.Date()`"
 output: github_document
 editor_options: 
-  chunk_output_type: console
+  chunk_output_type: inline
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(ccn)
-utils::packageVersion("ccn")
 ```
+
+```{r pkg-version}
+# x <- utils::packageVersion("ccn") |> 
+   # unlist_() |> 
+   # cat()
+```
+
 
 > SEC 2779A, PG 403 (som107c02.pdf)
 

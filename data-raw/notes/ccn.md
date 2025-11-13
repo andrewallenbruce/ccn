@@ -2,6 +2,12 @@ CCN Notes
 ================
 2025-11-13
 
+``` r
+# x <- utils::packageVersion("ccn") |> 
+   # unlist_() |> 
+   # cat()
+```
+
 > SEC 2779A, PG 403 (som107c02.pdf)
 
 *Rev. 152, ISS: `03-25-16`, EFF: `04-04-16`, IMP: `04-04-16`*

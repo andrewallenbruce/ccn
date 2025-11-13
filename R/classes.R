@@ -201,13 +201,13 @@ IPPSExcludedProvider <- S7::new_class(
     type_abbr = S7::new_property(
       S7::class_character,
       getter = function(self) {
-        get_caid_abbr(self@type_code)
+        get_ipps_abbr(self@type_code)
       }
     ),
     type_name = S7::new_property(
       S7::class_character,
       getter = function(self) {
-        get_caid_name(self@type_abbr)
+        get_ipps_name(self@type_abbr)
       }
     ),
     facility_range = S7::new_property(

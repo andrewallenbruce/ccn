@@ -38,15 +38,23 @@ character vector of names associated with codes.
 Convert various codes to their associated names.
 }
 \examples{
-get_emergency_abbr(c("E", "F")) |>
+c("E", "F") |>
+get_emergency_abbr() |>
 print() |>
 get_emergency_name()
 
-get_supplier_abbr(c("C", "D", "X")) |>
+c("C", "D", "X") |>
+get_supplier_abbr() |>
 print() |>
 get_supplier_name()
 
-get_caid_abbr(LETTERS[1:12]) |>
+c("A", "B", "E", "F", "G", "H", "J", "K", "L") |>
+get_caid_abbr() |>
 print() |>
 get_caid_name()
+
+c("M", "R", "S", "T", "U", "W", "Y", "Z") |>
+get_ipps_abbr() |>
+print() |>
+get_ipps_name()
 }
