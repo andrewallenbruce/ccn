@@ -8,6 +8,8 @@
 \alias{get_supplier_name}
 \alias{get_state_abbr}
 \alias{get_state_name}
+\alias{get_caid_abbr}
+\alias{get_caid_name}
 \title{Lookups for Various Codes}
 \usage{
 get_emergency_abbr(x)
@@ -21,6 +23,10 @@ get_supplier_name(x)
 get_state_abbr(x)
 
 get_state_name(x)
+
+get_caid_abbr(x)
+
+get_caid_name(x)
 }
 \arguments{
 \item{x}{character vector of codes to look up.}
@@ -32,11 +38,19 @@ character vector of names associated with codes.
 Convert various codes to their associated names.
 }
 \examples{
-get_emergency_abbr(c("E", "F"))
-get_supplier_abbr(c("C", "D", "X"))
-get_state_abbr(ccn:::state_codes)
+get_emergency_abbr(c("E", "F")) |>
+print() |>
+get_emergency_name()
 
-get_emergency_name(get_emergency_abbr(c("E", "F")))
-get_supplier_name(get_supplier_abbr(c("C", "D", "X")))
-get_state_name(get_state_abbr(ccn:::state_codes))
+get_supplier_abbr(c("C", "D", "X")) |>
+print() |>
+get_supplier_name()
+
+get_state_abbr(ccn:::state_codes) |>
+print() |>
+get_state_name()
+
+get_caid_abbr(LETTERS[1:12]) |>
+print() |>
+get_caid_name()
 }

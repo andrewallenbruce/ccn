@@ -2,6 +2,20 @@
 NULL
 
 MEDICAID = list(
+  CODE  = list(
+    "NF (SNF)" = c("A", "B"),
+    "NF (ICF)" = c("E", "F"),
+    "ICF-IID" = c("G", "H"),
+    "MCD HOSP" = "J",
+    "MCD HHA" = "K",
+    "PRTF" = "L"),
+  LONG  = list(
+    "Nursing Facility (Formerly Assigned to Medicaid Skilled Nursing Facility)" = "NF (SNF)",
+    "Nursing Facility (Formerly Assigned to Intermediate Care Facility)"        = "NF (ICF)",
+    "Intermediate Care Facility for Individuals with Intellectual Disabilities" = "ICF-IID",
+    "Medicaid-Only Hospital"                                                    = "MCD HOSP",
+    "Medicaid Home Health Agency"                                               = "MCD HHA",
+    "Psychiatric Residential Treatment Facility"                                = "PRTF"),
   RANGES = list(
     "001-099" = pad_three(1:99),
     "100-199" = as_sf(100:199),
@@ -11,7 +25,7 @@ MEDICAID = list(
     "500-599" = as_sf(500:599),
     "600-999" = as_sf(600:999)),
   ABBR = list(
-    "ACUTE"     = "001-099",
+    "ACUTE"    = "001-099",
     "CHILD"    = "100-199",
     "CPH"      = "200-299",
     "PSYCH"    = "300-399",
@@ -25,19 +39,13 @@ MEDICAID = list(
     "Medicaid-Only Psychiatric Hospital"            = "PSYCH",
     "Medicaid-Only Rehabilitation Hospital"         = "REHAB",
     "Medicaid-Only Long-Term Hospital"              = "LTCH",
-    "Reserved for Future Use"                       = "RESERVED")
-)
+    "Reserved for Future Use"                       = "RESERVED"))
 
 OPO = list(
-  CODE = list(
-    "OPO" = "P"),
-  RANGES = list(
-    "001-099" = pad_three(1:99)),
-  ABBR = list(
-    "OPO" = "001-099"),
-  NAME = list(
-    "Organ Procurement Organization" = "OPO")
-)
+  CODE   = list("OPO" = "P"),
+  RANGES = list("001-099" = pad_three(1:99)),
+  ABBR   = list("OPO" = "001-099"),
+  NAME   = list("Organ Procurement Organization" = "OPO"))
 
 MEDICARE = list(
   RANGES = list(
@@ -81,7 +89,7 @@ MEDICARE = list(
     "9800-9899" = as_sf(9800:9899),
     "9900-9999" = as_sf(9900:9999)),
   ABBR = list(
-    "STH"               = "0001-0879",
+    "ACUTE"             = "0001-0879",
     "ORD"               = "0880-0899",
     "MHCMC (RET)"       = "0900-0999",
     "FQHC"              = "1000-1199",
@@ -121,7 +129,7 @@ MEDICARE = list(
     "TRANSPLANT"        = "9800-9899",
     "RESERVED (FUTURE)" = "9900-9999"),
   NAME = list(
-    "Short-Term Hospital (General & Specialty)"                  = "STH",
+    "Short-Term Hospital (General & Specialty)"                  = "ACUTE",
     "Hospital Participating in ORD Demonstration Project"        = "ORD",
     "Multiple Hospital Component in a Medical Complex (Retired)" = "MHCMC (RET)",
     "Federally Qualified Health Center"                          = "FQHC",

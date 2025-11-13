@@ -2,23 +2,23 @@
 % Please edit documentation in R/predicates.R
 \name{predicates}
 \alias{predicates}
-\alias{is_medicaid_type}
-\alias{is_excluded_type}
-\alias{is_emergency_type}
-\alias{is_supplier_type}
-\alias{is_opo_type}
+\alias{type_medicaid}
+\alias{type_excluded}
+\alias{type_emergency}
+\alias{type_supplier}
+\alias{type_opo}
 \alias{is_state_code}
 \title{Logical Predicates}
 \usage{
-is_medicaid_type(x)
+type_medicaid(x)
 
-is_excluded_type(x)
+type_excluded(x)
 
-is_emergency_type(x)
+type_emergency(x)
 
-is_supplier_type(x)
+type_supplier(x)
 
-is_opo_type(x)
+type_opo(x)
 
 is_state_code(x)
 }
@@ -33,10 +33,10 @@ Logical tests for various code types
 }
 \examples{
 x <- LETTERS
-x[is_medicaid_type(x)]
-x[is_excluded_type(x)]
-x[is_emergency_type(x)]
-x[is_supplier_type(x)]
-x[is_opo_type(x)]
+x[type_medicaid(x)]
+x[type_excluded(x)]
+x[type_emergency(x)]
+x[type_supplier(x)]
+x[type_opo(x)]
 all(is_state_code(ccn:::state_codes))
 }

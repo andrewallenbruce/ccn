@@ -11,34 +11,34 @@ NULL
 #' @returns logical vector indicating if codes are of the specified type.
 #' @examples
 #' x <- LETTERS
-#' x[is_medicaid_type(x)]
-#' x[is_excluded_type(x)]
-#' x[is_emergency_type(x)]
-#' x[is_supplier_type(x)]
-#' x[is_opo_type(x)]
+#' x[type_medicaid(x)]
+#' x[type_excluded(x)]
+#' x[type_emergency(x)]
+#' x[type_supplier(x)]
+#' x[type_opo(x)]
 #' all(is_state_code(ccn:::state_codes))
 NULL
 
 #' @rdname predicates
 #' @export
-is_medicaid_type  <- make_test(MEDICAID_FACILITY_CODE_LIST)
+type_medicaid <- make_test(MEDICAID$CODE)
 
 #' @rdname predicates
 #' @export
-is_excluded_type  <- make_test(IPPS_EXCLUDED_TYPE_CODE_LIST)
+type_excluded <- make_test(IPPS_EXCLUDED$CODE)
 
 #' @rdname predicates
 #' @export
-is_emergency_type <- make_test(EMERGENCY$CODE)
+type_emergency <- make_test(EMERGENCY$CODE)
 
 #' @rdname predicates
 #' @export
-is_supplier_type  <- make_test(SUPPLIER$CODE)
+type_supplier <- make_test(SUPPLIER$CODE)
 
 #' @rdname predicates
 #' @export
-is_opo_type       <- make_test(OPO$CODE)
+type_opo <- make_test(OPO$CODE)
 
 #' @rdname predicates
 #' @export
-is_state_code     <- make_test(STATE$CODE)
+is_state_code <- make_test(STATE$CODE)

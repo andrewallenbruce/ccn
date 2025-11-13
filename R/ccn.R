@@ -78,6 +78,8 @@ convert_supplier <- function(x) {
 #' ccn("670055")
 #' ccn("21-0101")
 #' ccn("21-T101")
+#' ccn("21-S101")
+#' ccn("21-U101")
 #' ccn("12345E")
 #' ccn("12C4567890")
 #' ccn("0-12C4567890")
@@ -89,16 +91,16 @@ ccn <- function(x) {
   if (x@chr == 6L) {
     x <- convert_provider(x)
 
-    if (is_numeric(          x@ccn)) return(convert_medicare(x))
-    if (is_opo_type(      x@vec[3])) return(convert_opo(x))
-    if (is_emergency_type(x@vec[6])) return(convert_emergency(x))
-    if (is_medicaid_type( x@vec[3])) return(convert_medicaid(x))
-    if (is_excluded_type( x@vec[3])) return(convert_excluded(x))
+    if (is_numeric(       x@ccn)) return(convert_medicare(x))
+    if (type_opo(      x@vec[3])) return(convert_opo(x))
+    if (type_emergency(x@vec[6])) return(convert_emergency(x))
+    if (type_medicaid( x@vec[3])) return(convert_medicaid(x))
+    if (type_excluded( x@vec[3])) return(convert_excluded(x))
 
     return(x)
   }
 
-  if (x@chr == 10L && is_supplier_type(x@vec[3])) {
+  if (x@chr == 10L && type_supplier(x@vec[3])) {
     return(convert_supplier(x))
   }
   x

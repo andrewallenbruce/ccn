@@ -65,7 +65,8 @@ State Code. The third digit is the alpha character "P." The remaining 3 digits
 are the unique facility identifier.
 
 ```{r opo}
-ccn("68P040")
+ccn("01P001")
+ccn("05P001")
 ```
 
 ## Medicare Suppliers
@@ -111,10 +112,23 @@ located. The third position, which is an alpha character, identifies the type of
 facility by level or type of care being provided. The last 3 digits make up a
 sequential number series beginning with 001.
 
+```{r}
+ccn("01L008")
+```
 
 
-> __EXCEPTION:__ As of the cost reporting period beginning on or after October 1, 2019, an
-IPPS-excluded hospital is no longer precluded from having an IPPS-excluded psychiatric
-and/or rehabilitation unit. See section 2779C and 2779C1 for additional CCN numbering
-detail. __Note:__ An IPPS-excluded hospital may not have an IPPS-excluded unit of the same
-type (psychiatric or rehabilitation) as the hospital (for example, an Inpatient Rehabilitation Facility (IRF) may not have an IRF unit).
+```{r caid-range}
+ccn:::MEDICAID$ABBR |> 
+   ccn:::make_df(c("Facility", "Range")) |> 
+   head(10) |> 
+   knitr::kable()
+```
+
+
+> __EXCEPTION:__ As of October 1, 2019, an IPPS-excluded hospital is no longer
+precluded from having an IPPS-excluded psychiatric and/or rehabilitation unit.
+See section 2779C and 2779C1 for additional CCN numbering detail. 
+
+> __Note:__ An IPPS-excluded hospital may not have an IPPS-excluded unit of the
+same type (psychiatric or rehabilitation) as the hospital (for example, an
+Inpatient Rehabilitation Facility (IRF) may not have an IRF unit).

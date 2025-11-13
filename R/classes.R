@@ -159,6 +159,18 @@ MedicaidOnlyProvider <- S7::new_class(
   parent = Provider,
   properties = list(
     facility_type = S7::class_character,
+    facility_type_abbr = S7::new_property(
+      S7::class_character,
+      getter = function(self) {
+        get_caid_abbr(self@facility_type)
+      }
+    ),
+    facility_type_name = S7::new_property(
+      S7::class_character,
+      getter = function(self) {
+        get_caid_name(self@facility_type_abbr)
+      }
+    ),
     facility_range = S7::new_property(
       S7::class_character,
       getter = function(self) {

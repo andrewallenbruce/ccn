@@ -1,6 +1,6 @@
 CCN Notes
 ================
-2025-11-12
+2025-11-13
 
 > SEC 2779A, PG 403 (som107c02.pdf)
 
@@ -130,18 +130,33 @@ identify the State Code. The third digit is the alpha character “P.” The
 remaining 3 digits are the unique facility identifier.
 
 ``` r
-ccn("68P040")
+ccn("01P001")
 ```
 
     ## <ccn::Provider>
-    ##  @ raw            : chr "68P040"
-    ##  @ std            : chr "68P040"
+    ##  @ raw            : chr "01P001"
+    ##  @ std            : chr "01P001"
     ##  @ chr            : int 6
-    ##  @ vec            : chr [1:6] "6" "8" "P" "0" "4" "0"
-    ##  @ ccn            : chr "68P040"
-    ##  @ state_code     : chr "68"
-    ##  @ state_abbr     : chr "FL"
-    ##  @ state_name     : chr "Florida"
+    ##  @ vec            : chr [1:6] "0" "1" "P" "0" "0" "1"
+    ##  @ ccn            : chr "01P001"
+    ##  @ state_code     : chr "01"
+    ##  @ state_abbr     : chr "AL"
+    ##  @ state_name     : chr "Alabama"
+    ##  @ sequence_number: chr ""
+
+``` r
+ccn("05P001")
+```
+
+    ## <ccn::Provider>
+    ##  @ raw            : chr "05P001"
+    ##  @ std            : chr "05P001"
+    ##  @ chr            : int 6
+    ##  @ vec            : chr [1:6] "0" "5" "P" "0" "0" "1"
+    ##  @ ccn            : chr "05P001"
+    ##  @ state_code     : chr "05"
+    ##  @ state_abbr     : chr "CA"
+    ##  @ state_name     : chr "California"
     ##  @ sequence_number: chr ""
 
 ## Medicare Suppliers
@@ -237,10 +252,43 @@ character, identifies the type of facility by level or type of care
 being provided. The last 3 digits make up a sequential number series
 beginning with 001.
 
-> **EXCEPTION:** As of the cost reporting period beginning on or after
-> October 1, 2019, an IPPS-excluded hospital is no longer precluded from
-> having an IPPS-excluded psychiatric and/or rehabilitation unit. See
-> section 2779C and 2779C1 for additional CCN numbering detail.
+``` r
+ccn("01L008")
+```
+
+    ## <ccn::MedicaidOnlyProvider>
+    ##  @ raw            : chr "01L008"
+    ##  @ std            : chr "01L008"
+    ##  @ chr            : int 6
+    ##  @ vec            : chr [1:6] "0" "1" "L" "0" "0" "8"
+    ##  @ ccn            : chr "01L008"
+    ##  @ state_code     : chr "01"
+    ##  @ state_abbr     : chr "AL"
+    ##  @ state_name     : chr "Alabama"
+    ##  @ sequence_number: chr "008"
+    ##  @ facility_type  : chr "L"
+
+``` r
+ccn:::MEDICAID$ABBR |> 
+   ccn:::make_df(c("Facility", "Range")) |> 
+   head(10) |> 
+   knitr::kable()
+```
+
+| Facility | Range   |
+|:---------|:--------|
+| CHILD    | 100-199 |
+| CPH      | 200-299 |
+| LTCH     | 500-599 |
+| PSYCH    | 300-399 |
+| REHAB    | 400-499 |
+| STAC     | 001-099 |
+
+> **EXCEPTION:** As of October 1, 2019, an IPPS-excluded hospital is no
+> longer precluded from having an IPPS-excluded psychiatric and/or
+> rehabilitation unit. See section 2779C and 2779C1 for additional CCN
+> numbering detail.
+
 > **Note:** An IPPS-excluded hospital may not have an IPPS-excluded unit
 > of the same type (psychiatric or rehabilitation) as the hospital (for
 > example, an Inpatient Rehabilitation Facility (IRF) may not have an
