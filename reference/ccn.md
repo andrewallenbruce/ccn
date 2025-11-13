@@ -22,7 +22,7 @@ list of CCN components.
 
 ``` r
 ccn("67P055")
-#> <ccn::MedicareProviderOPO>
+#> <ccn::Provider>
 #>  @ raw            : chr "67P055"
 #>  @ std            : chr "67P055"
 #>  @ chr            : int 6
@@ -31,10 +31,7 @@ ccn("67P055")
 #>  @ state_code     : chr "67"
 #>  @ state_abbr     : chr "TX"
 #>  @ state_name     : chr "Texas"
-#>  @ sequence_number: chr "055"
-#>  @ facility_range : chr "001-099"
-#>  @ facility_abbr  : chr "OPO"
-#>  @ facility_name  : chr "Organ Procurement Organization"
+#>  @ sequence_number: chr ""
 ccn("670055")
 #> <ccn::MedicareProvider>
 #>  @ raw            : chr "670055"
@@ -75,7 +72,7 @@ ccn("21-T101")
 #>  @ state_name     : chr "Maryland"
 #>  @ sequence_number: chr "101"
 #>  @ facility_type  : chr "T"
-#>  @ parent_ccn     : chr ""
+#>  @ parent_ccn     : chr "210101"
 ccn("12345E")
 #> <ccn::EmergencyHospital>
 #>  @ raw            : chr "12345E"
@@ -96,7 +93,7 @@ ccn("12C4567890")
 #>  @ std            : chr "12C4567890"
 #>  @ chr            : int 10
 #>  @ vec            : chr [1:10] "1" "2" "C" "4" "5" "6" "7" "8" "9" "0"
-#>  @ ccn            : chr(0) 
+#>  @ ccn            : chr "12C4567890"
 #>  @ state_code     : chr "12"
 #>  @ state_abbr     : chr "HI"
 #>  @ state_name     : chr "Hawaii"

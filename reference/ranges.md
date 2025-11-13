@@ -58,12 +58,13 @@ get_caid_range(c("055", "232", "599")) |>
 #> [1] "Short-Term Acute Care Hospital"  "Children's Psychiatric Hospital"
 #> [3] "Long-Term Hospital"             
 
- get_opo_range(c("01", "12", "99")) |>
+ get_opo_range(c("001", "012", "099")) |>
  print() |>
  get_opo_range_abbr() |>
  print() |>
  get_opo_range_name()
-#> [1] NA NA NA
-#> [1] NA NA NA
-#> [1] NA NA NA
+#> [1] "001-099" "001-099" "001-099"
+#> [1] "OPO" "OPO" "OPO"
+#> [1] "Organ Procurement Organization" "Organ Procurement Organization"
+#> [3] "Organ Procurement Organization"
 ```
