@@ -55,8 +55,9 @@ get_caid_range(c("055", "232", "599")) |>
  get_caid_range_name()
 #> [1] "001-099" "200-299" "500-599"
 #> [1] "STAC" "CPH"  "LTCH"
-#> [1] "Short-Term Acute Care Hospital"  "Children's Psychiatric Hospital"
-#> [3] "Long-Term Hospital"             
+#> [1] "Medicaid-Only Short-Term Acute Care Hospital" 
+#> [2] "Medicaid-Only Children's Psychiatric Hospital"
+#> [3] "Medicaid-Only Long-Term Hospital"             
 
  get_opo_range(c("001", "012", "099")) |>
  print() |>
