@@ -2,6 +2,8 @@
 
 ## All functions
 
+- [`ccn-package`](https://andrewallenbruce.github.io/ccn/reference/ccn-package.md)
+  : ccn: Parse CMS Certification Numbers
 - [`ccn()`](https://andrewallenbruce.github.io/ccn/reference/ccn.md) :
   Decode a CCN
 - [`get_emergency_abbr()`](https://andrewallenbruce.github.io/ccn/reference/lookups.md)

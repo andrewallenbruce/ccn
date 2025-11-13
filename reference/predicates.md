@@ -41,7 +41,7 @@ x[is_emergency_type(x)]
 x[is_supplier_type(x)]
 #> [1] "C" "D" "X"
 x[is_opo_type(x)]
-#> character(0)
+#> [1] "P"
 all(is_state_code(ccn:::state_codes))
 #> [1] TRUE
 ```
