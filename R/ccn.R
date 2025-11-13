@@ -3,7 +3,7 @@ convert_provider <- function(x) {
   convert(
     x,
     Provider,
-    ccn        = x@std,
+    # ccn        = x@ccn,
     state_code = x@vec[1:2])
 }
 
@@ -50,17 +50,17 @@ convert_excluded <- function(x) {
     x,
     IPPSExcludedProvider,
     facility_type   = x@vec[3],
-    parent_ccn      = c(x@vec[1:2], "0", x@vec[4:6]),
+    parent_ccn      = c(x@vec[1:2], "X", x@vec[4:6]),
     sequence_number = x@vec[4:6]
   )
 }
 
 #' @noRd
-convert_supplier <- function(x, cls, ...) {
+convert_supplier <- function(x) {
   convert(
     x,
     Supplier,
-    ccn             = x@std,
+    # ccn             = x@ccn,
     state_code      = x@vec[1:2],
     supplier_type   = x@vec[3],
     sequence_number = x@vec[4:10]
@@ -89,7 +89,7 @@ ccn <- function(x) {
   if (x@chr == 6L) {
     x <- convert_provider(x)
 
-    if (is_numeric(          x@std)) return(convert_medicare(x))
+    if (is_numeric(          x@ccn)) return(convert_medicare(x))
     if (is_opo_type(      x@vec[3])) return(convert_opo(x))
     if (is_emergency_type(x@vec[6])) return(convert_emergency(x))
     if (is_medicaid_type( x@vec[3])) return(convert_medicaid(x))

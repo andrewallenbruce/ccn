@@ -2,8 +2,7 @@
 Unknown <- S7::new_class(
   name = "Unknown",
   properties = list(
-    raw = S7::class_character,
-    std = S7::class_character,
+    ccn = S7::class_character,
     chr = S7::class_integer,
     vec = S7::class_character
   )
@@ -13,32 +12,17 @@ Unknown <- S7::new_class(
 new_unknown <- function(x) {
   xc <- clean(x)
   Unknown(
-    raw = x,
-    std = xc,
+    ccn = xc,
     chr = nchar_(xc),
     vec = split_(xc)
   )
 }
-
-# Unknown <- S7::new_class(
-#   name       = "Unknown",
-#   properties = list(
-#     raw      = S7::class_character,
-#     std      = S7::new_property(S7::class_character,
-#     getter   = function(self) clean(self@raw)),
-#     chr      = S7::new_property(S7::class_character,
-#     getter   = function(self) nchar_(self@std)),
-#     vec      = S7::new_property(S7::class_character,
-#     getter   = function(self) split_(self@std))
-#   )
-# )
 
 #' @noRd
 CCN <- S7::new_class(
   name              = "CCN",
   parent            = Unknown,
   properties        = list(
-    ccn             = S7::class_character,
     state_code      = S7::new_property(
       S7::class_character,
       setter = function(self, value) {
@@ -174,7 +158,25 @@ MedicaidOnlyProvider <- S7::new_class(
   name   = "MedicaidOnlyProvider",
   parent = Provider,
   properties = list(
-    facility_type = S7::class_character
+    facility_type = S7::class_character,
+    facility_range = S7::new_property(
+      S7::class_character,
+      getter = function(self) {
+        get_caid_range(self@sequence_number)
+      }
+    ),
+    facility_abbr = S7::new_property(
+      S7::class_character,
+      getter = function(self) {
+        get_caid_range_abbr(self@facility_range)
+      }
+    ),
+    facility_name = S7::new_property(
+      S7::class_character,
+      getter = function(self) {
+        get_caid_range_name(self@facility_abbr)
+      }
+    )
   )
 )
 
