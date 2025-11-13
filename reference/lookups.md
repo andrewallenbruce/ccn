@@ -52,8 +52,9 @@ get_emergency_name(get_emergency_abbr(c("E", "F")))
 #> [1] "Non-Federal Emergency Hospital (Non-Participating)"
 #> [2] "Federal Emergency Hospital (Non-Participating)"    
 get_supplier_name(get_supplier_abbr(c("C", "D", "X")))
-#> [1] "Ambulatory Surgical Center" "CLIA Laboratory"           
-#> [3] "Portable X-Ray Facility"   
+#> [1] "Ambulatory Surgical Center"                                          
+#> [2] "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory"
+#> [3] "Portable X-Ray Facility"                                             
 get_state_name(get_state_abbr(ccn:::state_codes))
 #>   [1] "Arizona"                                          
 #>   [2] "Alabama"                                          

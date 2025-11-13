@@ -65,17 +65,24 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">ccn</span><span class="op">(</span><span class="st">"67P055"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::MedicareProviderOPO&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ raw            : chr "67P055"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ std            : chr "67P055"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ chr            : int 6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ vec            : chr [1:6] "6" "7" "P" "0" "5" "5"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn            : chr "67P055"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ state_code     : chr "67"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ state_abbr     : chr "TX"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ state_name     : chr "Texas"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence_number: chr "055"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ facility_type  : chr "P"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ facility_range : chr "001-099"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ facility_abbr  : chr "OPO"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ facility_name  : chr "Organ Procurement Organization"</span>
 <span class="r-in"><span><span class="fu">ccn</span><span class="op">(</span><span class="st">"670055"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::MedicareProvider&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ raw            : chr "670055"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ std            : chr "670055"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ chr            : int 6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ vec            : chr [1:6] "6" "7" "0" "0" "5" "5"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn            : chr "670055"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ state_code     : chr "67"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ state_abbr     : chr "TX"</span>
@@ -86,6 +93,10 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ facility_name  : chr "Short-Term Hospital (General &amp; Specialty)"</span>
 <span class="r-in"><span><span class="fu">ccn</span><span class="op">(</span><span class="st">"21-0101"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::MedicareProvider&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ raw            : chr "21-0101"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ std            : chr "210101"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ chr            : int 6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ vec            : chr [1:6] "2" "1" "0" "1" "0" "1"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn            : chr "210101"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ state_code     : chr "21"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ state_abbr     : chr "MD"</span>
@@ -96,15 +107,23 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ facility_name  : chr "Short-Term Hospital (General &amp; Specialty)"</span>
 <span class="r-in"><span><span class="fu">ccn</span><span class="op">(</span><span class="st">"21-T101"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::IPPSExcludedProvider&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ raw            : chr "21-T101"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ std            : chr "21T101"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ chr            : int 6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ vec            : chr [1:6] "2" "1" "T" "1" "0" "1"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn            : chr "21T101"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ state_code     : chr "21"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ state_abbr     : chr "MD"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ state_name     : chr "Maryland"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence_number: chr "101"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ facility_type  : chr "T"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ parent_type    : chr [1:2] "1" "0"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ parent_ccn     : chr ""</span>
 <span class="r-in"><span><span class="fu">ccn</span><span class="op">(</span><span class="st">"12345E"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::EmergencyHospital&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ raw            : chr "12345E"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ std            : chr "12345E"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ chr            : int 6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ vec            : chr [1:6] "1" "2" "3" "4" "5" "E"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn            : chr "12345E"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ state_code     : chr "12"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ state_abbr     : chr "HI"</span>
@@ -115,7 +134,11 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ emergency_name : chr "Non-Federal Emergency Hospital (Non-Participating)"</span>
 <span class="r-in"><span><span class="fu">ccn</span><span class="op">(</span><span class="st">"12C4567890"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Supplier&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn            : chr "12C4567890"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ raw            : chr "12C4567890"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ std            : chr "12C4567890"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ chr            : int 10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ vec            : chr [1:10] "1" "2" "C" "4" "5" "6" "7" "8" "9" "0"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn            : chr(0) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ state_code     : chr "12"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ state_abbr     : chr "HI"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ state_name     : chr "Hawaii"</span>

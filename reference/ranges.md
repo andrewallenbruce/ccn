@@ -16,6 +16,12 @@ get_caid_range(x)
 get_caid_range_abbr(x)
 
 get_caid_range_name(x)
+
+get_opo_range(x)
+
+get_opo_range_abbr(x)
+
+get_opo_range_name(x)
 ```
 
 ## Arguments
@@ -51,4 +57,13 @@ get_caid_range(c("055", "232", "599")) |>
 #> [1] "STAC" "CPH"  "LTCH"
 #> [1] "Short-Term Acute Care Hospital"  "Children's Psychiatric Hospital"
 #> [3] "Long-Term Hospital"             
+
+ get_opo_range(c("01", "12", "99")) |>
+ print() |>
+ get_opo_range_abbr() |>
+ print() |>
+ get_opo_range_name()
+#> [1] NA NA NA
+#> [1] NA NA NA
+#> [1] NA NA NA
 ```

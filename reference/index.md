@@ -24,4 +24,7 @@
   [`get_caid_range()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
   [`get_caid_range_abbr()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
   [`get_caid_range_name()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
+  [`get_opo_range()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
+  [`get_opo_range_abbr()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
+  [`get_opo_range_name()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
   : Lookups for Facility Ranges
