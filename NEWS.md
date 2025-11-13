@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9007 (2025-11-12)
+
+* `convert_` helpers
+
+
 # ccn 0.0.0.9006 (2025-11-12)
 
 * Provider superclass is now child class of Unknown
