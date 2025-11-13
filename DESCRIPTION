@@ -39,7 +39,6 @@ Collate:
     'ccn.R'
     'checks.R'
     'classes.R'
-    'generated-globals.R'
     'lookups.R'
     'predicates.R'
     'ranges.R'
