@@ -57,17 +57,17 @@ Supplier <- S7::new_class(
   name = "Supplier",
   parent = CCN,
   properties = list(
-    supplier_type = S7::class_character,
-    supplier_abbr = S7::new_property(
+    type_code = S7::class_character,
+    type_abbr = S7::new_property(
       S7::class_character,
       getter = function(self) {
-        get_supplier_abbr(self@supplier_type)
+        get_supplier_abbr(self@type_code)
       }
     ),
-    supplier_name = S7::new_property(
+    type_desc = S7::new_property(
       S7::class_character,
       getter = function(self) {
-        get_supplier_name(self@supplier_abbr)
+        get_supplier_name(self@type_abbr)
       }
     )
   )
@@ -96,7 +96,7 @@ MedicareProvider <- S7::new_class(
         get_care_range_abbr(self@facility_range)
       }
     ),
-    facility_name = S7::new_property(
+    facility_desc = S7::new_property(
       S7::class_character,
       getter = function(self) {
         get_care_range_name(self@facility_abbr)
@@ -110,7 +110,7 @@ MedicareOPO <- S7::new_class(
   name   = "MedicareOPO",
   parent = Provider,
   properties = list(
-    facility_type = S7::class_character,
+    type_code = S7::class_character,
     facility_range = S7::new_property(
       S7::class_character,
       getter = function(self) {
@@ -137,17 +137,17 @@ EmergencyHospital <- S7::new_class(
   name   = "EmergencyHospital",
   parent = Provider,
   properties = list(
-    emergency_type = S7::class_character,
-    emergency_abbr = S7::new_property(
+    type_code = S7::class_character,
+    type_abbr = S7::new_property(
       S7::class_character,
       getter = function(self) {
-        get_emergency_abbr(self@emergency_type)
+        get_emergency_abbr(self@type_code)
       }
     ),
-    emergency_name = S7::new_property(
+    type_desc = S7::new_property(
       S7::class_character,
       getter = function(self) {
-        get_emergency_name(self@emergency_abbr)
+        get_emergency_name(self@type_abbr)
       }
     )
   )
@@ -158,17 +158,17 @@ MedicaidOnlyProvider <- S7::new_class(
   name   = "MedicaidOnlyProvider",
   parent = Provider,
   properties = list(
-    facility_type = S7::class_character,
-    facility_type_abbr = S7::new_property(
+    type_code = S7::class_character,
+    type_abbr = S7::new_property(
       S7::class_character,
       getter = function(self) {
-        get_caid_abbr(self@facility_type)
+        get_caid_abbr(self@type_code)
       }
     ),
-    facility_type_name = S7::new_property(
+    type_name = S7::new_property(
       S7::class_character,
       getter = function(self) {
-        get_caid_name(self@facility_type_abbr)
+        get_caid_name(self@type_abbr)
       }
     ),
     facility_range = S7::new_property(
@@ -197,12 +197,35 @@ IPPSExcludedProvider <- S7::new_class(
   name   = "IPPSExcludedProvider",
   parent = Provider,
   properties = list(
-    facility_type = S7::class_character,
-    parent_ccn = S7::new_property(
-  S7::class_character,
-  setter = function(self, value) {
-    self@parent_ccn <- string(value)
-    self
+    type_code = S7::class_character,
+    type_abbr = S7::new_property(
+      S7::class_character,
+      getter = function(self) {
+        get_caid_abbr(self@type_code)
+      }
+    ),
+    type_name = S7::new_property(
+      S7::class_character,
+      getter = function(self) {
+        get_caid_name(self@type_abbr)
+      }
+    ),
+    facility_range = S7::new_property(
+      S7::class_character,
+      getter = function(self) {
+        get_caid_range(self@sequence_number)
+      }
+    ),
+    facility_abbr = S7::new_property(
+      S7::class_character,
+      getter = function(self) {
+        get_caid_range_abbr(self@facility_range)
+      }
+    ),
+    facility_name = S7::new_property(
+      S7::class_character,
+      getter = function(self) {
+        get_caid_range_name(self@facility_abbr)
       }
     )
   )

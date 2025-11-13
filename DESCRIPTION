@@ -42,4 +42,5 @@ Collate:
     'lookups.R'
     'predicates.R'
     'ranges.R'
+    'states.R'
     'zzz.R'

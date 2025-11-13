@@ -16,7 +16,6 @@ NULL
 #' x[type_emergency(x)]
 #' x[type_supplier(x)]
 #' x[type_opo(x)]
-#' all(is_state_code(ccn:::state_codes))
 NULL
 
 #' @rdname predicates
@@ -25,7 +24,7 @@ type_medicaid <- make_test(MEDICAID$CODE)
 
 #' @rdname predicates
 #' @export
-type_excluded <- make_test(IPPS_EXCLUDED$CODE)
+type_excluded <- make_test(EXCLUDED$CODE)
 
 #' @rdname predicates
 #' @export
@@ -38,7 +37,3 @@ type_supplier <- make_test(SUPPLIER$CODE)
 #' @rdname predicates
 #' @export
 type_opo <- make_test(OPO$CODE)
-
-#' @rdname predicates
-#' @export
-is_state_code <- make_test(STATE$CODE)

@@ -7,7 +7,6 @@
 \alias{type_emergency}
 \alias{type_supplier}
 \alias{type_opo}
-\alias{is_state_code}
 \title{Logical Predicates}
 \usage{
 type_medicaid(x)
@@ -19,8 +18,6 @@ type_emergency(x)
 type_supplier(x)
 
 type_opo(x)
-
-is_state_code(x)
 }
 \arguments{
 \item{x}{character vector of codes to test.}
@@ -38,5 +35,4 @@ x[type_excluded(x)]
 x[type_emergency(x)]
 x[type_supplier(x)]
 x[type_opo(x)]
-all(is_state_code(ccn:::state_codes))
 }

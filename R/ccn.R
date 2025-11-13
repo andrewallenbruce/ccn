@@ -1,27 +1,19 @@
 #' @noRd
 convert_provider <- function(x) {
-  convert(
-    x,
-    Provider,
-    # ccn        = x@ccn,
-    state_code = x@vec[1:2])
+  convert(x, Provider, state_code = x@vec[1:2])
 }
 
 #' @noRd
 convert_medicare <- function(x) {
-  convert(
-    x,
-    MedicareProvider,
-    sequence_number = x@vec[3:6])
+  convert(x, MedicareProvider, sequence_number = x@vec[3:6])
 }
 
 #' @noRd
 convert_opo <- function(x) {
-  convert(
-    x,
-    MedicareOPO,
-    facility_type   = x@vec[3],
-    sequence_number = x@vec[4:6])
+  convert(x,
+          MedicareOPO,
+          type_code = x@vec[3],
+          sequence_number = x@vec[4:6])
 }
 
 #' @noRd
@@ -30,7 +22,7 @@ convert_emergency <- function(x) {
     x,
     EmergencyHospital,
     sequence_number = x@vec[3:5],
-    emergency_type  = x@vec[6]
+    type_code = x@vec[6]
   )
 }
 
@@ -39,7 +31,7 @@ convert_medicaid <- function(x) {
   convert(
     x,
     MedicaidOnlyProvider,
-    facility_type   = x@vec[3],
+    type_code = x@vec[3],
     sequence_number = x@vec[4:6]
   )
 }
@@ -49,8 +41,7 @@ convert_excluded <- function(x) {
   convert(
     x,
     IPPSExcludedProvider,
-    facility_type   = x@vec[3],
-    parent_ccn      = c(x@vec[1:2], "X", x@vec[4:6]),
+    type_code = x@vec[3],
     sequence_number = x@vec[4:6]
   )
 }
@@ -60,9 +51,8 @@ convert_supplier <- function(x) {
   convert(
     x,
     Supplier,
-    # ccn             = x@ccn,
-    state_code      = x@vec[1:2],
-    supplier_type   = x@vec[3],
+    state_code = x@vec[1:2],
+    type_code = x@vec[3],
     sequence_number = x@vec[4:10]
   )
 }
@@ -74,15 +64,26 @@ convert_supplier <- function(x) {
 #' @param x character vector of CCNs.
 #' @return list of CCN components.
 #' @examples
-#' ccn("67P055")
+#' ccn("01P001") # OPO
+#' ccn("05P001") # OPO
 #' ccn("670055")
-#' ccn("21-0101")
-#' ccn("21-T101")
-#' ccn("21-S101")
-#' ccn("21-U101")
-#' ccn("12345E")
-#' ccn("12C4567890")
-#' ccn("0-12C4567890")
+#'
+#' ccn("210101")
+#' ccn("21T101")
+#' ccn("21S101")
+#' ccn("21U101")
+#'
+#' ccn("212026")
+#' ccn("21SA26")
+#' ccn("21TA26")
+#'
+#' ccn("01L008") # Medicaid Only Provider
+#'
+#' ccn("12345E") # Emergency Hospital
+#'
+#' ccn("10C0001062") # ASC
+#' ccn("45D0634589") # CLIA
+#' ccn("21X0009807") # Portable X-Ray
 #' @export
 ccn <- function(x) {
 

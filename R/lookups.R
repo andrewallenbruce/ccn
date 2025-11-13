@@ -18,10 +18,6 @@ NULL
 #' print() |>
 #' get_supplier_name()
 #'
-#' get_state_abbr(ccn:::state_codes) |>
-#' print() |>
-#' get_state_name()
-#'
 #' get_caid_abbr(LETTERS[1:12]) |>
 #' print() |>
 #' get_caid_name()
@@ -45,16 +41,16 @@ get_supplier_name <- make_switch(SUPPLIER$NAME)
 
 #' @rdname lookups
 #' @export
-get_state_abbr <- make_switch(STATE$CODE)
-
-#' @rdname lookups
-#' @export
-get_state_name <- make_switch(STATE$NAME)
-
-#' @rdname lookups
-#' @export
 get_caid_abbr <- make_switch(MEDICAID$CODE)
 
 #' @rdname lookups
 #' @export
 get_caid_name <- make_switch(MEDICAID$LONG)
+
+#' @rdname lookups
+#' @export
+get_ipps_abbr <- make_switch(EXCLUDED$CODE)
+
+#' @rdname lookups
+#' @export
+get_ipps_name <- make_switch(EXCLUDED$NAME)
