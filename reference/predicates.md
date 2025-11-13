@@ -5,15 +5,15 @@ Logical tests for various code types
 ## Usage
 
 ``` r
-is_medicaid_type(x)
+type_medicaid(x)
 
-is_excluded_type(x)
+type_excluded(x)
 
-is_emergency_type(x)
+type_emergency(x)
 
-is_supplier_type(x)
+type_supplier(x)
 
-is_opo_type(x)
+type_opo(x)
 
 is_state_code(x)
 ```
@@ -32,15 +32,15 @@ logical vector indicating if codes are of the specified type.
 
 ``` r
 x <- LETTERS
-x[is_medicaid_type(x)]
+x[type_medicaid(x)]
 #> [1] "A" "B" "E" "F" "G" "H" "J" "K" "L"
-x[is_excluded_type(x)]
-#> [1] "M" "S" "T" "U" "W" "Z"
-x[is_emergency_type(x)]
+x[type_excluded(x)]
+#> [1] "M" "R" "S" "T" "U" "W" "Y" "Z"
+x[type_emergency(x)]
 #> [1] "E" "F"
-x[is_supplier_type(x)]
+x[type_supplier(x)]
 #> [1] "C" "D" "X"
-x[is_opo_type(x)]
+x[type_opo(x)]
 #> [1] "P"
 all(is_state_code(ccn:::state_codes))
 #> [1] TRUE

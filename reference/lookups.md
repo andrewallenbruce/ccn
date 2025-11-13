@@ -16,6 +16,10 @@ get_supplier_name(x)
 get_state_abbr(x)
 
 get_state_name(x)
+
+get_caid_abbr(x)
+
+get_caid_name(x)
 ```
 
 ## Arguments
@@ -31,11 +35,24 @@ character vector of names associated with codes.
 ## Examples
 
 ``` r
-get_emergency_abbr(c("E", "F"))
+get_emergency_abbr(c("E", "F")) |>
+print() |>
+get_emergency_name()
 #> [1] "ERH-NF" "ERH-F" 
-get_supplier_abbr(c("C", "D", "X"))
+#> [1] "Non-Federal Emergency Hospital (Non-Participating)"
+#> [2] "Federal Emergency Hospital (Non-Participating)"    
+
+get_supplier_abbr(c("C", "D", "X")) |>
+print() |>
+get_supplier_name()
 #> [1] "ASC"  "CLIA" "XRAY"
-get_state_abbr(ccn:::state_codes)
+#> [1] "Ambulatory Surgical Center"                                          
+#> [2] "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory"
+#> [3] "Portable X-Ray Facility"                                             
+
+get_state_abbr(ccn:::state_codes) |>
+print() |>
+get_state_name()
 #>   [1] "AZ"   "AL"   "AK"   "AZ"   "AR"   "CA"   "CO"   "CT"   "DE"   "DC"  
 #>  [11] "FL"   "GA"   "HI"   "ID"   "IL"   "IN"   "IA"   "KS"   "KY"   "LA"  
 #>  [21] "ME"   "MD"   "MA"   "MI"   "MN"   "MS"   "MO"   "MT"   "NE"   "NV"  
@@ -47,15 +64,6 @@ get_state_abbr(ccn:::state_codes)
 #>  [81] "PR"   "GA"   "NC"   "SC"   "TN"   "AR"   "OK"   "CO"   "CA"   "OR"  
 #>  [91] "WA"   "LA"   "NM"   "TX"   "FC"   "CA"   "CA"   "FL"   "LA"   "MI"  
 #> [101] "MS"   "OH"   "PA"   "TN"   "TX"   "KY"   "WV"   "CA"  
-
-get_emergency_name(get_emergency_abbr(c("E", "F")))
-#> [1] "Non-Federal Emergency Hospital (Non-Participating)"
-#> [2] "Federal Emergency Hospital (Non-Participating)"    
-get_supplier_name(get_supplier_abbr(c("C", "D", "X")))
-#> [1] "Ambulatory Surgical Center"                                          
-#> [2] "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory"
-#> [3] "Portable X-Ray Facility"                                             
-get_state_name(get_state_abbr(ccn:::state_codes))
 #>   [1] "Arizona"                                          
 #>   [2] "Alabama"                                          
 #>   [3] "Alaska"                                           
@@ -164,4 +172,22 @@ get_state_name(get_state_abbr(ccn:::state_codes))
 #> [106] "Kentucky"                                         
 #> [107] "West Virginia"                                    
 #> [108] "California"                                       
+
+get_caid_abbr(LETTERS[1:12]) |>
+print() |>
+get_caid_name()
+#>  [1] "NF (SNF)" "NF (SNF)" NA         NA         "NF (ICF)" "NF (ICF)"
+#>  [7] "ICF-IID"  "ICF-IID"  NA         "MCD HOSP" "MCD HHA"  "PRTF"    
+#>  [1] "Nursing Facility (Formerly Assigned to Medicaid Skilled Nursing Facility)"
+#>  [2] "Nursing Facility (Formerly Assigned to Medicaid Skilled Nursing Facility)"
+#>  [3] NA                                                                         
+#>  [4] NA                                                                         
+#>  [5] "Nursing Facility (Formerly Assigned to Intermediate Care Facility)"       
+#>  [6] "Nursing Facility (Formerly Assigned to Intermediate Care Facility)"       
+#>  [7] "Intermediate Care Facility for Individuals with Intellectual Disabilities"
+#>  [8] "Intermediate Care Facility for Individuals with Intellectual Disabilities"
+#>  [9] NA                                                                         
+#> [10] "Medicaid-Only Hospital"                                                   
+#> [11] "Medicaid Home Health Agency"                                              
+#> [12] "Psychiatric Residential Treatment Facility"                               
 ```

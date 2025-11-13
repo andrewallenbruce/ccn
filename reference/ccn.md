@@ -44,7 +44,7 @@ ccn("670055")
 #>  @ state_name     : chr "Texas"
 #>  @ sequence_number: chr "0055"
 #>  @ facility_range : chr "0001-0879"
-#>  @ facility_abbr  : chr "STH"
+#>  @ facility_abbr  : chr "ACUTE"
 #>  @ facility_name  : chr "Short-Term Hospital (General & Specialty)"
 ccn("21-0101")
 #> <ccn::MedicareProvider>
@@ -56,7 +56,7 @@ ccn("21-0101")
 #>  @ state_name     : chr "Maryland"
 #>  @ sequence_number: chr "0101"
 #>  @ facility_range : chr "0001-0879"
-#>  @ facility_abbr  : chr "STH"
+#>  @ facility_abbr  : chr "ACUTE"
 #>  @ facility_name  : chr "Short-Term Hospital (General & Specialty)"
 ccn("21-T101")
 #> <ccn::IPPSExcludedProvider>
@@ -68,6 +68,28 @@ ccn("21-T101")
 #>  @ state_name     : chr "Maryland"
 #>  @ sequence_number: chr "101"
 #>  @ facility_type  : chr "T"
+#>  @ parent_ccn     : chr "21X101"
+ccn("21-S101")
+#> <ccn::IPPSExcludedProvider>
+#>  @ ccn            : chr "21S101"
+#>  @ chr            : int 6
+#>  @ vec            : chr [1:6] "2" "1" "S" "1" "0" "1"
+#>  @ state_code     : chr "21"
+#>  @ state_abbr     : chr "MD"
+#>  @ state_name     : chr "Maryland"
+#>  @ sequence_number: chr "101"
+#>  @ facility_type  : chr "S"
+#>  @ parent_ccn     : chr "21X101"
+ccn("21-U101")
+#> <ccn::IPPSExcludedProvider>
+#>  @ ccn            : chr "21U101"
+#>  @ chr            : int 6
+#>  @ vec            : chr [1:6] "2" "1" "U" "1" "0" "1"
+#>  @ state_code     : chr "21"
+#>  @ state_abbr     : chr "MD"
+#>  @ state_name     : chr "Maryland"
+#>  @ sequence_number: chr "101"
+#>  @ facility_type  : chr "U"
 #>  @ parent_ccn     : chr "21X101"
 ccn("12345E")
 #> <ccn::EmergencyHospital>
