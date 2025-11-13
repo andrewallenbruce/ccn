@@ -14,8 +14,6 @@ type_emergency(x)
 type_supplier(x)
 
 type_opo(x)
-
-is_state_code(x)
 ```
 
 ## Arguments
@@ -42,6 +40,4 @@ x[type_supplier(x)]
 #> [1] "C" "D" "X"
 x[type_opo(x)]
 #> [1] "P"
-all(is_state_code(ccn:::state_codes))
-#> [1] TRUE
 ```

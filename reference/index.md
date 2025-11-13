@@ -10,17 +10,16 @@
   [`get_emergency_name()`](https://andrewallenbruce.github.io/ccn/reference/lookups.md)
   [`get_supplier_abbr()`](https://andrewallenbruce.github.io/ccn/reference/lookups.md)
   [`get_supplier_name()`](https://andrewallenbruce.github.io/ccn/reference/lookups.md)
-  [`get_state_abbr()`](https://andrewallenbruce.github.io/ccn/reference/lookups.md)
-  [`get_state_name()`](https://andrewallenbruce.github.io/ccn/reference/lookups.md)
   [`get_caid_abbr()`](https://andrewallenbruce.github.io/ccn/reference/lookups.md)
   [`get_caid_name()`](https://andrewallenbruce.github.io/ccn/reference/lookups.md)
+  [`get_ipps_abbr()`](https://andrewallenbruce.github.io/ccn/reference/lookups.md)
+  [`get_ipps_name()`](https://andrewallenbruce.github.io/ccn/reference/lookups.md)
   : Lookups for Various Codes
 - [`type_medicaid()`](https://andrewallenbruce.github.io/ccn/reference/predicates.md)
   [`type_excluded()`](https://andrewallenbruce.github.io/ccn/reference/predicates.md)
   [`type_emergency()`](https://andrewallenbruce.github.io/ccn/reference/predicates.md)
   [`type_supplier()`](https://andrewallenbruce.github.io/ccn/reference/predicates.md)
   [`type_opo()`](https://andrewallenbruce.github.io/ccn/reference/predicates.md)
-  [`is_state_code()`](https://andrewallenbruce.github.io/ccn/reference/predicates.md)
   : Logical Predicates
 - [`get_care_range()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
   [`get_care_range_abbr()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
@@ -32,3 +31,7 @@
   [`get_opo_range_abbr()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
   [`get_opo_range_name()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
   : Lookups for Facility Ranges
+- [`get_state_abbr()`](https://andrewallenbruce.github.io/ccn/reference/states.md)
+  [`get_state_name()`](https://andrewallenbruce.github.io/ccn/reference/states.md)
+  [`is_state_code()`](https://andrewallenbruce.github.io/ccn/reference/states.md)
+  : State Lookups
