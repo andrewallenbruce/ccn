@@ -13,9 +13,7 @@ library(ccn)
 ```
 
 ```{r pkg-version}
-# x <- utils::packageVersion("ccn") |> 
-   # unlist_() |> 
-   # cat()
+utils::packageVersion("ccn")
 ```
 
 

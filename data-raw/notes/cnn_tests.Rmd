@@ -1,0 +1,43 @@
+---
+title: "CCN Tests"
+subtitle: "Testing with Real CCNs"
+date: "`r Sys.Date()`"
+output: github_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ccn)
+```
+
+```{r load-ccn}
+vec <- stringfish::convert_to_sf(ccn:::get_pin("ccn_vec"))
+
+length(vec)
+
+len <- stringi::stri_length(vec)
+
+cheapr::table_(len, order = TRUE)
+```
+
+
+```{r eda-ccn}
+make_vec <- function(x, n) {
+  stringfish::convert_to_sf(x[cheapr::which_(len == n)])
+}
+
+ccn_06 <- make_vec(vec, 6)
+ccn_07 <- make_vec(vec, 7)
+ccn_08 <- make_vec(vec, 8)
+ccn_09 <- make_vec(vec, 9)
+ccn_10 <- make_vec(vec, 10)
+
+head(ccn_06) # 46008
+head(ccn_07) # 132
+head(ccn_08) # 34
+head(ccn_09) # 7
+head(ccn_10) # 5474
+```
+

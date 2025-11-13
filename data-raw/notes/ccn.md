@@ -3,10 +3,10 @@ CCN Notes
 2025-11-13
 
 ``` r
-# x <- utils::packageVersion("ccn") |> 
-   # unlist_() |> 
-   # cat()
+utils::packageVersion("ccn")
 ```
+
+    ## [1] '0.0.0.9008'
 
 > SEC 2779A, PG 403 (som107c02.pdf)
 
@@ -62,6 +62,7 @@ ccn:::MEDICARE$ABBR |>
 
 | Facility  | Range     |
 |:----------|:----------|
+| ACUTE     | 0001-0879 |
 | ADH (RET) | 1200-1224 |
 | CAH       | 1300-1399 |
 | CHILD     | 3300-3399 |
@@ -71,7 +72,6 @@ ccn:::MEDICARE$ABBR |>
 | CORF      | 3200-3299 |
 | CORF      | 4500-4599 |
 | CORF      | 4800-4899 |
-| FQHC      | 1000-1199 |
 
 *Examples*: **CMHCs in Florida**
 
@@ -80,54 +80,48 @@ ccn("681400")
 ```
 
     ## <ccn::MedicareProvider>
-    ##  @ raw            : chr "681400"
-    ##  @ std            : chr "681400"
+    ##  @ ccn            : chr "681400"
     ##  @ chr            : int 6
     ##  @ vec            : chr [1:6] "6" "8" "1" "4" "0" "0"
-    ##  @ ccn            : chr "681400"
     ##  @ state_code     : chr "68"
     ##  @ state_abbr     : chr "FL"
     ##  @ state_name     : chr "Florida"
     ##  @ sequence_number: chr "1400"
     ##  @ facility_range : chr "1400-1499"
     ##  @ facility_abbr  : chr "CMHC"
-    ##  @ facility_name  : chr "Community Mental Health Center"
+    ##  @ facility_desc  : chr "Community Mental Health Center"
 
 ``` r
 ccn("684702")
 ```
 
     ## <ccn::MedicareProvider>
-    ##  @ raw            : chr "684702"
-    ##  @ std            : chr "684702"
+    ##  @ ccn            : chr "684702"
     ##  @ chr            : int 6
     ##  @ vec            : chr [1:6] "6" "8" "4" "7" "0" "2"
-    ##  @ ccn            : chr "684702"
     ##  @ state_code     : chr "68"
     ##  @ state_abbr     : chr "FL"
     ##  @ state_name     : chr "Florida"
     ##  @ sequence_number: chr "4702"
     ##  @ facility_range : chr "4600-4799"
     ##  @ facility_abbr  : chr "CMHC"
-    ##  @ facility_name  : chr "Community Mental Health Center"
+    ##  @ facility_desc  : chr "Community Mental Health Center"
 
 ``` r
 ccn("691400")
 ```
 
     ## <ccn::MedicareProvider>
-    ##  @ raw            : chr "691400"
-    ##  @ std            : chr "691400"
+    ##  @ ccn            : chr "691400"
     ##  @ chr            : int 6
     ##  @ vec            : chr [1:6] "6" "9" "1" "4" "0" "0"
-    ##  @ ccn            : chr "691400"
     ##  @ state_code     : chr "69"
     ##  @ state_abbr     : chr "FL"
     ##  @ state_name     : chr "Florida"
     ##  @ sequence_number: chr "1400"
     ##  @ facility_range : chr "1400-1499"
     ##  @ facility_abbr  : chr "CMHC"
-    ##  @ facility_name  : chr "Community Mental Health Center"
+    ##  @ facility_desc  : chr "Community Mental Health Center"
 
 ### Organ Procurement Organizations (OPOs)
 
@@ -139,31 +133,35 @@ remaining 3 digits are the unique facility identifier.
 ccn("01P001")
 ```
 
-    ## <ccn::Provider>
-    ##  @ raw            : chr "01P001"
-    ##  @ std            : chr "01P001"
+    ## <ccn::MedicareOPO>
+    ##  @ ccn            : chr "01P001"
     ##  @ chr            : int 6
     ##  @ vec            : chr [1:6] "0" "1" "P" "0" "0" "1"
-    ##  @ ccn            : chr "01P001"
     ##  @ state_code     : chr "01"
     ##  @ state_abbr     : chr "AL"
     ##  @ state_name     : chr "Alabama"
-    ##  @ sequence_number: chr ""
+    ##  @ sequence_number: chr "001"
+    ##  @ type_code      : chr "P"
+    ##  @ facility_range : chr "001-099"
+    ##  @ facility_abbr  : chr "OPO"
+    ##  @ facility_name  : chr "Organ Procurement Organization"
 
 ``` r
 ccn("05P001")
 ```
 
-    ## <ccn::Provider>
-    ##  @ raw            : chr "05P001"
-    ##  @ std            : chr "05P001"
+    ## <ccn::MedicareOPO>
+    ##  @ ccn            : chr "05P001"
     ##  @ chr            : int 6
     ##  @ vec            : chr [1:6] "0" "5" "P" "0" "0" "1"
-    ##  @ ccn            : chr "05P001"
     ##  @ state_code     : chr "05"
     ##  @ state_abbr     : chr "CA"
     ##  @ state_name     : chr "California"
-    ##  @ sequence_number: chr ""
+    ##  @ sequence_number: chr "001"
+    ##  @ type_code      : chr "P"
+    ##  @ facility_range : chr "001-099"
+    ##  @ facility_abbr  : chr "OPO"
+    ##  @ facility_name  : chr "Organ Procurement Organization"
 
 ## Medicare Suppliers
 
@@ -194,18 +192,16 @@ ccn("10C0001062")
 ```
 
     ## <ccn::Supplier>
-    ##  @ raw            : chr "10C0001062"
-    ##  @ std            : chr "10C0001062"
+    ##  @ ccn            : chr "10C0001062"
     ##  @ chr            : int 10
     ##  @ vec            : chr [1:10] "1" "0" "C" "0" "0" "0" "1" "0" "6" "2"
-    ##  @ ccn            : chr "10C0001062"
     ##  @ state_code     : chr "10"
     ##  @ state_abbr     : chr "FL"
     ##  @ state_name     : chr "Florida"
     ##  @ sequence_number: chr "0001062"
-    ##  @ supplier_type  : chr "C"
-    ##  @ supplier_abbr  : chr "ASC"
-    ##  @ supplier_name  : chr "Ambulatory Surgical Center"
+    ##  @ type_code      : chr "C"
+    ##  @ type_abbr      : chr "ASC"
+    ##  @ type_desc      : chr "Ambulatory Surgical Center"
 
 ``` r
 # CLIA
@@ -213,18 +209,16 @@ ccn("45D0634589")
 ```
 
     ## <ccn::Supplier>
-    ##  @ raw            : chr "45D0634589"
-    ##  @ std            : chr "45D0634589"
+    ##  @ ccn            : chr "45D0634589"
     ##  @ chr            : int 10
     ##  @ vec            : chr [1:10] "4" "5" "D" "0" "6" "3" "4" "5" "8" "9"
-    ##  @ ccn            : chr "45D0634589"
     ##  @ state_code     : chr "45"
     ##  @ state_abbr     : chr "TX"
     ##  @ state_name     : chr "Texas"
     ##  @ sequence_number: chr "0634589"
-    ##  @ supplier_type  : chr "D"
-    ##  @ supplier_abbr  : chr "CLIA"
-    ##  @ supplier_name  : chr "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory"
+    ##  @ type_code      : chr "D"
+    ##  @ type_abbr      : chr "CLIA"
+    ##  @ type_desc      : chr "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory"
 
 ``` r
 # Portable X-Ray
@@ -232,18 +226,16 @@ ccn("21X0009807")
 ```
 
     ## <ccn::Supplier>
-    ##  @ raw            : chr "21X0009807"
-    ##  @ std            : chr "21X0009807"
+    ##  @ ccn            : chr "21X0009807"
     ##  @ chr            : int 10
     ##  @ vec            : chr [1:10] "2" "1" "X" "0" "0" "0" "9" "8" "0" "7"
-    ##  @ ccn            : chr "21X0009807"
     ##  @ state_code     : chr "21"
     ##  @ state_abbr     : chr "MD"
     ##  @ state_name     : chr "Maryland"
     ##  @ sequence_number: chr "0009807"
-    ##  @ supplier_type  : chr "X"
-    ##  @ supplier_abbr  : chr "XRAY"
-    ##  @ supplier_name  : chr "Portable X-Ray Facility"
+    ##  @ type_code      : chr "X"
+    ##  @ type_abbr      : chr "XRAY"
+    ##  @ type_desc      : chr "Portable X-Ray Facility"
 
 ## Medicaid-Only Providers
 
@@ -263,16 +255,19 @@ ccn("01L008")
 ```
 
     ## <ccn::MedicaidOnlyProvider>
-    ##  @ raw            : chr "01L008"
-    ##  @ std            : chr "01L008"
+    ##  @ ccn            : chr "01L008"
     ##  @ chr            : int 6
     ##  @ vec            : chr [1:6] "0" "1" "L" "0" "0" "8"
-    ##  @ ccn            : chr "01L008"
     ##  @ state_code     : chr "01"
     ##  @ state_abbr     : chr "AL"
     ##  @ state_name     : chr "Alabama"
     ##  @ sequence_number: chr "008"
-    ##  @ facility_type  : chr "L"
+    ##  @ type_code      : chr "L"
+    ##  @ type_abbr      : chr "PRTF"
+    ##  @ type_name      : chr "Psychiatric Residential Treatment Facility"
+    ##  @ facility_range : chr "001-099"
+    ##  @ facility_abbr  : chr "ACUTE"
+    ##  @ facility_name  : chr "Medicaid-Only Short-Term Acute Care Hospital"
 
 ``` r
 ccn:::MEDICAID$ABBR |> 
@@ -283,12 +278,13 @@ ccn:::MEDICAID$ABBR |>
 
 | Facility | Range   |
 |:---------|:--------|
+| ACUTE    | 001-099 |
 | CHILD    | 100-199 |
 | CPH      | 200-299 |
 | LTCH     | 500-599 |
 | PSYCH    | 300-399 |
 | REHAB    | 400-499 |
-| STAC     | 001-099 |
+| RESERVED | 600-999 |
 
 > **EXCEPTION:** As of October 1, 2019, an IPPS-excluded hospital is no
 > longer precluded from having an IPPS-excluded psychiatric and/or
