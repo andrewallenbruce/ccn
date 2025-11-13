@@ -22,7 +22,7 @@ NULL
 #'  print() |>
 #'  get_caid_range_name()
 #'
-#'  get_opo_range(c("01", "12", "99")) |>
+#'  get_opo_range(c("001", "012", "099")) |>
 #'  print() |>
 #'  get_opo_range_abbr() |>
 #'  print() |>

@@ -1,3 +1,71 @@
+#' @noRd
+convert_provider <- function(x) {
+  convert(
+    x,
+    Provider,
+    ccn        = x@std,
+    state_code = x@vec[1:2])
+}
+
+#' @noRd
+convert_medicare <- function(x) {
+  convert(
+    x,
+    MedicareProvider,
+    sequence_number = x@vec[3:6])
+}
+
+#' @noRd
+convert_opo <- function(x) {
+  convert(
+    x,
+    MedicareProviderOPO,
+    sequence_number = x@vec[4:6])
+}
+
+#' @noRd
+convert_emergency <- function(x) {
+  convert(
+    x,
+    EmergencyHospital,
+    sequence_number = x@vec[3:5],
+    emergency_type  = x@vec[6]
+  )
+}
+
+#' @noRd
+convert_medicaid <- function(x) {
+  convert(
+    x,
+    MedicaidOnlyProvider,
+    facility_type   = x@vec[3],
+    sequence_number = x@vec[4:6]
+  )
+}
+
+#' @noRd
+convert_excluded <- function(x) {
+  convert(
+    x,
+    IPPSExcludedProvider,
+    facility_type   = x@vec[3],
+    parent_ccn      = c(x@vec[1:2], "0", x@vec[4:6]),
+    sequence_number = x@vec[4:6]
+  )
+}
+
+#' @noRd
+convert_supplier <- function(x, cls, ...) {
+  convert(
+    x,
+    Supplier,
+    ccn             = x@std,
+    state_code      = x@vec[1:2],
+    supplier_type   = x@vec[3],
+    sequence_number = x@vec[4:10]
+  )
+}
+
 #' Decode a CCN
 #'
 #' Decode a CCN into its component parts.
@@ -18,77 +86,19 @@ ccn <- function(x) {
   x <- new_unknown(x)
 
   if (x@chr == 6L) {
-    x <- convert(x, to = Provider, ccn = x@std, state_code = x@vec[1:2])
+    x <- convert_provider(x)
 
-    if (is_numeric(          x@std)) return(convert(x, MedicareProvider, sequence_number = x@vec[3:6]))
-    if (is_opo_type(      x@vec[3])) return(convert(x, MedicareProviderOPO, sequence_number = x@vec[4:6]))
-    if (is_emergency_type(x@vec[6])) return(convert(x, EmergencyHospital, sequence_number = x@vec[3:5], emergency_type = x@vec[6]))
-    if (is_medicaid_type( x@vec[3])) return(convert(x, MedicaidOnlyProvider, facility_type = x@vec[3], sequence_number = x@vec[4:6]))
-    if (is_excluded_type( x@vec[3])) return(convert(x, IPPSExcludedProvider, facility_type = x@vec[3], sequence_number = x@vec[4:6]))
+    if (is_numeric(          x@std)) return(convert_medicare(x))
+    if (is_opo_type(      x@vec[3])) return(convert_opo(x))
+    if (is_emergency_type(x@vec[6])) return(convert_emergency(x))
+    if (is_medicaid_type( x@vec[3])) return(convert_medicaid(x))
+    if (is_excluded_type( x@vec[3])) return(convert_excluded(x))
 
     return(x)
   }
 
   if (x@chr == 10L && is_supplier_type(x@vec[3])) {
-    return(convert(x, Supplier, state_code = x@vec[1:2], supplier_type = x@vec[3], sequence_number = x@vec[4:10]))
+    return(convert_supplier(x))
   }
   x
-}
-
-#' @noRd
-decode <- S7::new_generic("decode", c("x", "y"), function(x, y) {
-  S7::S7_dispatch()
-})
-
-S7::method(decode, list(Unknown, Supplier)) <- function(x, y) {
-  Supplier(
-    ccn             = x@std,
-    state_code      = x@vec[1:2],
-    sequence_number = x@vec[4:10],
-    supplier_type   = x@vec[3]
-  )
-}
-
-S7::method(decode, list(Provider, MedicareProvider)) <- function(x, y) {
-  MedicareProvider(
-    ccn             = x@std,
-    state_code      = x@vec[1:2],
-    sequence_number = x@vec[3:6]
-  )
-}
-
-S7::method(decode, list(Provider, MedicareProviderOPO)) <- function(x, y) {
-  MedicareProviderOPO(
-    ccn             = x@std,
-    state_code      = x@vec[1:2],
-    sequence_number = x@vec[4:6]
-  )
-}
-
-S7::method(decode, list(Provider, EmergencyHospital)) <- function(x, y) {
-  EmergencyHospital(
-    ccn             = x@std,
-    state_code      = x@vec[1:2],
-    sequence_number = x@vec[3:5],
-    emergency_type  = x@vec[6]
-  )
-}
-
-S7::method(decode, list(Provider, MedicaidOnlyProvider)) <- function(x, y) {
-  MedicaidOnlyProvider(
-    ccn             = x@std,
-    state_code      = x@vec[1:2],
-    facility_type   = x@vec[3],
-    sequence_number = x@vec[4:6]
-  )
-}
-
-S7::method(decode, list(Provider, IPPSExcludedProvider)) <- function(x, y) {
-  IPPSExcludedProvider(
-    ccn             = x@std,
-    state_code      = x@vec[1:2],
-    facility_type   = x@vec[3],
-    parent_ccn      = c(x@vec[1:2], "0", x@vec[4:6]),
-    sequence_number = x@vec[4:6]
-  )
 }

@@ -20,31 +20,25 @@ NULL
 NULL
 
 #' @rdname predicates
-#' @autoglobal
 #' @export
 is_medicaid_type <- make_test(MEDICAID_FACILITY_CODE_LIST)
 
 #' @rdname predicates
-#' @autoglobal
 #' @export
 is_excluded_type <- make_test(IPPS_EXCLUDED_TYPE_CODE_LIST)
 
 #' @rdname predicates
-#' @autoglobal
 #' @export
 is_emergency_type <- make_test(EMERGENCY$CODE)
 
 #' @rdname predicates
-#' @autoglobal
 #' @export
 is_supplier_type <- make_test(SUPPLIER$CODE)
 
 #' @rdname predicates
-#' @autoglobal
 #' @export
-is_opo_type <- function(x) x == "P"
+is_opo_type <- make_test(OPO$ABBR)
 
 #' @rdname predicates
-#' @autoglobal
 #' @export
 is_state_code <- make_test(STATE$CODE)
