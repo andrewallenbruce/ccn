@@ -8,6 +8,9 @@
 \alias{get_caid_range}
 \alias{get_caid_range_abbr}
 \alias{get_caid_range_name}
+\alias{get_opo_range}
+\alias{get_opo_range_abbr}
+\alias{get_opo_range_name}
 \title{Lookups for Facility Ranges}
 \usage{
 get_care_range(x)
@@ -21,6 +24,12 @@ get_caid_range(x)
 get_caid_range_abbr(x)
 
 get_caid_range_name(x)
+
+get_opo_range(x)
+
+get_opo_range_abbr(x)
+
+get_opo_range_name(x)
 }
 \arguments{
 \item{x}{character vector of codes to look up.}
@@ -43,4 +52,10 @@ get_caid_range(c("055", "232", "599")) |>
  get_caid_range_abbr() |>
  print() |>
  get_caid_range_name()
+
+ get_opo_range(c("01", "12", "99")) |>
+ print() |>
+ get_opo_range_abbr() |>
+ print() |>
+ get_opo_range_name()
 }

@@ -21,34 +21,46 @@ NULL
 #'  get_caid_range_abbr() |>
 #'  print() |>
 #'  get_caid_range_name()
+#'
+#'  get_opo_range(c("01", "12", "99")) |>
+#'  print() |>
+#'  get_opo_range_abbr() |>
+#'  print() |>
+#'  get_opo_range_name()
 NULL
 
 #' @rdname ranges
-#' @autoglobal
 #' @export
 get_care_range <- make_switch(MEDICARE$RANGES)
 
 #' @rdname ranges
-#' @autoglobal
 #' @export
 get_care_range_abbr <- make_switch(MEDICARE$ABBR)
 
 #' @rdname ranges
-#' @autoglobal
 #' @export
 get_care_range_name <- make_switch(MEDICARE$NAME)
 
 #' @rdname ranges
-#' @autoglobal
 #' @export
 get_caid_range <- make_switch(MEDICAID$RANGES)
 
 #' @rdname ranges
-#' @autoglobal
 #' @export
 get_caid_range_abbr <- make_switch(MEDICAID$ABBR)
 
 #' @rdname ranges
-#' @autoglobal
 #' @export
 get_caid_range_name <- make_switch(MEDICAID$NAME)
+
+#' @rdname ranges
+#' @export
+get_opo_range <- make_switch(OPO$RANGES)
+
+#' @rdname ranges
+#' @export
+get_opo_range_abbr <- make_switch(OPO$ABBR)
+
+#' @rdname ranges
+#' @export
+get_opo_range_name <- make_switch(OPO$NAME)

@@ -1,4 +1,3 @@
-#' @autoglobal
 #' @noRd
 check_character <- function(x, arg = rlang::caller_arg(x), call = rlang::caller_env()) {
   if (!is.character(x)) {
@@ -13,7 +12,6 @@ check_character <- function(x, arg = rlang::caller_arg(x), call = rlang::caller_
   }
 }
 
-#' @autoglobal
 #' @noRd
 check_length <- function(x, arg = rlang::caller_arg(x), call = rlang::caller_env()) {
   if (!nchar(x) %in% c(6L, 10L)) {

@@ -82,6 +82,5 @@ STATE = list(
   )
 )
 
-#' @autoglobal
 #' @noRd
 state_codes <- kit::psort(unlist_(STATE$CODE), nThread = 4L)
