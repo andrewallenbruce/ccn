@@ -122,10 +122,11 @@ MedicareProvider <- S7::new_class(
 )
 
 #' @noRd
-MedicareProviderOPO <- S7::new_class(
-  name   = "MedicareProviderOPO",
+MedicareOPO <- S7::new_class(
+  name   = "MedicareOPO",
   parent = Provider,
   properties = list(
+    facility_type = S7::class_character,
     facility_range = S7::new_property(
       S7::class_character,
       getter = function(self) {

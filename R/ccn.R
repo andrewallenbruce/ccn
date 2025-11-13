@@ -19,7 +19,8 @@ convert_medicare <- function(x) {
 convert_opo <- function(x) {
   convert(
     x,
-    MedicareProviderOPO,
+    MedicareOPO,
+    facility_type   = x@vec[3],
     sequence_number = x@vec[4:6])
 }
 

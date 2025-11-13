@@ -37,7 +37,7 @@ is_supplier_type <- make_test(SUPPLIER$CODE)
 
 #' @rdname predicates
 #' @export
-is_opo_type <- make_test(OPO$ABBR)
+is_opo_type <- make_test(OPO$CODE)
 
 #' @rdname predicates
 #' @export

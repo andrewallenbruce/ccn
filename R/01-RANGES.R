@@ -26,6 +26,8 @@ MEDICAID = list(
 )
 
 OPO = list(
+  CODE = list(
+    "OPO" = "P"),
   RANGES = list(
     "001-099" = pad_three(1:99)),
   ABBR = list(

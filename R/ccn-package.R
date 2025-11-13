@@ -1,14 +1,12 @@
-#' CCN
+#' @description
+#' An [S7 class](https://github.com/RConsortium/S7/) representing a
+#' __CMS Certification Number__, a uniform way of identifying Providers or
+#' Suppliers who have participated in the Medicare or Medicaid programs.
 #'
-#' An [S7](https://github.com/RConsortium/S7/) class representing a __CMS Certification Number__,
-#' a uniform way of identifying providers or suppliers who currently or who
-#' ever have participated in the Medicare or Medicaid programs.
-#'
-#' A CCN is a 6- or 10-character alphanumeric string that encodes the provider
-#' or supplier's state and facility type, as defined by
-#' __CMS Manual System publication number 100-07 "State Operations Provider Certification"__.
-#'
-#' @keywords internal
+#' A CCN is an alphanumeric string, either 6 or 10 characters in length, that
+#' encodes a Provider/Supplier's State and Facility type, as defined by
+#' [CMS Manual System Pub. 100-07](https://www.cms.gov/Regulations-and-Guidance/Guidance/Transmittals/downloads/R3SOM.pdf)
+#' _Medicare State Operations: Provider Certification_.
 "_PACKAGE"
 
 ## usethis namespace: start

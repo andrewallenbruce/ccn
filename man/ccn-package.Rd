@@ -3,16 +3,16 @@
 \docType{package}
 \name{ccn-package}
 \alias{ccn-package}
-\title{CCN}
+\title{ccn: Parse CMS Certification Numbers}
 \description{
-An \href{https://github.com/RConsortium/S7/}{S7} class representing a \strong{CMS Certification Number},
-a uniform way of identifying providers or suppliers who currently or who
-ever have participated in the Medicare or Medicaid programs.
-}
-\details{
-A CCN is a 6- or 10-character alphanumeric string that encodes the provider
-or supplier's state and facility type, as defined by
-\strong{CMS Manual System publication number 100-07 "State Operations Provider Certification"}.
+An \href{https://github.com/RConsortium/S7/}{S7 class} representing a
+\strong{CMS Certification Number}, a uniform way of identifying Providers or
+Suppliers who have participated in the Medicare or Medicaid programs.
+
+A CCN is an alphanumeric string, either 6 or 10 characters in length, that
+encodes a Provider/Supplier's State and Facility type, as defined by
+\href{https://www.cms.gov/Regulations-and-Guidance/Guidance/Transmittals/downloads/R3SOM.pdf}{CMS Manual System Pub. 100-07}
+\emph{Medicare State Operations: Provider Certification}.
 }
 \seealso{
 Useful links:
@@ -27,4 +27,3 @@ Useful links:
 \strong{Maintainer}: Andrew Allen Bruce \email{andrewallenbruce@gmail.com} [copyright holder]
 
 }
-\keyword{internal}

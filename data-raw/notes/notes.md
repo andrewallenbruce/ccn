@@ -1,7 +1,3 @@
----
-output: github_document
----
-
 # Sources
 
   - [CMS Manual](https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf)
