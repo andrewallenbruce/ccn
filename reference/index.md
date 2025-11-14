@@ -17,6 +17,7 @@
   : Lookups for Various Codes
 - [`type_medicaid()`](https://andrewallenbruce.github.io/ccn/reference/predicates.md)
   [`type_excluded()`](https://andrewallenbruce.github.io/ccn/reference/predicates.md)
+  [`type_parent()`](https://andrewallenbruce.github.io/ccn/reference/predicates.md)
   [`type_emergency()`](https://andrewallenbruce.github.io/ccn/reference/predicates.md)
   [`type_supplier()`](https://andrewallenbruce.github.io/ccn/reference/predicates.md)
   [`type_opo()`](https://andrewallenbruce.github.io/ccn/reference/predicates.md)
