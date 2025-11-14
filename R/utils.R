@@ -89,6 +89,13 @@ make_test <- function(named_list) {
 }
 
 #' @noRd
+make_test2 <- function(vec) {
+  function(x) {
+    !cheapr::is_na(collapse::fmatch(x, rlang::names2(vec)))
+  }
+}
+
+#' @noRd
 make_df <- function(x, col_names = NULL) {
   x <- purrr::map(x, \(x) cheapr::fast_df(field = x)) |>
     purrr::list_rbind(names_to = "constant") |>

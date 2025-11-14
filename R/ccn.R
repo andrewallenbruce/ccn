@@ -96,7 +96,11 @@ ccn <- function(x) {
     if (type_opo(      x@vec[3])) return(convert_opo(x))
     if (type_emergency(x@vec[6])) return(convert_emergency(x))
     if (type_medicaid( x@vec[3])) return(convert_medicaid(x))
-    if (type_excluded( x@vec[3])) return(convert_excluded(x))
+
+    if (type_excluded( x@vec[3])) {
+      if (type_parent( x@vec[4])) return(convert_excluded(x))
+      return(convert_excluded(x))
+    }
 
     return(x)
   }

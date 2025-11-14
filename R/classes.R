@@ -231,3 +231,42 @@ IPPSExcludedProvider <- S7::new_class(
   )
 )
 
+#' @noRd
+IPPSExcludedUnit <- S7::new_class(
+  name   = "IPPSExcludedUnit",
+  parent = Provider,
+  properties = list(
+    type_code = S7::class_character,
+    type_abbr = S7::new_property(
+      S7::class_character,
+      getter = function(self) {
+        get_ipps_abbr(self@type_code)
+      }
+    ),
+    type_name = S7::new_property(
+      S7::class_character,
+      getter = function(self) {
+        get_ipps_name(self@type_abbr)
+      }
+    ),
+    facility_range = S7::new_property(
+      S7::class_character,
+      getter = function(self) {
+        get_caid_range(self@sequence_number)
+      }
+    ),
+    facility_abbr = S7::new_property(
+      S7::class_character,
+      getter = function(self) {
+        get_caid_range_abbr(self@facility_range)
+      }
+    ),
+    facility_name = S7::new_property(
+      S7::class_character,
+      getter = function(self) {
+        get_caid_range_name(self@facility_abbr)
+      }
+    )
+  )
+)
+
