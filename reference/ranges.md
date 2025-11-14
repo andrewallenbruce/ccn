@@ -43,10 +43,10 @@ get_care_range(c("0055", "5232", "9999")) |>
  print() |>
  get_care_range_name()
 #> [1] "0001-0879" "5000-6499" "9900-9999"
-#> [1] "ACUTE"             "SNF"               "RESERVED (FUTURE)"
+#> [1] "ACUTE"         "SNF"           "OPIOID (FREE)"
 #> [1] "Short-Term Hospital (General & Specialty)"
 #> [2] "Skilled Nursing Facility"                 
-#> [3] "Reserved for Future Use"                  
+#> [3] "Freestanding Opioid Treatment Program"    
 
 get_caid_range(c("055", "232", "599")) |>
  print() |>
