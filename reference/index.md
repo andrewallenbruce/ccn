@@ -14,6 +14,8 @@
   [`get_caid_name()`](https://andrewallenbruce.github.io/ccn/reference/lookups.md)
   [`get_ipps_abbr()`](https://andrewallenbruce.github.io/ccn/reference/lookups.md)
   [`get_ipps_name()`](https://andrewallenbruce.github.io/ccn/reference/lookups.md)
+  [`get_parent_prefix()`](https://andrewallenbruce.github.io/ccn/reference/lookups.md)
+  [`get_parent_abbr()`](https://andrewallenbruce.github.io/ccn/reference/lookups.md)
   : Lookups for Various Codes
 - [`type_medicaid()`](https://andrewallenbruce.github.io/ccn/reference/predicates.md)
   [`type_excluded()`](https://andrewallenbruce.github.io/ccn/reference/predicates.md)

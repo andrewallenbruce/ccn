@@ -1,5 +1,9 @@
 # Changelog
 
+## ccn 0.0.0.9010 (2025-11-14)
+
+- `IPPSExcludedUnit` class, convert method
+
 ## ccn 0.0.0.9009 (2025-11-14)
 
 - Same as previous version.
