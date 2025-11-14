@@ -249,22 +249,23 @@ IPPSExcludedUnit <- S7::new_class(
         get_ipps_name(self@type_abbr)
       }
     ),
-    facility_range = S7::new_property(
+    parent_code = S7::class_character,
+    parent_abbr = S7::new_property(
       S7::class_character,
       getter = function(self) {
-        get_caid_range(self@sequence_number)
+        get_parent_abbr(self@parent_code)
       }
     ),
-    facility_abbr = S7::new_property(
+    parent_range = S7::new_property(
       S7::class_character,
       getter = function(self) {
-        get_caid_range_abbr(self@facility_range)
+        get_care_range(self@sequence_number)
       }
     ),
-    facility_name = S7::new_property(
+    parent_name = S7::new_property(
       S7::class_character,
       getter = function(self) {
-        get_caid_range_name(self@facility_abbr)
+        get_care_range_name(self@parent_abbr)
       }
     )
   )

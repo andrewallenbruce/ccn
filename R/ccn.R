@@ -47,6 +47,17 @@ convert_excluded <- function(x) {
 }
 
 #' @noRd
+convert_parent <- function(x) {
+  convert(
+    x,
+    IPPSExcludedUnit,
+    type_code = x@vec[3],
+    parent_code = x@vec[4],
+    sequence_number = c(get_parent_prefix(x@vec[4]), x@vec[5:6])
+  )
+}
+
+#' @noRd
 convert_supplier <- function(x) {
   convert(
     x,
@@ -78,12 +89,15 @@ convert_supplier <- function(x) {
 #' ccn("21TA26")
 #'
 #' ccn("01L008") # Medicaid Only Provider
-#'
 #' ccn("12345E") # Emergency Hospital
+#' ccn("10C0001062") # Supplier ASC
+#' ccn("45D0634589") # Supplier CLIA
+#' ccn("21X0009807") # Supplier Portable X-Ray
 #'
-#' ccn("10C0001062") # ASC
-#' ccn("45D0634589") # CLIA
-#' ccn("21X0009807") # Portable X-Ray
+#' # IPPS Excluded Units
+#' ccn("02TA01")
+#' ccn("04SD38")
+#' ccn("52TA05")
 #' @export
 ccn <- function(x) {
 
@@ -98,7 +112,7 @@ ccn <- function(x) {
     if (type_medicaid( x@vec[3])) return(convert_medicaid(x))
 
     if (type_excluded( x@vec[3])) {
-      if (type_parent( x@vec[4])) return(convert_excluded(x))
+      if (type_parent( x@vec[4])) return(convert_parent(x))
       return(convert_excluded(x))
     }
 

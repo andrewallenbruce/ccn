@@ -30,10 +30,13 @@ ccn("21SA26")
 ccn("21TA26")
 
 ccn("01L008") # Medicaid Only Provider
-
 ccn("12345E") # Emergency Hospital
+ccn("10C0001062") # Supplier ASC
+ccn("45D0634589") # Supplier CLIA
+ccn("21X0009807") # Supplier Portable X-Ray
 
-ccn("10C0001062") # ASC
-ccn("45D0634589") # CLIA
-ccn("21X0009807") # Portable X-Ray
+# IPPS Excluded Units
+ccn("02TA01")
+ccn("04SD38")
+ccn("52TA05")
 }

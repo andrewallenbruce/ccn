@@ -62,3 +62,17 @@ get_ipps_abbr <- make_switch(EXCLUDED$CODE)
 #' @rdname lookups
 #' @export
 get_ipps_name <- make_switch(EXCLUDED$NAME)
+
+#' @rdname lookups
+#' @export
+get_parent_prefix <- function(x) {
+  unlist_(EXCLUDED$PARENT)[seq_along(EXCLUDED$PARENT) %% 2L == 0L][
+    collapse::fmatch(x, rlang::names2(EXCLUDED$PARENT))]
+}
+
+#' @rdname lookups
+#' @export
+get_parent_abbr <- function(x) {
+  unlist_(EXCLUDED$PARENT)[seq_along(EXCLUDED$PARENT) %% 2L == 1L][
+    collapse::fmatch(x, rlang::names2(EXCLUDED$PARENT))]
+}
