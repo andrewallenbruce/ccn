@@ -1,6 +1,6 @@
 CCN Notes
 ================
-2025-11-13
+2025-11-13 23:44:07.626481
 
 ``` r
 utils::packageVersion("ccn")
@@ -295,3 +295,16 @@ ccn:::MEDICAID$ABBR |>
 > of the same type (psychiatric or rehabilitation) as the hospital (for
 > example, an Inpatient Rehabilitation Facility (IRF) may not have an
 > IRF unit).
+
+# Sources
+
+- [CMS
+  Manual](https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf)
+- [ResDAC
+  1](https://resdac.org/cms-data/variables/full-cms-certification-number-provider)
+- [ResDAC 2](https://resdac.org/cms-data/variables/provider-number)
+- [The Joint
+  Commission](https://manual.jointcommission.org/releases/TJC2025A/DataElem0276.html)
+- [QCOR](https://qcor.cms.gov/main.jsp)
+- [HHA Branch Identification
+  Numbers](https://www.cms.gov/Regulations-and-Guidance/Guidance/Transmittals/Downloads/R2SOM.pdf)

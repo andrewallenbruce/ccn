@@ -127,7 +127,7 @@ MEDICARE = list(
     "HHA"               = "7000-8499",
     "HHA"               = "9000-9799",
     "TRANSPLANT"        = "9800-9899",
-    "RESERVED (FUTURE)" = "9900-9999"),
+    "OPIOID (FREE)"     = "9900-9999"),
   NAME = list(
     "Short-Term Hospital (General & Specialty)"                  = "ACUTE",
     "Hospital Participating in ORD Demonstration Project"        = "ORD",
@@ -157,5 +157,5 @@ MEDICARE = list(
     "Rural Health Clinic (Free-standing)"                        = "RHC (FREE)",
     "Home Health Agency"                                         = "HHA",
     "Transplant Center"                                          = "TRANSPLANT",
-    "Reserved for Future Use"                                    = "RESERVED (FUTURE)")
+    "Freestanding Opioid Treatment Program"                      = "OPIOID (FREE)")
   )

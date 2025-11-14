@@ -1,7 +1,6 @@
 ---
 title: "CCN Tests"
-subtitle: "Testing with Real CCNs"
-date: "`r Sys.Date()`"
+date: "`r Sys.time()`"
 output: github_document
 editor_options: 
   chunk_output_type: console
@@ -10,34 +9,92 @@ editor_options:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(ccn)
+make_vec <- function(x, n, i = stringi::stri_length(x)) {
+  stringfish::convert_to_sf(x[cheapr::which_(i == n)])
+}
 ```
 
-```{r load-ccn}
-vec <- stringfish::convert_to_sf(ccn:::get_pin("ccn_vec"))
+```{r pin}
+vec <- ccn:::get_pin("ccn_vec") |> 
+  stringfish::convert_to_sf()
 
 length(vec)
 
-len <- stringi::stri_length(vec)
-
-cheapr::table_(len, order = TRUE)
+stringi::stri_length(vec) |> 
+  cheapr::table_(order = TRUE)
 ```
 
 
-```{r eda-ccn}
-make_vec <- function(x, n) {
-  stringfish::convert_to_sf(x[cheapr::which_(len == n)])
-}
-
+```{r lengths}
 ccn_06 <- make_vec(vec, 6)
 ccn_07 <- make_vec(vec, 7)
 ccn_08 <- make_vec(vec, 8)
 ccn_09 <- make_vec(vec, 9)
 ccn_10 <- make_vec(vec, 10)
+```
 
-head(ccn_06) # 46008
-head(ccn_07) # 132
-head(ccn_08) # 34
-head(ccn_09) # 7
-head(ccn_10) # 5474
+## Medicare Providers (6-digit CCN)
+
+```{r ccn6}
+ccn_06 |> length()
+```
+
+### Alphanumeric
+
+```{r ccn6-alpha}
+alpha        <- ccn:::has_letter(ccn_06)
+alpha_06     <- ccn_06[alpha]
+alpha_06_idx <- stringr::str_count(alpha_06, "[A-Za-z]")
+alpha_06_idx |> cheapr::table_(order = TRUE)
+```
+
+#### Two Letters
+
+```{r ccn6-alpha-2}
+alpha_06[alpha_06_idx == 2] |> 
+  stringr::str_extract_all("[A-Z]{2}") |> 
+  ccn:::unlist_() |> 
+  cheapr::table_(order = TRUE)
+```
+
+#### One Letter
+
+```{r ccn6-alpha-1}
+alpha_06[alpha_06_idx == 1] |> 
+  stringr::str_extract_all("[A-Z]", simplify = TRUE) |> 
+  as.vector() |> 
+  cheapr::table_(order = TRUE)
+```
+
+### Numeric
+
+```{r ccn6-numeric}
+ccn_06[!alpha] |> length()
+```
+
+## Medicare Suppliers (10-digit CCN)
+
+```{r ccn10}
+ccn_10 |> 
+  stringr::str_extract_all("[A-Z]") |> 
+  ccn:::unlist_() |> 
+  cheapr::table_(order = TRUE)
+```
+
+## The Extended CCN
+
+This extended field allows for the identification of __Multi-Campus Hospitals__. 
+For multi-campus hospitals, all campuses contain the _same first 6-digit CCN_,
+but positions 7 - 13 may be used to distinguish between campuses (e.g., `01`, `02`,
+`001`, `002`, `A`, etc.) In the future positions 7 - 13 may have other uses.
+
+```{r extended-ccn-7}
+ccn_07
+```
+
+
+```{r}
+ccn_08
+ccn_09
 ```
 

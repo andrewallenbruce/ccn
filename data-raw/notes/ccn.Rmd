@@ -1,10 +1,10 @@
 ---
 title: "CCN Notes"
 subtitle: "Numbering System for CCNs"
-date: "`r Sys.Date()`"
+date: "`r Sys.time()`"
 output: github_document
 editor_options: 
-  chunk_output_type: inline
+  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
@@ -136,3 +136,13 @@ See section 2779C and 2779C1 for additional CCN numbering detail.
 > __Note:__ An IPPS-excluded hospital may not have an IPPS-excluded unit of the
 same type (psychiatric or rehabilitation) as the hospital (for example, an
 Inpatient Rehabilitation Facility (IRF) may not have an IRF unit).
+
+
+# Sources
+
+  - [CMS Manual](https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf)
+  - [ResDAC 1](https://resdac.org/cms-data/variables/full-cms-certification-number-provider)
+  - [ResDAC 2](https://resdac.org/cms-data/variables/provider-number)
+  - [The Joint Commission](https://manual.jointcommission.org/releases/TJC2025A/DataElem0276.html)
+  - [QCOR](https://qcor.cms.gov/main.jsp)
+  - [HHA Branch Identification Numbers](https://www.cms.gov/Regulations-and-Guidance/Guidance/Transmittals/Downloads/R2SOM.pdf)

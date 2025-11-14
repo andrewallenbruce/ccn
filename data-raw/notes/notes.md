@@ -8,6 +8,7 @@
   - [HHA Branch Identification Numbers](https://www.cms.gov/Regulations-and-Guidance/Guidance/Transmittals/Downloads/R2SOM.pdf)
 
 # CCN
+
 The _CMS Certification Number (CCN)_ is a unique identifier assigned to
 healthcare providers certified by Medicare, used for quality reporting and
 verification of services. It consists of six digits, where the first two
@@ -34,17 +35,12 @@ The CCN for providers and suppliers paid under Medicare Part A have 6 digits. Th
 2 digits identify the State in which the provider is located. The last 4 digits identify the
 type of facility.
 
+> A `V` in the 5th position identifies a __VA__ demo.
+
 ### Critical Access Hospital (CAH)
   - First two digits are the state code.
   - Third digit of `0` == __Acute Facility__.
   - Third digit of `1` && fourth digit of `3` == __CAH__.
-
-### The Extended CCN
-This extended field allows for the identification of __Multi-Campus Hospitals__. 
-For multi-campus hospitals, all campuses contain the _same first 6-digit CCN_,
-but positions 7 - 13 may be used to distinguish between campuses (e.g., `01`, `02`,
-`001`, `002`, `A`, etc.) In the future positions 7 - 13 may have other uses.
-
 
 ### HHA Branch Identification Numbers
 

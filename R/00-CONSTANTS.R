@@ -5,10 +5,11 @@ EMERGENCY = list(CODE = list("ERH-NF" = "E", "ERH-F" = "F"),
                  NAME = list("Non-Federal Emergency Hospital (Non-Participating)" = "ERH-NF",
                              "Federal Emergency Hospital (Non-Participating)"     = "ERH-F"))
 
-SUPPLIER = list(CODE = list("ASC" = "C", "CLIA" = "D", "XRAY" = "X"),
-                NAME = list("Ambulatory Surgical Center" = "ASC",
-                            "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory" = "CLIA",
-                            "Portable X-Ray Facility" = "XRAY"))
+SUPPLIER = list(CODE  = list("ASC" = "C", "CLIA" = "D", "XRAY" = "X"),
+                RANGE = list("000001-9999999" = pad_seven(1:9999999)),
+                NAME  = list("Ambulatory Surgical Center" = "ASC",
+                             "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory" = "CLIA",
+                             "Portable X-Ray Facility" = "XRAY"))
 
 EXCLUDED = list(CODE = list("PSYCH (CAH)" = "M",
                             "REHAB (CAH)" = "R",

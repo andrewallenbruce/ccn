@@ -27,6 +27,21 @@ pad_four <- function(x) {
 }
 
 #' @noRd
+pad_seven <- function(x) {
+  x <- as.character(x)
+  n <- nchar(x)
+
+  x[n == 1] <- paste0("000000", x[n == 1])
+  x[n == 2] <- paste0("00000",  x[n == 2])
+  x[n == 3] <- paste0("0000",   x[n == 3])
+  x[n == 4] <- paste0("000",    x[n == 4])
+  x[n == 5] <- paste0("00",     x[n == 5])
+  x[n == 6] <- paste0("0",      x[n == 6])
+
+  stringfish::sf_convert(x)
+}
+
+#' @noRd
 nchars_ <- function(x) {
   stringfish::sf_nchar(x, nthreads = 4L) |> as.character()
   # collapse::vlengths(c("adsfd", "sdgfahrf"), use.names = FALSE)
