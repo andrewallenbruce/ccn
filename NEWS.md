@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9009 (2025-11-14)
+
+- Same as previous version.
+
+
 # ccn 0.0.0.9008 (2025-11-13)
 
 * standardized facility type slots
