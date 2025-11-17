@@ -21,19 +21,19 @@ list of CCN components.
 ## Examples
 
 ``` r
-ccn("01P001") # OPO
-#> <ccn::MedicareOPO>
-#>  @ ccn            : chr "01P001"
+# Medicare Provider
+ccn("670055")
+#> <ccn::MedicareProvider>
+#>  @ ccn            : chr "670055"
 #>  @ chr            : int 6
-#>  @ vec            : chr [1:6] "0" "1" "P" "0" "0" "1"
-#>  @ state_code     : chr "01"
-#>  @ state_abbr     : chr "AL"
-#>  @ state_name     : chr "Alabama"
-#>  @ sequence_number: chr "001"
-#>  @ type_code      : chr "P"
-#>  @ facility_range : chr "001-099"
-#>  @ facility_abbr  : chr "OPO"
-#>  @ facility_name  : chr "Organ Procurement Organization"
+#>  @ vec            : chr [1:6] "6" "7" "0" "0" "5" "5"
+#>  @ state_code     : chr "67"
+#>  @ state_abbr     : chr "TX"
+#>  @ state_name     : chr "Texas"
+#>  @ sequence_number: chr "0055"
+#>  @ facility_range : chr "0001-0879"
+#>  @ facility_abbr  : chr "ACUTE"
+#>  @ facility_desc  : chr "Short-Term Hospital (General & Specialty)"
 ccn("05P001") # OPO
 #> <ccn::MedicareOPO>
 #>  @ ccn            : chr "05P001"
@@ -47,18 +47,6 @@ ccn("05P001") # OPO
 #>  @ facility_range : chr "001-099"
 #>  @ facility_abbr  : chr "OPO"
 #>  @ facility_name  : chr "Organ Procurement Organization"
-ccn("670055")
-#> <ccn::MedicareProvider>
-#>  @ ccn            : chr "670055"
-#>  @ chr            : int 6
-#>  @ vec            : chr [1:6] "6" "7" "0" "0" "5" "5"
-#>  @ state_code     : chr "67"
-#>  @ state_abbr     : chr "TX"
-#>  @ state_name     : chr "Texas"
-#>  @ sequence_number: chr "0055"
-#>  @ facility_range : chr "0001-0879"
-#>  @ facility_abbr  : chr "ACUTE"
-#>  @ facility_desc  : chr "Short-Term Hospital (General & Specialty)"
 
 ccn("210101")
 #> <ccn::MedicareProvider>
@@ -118,52 +106,8 @@ ccn("21U101")
 #>  @ facility_abbr  : chr "CHILD"
 #>  @ facility_name  : chr "Medicaid-Only Children's Hospital"
 
-ccn("212026")
-#> <ccn::MedicareProvider>
-#>  @ ccn            : chr "212026"
-#>  @ chr            : int 6
-#>  @ vec            : chr [1:6] "2" "1" "2" "0" "2" "6"
-#>  @ state_code     : chr "21"
-#>  @ state_abbr     : chr "MD"
-#>  @ state_name     : chr "Maryland"
-#>  @ sequence_number: chr "2026"
-#>  @ facility_range : chr "2000-2299"
-#>  @ facility_abbr  : chr "LTCH"
-#>  @ facility_desc  : chr "Long-Term Care Hospital"
-ccn("21SA26")
-#> <ccn::IPPSExcludedUnit>
-#>  @ ccn            : chr "21SA26"
-#>  @ chr            : int 6
-#>  @ vec            : chr [1:6] "2" "1" "S" "A" "2" "6"
-#>  @ state_code     : chr "21"
-#>  @ state_abbr     : chr "MD"
-#>  @ state_name     : chr "Maryland"
-#>  @ sequence_number: chr "2026"
-#>  @ type_code      : chr "S"
-#>  @ type_abbr      : chr "PSYCH"
-#>  @ type_name      : chr "Psychiatric Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
-#>  @ parent_code    : chr "A"
-#>  @ parent_abbr    : chr "LTCH"
-#>  @ parent_range   : chr "2000-2299"
-#>  @ parent_name    : chr "Long-Term Care Hospital"
-ccn("21TA26")
-#> <ccn::IPPSExcludedUnit>
-#>  @ ccn            : chr "21TA26"
-#>  @ chr            : int 6
-#>  @ vec            : chr [1:6] "2" "1" "T" "A" "2" "6"
-#>  @ state_code     : chr "21"
-#>  @ state_abbr     : chr "MD"
-#>  @ state_name     : chr "Maryland"
-#>  @ sequence_number: chr "2026"
-#>  @ type_code      : chr "T"
-#>  @ type_abbr      : chr "REHAB"
-#>  @ type_name      : chr "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
-#>  @ parent_code    : chr "A"
-#>  @ parent_abbr    : chr "LTCH"
-#>  @ parent_range   : chr "2000-2299"
-#>  @ parent_name    : chr "Long-Term Care Hospital"
-
-ccn("01L008") # Medicaid Only Provider
+# Medicaid Only Provider
+ccn("01L008")
 #> <ccn::MedicaidOnlyProvider>
 #>  @ ccn            : chr "01L008"
 #>  @ chr            : int 6
@@ -178,7 +122,9 @@ ccn("01L008") # Medicaid Only Provider
 #>  @ facility_range : chr "001-099"
 #>  @ facility_abbr  : chr "ACUTE"
 #>  @ facility_name  : chr "Medicaid-Only Short-Term Acute Care Hospital"
-ccn("12345E") # Emergency Hospital
+
+# Emergency Hospital
+ccn("12345E")
 #> <ccn::EmergencyHospital>
 #>  @ ccn            : chr "12345E"
 #>  @ chr            : int 6
@@ -190,7 +136,9 @@ ccn("12345E") # Emergency Hospital
 #>  @ type_code      : chr "E"
 #>  @ type_abbr      : chr "ERH-NF"
 #>  @ type_desc      : chr "Non-Federal Emergency Hospital (Non-Participating)"
-ccn("10C0001062") # Supplier ASC
+
+# Supplier
+ccn("10C0001062") # ASC
 #> <ccn::Supplier>
 #>  @ ccn            : chr "10C0001062"
 #>  @ chr            : int 10
@@ -202,7 +150,7 @@ ccn("10C0001062") # Supplier ASC
 #>  @ type_code      : chr "C"
 #>  @ type_abbr      : chr "ASC"
 #>  @ type_desc      : chr "Ambulatory Surgical Center"
-ccn("45D0634589") # Supplier CLIA
+ccn("45D0634589") # CLIA
 #> <ccn::Supplier>
 #>  @ ccn            : chr "45D0634589"
 #>  @ chr            : int 10
@@ -214,7 +162,7 @@ ccn("45D0634589") # Supplier CLIA
 #>  @ type_code      : chr "D"
 #>  @ type_abbr      : chr "CLIA"
 #>  @ type_desc      : chr "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory"
-ccn("21X0009807") # Supplier Portable X-Ray
+ccn("21X0009807") # Portable X-Ray
 #> <ccn::Supplier>
 #>  @ ccn            : chr "21X0009807"
 #>  @ chr            : int 10
@@ -227,7 +175,7 @@ ccn("21X0009807") # Supplier Portable X-Ray
 #>  @ type_abbr      : chr "XRAY"
 #>  @ type_desc      : chr "Portable X-Ray Facility"
 
-# IPPS Excluded Units
+# IPPS Excluded Unit
 ccn("02TA01")
 #> <ccn::IPPSExcludedUnit>
 #>  @ ccn            : chr "02TA01"
@@ -269,6 +217,51 @@ ccn("52TA05")
 #>  @ state_abbr     : chr "WI"
 #>  @ state_name     : chr "Wisconsin"
 #>  @ sequence_number: chr "2005"
+#>  @ type_code      : chr "T"
+#>  @ type_abbr      : chr "REHAB"
+#>  @ type_name      : chr "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
+#>  @ parent_code    : chr "A"
+#>  @ parent_abbr    : chr "LTCH"
+#>  @ parent_range   : chr "2000-2299"
+#>  @ parent_name    : chr "Long-Term Care Hospital"
+
+ccn("212026") # Parent
+#> <ccn::MedicareProvider>
+#>  @ ccn            : chr "212026"
+#>  @ chr            : int 6
+#>  @ vec            : chr [1:6] "2" "1" "2" "0" "2" "6"
+#>  @ state_code     : chr "21"
+#>  @ state_abbr     : chr "MD"
+#>  @ state_name     : chr "Maryland"
+#>  @ sequence_number: chr "2026"
+#>  @ facility_range : chr "2000-2299"
+#>  @ facility_abbr  : chr "LTCH"
+#>  @ facility_desc  : chr "Long-Term Care Hospital"
+ccn("21SA26")
+#> <ccn::IPPSExcludedUnit>
+#>  @ ccn            : chr "21SA26"
+#>  @ chr            : int 6
+#>  @ vec            : chr [1:6] "2" "1" "S" "A" "2" "6"
+#>  @ state_code     : chr "21"
+#>  @ state_abbr     : chr "MD"
+#>  @ state_name     : chr "Maryland"
+#>  @ sequence_number: chr "2026"
+#>  @ type_code      : chr "S"
+#>  @ type_abbr      : chr "PSYCH"
+#>  @ type_name      : chr "Psychiatric Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
+#>  @ parent_code    : chr "A"
+#>  @ parent_abbr    : chr "LTCH"
+#>  @ parent_range   : chr "2000-2299"
+#>  @ parent_name    : chr "Long-Term Care Hospital"
+ccn("21TA26")
+#> <ccn::IPPSExcludedUnit>
+#>  @ ccn            : chr "21TA26"
+#>  @ chr            : int 6
+#>  @ vec            : chr [1:6] "2" "1" "T" "A" "2" "6"
+#>  @ state_code     : chr "21"
+#>  @ state_abbr     : chr "MD"
+#>  @ state_name     : chr "Maryland"
+#>  @ sequence_number: chr "2026"
 #>  @ type_code      : chr "T"
 #>  @ type_abbr      : chr "REHAB"
 #>  @ type_name      : chr "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
