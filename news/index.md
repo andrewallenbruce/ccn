@@ -1,5 +1,9 @@
 # Changelog
 
+## ccn 0.0.0.9014 (2025-11-17)
+
+- added `extended` slot for Multi-Campus Hospital ccn type
+
 ## ccn 0.0.0.9013 (2025-11-17)
 
 - added `esrd`, `irf` & `ltch` testing data
