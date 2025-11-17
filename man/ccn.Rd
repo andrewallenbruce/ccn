@@ -16,27 +16,32 @@ list of CCN components.
 Decode a CCN into its component parts.
 }
 \examples{
-ccn("01P001") # OPO
-ccn("05P001") # OPO
+# Medicare Provider
 ccn("670055")
+ccn("05P001") # OPO
 
 ccn("210101")
 ccn("21T101")
 ccn("21S101")
 ccn("21U101")
 
-ccn("212026")
-ccn("21SA26")
-ccn("21TA26")
+# Medicaid Only Provider
+ccn("01L008")
 
-ccn("01L008") # Medicaid Only Provider
-ccn("12345E") # Emergency Hospital
-ccn("10C0001062") # Supplier ASC
-ccn("45D0634589") # Supplier CLIA
-ccn("21X0009807") # Supplier Portable X-Ray
+# Emergency Hospital
+ccn("12345E")
 
-# IPPS Excluded Units
+# Supplier
+ccn("10C0001062") # ASC
+ccn("45D0634589") # CLIA
+ccn("21X0009807") # Portable X-Ray
+
+# IPPS Excluded Unit
 ccn("02TA01")
 ccn("04SD38")
 ccn("52TA05")
+
+ccn("212026") # Parent
+ccn("21SA26")
+ccn("21TA26")
 }

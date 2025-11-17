@@ -36,6 +36,7 @@ Collate:
     '01-RANGES.R'
     '02-STATES.R'
     'ccn-package.R'
+    'convert.R'
     'ccn.R'
     'checks.R'
     'classes.R'
