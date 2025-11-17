@@ -3,20 +3,10 @@ Unknown <- S7::new_class(
   name = "Unknown",
   properties = list(
     number = S7::class_character,
-    chr = S7::class_integer,
+    # chr = S7::class_integer,
     vec = S7::class_character
   )
 )
-
-#' @noRd
-new_unknown <- function(x) {
-  xc <- clean(x)
-  Unknown(
-    number = xc,
-    chr = nchar_(xc),
-    vec = split_(xc)
-  )
-}
 
 #' @noRd
 CCN <- S7::new_class(
@@ -74,10 +64,7 @@ Supplier <- S7::new_class(
 )
 
 #' @noRd
-Provider <- S7::new_class(
-  name   = "Provider",
-  parent = CCN
-)
+Provider <- S7::new_class(name = "Provider", parent = CCN)
 
 #' @noRd
 MedicareProvider <- S7::new_class(
