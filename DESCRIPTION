@@ -21,7 +21,7 @@ Imports:
     purrr (>= 1.2.0),
     rlang (>= 1.1.6),
     stringfish (>= 0.17.0),
-    S7 (>= 0.2.0),
+    S7 (>= 0.2.1),
     qs (>= 0.27.3)
 Suggests: 
     testthat (>= 3.0.0)

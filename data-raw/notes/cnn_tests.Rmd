@@ -1,6 +1,6 @@
 ---
 title: "CCN Tests"
-date: "`r Sys.time()`"
+date: "`r Sys.Date()`"
 output: github_document
 editor_options: 
   chunk_output_type: console
@@ -12,6 +12,10 @@ library(ccn)
 make_vec <- function(x, n, i = stringi::stri_length(x)) {
   stringfish::convert_to_sf(x[cheapr::which_(i == n)])
 }
+```
+
+```{r pkg-version}
+utils::packageVersion("ccn")
 ```
 
 ```{r pin}
