@@ -1,5 +1,11 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9011 (2025-11-16)
+
+* props renamed: ccn -> number, sequence_number -> sequence
+* namespace `convert` methods
+
+
 # ccn 0.0.0.9010 (2025-11-14)
 
 * `IPPSExcludedUnit` class, convert method
