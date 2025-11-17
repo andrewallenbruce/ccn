@@ -1,5 +1,9 @@
 # Changelog
 
+## ccn 0.0.0.9013 (2025-11-17)
+
+- added `esrd`, `irf` & `ltch` testing data
+
 ## ccn 0.0.0.9012 (2025-11-17)
 
 - `type_parent` -\> `type_unit`
