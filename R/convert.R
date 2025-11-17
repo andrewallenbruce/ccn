@@ -18,7 +18,7 @@ as_medicare <- function(x) {
 }
 
 #' @noRd
-as_opo <- function(x) {
+as_care_opo <- function(x) {
   S7::convert(
     x,
     MedicareOPO,

@@ -1,6 +1,23 @@
 #' @include convert.R
 NULL
 
+#' @noRd
+get_provider_type <- function(x) {
+  kit::nif(
+    is_numeric(x@number),
+    "medicare",
+    type_opo(substr_(x@number, 3L)),
+    "opo",
+    type_emergency(substr_(x@number, 6L)),
+    "emergency",
+    type_medicaid(substr_(x@number, 3L)),
+    "medicaid",
+    type_excluded(substr_(x@number, 3L)),
+    "excluded",
+    default = NA_character_
+  )
+}
+
 #' Decode a CCN
 #'
 #' Decode a CCN into its component parts.
@@ -43,14 +60,44 @@ ccn <- function(x) {
   if (nchar(x@number) == 6L) {
     x <- as_provider(x)
 
+    return(
+      switch(
+        get_provider_type(x),
+        medicare  = as_medicare(x),
+        opo       = as_care_opo(x),
+        emergency = as_emergency(x),
+        medicaid  = as_medicaid(x),
+        excluded  = if (type_parent(substr_(x@number, 4L))) {
+          as_parent(x)
+        } else {
+          as_excluded(x)
+        },
+        x
+      )
+    )
+  }
+
+  if (nchar(x@number) == 10L && type_supplier(substr_(x@number, 3L))) {
+    return(as_supplier(x))
+  }
+  return(x)
+}
+
+#' @noRd
+ccn2 <- function(x) {
+  x <- as_unknown(x)
+
+  if (nchar(x@number) == 6L) {
+    x <- as_provider(x)
+
     if (is_numeric(x@number))                  return(as_medicare(x))
-    if (type_opo(substr_(x@number, 3L)))       return(as_opo(x))
+    if (type_opo(substr_(x@number, 3L)))       return(as_care_opo(x))
     if (type_emergency(substr_(x@number, 6L))) return(as_emergency(x))
     if (type_medicaid(substr_(x@number, 3L)))  return(as_medicaid(x))
 
     if (type_excluded(substr_(x@number, 3L))) {
       if (type_parent(substr_(x@number, 4L)))  return(as_parent(x))
-                                               return(as_excluded(x))
+      return(as_excluded(x))
     }
     return(x)
   }
