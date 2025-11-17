@@ -1,5 +1,9 @@
 # Changelog
 
+## ccn 0.0.0.9012 (2025-11-17)
+
+- `type_parent` -\> `type_unit`
+
 ## ccn 0.0.0.9011 (2025-11-16)
 
 - props renamed: ccn -\> number, sequence_number -\> sequence

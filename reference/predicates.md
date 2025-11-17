@@ -9,7 +9,7 @@ type_medicaid(x)
 
 type_excluded(x)
 
-type_parent(x)
+type_unit(x)
 
 type_emergency(x)
 
@@ -36,7 +36,7 @@ x[type_medicaid(x)]
 #> [1] "A" "B" "E" "F" "G" "H" "J" "K" "L"
 x[type_excluded(x)]
 #> [1] "M" "R" "S" "T" "U" "W" "Y" "Z"
-x[type_parent(x)]
+x[type_unit(x)]
 #>  [1] "A" "B" "C" "D" "E" "F" "G" "H" "J" "K"
 x[type_emergency(x)]
 #> [1] "E" "F"
