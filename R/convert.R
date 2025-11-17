@@ -58,7 +58,7 @@ as_excluded <- function(x) {
 }
 
 #' @noRd
-as_parent <- function(x) {
+as_unit <- function(x) {
   S7::convert(
     x,
     IPPSExcludedUnit,

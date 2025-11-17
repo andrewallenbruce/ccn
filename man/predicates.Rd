@@ -4,7 +4,7 @@
 \alias{predicates}
 \alias{type_medicaid}
 \alias{type_excluded}
-\alias{type_parent}
+\alias{type_unit}
 \alias{type_emergency}
 \alias{type_supplier}
 \alias{type_opo}
@@ -14,7 +14,7 @@ type_medicaid(x)
 
 type_excluded(x)
 
-type_parent(x)
+type_unit(x)
 
 type_emergency(x)
 
@@ -35,7 +35,7 @@ Logical tests for various code types
 x <- LETTERS
 x[type_medicaid(x)]
 x[type_excluded(x)]
-x[type_parent(x)]
+x[type_unit(x)]
 x[type_emergency(x)]
 x[type_supplier(x)]
 x[type_opo(x)]

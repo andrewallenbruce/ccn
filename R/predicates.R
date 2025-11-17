@@ -13,7 +13,7 @@ NULL
 #' x <- LETTERS
 #' x[type_medicaid(x)]
 #' x[type_excluded(x)]
-#' x[type_parent(x)]
+#' x[type_unit(x)]
 #' x[type_emergency(x)]
 #' x[type_supplier(x)]
 #' x[type_opo(x)]
@@ -29,7 +29,7 @@ type_excluded <- make_test(EXCLUDED$CODE)
 
 #' @rdname predicates
 #' @export
-type_parent <- make_test2(EXCLUDED$PARENT)
+type_unit <- make_test2(EXCLUDED$PARENT)
 
 #' @rdname predicates
 #' @export

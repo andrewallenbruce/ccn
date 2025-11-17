@@ -18,6 +18,25 @@ get_provider_type <- function(x) {
   )
 }
 
+#' @noRd
+as_excluded_type <- function(x) {
+  if (type_unit(substr_(x@number, 4L))) {
+    as_unit(x)
+  } else {
+    as_excluded(x)
+  }
+}
+
+#' @noRd
+is_provider <- function(x) {
+  nchar(x@number) == 6L
+}
+
+#' @noRd
+is_supplier <- function(x) {
+  nchar(x@number) == 10L && type_supplier(substr_(x@number, 3L))
+}
+
 #' Decode a CCN
 #'
 #' Decode a CCN into its component parts.
@@ -55,29 +74,25 @@ get_provider_type <- function(x) {
 #' ccn("21TA26")
 #' @export
 ccn <- function(x) {
+  check_character(x)
+
   x <- as_unknown(x)
 
-  if (nchar(x@number) == 6L) {
+  if (is_provider(x)) {
     x <- as_provider(x)
 
-    return(
-      switch(
-        get_provider_type(x),
-        medicare  = as_medicare(x),
-        opo       = as_care_opo(x),
-        emergency = as_emergency(x),
-        medicaid  = as_medicaid(x),
-        excluded  = if (type_parent(substr_(x@number, 4L))) {
-          as_parent(x)
-        } else {
-          as_excluded(x)
-        },
-        x
-      )
-    )
+    return(switch(
+      get_provider_type(x),
+      medicare  = as_medicare(x),
+      opo       = as_care_opo(x),
+      emergency = as_emergency(x),
+      medicaid  = as_medicaid(x),
+      excluded  = as_excluded_type(x),
+      x
+    ))
   }
 
-  if (nchar(x@number) == 10L && type_supplier(substr_(x@number, 3L))) {
+  if (is_supplier(x)) {
     return(as_supplier(x))
   }
   return(x)
@@ -96,7 +111,7 @@ ccn2 <- function(x) {
     if (type_medicaid(substr_(x@number, 3L)))  return(as_medicaid(x))
 
     if (type_excluded(substr_(x@number, 3L))) {
-      if (type_parent(substr_(x@number, 4L)))  return(as_parent(x))
+      if (type_unit(substr_(x@number, 4L)))  return(as_unit(x))
       return(as_excluded(x))
     }
     return(x)
