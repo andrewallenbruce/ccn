@@ -1,0 +1,10 @@
+file: irf_facility.qs
+file_size: 68123
+pin_hash: 7ebc80643b005d87
+type: qs
+title: Inpatient Rehabilitation Facility
+description: Inpatient Rehabilitation Facility - Provider Data
+tags: ~
+urls: ~
+created: 20251117T182614Z
+api_version: 1

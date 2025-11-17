@@ -18,9 +18,17 @@ ltch <- readr::read_csv(
     Footnote                         = readr::col_character(),
     `Start Date`                     = readr::col_character(),
     `End Date`                       = readr::col_character(),
-    `Measure Date Range`             = readr::col_character()
-  )
-)
+    `Measure Date Range`             = readr::col_character())) |>
+  janitor::clean_names() |>
+  collapse::mtt(address = providertwo:::make_address(address_line_1, address_line_2)) |>
+  collapse::slt(
+    ccn = cms_certification_number_ccn,
+    provider_name,
+    address,
+    city = city_town,
+    state,
+    zip = zip_code,
+    county = county_parish)
 
 ltch
 

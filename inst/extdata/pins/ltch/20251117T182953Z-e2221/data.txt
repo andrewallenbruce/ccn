@@ -1,0 +1,10 @@
+file: ltch.qs
+file_size: 19172
+pin_hash: e2221ae3289420db
+type: qs
+title: Long-Term Care Hospitals
+description: Long-Term Care Hospital - Provider Data
+tags: ~
+urls: ~
+created: 20251117T182953Z
+api_version: 1

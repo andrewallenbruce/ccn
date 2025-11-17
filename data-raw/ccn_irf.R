@@ -12,17 +12,26 @@ irf <- readr::read_csv(
     `ZIP Code`                       = readr::col_character(),
     `County/Parish`                  = readr::col_character(),
     `Telephone Number`               = readr::col_character(),
-    `CMS Region`                     = readr::col_double(),
+    `CMS Region`                     = readr::col_integer(),
     `Measure Code`                   = readr::col_character(),
     Score                            = readr::col_character(),
     Footnote                         = readr::col_character(),
     `Start Date`                     = readr::col_character(),
     `End Date`                       = readr::col_character(),
-    `Measure Date Range`             = readr::col_character()
-  )
-)
+    `Measure Date Range`             = readr::col_character())) |>
+  janitor::clean_names() |>
+  collapse::mtt(address = providertwo:::make_address(address_line_1, address_line_2)) |>
+  collapse::slt(
+    ccn = cms_certification_number_ccn,
+    provider_name,
+    address,
+    city = city_town,
+    state,
+    zip = zip_code,
+    county = county_parish)
 
-irf
+irf |>
+  dplyr::glimpse()
 
 pin_update(
   irf,

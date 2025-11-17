@@ -147,10 +147,31 @@ esrd <- readr::read_csv(
     `Number of patients in nPCR summary`                                                                         = readr::col_double(),
     `Number of patient-months in nPCR summary`                                                                   = readr::col_double(),
     `Percentage of pediatric HD patients with nPCR`                                                              = readr::col_double()
-  ))
+  )) |>
+  janitor::clean_names() |>
+  collapse::mtt(
+    cert_year = substr(certification_date, 6, 9) |> as.integer(),
+    address = providertwo:::make_address(address_line_1, address_line_2),
+    chain_owned = cheapr::val_match(chain_owned, "Yes" ~ 1L, "No" ~ 0L, .default = NA_integer_),
+    profit_non = cheapr::val_match(profit_or_non_profit, "Non-profit" ~ "N", "Profit" ~ "P", .default = NA_character_),
+    dial_stations = as.integer(number_of_dialysis_stations)
+    ) |>
+  collapse::slt(
+    ccn = cms_certification_number_ccn,
+    facility_name,
+    address,
+    city = city_town,
+    state,
+    zip = zip_code,
+    county = county_parish,
+    profit_non,
+    chain_owned,
+    chain_name = chain_organization,
+    dial_stations,
+    cert_year)
 
-# pin_update(
-#   hosp,
-#   name = "hospital_enrollment",
-#   title = "Hospital Enrollments",
-#   description = "Hospital Enrollments 2025")
+pin_update(
+  esrd,
+  name = "dialysis_facility",
+  title = "Dialysis Facilities",
+  description = "Dialysis Facility - Listing by Facility 2025")
