@@ -44,7 +44,7 @@ ccn <- function(x) {
   if (x@chr == 6L) {
     x <- convert_provider(x)
 
-    if (is_numeric(       x@ccn)) return(convert_medicare(x))
+    if (is_numeric(    x@number)) return(convert_medicare(x))
     if (type_opo(      x@vec[3])) return(convert_opo(x))
     if (type_emergency(x@vec[6])) return(convert_emergency(x))
     if (type_medicaid( x@vec[3])) return(convert_medicaid(x))

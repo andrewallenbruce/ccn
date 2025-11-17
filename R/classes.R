@@ -2,7 +2,7 @@
 Unknown <- S7::new_class(
   name = "Unknown",
   properties = list(
-    ccn = S7::class_character,
+    number = S7::class_character,
     chr = S7::class_integer,
     vec = S7::class_character
   )
@@ -12,7 +12,7 @@ Unknown <- S7::new_class(
 new_unknown <- function(x) {
   xc <- clean(x)
   Unknown(
-    ccn = xc,
+    number = xc,
     chr = nchar_(xc),
     vec = split_(xc)
   )
@@ -42,10 +42,10 @@ CCN <- S7::new_class(
         get_state_name(self@state_abbr)
       }
     ),
-    sequence_number = S7::new_property(
+    sequence = S7::new_property(
       S7::class_character,
       setter = function(self, value) {
-        self@sequence_number <- string(value)
+        self@sequence <- string(value)
         self
       }
     )
@@ -87,7 +87,7 @@ MedicareProvider <- S7::new_class(
     facility_range = S7::new_property(
       S7::class_character,
       getter = function(self) {
-        get_care_range(self@sequence_number)
+        get_care_range(self@sequence)
       }
     ),
     facility_abbr = S7::new_property(
@@ -114,7 +114,7 @@ MedicareOPO <- S7::new_class(
     facility_range = S7::new_property(
       S7::class_character,
       getter = function(self) {
-        get_opo_range(self@sequence_number)
+        get_opo_range(self@sequence)
       }
     ),
     facility_abbr = S7::new_property(
@@ -174,7 +174,7 @@ MedicaidOnlyProvider <- S7::new_class(
     facility_range = S7::new_property(
       S7::class_character,
       getter = function(self) {
-        get_caid_range(self@sequence_number)
+        get_caid_range(self@sequence)
       }
     ),
     facility_abbr = S7::new_property(
@@ -213,7 +213,7 @@ IPPSExcludedProvider <- S7::new_class(
     facility_range = S7::new_property(
       S7::class_character,
       getter = function(self) {
-        get_caid_range(self@sequence_number)
+        get_caid_range(self@sequence)
       }
     ),
     facility_abbr = S7::new_property(
@@ -259,7 +259,7 @@ IPPSExcludedUnit <- S7::new_class(
     parent_range = S7::new_property(
       S7::class_character,
       getter = function(self) {
-        get_care_range(self@sequence_number)
+        get_care_range(self@sequence)
       }
     ),
     parent_name = S7::new_property(

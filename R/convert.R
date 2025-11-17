@@ -5,7 +5,7 @@ convert_provider <- function(x) {
 
 #' @noRd
 convert_medicare <- function(x) {
-  S7::convert(x, MedicareProvider, sequence_number = x@vec[3:6])
+  S7::convert(x, MedicareProvider, sequence = x@vec[3:6])
 }
 
 #' @noRd
@@ -13,7 +13,7 @@ convert_opo <- function(x) {
   S7::convert(x,
               MedicareOPO,
               type_code = x@vec[3],
-              sequence_number = x@vec[4:6])
+              sequence = x@vec[4:6])
 }
 
 #' @noRd
@@ -21,7 +21,7 @@ convert_emergency <- function(x) {
   S7::convert(
     x,
     EmergencyHospital,
-    sequence_number = x@vec[3:5],
+    sequence = x@vec[3:5],
     type_code = x@vec[6]
   )
 }
@@ -32,7 +32,7 @@ convert_medicaid <- function(x) {
     x,
     MedicaidOnlyProvider,
     type_code = x@vec[3],
-    sequence_number = x@vec[4:6]
+    sequence = x@vec[4:6]
   )
 }
 
@@ -42,7 +42,7 @@ convert_excluded <- function(x) {
     x,
     IPPSExcludedProvider,
     type_code = x@vec[3],
-    sequence_number = x@vec[4:6]
+    sequence = x@vec[4:6]
   )
 }
 
@@ -53,7 +53,7 @@ convert_parent <- function(x) {
     IPPSExcludedUnit,
     type_code = x@vec[3],
     parent_code = x@vec[4],
-    sequence_number = c(get_parent_prefix(x@vec[4]), x@vec[5:6])
+    sequence = c(get_parent_prefix(x@vec[4]), x@vec[5:6])
   )
 }
 
@@ -64,6 +64,6 @@ convert_supplier <- function(x) {
     Supplier,
     state_code = x@vec[1:2],
     type_code = x@vec[3],
-    sequence_number = x@vec[4:10]
+    sequence = x@vec[4:10]
   )
 }
