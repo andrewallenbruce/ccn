@@ -25,7 +25,6 @@ list of CCN components.
 ccn("670055")
 #> <ccn::MedicareProvider>
 #>  @ number        : chr "670055"
-#>  @ chr           : int 6
 #>  @ vec           : chr [1:6] "6" "7" "0" "0" "5" "5"
 #>  @ state_code    : chr "67"
 #>  @ state_abbr    : chr "TX"
@@ -37,7 +36,6 @@ ccn("670055")
 ccn("05P001") # OPO
 #> <ccn::MedicareOPO>
 #>  @ number        : chr "05P001"
-#>  @ chr           : int 6
 #>  @ vec           : chr [1:6] "0" "5" "P" "0" "0" "1"
 #>  @ state_code    : chr "05"
 #>  @ state_abbr    : chr "CA"
@@ -51,7 +49,6 @@ ccn("05P001") # OPO
 ccn("210101")
 #> <ccn::MedicareProvider>
 #>  @ number        : chr "210101"
-#>  @ chr           : int 6
 #>  @ vec           : chr [1:6] "2" "1" "0" "1" "0" "1"
 #>  @ state_code    : chr "21"
 #>  @ state_abbr    : chr "MD"
@@ -63,7 +60,6 @@ ccn("210101")
 ccn("21T101")
 #> <ccn::IPPSExcludedProvider>
 #>  @ number        : chr "21T101"
-#>  @ chr           : int 6
 #>  @ vec           : chr [1:6] "2" "1" "T" "1" "0" "1"
 #>  @ state_code    : chr "21"
 #>  @ state_abbr    : chr "MD"
@@ -78,7 +74,6 @@ ccn("21T101")
 ccn("21S101")
 #> <ccn::IPPSExcludedProvider>
 #>  @ number        : chr "21S101"
-#>  @ chr           : int 6
 #>  @ vec           : chr [1:6] "2" "1" "S" "1" "0" "1"
 #>  @ state_code    : chr "21"
 #>  @ state_abbr    : chr "MD"
@@ -93,7 +88,6 @@ ccn("21S101")
 ccn("21U101")
 #> <ccn::IPPSExcludedProvider>
 #>  @ number        : chr "21U101"
-#>  @ chr           : int 6
 #>  @ vec           : chr [1:6] "2" "1" "U" "1" "0" "1"
 #>  @ state_code    : chr "21"
 #>  @ state_abbr    : chr "MD"
@@ -110,7 +104,6 @@ ccn("21U101")
 ccn("01L008")
 #> <ccn::MedicaidOnlyProvider>
 #>  @ number        : chr "01L008"
-#>  @ chr           : int 6
 #>  @ vec           : chr [1:6] "0" "1" "L" "0" "0" "8"
 #>  @ state_code    : chr "01"
 #>  @ state_abbr    : chr "AL"
@@ -127,7 +120,6 @@ ccn("01L008")
 ccn("12345E")
 #> <ccn::EmergencyHospital>
 #>  @ number    : chr "12345E"
-#>  @ chr       : int 6
 #>  @ vec       : chr [1:6] "1" "2" "3" "4" "5" "E"
 #>  @ state_code: chr "12"
 #>  @ state_abbr: chr "HI"
@@ -141,7 +133,6 @@ ccn("12345E")
 ccn("10C0001062") # ASC
 #> <ccn::Supplier>
 #>  @ number    : chr "10C0001062"
-#>  @ chr       : int 10
 #>  @ vec       : chr [1:10] "1" "0" "C" "0" "0" "0" "1" "0" "6" "2"
 #>  @ state_code: chr "10"
 #>  @ state_abbr: chr "FL"
@@ -153,7 +144,6 @@ ccn("10C0001062") # ASC
 ccn("45D0634589") # CLIA
 #> <ccn::Supplier>
 #>  @ number    : chr "45D0634589"
-#>  @ chr       : int 10
 #>  @ vec       : chr [1:10] "4" "5" "D" "0" "6" "3" "4" "5" "8" "9"
 #>  @ state_code: chr "45"
 #>  @ state_abbr: chr "TX"
@@ -165,7 +155,6 @@ ccn("45D0634589") # CLIA
 ccn("21X0009807") # Portable X-Ray
 #> <ccn::Supplier>
 #>  @ number    : chr "21X0009807"
-#>  @ chr       : int 10
 #>  @ vec       : chr [1:10] "2" "1" "X" "0" "0" "0" "9" "8" "0" "7"
 #>  @ state_code: chr "21"
 #>  @ state_abbr: chr "MD"
@@ -179,7 +168,6 @@ ccn("21X0009807") # Portable X-Ray
 ccn("02TA01")
 #> <ccn::IPPSExcludedUnit>
 #>  @ number      : chr "02TA01"
-#>  @ chr         : int 6
 #>  @ vec         : chr [1:6] "0" "2" "T" "A" "0" "1"
 #>  @ state_code  : chr "02"
 #>  @ state_abbr  : chr "AK"
@@ -195,7 +183,6 @@ ccn("02TA01")
 ccn("04SD38")
 #> <ccn::IPPSExcludedUnit>
 #>  @ number      : chr "04SD38"
-#>  @ chr         : int 6
 #>  @ vec         : chr [1:6] "0" "4" "S" "D" "3" "8"
 #>  @ state_code  : chr "04"
 #>  @ state_abbr  : chr "AR"
@@ -211,7 +198,6 @@ ccn("04SD38")
 ccn("52TA05")
 #> <ccn::IPPSExcludedUnit>
 #>  @ number      : chr "52TA05"
-#>  @ chr         : int 6
 #>  @ vec         : chr [1:6] "5" "2" "T" "A" "0" "5"
 #>  @ state_code  : chr "52"
 #>  @ state_abbr  : chr "WI"
@@ -228,7 +214,6 @@ ccn("52TA05")
 ccn("212026") # Parent
 #> <ccn::MedicareProvider>
 #>  @ number        : chr "212026"
-#>  @ chr           : int 6
 #>  @ vec           : chr [1:6] "2" "1" "2" "0" "2" "6"
 #>  @ state_code    : chr "21"
 #>  @ state_abbr    : chr "MD"
@@ -240,7 +225,6 @@ ccn("212026") # Parent
 ccn("21SA26")
 #> <ccn::IPPSExcludedUnit>
 #>  @ number      : chr "21SA26"
-#>  @ chr         : int 6
 #>  @ vec         : chr [1:6] "2" "1" "S" "A" "2" "6"
 #>  @ state_code  : chr "21"
 #>  @ state_abbr  : chr "MD"
@@ -256,7 +240,6 @@ ccn("21SA26")
 ccn("21TA26")
 #> <ccn::IPPSExcludedUnit>
 #>  @ number      : chr "21TA26"
-#>  @ chr         : int 6
 #>  @ vec         : chr [1:6] "2" "1" "T" "A" "2" "6"
 #>  @ state_code  : chr "21"
 #>  @ state_abbr  : chr "MD"
