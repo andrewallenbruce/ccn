@@ -38,25 +38,24 @@ NULL
 #' ccn("21TA26")
 #' @export
 ccn <- function(x) {
-
   x <- as_unknown(x)
 
   if (nchar(x@number) == 6L) {
     x <- as_provider(x)
 
-    if (is_numeric(    x@number)) return(as_medicare(x))
-    if (type_opo(      x@vec[3])) return(as_opo(x))
-    if (type_emergency(x@vec[6])) return(as_emergency(x))
-    if (type_medicaid( x@vec[3])) return(as_medicaid(x))
+    if (is_numeric(x@number))                  return(as_medicare(x))
+    if (type_opo(substr_(x@number, 3L)))       return(as_opo(x))
+    if (type_emergency(substr_(x@number, 6L))) return(as_emergency(x))
+    if (type_medicaid(substr_(x@number, 3L)))  return(as_medicaid(x))
 
-    if (type_excluded( x@vec[3])) {
-      if (type_parent( x@vec[4])) return(as_parent(x))
-      return(as_excluded(x))
+    if (type_excluded(substr_(x@number, 3L))) {
+      if (type_parent(substr_(x@number, 4L)))  return(as_parent(x))
+                                               return(as_excluded(x))
     }
     return(x)
   }
 
-  if (nchar(x@number) == 10L && type_supplier(x@vec[3])) {
+  if (nchar(x@number) == 10L && type_supplier(substr_(x@number, 3L))) {
     return(as_supplier(x))
   }
   return(x)

@@ -1,19 +1,22 @@
 #' @noRd
 Unknown <- S7::new_class(
   name = "Unknown",
-  properties = list(
-    number = S7::class_character,
-    # chr = S7::class_integer,
-    vec = S7::class_character
-  )
+  properties = list(number = S7::class_character)
 )
 
 #' @noRd
 CCN <- S7::new_class(
-  name              = "CCN",
-  parent            = Unknown,
-  properties        = list(
-    state_code      = S7::new_property(
+  name = "CCN",
+  parent = Unknown,
+  properties = list(
+    sequence = S7::new_property(
+      S7::class_character,
+      setter = function(self, value) {
+        self@sequence <- string(value)
+        self
+      }
+    ),
+    state_code = S7::new_property(
       S7::class_character,
       setter = function(self, value) {
         self@state_code <- string(value)
@@ -30,13 +33,6 @@ CCN <- S7::new_class(
       S7::class_character,
       getter = function(self) {
         get_state_name(self@state_abbr)
-      }
-    ),
-    sequence = S7::new_property(
-      S7::class_character,
-      setter = function(self, value) {
-        self@sequence <- string(value)
-        self
       }
     )
   )
