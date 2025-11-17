@@ -8,13 +8,27 @@ as_provider <- function(x) {
   S7::convert(
     x,
     Provider,
-    state_code = substr_(x@number, c(1L, 2L))
+    number = if (is_extended(x)) {
+      substr_(x@number, c(1L, 6L))
+    } else {
+      x@number
+    },
+    state_code = substr_(x@number, c(1L, 2L)),
+    extended = if (is_extended(x)) {
+      substr_(x@number, c(7L, nchar(x@number)))
+    } else {
+      character(0)
+    }
   )
 }
 
 #' @noRd
 as_medicare <- function(x) {
-  S7::convert(x, MedicareProvider, sequence = substr_(x@number, c(3L, 6L)))
+  S7::convert(
+    x,
+    MedicareProvider,
+    sequence = substr_(x@number, c(3L, 6L))
+  )
 }
 
 #' @noRd
@@ -23,7 +37,7 @@ as_care_opo <- function(x) {
     x,
     MedicareOPO,
     type_code = substr_(x@number, 3L),
-    sequence = substr_(x@number, c(4L, 6L))
+    sequence  = substr_(x@number, c(4L, 6L))
   )
 }
 
@@ -32,7 +46,7 @@ as_emergency <- function(x) {
   S7::convert(
     x,
     EmergencyHospital,
-    sequence = substr_(x@number, c(3L, 5L)),
+    sequence  = substr_(x@number, c(3L, 5L)),
     type_code = substr_(x@number, 6L)
   )
 }
@@ -43,7 +57,7 @@ as_medicaid <- function(x) {
     x,
     MedicaidOnlyProvider,
     type_code = substr_(x@number, 3L),
-    sequence = substr_(x@number, c(4L, 6L))
+    sequence  = substr_(x@number, c(4L, 6L))
   )
 }
 
@@ -53,7 +67,7 @@ as_excluded <- function(x) {
     x,
     IPPSExcludedProvider,
     type_code = substr_(x@number, 3L),
-    sequence = substr_(x@number, c(4L, 6L))
+    sequence  = substr_(x@number, c(4L, 6L))
   )
 }
 
@@ -62,10 +76,11 @@ as_unit <- function(x) {
   S7::convert(
     x,
     IPPSExcludedUnit,
-    type_code = substr_(x@number, 3L),
+    type_code   = substr_(x@number, 3L),
     parent_code = substr_(x@number, 4L),
-    sequence = c(get_parent_prefix(substr_(x@number, 4L)),
-                 substr_(x@number, c(5L, 6L)))
+    sequence    = string(c(
+      get_parent_prefix(substr_(x@number, 4L)), substr_(x@number, c(5L, 6L))
+    ))
   )
 }
 
@@ -75,7 +90,7 @@ as_supplier <- function(x) {
     x,
     Supplier,
     state_code = substr_(x@number, c(1L, 2L)),
-    type_code = substr_(x@number, 3L),
-    sequence = substr_(x@number, c(4L, 10L))
+    type_code  = substr_(x@number, 3L),
+    sequence   = substr_(x@number, c(4L, 10L))
   )
 }

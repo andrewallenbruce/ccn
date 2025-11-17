@@ -7,8 +7,10 @@ editor_options:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, comment = "")
+
 library(ccn)
+
 make_vec <- function(x, n, i = stringi::stri_length(x)) {
   stringfish::convert_to_sf(x[cheapr::which_(i == n)])
 }
@@ -87,18 +89,36 @@ ccn_10 |>
 
 ## The Extended CCN
 
-This extended field allows for the identification of __Multi-Campus Hospitals__. 
+This extended field allows for the identification of __Multi-Campus Hospitals__.
 For multi-campus hospitals, all campuses contain the _same first 6-digit CCN_,
-but positions 7 - 13 may be used to distinguish between campuses (e.g., `01`, `02`,
-`001`, `002`, `A`, etc.) In the future positions 7 - 13 may have other uses.
+but positions 7 - 13 may be used to distinguish between campuses (e.g., `01`,
+`02`, `001`, `002`, `A`, etc.) In the future positions 7 - 13 may have other
+uses.
+
+### Length 7
 
 ```{r extended-ccn-7}
-ccn_07
+idx_07 <- stringr::str_count(ccn_07, "[A-Za-z]")
+ccn_07[idx_07 == 2]
+ccn_07[idx_07 == 1]
 ```
 
+### Length 8
+
+```{r extended-ccn-8}
+ccn_08
+stringr::str_count(ccn_08, "[A-Za-z]")
+```
+
+### Length 9
+
+```{r extended-ccn-9}
+ccn_09
+```
+
+## Test
 
 ```{r}
-ccn_08
-ccn_09
+# purrr::map(ccn:::extended_ccns, ccn)
 ```
 

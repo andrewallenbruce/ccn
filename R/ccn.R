@@ -37,6 +37,11 @@ is_supplier <- function(x) {
   nchar(x@number) == 10L && type_supplier(substr_(x@number, 3L))
 }
 
+#' @noRd
+is_extended <- function(x) {
+  nchar(x@number) > 6L && nchar(x@number) < 10L
+}
+
 #' Decode a CCN
 #'
 #' Decode a CCN into its component parts.
@@ -78,7 +83,7 @@ ccn <- function(x) {
 
   x <- as_unknown(x)
 
-  if (is_provider(x)) {
+  if (is_provider(x) | is_extended(x)) {
     x <- as_provider(x)
 
     return(switch(

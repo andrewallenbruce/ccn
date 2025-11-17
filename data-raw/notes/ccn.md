@@ -1,12 +1,12 @@
 CCN Notes
 ================
-2025-11-16
+2025-11-17
 
 ``` r
 utils::packageVersion("ccn")
 ```
 
-    ## [1] '0.0.0.9010'
+    [1] '0.0.0.9013'
 
 > SEC 2779A, PG 403 (som107c02.pdf)
 
@@ -21,6 +21,9 @@ that has or currently does participate in Medicare and/or Medicaid. The
 RO, not the SA or MAC, assigns the CCN and maintains adequate controls.
 
 ## Medicare Providers
+
+*\[2779A\] (Rev. 226; Issued: 12-06-24; Effective: 12-06-24;
+Implementation: 12-06-24)*
 
 CCNs for Providers and Suppliers paid under *Medicare Part A* have **6
 digits**.
@@ -79,49 +82,43 @@ ccn:::MEDICARE$ABBR |>
 ccn("681400")
 ```
 
-    ## <ccn::MedicareProvider>
-    ##  @ ccn            : chr "681400"
-    ##  @ chr            : int 6
-    ##  @ vec            : chr [1:6] "6" "8" "1" "4" "0" "0"
-    ##  @ state_code     : chr "68"
-    ##  @ state_abbr     : chr "FL"
-    ##  @ state_name     : chr "Florida"
-    ##  @ sequence_number: chr "1400"
-    ##  @ facility_range : chr "1400-1499"
-    ##  @ facility_abbr  : chr "CMHC"
-    ##  @ facility_desc  : chr "Community Mental Health Center"
+    <ccn::MedicareProvider>
+     @ number        : chr "681400"
+     @ sequence      : chr "1400"
+     @ state_code    : chr "68"
+     @ state_abbr    : chr "FL"
+     @ state_name    : chr "Florida"
+     @ facility_range: chr "1400-1499"
+     @ facility_abbr : chr "CMHC"
+     @ facility_desc : chr "Community Mental Health Center"
 
 ``` r
 ccn("684702")
 ```
 
-    ## <ccn::MedicareProvider>
-    ##  @ ccn            : chr "684702"
-    ##  @ chr            : int 6
-    ##  @ vec            : chr [1:6] "6" "8" "4" "7" "0" "2"
-    ##  @ state_code     : chr "68"
-    ##  @ state_abbr     : chr "FL"
-    ##  @ state_name     : chr "Florida"
-    ##  @ sequence_number: chr "4702"
-    ##  @ facility_range : chr "4600-4799"
-    ##  @ facility_abbr  : chr "CMHC"
-    ##  @ facility_desc  : chr "Community Mental Health Center"
+    <ccn::MedicareProvider>
+     @ number        : chr "684702"
+     @ sequence      : chr "4702"
+     @ state_code    : chr "68"
+     @ state_abbr    : chr "FL"
+     @ state_name    : chr "Florida"
+     @ facility_range: chr "4600-4799"
+     @ facility_abbr : chr "CMHC"
+     @ facility_desc : chr "Community Mental Health Center"
 
 ``` r
 ccn("691400")
 ```
 
-    ## <ccn::MedicareProvider>
-    ##  @ ccn            : chr "691400"
-    ##  @ chr            : int 6
-    ##  @ vec            : chr [1:6] "6" "9" "1" "4" "0" "0"
-    ##  @ state_code     : chr "69"
-    ##  @ state_abbr     : chr "FL"
-    ##  @ state_name     : chr "Florida"
-    ##  @ sequence_number: chr "1400"
-    ##  @ facility_range : chr "1400-1499"
-    ##  @ facility_abbr  : chr "CMHC"
-    ##  @ facility_desc  : chr "Community Mental Health Center"
+    <ccn::MedicareProvider>
+     @ number        : chr "691400"
+     @ sequence      : chr "1400"
+     @ state_code    : chr "69"
+     @ state_abbr    : chr "FL"
+     @ state_name    : chr "Florida"
+     @ facility_range: chr "1400-1499"
+     @ facility_abbr : chr "CMHC"
+     @ facility_desc : chr "Community Mental Health Center"
 
 ### Organ Procurement Organizations (OPOs)
 
@@ -133,35 +130,31 @@ remaining 3 digits are the unique facility identifier.
 ccn("01P001")
 ```
 
-    ## <ccn::MedicareOPO>
-    ##  @ ccn            : chr "01P001"
-    ##  @ chr            : int 6
-    ##  @ vec            : chr [1:6] "0" "1" "P" "0" "0" "1"
-    ##  @ state_code     : chr "01"
-    ##  @ state_abbr     : chr "AL"
-    ##  @ state_name     : chr "Alabama"
-    ##  @ sequence_number: chr "001"
-    ##  @ type_code      : chr "P"
-    ##  @ facility_range : chr "001-099"
-    ##  @ facility_abbr  : chr "OPO"
-    ##  @ facility_name  : chr "Organ Procurement Organization"
+    <ccn::MedicareOPO>
+     @ number        : chr "01P001"
+     @ sequence      : chr "001"
+     @ state_code    : chr "01"
+     @ state_abbr    : chr "AL"
+     @ state_name    : chr "Alabama"
+     @ type_code     : chr "P"
+     @ facility_range: chr "001-099"
+     @ facility_abbr : chr "OPO"
+     @ facility_name : chr "Organ Procurement Organization"
 
 ``` r
 ccn("05P001")
 ```
 
-    ## <ccn::MedicareOPO>
-    ##  @ ccn            : chr "05P001"
-    ##  @ chr            : int 6
-    ##  @ vec            : chr [1:6] "0" "5" "P" "0" "0" "1"
-    ##  @ state_code     : chr "05"
-    ##  @ state_abbr     : chr "CA"
-    ##  @ state_name     : chr "California"
-    ##  @ sequence_number: chr "001"
-    ##  @ type_code      : chr "P"
-    ##  @ facility_range : chr "001-099"
-    ##  @ facility_abbr  : chr "OPO"
-    ##  @ facility_name  : chr "Organ Procurement Organization"
+    <ccn::MedicareOPO>
+     @ number        : chr "05P001"
+     @ sequence      : chr "001"
+     @ state_code    : chr "05"
+     @ state_abbr    : chr "CA"
+     @ state_name    : chr "California"
+     @ type_code     : chr "P"
+     @ facility_range: chr "001-099"
+     @ facility_abbr : chr "OPO"
+     @ facility_name : chr "Organ Procurement Organization"
 
 ## Medicare Suppliers
 
@@ -187,55 +180,160 @@ number series `0000001-9999999`.
 *Examples*:
 
 ``` r
-# ASC
-ccn("10C0001062")
+ccn("10C0001062") # ASC
 ```
 
-    ## <ccn::Supplier>
-    ##  @ ccn            : chr "10C0001062"
-    ##  @ chr            : int 10
-    ##  @ vec            : chr [1:10] "1" "0" "C" "0" "0" "0" "1" "0" "6" "2"
-    ##  @ state_code     : chr "10"
-    ##  @ state_abbr     : chr "FL"
-    ##  @ state_name     : chr "Florida"
-    ##  @ sequence_number: chr "0001062"
-    ##  @ type_code      : chr "C"
-    ##  @ type_abbr      : chr "ASC"
-    ##  @ type_desc      : chr "Ambulatory Surgical Center"
+    <ccn::Supplier>
+     @ number    : chr "10C0001062"
+     @ sequence  : chr "0001062"
+     @ state_code: chr "10"
+     @ state_abbr: chr "FL"
+     @ state_name: chr "Florida"
+     @ type_code : chr "C"
+     @ type_abbr : chr "ASC"
+     @ type_desc : chr "Ambulatory Surgical Center"
 
 ``` r
-# CLIA
-ccn("45D0634589")
+ccn("45D0634589") # CLIA
 ```
 
-    ## <ccn::Supplier>
-    ##  @ ccn            : chr "45D0634589"
-    ##  @ chr            : int 10
-    ##  @ vec            : chr [1:10] "4" "5" "D" "0" "6" "3" "4" "5" "8" "9"
-    ##  @ state_code     : chr "45"
-    ##  @ state_abbr     : chr "TX"
-    ##  @ state_name     : chr "Texas"
-    ##  @ sequence_number: chr "0634589"
-    ##  @ type_code      : chr "D"
-    ##  @ type_abbr      : chr "CLIA"
-    ##  @ type_desc      : chr "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory"
+    <ccn::Supplier>
+     @ number    : chr "45D0634589"
+     @ sequence  : chr "0634589"
+     @ state_code: chr "45"
+     @ state_abbr: chr "TX"
+     @ state_name: chr "Texas"
+     @ type_code : chr "D"
+     @ type_abbr : chr "CLIA"
+     @ type_desc : chr "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory"
 
 ``` r
-# Portable X-Ray
-ccn("21X0009807")
+ccn("21X0009807") # Portable X-Ray
 ```
 
-    ## <ccn::Supplier>
-    ##  @ ccn            : chr "21X0009807"
-    ##  @ chr            : int 10
-    ##  @ vec            : chr [1:10] "2" "1" "X" "0" "0" "0" "9" "8" "0" "7"
-    ##  @ state_code     : chr "21"
-    ##  @ state_abbr     : chr "MD"
-    ##  @ state_name     : chr "Maryland"
-    ##  @ sequence_number: chr "0009807"
-    ##  @ type_code      : chr "X"
-    ##  @ type_abbr      : chr "XRAY"
-    ##  @ type_desc      : chr "Portable X-Ray Facility"
+    <ccn::Supplier>
+     @ number    : chr "21X0009807"
+     @ sequence  : chr "0009807"
+     @ state_code: chr "21"
+     @ state_abbr: chr "MD"
+     @ state_name: chr "Maryland"
+     @ type_code : chr "X"
+     @ type_abbr : chr "XRAY"
+     @ type_desc : chr "Portable X-Ray Facility"
+
+> More **CLIA** examples:
+
+``` r
+ccn("11D0265516") # DANIEL FELDMAN MD
+```
+
+    <ccn::Supplier>
+     @ number    : chr "11D0265516"
+     @ sequence  : chr "0265516"
+     @ state_code: chr "11"
+     @ state_abbr: chr "GA"
+     @ state_name: chr "Georgia"
+     @ type_code : chr "D"
+     @ type_abbr : chr "CLIA"
+     @ type_desc : chr "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory"
+
+``` r
+ccn("02D0873639") # Artic Envestigations Program Laboratory, Anchorage, AK
+```
+
+    <ccn::Supplier>
+     @ number    : chr "02D0873639"
+     @ sequence  : chr "0873639"
+     @ state_code: chr "02"
+     @ state_abbr: chr "AK"
+     @ state_name: chr "Alaska"
+     @ type_code : chr "D"
+     @ type_abbr : chr "CLIA"
+     @ type_desc : chr "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory"
+
+``` r
+ccn("40D0869394") # Dengue Laboratory, San Juan, PR
+```
+
+    <ccn::Supplier>
+     @ number    : chr "40D0869394"
+     @ sequence  : chr "0869394"
+     @ state_code: chr "40"
+     @ state_abbr: chr "PR"
+     @ state_name: chr "Puerto Rico"
+     @ type_code : chr "D"
+     @ type_abbr : chr "CLIA"
+     @ type_desc : chr "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory"
+
+``` r
+ccn("11D1061576") # CDC/CGH/DGHA International Laboratory, Atlanta, GA
+```
+
+    <ccn::Supplier>
+     @ number    : chr "11D1061576"
+     @ sequence  : chr "1061576"
+     @ state_code: chr "11"
+     @ state_abbr: chr "GA"
+     @ state_name: chr "Georgia"
+     @ type_code : chr "D"
+     @ type_abbr : chr "CLIA"
+     @ type_desc : chr "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory"
+
+``` r
+ccn("11D0668319") # Infectious Diseases Laboratory, Atlanta, GA
+```
+
+    <ccn::Supplier>
+     @ number    : chr "11D0668319"
+     @ sequence  : chr "0668319"
+     @ state_code: chr "11"
+     @ state_abbr: chr "GA"
+     @ state_name: chr "Georgia"
+     @ type_code : chr "D"
+     @ type_abbr : chr "CLIA"
+     @ type_desc : chr "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory"
+
+``` r
+ccn("11D0668290") # National Center for Environmental Health, Division of Laboratory Science, Atlanta, GA
+```
+
+    <ccn::Supplier>
+     @ number    : chr "11D0668290"
+     @ sequence  : chr "0668290"
+     @ state_code: chr "11"
+     @ state_abbr: chr "GA"
+     @ state_name: chr "Georgia"
+     @ type_code : chr "D"
+     @ type_abbr : chr "CLIA"
+     @ type_desc : chr "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory"
+
+``` r
+ccn("06D0880233") # Vector-Borne Diseases Laboratory, Fort Collins, CO
+```
+
+    <ccn::Supplier>
+     @ number    : chr "06D0880233"
+     @ sequence  : chr "0880233"
+     @ state_code: chr "06"
+     @ state_abbr: chr "CO"
+     @ state_name: chr "Colorado"
+     @ type_code : chr "D"
+     @ type_abbr : chr "CLIA"
+     @ type_desc : chr "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory"
+
+``` r
+ccn("11D2306220") # Wiregrass Georgia Tech College Student Health Center, Valdosta, GA
+```
+
+    <ccn::Supplier>
+     @ number    : chr "11D2306220"
+     @ sequence  : chr "2306220"
+     @ state_code: chr "11"
+     @ state_abbr: chr "GA"
+     @ state_name: chr "Georgia"
+     @ type_code : chr "D"
+     @ type_abbr : chr "CLIA"
+     @ type_desc : chr "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory"
 
 ## Medicaid-Only Providers
 
@@ -243,9 +341,9 @@ ccn("21X0009807")
 
 *Rev. 123, ISS: `10-03-14`, EFF: `10-03-14`, IMP: `10-03-14`*
 
-For certification purposes, Title XIX-Only Providers are identified by a
-6-digit alphanumeric CCN. The first 2 digits identify the State in which
-the provider is located. The third position, which is an alpha
+For certification purposes, **Title XIX-Only Providers** are identified
+by a 6-digit alphanumeric CCN. The first 2 digits identify the State in
+which the provider is located. The third position, which is an alpha
 character, identifies the type of facility by level or type of care
 being provided. The last 3 digits make up a sequential number series
 beginning with 001.
@@ -254,20 +352,18 @@ beginning with 001.
 ccn("01L008")
 ```
 
-    ## <ccn::MedicaidOnlyProvider>
-    ##  @ ccn            : chr "01L008"
-    ##  @ chr            : int 6
-    ##  @ vec            : chr [1:6] "0" "1" "L" "0" "0" "8"
-    ##  @ state_code     : chr "01"
-    ##  @ state_abbr     : chr "AL"
-    ##  @ state_name     : chr "Alabama"
-    ##  @ sequence_number: chr "008"
-    ##  @ type_code      : chr "L"
-    ##  @ type_abbr      : chr "PRTF"
-    ##  @ type_name      : chr "Psychiatric Residential Treatment Facility"
-    ##  @ facility_range : chr "001-099"
-    ##  @ facility_abbr  : chr "ACUTE"
-    ##  @ facility_name  : chr "Medicaid-Only Short-Term Acute Care Hospital"
+    <ccn::MedicaidOnlyProvider>
+     @ number        : chr "01L008"
+     @ sequence      : chr "008"
+     @ state_code    : chr "01"
+     @ state_abbr    : chr "AL"
+     @ state_name    : chr "Alabama"
+     @ type_code     : chr "L"
+     @ type_abbr     : chr "PRTF"
+     @ type_name     : chr "Psychiatric Residential Treatment Facility"
+     @ facility_range: chr "001-099"
+     @ facility_abbr : chr "ACUTE"
+     @ facility_name : chr "Medicaid-Only Short-Term Acute Care Hospital"
 
 ``` r
 ccn:::MEDICAID$ABBR |> 
@@ -308,3 +404,59 @@ ccn:::MEDICAID$ABBR |>
 - [QCOR](https://qcor.cms.gov/main.jsp)
 - [HHA Branch Identification
   Numbers](https://www.cms.gov/Regulations-and-Guidance/Guidance/Transmittals/Downloads/R2SOM.pdf)
+
+# CCN Definition
+
+The *CMS Certification Number (CCN)* is a unique identifier assigned to
+healthcare providers certified by Medicare, used for quality reporting
+and verification of services. It consists of six digits, where the first
+two indicate the state, and the remaining digits specify the provider
+type and a unique counter.
+
+## *ResDAC*:
+
+The provider identification number of the institutional provider,
+certified by Medicare.
+
+The first two digits indicate the state where the provider is located.
+As two-digit state codes have been exhausted, CMS has implemented a
+two-position alpha-numeric coding system for State Codes.
+
+The middle two characters indicate the type of provider. The last two
+digits are used as a **counter for the number of providers within that
+state** and type of provider (i.e., a unique but not necessarily
+sequential number).
+
+> A `V` in the 5th position identifies a **VA** demo.
+
+### Critical Access Hospital (CAH)
+
+- First two digits are the state code.
+- Third digit of `0` == **Acute Facility**.
+- Third digit of `1` && fourth digit of `3` == **CAH**.
+
+### HHA Branch Identification Numbers
+
+*\[2779K\] (Rev. 2, Issued 08-20-04, Effective: N/A Implementation:
+N/A)*
+
+**HHA Branches** are identified by the assignment of a **10-digit
+alpha-numeric number**. Each branch is numbered with the same provider
+identification number as the parent or subunit with two modifications:
+
+1.  The letter `Q` will be in the third position, between the state code
+    and the 4-digit provider designation.
+2.  Three additional digits are added to the end of the number. The last
+    3 digits are a one up number for each consecutive branch. These
+    digits allow the capability of assigning up to 999 branches to one
+    parent or sub-unit HHA.
+
+Branch identification numbers will be used only once. In the event that
+an HHA branch closes, its unique branch identification number is
+terminated and will not be reused to identify another branch of that HHA
+or sub-unit.
+
+> Example: ABC Home Health Agency has three branches. It’s provider
+> identification number is **`017001`**. ABC’s three branches would be
+> assigned the branch identification numbers **`01Q7001001`**,
+> **`01Q7001002`**, and **`01Q7001003`**.
