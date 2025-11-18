@@ -6,7 +6,7 @@ CCN Notes
 utils::packageVersion("ccn")
 ```
 
-    [1] '0.0.0.9013'
+    [1] '0.0.0.9015'
 
 > SEC 2779A, PG 403 (som107c02.pdf)
 
@@ -20,7 +20,7 @@ systems use the CCN to identify each individual provider or supplier
 that has or currently does participate in Medicare and/or Medicaid. The
 RO, not the SA or MAC, assigns the CCN and maintains adequate controls.
 
-## Medicare Providers
+### Medicare Providers
 
 *\[2779A\] (Rev. 226; Issued: 12-06-24; Effective: 12-06-24;
 Implementation: 12-06-24)*
@@ -56,26 +56,6 @@ ccn:::STATE$CODE |>
 The last 4 digits identify the facility type, sequentially from within
 the following range:
 
-``` r
-ccn:::MEDICARE$ABBR |> 
-   ccn:::make_df(c("Facility", "Range")) |> 
-   head(10) |> 
-   knitr::kable()
-```
-
-| Facility  | Range     |
-|:----------|:----------|
-| ACUTE     | 0001-0879 |
-| ADH (RET) | 1200-1224 |
-| CAH       | 1300-1399 |
-| CHILD     | 3300-3399 |
-| CMHC      | 1400-1499 |
-| CMHC      | 4600-4799 |
-| CMHC      | 4900-4999 |
-| CORF      | 3200-3299 |
-| CORF      | 4500-4599 |
-| CORF      | 4800-4899 |
-
 *Examples*: **CMHCs in Florida**
 
 ``` r
@@ -88,6 +68,7 @@ ccn("681400")
      @ state_code    : chr "68"
      @ state_abbr    : chr "FL"
      @ state_name    : chr "Florida"
+     @ extension     : NULL
      @ facility_range: chr "1400-1499"
      @ facility_abbr : chr "CMHC"
      @ facility_desc : chr "Community Mental Health Center"
@@ -102,6 +83,7 @@ ccn("684702")
      @ state_code    : chr "68"
      @ state_abbr    : chr "FL"
      @ state_name    : chr "Florida"
+     @ extension     : NULL
      @ facility_range: chr "4600-4799"
      @ facility_abbr : chr "CMHC"
      @ facility_desc : chr "Community Mental Health Center"
@@ -116,11 +98,12 @@ ccn("691400")
      @ state_code    : chr "69"
      @ state_abbr    : chr "FL"
      @ state_name    : chr "Florida"
+     @ extension     : NULL
      @ facility_range: chr "1400-1499"
      @ facility_abbr : chr "CMHC"
      @ facility_desc : chr "Community Mental Health Center"
 
-### Organ Procurement Organizations (OPOs)
+#### Organ Procurement Organizations (OPOs)
 
 OPOs are assigned a 6-digit alphanumeric CCN. The first 2 digits
 identify the State Code. The third digit is the alpha character “P.” The
@@ -136,6 +119,7 @@ ccn("01P001")
      @ state_code    : chr "01"
      @ state_abbr    : chr "AL"
      @ state_name    : chr "Alabama"
+     @ extension     : NULL
      @ type_code     : chr "P"
      @ facility_range: chr "001-099"
      @ facility_abbr : chr "OPO"
@@ -151,12 +135,13 @@ ccn("05P001")
      @ state_code    : chr "05"
      @ state_abbr    : chr "CA"
      @ state_name    : chr "California"
+     @ extension     : NULL
      @ type_code     : chr "P"
      @ facility_range: chr "001-099"
      @ facility_abbr : chr "OPO"
      @ facility_name : chr "Organ Procurement Organization"
 
-## Medicare Suppliers
+### Medicare Suppliers
 
 > Section 2779A2, Page 407
 
@@ -335,11 +320,11 @@ ccn("11D2306220") # Wiregrass Georgia Tech College Student Health Center, Valdos
      @ type_abbr : chr "CLIA"
      @ type_desc : chr "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory"
 
-## Medicaid-Only Providers
+### Medicaid-Only Providers
 
 > Section 2779B, Page 408
 
-*Rev. 123, ISS: `10-03-14`, EFF: `10-03-14`, IMP: `10-03-14`*
+*Rev. 123, ISS: `10-03-14`, EFF: `10-03-14`, **IMP: `10-03-14`***
 
 For certification purposes, **Title XIX-Only Providers** are identified
 by a 6-digit alphanumeric CCN. The first 2 digits identify the State in
@@ -358,6 +343,7 @@ ccn("01L008")
      @ state_code    : chr "01"
      @ state_abbr    : chr "AL"
      @ state_name    : chr "Alabama"
+     @ extension     : NULL
      @ type_code     : chr "L"
      @ type_abbr     : chr "PRTF"
      @ type_name     : chr "Psychiatric Residential Treatment Facility"
@@ -365,27 +351,137 @@ ccn("01L008")
      @ facility_abbr : chr "ACUTE"
      @ facility_name : chr "Medicaid-Only Short-Term Acute Care Hospital"
 
+The RO uses the following groups of alphanumeric numbers for the type of
+facility as indicated:
+
 ``` r
-ccn:::MEDICAID$ABBR |> 
-   ccn:::make_df(c("Facility", "Range")) |> 
-   head(10) |> 
-   knitr::kable()
+list(
+  "A001-A999" = "NF (Formerly assigned to Medicaid SNF)",
+  "B001-B999" = "NF (Formerly assigned to Medicaid SNF) Expansion of A001-A999",
+  "E001-E999" = "NF (Formerly assigned to ICF)",
+  "F001-F999" = "NF (Formerly assigned to ICF) Expansion of E001-E999",
+  "G001-G999" = "ICF/IID",
+  "H001-H999" = "ICF/IID Expansion of G001-G999",
+  "K001-K999" = "Medicaid HHAs",
+  "L001-L999" = "Psychiatric Residential Treatment Facilities (PRTF)",
+  "J001-J099" = "Medicaid-Only Short-term acute care hospitals",
+  "J100-J199" = "Medicaid-Only Children’s Hospitals",
+  "J200-J299" = "Medicaid-Only Children’s Psychiatric Hospitals",
+  "J300-J399" = "Medicaid-Only Psychiatric Hospitals",
+  "J400-J499" = "Medicaid-Only Rehabilitation Hospitals",
+  "J500-J599" = "Medicaid-Only Long-term Hospitals",
+  "J600-J999" = "Reserved for future use)"
+)
 ```
 
-| Facility | Range   |
-|:---------|:--------|
-| ACUTE    | 001-099 |
-| CHILD    | 100-199 |
-| CPH      | 200-299 |
-| LTCH     | 500-599 |
-| PSYCH    | 300-399 |
-| REHAB    | 400-499 |
-| RESERVED | 600-999 |
+    $`A001-A999`
+    [1] "NF (Formerly assigned to Medicaid SNF)"
+
+    $`B001-B999`
+    [1] "NF (Formerly assigned to Medicaid SNF) Expansion of A001-A999"
+
+    $`E001-E999`
+    [1] "NF (Formerly assigned to ICF)"
+
+    $`F001-F999`
+    [1] "NF (Formerly assigned to ICF) Expansion of E001-E999"
+
+    $`G001-G999`
+    [1] "ICF/IID"
+
+    $`H001-H999`
+    [1] "ICF/IID Expansion of G001-G999"
+
+    $`K001-K999`
+    [1] "Medicaid HHAs"
+
+    $`L001-L999`
+    [1] "Psychiatric Residential Treatment Facilities (PRTF)"
+
+    $`J001-J099`
+    [1] "Medicaid-Only Short-term acute care hospitals"
+
+    $`J100-J199`
+    [1] "Medicaid-Only Children’s Hospitals"
+
+    $`J200-J299`
+    [1] "Medicaid-Only Children’s Psychiatric Hospitals"
+
+    $`J300-J399`
+    [1] "Medicaid-Only Psychiatric Hospitals"
+
+    $`J400-J499`
+    [1] "Medicaid-Only Rehabilitation Hospitals"
+
+    $`J500-J599`
+    [1] "Medicaid-Only Long-term Hospitals"
+
+    $`J600-J999`
+    [1] "Reserved for future use)"
+
+### Special Numbering System for Units of Hospitals That Are Excluded From the Inpatient Prospective Payment System (IPPS) and Hospitals and CAHs with Swing-Bed Approval
+
+> Sec 2779C, Page 408
+
+*Rev. 198, ISS: `01-17-20`, EFF: `01-17-20`, **IMP: `01-17-20`***
+
+An alpha character in the third position of a hospital’s or CAH’s CCN
+identifies either its swing-bed approval or its status as an
+IPPS-excluded rehabilitation or psychiatric unit. The first 2 digits
+identify the State in which the provider is located. The third position
+(which is alpha) identifies the type of unit or swing-bed designation.
+The last 3 digits must be exactly the same as the last 3 digits of the
+CCN of the hospital or CAH operating the unit(s), unless as noted below
+in Section 2779C1.
+
+NOTE: As of the cost reporting period beginning on or after October 1,
+2019, an IPPS- excluded hospital is no longer precluded from having an
+IPPS-excluded psychiatric and/or rehabilitation unit (see Section 2779C1
+for CCN numbering).
+
+The RO assigns the following alpha-characters in the third position as
+indicated: \* M: Psychiatric Unit of a CAH \* R: Rehabilitation Unit of
+a CAH \* S: Psychiatric Unit of a Short-Term, Cancer, Children’s, LTCH,
+or Rehabilitation Hospital \* T: Rehabilitation Unit of a Short-Term,
+Cancer, Children’s, LTCH, or Psychiatric Hospital \* U: Swing-Bed
+Approval for Short-Term Hospitals \* W: Swing-Bed Approval for Long-Term
+Care Hospitals \* Z: Swing-Bed Approval for CAHs
+
+EXAMPLE: 21-0101 - ABC Hospital (Short-Term Hospital) \* 21-T101: ABC
+Hospital’s IPPS-excluded Rehabilitation Unit \* 21-S101: ABC Hospital’s
+IPPS-excluded Psychiatric Unit \* 21-U101- ABC Hospital’s Swing-bed
+Approval
+
+NOTE: If it meets the applicable requirements, an acute care hospital or
+a CAH could have swing-bed approval, an IPPS-excluded rehabilitation
+unit, and/ or an IPPS-excluded psychiatric unit.
+
+### Special Numbering System for IPPS-Excluded Hospitals with IPPS-Excluded Units
+
+> Sec 2779C1, Page 409
+
+*Rev. 198, ISS: `01-17-20`, EFF: `01-17-20`, **IMP: `01-17-20`***
+
+If an IPPS-excluded hospital also has an IPPS-excluded unit, the fourth
+position within the CCN requires an additional alpha-character to
+identify the IPPS-excluded unit type.
+
+Note: No special fourth position alpha character is needed for cancer
+hospitals. The RO assigns the following alpha-characters in the fourth
+position as indicated in the table below.
+
+Note: This table does not apply to CAHs.
+
+``` r
+"Parent IPPS-Excluded Hospital"
+```
+
+    [1] "Parent IPPS-Excluded Hospital"
 
 > **EXCEPTION:** As of October 1, 2019, an IPPS-excluded hospital is no
 > longer precluded from having an IPPS-excluded psychiatric and/or
-> rehabilitation unit. See section 2779C and 2779C1 for additional CCN
-> numbering detail.
+> rehabilitation unit. See section **2779C** and **2779C1** for
+> additional CCN numbering detail.
 
 > **Note:** An IPPS-excluded hospital may not have an IPPS-excluded unit
 > of the same type (psychiatric or rehabilitation) as the hospital (for
@@ -437,8 +533,8 @@ sequential number).
 
 ### HHA Branch Identification Numbers
 
-*\[2779K\] (Rev. 2, Issued 08-20-04, Effective: N/A Implementation:
-N/A)*
+*\[2779K\] (Rev. 2, Issued 08-20-04, **Effective: N/A Implementation:
+N/A**)*
 
 **HHA Branches** are identified by the assignment of a **10-digit
 alpha-numeric number**. Each branch is numbered with the same provider

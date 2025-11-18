@@ -19,27 +19,18 @@ get_provider_type <- function(x) {
 }
 
 #' @noRd
-as_excluded_type <- function(x) {
-  if (type_unit(substr_(x@number, 4L))) {
-    as_unit(x)
-  } else {
-    as_excluded(x)
-  }
-}
-
-#' @noRd
 is_provider <- function(x) {
   nchar(x@number) == 6L
 }
 
 #' @noRd
 is_supplier <- function(x) {
-  nchar(x@number) == 10L && type_supplier(substr_(x@number, 3L))
+  nchar(x@number) == 10L & type_supplier(substr_(x@number, 3L))
 }
 
 #' @noRd
 is_extended <- function(x) {
-  nchar(x@number) > 6L && nchar(x@number) < 10L
+  nchar(x@number) > 6L & nchar(x@number) < 10L
 }
 
 #' Decode a CCN

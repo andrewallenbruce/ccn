@@ -1,28 +1,47 @@
 #' @noRd
-Unknown <- S7::new_class(
-  name       = "Unknown",
+State <- S7::new_class(
+  name = "State",
   properties = list(
-    number   = S7::new_property(
+    code = S7::class_character,
+    abbr = S7::new_property(
       S7::class_character,
-      setter = \(self, value) {
-        self@number <- value
-        self
-      }
-    )
+      getter = function(self) get_state_abbr(self@code)),
+    name = S7::new_property(
+      S7::class_character,
+      getter = function(self) get_state_name(self@abbr))
   )
 )
 
 #' @noRd
+Unknown <- S7::new_class(
+  name = "Unknown",
+  properties = list(
+    number = S7::class_character
+  )
+)
+
+# CCN <- S7::new_class(
+#   name         = "CCN",
+#   parent       = Unknown,
+#   properties   = list(
+#     sequence   = S7::class_character,
+#     state_code = S7::class_character,
+#     state_abbr = S7::new_property(S7::class_character,
+#                                   setter   = \(self, value) { self@state_abbr <- value; self },
+#                                   getter   = \(self) get_state_abbr(self@state_code)),
+#     state_name = S7::new_property(S7::class_character,
+#                                   setter   = \(self, value) { self@state_name <- value; self },
+#                                   getter   = \(self) get_state_name(self@state_abbr))
+#   )
+# )
+
+#' @noRd
 CCN <- S7::new_class(
-  name         = "CCN",
-  parent       = Unknown,
-  properties   = list(
-    sequence   = S7::class_character,
-    state_code = S7::class_character,
-    state_abbr = S7::new_property(S7::class_character,
-      getter   = \(self) get_state_abbr(self@state_code)),
-    state_name = S7::new_property(S7::class_character,
-      getter   = \(self) get_state_name(self@state_abbr))
+  name = "CCN",
+  parent = Unknown,
+  properties = list(
+    sequence = S7::class_character,
+    state = State
   )
 )
 
@@ -43,7 +62,7 @@ Supplier <- S7::new_class(
 Provider <- S7::new_class(
   name       = "Provider",
   parent     = CCN,
-  properties = list(extension = S7::new_union(NULL, S7::class_character))
+  properties = list(extension = S7::class_character)
 )
 
 #' @noRd

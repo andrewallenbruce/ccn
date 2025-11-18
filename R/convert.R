@@ -8,15 +8,9 @@ as_provider <- function(x) {
   S7::convert(
     x,
     Provider,
-    number = if (is_extended(x))
-      substr_(x@number, c(1L, 6L))
-    else
-      x@number,
-    state_code = substr_(x@number, c(1L, 2L)),
-    extension = if (is_extended(x))
-      substr_(x@number, c(7L, nchar(x@number)))
-    else
-      NULL
+    number = if (is_extended(x)) substr_(x@number, c(1L, 6L)) else x@number,
+    state = State(code = substr_(x@number, c(1L, 2L))),
+    extension = if (is_extended(x)) substr_(x@number, c(7L, nchar(x@number))) else character(0)
   )
 }
 
@@ -70,16 +64,28 @@ as_excluded <- function(x) {
 }
 
 #' @noRd
+get_unit_sequence <- function(x) {
+  string(c(get_parent_prefix(substr_(x, 4L)), substr_(x, c(5L, 6L))))
+}
+
+#' @noRd
 as_unit <- function(x) {
   S7::convert(
     x,
     IPPSExcludedUnit,
     type_code   = substr_(x@number, 3L),
     parent_code = substr_(x@number, 4L),
-    sequence    = string(c(
-      get_parent_prefix(substr_(x@number, 4L)), substr_(x@number, c(5L, 6L))
-    ))
+    sequence    = get_unit_sequence(x@number)
   )
+}
+
+#' @noRd
+as_excluded_type <- function(x) {
+  if (type_unit(substr_(x@number, 4L))) {
+    as_unit(x)
+  } else {
+    as_excluded(x)
+  }
 }
 
 #' @noRd
@@ -87,8 +93,8 @@ as_supplier <- function(x) {
   S7::convert(
     x,
     Supplier,
-    state_code = substr_(x@number, c(1L, 2L)),
-    type_code  = substr_(x@number, 3L),
-    sequence   = substr_(x@number, c(4L, 10L))
+    state     = State(code = substr_(x@number, c(1L, 2L))),
+    type_code = substr_(x@number, 3L),
+    sequence  = substr_(x@number, c(4L, 10L))
   )
 }
