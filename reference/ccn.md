@@ -249,4 +249,44 @@ ccn("21TA26")
 #>  @ parent_abbr : chr "LTCH"
 #>  @ parent_range: chr "2000-2299"
 #>  @ parent_name : chr "Long-Term Care Hospital"
+
+ccn("24T019A")
+#> <ccn::IPPSExcludedProvider>
+#>  @ number        : chr "24T019"
+#>  @ sequence      : chr "019"
+#>  @ state_code    : chr "24"
+#>  @ state_abbr    : chr "MN"
+#>  @ state_name    : chr "Minnesota"
+#>  @ extension     : chr "A"
+#>  @ type_code     : chr "T"
+#>  @ type_abbr     : chr "REHAB"
+#>  @ type_name     : chr "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
+#>  @ facility_range: chr "001-099"
+#>  @ facility_abbr : chr "ACUTE"
+#>  @ facility_name : chr "Medicaid-Only Short-Term Acute Care Hospital"
+ccn("33S23401")
+#> <ccn::IPPSExcludedProvider>
+#>  @ number        : chr "33S234"
+#>  @ sequence      : chr "234"
+#>  @ state_code    : chr "33"
+#>  @ state_abbr    : chr "NY"
+#>  @ state_name    : chr "New York"
+#>  @ extension     : chr "01"
+#>  @ type_code     : chr "S"
+#>  @ type_abbr     : chr "PSYCH"
+#>  @ type_name     : chr "Psychiatric Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
+#>  @ facility_range: chr "200-299"
+#>  @ facility_abbr : chr "CPH"
+#>  @ facility_name : chr "Medicaid-Only Children's Psychiatric Hospital"
+ccn("330027001")
+#> <ccn::MedicareProvider>
+#>  @ number        : chr "330027"
+#>  @ sequence      : chr "0027"
+#>  @ state_code    : chr "33"
+#>  @ state_abbr    : chr "NY"
+#>  @ state_name    : chr "New York"
+#>  @ extension     : chr "001"
+#>  @ facility_range: chr "0001-0879"
+#>  @ facility_abbr : chr "ACUTE"
+#>  @ facility_desc : chr "Short-Term Hospital (General & Specialty)"
 ```
