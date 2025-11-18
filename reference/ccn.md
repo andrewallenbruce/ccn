@@ -29,7 +29,7 @@ ccn("670055")
 #>  @ state_code    : chr "67"
 #>  @ state_abbr    : chr "TX"
 #>  @ state_name    : chr "Texas"
-#>  @ extended      : chr(0) 
+#>  @ extension     : NULL
 #>  @ facility_range: chr "0001-0879"
 #>  @ facility_abbr : chr "ACUTE"
 #>  @ facility_desc : chr "Short-Term Hospital (General & Specialty)"
@@ -40,7 +40,7 @@ ccn("05P001") # OPO
 #>  @ state_code    : chr "05"
 #>  @ state_abbr    : chr "CA"
 #>  @ state_name    : chr "California"
-#>  @ extended      : chr(0) 
+#>  @ extension     : NULL
 #>  @ type_code     : chr "P"
 #>  @ facility_range: chr "001-099"
 #>  @ facility_abbr : chr "OPO"
@@ -53,7 +53,7 @@ ccn("210101")
 #>  @ state_code    : chr "21"
 #>  @ state_abbr    : chr "MD"
 #>  @ state_name    : chr "Maryland"
-#>  @ extended      : chr(0) 
+#>  @ extension     : NULL
 #>  @ facility_range: chr "0001-0879"
 #>  @ facility_abbr : chr "ACUTE"
 #>  @ facility_desc : chr "Short-Term Hospital (General & Specialty)"
@@ -64,7 +64,7 @@ ccn("21T101")
 #>  @ state_code    : chr "21"
 #>  @ state_abbr    : chr "MD"
 #>  @ state_name    : chr "Maryland"
-#>  @ extended      : chr(0) 
+#>  @ extension     : NULL
 #>  @ type_code     : chr "T"
 #>  @ type_abbr     : chr "REHAB"
 #>  @ type_name     : chr "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
@@ -78,7 +78,7 @@ ccn("21S101")
 #>  @ state_code    : chr "21"
 #>  @ state_abbr    : chr "MD"
 #>  @ state_name    : chr "Maryland"
-#>  @ extended      : chr(0) 
+#>  @ extension     : NULL
 #>  @ type_code     : chr "S"
 #>  @ type_abbr     : chr "PSYCH"
 #>  @ type_name     : chr "Psychiatric Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
@@ -92,7 +92,7 @@ ccn("21U101")
 #>  @ state_code    : chr "21"
 #>  @ state_abbr    : chr "MD"
 #>  @ state_name    : chr "Maryland"
-#>  @ extended      : chr(0) 
+#>  @ extension     : NULL
 #>  @ type_code     : chr "U"
 #>  @ type_abbr     : chr "SBA (STH)"
 #>  @ type_name     : chr "Swing-Bed Approval for Short-Term Hospital"
@@ -108,7 +108,7 @@ ccn("01L008")
 #>  @ state_code    : chr "01"
 #>  @ state_abbr    : chr "AL"
 #>  @ state_name    : chr "Alabama"
-#>  @ extended      : chr(0) 
+#>  @ extension     : NULL
 #>  @ type_code     : chr "L"
 #>  @ type_abbr     : chr "PRTF"
 #>  @ type_name     : chr "Psychiatric Residential Treatment Facility"
@@ -124,7 +124,7 @@ ccn("12345E")
 #>  @ state_code: chr "12"
 #>  @ state_abbr: chr "HI"
 #>  @ state_name: chr "Hawaii"
-#>  @ extended  : chr(0) 
+#>  @ extension : NULL
 #>  @ type_code : chr "E"
 #>  @ type_abbr : chr "ERH-NF"
 #>  @ type_desc : chr "Non-Federal Emergency Hospital (Non-Participating)"
@@ -169,7 +169,7 @@ ccn("02TA01")
 #>  @ state_code  : chr "02"
 #>  @ state_abbr  : chr "AK"
 #>  @ state_name  : chr "Alaska"
-#>  @ extended    : chr(0) 
+#>  @ extension   : NULL
 #>  @ type_code   : chr "T"
 #>  @ type_abbr   : chr "REHAB"
 #>  @ type_name   : chr "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
@@ -184,7 +184,7 @@ ccn("04SD38")
 #>  @ state_code  : chr "04"
 #>  @ state_abbr  : chr "AR"
 #>  @ state_name  : chr "Arkansas"
-#>  @ extended    : chr(0) 
+#>  @ extension   : NULL
 #>  @ type_code   : chr "S"
 #>  @ type_abbr   : chr "PSYCH"
 #>  @ type_name   : chr "Psychiatric Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
@@ -199,7 +199,7 @@ ccn("52TA05")
 #>  @ state_code  : chr "52"
 #>  @ state_abbr  : chr "WI"
 #>  @ state_name  : chr "Wisconsin"
-#>  @ extended    : chr(0) 
+#>  @ extension   : NULL
 #>  @ type_code   : chr "T"
 #>  @ type_abbr   : chr "REHAB"
 #>  @ type_name   : chr "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
@@ -215,7 +215,7 @@ ccn("212026") # Parent
 #>  @ state_code    : chr "21"
 #>  @ state_abbr    : chr "MD"
 #>  @ state_name    : chr "Maryland"
-#>  @ extended      : chr(0) 
+#>  @ extension     : NULL
 #>  @ facility_range: chr "2000-2299"
 #>  @ facility_abbr : chr "LTCH"
 #>  @ facility_desc : chr "Long-Term Care Hospital"
@@ -226,7 +226,7 @@ ccn("21SA26")
 #>  @ state_code  : chr "21"
 #>  @ state_abbr  : chr "MD"
 #>  @ state_name  : chr "Maryland"
-#>  @ extended    : chr(0) 
+#>  @ extension   : NULL
 #>  @ type_code   : chr "S"
 #>  @ type_abbr   : chr "PSYCH"
 #>  @ type_name   : chr "Psychiatric Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
@@ -241,7 +241,7 @@ ccn("21TA26")
 #>  @ state_code  : chr "21"
 #>  @ state_abbr  : chr "MD"
 #>  @ state_name  : chr "Maryland"
-#>  @ extended    : chr(0) 
+#>  @ extension   : NULL
 #>  @ type_code   : chr "T"
 #>  @ type_abbr   : chr "REHAB"
 #>  @ type_name   : chr "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"

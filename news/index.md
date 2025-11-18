@@ -1,5 +1,9 @@
 # Changelog
 
+## ccn 0.0.0.9015 (2025-11-17)
+
+- length check added, extension can be `NULL` now
+
 ## ccn 0.0.0.9014 (2025-11-17)
 
 - added `extended` slot for Multi-Campus Hospital ccn type
