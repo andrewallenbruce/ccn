@@ -43,7 +43,7 @@ Supplier <- S7::new_class(
 Provider <- S7::new_class(
   name       = "Provider",
   parent     = CCN,
-  properties = list(extended = S7::class_character)
+  properties = list(extension = S7::new_union(NULL, S7::class_character))
 )
 
 #' @noRd

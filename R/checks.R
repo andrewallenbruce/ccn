@@ -1,11 +1,11 @@
 #' @noRd
-check_character <- function(x, arg = rlang::caller_arg(x), call = rlang::caller_env()) {
+check_character <- function(x,
+                            arg = rlang::caller_arg(x),
+                            call = rlang::caller_env()) {
   if (!is.character(x)) {
     cli::cli_abort(
-      c(
-        "Input {.strong {arg}} must be a {.emph character} vector.",
-        "x" = "You supplied a {.emph {typeof(x)}} vector."
-      ),
+      c("Input {.arg {arg}} must be a {.cls character} vector.",
+        "x" = "You've supplied a {.cls {class(x)}} vector."),
       arg  = arg,
       call = call
     )
@@ -13,12 +13,13 @@ check_character <- function(x, arg = rlang::caller_arg(x), call = rlang::caller_
 }
 
 #' @noRd
-check_length <- function(x, arg = rlang::caller_arg(x), call = rlang::caller_env()) {
-  if (!nchar(x) %in% c(6L, 10L)) {
+check_length <- function(x,
+                         arg = rlang::caller_arg(x),
+                         call = rlang::caller_env()) {
+  if (!nchar(x) %in% 6:10) {
     cli::cli_abort(
-      c(
-        "Input {.strong {arg}} must be {.emph 6 or 10 characters}.",
-        "x" = "{.var {x}} is {.val {nchar(x)}} characters."),
+      c("Input {.arg {arg}} must be between {.emph 6 - 10 characters}.",
+        "x" = "{.var {x}} is {.val {nchar(x)}} character{?s}."),
       arg  = arg,
       call = call
     )

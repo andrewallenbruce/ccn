@@ -80,6 +80,7 @@ is_extended <- function(x) {
 #' @export
 ccn <- function(x) {
   check_character(x)
+  check_length(x)
 
   x <- as_unknown(x)
 

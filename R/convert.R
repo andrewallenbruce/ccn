@@ -8,17 +8,15 @@ as_provider <- function(x) {
   S7::convert(
     x,
     Provider,
-    number = if (is_extended(x)) {
+    number = if (is_extended(x))
       substr_(x@number, c(1L, 6L))
-    } else {
-      x@number
-    },
+    else
+      x@number,
     state_code = substr_(x@number, c(1L, 2L)),
-    extended = if (is_extended(x)) {
+    extension = if (is_extended(x))
       substr_(x@number, c(7L, nchar(x@number)))
-    } else {
-      character(0)
-    }
+    else
+      NULL
   )
 }
 
