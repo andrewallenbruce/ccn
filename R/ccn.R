@@ -1,36 +1,31 @@
-#' @include convert.R
+#' @include as.R
 NULL
 
 #' @noRd
 get_provider_type <- function(x) {
   kit::nif(
-    is_numeric(x@number),
-    "medicare",
-    type_opo(substr_(x@number, 3L)),
-    "opo",
-    type_emergency(substr_(x@number, 6L)),
-    "emergency",
-    type_medicaid(substr_(x@number, 3L)),
-    "medicaid",
-    type_excluded(substr_(x@number, 3L)),
-    "excluded",
+    is_numeric(x), "medicare",
+    type_opo(substr_(x, 3L)), "opo",
+    type_emergency(substr_(x, 6L)), "emergency",
+    type_medicaid(substr_(x, 3L)), "medicaid",
+    type_excluded(substr_(x, 3L)), "excluded",
     default = NA_character_
   )
 }
 
 #' @noRd
 is_provider <- function(x) {
-  nchar(x@number) == 6L
+  nchar(x) == 6L
 }
 
 #' @noRd
 is_supplier <- function(x) {
-  nchar(x@number) == 10L & type_supplier(substr_(x@number, 3L))
+  nchar(x) == 10L & type_supplier(substr_(x, 3L))
 }
 
 #' @noRd
-is_extended <- function(x) {
-  nchar(x@number) > 6L & nchar(x@number) < 10L
+has_extension <- function(x) {
+  nchar(x) > 6L & nchar(x) < 10L
 }
 
 #' Decode a CCN
@@ -79,11 +74,11 @@ ccn <- function(x) {
 
   x <- as_unknown(x)
 
-  if (is_provider(x) | is_extended(x)) {
+  if (is_provider(x@number) | has_extension(x@number)) {
     x <- as_provider(x)
 
     return(switch(
-      get_provider_type(x),
+      get_provider_type(x@number),
       medicare  = as_medicare(x),
       opo       = as_care_opo(x),
       emergency = as_emergency(x),
@@ -93,32 +88,7 @@ ccn <- function(x) {
     ))
   }
 
-  if (is_supplier(x)) {
-    return(as_supplier(x))
-  }
-  return(x)
-}
-
-#' @noRd
-ccn2 <- function(x) {
-  x <- as_unknown(x)
-
-  if (nchar(x@number) == 6L) {
-    x <- as_provider(x)
-
-    if (is_numeric(x@number))                  return(as_medicare(x))
-    if (type_opo(substr_(x@number, 3L)))       return(as_care_opo(x))
-    if (type_emergency(substr_(x@number, 6L))) return(as_emergency(x))
-    if (type_medicaid(substr_(x@number, 3L)))  return(as_medicaid(x))
-
-    if (type_excluded(substr_(x@number, 3L))) {
-      if (type_unit(substr_(x@number, 4L)))  return(as_unit(x))
-      return(as_excluded(x))
-    }
-    return(x)
-  }
-
-  if (nchar(x@number) == 10L && type_supplier(substr_(x@number, 3L))) {
+  if (is_supplier(x@number)) {
     return(as_supplier(x))
   }
   return(x)

@@ -107,7 +107,6 @@ ccn("21X0009807") # Portable X-Ray
 > More __CLIA__ examples:
 
 ```{r clia}
-ccn("11D0265516") # DANIEL FELDMAN MD
 ccn("02D0873639") # Artic Envestigations Program Laboratory, Anchorage, AK
 ccn("40D0869394") # Dengue Laboratory, San Juan, PR
 ccn("11D1061576") # CDC/CGH/DGHA International Laboratory, Atlanta, GA
@@ -217,7 +216,8 @@ indicated in the table below.
 Note: This table does not apply to CAHs.
 
 ```{r}
-"Parent IPPS-Excluded Hospital"
+# "Parent IPPS-Excluded Hospital"
+# "LTCH XX-2000 through XX-2299"
 ```
 
 
