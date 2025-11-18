@@ -1,5 +1,10 @@
 # Changelog
 
+## ccn 0.0.0.9017 (2025-11-18)
+
+- `Sequence` & `FullSequence`
+- standardizing classes
+
 ## ccn 0.0.0.9016 (2025-11-18)
 
 - Type, State, Sequence classes

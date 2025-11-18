@@ -41,8 +41,6 @@ ccn("05P001") # OPO
 #>  @ sequence : <ccn::OPOSequence>
 #>  .. @ number: chr "001"
 #>  .. @ range : chr "001-099"
-#>  .. @ abbr  : chr(0) 
-#>  .. @ desc  : chr(0) 
 #>  @ state    : <ccn::State>
 #>  .. @ code: chr "05"
 #>  .. @ abbr: chr "CA"
@@ -151,8 +149,6 @@ ccn("10C0001062") # ASC
 #>  @ sequence: <ccn::SupplierSequence>
 #>  .. @ number: chr "0001062"
 #>  .. @ range : chr "000001-9999999"
-#>  .. @ abbr  : chr(0) 
-#>  .. @ desc  : chr(0) 
 #>  @ state   : <ccn::State>
 #>  .. @ code: chr "10"
 #>  .. @ abbr: chr "FL"
@@ -167,8 +163,6 @@ ccn("45D0634589") # CLIA
 #>  @ sequence: <ccn::SupplierSequence>
 #>  .. @ number: chr "0634589"
 #>  .. @ range : chr "000001-9999999"
-#>  .. @ abbr  : chr(0) 
-#>  .. @ desc  : chr(0) 
 #>  @ state   : <ccn::State>
 #>  .. @ code: chr "45"
 #>  .. @ abbr: chr "TX"
@@ -183,8 +177,6 @@ ccn("21X0009807") # Portable X-Ray
 #>  @ sequence: <ccn::SupplierSequence>
 #>  .. @ number: chr "0009807"
 #>  .. @ range : chr "000001-9999999"
-#>  .. @ abbr  : chr(0) 
-#>  .. @ desc  : chr(0) 
 #>  @ state   : <ccn::State>
 #>  .. @ code: chr "21"
 #>  .. @ abbr: chr "MD"
