@@ -35,6 +35,7 @@ Collate:
     '00-CONSTANTS.R'
     '01-RANGES.R'
     '02-STATES.R'
+    '03-EXAMPLES.R'
     'ccn-package.R'
     'convert.R'
     'ccn.R'

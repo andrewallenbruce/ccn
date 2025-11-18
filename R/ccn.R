@@ -77,6 +77,10 @@ is_extended <- function(x) {
 #' ccn("212026") # Parent
 #' ccn("21SA26")
 #' ccn("21TA26")
+#'
+#' ccn("24T019A")
+#' ccn("33S23401")
+#' ccn("330027001")
 #' @export
 ccn <- function(x) {
   check_character(x)
