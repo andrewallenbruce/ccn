@@ -47,6 +47,14 @@ get_supplier_abbr <- make_switch(SUPPLIER$CODE)
 #' @export
 get_supplier_name <- make_switch(SUPPLIER$NAME)
 
+#' @rdname ranges
+#' @export
+get_opo_abbr <- make_switch(OPO$CODE)
+
+#' @rdname ranges
+#' @export
+get_opo_name <- make_switch(OPO$NAME)
+
 #' @rdname lookups
 #' @export
 get_caid_abbr <- make_switch(MEDICAID$CODE)

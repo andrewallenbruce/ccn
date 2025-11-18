@@ -21,12 +21,6 @@ NULL
 #'  get_caid_range_abbr() |>
 #'  print() |>
 #'  get_caid_range_name()
-#'
-#'  get_opo_range(c("001", "012", "099")) |>
-#'  print() |>
-#'  get_opo_range_abbr() |>
-#'  print() |>
-#'  get_opo_range_name()
 NULL
 
 #' @rdname ranges
@@ -55,12 +49,8 @@ get_caid_range_name <- make_switch(MEDICAID$NAME)
 
 #' @rdname ranges
 #' @export
-get_opo_range <- make_switch(OPO$RANGES)
+get_opo_range <- make_switch(OPO$RANGE)
 
 #' @rdname ranges
 #' @export
-get_opo_range_abbr <- make_switch(OPO$ABBR)
-
-#' @rdname ranges
-#' @export
-get_opo_range_name <- make_switch(OPO$NAME)
+get_supplier_range <- make_switch(SUPPLIER$RANGE)

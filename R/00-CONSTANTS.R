@@ -1,9 +1,15 @@
 #' @include utils.R
 NULL
 
-EMERGENCY = list(CODE = list("ERH-NF" = "E", "ERH-F" = "F"),
-                 NAME = list("Non-Federal Emergency Hospital (Non-Participating)" = "ERH-NF",
-                             "Federal Emergency Hospital (Non-Participating)"     = "ERH-F"))
+EMERGENCY = list(CODE = list("ER (NF)" = "E", "ER (F)" = "F"),
+                 NAME = list("Non-Federal Emergency Hospital (Non-Participating)" = "ER (NF)",
+                             "Federal Emergency Hospital (Non-Participating)"     = "ER (F)"))
+
+OPO = list(CODE  = list("OPO" = "P"),
+           RANGE = list("001-099" = pad_three(1:99)),
+           NAME  = list("Organ Procurement Organization" = "OPO"))
+           # ABBR = list("OPO" = "001-099"),
+
 
 SUPPLIER = list(CODE  = list("ASC" = "C", "CLIA" = "D", "XRAY" = "X"),
                 RANGE = list("000001-9999999" = pad_seven(1:9999999)),

@@ -41,12 +41,6 @@ MEDICAID = list(
     "Medicaid-Only Long-Term Hospital"              = "LTCH",
     "Reserved for Future Use"                       = "RESERVED"))
 
-OPO = list(
-  CODE   = list("OPO" = "P"),
-  RANGES = list("001-099" = pad_three(1:99)),
-  ABBR   = list("OPO" = "001-099"),
-  NAME   = list("Organ Procurement Organization" = "OPO"))
-
 MEDICARE = list(
   RANGES = list(
     "0001-0879" = pad_four(1:879),

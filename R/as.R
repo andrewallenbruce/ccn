@@ -14,13 +14,18 @@ as_unknown <- function(x) {
 }
 
 #' @noRd
+as_state <- function(x) {
+  State(get_state_code(x))
+}
+
+#' @noRd
 as_provider <- function(x) {
   if (has_extension(x@number)) {
     S7::convert(
       x,
       Provider,
       number = substr_(x@number, c(1L, 6L)),
-      state = State(get_state_code(x@number)),
+      state = as_state(x@number),
       extension = substr_(x@number, c(7L, nchar(x@number)))
     )
 
@@ -29,22 +34,28 @@ as_provider <- function(x) {
       x,
       Provider,
       number = x@number,
-      state = State(get_state_code(x@number))
+      state = as_state(x@number)
     )
   }
 }
 
 #' @noRd
 as_medicare <- function(x) {
-  S7::convert(x, MedicareProvider, sequence = MedicareSequence(substr_(x@number, c(3L, 6L))))
+  S7::convert(
+    x,
+    MedicareProvider,
+    sequence = MedicareSequence(substr_(x@number, c(3L, 6L)))
+  )
 }
 
 #' @noRd
 as_care_opo <- function(x) {
-  S7::convert(x,
-              MedicareOPO,
-              type = substr_(x@number, 3L),
-              sequence = MedicareOPOSequence(substr_(x@number, c(4L, 6L))))
+  S7::convert(
+    x,
+    MedicareOPO,
+    type = OPOType(substr_(x@number, 3L)),
+    sequence = OPOSequence(substr_(x@number, c(4L, 6L)))
+  )
 }
 
 #' @noRd
@@ -102,8 +113,8 @@ as_supplier <- function(x) {
   S7::convert(
     x,
     Supplier,
-    state = State(get_state_code(x@number)),
+    state = as_state(x@number),
     type = SupplierType(substr_(x@number, 3L)),
-    sequence = substr_(x@number, c(4L, 10L))
+    sequence = SupplierSequence(substr_(x@number, c(4L, 10L)))
   )
 }
