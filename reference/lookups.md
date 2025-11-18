@@ -43,7 +43,7 @@ c("E", "F") |>
 get_emergency_abbr() |>
 print() |>
 get_emergency_name()
-#> [1] "ERH-NF" "ERH-F" 
+#> [1] "ER (NF)" "ER (F)" 
 #> [1] "Non-Federal Emergency Hospital (Non-Participating)"
 #> [2] "Federal Emergency Hospital (Non-Participating)"    
 

@@ -38,17 +38,20 @@ ccn("670055")
 ccn("05P001") # OPO
 #> <ccn::MedicareOPO>
 #>  @ number   : chr "05P001"
-#>  @ sequence : <ccn::MedicareOPOSequence>
+#>  @ sequence : <ccn::OPOSequence>
 #>  .. @ number: chr "001"
 #>  .. @ range : chr "001-099"
-#>  .. @ abbr  : chr "OPO"
-#>  .. @ desc  : chr "Organ Procurement Organization"
+#>  .. @ abbr  : chr(0) 
+#>  .. @ desc  : chr(0) 
 #>  @ state    : <ccn::State>
 #>  .. @ code: chr "05"
 #>  .. @ abbr: chr "CA"
 #>  .. @ name: chr "California"
 #>  @ extension: chr(0) 
-#>  @ type     : chr "P"
+#>  @ type     : <ccn::OPOType>
+#>  .. @ code: chr "P"
+#>  .. @ abbr: chr "OPO"
+#>  .. @ desc: chr "Organ Procurement Organization"
 
 ccn("210101")
 #> <ccn::MedicareProvider>
@@ -138,14 +141,18 @@ ccn("12345E")
 #>  @ extension: chr(0) 
 #>  @ type     : <ccn::EmergencyType>
 #>  .. @ code: chr "E"
-#>  .. @ abbr: chr "ERH-NF"
+#>  .. @ abbr: chr "ER (NF)"
 #>  .. @ desc: chr "Non-Federal Emergency Hospital (Non-Participating)"
 
 # Supplier
 ccn("10C0001062") # ASC
 #> <ccn::Supplier>
 #>  @ number  : chr "10C0001062"
-#>  @ sequence: chr "0001062"
+#>  @ sequence: <ccn::SupplierSequence>
+#>  .. @ number: chr "0001062"
+#>  .. @ range : chr "000001-9999999"
+#>  .. @ abbr  : chr(0) 
+#>  .. @ desc  : chr(0) 
 #>  @ state   : <ccn::State>
 #>  .. @ code: chr "10"
 #>  .. @ abbr: chr "FL"
@@ -157,7 +164,11 @@ ccn("10C0001062") # ASC
 ccn("45D0634589") # CLIA
 #> <ccn::Supplier>
 #>  @ number  : chr "45D0634589"
-#>  @ sequence: chr "0634589"
+#>  @ sequence: <ccn::SupplierSequence>
+#>  .. @ number: chr "0634589"
+#>  .. @ range : chr "000001-9999999"
+#>  .. @ abbr  : chr(0) 
+#>  .. @ desc  : chr(0) 
 #>  @ state   : <ccn::State>
 #>  .. @ code: chr "45"
 #>  .. @ abbr: chr "TX"
@@ -169,7 +180,11 @@ ccn("45D0634589") # CLIA
 ccn("21X0009807") # Portable X-Ray
 #> <ccn::Supplier>
 #>  @ number  : chr "21X0009807"
-#>  @ sequence: chr "0009807"
+#>  @ sequence: <ccn::SupplierSequence>
+#>  .. @ number: chr "0009807"
+#>  .. @ range : chr "000001-9999999"
+#>  .. @ abbr  : chr(0) 
+#>  .. @ desc  : chr(0) 
 #>  @ state   : <ccn::State>
 #>  .. @ code: chr "21"
 #>  .. @ abbr: chr "MD"

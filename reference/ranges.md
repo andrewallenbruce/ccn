@@ -5,6 +5,10 @@ Convert various codes to their associated names.
 ## Usage
 
 ``` r
+get_opo_abbr(x)
+
+get_opo_name(x)
+
 get_care_range(x)
 
 get_care_range_abbr(x)
@@ -19,9 +23,7 @@ get_caid_range_name(x)
 
 get_opo_range(x)
 
-get_opo_range_abbr(x)
-
-get_opo_range_name(x)
+get_supplier_range(x)
 ```
 
 ## Arguments
@@ -58,14 +60,4 @@ get_caid_range(c("055", "232", "599")) |>
 #> [1] "Medicaid-Only Short-Term Acute Care Hospital" 
 #> [2] "Medicaid-Only Children's Psychiatric Hospital"
 #> [3] "Medicaid-Only Long-Term Hospital"             
-
- get_opo_range(c("001", "012", "099")) |>
- print() |>
- get_opo_range_abbr() |>
- print() |>
- get_opo_range_name()
-#> [1] "001-099" "001-099" "001-099"
-#> [1] "OPO" "OPO" "OPO"
-#> [1] "Organ Procurement Organization" "Organ Procurement Organization"
-#> [3] "Organ Procurement Organization"
 ```
