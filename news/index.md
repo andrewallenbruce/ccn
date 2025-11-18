@@ -1,5 +1,10 @@
 # Changelog
 
+## ccn 0.0.0.9016 (2025-11-18)
+
+- Type, State, Sequence classes
+- added dedicated `State` class
+
 ## ccn 0.0.0.9015 (2025-11-17)
 
 - length check added, extension can be `NULL` now

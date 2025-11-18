@@ -24,42 +24,45 @@ list of CCN components.
 # Medicare Provider
 ccn("670055")
 #> <ccn::MedicareProvider>
-#>  @ number        : chr "670055"
-#>  @ sequence      : chr "0055"
-#>  @ state         : <ccn::State>
+#>  @ number   : chr "670055"
+#>  @ sequence : <ccn::MedicareSequence>
+#>  .. @ number: chr "0055"
+#>  .. @ range : chr "0001-0879"
+#>  .. @ abbr  : chr "ACUTE"
+#>  .. @ desc  : chr "Short-Term Hospital (General & Specialty)"
+#>  @ state    : <ccn::State>
 #>  .. @ code: chr "67"
 #>  .. @ abbr: chr "TX"
 #>  .. @ name: chr "Texas"
-#>  @ extension     : chr(0) 
-#>  @ facility_range: chr "0001-0879"
-#>  @ facility_abbr : chr "ACUTE"
-#>  @ facility_desc : chr "Short-Term Hospital (General & Specialty)"
+#>  @ extension: chr(0) 
 ccn("05P001") # OPO
 #> <ccn::MedicareOPO>
-#>  @ number        : chr "05P001"
-#>  @ sequence      : chr "001"
-#>  @ state         : <ccn::State>
+#>  @ number   : chr "05P001"
+#>  @ sequence : <ccn::MedicareOPOSequence>
+#>  .. @ number: chr "001"
+#>  .. @ range : chr "001-099"
+#>  .. @ abbr  : chr "OPO"
+#>  .. @ desc  : chr "Organ Procurement Organization"
+#>  @ state    : <ccn::State>
 #>  .. @ code: chr "05"
 #>  .. @ abbr: chr "CA"
 #>  .. @ name: chr "California"
-#>  @ extension     : chr(0) 
-#>  @ type_code     : chr "P"
-#>  @ facility_range: chr "001-099"
-#>  @ facility_abbr : chr "OPO"
-#>  @ facility_name : chr "Organ Procurement Organization"
+#>  @ extension: chr(0) 
+#>  @ type     : chr "P"
 
 ccn("210101")
 #> <ccn::MedicareProvider>
-#>  @ number        : chr "210101"
-#>  @ sequence      : chr "0101"
-#>  @ state         : <ccn::State>
+#>  @ number   : chr "210101"
+#>  @ sequence : <ccn::MedicareSequence>
+#>  .. @ number: chr "0101"
+#>  .. @ range : chr "0001-0879"
+#>  .. @ abbr  : chr "ACUTE"
+#>  .. @ desc  : chr "Short-Term Hospital (General & Specialty)"
+#>  @ state    : <ccn::State>
 #>  .. @ code: chr "21"
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
-#>  @ extension     : chr(0) 
-#>  @ facility_range: chr "0001-0879"
-#>  @ facility_abbr : chr "ACUTE"
-#>  @ facility_desc : chr "Short-Term Hospital (General & Specialty)"
+#>  @ extension: chr(0) 
 ccn("21T101")
 #> <ccn::IPPSExcludedProvider>
 #>  @ number        : chr "21T101"
@@ -133,44 +136,48 @@ ccn("12345E")
 #>  .. @ abbr: chr "HI"
 #>  .. @ name: chr "Hawaii"
 #>  @ extension: chr(0) 
-#>  @ type_code: chr "E"
-#>  @ type_abbr: chr "ERH-NF"
-#>  @ type_desc: chr "Non-Federal Emergency Hospital (Non-Participating)"
+#>  @ type     : <ccn::EmergencyType>
+#>  .. @ code: chr "E"
+#>  .. @ abbr: chr "ERH-NF"
+#>  .. @ desc: chr "Non-Federal Emergency Hospital (Non-Participating)"
 
 # Supplier
 ccn("10C0001062") # ASC
 #> <ccn::Supplier>
-#>  @ number   : chr "10C0001062"
-#>  @ sequence : chr "0001062"
-#>  @ state    : <ccn::State>
+#>  @ number  : chr "10C0001062"
+#>  @ sequence: chr "0001062"
+#>  @ state   : <ccn::State>
 #>  .. @ code: chr "10"
 #>  .. @ abbr: chr "FL"
 #>  .. @ name: chr "Florida"
-#>  @ type_code: chr "C"
-#>  @ type_abbr: chr "ASC"
-#>  @ type_desc: chr "Ambulatory Surgical Center"
+#>  @ type    : <ccn::SupplierType>
+#>  .. @ code: chr "C"
+#>  .. @ abbr: chr "ASC"
+#>  .. @ desc: chr "Ambulatory Surgical Center"
 ccn("45D0634589") # CLIA
 #> <ccn::Supplier>
-#>  @ number   : chr "45D0634589"
-#>  @ sequence : chr "0634589"
-#>  @ state    : <ccn::State>
+#>  @ number  : chr "45D0634589"
+#>  @ sequence: chr "0634589"
+#>  @ state   : <ccn::State>
 #>  .. @ code: chr "45"
 #>  .. @ abbr: chr "TX"
 #>  .. @ name: chr "Texas"
-#>  @ type_code: chr "D"
-#>  @ type_abbr: chr "CLIA"
-#>  @ type_desc: chr "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory"
+#>  @ type    : <ccn::SupplierType>
+#>  .. @ code: chr "D"
+#>  .. @ abbr: chr "CLIA"
+#>  .. @ desc: chr "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory"
 ccn("21X0009807") # Portable X-Ray
 #> <ccn::Supplier>
-#>  @ number   : chr "21X0009807"
-#>  @ sequence : chr "0009807"
-#>  @ state    : <ccn::State>
+#>  @ number  : chr "21X0009807"
+#>  @ sequence: chr "0009807"
+#>  @ state   : <ccn::State>
 #>  .. @ code: chr "21"
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
-#>  @ type_code: chr "X"
-#>  @ type_abbr: chr "XRAY"
-#>  @ type_desc: chr "Portable X-Ray Facility"
+#>  @ type    : <ccn::SupplierType>
+#>  .. @ code: chr "X"
+#>  .. @ abbr: chr "XRAY"
+#>  .. @ desc: chr "Portable X-Ray Facility"
 
 # IPPS Excluded Unit
 ccn("02TA01")
@@ -224,16 +231,17 @@ ccn("52TA05")
 
 ccn("212026") # Parent
 #> <ccn::MedicareProvider>
-#>  @ number        : chr "212026"
-#>  @ sequence      : chr "2026"
-#>  @ state         : <ccn::State>
+#>  @ number   : chr "212026"
+#>  @ sequence : <ccn::MedicareSequence>
+#>  .. @ number: chr "2026"
+#>  .. @ range : chr "2000-2299"
+#>  .. @ abbr  : chr "LTCH"
+#>  .. @ desc  : chr "Long-Term Care Hospital"
+#>  @ state    : <ccn::State>
 #>  .. @ code: chr "21"
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
-#>  @ extension     : chr(0) 
-#>  @ facility_range: chr "2000-2299"
-#>  @ facility_abbr : chr "LTCH"
-#>  @ facility_desc : chr "Long-Term Care Hospital"
+#>  @ extension: chr(0) 
 ccn("21SA26")
 #> <ccn::IPPSExcludedUnit>
 #>  @ number      : chr "21SA26"
@@ -299,14 +307,15 @@ ccn("33S23401")
 #>  @ facility_name : chr "Medicaid-Only Children's Psychiatric Hospital"
 ccn("330027001")
 #> <ccn::MedicareProvider>
-#>  @ number        : chr "330027"
-#>  @ sequence      : chr "0027"
-#>  @ state         : <ccn::State>
+#>  @ number   : chr "330027"
+#>  @ sequence : <ccn::MedicareSequence>
+#>  .. @ number: chr "0027"
+#>  .. @ range : chr "0001-0879"
+#>  .. @ abbr  : chr "ACUTE"
+#>  .. @ desc  : chr "Short-Term Hospital (General & Specialty)"
+#>  @ state    : <ccn::State>
 #>  .. @ code: chr "33"
 #>  .. @ abbr: chr "NY"
 #>  .. @ name: chr "New York"
-#>  @ extension     : chr "001"
-#>  @ facility_range: chr "0001-0879"
-#>  @ facility_abbr : chr "ACUTE"
-#>  @ facility_desc : chr "Short-Term Hospital (General & Specialty)"
+#>  @ extension: chr "001"
 ```
