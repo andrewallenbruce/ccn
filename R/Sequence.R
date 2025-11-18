@@ -4,7 +4,16 @@ Sequence <- S7::new_class(
   abstract = TRUE,
   properties = list(
     number = S7::class_character,
-    range = S7::class_character,
+    range = S7::class_character
+  )
+)
+
+#' @noRd
+SequenceFull <- S7::new_class(
+  name = "SequenceFull",
+  parent = Sequence,
+  abstract = TRUE,
+  properties = list(
     abbr = S7::class_character,
     desc = S7::class_character
   )
@@ -13,7 +22,7 @@ Sequence <- S7::new_class(
 #' @noRd
 MedicareSequence <- S7::new_class(
   name = "MedicareSequence",
-  parent = Sequence,
+  parent = SequenceFull,
   properties = list(
     range = S7::new_property(
       S7::class_character,
