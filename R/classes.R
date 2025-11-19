@@ -6,7 +6,8 @@ NULL
 #' @noRd
 Unknown <- S7::new_class(
   name = "Unknown",
-  properties = list(number = S7::class_character))
+  properties = list(number = S7::class_character)
+)
 
 #' @noRd
 CCN <- S7::new_class(
@@ -22,13 +23,25 @@ CCN <- S7::new_class(
 Supplier <- S7::new_class(
   name = "Supplier",
   parent = CCN,
-  properties = list(type = SupplierType, sequence = SupplierSequence))
+  properties = list(
+    type = SupplierType,
+    sequence = SupplierSequence
+  )
+)
 
 #' @noRd
 Provider <- S7::new_class(
   name = "Provider",
   parent = CCN,
-  properties = list(extension = S7::class_character))
+  properties = list(extension = NULL | S7::class_character)
+)
+
+#' @noRd
+EmergencyHospital <- S7::new_class(
+  name = "EmergencyHospital",
+  parent = Provider,
+  properties = list(type = EmergencyType)
+)
 
 #' @noRd
 MedicareProvider <- S7::new_class(
@@ -50,48 +63,20 @@ MedicareOPO <- S7::new_class(
 )
 
 #' @noRd
-EmergencyHospital <- S7::new_class(
-  name = "EmergencyHospital",
-  parent = Provider,
-  properties = list(type = EmergencyType)
-)
-
-#' @noRd
 MedicaidOnlyProvider <- S7::new_class(
-  name             = "MedicaidOnlyProvider",
-  parent           = Provider,
-  properties       = list(
-    type_code      = S7::class_character,
-    type_abbr      = S7::new_property(S7::class_character,
-      getter       = \(self) get_caid_abbr(self@type_code)),
-    type_name      = S7::new_property(S7::class_character,
-      getter       = \(self) get_caid_name(self@type_abbr)),
-    facility_range = S7::new_property(S7::class_character,
-      getter       = \(self) get_caid_range(self@sequence)),
-    facility_abbr  = S7::new_property(S7::class_character,
-      getter       = \(self) get_caid_range_abbr(self@facility_range)),
-    facility_name  = S7::new_property(S7::class_character,
-      getter       = \(self) get_caid_range_name(self@facility_abbr))
+  name = "MedicaidOnlyProvider",
+  parent = Provider,
+  properties = list(
+    type = MedicaidOnlyType | IPPSExcludedType,
+    sequence = MedicaidOnlySequence
   )
 )
 
 #' @noRd
 IPPSExcludedProvider <- S7::new_class(
-  name             = "IPPSExcludedProvider",
-  parent           = Provider,
-  properties       = list(
-    type_code      = S7::class_character,
-    type_abbr      = S7::new_property(S7::class_character,
-      getter       = \(self) get_ipps_abbr(self@type_code)),
-    type_name      = S7::new_property(S7::class_character,
-      getter       = \(self) get_ipps_name(self@type_abbr)),
-    facility_range = S7::new_property(S7::class_character,
-      getter       = \(self) get_caid_range(self@sequence)),
-    facility_abbr  = S7::new_property(S7::class_character,
-      getter       = \(self) get_caid_range_abbr(self@facility_range)),
-    facility_name  = S7::new_property(S7::class_character,
-      getter       = \(self) get_caid_range_name(self@facility_abbr))
-  )
+  name = "IPPSExcludedProvider",
+  parent = MedicaidOnlyProvider,
+  properties = list(type = IPPSExcludedType)
 )
 
 #' @noRd

@@ -9,6 +9,32 @@ Sequence <- S7::new_class(
 )
 
 #' @noRd
+OPOSequence <- S7::new_class(
+  name = "OPOSequence",
+  parent = Sequence,
+  properties = list(
+    range = S7::new_property(
+      S7::class_character,
+      getter = function(self)
+        get_opo_range(self@number)
+    )
+  )
+)
+
+#' @noRd
+SupplierSequence <- S7::new_class(
+  name = "SupplierSequence",
+  parent = Sequence,
+  properties = list(
+    range = S7::new_property(
+      S7::class_character,
+      getter = function(self)
+        get_supplier_range(self@number)
+    )
+  )
+)
+
+#' @noRd
 SequenceFull <- S7::new_class(
   name = "SequenceFull",
   parent = Sequence,
@@ -43,27 +69,24 @@ MedicareSequence <- S7::new_class(
 )
 
 #' @noRd
-OPOSequence <- S7::new_class(
-  name = "OPOSequence",
-  parent = Sequence,
+MedicaidOnlySequence <- S7::new_class(
+  name = "MedicaidOnlySequence",
+  parent = SequenceFull,
   properties = list(
     range = S7::new_property(
       S7::class_character,
       getter = function(self)
-        get_opo_range(self@number)
-    )
-  )
-)
-
-#' @noRd
-SupplierSequence <- S7::new_class(
-  name = "SupplierSequence",
-  parent = Sequence,
-  properties = list(
-    range = S7::new_property(
+        get_caid_range(self@number)
+    ),
+    abbr = S7::new_property(
       S7::class_character,
       getter = function(self)
-        get_supplier_range(self@number)
+        get_caid_range_abbr(self@range)
+    ),
+    desc = S7::new_property(
+      S7::class_character,
+      getter = function(self)
+        get_caid_range_name(self@abbr)
     )
   )
 )

@@ -62,3 +62,39 @@ OPOType <- S7::new_class(
     )
   )
 )
+
+#' @noRd
+MedicaidOnlyType <- S7::new_class(
+  name = "MedicaidOnlyType",
+  parent = Type,
+  properties = list(
+    abbr = S7::new_property(
+      S7::class_character,
+      getter = function(self)
+        get_caid_abbr(self@code)
+    ),
+    desc = S7::new_property(
+      S7::class_character,
+      getter = function(self)
+        get_caid_name(self@abbr)
+    )
+  )
+)
+
+#' @noRd
+IPPSExcludedType <- S7::new_class(
+  name = "IPPSExcludedType",
+  parent = Type,
+  properties = list(
+    abbr = S7::new_property(
+      S7::class_character,
+      getter = function(self)
+        get_ipps_abbr(self@code)
+    ),
+    desc = S7::new_property(
+      S7::class_character,
+      getter = function(self)
+        get_ipps_name(self@abbr)
+    )
+  )
+)

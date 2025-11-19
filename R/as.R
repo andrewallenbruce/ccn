@@ -11,22 +11,20 @@ as_unknown <- function(x) {
 #' @noRd
 as_provider <- function(x) {
   if (has_extension(x@number)) {
-    S7::convert(
+    return(S7::convert(
       x,
       Provider,
       number = substr_(x@number, c(1L, 6L)),
       state = as_State(x@number),
       extension = substr_(x@number, c(7L, nchar(x@number)))
-    )
-
-  } else {
-    S7::convert(
-      x,
-      Provider,
-      number = x@number,
-      state = as_State(x@number)
-    )
+    ))
   }
+  S7::convert(
+    x,
+    Provider,
+    number = x@number,
+    state = as_State(x@number)
+  )
 }
 
 #' @noRd
@@ -53,8 +51,8 @@ as_emergency <- function(x) {
   S7::convert(
     x,
     EmergencyHospital,
-    sequence = substr_(x@number, c(3L, 5L)),
-    type = EmergencyType(substr_(x@number, 6L))
+    type = EmergencyType(substr_(x@number, 6L)),
+    sequence = substr_(x@number, c(3L, 5L))
   )
 }
 
@@ -63,8 +61,8 @@ as_medicaid <- function(x) {
   S7::convert(
     x,
     MedicaidOnlyProvider,
-    type_code = substr_(x@number, 3L),
-    sequence  = substr_(x@number, c(4L, 6L))
+    type = MedicaidOnlyType(substr_(x@number, 3L)),
+    sequence = MedicaidOnlySequence(substr_(x@number, c(4L, 6L)))
   )
 }
 
@@ -73,8 +71,8 @@ as_excluded_provider <- function(x) {
   S7::convert(
     x,
     IPPSExcludedProvider,
-    type_code = substr_(x@number, 3L),
-    sequence  = substr_(x@number, c(4L, 6L))
+    type = IPPSExcludedType(substr_(x@number, 3L)),
+    sequence = MedicaidOnlySequence(substr_(x@number, c(4L, 6L)))
   )
 }
 

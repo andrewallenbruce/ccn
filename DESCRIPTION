@@ -44,6 +44,7 @@ Collate:
     'ccn.R'
     'checks.R'
     'classes.R'
+    'data_frame.R'
     'lookups.R'
     'predicates.R'
     'ranges.R'
