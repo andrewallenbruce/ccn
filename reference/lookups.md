@@ -13,6 +13,10 @@ get_supplier_abbr(x)
 
 get_supplier_name(x)
 
+get_opo_abbr(x)
+
+get_opo_name(x)
+
 get_caid_abbr(x)
 
 get_caid_name(x)
@@ -20,10 +24,6 @@ get_caid_name(x)
 get_ipps_abbr(x)
 
 get_ipps_name(x)
-
-get_parent_prefix(x)
-
-get_parent_abbr(x)
 ```
 
 ## Arguments

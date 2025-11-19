@@ -1,14 +1,10 @@
-# Lookups for Facility Ranges
+# Facility Ranges
 
 Convert various codes to their associated names.
 
 ## Usage
 
 ``` r
-get_opo_abbr(x)
-
-get_opo_name(x)
-
 get_care_range(x)
 
 get_care_range_abbr(x)
@@ -24,6 +20,12 @@ get_caid_range_name(x)
 get_opo_range(x)
 
 get_supplier_range(x)
+
+get_parent_prefix(x)
+
+get_parent_abbr(x)
+
+get_unit_sequence(x)
 ```
 
 ## Arguments
