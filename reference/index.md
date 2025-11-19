@@ -35,7 +35,8 @@
   [`get_opo_range()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
   [`get_supplier_range()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
   : Lookups for Facility Ranges
-- [`get_state_abbr()`](https://andrewallenbruce.github.io/ccn/reference/states.md)
+- [`is_state_code()`](https://andrewallenbruce.github.io/ccn/reference/states.md)
+  [`get_state_code()`](https://andrewallenbruce.github.io/ccn/reference/states.md)
+  [`get_state_abbr()`](https://andrewallenbruce.github.io/ccn/reference/states.md)
   [`get_state_name()`](https://andrewallenbruce.github.io/ccn/reference/states.md)
-  [`is_state_code()`](https://andrewallenbruce.github.io/ccn/reference/states.md)
-  : State Lookups
+  : State Codes, Abbreviations, and Names

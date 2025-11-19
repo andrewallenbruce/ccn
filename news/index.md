@@ -1,5 +1,9 @@
 # Changelog
 
+## ccn 0.0.0.9018 (2025-11-18)
+
+- tidying, re-render README
+
 ## ccn 0.0.0.9017 (2025-11-18)
 
 - `Sequence` & `FullSequence`

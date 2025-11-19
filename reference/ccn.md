@@ -21,8 +21,7 @@ list of CCN components.
 ## Examples
 
 ``` r
-# Medicare Provider
-ccn("670055")
+ccn("670055") # Medicare Provider
 #> <ccn::MedicareProvider>
 #>  @ number   : chr "670055"
 #>  @ sequence : <ccn::MedicareSequence>
@@ -35,7 +34,7 @@ ccn("670055")
 #>  .. @ abbr: chr "TX"
 #>  .. @ name: chr "Texas"
 #>  @ extension: chr(0) 
-ccn("05P001") # OPO
+ccn("05P001") # Medicare OPO
 #> <ccn::MedicareOPO>
 #>  @ number   : chr "05P001"
 #>  @ sequence : <ccn::OPOSequence>
@@ -110,8 +109,7 @@ ccn("21U101")
 #>  @ facility_abbr : chr "CHILD"
 #>  @ facility_name : chr "Medicaid-Only Children's Hospital"
 
-# Medicaid Only Provider
-ccn("01L008")
+ccn("01L008") # Medicaid Only Provider
 #> <ccn::MedicaidOnlyProvider>
 #>  @ number        : chr "01L008"
 #>  @ sequence      : chr "008"
@@ -126,9 +124,7 @@ ccn("01L008")
 #>  @ facility_range: chr "001-099"
 #>  @ facility_abbr : chr "ACUTE"
 #>  @ facility_name : chr "Medicaid-Only Short-Term Acute Care Hospital"
-
-# Emergency Hospital
-ccn("12345E")
+ccn("12345E") # Emergency Hospital
 #> <ccn::EmergencyHospital>
 #>  @ number   : chr "12345E"
 #>  @ sequence : chr "345"
@@ -141,9 +137,7 @@ ccn("12345E")
 #>  .. @ code: chr "E"
 #>  .. @ abbr: chr "ER (NF)"
 #>  .. @ desc: chr "Non-Federal Emergency Hospital (Non-Participating)"
-
-# Supplier
-ccn("10C0001062") # ASC
+ccn("10C0001062") # Supplier ASC
 #> <ccn::Supplier>
 #>  @ number  : chr "10C0001062"
 #>  @ sequence: <ccn::SupplierSequence>
@@ -157,7 +151,7 @@ ccn("10C0001062") # ASC
 #>  .. @ code: chr "C"
 #>  .. @ abbr: chr "ASC"
 #>  .. @ desc: chr "Ambulatory Surgical Center"
-ccn("45D0634589") # CLIA
+ccn("45D0634589") # Supplier CLIA
 #> <ccn::Supplier>
 #>  @ number  : chr "45D0634589"
 #>  @ sequence: <ccn::SupplierSequence>
@@ -171,7 +165,7 @@ ccn("45D0634589") # CLIA
 #>  .. @ code: chr "D"
 #>  .. @ abbr: chr "CLIA"
 #>  .. @ desc: chr "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory"
-ccn("21X0009807") # Portable X-Ray
+ccn("21X0009807") # Supplier Portable X-Ray
 #> <ccn::Supplier>
 #>  @ number  : chr "21X0009807"
 #>  @ sequence: <ccn::SupplierSequence>
@@ -186,8 +180,7 @@ ccn("21X0009807") # Portable X-Ray
 #>  .. @ abbr: chr "XRAY"
 #>  .. @ desc: chr "Portable X-Ray Facility"
 
-# IPPS Excluded Unit
-ccn("02TA01")
+ccn("02TA01") # IPPS Excluded Unit
 #> <ccn::IPPSExcludedUnit>
 #>  @ number      : chr "02TA01"
 #>  @ sequence    : chr "2001"
