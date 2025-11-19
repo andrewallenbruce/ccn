@@ -1,9 +1,4 @@
 #' @noRd
-get_state_code <- function(x) {
-  substr_(x, c(1L, 2L))
-}
-
-#' @noRd
 get_unit_sequence <- function(x) {
   string(c(get_parent_prefix(substr_(x, 4L)), substr_(x, c(5L, 6L))))
 }
@@ -14,18 +9,13 @@ as_unknown <- function(x) {
 }
 
 #' @noRd
-as_state <- function(x) {
-  State(get_state_code(x))
-}
-
-#' @noRd
 as_provider <- function(x) {
   if (has_extension(x@number)) {
     S7::convert(
       x,
       Provider,
       number = substr_(x@number, c(1L, 6L)),
-      state = as_state(x@number),
+      state = as_State(x@number),
       extension = substr_(x@number, c(7L, nchar(x@number)))
     )
 
@@ -34,7 +24,7 @@ as_provider <- function(x) {
       x,
       Provider,
       number = x@number,
-      state = as_state(x@number)
+      state = as_State(x@number)
     )
   }
 }
@@ -79,7 +69,7 @@ as_medicaid <- function(x) {
 }
 
 #' @noRd
-as_excluded <- function(x) {
+as_excluded_provider <- function(x) {
   S7::convert(
     x,
     IPPSExcludedProvider,
@@ -89,7 +79,7 @@ as_excluded <- function(x) {
 }
 
 #' @noRd
-as_unit <- function(x) {
+as_excluded_unit <- function(x) {
   S7::convert(
     x,
     IPPSExcludedUnit,
@@ -100,11 +90,11 @@ as_unit <- function(x) {
 }
 
 #' @noRd
-as_excluded_type <- function(x) {
+as_excluded <- function(x) {
   if (type_unit(substr_(x@number, 4L))) {
-    as_unit(x)
+    as_excluded_unit(x)
   } else {
-    as_excluded(x)
+    as_excluded_provider(x)
   }
 }
 
@@ -113,7 +103,7 @@ as_supplier <- function(x) {
   S7::convert(
     x,
     Supplier,
-    state = as_state(x@number),
+    state = as_State(x@number),
     type = SupplierType(substr_(x@number, 3L)),
     sequence = SupplierSequence(substr_(x@number, c(4L, 10L)))
   )

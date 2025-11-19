@@ -19,12 +19,12 @@ Imports:
     kit (>= 0.0.2),
     pins (>= 1.4.1),
     purrr (>= 1.2.0),
+    qs (>= 0.27.3),
     rlang (>= 1.1.6),
-    stringfish (>= 0.17.0),
     S7 (>= 0.2.1),
-    qs (>= 0.27.3)
+    stringfish (>= 0.17.0)
 Suggests: 
-    testthat (>= 3.0.0)
+    testthat (>= 3.3.0)
 Config/testthat/edition: 3
 Config/testthat/parallel: true
 Encoding: UTF-8
@@ -47,5 +47,4 @@ Collate:
     'lookups.R'
     'predicates.R'
     'ranges.R'
-    'states.R'
     'zzz.R'
