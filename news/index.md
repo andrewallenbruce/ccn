@@ -1,5 +1,11 @@
 # Changelog
 
+## ccn 0.0.0.9019 (2025-11-19)
+
+- initial `as_data_frame` method
+  ([\#2](https://github.com/andrewallenbruce/ccn/issues/2))
+- added `MedicaidOnlySequence`, `MedicaidOnlyType`, `IPPSExcludedType`
+
 ## ccn 0.0.0.9018 (2025-11-18)
 
 - tidying, re-render README

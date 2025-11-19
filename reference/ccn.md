@@ -33,7 +33,7 @@ ccn("670055") # Medicare Provider
 #>  .. @ code: chr "67"
 #>  .. @ abbr: chr "TX"
 #>  .. @ name: chr "Texas"
-#>  @ extension: chr(0) 
+#>  @ extension: NULL
 ccn("05P001") # Medicare OPO
 #> <ccn::MedicareOPO>
 #>  @ number   : chr "05P001"
@@ -44,7 +44,7 @@ ccn("05P001") # Medicare OPO
 #>  .. @ code: chr "05"
 #>  .. @ abbr: chr "CA"
 #>  .. @ name: chr "California"
-#>  @ extension: chr(0) 
+#>  @ extension: NULL
 #>  @ type     : <ccn::OPOType>
 #>  .. @ code: chr "P"
 #>  .. @ abbr: chr "OPO"
@@ -62,68 +62,76 @@ ccn("210101")
 #>  .. @ code: chr "21"
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
-#>  @ extension: chr(0) 
+#>  @ extension: NULL
 ccn("21T101")
 #> <ccn::IPPSExcludedProvider>
-#>  @ number        : chr "21T101"
-#>  @ sequence      : chr "101"
-#>  @ state         : <ccn::State>
+#>  @ number   : chr "21T101"
+#>  @ sequence : <ccn::MedicaidOnlySequence>
+#>  .. @ number: chr "101"
+#>  .. @ range : chr "100-199"
+#>  .. @ abbr  : chr "CHILD"
+#>  .. @ desc  : chr "Medicaid-Only Children's Hospital"
+#>  @ state    : <ccn::State>
 #>  .. @ code: chr "21"
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
-#>  @ extension     : chr(0) 
-#>  @ type_code     : chr "T"
-#>  @ type_abbr     : chr "REHAB"
-#>  @ type_name     : chr "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
-#>  @ facility_range: chr "100-199"
-#>  @ facility_abbr : chr "CHILD"
-#>  @ facility_name : chr "Medicaid-Only Children's Hospital"
+#>  @ extension: NULL
+#>  @ type     : <ccn::IPPSExcludedType>
+#>  .. @ code: chr "T"
+#>  .. @ abbr: chr "REHAB"
+#>  .. @ desc: chr "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
 ccn("21S101")
 #> <ccn::IPPSExcludedProvider>
-#>  @ number        : chr "21S101"
-#>  @ sequence      : chr "101"
-#>  @ state         : <ccn::State>
+#>  @ number   : chr "21S101"
+#>  @ sequence : <ccn::MedicaidOnlySequence>
+#>  .. @ number: chr "101"
+#>  .. @ range : chr "100-199"
+#>  .. @ abbr  : chr "CHILD"
+#>  .. @ desc  : chr "Medicaid-Only Children's Hospital"
+#>  @ state    : <ccn::State>
 #>  .. @ code: chr "21"
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
-#>  @ extension     : chr(0) 
-#>  @ type_code     : chr "S"
-#>  @ type_abbr     : chr "PSYCH"
-#>  @ type_name     : chr "Psychiatric Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
-#>  @ facility_range: chr "100-199"
-#>  @ facility_abbr : chr "CHILD"
-#>  @ facility_name : chr "Medicaid-Only Children's Hospital"
+#>  @ extension: NULL
+#>  @ type     : <ccn::IPPSExcludedType>
+#>  .. @ code: chr "S"
+#>  .. @ abbr: chr "PSYCH"
+#>  .. @ desc: chr "Psychiatric Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
 ccn("21U101")
 #> <ccn::IPPSExcludedProvider>
-#>  @ number        : chr "21U101"
-#>  @ sequence      : chr "101"
-#>  @ state         : <ccn::State>
+#>  @ number   : chr "21U101"
+#>  @ sequence : <ccn::MedicaidOnlySequence>
+#>  .. @ number: chr "101"
+#>  .. @ range : chr "100-199"
+#>  .. @ abbr  : chr "CHILD"
+#>  .. @ desc  : chr "Medicaid-Only Children's Hospital"
+#>  @ state    : <ccn::State>
 #>  .. @ code: chr "21"
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
-#>  @ extension     : chr(0) 
-#>  @ type_code     : chr "U"
-#>  @ type_abbr     : chr "SBA (STH)"
-#>  @ type_name     : chr "Swing-Bed Approval for Short-Term Hospital"
-#>  @ facility_range: chr "100-199"
-#>  @ facility_abbr : chr "CHILD"
-#>  @ facility_name : chr "Medicaid-Only Children's Hospital"
+#>  @ extension: NULL
+#>  @ type     : <ccn::IPPSExcludedType>
+#>  .. @ code: chr "U"
+#>  .. @ abbr: chr "SBA (STH)"
+#>  .. @ desc: chr "Swing-Bed Approval for Short-Term Hospital"
 
 ccn("01L008") # Medicaid Only Provider
 #> <ccn::MedicaidOnlyProvider>
-#>  @ number        : chr "01L008"
-#>  @ sequence      : chr "008"
-#>  @ state         : <ccn::State>
+#>  @ number   : chr "01L008"
+#>  @ sequence : <ccn::MedicaidOnlySequence>
+#>  .. @ number: chr "008"
+#>  .. @ range : chr "001-099"
+#>  .. @ abbr  : chr "ACUTE"
+#>  .. @ desc  : chr "Medicaid-Only Short-Term Acute Care Hospital"
+#>  @ state    : <ccn::State>
 #>  .. @ code: chr "01"
 #>  .. @ abbr: chr "AL"
 #>  .. @ name: chr "Alabama"
-#>  @ extension     : chr(0) 
-#>  @ type_code     : chr "L"
-#>  @ type_abbr     : chr "PRTF"
-#>  @ type_name     : chr "Psychiatric Residential Treatment Facility"
-#>  @ facility_range: chr "001-099"
-#>  @ facility_abbr : chr "ACUTE"
-#>  @ facility_name : chr "Medicaid-Only Short-Term Acute Care Hospital"
+#>  @ extension: NULL
+#>  @ type     : <ccn::MedicaidOnlyType>
+#>  .. @ code: chr "L"
+#>  .. @ abbr: chr "PRTF"
+#>  .. @ desc: chr "Psychiatric Residential Treatment Facility"
 ccn("12345E") # Emergency Hospital
 #> <ccn::EmergencyHospital>
 #>  @ number   : chr "12345E"
@@ -132,7 +140,7 @@ ccn("12345E") # Emergency Hospital
 #>  .. @ code: chr "12"
 #>  .. @ abbr: chr "HI"
 #>  .. @ name: chr "Hawaii"
-#>  @ extension: chr(0) 
+#>  @ extension: NULL
 #>  @ type     : <ccn::EmergencyType>
 #>  .. @ code: chr "E"
 #>  .. @ abbr: chr "ER (NF)"
@@ -188,7 +196,7 @@ ccn("02TA01") # IPPS Excluded Unit
 #>  .. @ code: chr "02"
 #>  .. @ abbr: chr "AK"
 #>  .. @ name: chr "Alaska"
-#>  @ extension   : chr(0) 
+#>  @ extension   : NULL
 #>  @ type_code   : chr "T"
 #>  @ type_abbr   : chr "REHAB"
 #>  @ type_name   : chr "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
@@ -204,7 +212,7 @@ ccn("04SD38")
 #>  .. @ code: chr "04"
 #>  .. @ abbr: chr "AR"
 #>  .. @ name: chr "Arkansas"
-#>  @ extension   : chr(0) 
+#>  @ extension   : NULL
 #>  @ type_code   : chr "S"
 #>  @ type_abbr   : chr "PSYCH"
 #>  @ type_name   : chr "Psychiatric Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
@@ -220,7 +228,7 @@ ccn("52TA05")
 #>  .. @ code: chr "52"
 #>  .. @ abbr: chr "WI"
 #>  .. @ name: chr "Wisconsin"
-#>  @ extension   : chr(0) 
+#>  @ extension   : NULL
 #>  @ type_code   : chr "T"
 #>  @ type_abbr   : chr "REHAB"
 #>  @ type_name   : chr "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
@@ -241,7 +249,7 @@ ccn("212026") # Parent
 #>  .. @ code: chr "21"
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
-#>  @ extension: chr(0) 
+#>  @ extension: NULL
 ccn("21SA26")
 #> <ccn::IPPSExcludedUnit>
 #>  @ number      : chr "21SA26"
@@ -250,7 +258,7 @@ ccn("21SA26")
 #>  .. @ code: chr "21"
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
-#>  @ extension   : chr(0) 
+#>  @ extension   : NULL
 #>  @ type_code   : chr "S"
 #>  @ type_abbr   : chr "PSYCH"
 #>  @ type_name   : chr "Psychiatric Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
@@ -266,7 +274,7 @@ ccn("21TA26")
 #>  .. @ code: chr "21"
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
-#>  @ extension   : chr(0) 
+#>  @ extension   : NULL
 #>  @ type_code   : chr "T"
 #>  @ type_abbr   : chr "REHAB"
 #>  @ type_name   : chr "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
@@ -277,34 +285,38 @@ ccn("21TA26")
 
 ccn("24T019A")
 #> <ccn::IPPSExcludedProvider>
-#>  @ number        : chr "24T019"
-#>  @ sequence      : chr "019"
-#>  @ state         : <ccn::State>
+#>  @ number   : chr "24T019"
+#>  @ sequence : <ccn::MedicaidOnlySequence>
+#>  .. @ number: chr "019"
+#>  .. @ range : chr "001-099"
+#>  .. @ abbr  : chr "ACUTE"
+#>  .. @ desc  : chr "Medicaid-Only Short-Term Acute Care Hospital"
+#>  @ state    : <ccn::State>
 #>  .. @ code: chr "24"
 #>  .. @ abbr: chr "MN"
 #>  .. @ name: chr "Minnesota"
-#>  @ extension     : chr "A"
-#>  @ type_code     : chr "T"
-#>  @ type_abbr     : chr "REHAB"
-#>  @ type_name     : chr "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
-#>  @ facility_range: chr "001-099"
-#>  @ facility_abbr : chr "ACUTE"
-#>  @ facility_name : chr "Medicaid-Only Short-Term Acute Care Hospital"
+#>  @ extension: chr "A"
+#>  @ type     : <ccn::IPPSExcludedType>
+#>  .. @ code: chr "T"
+#>  .. @ abbr: chr "REHAB"
+#>  .. @ desc: chr "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
 ccn("33S23401")
 #> <ccn::IPPSExcludedProvider>
-#>  @ number        : chr "33S234"
-#>  @ sequence      : chr "234"
-#>  @ state         : <ccn::State>
+#>  @ number   : chr "33S234"
+#>  @ sequence : <ccn::MedicaidOnlySequence>
+#>  .. @ number: chr "234"
+#>  .. @ range : chr "200-299"
+#>  .. @ abbr  : chr "CPH"
+#>  .. @ desc  : chr "Medicaid-Only Children's Psychiatric Hospital"
+#>  @ state    : <ccn::State>
 #>  .. @ code: chr "33"
 #>  .. @ abbr: chr "NY"
 #>  .. @ name: chr "New York"
-#>  @ extension     : chr "01"
-#>  @ type_code     : chr "S"
-#>  @ type_abbr     : chr "PSYCH"
-#>  @ type_name     : chr "Psychiatric Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
-#>  @ facility_range: chr "200-299"
-#>  @ facility_abbr : chr "CPH"
-#>  @ facility_name : chr "Medicaid-Only Children's Psychiatric Hospital"
+#>  @ extension: chr "01"
+#>  @ type     : <ccn::IPPSExcludedType>
+#>  .. @ code: chr "S"
+#>  .. @ abbr: chr "PSYCH"
+#>  .. @ desc: chr "Psychiatric Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
 ccn("330027001")
 #> <ccn::MedicareProvider>
 #>  @ number   : chr "330027"
