@@ -1,7 +1,7 @@
 #' @include utils.R
 NULL
 
-#' Lookups for Facility Ranges
+#' Facility Ranges
 #'
 #' @description
 #' Convert various codes to their associated names.
@@ -54,3 +54,23 @@ get_opo_range <- make_switch(OPO$RANGE)
 #' @rdname ranges
 #' @export
 get_supplier_range <- make_switch(SUPPLIER$RANGE)
+
+#' @rdname ranges
+#' @export
+get_parent_prefix <- function(x) {
+  unlist_(EXCLUDED$PARENT)[seq_along(EXCLUDED$PARENT) %% 2L == 0L][
+    collapse::fmatch(x, rlang::names2(EXCLUDED$PARENT))]
+}
+
+#' @rdname ranges
+#' @export
+get_parent_abbr <- function(x) {
+  unlist_(EXCLUDED$PARENT)[seq_along(EXCLUDED$PARENT) %% 2L == 1L][
+    collapse::fmatch(x, rlang::names2(EXCLUDED$PARENT))]
+}
+
+#' @rdname ranges
+#' @export
+get_unit_sequence <- function(x) {
+  to_string(c(get_parent_prefix(substr_(x, 4L)), substr_(x, c(5L, 6L))))
+}

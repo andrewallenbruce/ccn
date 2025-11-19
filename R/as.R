@@ -1,14 +1,4 @@
 #' @noRd
-get_unit_sequence <- function(x) {
-  string(c(get_parent_prefix(substr_(x, 4L)), substr_(x, c(5L, 6L))))
-}
-
-#' @noRd
-as_unknown <- function(x) {
-  Unknown(number = clean(x))
-}
-
-#' @noRd
 as_provider <- function(x) {
   if (has_extension(x@number)) {
     return(S7::convert(

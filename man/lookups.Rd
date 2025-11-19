@@ -6,12 +6,12 @@
 \alias{get_emergency_name}
 \alias{get_supplier_abbr}
 \alias{get_supplier_name}
+\alias{get_opo_abbr}
+\alias{get_opo_name}
 \alias{get_caid_abbr}
 \alias{get_caid_name}
 \alias{get_ipps_abbr}
 \alias{get_ipps_name}
-\alias{get_parent_prefix}
-\alias{get_parent_abbr}
 \title{Lookups for Various Codes}
 \usage{
 get_emergency_abbr(x)
@@ -22,6 +22,10 @@ get_supplier_abbr(x)
 
 get_supplier_name(x)
 
+get_opo_abbr(x)
+
+get_opo_name(x)
+
 get_caid_abbr(x)
 
 get_caid_name(x)
@@ -29,10 +33,6 @@ get_caid_name(x)
 get_ipps_abbr(x)
 
 get_ipps_name(x)
-
-get_parent_prefix(x)
-
-get_parent_abbr(x)
 }
 \arguments{
 \item{x}{character vector of codes to look up.}

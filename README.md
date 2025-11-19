@@ -3,7 +3,7 @@
 
 <h1 align="left">
 
-<b>cc</b><sub><i>n</i></sub>
+<b>c</b>:<b>c</b>:<b>n</b>
 </h1>
 
 > Parse **CMS Certification Numbers** in R

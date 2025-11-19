@@ -2,6 +2,11 @@
 NULL
 
 #' @noRd
+as_Unknown <- function(x) {
+  Unknown(number = clean(x))
+}
+
+#' @noRd
 get_provider_type <- function(x) {
   kit::nif(
     is_numeric(x), "medicare",
@@ -67,7 +72,7 @@ ccn <- function(x) {
   check_character(x)
   check_length(x)
 
-  x <- as_unknown(x)
+  x <- as_Unknown(x)
 
   if (is_provider(x@number) | has_extension(x@number)) {
     x <- as_provider(x)

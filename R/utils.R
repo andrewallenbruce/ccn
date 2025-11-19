@@ -41,19 +41,17 @@ pad_seven <- function(x) {
   stringfish::sf_convert(x)
 }
 
-#' @noRd
-nchars_ <- function(x) {
-  stringfish::sf_nchar(x, nthreads = 4L) |> as.character()
+# nchars_ <- function(x) {
+#   stringfish::sf_nchar(x, nthreads = 4L) |> as.character()
   # collapse::vlengths(c("adsfd", "sdgfahrf"), use.names = FALSE)
-}
+# }
+
+# nchar_ <- function(x) {
+#   stringfish::sf_nchar(x, nthreads = 4L)
+# }
 
 #' @noRd
-nchar_ <- function(x) {
-  stringfish::sf_nchar(x, nthreads = 4L)
-}
-
-#' @noRd
-string <- function(x) {
+to_string <- function(x) {
   stringfish::sf_collapse(x, collapse = "")
   # paste0(x, collapse = "")
 }
@@ -74,11 +72,6 @@ substr_ <- function(x, s) {
     stop     = s[2],
     nthreads = 4L
   )
-}
-
-#' @noRd
-split_ <- function(x) {
-  stringfish::sf_split(x, "", fixed = TRUE, nthreads = 4L)[[1]]
 }
 
 #' @noRd
@@ -121,7 +114,6 @@ make_switch <- function(x) {
       outputs = e$constant,
       default = NA_character_,
       nThread = 4L
-      # checkEnc = FALSE
     )
   }
 }
@@ -160,19 +152,18 @@ qs_url <- function(url) qs::qread_url(url)
 
 #' @noRd
 mount_board <- function(source = c("local", "remote")) {
-  gh_raw  <- \(x) paste0("https://raw.githubusercontent.com/", x)
-  gh_path <- gh_raw(paste0(
-    "andrewallenbruce/",
-    utils::packageName(),
-    "/master/inst/extdata/pins/"
-  ))
-
   switch(
     match.arg(source),
-    local = pins::board_folder(
-      fs::path_package("extdata/pins", package = utils::packageName())
+    local = pins::board_folder(fs::path_package(
+      "extdata/pins",
+      package = "ccn"
+      )
     ),
-    remote = pins::board_url(gh_path)
+    remote = pins::board_url(paste0(
+      "https://raw.githubusercontent.com/",
+      "andrewallenbruce/ccn/master/inst/extdata/pins/"
+      )
+    )
   )
 }
 
