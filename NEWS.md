@@ -1,5 +1,11 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9019 (2025-11-19)
+
+* initial `as_data_frame` method (#2)
+* added `MedicaidOnlySequence`, `MedicaidOnlyType`, `IPPSExcludedType`
+
+
 # ccn 0.0.0.9018 (2025-11-18)
 
 * tidying, re-render README
