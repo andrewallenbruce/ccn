@@ -18,7 +18,7 @@ data.frame
 Convert to data.frame
 }
 \examples{
-(x <- ccn("01L008"))
-
-as_data_frame(x) |> str()
+ccn("01L008") |> as_data_frame() |> str()
+ccn("670055") |> as_data_frame() |> str()
+ccn("05P001") |> as_data_frame() |> str()
 }

@@ -7,15 +7,15 @@
 #' @returns data.frame
 #'
 #' @examples
-#' (x <- ccn("01L008"))
-#'
-#' as_data_frame(x) |> str()
+#' ccn("01L008") |> as_data_frame() |> str()
+#' ccn("670055") |> as_data_frame() |> str()
+#' ccn("05P001") |> as_data_frame() |> str()
 #' @export
 as_data_frame <- S7::new_generic("as_data_frame", "x")
 
 S7::method(as_data_frame, MedicaidOnlyProvider) <- function(x) {
   cheapr::fast_df(
-    category   = "Medicaid-Only Provider",
+    type       = "Medicaid-Only Provider",
     number     = S7::prop(x, "number"),
     sequence   = x@sequence@number,
     seq_range  = x@sequence@range,
@@ -31,5 +31,33 @@ S7::method(as_data_frame, MedicaidOnlyProvider) <- function(x) {
   )
 }
 
-# as_data_frame <- S7::new_external_generic("base", "as.data.frame", "x")
-# exportS3Method base::as.data.frame.ccn::MedicaidOnlyProvider
+S7::method(as_data_frame, MedicareProvider) <- function(x) {
+  cheapr::fast_df(
+    type       = "Medicare Provider",
+    number     = S7::prop(x, "number"),
+    sequence   = x@sequence@number,
+    seq_range  = x@sequence@range,
+    seq_abbr   = x@sequence@abbr,
+    seq_desc   = x@sequence@desc,
+    state_code = x@state@code,
+    state_abbr = x@state@abbr,
+    state_name = x@state@name,
+    extension  = x@extension %||% NA_character_
+  )
+}
+
+S7::method(as_data_frame, MedicareOPO) <- function(x) {
+  cheapr::fast_df(
+    type       = "Medicare Provider",
+    number     = S7::prop(x, "number"),
+    sequence   = x@sequence@number,
+    seq_range  = x@sequence@range,
+    state_code = x@state@code,
+    state_abbr = x@state@abbr,
+    state_name = x@state@name,
+    extension  = x@extension %||% NA_character_,
+    type_code  = x@type@code,
+    type_abbr  = x@type@abbr,
+    type_desc  = x@type@desc
+  )
+}
