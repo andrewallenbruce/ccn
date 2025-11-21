@@ -67,11 +67,6 @@ as_excluded_provider <- function(x) {
 }
 
 #' @noRd
-get_parent_ccn <- function(x) {
-  to_string(c(substr_(x, c(1L, 2L)), get_unit_sequence(x)))
-}
-
-#' @noRd
 as_excluded_unit <- function(x) {
   S7::convert(
     x,
@@ -85,10 +80,9 @@ as_excluded_unit <- function(x) {
 #' @noRd
 as_excluded <- function(x) {
   if (is_type_unit(substr_(x@number, 4L))) {
-    as_excluded_unit(x)
-  } else {
-    as_excluded_provider(x)
+    return(as_excluded_unit(x))
   }
+  as_excluded_provider(x)
 }
 
 #' @noRd

@@ -29,6 +29,11 @@ parse <- function(x) {
 }
 
 #' @noRd
+tbl <- function(x) {
+  fastplyr::as_tbl(x)
+}
+
+#' @noRd
 as_sf <- function(x) {
   stringfish::sf_convert(as.character(x))
 }
@@ -71,15 +76,6 @@ pad_seven <- function(x) {
   stringfish::sf_convert(x)
 }
 
-# nchars_ <- function(x) {
-#   stringfish::sf_nchar(x, nthreads = 4L) |> as.character()
-  # collapse::vlengths(c("adsfd", "sdgfahrf"), use.names = FALSE)
-# }
-
-# nchar_ <- function(x) {
-#   stringfish::sf_nchar(x, nthreads = 4L)
-# }
-
 #' @noRd
 to_string <- function(x) {
   stringfish::sf_collapse(x, collapse = "")
@@ -95,6 +91,10 @@ unlist_ <- function(x, ...) {
 substr_ <- function(x, s) {
 
   s <- if (length(s) == 1L) c(s, s) else s
+
+  s <- if (length(x) == 1L && nchar(x) == 1L) c(1L, 1L) else s
+
+  s <- if (length(x) > 1L & any(collapse::vlengths(x) == 1L)) c(1L, 1L) else s
 
   stringfish::sf_substr(
     x        = x,

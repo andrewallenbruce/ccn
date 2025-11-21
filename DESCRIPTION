@@ -15,6 +15,7 @@ Imports:
     cheapr (>= 1.3.2),
     cli (>= 3.6.5),
     collapse (>= 2.1.4),
+    fastplyr (>= 0.9.91),
     fs (>= 1.6.6),
     kit (>= 0.0.2),
     pins (>= 1.4.1),
@@ -46,6 +47,7 @@ Collate:
     'classes.R'
     'data_frame.R'
     'lookups.R'
+    'parent.R'
     'predicates.R'
     'ranges.R'
     'zzz.R'

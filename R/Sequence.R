@@ -16,7 +16,7 @@ OpoSequence <- S7::new_class(
     range = S7::new_property(
       S7::class_character,
       getter = function(self)
-        get_opo_range(self@number)
+        range_medicare_opo(self@number)
     )
   )
 )
@@ -29,7 +29,7 @@ SupplierSequence <- S7::new_class(
     range = S7::new_property(
       S7::class_character,
       getter = function(self)
-        get_supplier_range(self@number)
+        range_medicare_supplier(self@number)
     )
   )
 )
@@ -42,7 +42,7 @@ EmergencySequence <- S7::new_class(
     range = S7::new_property(
       S7::class_character,
       getter = function(self)
-        get_emergency_range(self@number)
+        range_emergency(self@number)
     )
   )
 )
@@ -66,17 +66,17 @@ MedicareSequence <- S7::new_class(
     range = S7::new_property(
       S7::class_character,
       getter = function(self)
-        get_care_range(self@number)
+        range_medicare(self@number)
     ),
     abbr = S7::new_property(
       S7::class_character,
       getter = function(self)
-        get_care_range_abbr(self@range)
+        range_medicare_abbr(self@range)
     ),
     desc = S7::new_property(
       S7::class_character,
       getter = function(self)
-        get_care_range_name(self@abbr)
+        range_medicare_desc(self@abbr)
     )
   )
 )
@@ -89,17 +89,17 @@ MedicaidOnlySequence <- S7::new_class(
     range = S7::new_property(
       S7::class_character,
       getter = function(self)
-        get_caid_range(self@number)
+        range_medicaid_only(self@number)
     ),
     abbr = S7::new_property(
       S7::class_character,
       getter = function(self)
-        get_caid_range_abbr(self@range)
+        range_medicaid_only_abbr(self@range)
     ),
     desc = S7::new_property(
       S7::class_character,
       getter = function(self)
-        get_caid_range_name(self@abbr)
+        range_medicaid_only_desc(self@abbr)
     )
   )
 )

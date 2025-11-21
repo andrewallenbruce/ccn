@@ -2,43 +2,34 @@
 % Please edit documentation in R/ranges.R
 \name{ranges}
 \alias{ranges}
-\alias{get_care_range}
-\alias{get_care_range_abbr}
-\alias{get_care_range_name}
-\alias{get_caid_range}
-\alias{get_caid_range_abbr}
-\alias{get_caid_range_name}
-\alias{get_opo_range}
-\alias{get_emergency_range}
-\alias{get_supplier_range}
-\alias{get_parent_prefix}
-\alias{get_parent_abbr}
-\alias{get_unit_sequence}
+\alias{range_medicare_opo}
+\alias{range_emergency}
+\alias{range_medicare_supplier}
+\alias{range_medicaid_only_abbr}
+\alias{range_medicaid_only_desc}
+\alias{range_medicaid_only}
+\alias{range_medicare_abbr}
+\alias{range_medicare_desc}
+\alias{range_medicare}
 \title{Facility Ranges}
 \usage{
-get_care_range(x)
+range_medicare_opo(x)
 
-get_care_range_abbr(x)
+range_emergency(x)
 
-get_care_range_name(x)
+range_medicare_supplier(x)
 
-get_caid_range(x)
+range_medicaid_only_abbr(x)
 
-get_caid_range_abbr(x)
+range_medicaid_only_desc(x)
 
-get_caid_range_name(x)
+range_medicaid_only(x)
 
-get_opo_range(x)
+range_medicare_abbr(x)
 
-get_emergency_range(x)
+range_medicare_desc(x)
 
-get_supplier_range(x)
-
-get_parent_prefix(x)
-
-get_parent_abbr(x)
-
-get_unit_sequence(x)
+range_medicare(x)
 }
 \arguments{
 \item{x}{character vector of codes to look up.}
@@ -50,18 +41,19 @@ character vector of names associated with codes.
 Convert various codes to their associated names.
 }
 \examples{
-get_care_range(c("0055", "5232", "9999")) |>
+range_medicare(c("0055", "5232", "9999")) |>
  print() |>
- get_care_range_abbr() |>
+ range_medicare_abbr() |>
  print() |>
- get_care_range_name()
+ range_medicare_desc()
 
-get_caid_range(c("055", "232", "599")) |>
+range_medicaid_only(c("055", "232", "599")) |>
  print() |>
- get_caid_range_abbr() |>
+ range_medicaid_only_abbr() |>
  print() |>
- get_caid_range_name()
+ range_medicaid_only_desc()
 
-get_supplier_range("9999999")
-get_opo_range("50")
+range_medicare_supplier("9999999")
+range_emergency("50")
+range_medicare_opo("50")
 }
