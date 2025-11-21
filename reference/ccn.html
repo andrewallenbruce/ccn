@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ccn</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9020</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9021</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -106,7 +106,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name: chr "Maryland"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ extension: NULL</span>
 <span class="r-in"><span><span class="fu">ccn</span><span class="op">(</span><span class="st">"21T101"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::IPPSExcludedProvider&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::IppsExcludedProvider&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ number   : chr "21T101"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence : &lt;ccn::MedicaidOnlySequence&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "101"</span>
@@ -123,7 +123,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "REHAB"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"</span>
 <span class="r-in"><span><span class="fu">ccn</span><span class="op">(</span><span class="st">"21S101"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::IPPSExcludedProvider&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::IppsExcludedProvider&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ number   : chr "21S101"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence : &lt;ccn::MedicaidOnlySequence&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "101"</span>
@@ -140,7 +140,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "PSYCH"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Psychiatric Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"</span>
 <span class="r-in"><span><span class="fu">ccn</span><span class="op">(</span><span class="st">"21U101"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::IPPSExcludedProvider&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::IppsExcludedProvider&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ number   : chr "21U101"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence : &lt;ccn::MedicaidOnlySequence&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "101"</span>
@@ -231,7 +231,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Portable X-Ray Facility"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">ccn</span><span class="op">(</span><span class="st">"02TA01"</span><span class="op">)</span> <span class="co"># IPPS Excluded Unit</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::IPPSExcludedUnit&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::IppsExcludedUnit&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ number   : chr "02TA01"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence : &lt;ccn::MedicareSequence&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "2001"</span>
@@ -247,9 +247,11 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "T"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "REHAB"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ parent   : chr "A"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ parent   : &lt;ccn::IppsExcludedUnitParent&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code  : chr "A"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "022001"</span>
 <span class="r-in"><span><span class="fu">ccn</span><span class="op">(</span><span class="st">"04SD38"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::IPPSExcludedUnit&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::IppsExcludedUnit&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ number   : chr "04SD38"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence : &lt;ccn::MedicareSequence&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "3038"</span>
@@ -265,9 +267,11 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "S"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "PSYCH"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Psychiatric Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ parent   : chr "D"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ parent   : &lt;ccn::IppsExcludedUnitParent&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code  : chr "D"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "043038"</span>
 <span class="r-in"><span><span class="fu">ccn</span><span class="op">(</span><span class="st">"52TA05"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::IPPSExcludedUnit&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::IppsExcludedUnit&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ number   : chr "52TA05"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence : &lt;ccn::MedicareSequence&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "2005"</span>
@@ -283,7 +287,9 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "T"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "REHAB"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ parent   : chr "A"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ parent   : &lt;ccn::IppsExcludedUnitParent&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code  : chr "A"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "522005"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">ccn</span><span class="op">(</span><span class="st">"212026"</span><span class="op">)</span> <span class="co"># Parent</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::MedicareProvider&gt;</span>
@@ -299,7 +305,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name: chr "Maryland"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ extension: NULL</span>
 <span class="r-in"><span><span class="fu">ccn</span><span class="op">(</span><span class="st">"21SA26"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::IPPSExcludedUnit&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::IppsExcludedUnit&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ number   : chr "21SA26"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence : &lt;ccn::MedicareSequence&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "2026"</span>
@@ -315,9 +321,11 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "S"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "PSYCH"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Psychiatric Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ parent   : chr "A"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ parent   : &lt;ccn::IppsExcludedUnitParent&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code  : chr "A"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "212026"</span>
 <span class="r-in"><span><span class="fu">ccn</span><span class="op">(</span><span class="st">"21TA26"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::IPPSExcludedUnit&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::IppsExcludedUnit&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ number   : chr "21TA26"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence : &lt;ccn::MedicareSequence&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "2026"</span>
@@ -333,10 +341,12 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "T"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "REHAB"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ parent   : chr "A"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ parent   : &lt;ccn::IppsExcludedUnitParent&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code  : chr "A"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "212026"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">ccn</span><span class="op">(</span><span class="st">"24T019A"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::IPPSExcludedProvider&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::IppsExcludedProvider&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ number   : chr "24T019"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence : &lt;ccn::MedicaidOnlySequence&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "019"</span>
@@ -353,7 +363,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "REHAB"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"</span>
 <span class="r-in"><span><span class="fu">ccn</span><span class="op">(</span><span class="st">"33S23401"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::IPPSExcludedProvider&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::IppsExcludedProvider&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ number   : chr "33S234"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence : &lt;ccn::MedicaidOnlySequence&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "234"</span>

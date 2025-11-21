@@ -1,5 +1,9 @@
 # Changelog
 
+## ccn 0.0.0.9021 (2025-11-20)
+
+- added `IppsExcludedUnitParent` class
+
 ## ccn 0.0.0.9020 (2025-11-20)
 
 - `IPPSExcludedUnit` now working

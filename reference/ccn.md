@@ -64,7 +64,7 @@ ccn("210101")
 #>  .. @ name: chr "Maryland"
 #>  @ extension: NULL
 ccn("21T101")
-#> <ccn::IPPSExcludedProvider>
+#> <ccn::IppsExcludedProvider>
 #>  @ number   : chr "21T101"
 #>  @ sequence : <ccn::MedicaidOnlySequence>
 #>  .. @ number: chr "101"
@@ -81,7 +81,7 @@ ccn("21T101")
 #>  .. @ abbr: chr "REHAB"
 #>  .. @ desc: chr "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
 ccn("21S101")
-#> <ccn::IPPSExcludedProvider>
+#> <ccn::IppsExcludedProvider>
 #>  @ number   : chr "21S101"
 #>  @ sequence : <ccn::MedicaidOnlySequence>
 #>  .. @ number: chr "101"
@@ -98,7 +98,7 @@ ccn("21S101")
 #>  .. @ abbr: chr "PSYCH"
 #>  .. @ desc: chr "Psychiatric Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
 ccn("21U101")
-#> <ccn::IPPSExcludedProvider>
+#> <ccn::IppsExcludedProvider>
 #>  @ number   : chr "21U101"
 #>  @ sequence : <ccn::MedicaidOnlySequence>
 #>  .. @ number: chr "101"
@@ -189,7 +189,7 @@ ccn("21X0009807") # Supplier Portable X-Ray
 #>  .. @ desc: chr "Portable X-Ray Facility"
 
 ccn("02TA01") # IPPS Excluded Unit
-#> <ccn::IPPSExcludedUnit>
+#> <ccn::IppsExcludedUnit>
 #>  @ number   : chr "02TA01"
 #>  @ sequence : <ccn::MedicareSequence>
 #>  .. @ number: chr "2001"
@@ -205,9 +205,11 @@ ccn("02TA01") # IPPS Excluded Unit
 #>  .. @ code: chr "T"
 #>  .. @ abbr: chr "REHAB"
 #>  .. @ desc: chr "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
-#>  @ parent   : chr "A"
+#>  @ parent   : <ccn::IppsExcludedUnitParent>
+#>  .. @ code  : chr "A"
+#>  .. @ number: chr "022001"
 ccn("04SD38")
-#> <ccn::IPPSExcludedUnit>
+#> <ccn::IppsExcludedUnit>
 #>  @ number   : chr "04SD38"
 #>  @ sequence : <ccn::MedicareSequence>
 #>  .. @ number: chr "3038"
@@ -223,9 +225,11 @@ ccn("04SD38")
 #>  .. @ code: chr "S"
 #>  .. @ abbr: chr "PSYCH"
 #>  .. @ desc: chr "Psychiatric Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
-#>  @ parent   : chr "D"
+#>  @ parent   : <ccn::IppsExcludedUnitParent>
+#>  .. @ code  : chr "D"
+#>  .. @ number: chr "043038"
 ccn("52TA05")
-#> <ccn::IPPSExcludedUnit>
+#> <ccn::IppsExcludedUnit>
 #>  @ number   : chr "52TA05"
 #>  @ sequence : <ccn::MedicareSequence>
 #>  .. @ number: chr "2005"
@@ -241,7 +245,9 @@ ccn("52TA05")
 #>  .. @ code: chr "T"
 #>  .. @ abbr: chr "REHAB"
 #>  .. @ desc: chr "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
-#>  @ parent   : chr "A"
+#>  @ parent   : <ccn::IppsExcludedUnitParent>
+#>  .. @ code  : chr "A"
+#>  .. @ number: chr "522005"
 
 ccn("212026") # Parent
 #> <ccn::MedicareProvider>
@@ -257,7 +263,7 @@ ccn("212026") # Parent
 #>  .. @ name: chr "Maryland"
 #>  @ extension: NULL
 ccn("21SA26")
-#> <ccn::IPPSExcludedUnit>
+#> <ccn::IppsExcludedUnit>
 #>  @ number   : chr "21SA26"
 #>  @ sequence : <ccn::MedicareSequence>
 #>  .. @ number: chr "2026"
@@ -273,9 +279,11 @@ ccn("21SA26")
 #>  .. @ code: chr "S"
 #>  .. @ abbr: chr "PSYCH"
 #>  .. @ desc: chr "Psychiatric Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
-#>  @ parent   : chr "A"
+#>  @ parent   : <ccn::IppsExcludedUnitParent>
+#>  .. @ code  : chr "A"
+#>  .. @ number: chr "212026"
 ccn("21TA26")
-#> <ccn::IPPSExcludedUnit>
+#> <ccn::IppsExcludedUnit>
 #>  @ number   : chr "21TA26"
 #>  @ sequence : <ccn::MedicareSequence>
 #>  .. @ number: chr "2026"
@@ -291,10 +299,12 @@ ccn("21TA26")
 #>  .. @ code: chr "T"
 #>  .. @ abbr: chr "REHAB"
 #>  .. @ desc: chr "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
-#>  @ parent   : chr "A"
+#>  @ parent   : <ccn::IppsExcludedUnitParent>
+#>  .. @ code  : chr "A"
+#>  .. @ number: chr "212026"
 
 ccn("24T019A")
-#> <ccn::IPPSExcludedProvider>
+#> <ccn::IppsExcludedProvider>
 #>  @ number   : chr "24T019"
 #>  @ sequence : <ccn::MedicaidOnlySequence>
 #>  .. @ number: chr "019"
@@ -311,7 +321,7 @@ ccn("24T019A")
 #>  .. @ abbr: chr "REHAB"
 #>  .. @ desc: chr "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
 ccn("33S23401")
-#> <ccn::IPPSExcludedProvider>
+#> <ccn::IppsExcludedProvider>
 #>  @ number   : chr "33S234"
 #>  @ sequence : <ccn::MedicaidOnlySequence>
 #>  .. @ number: chr "234"
