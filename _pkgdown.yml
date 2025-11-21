@@ -8,3 +8,8 @@ template:
     heading_font: {google: "Roboto Slab"}
     code_font: {google: "Source Code Pro"}
 
+
+home:
+  title: ccn • Parse CMS Certification Numbers
+  description: >
+    Validate and parse CMS Certification Numbers (CCNs) used in the United States healthcare system.
