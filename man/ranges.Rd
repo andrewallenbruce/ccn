@@ -9,6 +9,7 @@
 \alias{get_caid_range_abbr}
 \alias{get_caid_range_name}
 \alias{get_opo_range}
+\alias{get_emergency_range}
 \alias{get_supplier_range}
 \alias{get_parent_prefix}
 \alias{get_parent_abbr}
@@ -28,6 +29,8 @@ get_caid_range_abbr(x)
 get_caid_range_name(x)
 
 get_opo_range(x)
+
+get_emergency_range(x)
 
 get_supplier_range(x)
 
@@ -58,4 +61,7 @@ get_caid_range(c("055", "232", "599")) |>
  get_caid_range_abbr() |>
  print() |>
  get_caid_range_name()
+
+get_supplier_range("9999999")
+get_opo_range("50")
 }

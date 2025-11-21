@@ -14,7 +14,7 @@
 as_data_frame <- S7::new_generic("as_data_frame", "x")
 
 S7::method(as_data_frame, MedicaidOnlyProvider) <- function(x) {
-  cheapr::new_df(
+  cheapr::fast_df(
     category   = "Medicaid-Only Provider",
     number     = S7::prop(x, "number"),
     sequence   = x@sequence@number,

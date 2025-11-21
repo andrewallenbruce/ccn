@@ -35,6 +35,19 @@ SupplierSequence <- S7::new_class(
 )
 
 #' @noRd
+EmergencySequence <- S7::new_class(
+  name = "EmergencySequence",
+  parent = Sequence,
+  properties = list(
+    range = S7::new_property(
+      S7::class_character,
+      getter = function(self)
+        get_emergency_range(self@number)
+    )
+  )
+)
+
+#' @noRd
 SequenceFull <- S7::new_class(
   name = "SequenceFull",
   parent = Sequence,

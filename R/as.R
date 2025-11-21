@@ -42,7 +42,7 @@ as_emergency <- function(x) {
     x,
     EmergencyHospital,
     type = EmergencyType(substr_(x@number, 6L)),
-    sequence = substr_(x@number, c(3L, 5L))
+    sequence = EmergencySequence(substr_(x@number, c(3L, 5L)))
   )
 }
 
@@ -67,8 +67,8 @@ as_excluded_provider <- function(x) {
 }
 
 #' @noRd
-get_parent_ccn <- function(n, s) {
-  to_string(c(substr_(n, c(1L, 2L)), s))
+get_parent_ccn <- function(x) {
+  to_string(c(substr_(x, c(1L, 2L)), get_unit_sequence(x)))
 }
 
 #' @noRd
@@ -77,13 +77,7 @@ as_excluded_unit <- function(x) {
     x,
     IppsExcludedUnit,
     type = IppsExcludedType(substr_(x@number, 3L)),
-    parent = IppsExcludedUnitParent(
-      substr_(x@number, 4L),
-      get_parent_ccn(
-        n = x@number,
-        s = get_unit_sequence(x@number)
-      )
-    ),
+    parent = IppsExcludedUnitParent(substr_(x@number, 4L), get_parent_ccn(x@number)),
     sequence = MedicareSequence(get_unit_sequence(x@number))
   )
 }

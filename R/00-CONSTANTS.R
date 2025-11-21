@@ -6,13 +6,13 @@ EMERGENCY = list(CODE = list("ER (NF)" = "E", "ER (F)" = "F"),
                              "Federal Emergency Hospital (Non-Participating)"     = "ER (F)"))
 
 OPO = list(CODE  = list("OPO" = "P"),
-           RANGE = list("001-099" = pad_three(1:99)),
            NAME  = list("Organ Procurement Organization" = "OPO"))
+           # RANGE = list("001-099" = pad_three(1:99)),
            # ABBR = list("OPO" = "001-099"),
 
 
 SUPPLIER = list(CODE  = list("ASC" = "C", "CLIA" = "D", "XRAY" = "X"),
-                RANGE = list("000001-9999999" = pad_seven(1:9999999)),
+                # RANGE = list("000001-9999999" = pad_seven(1:9999999)),
                 NAME  = list("Ambulatory Surgical Center" = "ASC",
                              "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory" = "CLIA",
                              "Portable X-Ray Facility" = "XRAY"))

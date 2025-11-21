@@ -40,7 +40,7 @@ Provider <- S7::new_class(
 EmergencyHospital <- S7::new_class(
   name = "EmergencyHospital",
   parent = Provider,
-  properties = list(type = EmergencyType)
+  properties = list(type = EmergencyType, sequence = EmergencySequence)
 )
 
 #' @noRd

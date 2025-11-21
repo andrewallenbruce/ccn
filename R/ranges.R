@@ -21,6 +21,9 @@ NULL
 #'  get_caid_range_abbr() |>
 #'  print() |>
 #'  get_caid_range_name()
+#'
+#' get_supplier_range("9999999")
+#' get_opo_range("50")
 NULL
 
 #' @rdname ranges
@@ -49,11 +52,24 @@ get_caid_range_name <- make_switch(MEDICAID$NAME)
 
 #' @rdname ranges
 #' @export
-get_opo_range <- make_switch(OPO$RANGE)
+get_opo_range <- function(x) {
+  x <- as.integer(x)
+  if (x >= 1L & x <= 99L) "001-099" else NA_character_
+}
 
 #' @rdname ranges
 #' @export
-get_supplier_range <- make_switch(SUPPLIER$RANGE)
+get_emergency_range <- function(x) {
+  x <- as.integer(x)
+  if (x >= 1L & x <= 99L) "001-099" else NA_character_
+}
+
+#' @rdname ranges
+#' @export
+get_supplier_range <- function(x) {
+  x <- as.integer(x)
+  if (x >= 1L & x <= 9999999L) "000001-9999999" else NA_character_
+}
 
 #' @rdname ranges
 #' @export
