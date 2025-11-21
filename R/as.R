@@ -60,19 +60,30 @@ as_medicaid <- function(x) {
 as_excluded_provider <- function(x) {
   S7::convert(
     x,
-    IPPSExcludedProvider,
-    type = IPPSExcludedType(substr_(x@number, 3L)),
+    IppsExcludedProvider,
+    type = IppsExcludedType(substr_(x@number, 3L)),
     sequence = MedicaidOnlySequence(substr_(x@number, c(4L, 6L)))
   )
+}
+
+#' @noRd
+get_parent_ccn <- function(n, s) {
+  to_string(c(substr_(n, c(1L, 2L)), s))
 }
 
 #' @noRd
 as_excluded_unit <- function(x) {
   S7::convert(
     x,
-    IPPSExcludedUnit,
-    type = IPPSExcludedType(substr_(x@number, 3L)),
-    parent = substr_(x@number, 4L),
+    IppsExcludedUnit,
+    type = IppsExcludedType(substr_(x@number, 3L)),
+    parent = IppsExcludedUnitParent(
+      substr_(x@number, 4L),
+      get_parent_ccn(
+        n = x@number,
+        s = get_unit_sequence(x@number)
+      )
+    ),
     sequence = MedicareSequence(get_unit_sequence(x@number))
   )
 }

@@ -10,11 +10,6 @@ Unknown <- S7::new_class(
 )
 
 #' @noRd
-as_Unknown <- function(x) {
-  Unknown(number = clean(x))
-}
-
-#' @noRd
 CCN <- S7::new_class(
   name = "CCN",
   parent = Unknown,
@@ -72,24 +67,30 @@ MedicaidOnlyProvider <- S7::new_class(
   name = "MedicaidOnlyProvider",
   parent = Provider,
   properties = list(
-    type = MedicaidOnlyType | IPPSExcludedType,
+    type = MedicaidOnlyType | IppsExcludedType,
     sequence = MedicaidOnlySequence | MedicareSequence
   )
 )
 
 #' @noRd
-IPPSExcludedProvider <- S7::new_class(
-  name = "IPPSExcludedProvider",
+IppsExcludedProvider <- S7::new_class(
+  name = "IppsExcludedProvider",
   parent = MedicaidOnlyProvider,
-  properties = list(type = IPPSExcludedType)
+  properties = list(type = IppsExcludedType)
 )
 
 #' @noRd
-IPPSExcludedUnit <- S7::new_class(
-  name = "IPPSExcludedUnit",
-  parent = IPPSExcludedProvider,
+IppsExcludedUnitParent <- S7::new_class(
+  name = "IppsExcludedUnitParent",
   properties = list(
-    parent = S7::class_character
+    code = S7::class_character,
+    number = S7::class_character
   )
 )
 
+#' @noRd
+IppsExcludedUnit <- S7::new_class(
+  name = "IppsExcludedUnit",
+  parent = IppsExcludedProvider,
+  properties = list(parent = IppsExcludedUnitParent)
+)

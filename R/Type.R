@@ -27,13 +27,6 @@ SupplierType <- S7::new_class(
   )
 )
 
-# supplier_type <- function(x) {
-#   SupplierType(
-#     code = substr_(x@number, 3L),
-#     abbr = get_supplier_abbr(self@code)
-#   )
-# }
-
 #' @noRd
 EmergencyType <- S7::new_class(
   name       = "EmergencyType",
@@ -89,7 +82,7 @@ MedicaidOnlyType <- S7::new_class(
 )
 
 #' @noRd
-IPPSExcludedType <- S7::new_class(
+IppsExcludedType <- S7::new_class(
   name = "IPPSExcludedType",
   parent = Type,
   properties = list(

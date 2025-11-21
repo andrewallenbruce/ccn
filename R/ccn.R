@@ -52,7 +52,7 @@ ccn <- function(x) {
   check_character(x)
   check_length(x)
 
-  x <- as_Unknown(x)
+  x <- Unknown(number = clean(x))
 
   if (is_provider(x@number) | is_provider_with_extension(x@number)) {
     x <- as_provider(x)
