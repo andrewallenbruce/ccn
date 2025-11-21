@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ccn</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9022</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9023</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,27 +67,9 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="op">(</span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="ccn.html">ccn</a></span><span class="op">(</span><span class="st">"01L008"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::MedicaidOnlyProvider&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ number   : chr "01L008"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence : &lt;ccn::MedicaidOnlySequence&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "008"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ range : chr "001-099"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "ACUTE"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc  : chr "Medicaid-Only Short-Term Acute Care Hospital"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state    : &lt;ccn::State&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "01"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "AL"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name: chr "Alabama"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ extension: NULL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type     : &lt;ccn::MedicaidOnlyType&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "L"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "PRTF"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Psychiatric Residential Treatment Facility"</span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">as_data_frame</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="ccn.html">ccn</a></span><span class="op">(</span><span class="st">"01L008"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">as_data_frame</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 'data.frame':	1 obs. of  13 variables:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ category  : chr "Medicaid-Only Provider"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ type      : chr "Medicaid-Only Provider"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  $ number    : chr "01L008"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  $ sequence  : chr "008"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  $ seq_range : chr "001-099"</span>
@@ -100,6 +82,31 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  $ type_code : chr "L"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  $ type_abbr : chr "PRTF"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  $ type_desc : chr "Psychiatric Residential Treatment Facility"</span>
+<span class="r-in"><span><span class="fu"><a href="ccn.html">ccn</a></span><span class="op">(</span><span class="st">"670055"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">as_data_frame</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 'data.frame':	1 obs. of  10 variables:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ type      : chr "Medicare Provider"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ number    : chr "670055"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ sequence  : chr "0055"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ seq_range : chr "0001-0879"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ seq_abbr  : chr "ACUTE"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ seq_desc  : chr "Short-Term Hospital (General &amp; Specialty)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ state_code: chr "67"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ state_abbr: chr "TX"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ state_name: chr "Texas"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ extension : chr NA</span>
+<span class="r-in"><span><span class="fu"><a href="ccn.html">ccn</a></span><span class="op">(</span><span class="st">"05P001"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">as_data_frame</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 'data.frame':	1 obs. of  11 variables:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ type      : chr "Medicare Provider"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ number    : chr "05P001"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ sequence  : chr "001"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ seq_range : chr "001-099"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ state_code: chr "05"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ state_abbr: chr "CA"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ state_name: chr "California"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ extension : chr NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ type_code : chr "P"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ type_abbr : chr "OPO"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ type_desc : chr "Organ Procurement Organization"</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
