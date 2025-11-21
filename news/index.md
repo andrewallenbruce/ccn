@@ -1,5 +1,16 @@
 # Changelog
 
+## ccn 0.0.0.9025 (2025-11-21)
+
+- Same as previous version.
+
+## ccn 0.0.0.9024 (2025-11-21)
+
+- `as_data_frame` methods implemented
+  ([\#2](https://github.com/andrewallenbruce/ccn/issues/2))
+- `ranges` converted to integer vectors
+  ([\#1](https://github.com/andrewallenbruce/ccn/issues/1))
+
 ## ccn 0.0.0.9023 (2025-11-21)
 
 - `as_data_frame` methods added

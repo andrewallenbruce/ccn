@@ -5,29 +5,23 @@ Convert various codes to their associated names.
 ## Usage
 
 ``` r
-get_care_range(x)
+range_medicare_opo(x)
 
-get_care_range_abbr(x)
+range_emergency(x)
 
-get_care_range_name(x)
+range_medicare_supplier(x)
 
-get_caid_range(x)
+range_medicaid_only_abbr(x)
 
-get_caid_range_abbr(x)
+range_medicaid_only_desc(x)
 
-get_caid_range_name(x)
+range_medicaid_only(x)
 
-get_opo_range(x)
+range_medicare_abbr(x)
 
-get_emergency_range(x)
+range_medicare_desc(x)
 
-get_supplier_range(x)
-
-get_parent_prefix(x)
-
-get_parent_abbr(x)
-
-get_unit_sequence(x)
+range_medicare(x)
 ```
 
 ## Arguments
@@ -43,30 +37,32 @@ character vector of names associated with codes.
 ## Examples
 
 ``` r
-get_care_range(c("0055", "5232", "9999")) |>
+range_medicare(c("0055", "5232", "9999")) |>
  print() |>
- get_care_range_abbr() |>
+ range_medicare_abbr() |>
  print() |>
- get_care_range_name()
+ range_medicare_desc()
 #> [1] "0001-0879" "5000-6499" "9900-9999"
 #> [1] "ACUTE"         "SNF"           "OPIOID (FREE)"
 #> [1] "Short-Term Hospital (General & Specialty)"
 #> [2] "Skilled Nursing Facility"                 
 #> [3] "Freestanding Opioid Treatment Program"    
 
-get_caid_range(c("055", "232", "599")) |>
+range_medicaid_only(c("055", "232", "599")) |>
  print() |>
- get_caid_range_abbr() |>
+ range_medicaid_only_abbr() |>
  print() |>
- get_caid_range_name()
+ range_medicaid_only_desc()
 #> [1] "001-099" "200-299" "500-599"
 #> [1] "ACUTE" "CPH"   "LTCH" 
 #> [1] "Medicaid-Only Short-Term Acute Care Hospital" 
 #> [2] "Medicaid-Only Children's Psychiatric Hospital"
 #> [3] "Medicaid-Only Long-Term Hospital"             
 
-get_supplier_range("9999999")
+range_medicare_supplier("9999999")
 #> [1] "000001-9999999"
-get_opo_range("50")
+range_emergency("50")
+#> [1] "001-999"
+range_medicare_opo("50")
 #> [1] "001-099"
 ```

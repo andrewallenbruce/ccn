@@ -137,7 +137,7 @@ ccn("12345E") # Emergency Hospital
 #>  @ number   : chr "12345E"
 #>  @ sequence : <ccn::EmergencySequence>
 #>  .. @ number: chr "345"
-#>  .. @ range : chr NA
+#>  .. @ range : chr "001-999"
 #>  @ state    : <ccn::State>
 #>  .. @ code: chr "12"
 #>  .. @ abbr: chr "HI"

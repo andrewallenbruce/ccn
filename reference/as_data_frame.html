@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ccn</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9023</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9025</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,46 +67,37 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="ccn.html">ccn</a></span><span class="op">(</span><span class="st">"01L008"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">as_data_frame</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 'data.frame':	1 obs. of  13 variables:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ type      : chr "Medicaid-Only Provider"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ number    : chr "01L008"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ sequence  : chr "008"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ seq_range : chr "001-099"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ seq_abbr  : chr "ACUTE"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ seq_desc  : chr "Medicaid-Only Short-Term Acute Care Hospital"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ state_code: chr "01"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ state_abbr: chr "AL"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ state_name: chr "Alabama"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ extension : chr NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ type_code : chr "L"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ type_abbr : chr "PRTF"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ type_desc : chr "Psychiatric Residential Treatment Facility"</span>
-<span class="r-in"><span><span class="fu"><a href="ccn.html">ccn</a></span><span class="op">(</span><span class="st">"670055"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">as_data_frame</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 'data.frame':	1 obs. of  10 variables:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ type      : chr "Medicare Provider"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ number    : chr "670055"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ sequence  : chr "0055"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ seq_range : chr "0001-0879"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ seq_abbr  : chr "ACUTE"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ seq_desc  : chr "Short-Term Hospital (General &amp; Specialty)"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ state_code: chr "67"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ state_abbr: chr "TX"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ state_name: chr "Texas"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ extension : chr NA</span>
-<span class="r-in"><span><span class="fu"><a href="ccn.html">ccn</a></span><span class="op">(</span><span class="st">"05P001"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">as_data_frame</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 'data.frame':	1 obs. of  11 variables:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ type      : chr "Medicare Provider"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ number    : chr "05P001"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ sequence  : chr "001"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ seq_range : chr "001-099"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ state_code: chr "05"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ state_abbr: chr "CA"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ state_name: chr "California"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ extension : chr NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ type_code : chr "P"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ type_abbr : chr "OPO"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ type_desc : chr "Organ Procurement Organization"</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"670055"</span>, <span class="st">"05P001"</span>, <span class="st">"210101"</span>, <span class="st">"21T101"</span>, <span class="st">"21S101"</span>, <span class="st">"21U101"</span>, <span class="st">"01L008"</span>,</span></span>
+<span class="r-in"><span><span class="st">"12345E"</span>, <span class="st">"10C0001062"</span>, <span class="st">"45D0634589"</span>, <span class="st">"21X0009807"</span>, <span class="st">"02TA01"</span>, <span class="st">"04SD38"</span>,</span></span>
+<span class="r-in"><span><span class="st">"52TA05"</span>, <span class="st">"212026"</span>, <span class="st">"21SA26"</span>, <span class="st">"21TA26"</span>, <span class="st">"24T019A"</span>, <span class="st">"33S23401"</span>, <span class="st">"330027001"</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span><span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map</a></span><span class="op">(</span>\<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu">as_data_frame</span><span class="op">(</span><span class="fu"><a href="ccn.html">ccn</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span><span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/list_c.html" class="external-link">list_rbind</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span><span class="fu">ccn</span><span class="fu">:::</span><span class="fu">tbl</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 20 × 15</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    category  number seq_number seq_range seq_abbr seq_desc state_code state_abbr</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Medicare… 670055 0055       0001-0879 ACUTE    Short-T… 67         TX        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Medicare… 05P001 001        001-099   <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span>       05         CA        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Medicare… 210101 0101       0001-0879 ACUTE    Short-T… 21         MD        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> IPPS-Exc… 21T101 101        100-199   CHILD    Medicai… 21         MD        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> IPPS-Exc… 21S101 101        100-199   CHILD    Medicai… 21         MD        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> IPPS-Exc… 21U101 101        100-199   CHILD    Medicai… 21         MD        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Medicaid… 01L008 008        001-099   ACUTE    Medicai… 01         AL        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Emergenc… 12345E 345        001-999   <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span>       12         HI        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Medicare… 10C00… 0001062    000001-9… <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span>       10         FL        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Medicare… 45D06… 0634589    000001-9… <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span>       45         TX        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> Medicare… 21X00… 0009807    000001-9… <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span>       21         MD        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> IPPS-Exc… 02TA01 2001       2000-2299 LTCH     Long-Te… 02         AK        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span> IPPS-Exc… 04SD38 3038       3025-3099 REHAB    Rehabil… 04         AR        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span> IPPS-Exc… 52TA05 2005       2000-2299 LTCH     Long-Te… 52         WI        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span> Medicare… 212026 2026       2000-2299 LTCH     Long-Te… 21         MD        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">16</span> IPPS-Exc… 21SA26 2026       2000-2299 LTCH     Long-Te… 21         MD        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">17</span> IPPS-Exc… 21TA26 2026       2000-2299 LTCH     Long-Te… 21         MD        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">18</span> IPPS-Exc… 24T019 019        001-099   ACUTE    Medicai… 24         MN        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">19</span> IPPS-Exc… 33S234 234        200-299   CPH      Medicai… 33         NY        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">20</span> Medicare… 330027 0027       0001-0879 ACUTE    Short-T… 33         NY        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 7 more variables: state_name &lt;chr&gt;, extension &lt;chr&gt;, type_code &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   type_abbr &lt;chr&gt;, type_desc &lt;chr&gt;, parent_code &lt;chr&gt;, parent_number &lt;chr&gt;</span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
