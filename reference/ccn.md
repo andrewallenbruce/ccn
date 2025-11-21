@@ -37,7 +37,7 @@ ccn("670055") # Medicare Provider
 ccn("05P001") # Medicare OPO
 #> <ccn::MedicareOPO>
 #>  @ number   : chr "05P001"
-#>  @ sequence : <ccn::OPOSequence>
+#>  @ sequence : <ccn::OpoSequence>
 #>  .. @ number: chr "001"
 #>  .. @ range : chr "001-099"
 #>  @ state    : <ccn::State>
@@ -45,7 +45,7 @@ ccn("05P001") # Medicare OPO
 #>  .. @ abbr: chr "CA"
 #>  .. @ name: chr "California"
 #>  @ extension: NULL
-#>  @ type     : <ccn::OPOType>
+#>  @ type     : <ccn::OpoType>
 #>  .. @ code: chr "P"
 #>  .. @ abbr: chr "OPO"
 #>  .. @ desc: chr "Organ Procurement Organization"
@@ -190,52 +190,58 @@ ccn("21X0009807") # Supplier Portable X-Ray
 
 ccn("02TA01") # IPPS Excluded Unit
 #> <ccn::IPPSExcludedUnit>
-#>  @ number      : chr "02TA01"
-#>  @ sequence    : chr "2001"
-#>  @ state       : <ccn::State>
+#>  @ number   : chr "02TA01"
+#>  @ sequence : <ccn::MedicareSequence>
+#>  .. @ number: chr "2001"
+#>  .. @ range : chr "2000-2299"
+#>  .. @ abbr  : chr "LTCH"
+#>  .. @ desc  : chr "Long-Term Care Hospital"
+#>  @ state    : <ccn::State>
 #>  .. @ code: chr "02"
 #>  .. @ abbr: chr "AK"
 #>  .. @ name: chr "Alaska"
-#>  @ extension   : NULL
-#>  @ type_code   : chr "T"
-#>  @ type_abbr   : chr "REHAB"
-#>  @ type_name   : chr "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
-#>  @ parent_code : chr "A"
-#>  @ parent_abbr : chr "LTCH"
-#>  @ parent_range: chr "2000-2299"
-#>  @ parent_name : chr "Long-Term Care Hospital"
+#>  @ extension: NULL
+#>  @ type     : <ccn::IPPSExcludedType>
+#>  .. @ code: chr "T"
+#>  .. @ abbr: chr "REHAB"
+#>  .. @ desc: chr "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
+#>  @ parent   : chr "A"
 ccn("04SD38")
 #> <ccn::IPPSExcludedUnit>
-#>  @ number      : chr "04SD38"
-#>  @ sequence    : chr "3038"
-#>  @ state       : <ccn::State>
+#>  @ number   : chr "04SD38"
+#>  @ sequence : <ccn::MedicareSequence>
+#>  .. @ number: chr "3038"
+#>  .. @ range : chr "3025-3099"
+#>  .. @ abbr  : chr "REHAB"
+#>  .. @ desc  : chr "Rehabilitation Hospital"
+#>  @ state    : <ccn::State>
 #>  .. @ code: chr "04"
 #>  .. @ abbr: chr "AR"
 #>  .. @ name: chr "Arkansas"
-#>  @ extension   : NULL
-#>  @ type_code   : chr "S"
-#>  @ type_abbr   : chr "PSYCH"
-#>  @ type_name   : chr "Psychiatric Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
-#>  @ parent_code : chr "D"
-#>  @ parent_abbr : chr "REHAB"
-#>  @ parent_range: chr "3025-3099"
-#>  @ parent_name : chr "Rehabilitation Hospital"
+#>  @ extension: NULL
+#>  @ type     : <ccn::IPPSExcludedType>
+#>  .. @ code: chr "S"
+#>  .. @ abbr: chr "PSYCH"
+#>  .. @ desc: chr "Psychiatric Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
+#>  @ parent   : chr "D"
 ccn("52TA05")
 #> <ccn::IPPSExcludedUnit>
-#>  @ number      : chr "52TA05"
-#>  @ sequence    : chr "2005"
-#>  @ state       : <ccn::State>
+#>  @ number   : chr "52TA05"
+#>  @ sequence : <ccn::MedicareSequence>
+#>  .. @ number: chr "2005"
+#>  .. @ range : chr "2000-2299"
+#>  .. @ abbr  : chr "LTCH"
+#>  .. @ desc  : chr "Long-Term Care Hospital"
+#>  @ state    : <ccn::State>
 #>  .. @ code: chr "52"
 #>  .. @ abbr: chr "WI"
 #>  .. @ name: chr "Wisconsin"
-#>  @ extension   : NULL
-#>  @ type_code   : chr "T"
-#>  @ type_abbr   : chr "REHAB"
-#>  @ type_name   : chr "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
-#>  @ parent_code : chr "A"
-#>  @ parent_abbr : chr "LTCH"
-#>  @ parent_range: chr "2000-2299"
-#>  @ parent_name : chr "Long-Term Care Hospital"
+#>  @ extension: NULL
+#>  @ type     : <ccn::IPPSExcludedType>
+#>  .. @ code: chr "T"
+#>  .. @ abbr: chr "REHAB"
+#>  .. @ desc: chr "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
+#>  @ parent   : chr "A"
 
 ccn("212026") # Parent
 #> <ccn::MedicareProvider>
@@ -252,36 +258,40 @@ ccn("212026") # Parent
 #>  @ extension: NULL
 ccn("21SA26")
 #> <ccn::IPPSExcludedUnit>
-#>  @ number      : chr "21SA26"
-#>  @ sequence    : chr "2026"
-#>  @ state       : <ccn::State>
+#>  @ number   : chr "21SA26"
+#>  @ sequence : <ccn::MedicareSequence>
+#>  .. @ number: chr "2026"
+#>  .. @ range : chr "2000-2299"
+#>  .. @ abbr  : chr "LTCH"
+#>  .. @ desc  : chr "Long-Term Care Hospital"
+#>  @ state    : <ccn::State>
 #>  .. @ code: chr "21"
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
-#>  @ extension   : NULL
-#>  @ type_code   : chr "S"
-#>  @ type_abbr   : chr "PSYCH"
-#>  @ type_name   : chr "Psychiatric Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
-#>  @ parent_code : chr "A"
-#>  @ parent_abbr : chr "LTCH"
-#>  @ parent_range: chr "2000-2299"
-#>  @ parent_name : chr "Long-Term Care Hospital"
+#>  @ extension: NULL
+#>  @ type     : <ccn::IPPSExcludedType>
+#>  .. @ code: chr "S"
+#>  .. @ abbr: chr "PSYCH"
+#>  .. @ desc: chr "Psychiatric Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
+#>  @ parent   : chr "A"
 ccn("21TA26")
 #> <ccn::IPPSExcludedUnit>
-#>  @ number      : chr "21TA26"
-#>  @ sequence    : chr "2026"
-#>  @ state       : <ccn::State>
+#>  @ number   : chr "21TA26"
+#>  @ sequence : <ccn::MedicareSequence>
+#>  .. @ number: chr "2026"
+#>  .. @ range : chr "2000-2299"
+#>  .. @ abbr  : chr "LTCH"
+#>  .. @ desc  : chr "Long-Term Care Hospital"
+#>  @ state    : <ccn::State>
 #>  .. @ code: chr "21"
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
-#>  @ extension   : NULL
-#>  @ type_code   : chr "T"
-#>  @ type_abbr   : chr "REHAB"
-#>  @ type_name   : chr "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
-#>  @ parent_code : chr "A"
-#>  @ parent_abbr : chr "LTCH"
-#>  @ parent_range: chr "2000-2299"
-#>  @ parent_name : chr "Long-Term Care Hospital"
+#>  @ extension: NULL
+#>  @ type     : <ccn::IPPSExcludedType>
+#>  .. @ code: chr "T"
+#>  .. @ abbr: chr "REHAB"
+#>  .. @ desc: chr "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital"
+#>  @ parent   : chr "A"
 
 ccn("24T019A")
 #> <ccn::IPPSExcludedProvider>

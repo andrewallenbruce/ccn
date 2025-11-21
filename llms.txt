@@ -47,12 +47,12 @@ occasionally assist with some of these duties.
   [`get_ipps_abbr()`](https://andrewallenbruce.github.io/ccn/reference/lookups.md)
   [`get_ipps_name()`](https://andrewallenbruce.github.io/ccn/reference/lookups.md)
   : Lookups for Various Codes
-- [`type_medicaid()`](https://andrewallenbruce.github.io/ccn/reference/predicates.md)
-  [`type_excluded()`](https://andrewallenbruce.github.io/ccn/reference/predicates.md)
-  [`type_unit()`](https://andrewallenbruce.github.io/ccn/reference/predicates.md)
-  [`type_emergency()`](https://andrewallenbruce.github.io/ccn/reference/predicates.md)
-  [`type_supplier()`](https://andrewallenbruce.github.io/ccn/reference/predicates.md)
-  [`type_opo()`](https://andrewallenbruce.github.io/ccn/reference/predicates.md)
+- [`is_type_medicaid()`](https://andrewallenbruce.github.io/ccn/reference/predicates.md)
+  [`is_type_excluded()`](https://andrewallenbruce.github.io/ccn/reference/predicates.md)
+  [`is_type_unit()`](https://andrewallenbruce.github.io/ccn/reference/predicates.md)
+  [`is_type_emergency()`](https://andrewallenbruce.github.io/ccn/reference/predicates.md)
+  [`is_type_supplier()`](https://andrewallenbruce.github.io/ccn/reference/predicates.md)
+  [`is_type_opo()`](https://andrewallenbruce.github.io/ccn/reference/predicates.md)
   : Logical Predicates
 - [`get_care_range()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
   [`get_care_range_abbr()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)

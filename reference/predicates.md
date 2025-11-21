@@ -5,17 +5,17 @@ Logical tests for various code types
 ## Usage
 
 ``` r
-type_medicaid(x)
+is_type_medicaid(x)
 
-type_excluded(x)
+is_type_excluded(x)
 
-type_unit(x)
+is_type_unit(x)
 
-type_emergency(x)
+is_type_emergency(x)
 
-type_supplier(x)
+is_type_supplier(x)
 
-type_opo(x)
+is_type_opo(x)
 ```
 
 ## Arguments
@@ -32,16 +32,16 @@ logical vector indicating if codes are of the specified type.
 
 ``` r
 x <- LETTERS
-x[type_medicaid(x)]
+x[is_type_medicaid(x)]
 #> [1] "A" "B" "E" "F" "G" "H" "J" "K" "L"
-x[type_excluded(x)]
+x[is_type_excluded(x)]
 #> [1] "M" "R" "S" "T" "U" "W" "Y" "Z"
-x[type_unit(x)]
+x[is_type_unit(x)]
 #>  [1] "A" "B" "C" "D" "E" "F" "G" "H" "J" "K"
-x[type_emergency(x)]
+x[is_type_emergency(x)]
 #> [1] "E" "F"
-x[type_supplier(x)]
+x[is_type_supplier(x)]
 #> [1] "C" "D" "X"
-x[type_opo(x)]
+x[is_type_opo(x)]
 #> [1] "P"
 ```
