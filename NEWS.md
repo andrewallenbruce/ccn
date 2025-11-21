@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9023 (2025-11-21)
+
+* `as_data_frame` methods added
+
+
 # ccn 0.0.0.9022 (2025-11-20)
 
 * added `EmergencySequence` class
