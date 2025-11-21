@@ -33,6 +33,7 @@
   [`get_caid_range_abbr()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
   [`get_caid_range_name()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
   [`get_opo_range()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
+  [`get_emergency_range()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
   [`get_supplier_range()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
   [`get_parent_prefix()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
   [`get_parent_abbr()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)

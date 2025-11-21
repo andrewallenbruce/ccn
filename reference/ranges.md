@@ -19,6 +19,8 @@ get_caid_range_name(x)
 
 get_opo_range(x)
 
+get_emergency_range(x)
+
 get_supplier_range(x)
 
 get_parent_prefix(x)
@@ -62,4 +64,9 @@ get_caid_range(c("055", "232", "599")) |>
 #> [1] "Medicaid-Only Short-Term Acute Care Hospital" 
 #> [2] "Medicaid-Only Children's Psychiatric Hospital"
 #> [3] "Medicaid-Only Long-Term Hospital"             
+
+get_supplier_range("9999999")
+#> [1] "000001-9999999"
+get_opo_range("50")
+#> [1] "001-099"
 ```

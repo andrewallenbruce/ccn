@@ -135,7 +135,9 @@ ccn("01L008") # Medicaid Only Provider
 ccn("12345E") # Emergency Hospital
 #> <ccn::EmergencyHospital>
 #>  @ number   : chr "12345E"
-#>  @ sequence : chr "345"
+#>  @ sequence : <ccn::EmergencySequence>
+#>  .. @ number: chr "345"
+#>  .. @ range : chr NA
 #>  @ state    : <ccn::State>
 #>  .. @ code: chr "12"
 #>  .. @ abbr: chr "HI"

@@ -1,5 +1,11 @@
 # Changelog
 
+## ccn 0.0.0.9022 (2025-11-20)
+
+- added `EmergencySequence` class
+- converted Emergency, Supplier and OPO ranges to `integer`s
+  ([\#1](https://github.com/andrewallenbruce/ccn/issues/1))
+
 ## ccn 0.0.0.9021 (2025-11-20)
 
 - added `IppsExcludedUnitParent` class
