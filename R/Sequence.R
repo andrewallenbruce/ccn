@@ -9,8 +9,8 @@ Sequence <- S7::new_class(
 )
 
 #' @noRd
-OPOSequence <- S7::new_class(
-  name = "OPOSequence",
+OpoSequence <- S7::new_class(
+  name = "OpoSequence",
   parent = Sequence,
   properties = list(
     range = S7::new_property(

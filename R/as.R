@@ -1,6 +1,6 @@
 #' @noRd
 as_provider <- function(x) {
-  if (has_extension(x@number)) {
+  if (is_provider_with_extension(x@number)) {
     return(S7::convert(
       x,
       Provider,
@@ -31,8 +31,8 @@ as_care_opo <- function(x) {
   S7::convert(
     x,
     MedicareOPO,
-    type = OPOType(substr_(x@number, 3L)),
-    sequence = OPOSequence(substr_(x@number, c(4L, 6L)))
+    type = OpoType(substr_(x@number, 3L)),
+    sequence = OpoSequence(substr_(x@number, c(4L, 6L)))
   )
 }
 
@@ -71,15 +71,15 @@ as_excluded_unit <- function(x) {
   S7::convert(
     x,
     IPPSExcludedUnit,
-    type_code   = substr_(x@number, 3L),
-    parent_code = substr_(x@number, 4L),
-    sequence    = get_unit_sequence(x@number)
+    type = IPPSExcludedType(substr_(x@number, 3L)),
+    parent = substr_(x@number, 4L),
+    sequence = MedicareSequence(get_unit_sequence(x@number))
   )
 }
 
 #' @noRd
 as_excluded <- function(x) {
-  if (type_unit(substr_(x@number, 4L))) {
+  if (is_type_unit(substr_(x@number, 4L))) {
     as_excluded_unit(x)
   } else {
     as_excluded_provider(x)

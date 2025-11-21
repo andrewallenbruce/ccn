@@ -11,8 +11,8 @@ Type <- S7::new_class(
 
 #' @noRd
 SupplierType <- S7::new_class(
-  name       = "SupplierType",
-  parent     = Type,
+  name = "SupplierType",
+  parent = Type,
   properties = list(
     abbr = S7::new_property(
       S7::class_character,
@@ -26,6 +26,13 @@ SupplierType <- S7::new_class(
     )
   )
 )
+
+# supplier_type <- function(x) {
+#   SupplierType(
+#     code = substr_(x@number, 3L),
+#     abbr = get_supplier_abbr(self@code)
+#   )
+# }
 
 #' @noRd
 EmergencyType <- S7::new_class(
@@ -46,8 +53,8 @@ EmergencyType <- S7::new_class(
 )
 
 #' @noRd
-OPOType <- S7::new_class(
-  name = "OPOType",
+OpoType <- S7::new_class(
+  name = "OpoType",
   parent = Type,
   properties = list(
     abbr = S7::new_property(

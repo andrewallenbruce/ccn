@@ -2,25 +2,25 @@
 % Please edit documentation in R/predicates.R
 \name{predicates}
 \alias{predicates}
-\alias{type_medicaid}
-\alias{type_excluded}
-\alias{type_unit}
-\alias{type_emergency}
-\alias{type_supplier}
-\alias{type_opo}
+\alias{is_type_medicaid}
+\alias{is_type_excluded}
+\alias{is_type_unit}
+\alias{is_type_emergency}
+\alias{is_type_supplier}
+\alias{is_type_opo}
 \title{Logical Predicates}
 \usage{
-type_medicaid(x)
+is_type_medicaid(x)
 
-type_excluded(x)
+is_type_excluded(x)
 
-type_unit(x)
+is_type_unit(x)
 
-type_emergency(x)
+is_type_emergency(x)
 
-type_supplier(x)
+is_type_supplier(x)
 
-type_opo(x)
+is_type_opo(x)
 }
 \arguments{
 \item{x}{character vector of codes to test.}
@@ -33,10 +33,10 @@ Logical tests for various code types
 }
 \examples{
 x <- LETTERS
-x[type_medicaid(x)]
-x[type_excluded(x)]
-x[type_unit(x)]
-x[type_emergency(x)]
-x[type_supplier(x)]
-x[type_opo(x)]
+x[is_type_medicaid(x)]
+x[is_type_excluded(x)]
+x[is_type_unit(x)]
+x[is_type_emergency(x)]
+x[is_type_supplier(x)]
+x[is_type_opo(x)]
 }

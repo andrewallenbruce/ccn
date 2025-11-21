@@ -11,34 +11,49 @@ NULL
 #' @returns logical vector indicating if codes are of the specified type.
 #' @examples
 #' x <- LETTERS
-#' x[type_medicaid(x)]
-#' x[type_excluded(x)]
-#' x[type_unit(x)]
-#' x[type_emergency(x)]
-#' x[type_supplier(x)]
-#' x[type_opo(x)]
+#' x[is_type_medicaid(x)]
+#' x[is_type_excluded(x)]
+#' x[is_type_unit(x)]
+#' x[is_type_emergency(x)]
+#' x[is_type_supplier(x)]
+#' x[is_type_opo(x)]
 NULL
 
 #' @rdname predicates
 #' @export
-type_medicaid <- make_test(MEDICAID$CODE)
+is_type_medicaid <- make_test(MEDICAID$CODE)
 
 #' @rdname predicates
 #' @export
-type_excluded <- make_test(EXCLUDED$CODE)
+is_type_excluded <- make_test(EXCLUDED$CODE)
 
 #' @rdname predicates
 #' @export
-type_unit <- make_test2(EXCLUDED$PARENT)
+is_type_unit <- make_test2(EXCLUDED$PARENT)
 
 #' @rdname predicates
 #' @export
-type_emergency <- make_test(EMERGENCY$CODE)
+is_type_emergency <- make_test(EMERGENCY$CODE)
 
 #' @rdname predicates
 #' @export
-type_supplier <- make_test(SUPPLIER$CODE)
+is_type_supplier <- make_test(SUPPLIER$CODE)
 
 #' @rdname predicates
 #' @export
-type_opo <- make_test(OPO$CODE)
+is_type_opo <- make_test(OPO$CODE)
+
+#' @noRd
+is_provider <- function(x) {
+  nchar(x) == 6L
+}
+
+#' @noRd
+is_supplier <- function(x) {
+  nchar(x) == 10L & is_type_supplier(substr_(x, 3L))
+}
+
+#' @noRd
+is_provider_with_extension <- function(x) {
+  nchar(x) > 6L & nchar(x) < 10L
+}

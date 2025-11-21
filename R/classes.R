@@ -10,6 +10,11 @@ Unknown <- S7::new_class(
 )
 
 #' @noRd
+as_Unknown <- function(x) {
+  Unknown(number = clean(x))
+}
+
+#' @noRd
 CCN <- S7::new_class(
   name = "CCN",
   parent = Unknown,
@@ -57,8 +62,8 @@ MedicareOPO <- S7::new_class(
   name = "MedicareOPO",
   parent = Provider,
   properties = list(
-    type = OPOType,
-    sequence = OPOSequence
+    type = OpoType,
+    sequence = OpoSequence
   )
 )
 
@@ -68,7 +73,7 @@ MedicaidOnlyProvider <- S7::new_class(
   parent = Provider,
   properties = list(
     type = MedicaidOnlyType | IPPSExcludedType,
-    sequence = MedicaidOnlySequence
+    sequence = MedicaidOnlySequence | MedicareSequence
   )
 )
 
@@ -82,40 +87,9 @@ IPPSExcludedProvider <- S7::new_class(
 #' @noRd
 IPPSExcludedUnit <- S7::new_class(
   name = "IPPSExcludedUnit",
-  parent = Provider,
+  parent = IPPSExcludedProvider,
   properties = list(
-    type_code = S7::class_character,
-    type_abbr = S7::new_property(
-      S7::class_character,
-      getter = function(self) {
-        get_ipps_abbr(self@type_code)
-      }
-    ),
-    type_name = S7::new_property(
-      S7::class_character,
-      getter = function(self) {
-        get_ipps_name(self@type_abbr)
-      }
-    ),
-    parent_code = S7::class_character,
-    parent_abbr = S7::new_property(
-      S7::class_character,
-      getter = function(self) {
-        get_parent_abbr(self@parent_code)
-      }
-    ),
-    parent_range = S7::new_property(
-      S7::class_character,
-      getter = function(self) {
-        get_care_range(self@sequence)
-      }
-    ),
-    parent_name = S7::new_property(
-      S7::class_character,
-      getter = function(self) {
-        get_care_range_name(self@parent_abbr)
-      }
-    )
+    parent = S7::class_character
   )
 )
 

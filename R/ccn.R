@@ -2,35 +2,15 @@
 NULL
 
 #' @noRd
-as_Unknown <- function(x) {
-  Unknown(number = clean(x))
-}
-
-#' @noRd
 get_provider_type <- function(x) {
   kit::nif(
     is_numeric(x), "medicare",
-    type_opo(substr_(x, 3L)), "opo",
-    type_emergency(substr_(x, 6L)), "emergency",
-    type_medicaid(substr_(x, 3L)), "medicaid",
-    type_excluded(substr_(x, 3L)), "excluded",
+    is_type_opo(substr_(x, 3L)), "opo",
+    is_type_emergency(substr_(x, 6L)), "emergency",
+    is_type_medicaid(substr_(x, 3L)), "medicaid",
+    is_type_excluded(substr_(x, 3L)), "excluded",
     default = NA_character_
   )
-}
-
-#' @noRd
-is_provider <- function(x) {
-  nchar(x) == 6L
-}
-
-#' @noRd
-is_supplier <- function(x) {
-  nchar(x) == 10L & type_supplier(substr_(x, 3L))
-}
-
-#' @noRd
-has_extension <- function(x) {
-  nchar(x) > 6L & nchar(x) < 10L
 }
 
 #' Decode a CCN
@@ -74,7 +54,7 @@ ccn <- function(x) {
 
   x <- as_Unknown(x)
 
-  if (is_provider(x@number) | has_extension(x@number)) {
+  if (is_provider(x@number) | is_provider_with_extension(x@number)) {
     x <- as_provider(x)
 
     return(switch(
