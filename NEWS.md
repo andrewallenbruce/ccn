@@ -1,5 +1,13 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9020 (2025-11-20)
+
+* `IPPSExcludedUnit` now working
+* standard `is_*` prefix added to logical predicates
+* `OPOSequence` -> `OpoSequence` & `OPOType` -> `OpoType`, standard CamelCase convention for class names
+* initial base `parse()` sketch
+
+
 # ccn 0.0.0.9019 (2025-11-19)
 
 * initial `as_data_frame` method (#2)
