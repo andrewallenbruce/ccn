@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9025 (2025-11-21)
+
+- Same as previous version.
+
+
 # ccn 0.0.0.9024 (2025-11-21)
 
 * `as_data_frame` methods implemented (#2)
