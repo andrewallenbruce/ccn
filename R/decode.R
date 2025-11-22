@@ -18,13 +18,13 @@ is_supplier <- function(x) {
 
 #' @noRd
 provider_type <- function(x) {
-  kit::nif(
-    is_numeric(x), "medicare",
-    is_type_opo(substr_(x, 3L)), "opo",
-    is_type_emergency(substr_(x, 6L)), "emergency",
-    is_type_medicaid_only(substr_(x, 3L)), "medicaid",
-    is_type_ipps_excluded(substr_(x, 3L)), "excluded",
-    default = NA_character_
+  cheapr::case(
+    is_numeric(x) ~ "medicare",
+    is_type_opo(substr_(x, 3L)) ~ "opo",
+    is_type_emergency(substr_(x, 6L)) ~ "emergency",
+    is_type_medicaid_only(substr_(x, 3L)) ~ "medicaid",
+    is_type_ipps_excluded(substr_(x, 3L)) ~ "excluded",
+    .default = NA_character_
   )
 }
 
@@ -37,33 +37,33 @@ provider_type <- function(x) {
 #' @return list of CCN components.
 #'
 #' @examples
-#' ccn("670055") # Medicare Provider
-#' ccn("05P001") # Medicare OPO
-#' ccn("12345E") # Emergency Hospital
-#' ccn("01L008") # Medicaid Only Provider
+#' decode("670055") # Medicare Provider
+#' decode("05P001") # Medicare OPO
+#' decode("12345E") # Emergency Hospital
+#' decode("01L008") # Medicaid Only Provider
 #'
-#' ccn("210101")
-#' ccn("21T101")
-#' ccn("21S101")
-#' ccn("21U101")
+#' decode("210101")
+#' decode("21T101")
+#' decode("21S101")
+#' decode("21U101")
 #'
-#' ccn("10C0001062") # Supplier ASC
-#' ccn("45D0634589") # Supplier CLIA
-#' ccn("21X0009807") # Supplier Portable X-Ray
+#' decode("10C0001062") # Supplier ASC
+#' decode("45D0634589") # Supplier CLIA
+#' decode("21X0009807") # Supplier Portable X-Ray
 #'
-#' ccn("02TA01") # IPPS Excluded Unit
-#' ccn("04SD38")
-#' ccn("52TA05")
+#' decode("02TA01") # IPPS Excluded Unit
+#' decode("04SD38")
+#' decode("52TA05")
 #'
-#' ccn("212026") # Parent
-#' ccn("21SA26")
-#' ccn("21TA26")
+#' decode("212026") # Parent
+#' decode("21SA26")
+#' decode("21TA26")
 #'
-#' ccn("24T019A")
-#' ccn("33S23401")
-#' ccn("330027001")
+#' decode("24T019A")
+#' decode("33S23401")
+#' decode("330027001")
 #' @export
-ccn <- function(x) {
+decode <- function(x) {
   x <- as_ccn(x)
 
   if (is_provider(x@number)) {

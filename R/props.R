@@ -28,7 +28,7 @@ props_parent <- function(x) {
 
 #' @noRd
 prop_ext <- function(x) {
-  S7::prop(x, "extension") %||% NA_character_
+  S7::prop(x, "extension")
 }
 
 #' @noRd

@@ -141,13 +141,13 @@ is_type_opo <- function(x) {
 #' @rdname types
 #' @export
 opo_abbr <- function(x) {
-  cheapr::if_else_(is_type_opo(x), "OPO", NA_character_)
+  if (is_type_opo(x)) "OPO" else NA_character_
 }
 
 #' @rdname types
 #' @export
 opo_desc <- function(x) {
-  cheapr::if_else_(is_type_opo(x), "Organ Procurement Organization", NA_character_)
+  if (is_type_opo(x)) "Organ Procurement Organization" else NA_character_
 }
 
 #' @rdname types

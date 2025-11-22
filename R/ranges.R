@@ -7,85 +7,44 @@
 #' @name ranges
 #' @returns character vector of names associated with codes.
 #' @examples
+#' range_opo(50L)
+#' range_emergency(500L)
+#' range_supplier(9000000L)
+#'
+#' range_medicaid_only(c("055", "232", "599"))
+#' range_medicaid_abbr("100-199")
+#' range_medicaid_desc("100-199")
+#'
 #' range_medicare(c("0055", "5232", "9999"))
 #' range_medicare_abbr("3500-3699")
 #' range_medicare_desc("3500-3699")
-#'
-#' range_medicaid_only(c("055", "232", "599"))
-#' # range_medicaid_abbr("100-199")
-#' # range_medicaid_desc("100-199")
-#'
-#' range_supplier(9000000L)
-#' range_emergency(500L)
-#' range_opo(50L)
 NULL
-
-#' @noRd
-Sequence <- S7::new_class(
-  name = "Sequence",
-  properties = list(
-    number = S7::new_property(
-      S7::class_character,
-      default = NA_character_
-    ),
-    range = S7::new_property(
-      S7::class_character,
-      default = NA_character_
-    ),
-    abbr = S7::new_property(
-      S7::class_character,
-      default = NA_character_
-    ),
-    desc = S7::new_property(
-      S7::class_character,
-      default = NA_character_
-    )
-  )
-)
 
 #' @rdname ranges
 #' @export
 range_opo <- function(x) {
-  x <- if (!rlang::is_integerish(x)) as.integer(x) else x
+  x <- as_int(x)
   if (x >= 1L & x <= 99L) "001-099" else NA_character_
 }
 
 #' @rdname ranges
 #' @export
-sequence_opo <- function(x) {
-  Sequence(number = x, range = range_opo(x))
-}
-
-#' @rdname ranges
-#' @export
 range_emergency <- function(x) {
-  x <- if (!rlang::is_integerish(x)) as.integer(x) else x
+  x <- as_int(x)
   if (x >= 1L & x <= 999L) "001-999" else NA_character_
 }
 
 #' @rdname ranges
 #' @export
-sequence_emergency <- function(x) {
-  Sequence(number = x, range = range_emergency(x))
-}
-
-#' @rdname ranges
-#' @export
 range_supplier <- function(x) {
-  x <- if (!rlang::is_integerish(x)) as.integer(x) else x
+  x <- as_int(x)
   if (x >= 1L & x <= 9999999L) "0000001-9999999" else NA_character_
 }
 
 #' @rdname ranges
 #' @export
-sequence_supplier <- function(x) {
-  Sequence(number = x, range = range_supplier(x))
-}
-
-#' @rdname ranges
-#' @export
 range_medicaid_only <- function(x) {
-  x <- if (!rlang::is_integerish(x)) as.integer(x) else x
+  x <- as_int(x)
   cheapr::case(
     x >= 1L   & x <= 99L  ~ "001-099",
     x >= 100L & x <= 199L ~ "100-199",
@@ -130,22 +89,10 @@ range_medicaid_desc <- function(x) {
   )
 }
 
-#' @noRd
-sequence_medicaid_only <- function(x) {
-  rng <- range_medicaid_only(x)
-
-  Sequence(
-    number = x,
-    range = rng,
-    abbr = range_medicaid_abbr(rng),
-    desc = range_medicaid_desc(rng)
-  )
-}
-
 #' @rdname ranges
 #' @export
 range_medicare <- function(x) {
-  x <- if (!rlang::is_integerish(x)) as.integer(x) else x
+  x <- as_int(x)
   cheapr::case(
     x >= 1L    & x <= 879L  ~ "0001-0879",
     x >= 880L  & x <= 899L  ~ "0880-0899",
@@ -261,18 +208,5 @@ range_medicare_desc <- function(x) {
     x %in_% c("3100-3199", "7000-8499", "9000-9799") ~ "Home Health Agency",
     x %in_% c("3200-3299", "4500-4599", "4800-4899") ~ "Comprehensive Outpatient Rehabilitation Facility",
     .default = NA_character_
-  )
-}
-
-#' @rdname ranges
-#' @export
-sequence_medicare <- function(x) {
-  rng <- range_medicare(x)
-
-  Sequence(
-    number = x,
-    range = rng,
-    abbr = range_medicare_abbr(rng),
-    desc = range_medicare_desc(rng)
   )
 }

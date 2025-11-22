@@ -1,85 +1,12 @@
-# space("02TA01") |>
-#   strsplit(" ") |>
-#   _[[1]] |>
-#   setNames(c("state", "type", "parent", "sequence")) |>
-#   as.list()
-#' @noRd
-parse <- function(x) {
-  # Medicare Provider: "670055" -> "67 0055"
-  c(x, gsub("([A-Z0-9]{2})([0-9]{4})", "\\1 \\2", x, perl = TRUE) |> strsplit(" ") |> _[[1]]) |>
-    rlang::set_names(c("number", "state", "sequence"))
-
-  # Medicare OPO Provider: "05P001" -> "05 P 001"
-  # IPPS Excluded Provider: "21T101" -> "21 T 101"
-  # Medicaid Only Provider: "01L008" -> "01 L 008"
-  c(x, gsub("([A-Z0-9]{2})([A-Z])([0-9]{3})", "\\1 \\2 \\3", x, perl = TRUE) |> strsplit(" ") |> _[[1]]) |>
-    rlang::set_names(c("number", "state", "type", "sequence"))
-
-  # Emergency Hospital: "12345E" -> "12 E 345"
-  c(x, gsub("([A-Z0-9]{2})([0-9]{3})([E])", "\\1 \\3 \\2", x, perl = TRUE) |> strsplit(" ") |> _[[1]]) |>
-    rlang::set_names(c("number", "state", "type", "sequence"))
-
-  # IPPS Excluded Unit: "02TA01" -> "02 T A 01"
-  c(x, gsub("([A-Z0-9]{2})([A-Z])([A-Z])([0-9]{2})", "\\1 \\2 \\3 \\4", x, perl = TRUE) |> strsplit(" ") |> _[[1]]) |>
-    rlang::set_names(c("number", "state", "type", "parent", "sequence"))
-
-  # Medicare Supplier: "10C0001062" -> "10 C 0001062"
-  c(x, gsub("([A-Z0-9]{2})([CDX])([0-9]{7})", "\\1 \\2 \\3", x, perl = TRUE) |> strsplit(" ") |> _[[1]]) |>
-    rlang::set_names(c("number", "state", "type", "sequence"))
-}
 
 #' @noRd
-tbl <- function(x) {
-  fastplyr::as_tbl(x)
-}
-
-#' @noRd
-as_sf <- function(x) {
-  stringfish::sf_convert(as.character(x))
-}
-
-#' @noRd
-pad_three <- function(x) {
-  x <- as.character(x)
-  n <- nchar(x)
-
-  x[n == 1] <- paste0("00", x[n == 1])
-  x[n == 2] <- paste0("0",  x[n == 2])
-
-  stringfish::sf_convert(x)
-}
-
-#' @noRd
-pad_four <- function(x) {
-  x <- as.character(x)
-  n <- nchar(x)
-
-  x[n == 1] <- paste0("000", x[n == 1])
-  x[n == 2] <- paste0("00",  x[n == 2])
-  x[n == 3] <- paste0("0",   x[n == 3])
-
-  stringfish::sf_convert(x)
-}
-
-#' @noRd
-pad_seven <- function(x) {
-  x <- as.character(x)
-  n <- nchar(x)
-
-  x[n == 1] <- paste0("000000", x[n == 1])
-  x[n == 2] <- paste0("00000",  x[n == 2])
-  x[n == 3] <- paste0("0000",   x[n == 3])
-  x[n == 4] <- paste0("000",    x[n == 4])
-  x[n == 5] <- paste0("00",     x[n == 5])
-  x[n == 6] <- paste0("0",      x[n == 6])
-
-  stringfish::sf_convert(x)
+as_int <- function(x) {
+  if (!rlang::is_integerish(x)) as.integer(x) else x
 }
 
 #' @noRd
 to_string <- function(x) {
-  stringfish::sf_collapse(x, collapse = "")
-  # paste0(x, collapse = "")
+  paste0(x, collapse = "")
 }
 
 #' @noRd
@@ -88,69 +15,14 @@ unlist_ <- function(x, ...) {
 }
 
 #' @noRd
-substr_ <- function(x, s) {
-
-  s <- if (length(s) == 1L) c(s, s) else s
-
-  s <- if (length(x) == 1L && nchar(x) == 1L) c(1L, 1L) else s
-
-  s <- if (length(x) > 1L & any(collapse::vlengths(x) == 1L)) c(1L, 1L) else s
-
-  stringfish::sf_substr(
-    x        = x,
-    start    = s[1],
-    stop     = s[2],
-    nthreads = 4L
-  )
-}
-
-#' @noRd
-make_test <- function(named_list) {
-  function(x) {
-    !cheapr::is_na(collapse::fmatch(x, unlist_(named_list)))
-  }
-}
-
-#' @noRd
-make_test2 <- function(vec) {
-  function(x) {
-    !cheapr::is_na(collapse::fmatch(x, rlang::names2(vec)))
-  }
-}
-
-#' @noRd
-make_df <- function(x, col_names = NULL) {
-  x <- purrr::map(x, \(x) cheapr::fast_df(field = x)) |>
-    purrr::list_rbind(names_to = "constant") |>
-    collapse::roworderv(c("constant", "field"))
-
-  if (!is.null(col_names)) {
-    colnames(x) <- col_names
-  }
-  x
-}
-
-#' @noRd
-make_switch <- function(x) {
-
-  e <- purrr::map(x, \(x) cheapr::fast_df(field = x)) |>
-    purrr::list_rbind(names_to = "constant") |>
-    collapse::roworderv(c("constant", "field"))
-
-  function(x) {
-    kit::vswitch(
-      x       = x,
-      values  = e$field,
-      outputs = e$constant,
-      default = NA_character_,
-      nThread = 4L
-    )
-  }
+substr_ <- function(x, i) {
+  i <- if (length(i) == 1L) c(i, i) else i
+  substr(x = x, start = i[1], stop = i[2])
 }
 
 #' @noRd
 has_letter <- function(x) {
-  stringfish::sf_grepl(x, "[A-Z]", nthreads = 4L)
+  grepl("[A-Z]", x, ignore.case = TRUE, perl = TRUE)
 }
 
 #' @noRd
@@ -160,21 +32,17 @@ is_numeric <- function(x) {
 
 #' @noRd
 has_hyphen <- function(x) {
-  stringfish::sf_grepl(x, "-", fixed = TRUE, nthreads = 4L)
+  grepl("-", x, fixed = TRUE)
 }
 
 #' @noRd
 remove_hyphen <- function(x) {
-  if (has_hyphen(x)) {
-    stringfish::sf_gsub(x, "-", "", fixed = TRUE, nthreads = 4L)
-  } else {
-    x
-  }
+  if (has_hyphen(x)) gsub("-", "", x, fixed = TRUE) else x
 }
 
 #' @noRd
 clean <- function(x) {
-  remove_hyphen(stringfish::sf_toupper(x))
+  remove_hyphen(toupper(x))
 }
 
 #' @noRd

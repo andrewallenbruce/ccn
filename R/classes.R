@@ -1,6 +1,7 @@
 #' @include states.R
 #' @include ranges.R
 #' @include types.R
+#' @include sequence.R
 NULL
 
 #' @noRd

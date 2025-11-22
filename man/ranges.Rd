@@ -3,31 +3,21 @@
 \name{ranges}
 \alias{ranges}
 \alias{range_opo}
-\alias{sequence_opo}
 \alias{range_emergency}
-\alias{sequence_emergency}
 \alias{range_supplier}
-\alias{sequence_supplier}
 \alias{range_medicaid_only}
 \alias{range_medicaid_abbr}
 \alias{range_medicaid_desc}
 \alias{range_medicare}
 \alias{range_medicare_abbr}
 \alias{range_medicare_desc}
-\alias{sequence_medicare}
 \title{Facility Ranges}
 \usage{
 range_opo(x)
 
-sequence_opo(x)
-
 range_emergency(x)
 
-sequence_emergency(x)
-
 range_supplier(x)
-
-sequence_supplier(x)
 
 range_medicaid_only(x)
 
@@ -40,8 +30,6 @@ range_medicare(x)
 range_medicare_abbr(x)
 
 range_medicare_desc(x)
-
-sequence_medicare(x)
 }
 \arguments{
 \item{x}{character vector of codes to look up.}
@@ -53,15 +41,15 @@ character vector of names associated with codes.
 Convert various codes to their associated names.
 }
 \examples{
+range_opo(50L)
+range_emergency(500L)
+range_supplier(9000000L)
+
+range_medicaid_only(c("055", "232", "599"))
+range_medicaid_abbr("100-199")
+range_medicaid_desc("100-199")
+
 range_medicare(c("0055", "5232", "9999"))
 range_medicare_abbr("3500-3699")
 range_medicare_desc("3500-3699")
-
-range_medicaid_only(c("055", "232", "599"))
-# range_medicaid_abbr("100-199")
-# range_medicaid_desc("100-199")
-
-range_supplier(9000000L)
-range_emergency(500L)
-range_opo(50L)
 }
