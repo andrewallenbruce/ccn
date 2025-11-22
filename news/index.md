@@ -1,5 +1,9 @@
 # Changelog
 
+## ccn 0.0.0.9027 (2025-11-22)
+
+- refactored to uncouple S7 classes
+
 ## ccn 0.0.0.9026 (2025-11-21)
 
 - `as_list` methods
