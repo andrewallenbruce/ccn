@@ -1,5 +1,11 @@
 # Changelog
 
+## ccn 0.0.0.9026 (2025-11-21)
+
+- `as_list` methods
+  ([\#2](https://github.com/andrewallenbruce/ccn/issues/2))
+- fixed: bug in `range_supplier`
+
 ## ccn 0.0.0.9025 (2025-11-21)
 
 - Same as previous version.

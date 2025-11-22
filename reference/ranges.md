@@ -5,11 +5,11 @@ Convert various codes to their associated names.
 ## Usage
 
 ``` r
-range_medicare_opo(x)
+range_opo(x)
 
 range_emergency(x)
 
-range_medicare_supplier(x)
+range_supplier(x)
 
 range_medicaid_only_abbr(x)
 
@@ -59,10 +59,10 @@ range_medicaid_only(c("055", "232", "599")) |>
 #> [2] "Medicaid-Only Children's Psychiatric Hospital"
 #> [3] "Medicaid-Only Long-Term Hospital"             
 
-range_medicare_supplier("9999999")
-#> [1] "000001-9999999"
+range_supplier("9999999")
+#> [1] "0000001-9999999"
 range_emergency("50")
 #> [1] "001-999"
-range_medicare_opo("50")
+range_opo("50")
 #> [1] "001-099"
 ```

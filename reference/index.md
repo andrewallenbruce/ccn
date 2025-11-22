@@ -2,12 +2,13 @@
 
 ## All functions
 
-- [`as_data_frame()`](https://andrewallenbruce.github.io/ccn/reference/as_data_frame.md)
-  : Convert to data.frame
 - [`ccn-package`](https://andrewallenbruce.github.io/ccn/reference/ccn-package.md)
   : ccn: Parse CMS Certification Numbers
 - [`ccn()`](https://andrewallenbruce.github.io/ccn/reference/ccn.md) :
   Decode a CCN
+- [`as_list()`](https://andrewallenbruce.github.io/ccn/reference/data_frame.md)
+  [`as_data_frame()`](https://andrewallenbruce.github.io/ccn/reference/data_frame.md)
+  : Convert to list/data.frame
 - [`get_emergency_abbr()`](https://andrewallenbruce.github.io/ccn/reference/lookups.md)
   [`get_emergency_name()`](https://andrewallenbruce.github.io/ccn/reference/lookups.md)
   [`get_supplier_abbr()`](https://andrewallenbruce.github.io/ccn/reference/lookups.md)
@@ -31,9 +32,9 @@
   [`is_type_supplier()`](https://andrewallenbruce.github.io/ccn/reference/predicates.md)
   [`is_type_opo()`](https://andrewallenbruce.github.io/ccn/reference/predicates.md)
   : Logical Predicates
-- [`range_medicare_opo()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
+- [`range_opo()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
   [`range_emergency()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
-  [`range_medicare_supplier()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
+  [`range_supplier()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
   [`range_medicaid_only_abbr()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
   [`range_medicaid_only_desc()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
   [`range_medicaid_only()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)

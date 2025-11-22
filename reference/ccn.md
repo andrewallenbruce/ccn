@@ -149,43 +149,46 @@ ccn("12345E") # Emergency Hospital
 #>  .. @ desc: chr "Non-Federal Emergency Hospital (Non-Participating)"
 ccn("10C0001062") # Supplier ASC
 #> <ccn::Supplier>
-#>  @ number  : chr "10C0001062"
-#>  @ sequence: <ccn::SupplierSequence>
+#>  @ number   : chr "10C0001062"
+#>  @ sequence : <ccn::SupplierSequence>
 #>  .. @ number: chr "0001062"
-#>  .. @ range : chr "000001-9999999"
-#>  @ state   : <ccn::State>
+#>  .. @ range : chr "0000001-9999999"
+#>  @ state    : <ccn::State>
 #>  .. @ code: chr "10"
 #>  .. @ abbr: chr "FL"
 #>  .. @ name: chr "Florida"
-#>  @ type    : <ccn::SupplierType>
+#>  @ extension: NULL
+#>  @ type     : <ccn::SupplierType>
 #>  .. @ code: chr "C"
 #>  .. @ abbr: chr "ASC"
 #>  .. @ desc: chr "Ambulatory Surgical Center"
 ccn("45D0634589") # Supplier CLIA
 #> <ccn::Supplier>
-#>  @ number  : chr "45D0634589"
-#>  @ sequence: <ccn::SupplierSequence>
+#>  @ number   : chr "45D0634589"
+#>  @ sequence : <ccn::SupplierSequence>
 #>  .. @ number: chr "0634589"
-#>  .. @ range : chr "000001-9999999"
-#>  @ state   : <ccn::State>
+#>  .. @ range : chr "0000001-9999999"
+#>  @ state    : <ccn::State>
 #>  .. @ code: chr "45"
 #>  .. @ abbr: chr "TX"
 #>  .. @ name: chr "Texas"
-#>  @ type    : <ccn::SupplierType>
+#>  @ extension: NULL
+#>  @ type     : <ccn::SupplierType>
 #>  .. @ code: chr "D"
 #>  .. @ abbr: chr "CLIA"
 #>  .. @ desc: chr "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory"
 ccn("21X0009807") # Supplier Portable X-Ray
 #> <ccn::Supplier>
-#>  @ number  : chr "21X0009807"
-#>  @ sequence: <ccn::SupplierSequence>
+#>  @ number   : chr "21X0009807"
+#>  @ sequence : <ccn::SupplierSequence>
 #>  .. @ number: chr "0009807"
-#>  .. @ range : chr "000001-9999999"
-#>  @ state   : <ccn::State>
+#>  .. @ range : chr "0000001-9999999"
+#>  @ state    : <ccn::State>
 #>  .. @ code: chr "21"
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
-#>  @ type    : <ccn::SupplierType>
+#>  @ extension: NULL
+#>  @ type     : <ccn::SupplierType>
 #>  .. @ code: chr "X"
 #>  .. @ abbr: chr "XRAY"
 #>  .. @ desc: chr "Portable X-Ray Facility"
