@@ -1,5 +1,11 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9026 (2025-11-21)
+
+* `as_list` methods (#2)
+* fixed: bug in `range_supplier`
+
+
 # ccn 0.0.0.9025 (2025-11-21)
 
 - Same as previous version.
