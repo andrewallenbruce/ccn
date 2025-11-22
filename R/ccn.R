@@ -2,13 +2,28 @@
 NULL
 
 #' @noRd
-get_provider_type <- function(x) {
+is_provider <- function(x) {
+  collapse::vlengths(x) == 6L ||
+    collapse::vlengths(x) > 6L & collapse::vlengths(x) < 10L
+}
+
+#' @noRd
+is_supplier <- function(x) {
+  is_type_supplier(substr_(x, 3L)) &
+    (
+      collapse::vlengths(x) == 10L ||
+        collapse::vlengths(x) > 10L & collapse::vlengths(x) < 15L
+    )
+}
+
+#' @noRd
+provider_type <- function(x) {
   kit::nif(
     is_numeric(x), "medicare",
     is_type_opo(substr_(x, 3L)), "opo",
     is_type_emergency(substr_(x, 6L)), "emergency",
-    is_type_medicaid(substr_(x, 3L)), "medicaid",
-    is_type_excluded(substr_(x, 3L)), "excluded",
+    is_type_medicaid_only(substr_(x, 3L)), "medicaid",
+    is_type_ipps_excluded(substr_(x, 3L)), "excluded",
     default = NA_character_
   )
 }
@@ -24,14 +39,14 @@ get_provider_type <- function(x) {
 #' @examples
 #' ccn("670055") # Medicare Provider
 #' ccn("05P001") # Medicare OPO
+#' ccn("12345E") # Emergency Hospital
+#' ccn("01L008") # Medicaid Only Provider
 #'
 #' ccn("210101")
 #' ccn("21T101")
 #' ccn("21S101")
 #' ccn("21U101")
 #'
-#' ccn("01L008") # Medicaid Only Provider
-#' ccn("12345E") # Emergency Hospital
 #' ccn("10C0001062") # Supplier ASC
 #' ccn("45D0634589") # Supplier CLIA
 #' ccn("21X0009807") # Supplier Portable X-Ray
@@ -49,27 +64,22 @@ get_provider_type <- function(x) {
 #' ccn("330027001")
 #' @export
 ccn <- function(x) {
-  check_character(x)
-  check_length(x)
+  x <- as_ccn(x)
 
-  x <- Unknown(number = clean(x))
-
-  if (is_provider(x@number) | is_provider_with_extension(x@number)) {
-    x <- as_provider(x)
-
+  if (is_provider(x@number)) {
     return(switch(
-      get_provider_type(x@number),
-      medicare  = as_medicare(x),
-      opo       = as_care_opo(x),
-      emergency = as_emergency(x),
-      medicaid  = as_medicaid(x),
-      excluded  = as_excluded(x),
+      provider_type(x@number),
+      medicare  = medicare_provider(x),
+      opo       = medicare_opo(x),
+      emergency = emergency_hospital(x),
+      medicaid  = medicaid_only(x),
+      excluded  = ipps_excluded(x),
       x
     ))
   }
 
   if (is_supplier(x@number)) {
-    return(as_supplier(x))
+    return(medicare_supplier(x))
   }
   return(x)
 }

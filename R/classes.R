@@ -1,92 +1,61 @@
-#' @include State.R
-#' @include Sequence.R
-#' @include Type.R
+#' @include states.R
+#' @include ranges.R
+#' @include types.R
 NULL
 
 #' @noRd
-Unknown <- S7::new_class(
-  name = "Unknown",
-  properties = list(number = S7::class_character)
-)
-
-#' @noRd
 CCN <- S7::new_class(
-  name = "CCN",
-  parent = Unknown,
-  properties = list(
-    sequence = Sequence,
-    state = State,
-    extension = NULL | S7::class_character
+  name        = "CCN",
+  properties  = list(
+    number    = S7::class_character,
+    state     = State,
+    sequence  = Sequence,
+    type      = Type,
+    extension = S7::new_property(
+      S7::class_character,
+      default = NA_character_
+    )
   )
 )
 
 #' @noRd
-Supplier <- S7::new_class(
-  name = "Supplier",
-  parent = CCN,
-  properties = list(type = SupplierType, sequence = SupplierSequence))
+MedicareSupplier <- S7::new_class("MedicareSupplier", CCN)
 
 #' @noRd
-Provider <- S7::new_class("Provider", CCN)
+EmergencyHospital <- S7::new_class("EmergencyHospital", CCN)
 
 #' @noRd
-EmergencyHospital <- S7::new_class(
-  name = "EmergencyHospital",
-  parent = Provider,
+MedicareProvider <- S7::new_class("MedicareProvider", CCN)
+
+#' @noRd
+MedicareOPO <- S7::new_class("MedicareOPO", CCN)
+
+#' @noRd
+MedicaidOnly <- S7::new_class("MedicaidOnly", CCN)
+
+#' @noRd
+IppsExcludedProvider <- S7::new_class("IppsExcludedProvider", CCN)
+
+#' @noRd
+IppsExcludedParent <- S7::new_class(
+  "IppsExcludedParent",
   properties = list(
-    type = EmergencyType,
-    sequence = EmergencySequence
-  )
-)
-
-#' @noRd
-MedicareProvider <- S7::new_class(
-  name = "MedicareProvider",
-  parent = Provider,
-  properties = list(
-    sequence = MedicareSequence
-  )
-)
-
-#' @noRd
-MedicareOPO <- S7::new_class(
-  name = "MedicareOPO",
-  parent = Provider,
-  properties = list(
-    type = OpoType,
-    sequence = OpoSequence
-  )
-)
-
-#' @noRd
-MedicaidOnlyProvider <- S7::new_class(
-  name = "MedicaidOnlyProvider",
-  parent = Provider,
-  properties = list(
-    type = MedicaidOnlyType | IppsExcludedType,
-    sequence = MedicaidOnlySequence | MedicareSequence
-  )
-)
-
-#' @noRd
-IppsExcludedProvider <- S7::new_class(
-  name = "IppsExcludedProvider",
-  parent = MedicaidOnlyProvider,
-  properties = list(type = IppsExcludedType)
-)
-
-#' @noRd
-IppsExcludedUnitParent <- S7::new_class(
-  name = "IppsExcludedUnitParent",
-  properties = list(
-    code = S7::class_character,
-    number = S7::class_character
+    type = S7::new_property(
+      S7::class_character,
+      default = NA_character_
+    ),
+    ccn = S7::new_property(
+      S7::class_character,
+      default = NA_character_
+    )
   )
 )
 
 #' @noRd
 IppsExcludedUnit <- S7::new_class(
-  name = "IppsExcludedUnit",
-  parent = IppsExcludedProvider,
-  properties = list(parent = IppsExcludedUnitParent)
+  "IppsExcludedUnit",
+  IppsExcludedProvider,
+  properties = list(
+    parent = IppsExcludedParent
+  )
 )

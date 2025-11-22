@@ -1,23 +1,4 @@
-#' @noRd
-Sequence <- S7::new_class(
-  name = "Sequence",
-  # abstract = TRUE,
-  properties = list(
-    number = S7::class_character,
-    range = S7::class_character
-  )
-)
 
-#' @noRd
-SequenceFull <- S7::new_class(
-  name = "SequenceFull",
-  parent = Sequence,
-  # abstract = TRUE,
-  properties = list(
-    abbr = S7::class_character,
-    desc = S7::class_character
-  )
-)
 
 #' @noRd
 OpoSequence <- S7::new_class(
@@ -61,7 +42,7 @@ EmergencySequence <- S7::new_class(
 #' @noRd
 MedicareSequence <- S7::new_class(
   name = "MedicareSequence",
-  parent = SequenceFull,
+  parent = Sequence,
   properties = list(
     range = S7::new_property(
       S7::class_character,
@@ -84,7 +65,7 @@ MedicareSequence <- S7::new_class(
 #' @noRd
 MedicaidOnlySequence <- S7::new_class(
   name = "MedicaidOnlySequence",
-  parent = SequenceFull,
+  parent = Sequence,
   properties = list(
     range = S7::new_property(
       S7::class_character,

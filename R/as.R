@@ -1,97 +1,102 @@
 #' @noRd
-as_provider <- function(x) {
-  if (is_provider_with_extension(x@number)) {
-    return(S7::convert(
-      x,
-      Provider,
-      number = substr_(x@number, c(1L, 6L)),
-      state = as_State(x@number),
-      extension = substr_(x@number, c(7L, nchar(x@number)))
-    ))
-  }
-  S7::convert(
-    x,
-    Provider,
-    number = x@number,
-    state = as_State(x@number)
-  )
+as_ccn <- function(x) {
+  CCN(number = clean(x), state = state(x))
 }
 
 #' @noRd
-as_medicare <- function(x) {
+ext_provider <- function(x) {
+  x <- substr_(x, c(7L, nchar(x)))
+  if (x == "") NA_character_ else x
+}
+
+#' @noRd
+ext_supplier <- function(x) {
+  x <- substr_(x, c(11L, nchar(x)))
+  if (x == "") NA_character_ else x
+}
+
+#' @noRd
+medicare_provider <- function(x) {
   S7::convert(
     x,
     MedicareProvider,
-    sequence = MedicareSequence(substr_(x@number, c(3L, 6L)))
+    sequence = sequence_medicare(substr_(x@number, c(3L, 6L))),
+    extension = ext_provider(x@number)
   )
 }
 
 #' @noRd
-as_care_opo <- function(x) {
+medicare_opo <- function(x) {
   S7::convert(
     x,
     MedicareOPO,
-    type = OpoType(substr_(x@number, 3L)),
-    sequence = OpoSequence(substr_(x@number, c(4L, 6L)))
+    sequence = sequence_opo(substr_(x@number, c(4L, 6L))),
+    type = type_opo(substr_(x@number, 3L)),
+    extension = ext_provider(x@number)
   )
 }
 
 #' @noRd
-as_emergency <- function(x) {
+emergency_hospital <- function(x) {
   S7::convert(
     x,
     EmergencyHospital,
-    type = EmergencyType(substr_(x@number, 6L)),
-    sequence = EmergencySequence(substr_(x@number, c(3L, 5L)))
+    sequence = sequence_emergency(substr_(x@number, c(3L, 5L))),
+    type = type_emergency(substr_(x@number, 6L)),
+    extension = ext_provider(x@number)
   )
 }
 
 #' @noRd
-as_medicaid <- function(x) {
+medicaid_only <- function(x) {
   S7::convert(
     x,
-    MedicaidOnlyProvider,
-    type = MedicaidOnlyType(substr_(x@number, 3L)),
-    sequence = MedicaidOnlySequence(substr_(x@number, c(4L, 6L)))
+    MedicaidOnly,
+    sequence = sequence_medicaid_only(substr_(x@number, c(4L, 6L))),
+    type = type_medicaid_only(substr_(x@number, 3L)),
+    extension = ext_provider(x@number)
   )
 }
 
 #' @noRd
-as_excluded_provider <- function(x) {
+ipps_excluded_provider <- function(x) {
   S7::convert(
     x,
     IppsExcludedProvider,
-    type = IppsExcludedType(substr_(x@number, 3L)),
-    sequence = MedicaidOnlySequence(substr_(x@number, c(4L, 6L)))
+    sequence = sequence_medicaid_only(substr_(x@number, c(4L, 6L))),
+    type = type_ipps_excluded(substr_(x@number, 3L)),
+    extension = ext_provider(x@number)
   )
 }
 
 #' @noRd
-as_excluded_unit <- function(x) {
+ipps_excluded_unit <- function(x) {
   S7::convert(
     x,
     IppsExcludedUnit,
-    type = IppsExcludedType(substr_(x@number, 3L)),
-    parent = IppsExcludedUnitParent(substr_(x@number, 4L), get_parent_ccn(x@number)),
-    sequence = MedicareSequence(get_unit_sequence(x@number))
+    sequence = sequence_medicare(get_unit_sequence(x@number)),
+    type = type_ipps_excluded(substr_(x@number, 3L)),
+    parent = IppsExcludedParent(substr_(x@number, 4L), get_parent_ccn(x@number)),
+    extension = ext_provider(x@number)
   )
 }
 
 #' @noRd
-as_excluded <- function(x) {
-  if (is_type_unit(substr_(x@number, 4L))) {
-    return(as_excluded_unit(x))
+ipps_excluded <- function(x) {
+  if (is_type_ipps_excluded_unit(substr_(x@number, 4L))) {
+    return(ipps_excluded_unit(x))
   }
-  as_excluded_provider(x)
+  ipps_excluded_provider(x)
 }
 
 #' @noRd
-as_supplier <- function(x) {
+medicare_supplier <- function(x) {
   S7::convert(
     x,
-    Supplier,
-    state = as_State(x@number),
-    type = SupplierType(substr_(x@number, 3L)),
-    sequence = SupplierSequence(substr_(x@number, c(4L, 10L)))
+    MedicareSupplier,
+    state = state(x@number),
+    sequence = sequence_supplier(substr_(x@number, c(4L, 10L))),
+    type = type_supplier(substr_(x@number, 3L)),
+    extension = ext_supplier(x@number)
   )
 }

@@ -2,15 +2,18 @@
 % Please edit documentation in R/parent.R
 \name{parent}
 \alias{parent}
-\alias{get_parent_prefix}
-\alias{get_parent_abbr}
+\alias{is_type_ipps_excluded_unit}
+\alias{ipps_excluded_unit_abbr}
+\alias{ipps_excluded_unit_prefix}
 \alias{get_unit_sequence}
 \alias{get_parent_ccn}
-\title{IPPS Excluded Unit Lookups}
+\title{IPPS Excluded Unit Codes}
 \usage{
-get_parent_prefix(x)
+is_type_ipps_excluded_unit(x)
 
-get_parent_abbr(x)
+ipps_excluded_unit_abbr(x)
+
+ipps_excluded_unit_prefix(x)
 
 get_unit_sequence(x)
 
@@ -26,9 +29,12 @@ character vector of names associated with codes.
 Convert various codes to their associated names.
 }
 \examples{
+x <- LETTERS
+x[is_type_ipps_excluded_unit(x)]
+ipps_excluded_unit_abbr(x[is_type_ipps_excluded_unit(x)])
+ipps_excluded_unit_prefix(x[is_type_ipps_excluded_unit(x)])
+
 x <- c("02TA01", "04SD38", "52TA05")
-get_parent_prefix(x)
-get_parent_abbr(x)
 get_unit_sequence(x)
 get_parent_ccn(x)
 }

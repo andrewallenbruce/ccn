@@ -25,99 +25,91 @@ as_list <- S7::new_generic("as_list", "x")
 
 S7::method(as_list, MedicareProvider) <- function(x) {
   rlang::list2(
-    category = "Medicare Provider",
-    number = prop_number(x),
+    category      = "Medicare Provider",
+    number        = prop_number(x),
     !!!props_sequence(x),
     !!!props_state(x),
-    extension = prop_ext(x),
-    type_code = NA_character_,
-    type_abbr = NA_character_,
-    type_desc = NA_character_,
-    parent_code = NA_character_,
-    parent_number = NA_character_
+    !!!props_type(x),
+    parent_code   = NA_character_,
+    parent_number = NA_character_,
+    extension     = prop_ext(x)
   )
 }
 
 S7::method(as_list, MedicareOPO) <- function(x) {
   rlang::list2(
-    category = "Medicare Provider",
-    number = prop_number(x),
+    category      = "Medicare Provider",
+    number        = prop_number(x),
     !!!props_sequence(x),
-    seq_abbr = NA_character_,
-    seq_desc = NA_character_,
     !!!props_state(x),
-    extension = prop_ext(x),
     !!!props_type(x),
-    parent_code = NA_character_,
-    parent_number = NA_character_
+    parent_code   = NA_character_,
+    parent_number = NA_character_,
+    extension     = prop_ext(x)
   )
 }
 
-S7::method(as_list, Supplier) <- function(x) {
+S7::method(as_list, MedicareSupplier) <- function(x) {
   rlang::list2(
-    category = "Medicare Supplier",
-    number = prop_number(x),
+    category      = "Medicare Supplier",
+    number        = prop_number(x),
     !!!props_sequence(x),
-    seq_abbr = NA_character_,
-    seq_desc = NA_character_,
     !!!props_state(x),
-    extension = prop_ext(x),
     !!!props_type(x),
-    parent_code = NA_character_,
-    parent_number = NA_character_
+    parent_code   = NA_character_,
+    parent_number = NA_character_,
+    extension     = prop_ext(x)
   )
 }
 
 S7::method(as_list, EmergencyHospital) <- function(x) {
   rlang::list2(
-    category = "Emergency Hospital",
-    number = prop_number(x),
+    category      = "Emergency Hospital",
+    number        = prop_number(x),
     !!!props_sequence(x),
-    seq_abbr = NA_character_,
-    seq_desc = NA_character_,
     !!!props_state(x),
-    extension = prop_ext(x),
     !!!props_type(x),
-    parent_code = NA_character_,
-    parent_number = NA_character_
+    parent_code   = NA_character_,
+    parent_number = NA_character_,
+    extension     = prop_ext(x)
   )
 }
 
-S7::method(as_list, MedicaidOnlyProvider) <- function(x) {
+S7::method(as_list, MedicaidOnly) <- function(x) {
   rlang::list2(
-    category = "Medicaid-Only Provider",
-    number = prop_number(x),
+    category      = "Medicaid-Only Provider",
+    number        = prop_number(x),
     !!!props_sequence(x),
     !!!props_state(x),
-    extension = prop_ext(x),
     !!!props_type(x),
-    parent_code = NA_character_,
-    parent_number = NA_character_
+    parent_code   = NA_character_,
+    parent_number = NA_character_,
+    extension     = prop_ext(x)
   )
 }
 
 S7::method(as_list, IppsExcludedProvider) <- function(x) {
   rlang::list2(
-    category = "IPPS-Excluded Provider",
-    number = prop_number(x),
+    category      = "IPPS-Excluded Provider",
+    number        = prop_number(x),
     !!!props_sequence(x),
     !!!props_state(x),
-    extension = prop_ext(x),
     !!!props_type(x),
-    parent_code = NA_character_,
-    parent_number = NA_character_
+    parent_code   = NA_character_,
+    parent_number = NA_character_,
+    extension     = prop_ext(x)
   )
 }
 
 S7::method(as_list, IppsExcludedUnit) <- function(x) {
   rlang::list2(
-    category = "IPPS-Excluded Unit",
-    number = prop_number(x),
+    category  = "IPPS-Excluded Unit",
+    number    = prop_number(x),
     !!!props_sequence(x),
     !!!props_state(x),
-    extension = prop_ext(x),
     !!!props_type(x),
-    !!!props_parent(x)
+    !!!props_parent(x),
+    extension = prop_ext(x)
   )
 }
 

@@ -18,14 +18,14 @@ Decode a CCN into its component parts.
 \examples{
 ccn("670055") # Medicare Provider
 ccn("05P001") # Medicare OPO
+ccn("12345E") # Emergency Hospital
+ccn("01L008") # Medicaid Only Provider
 
 ccn("210101")
 ccn("21T101")
 ccn("21S101")
 ccn("21U101")
 
-ccn("01L008") # Medicaid Only Provider
-ccn("12345E") # Emergency Hospital
 ccn("10C0001062") # Supplier ASC
 ccn("45D0634589") # Supplier CLIA
 ccn("21X0009807") # Supplier Portable X-Ray

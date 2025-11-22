@@ -1,15 +1,4 @@
 #' @noRd
-Type <- S7::new_class(
-  name       = "Type",
-  abstract   = TRUE,
-  properties = list(
-    code     = S7::class_character,
-    abbr     = S7::class_character,
-    desc     = S7::class_character
-  )
-)
-
-#' @noRd
 SupplierType <- S7::new_class(
   name = "SupplierType",
   parent = Type,

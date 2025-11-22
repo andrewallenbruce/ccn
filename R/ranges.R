@@ -1,6 +1,3 @@
-#' @include utils.R
-NULL
-
 #' Facility Ranges
 #'
 #' @description
@@ -10,28 +7,53 @@ NULL
 #' @name ranges
 #' @returns character vector of names associated with codes.
 #' @examples
-#' range_medicare(c("0055", "5232", "9999")) |>
-#'  print() |>
-#'  range_medicare_abbr() |>
-#'  print() |>
-#'  range_medicare_desc()
+#' range_medicare(c("0055", "5232", "9999"))
+#' range_medicare_abbr("3500-3699")
+#' range_medicare_desc("3500-3699")
 #'
-#' range_medicaid_only(c("055", "232", "599")) |>
-#'  print() |>
-#'  range_medicaid_only_abbr() |>
-#'  print() |>
-#'  range_medicaid_only_desc()
+#' range_medicaid_only(c("055", "232", "599"))
+#' # range_medicaid_abbr("100-199")
+#' # range_medicaid_desc("100-199")
 #'
-#' range_supplier("9999999")
-#' range_emergency("50")
-#' range_opo("50")
+#' range_supplier(9000000L)
+#' range_emergency(500L)
+#' range_opo(50L)
 NULL
+
+#' @noRd
+Sequence <- S7::new_class(
+  name = "Sequence",
+  properties = list(
+    number = S7::new_property(
+      S7::class_character,
+      default = NA_character_
+    ),
+    range = S7::new_property(
+      S7::class_character,
+      default = NA_character_
+    ),
+    abbr = S7::new_property(
+      S7::class_character,
+      default = NA_character_
+    ),
+    desc = S7::new_property(
+      S7::class_character,
+      default = NA_character_
+    )
+  )
+)
 
 #' @rdname ranges
 #' @export
 range_opo <- function(x) {
   x <- if (!rlang::is_integerish(x)) as.integer(x) else x
   if (x >= 1L & x <= 99L) "001-099" else NA_character_
+}
+
+#' @rdname ranges
+#' @export
+sequence_opo <- function(x) {
+  Sequence(number = x, range = range_opo(x))
 }
 
 #' @rdname ranges
@@ -43,6 +65,12 @@ range_emergency <- function(x) {
 
 #' @rdname ranges
 #' @export
+sequence_emergency <- function(x) {
+  Sequence(number = x, range = range_emergency(x))
+}
+
+#' @rdname ranges
+#' @export
 range_supplier <- function(x) {
   x <- if (!rlang::is_integerish(x)) as.integer(x) else x
   if (x >= 1L & x <= 9999999L) "0000001-9999999" else NA_character_
@@ -50,11 +78,9 @@ range_supplier <- function(x) {
 
 #' @rdname ranges
 #' @export
-range_medicaid_only_abbr <- make_switch(MEDICAID$ABBR)
-
-#' @rdname ranges
-#' @export
-range_medicaid_only_desc <- make_switch(MEDICAID$NAME)
+sequence_supplier <- function(x) {
+  Sequence(number = x, range = range_supplier(x))
+}
 
 #' @rdname ranges
 #' @export
@@ -74,11 +100,47 @@ range_medicaid_only <- function(x) {
 
 #' @rdname ranges
 #' @export
-range_medicare_abbr <- make_switch(MEDICARE$ABBR)
+range_medicaid_abbr <- function(x) {
+  cheapr::val_match(
+    x,
+    "001-099" ~ "ACUTE",
+    "100-199" ~ "CHILD",
+    "200-299" ~ "CPH",
+    "300-399" ~ "PSYCH",
+    "400-499" ~ "REHAB",
+    "500-599" ~ "LTCH",
+    "600-999" ~ "RESERVED",
+    .default = NA_character_
+  )
+}
 
 #' @rdname ranges
 #' @export
-range_medicare_desc <- make_switch(MEDICARE$NAME)
+range_medicaid_desc <- function(x) {
+  cheapr::val_match(
+    x,
+    "001-099" ~ "Medicaid-Only Short-Term Acute Care Hospital",
+    "100-199" ~ "Medicaid-Only Children's Hospital",
+    "200-299" ~ "Medicaid-Only Children's Psychiatric Hospital",
+    "300-399" ~ "Medicaid-Only Psychiatric Hospital",
+    "400-499" ~ "Medicaid-Only Rehabilitation Hospital",
+    "500-599" ~ "Medicaid-Only Long-Term Hospital",
+    "600-999" ~ "Reserved for Future Use",
+    .default = NA_character_
+  )
+}
+
+#' @noRd
+sequence_medicaid_only <- function(x) {
+  rng <- range_medicaid_only(x)
+
+  Sequence(
+    number = x,
+    range = rng,
+    abbr = range_medicaid_abbr(rng),
+    desc = range_medicaid_desc(rng)
+  )
+}
 
 #' @rdname ranges
 #' @export
@@ -125,5 +187,92 @@ range_medicare <- function(x) {
     x >= 9800L & x <= 9899L ~ "9800-9899",
     x >= 9900L & x <= 9999L ~ "9900-9999",
     .default = NA_character_
+  )
+}
+
+#' @rdname ranges
+#' @export
+range_medicare_abbr <- function(x) {
+  cheapr::case(
+    x == "0001-0879"                                 ~ "ACUTE",
+    x == "0880-0899"                                 ~ "ORD",
+    x == "0900-0999"                                 ~ "MHCMC (RET)",
+    x == "1200-1224"                                 ~ "ADH (RET)",
+    x == "1225-1299"                                 ~ "MAF",
+    x == "1300-1399"                                 ~ "CAH",
+    x == "1500-1799"                                 ~ "HOSPICE",
+    x == "1990-1999"                                 ~ "RNHCI",
+    x == "2000-2299"                                 ~ "LTCH",
+    x == "2300-2499"                                 ~ "RDF-H",
+    x == "2500-2899"                                 ~ "RDF-I",
+    x == "2900-2999"                                 ~ "RDF-I (SP)",
+    x == "3000-3024"                                 ~ "TUBER (RET)",
+    x == "3025-3099"                                 ~ "REHAB",
+    x == "3300-3399"                                 ~ "CHILD",
+    x == "3500-3699"                                 ~ "RDF-H (SAT)",
+    x == "3700-3799"                                 ~ "RDF-H (SP)",
+    x == "4000-4499"                                 ~ "PSYCH",
+    x == "5000-6499"                                 ~ "SNF",
+    x == "6500-6989"                                 ~ "OPT",
+    x == "6990-6999"                                 ~ "RESERVED",
+    x == "9800-9899"                                 ~ "TRANSPLANT",
+    x == "9900-9999"                                 ~ "OPIOID (FREE)",
+    x %in_% c("1000-1199", "1800-1989")              ~ "FQHC",
+    x %in_% c("3800-3974", "8900-8999")              ~ "RHC (FREE)",
+    x %in_% c("3400-3499", "3975-3999", "8500-8899") ~ "RHC (PROV)",
+    x %in_% c("1400-1499", "4600-4799", "4900-4999") ~ "CMHC",
+    x %in_% c("3100-3199", "7000-8499", "9000-9799") ~ "HHA",
+    x %in_% c("3200-3299", "4500-4599", "4800-4899") ~ "CORF",
+    .default = NA_character_
+  )
+}
+
+#' @rdname ranges
+#' @export
+range_medicare_desc <- function(x) {
+  cheapr::case(
+    x == "0001-0879"                                 ~ "Short-Term Hospital (General & Specialty)",
+    x == "0880-0899"                                 ~ "Hospital Participating in ORD Demonstration Project",
+    x == "0900-0999"                                 ~ "Multiple Hospital Component in a Medical Complex (Retired)",
+    x == "1200-1224"                                 ~ "Alcohol-Drug Hospital (Retired)",
+    x == "1225-1299"                                 ~ "Medical Assistance Facility",
+    x == "1300-1399"                                 ~ "Critical Access Hospital",
+    x == "1500-1799"                                 ~ "Hospice",
+    x == "1990-1999"                                 ~ "Religious Non-medical Health Care Institution",
+    x == "2000-2299"                                 ~ "Long-Term Care Hospital (Excluded from IPPS)",
+    x == "2300-2499"                                 ~ "Hospital-based Renal Dialysis Facility",
+    x == "2500-2899"                                 ~ "Independent Renal Dialysis Facility",
+    x == "2900-2999"                                 ~ "Independent Special Purpose Renal Dialysis Facility",
+    x == "3000-3024"                                 ~ "Tuberculosis Hospital (Retired)",
+    x == "3025-3099"                                 ~ "Rehabilitation Hospital (Excluded from IPPS)",
+    x == "3300-3399"                                 ~ "Children's Hospital (Excluded from IPPS)",
+    x == "3500-3699"                                 ~ "Hospital-based Satellite Renal Dialysis Facility",
+    x == "3700-3799"                                 ~ "Hospital-based Special Purpose Renal Dialysis Facility",
+    x == "4000-4499"                                 ~ "Psychiatric Hospital (Excluded from IPPS)",
+    x == "5000-6499"                                 ~ "Skilled Nursing Facility",
+    x == "6500-6989"                                 ~ "Outpatient Physical Therapy Services",
+    x == "6990-6999"                                 ~ "Number Reserved",
+    x == "9800-9899"                                 ~ "Transplant Center",
+    x == "9900-9999"                                 ~ "Freestanding Opioid Treatment Program",
+    x %in_% c("1000-1199", "1800-1989")              ~ "Federally Qualified Health Center",
+    x %in_% c("3800-3974", "8900-8999")              ~ "Rural Health Clinic (Free-standing)",
+    x %in_% c("3400-3499", "3975-3999", "8500-8899") ~ "Rural Health Clinic (Provider-based)",
+    x %in_% c("1400-1499", "4600-4799", "4900-4999") ~ "Community Mental Health Center",
+    x %in_% c("3100-3199", "7000-8499", "9000-9799") ~ "Home Health Agency",
+    x %in_% c("3200-3299", "4500-4599", "4800-4899") ~ "Comprehensive Outpatient Rehabilitation Facility",
+    .default = NA_character_
+  )
+}
+
+#' @rdname ranges
+#' @export
+sequence_medicare <- function(x) {
+  rng <- range_medicare(x)
+
+  Sequence(
+    number = x,
+    range = rng,
+    abbr = range_medicare_abbr(rng),
+    desc = range_medicare_desc(rng)
   )
 }
