@@ -40,7 +40,7 @@ ipps_excluded_unit_prefix(x[is_type_ipps_excluded_unit(x)])
 
 x <- c("02TA01", "04SD38", "52TA05")
 get_unit_sequence(x)
-#> [1] "203020013805"
+#> [1] "2001" "3038" "2005"
 get_parent_ccn(x)
-#> [1] "020452203020013805"
+#> [1] "022001" "043038" "522005"
 ```

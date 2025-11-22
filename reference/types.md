@@ -91,11 +91,14 @@ type_emergency("E")
 x[is_type_opo(x)]
 #> [1] "P"
 opo_abbr(x[is_type_opo(x)])
-#> Error: 'if_else_' is not an exported object from 'namespace:cheapr'
+#> [1] "OPO"
 opo_desc(x[is_type_opo(x)])
-#> Error: 'if_else_' is not an exported object from 'namespace:cheapr'
+#> [1] "Organ Procurement Organization"
 type_opo(x[is_type_opo(x)])
-#> Error: 'if_else_' is not an exported object from 'namespace:cheapr'
+#> <ccn::Type>
+#>  @ code: chr "P"
+#>  @ abbr: chr "OPO"
+#>  @ desc: chr "Organ Procurement Organization"
 
 x[is_type_medicaid_only(x)]
 #> [1] "A" "B" "E" "F" "G" "H" "J" "K" "L"

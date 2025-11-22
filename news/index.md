@@ -1,5 +1,9 @@
 # Changelog
 
+## ccn 0.0.0.9028 (2025-11-22)
+
+- reorganization/refactoring
+
 ## ccn 0.0.0.9027 (2025-11-22)
 
 - refactored to uncouple S7 classes

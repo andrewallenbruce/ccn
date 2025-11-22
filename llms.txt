@@ -32,13 +32,14 @@ occasionally assist with some of these duties.
 
 ## All functions
 
-- [`ccn-package`](https://andrewallenbruce.github.io/ccn/reference/ccn-package.md)
+- [`ccn`](https://andrewallenbruce.github.io/ccn/reference/ccn-package.md)
+  [`ccn-package`](https://andrewallenbruce.github.io/ccn/reference/ccn-package.md)
   : ccn: Parse CMS Certification Numbers
-- [`ccn()`](https://andrewallenbruce.github.io/ccn/reference/ccn.md) :
-  Decode a CCN
 - [`as_list()`](https://andrewallenbruce.github.io/ccn/reference/data_frame.md)
   [`as_data_frame()`](https://andrewallenbruce.github.io/ccn/reference/data_frame.md)
   : Convert to list/data.frame
+- [`decode()`](https://andrewallenbruce.github.io/ccn/reference/decode.md)
+  : Decode a CCN
 - [`is_type_ipps_excluded_unit()`](https://andrewallenbruce.github.io/ccn/reference/parent.md)
   [`ipps_excluded_unit_abbr()`](https://andrewallenbruce.github.io/ccn/reference/parent.md)
   [`ipps_excluded_unit_prefix()`](https://andrewallenbruce.github.io/ccn/reference/parent.md)
@@ -46,19 +47,21 @@ occasionally assist with some of these duties.
   [`get_parent_ccn()`](https://andrewallenbruce.github.io/ccn/reference/parent.md)
   : IPPS Excluded Unit Codes
 - [`range_opo()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
-  [`sequence_opo()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
   [`range_emergency()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
-  [`sequence_emergency()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
   [`range_supplier()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
-  [`sequence_supplier()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
   [`range_medicaid_only()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
   [`range_medicaid_abbr()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
   [`range_medicaid_desc()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
   [`range_medicare()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
   [`range_medicare_abbr()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
   [`range_medicare_desc()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
-  [`sequence_medicare()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
   : Facility Ranges
+- [`sequence_medicare()`](https://andrewallenbruce.github.io/ccn/reference/sequence.md)
+  [`sequence_medicaid_only()`](https://andrewallenbruce.github.io/ccn/reference/sequence.md)
+  [`sequence_supplier()`](https://andrewallenbruce.github.io/ccn/reference/sequence.md)
+  [`sequence_emergency()`](https://andrewallenbruce.github.io/ccn/reference/sequence.md)
+  [`sequence_opo()`](https://andrewallenbruce.github.io/ccn/reference/sequence.md)
+  : Sequence Class and Constructors
 - [`is_state_code()`](https://andrewallenbruce.github.io/ccn/reference/states.md)
   [`state_code()`](https://andrewallenbruce.github.io/ccn/reference/states.md)
   [`state_abbr()`](https://andrewallenbruce.github.io/ccn/reference/states.md)
