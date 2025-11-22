@@ -49,5 +49,6 @@ Collate:
     'lookups.R'
     'parent.R'
     'predicates.R'
+    'props.R'
     'ranges.R'
     'zzz.R'

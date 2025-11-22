@@ -14,8 +14,9 @@ CCN <- S7::new_class(
   name = "CCN",
   parent = Unknown,
   properties = list(
-    sequence = S7::class_character | Sequence,
-    state = State
+    sequence = Sequence,
+    state = State,
+    extension = NULL | S7::class_character
   )
 )
 
@@ -23,24 +24,19 @@ CCN <- S7::new_class(
 Supplier <- S7::new_class(
   name = "Supplier",
   parent = CCN,
-  properties = list(
-    type = SupplierType,
-    sequence = SupplierSequence
-  )
-)
+  properties = list(type = SupplierType, sequence = SupplierSequence))
 
 #' @noRd
-Provider <- S7::new_class(
-  name = "Provider",
-  parent = CCN,
-  properties = list(extension = NULL | S7::class_character)
-)
+Provider <- S7::new_class("Provider", CCN)
 
 #' @noRd
 EmergencyHospital <- S7::new_class(
   name = "EmergencyHospital",
   parent = Provider,
-  properties = list(type = EmergencyType, sequence = EmergencySequence)
+  properties = list(
+    type = EmergencyType,
+    sequence = EmergencySequence
+  )
 )
 
 #' @noRd

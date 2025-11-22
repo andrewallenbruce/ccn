@@ -2,9 +2,9 @@
 % Please edit documentation in R/ranges.R
 \name{ranges}
 \alias{ranges}
-\alias{range_medicare_opo}
+\alias{range_opo}
 \alias{range_emergency}
-\alias{range_medicare_supplier}
+\alias{range_supplier}
 \alias{range_medicaid_only_abbr}
 \alias{range_medicaid_only_desc}
 \alias{range_medicaid_only}
@@ -13,11 +13,11 @@
 \alias{range_medicare}
 \title{Facility Ranges}
 \usage{
-range_medicare_opo(x)
+range_opo(x)
 
 range_emergency(x)
 
-range_medicare_supplier(x)
+range_supplier(x)
 
 range_medicaid_only_abbr(x)
 
@@ -53,7 +53,7 @@ range_medicaid_only(c("055", "232", "599")) |>
  print() |>
  range_medicaid_only_desc()
 
-range_medicare_supplier("9999999")
+range_supplier("9999999")
 range_emergency("50")
-range_medicare_opo("50")
+range_opo("50")
 }

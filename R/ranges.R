@@ -22,30 +22,30 @@ NULL
 #'  print() |>
 #'  range_medicaid_only_desc()
 #'
-#' range_medicare_supplier("9999999")
+#' range_supplier("9999999")
 #' range_emergency("50")
-#' range_medicare_opo("50")
+#' range_opo("50")
 NULL
 
 #' @rdname ranges
 #' @export
-range_medicare_opo <- function(x) {
-  x <- as.integer(x)
+range_opo <- function(x) {
+  x <- if (!rlang::is_integerish(x)) as.integer(x) else x
   if (x >= 1L & x <= 99L) "001-099" else NA_character_
 }
 
 #' @rdname ranges
 #' @export
 range_emergency <- function(x) {
-  x <- as.integer(x)
+  x <- if (!rlang::is_integerish(x)) as.integer(x) else x
   if (x >= 1L & x <= 999L) "001-999" else NA_character_
 }
 
 #' @rdname ranges
 #' @export
-range_medicare_supplier <- function(x) {
-  x <- as.integer(x)
-  if (x >= 1L & x <= 9999999L) "000001-9999999" else NA_character_
+range_supplier <- function(x) {
+  x <- if (!rlang::is_integerish(x)) as.integer(x) else x
+  if (x >= 1L & x <= 9999999L) "0000001-9999999" else NA_character_
 }
 
 #' @rdname ranges
@@ -59,7 +59,7 @@ range_medicaid_only_desc <- make_switch(MEDICAID$NAME)
 #' @rdname ranges
 #' @export
 range_medicaid_only <- function(x) {
-  x <- as.integer(x)
+  x <- if (!rlang::is_integerish(x)) as.integer(x) else x
   cheapr::case(
     x >= 1L   & x <= 99L  ~ "001-099",
     x >= 100L & x <= 199L ~ "100-199",
@@ -83,7 +83,7 @@ range_medicare_desc <- make_switch(MEDICARE$NAME)
 #' @rdname ranges
 #' @export
 range_medicare <- function(x) {
-  x <- as.integer(x)
+  x <- if (!rlang::is_integerish(x)) as.integer(x) else x
   cheapr::case(
     x >= 1L    & x <= 879L  ~ "0001-0879",
     x >= 880L  & x <= 899L  ~ "0880-0899",
