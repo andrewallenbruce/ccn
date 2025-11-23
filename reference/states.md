@@ -39,14 +39,14 @@ state_code(c("A5XXX", "14XXXXX"))
 
 
 (x <- sample(ccn:::state_codes, 5L))
-#> [1] "72" "04" "23" "82" "80"
+#> [1] "23" "82" "80" "01" "65"
 
 is_state_code(x)
 #> [1] TRUE TRUE TRUE TRUE TRUE
 
 (x <- state_abbr(x))
-#> [1] "OH" "AR" "MI" "MA" "MD"
+#> [1] "MI" "MA" "MD" "AL" "GU"
 
 state_name(x)
-#> [1] "Ohio"      "Arkansas"  "Minnesota" "Maine"     "Maryland" 
+#> [1] "Minnesota" "Maine"     "Maryland"  "Alabama"   "Guam"     
 ```

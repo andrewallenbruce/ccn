@@ -9,13 +9,21 @@
   [`as_data_frame()`](https://andrewallenbruce.github.io/ccn/reference/data_frame.md)
   : Convert to list/data.frame
 - [`decode()`](https://andrewallenbruce.github.io/ccn/reference/decode.md)
-  : Decode a CCN
+  : Decode CMS Certification Numbers (CCNs)
 - [`is_type_ipps_excluded_unit()`](https://andrewallenbruce.github.io/ccn/reference/parent.md)
   [`ipps_excluded_unit_abbr()`](https://andrewallenbruce.github.io/ccn/reference/parent.md)
   [`ipps_excluded_unit_prefix()`](https://andrewallenbruce.github.io/ccn/reference/parent.md)
   [`get_unit_sequence()`](https://andrewallenbruce.github.io/ccn/reference/parent.md)
   [`get_parent_ccn()`](https://andrewallenbruce.github.io/ccn/reference/parent.md)
   : IPPS Excluded Unit Codes
+- [`parse_excluded()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
+  [`parse_medicaid_only()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
+  [`parse_opo()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
+  [`parse_medicare()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
+  [`parse_emergency()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
+  [`parse_supplier()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
+  [`parse_excluded_unit()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
+  : Parse CMS Certification Numbers
 - [`range_opo()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
   [`range_emergency()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)
   [`range_supplier()`](https://andrewallenbruce.github.io/ccn/reference/ranges.md)

@@ -1,5 +1,10 @@
 # Changelog
 
+## ccn 0.0.0.9029 (2025-11-22)
+
+- added initial base parsing methods
+  ([\#3](https://github.com/andrewallenbruce/ccn/issues/3))
+
 ## ccn 0.0.0.9028 (2025-11-22)
 
 - reorganization/refactoring
@@ -45,7 +50,9 @@
 - standard `is_*` prefix added to logical predicates
 - `OPOSequence` -\> `OpoSequence` & `OPOType` -\> `OpoType`, standard
   CamelCase convention for class names
-- initial base [`parse()`](https://rdrr.io/r/base/parse.html) sketch
+- initial base
+  [`parse()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
+  sketch
 
 ## ccn 0.0.0.9019 (2025-11-19)
 

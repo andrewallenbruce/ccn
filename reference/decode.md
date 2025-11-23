@@ -1,4 +1,4 @@
-# Decode a CCN
+# Decode CMS Certification Numbers (CCNs)
 
 Decode a CCN into its component parts.
 
