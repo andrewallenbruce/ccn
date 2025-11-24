@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9030 (2025-11-23)
+
+* added state code dataset
+
+
 # ccn 0.0.0.9029 (2025-11-22)
 
 * added initial base parsing methods (#3)
