@@ -1,5 +1,5 @@
 #' @noRd
-ccn_ext <- c(
+example_ccn_extension <- c(
   "24T019A",
   "30S020A",
   "31S032A",
@@ -52,7 +52,7 @@ ccn_ext <- c(
 )
 
 #' @noRd
-ccn_exc_unit <- c(
+example_ccn_excluded_unit <- c(
   "02TA01",
   "04SD38",
   "05TA46",
