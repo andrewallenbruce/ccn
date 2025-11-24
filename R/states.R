@@ -11,9 +11,11 @@
 #' state_code(c("A5XXX", "14XXXXX"))
 #'
 #'
-#' (x <- sample(ccn:::state_codes, 5L))
+#' (x <- sample(ccn::ccn_state_codes$state_code, 5L))
 #'
 #' is_state_code(x)
+#'
+#' state_code_to_abbr(x)
 #'
 #' (x <- state_abbr(x))
 #'
@@ -23,13 +25,33 @@ NULL
 #' @rdname states
 #' @export
 is_state_code <- function(x) {
-  x %in_% state_codes
+  x %in_% ccn::ccn_state_codes$state_code
 }
 
 #' @rdname states
 #' @export
 state_code <- function(x) {
   substr_(x, c(1L, 2L))
+}
+
+#' @rdname states
+#' @export
+state_code_to_abbr <- function(x) {
+  vctrs::vec_recode_values(
+    x,
+    from    = ccn::ccn_state_codes$state_code,
+    to      = ccn::ccn_state_codes$state_abbr,
+    default = NA_character_)
+}
+
+#' @rdname states
+#' @export
+state_abbr_to_name <- function(x) {
+  vctrs::vec_recode_values(
+    x,
+    from    = ccn::ccn_state_codes$state_abbr,
+    to      = ccn::ccn_state_codes$state_name,
+    default = NA_character_)
 }
 
 #' @rdname states
@@ -175,12 +197,12 @@ State <- S7::new_class(
     abbr = S7::new_property(
       S7::class_character,
       getter = function(self)
-        state_abbr(self@code)
+        state_code_to_abbr(self@code)
     ),
     name = S7::new_property(
       S7::class_character,
       getter = function(self)
-        state_name(self@abbr)
+        state_abbr_to_name(self@abbr)
     )
   )
 )

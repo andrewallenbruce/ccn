@@ -4,6 +4,8 @@
 \alias{states}
 \alias{is_state_code}
 \alias{state_code}
+\alias{state_code_to_abbr}
+\alias{state_abbr_to_name}
 \alias{state_abbr}
 \alias{state_name}
 \alias{state}
@@ -12,6 +14,10 @@
 is_state_code(x)
 
 state_code(x)
+
+state_code_to_abbr(x)
+
+state_abbr_to_name(x)
 
 state_abbr(x)
 
@@ -33,9 +39,11 @@ state("A5XXX")
 state_code(c("A5XXX", "14XXXXX"))
 
 
-(x <- sample(ccn:::state_codes, 5L))
+(x <- sample(ccn::ccn_state_codes$state_code, 5L))
 
 is_state_code(x)
+
+state_code_to_abbr(x)
 
 (x <- state_abbr(x))
 

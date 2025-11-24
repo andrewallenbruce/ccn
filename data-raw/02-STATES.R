@@ -1,6 +1,3 @@
-#' @include utils.R
-NULL
-
 STATE = list(
   CODE = list(
     "AZ"   = c("00", "03"),
@@ -81,3 +78,12 @@ STATE = list(
     )
   )
 )
+
+tibble::tibble(
+  state_code = unlist(STATE$CODE),
+  state_abbr = rep(names(STATE$CODE), times = vapply(STATE$CODE, length, integer(1))),
+  state_name = names(STATE$NAME)[match(state_abbr, unlist(STATE$NAME))]
+) |>
+  dplyr::arrange(state_code) |>
+  constructive::construct()
+
