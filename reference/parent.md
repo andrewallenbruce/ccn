@@ -33,14 +33,13 @@ x <- LETTERS
 x[is_type_ipps_excluded_unit(x)]
 #>  [1] "A" "B" "C" "D" "E" "F" "G" "H" "J" "K"
 ipps_excluded_unit_abbr(x[is_type_ipps_excluded_unit(x)])
-#>  [1] "LTCH"  "LTCH"  "LTCH"  "REHAB" "CHILD" "PSYCH" "PSYCH" "PSYCH" "PSYCH"
-#> [10] "PSYCH"
+#> Error: 'vec_recode_values' is not an exported object from 'namespace:vctrs'
 ipps_excluded_unit_prefix(x[is_type_ipps_excluded_unit(x)])
-#>  [1] "20" "21" "22" "30" "33" "40" "41" "42" "43" "44"
+#> Error: 'vec_recode_values' is not an exported object from 'namespace:vctrs'
 
 x <- c("02TA01", "04SD38", "52TA05")
 get_unit_sequence(x)
-#> [1] "2001" "3038" "2005"
+#> Error: 'vec_recode_values' is not an exported object from 'namespace:vctrs'
 get_parent_ccn(x)
-#> [1] "022001" "043038" "522005"
+#> Error: 'vec_recode_values' is not an exported object from 'namespace:vctrs'
 ```

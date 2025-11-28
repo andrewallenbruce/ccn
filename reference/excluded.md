@@ -1,0 +1,43 @@
+# IPPS Excluded Types
+
+Convert various codes to their associated names.
+
+## Usage
+
+``` r
+is_type_excluded(x)
+
+excluded_abbr(x)
+
+excluded_desc(x)
+
+excluded_type(x)
+```
+
+## Arguments
+
+- x:
+
+  character vector of codes to look up.
+
+## Value
+
+character vector of names associated with codes.
+
+## Examples
+
+``` r
+x <- c("M", "R", "S", "T", "U", "W", "Y", "Z")
+is_type_excluded(x)
+#> [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+excluded_abbr(x)
+#> [1] "PSYCH (CAH)" "REHAB (CAH)" "PSYCH"       "REHAB"       "SBA (ACUTE)"
+#> [6] "SBA (LTCH)"  "SBA (REHAB)" "SBA (CAH)"  
+excluded_desc(c("E", "F"))
+#> [1] NA NA
+excluded_type("E")
+#> <ccn::Type>
+#>  @ code: chr "E"
+#>  @ desc: chr NA
+#>  @ abbr: chr NA
+```
