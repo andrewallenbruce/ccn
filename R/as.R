@@ -1,9 +1,4 @@
 #' @noRd
-as_ccn <- function(x) {
-  CCN(number = clean(x), state = state(x))
-}
-
-#' @noRd
 ext_provider <- function(x) {
   x <- substr_(x, c(7L, nchar(x)))
   if (x == "") NA_character_ else x
@@ -16,87 +11,100 @@ ext_supplier <- function(x) {
 }
 
 #' @noRd
-medicare_provider <- function(x) {
+as_medicare <- function(x) {
   S7::convert(
     x,
-    MedicareProvider,
-    sequence = sequence_medicare(substr_(x@number, c(3L, 6L))),
-    extension = ext_provider(x@number)
+    Medicare,
+    ccn = substr_(x@ccn, c(1L, 6L)),
+    entity = "Medicare Provider",
+    sequence = medicare_sequence(substr_(x@ccn, c(3L, 6L))),
+    extension = ext_provider(x@ccn)
   )
 }
 
 #' @noRd
-medicare_opo <- function(x) {
+as_medicare_opo <- function(x) {
   S7::convert(
     x,
     MedicareOPO,
-    sequence = sequence_opo(substr_(x@number, c(4L, 6L))),
-    type = type_opo(substr_(x@number, 3L)),
-    extension = ext_provider(x@number)
+    ccn = substr_(x@ccn, c(1L, 6L)),
+    entity = "Medicare Provider",
+    sequence = opo_sequence(substr_(x@ccn, c(4L, 6L))),
+    type = opo_type(substr_(x@ccn, 3L)),
+    extension = ext_provider(x@ccn)
   )
 }
 
 #' @noRd
-emergency_hospital <- function(x) {
+as_emergency <- function(x) {
   S7::convert(
     x,
     EmergencyHospital,
-    sequence = sequence_emergency(substr_(x@number, c(3L, 5L))),
-    type = type_emergency(substr_(x@number, 6L)),
-    extension = ext_provider(x@number)
+    ccn = substr_(x@ccn, c(1L, 6L)),
+    entity = "Emergency Hospital",
+    sequence = emergency_sequence(substr_(x@ccn, c(3L, 5L))),
+    type = emergency_type(substr_(x@ccn, 6L)),
+    extension = ext_provider(x@ccn)
   )
 }
 
 #' @noRd
-medicaid_only <- function(x) {
+as_medicaid_only <- function(x) {
   S7::convert(
     x,
     MedicaidOnly,
-    sequence = sequence_medicaid_only(substr_(x@number, c(4L, 6L))),
-    type = type_medicaid_only(substr_(x@number, 3L)),
-    extension = ext_provider(x@number)
+    ccn = substr_(x@ccn, c(1L, 6L)),
+    entity = "Medicaid Only Provider",
+    sequence = medicaid_only_sequence(substr_(x@ccn, c(4L, 6L))),
+    type = medicaid_only_type(substr_(x@ccn, 3L)),
+    extension = ext_provider(x@ccn)
   )
 }
 
 #' @noRd
-ipps_excluded_provider <- function(x) {
+as_excluded_prov <- function(x) {
   S7::convert(
     x,
-    IppsExcludedProvider,
-    sequence = sequence_medicaid_only(substr_(x@number, c(4L, 6L))),
-    type = type_ipps_excluded(substr_(x@number, 3L)),
-    extension = ext_provider(x@number)
+    IppsExcluded,
+    ccn = substr_(x@ccn, c(1L, 6L)),
+    entity = "IPPS Excluded Provider",
+    sequence = medicaid_only_sequence(substr_(x@ccn, c(4L, 6L))),
+    type = excluded_type(substr_(x@ccn, 3L)),
+    extension = ext_provider(x@ccn)
   )
 }
 
 #' @noRd
-ipps_excluded_unit <- function(x) {
+as_excluded_unit <- function(x) {
   S7::convert(
     x,
     IppsExcludedUnit,
-    sequence = sequence_medicare(get_unit_sequence(x@number)),
-    type = type_ipps_excluded(substr_(x@number, 3L)),
-    parent = IppsExcludedParent(substr_(x@number, 4L), get_parent_ccn(x@number)),
-    extension = ext_provider(x@number)
+    ccn = substr_(x@ccn, c(1L, 6L)),
+    entity = "IPPS Excluded Unit",
+    sequence = medicare_sequence(get_unit_sequence(x@ccn)),
+    type = excluded_type(substr_(x@ccn, 3L)),
+    parent = IppsExcludedParent(substr_(x@ccn, 4L), get_parent_ccn(x@ccn)),
+    extension = ext_provider(x@ccn)
   )
 }
 
 #' @noRd
-ipps_excluded <- function(x) {
-  if (is_type_ipps_excluded_unit(substr_(x@number, 4L))) {
-    return(ipps_excluded_unit(x))
+as_excluded <- function(x) {
+  if (is_type_ipps_excluded_unit(substr_(x@ccn, 4L))) {
+    return(as_excluded_unit(x))
   }
-  ipps_excluded_provider(x)
+  as_excluded_prov(x)
 }
 
 #' @noRd
-medicare_supplier <- function(x) {
+as_supplier <- function(x) {
   S7::convert(
     x,
-    MedicareSupplier,
-    state = state(x@number),
-    sequence = sequence_supplier(substr_(x@number, c(4L, 10L))),
-    type = type_supplier(substr_(x@number, 3L)),
-    extension = ext_supplier(x@number)
+    Supplier,
+    ccn = substr_(x@ccn, c(1L, 10L)),
+    entity = "Medicare Supplier",
+    sequence = supplier_sequence(x@ccn),
+    type = supplier_type(x@ccn),
+    extension = ext_supplier(x@ccn)
   )
 }

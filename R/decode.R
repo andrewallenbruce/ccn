@@ -3,17 +3,7 @@ NULL
 
 #' @noRd
 is_provider <- function(x) {
-  collapse::vlengths(x) == 6L ||
-    collapse::vlengths(x) > 6L & collapse::vlengths(x) < 10L
-}
-
-#' @noRd
-is_supplier <- function(x) {
-  is_type_supplier(substr_(x, 3L)) &
-    (
-      collapse::vlengths(x) == 10L ||
-        collapse::vlengths(x) > 10L & collapse::vlengths(x) < 15L
-    )
+  nchar(x) == 6L || nchar(x) > 6L & nchar(x) < 10L
 }
 
 #' @noRd
@@ -23,9 +13,14 @@ provider_type <- function(x) {
     is_type_opo(substr_(x, 3L)) ~ "opo",
     is_type_emergency(substr_(x, 6L)) ~ "emergency",
     is_type_medicaid_only(substr_(x, 3L)) ~ "medicaid",
-    is_type_ipps_excluded(substr_(x, 3L)) ~ "excluded",
+    is_type_excluded(substr_(x, 3L)) ~ "excluded",
     .default = NA_character_
   )
+}
+
+#' @noRd
+as_ccn <- function(x) {
+  CCN(ccn = clean(x), state = state(x))
 }
 
 #' Decode CMS Certification Numbers (CCNs)
@@ -66,20 +61,20 @@ provider_type <- function(x) {
 decode <- function(x) {
   x <- as_ccn(x)
 
-  if (is_provider(x@number)) {
+  if (is_provider(x@ccn)) {
     return(switch(
-      provider_type(x@number),
-      medicare  = medicare_provider(x),
-      opo       = medicare_opo(x),
-      emergency = emergency_hospital(x),
-      medicaid  = medicaid_only(x),
-      excluded  = ipps_excluded(x),
+      provider_type(x@ccn),
+      medicare  = as_medicare(x),
+      opo       = as_medicare_opo(x),
+      emergency = as_emergency(x),
+      medicaid  = as_medicaid_only(x),
+      excluded  = as_excluded(x),
       x
     ))
   }
 
-  if (is_supplier(x@number)) {
-    return(medicare_supplier(x))
+  if (is_supplier(x@ccn)) {
+    return(as_supplier(x))
   }
   return(x)
 }

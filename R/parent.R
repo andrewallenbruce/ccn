@@ -20,36 +20,28 @@ NULL
 #' @rdname parent
 #' @export
 is_type_ipps_excluded_unit <- function(x) {
-  x %in_% c("A", "B", "C", "D", "E", "F", "G", "H", "J", "K")
+  vctrs::vec_in(x, c("A", "B", "C", "D", "E", "F", "G", "H", "J", "K"))
 }
 
 #' @rdname parent
 #' @export
 ipps_excluded_unit_abbr <- function(x) {
-  cheapr::case(
-    x == "D" ~ "REHAB",
-    x == "E" ~ "CHILD",
-    x %in_% c("A", "B", "C") ~ "LTCH",
-    x %in_% c("F", "G", "H", "J", "K") ~ "PSYCH",
-    .default = NA_character_
+  vctrs::vec_recode_values(
+    x,
+    from = c("A", "B", "C", "D", "E", "F", "G", "H", "J", "K"),
+    to = c(rep.int("LTCH", 3), "REHAB", "CHILD", rep.int("PSYCH", 5)),
+    default = NA_character_
   )
 }
+
 #' @rdname parent
 #' @export
 ipps_excluded_unit_prefix <- function(x) {
-  cheapr::val_match(
+  vctrs::vec_recode_values(
     x,
-    "A" ~ "20",
-    "B" ~ "21",
-    "C" ~ "22",
-    "D" ~ "30",
-    "E" ~ "33",
-    "F" ~ "40",
-    "G" ~ "41",
-    "H" ~ "42",
-    "J" ~ "43",
-    "K" ~ "44",
-    .default = NA_character_
+    from = c("A", "B", "C", "D", "E", "F", "G", "H", "J", "K"),
+    to = c(20:22, "30", "33", 40:44),
+    default = NA_character_
   )
 }
 

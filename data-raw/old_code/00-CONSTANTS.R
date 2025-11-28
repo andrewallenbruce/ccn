@@ -45,3 +45,22 @@ EXCLUDED = list(CODE = list("PSYCH (CAH)" = "M",
                   "J" = c("PSYCH", "43"),
                   "K" = c("PSYCH", "44")))
 
+supplier_abbr <- function(x) {
+  cheapr::val_match(
+    x,
+    "C" ~ "ASC",
+    "D" ~ "CLIA",
+    "X" ~ "XRAY",
+    .default = NA_character_
+  )
+}
+
+supplier_desc <- function(x) {
+  cheapr::val_match(
+    x,
+    "C" ~ "Ambulatory Surgical Center",
+    "D" ~ "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory",
+    "X" ~ "Portable X-Ray Facility",
+    .default = NA_character_
+  )
+}

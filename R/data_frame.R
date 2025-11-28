@@ -1,3 +1,6 @@
+#' @include supplier.R
+NULL
+
 #' Convert to list/data.frame
 #'
 #' @param x ccn object
@@ -6,7 +9,7 @@
 #'
 #' @returns list or data.frame
 #'
-#' @examples
+#' @examplesIf interactive()
 #' as_list(decode("670055"))
 #' as_list(decode("05P001"))
 #'
@@ -23,10 +26,10 @@ NULL
 #' @export
 as_list <- S7::new_generic("as_list", "x")
 
-S7::method(as_list, MedicareProvider) <- function(x) {
+S7::method(as_list, Medicare) <- function(x) {
   rlang::list2(
     category      = "Medicare Provider",
-    number        = prop_number(x),
+    number        = prop_ccn(x),
     !!!props_sequence(x),
     !!!props_state(x),
     !!!props_type(x),
@@ -39,7 +42,7 @@ S7::method(as_list, MedicareProvider) <- function(x) {
 S7::method(as_list, MedicareOPO) <- function(x) {
   rlang::list2(
     category      = "Medicare Provider",
-    number        = prop_number(x),
+    number        = prop_ccn(x),
     !!!props_sequence(x),
     !!!props_state(x),
     !!!props_type(x),
@@ -49,10 +52,10 @@ S7::method(as_list, MedicareOPO) <- function(x) {
   )
 }
 
-S7::method(as_list, MedicareSupplier) <- function(x) {
+S7::method(as_list, Supplier) <- function(x) {
   rlang::list2(
     category      = "Medicare Supplier",
-    number        = prop_number(x),
+    number        = prop_ccn(x),
     !!!props_sequence(x),
     !!!props_state(x),
     !!!props_type(x),
@@ -65,7 +68,7 @@ S7::method(as_list, MedicareSupplier) <- function(x) {
 S7::method(as_list, EmergencyHospital) <- function(x) {
   rlang::list2(
     category      = "Emergency Hospital",
-    number        = prop_number(x),
+    number        = prop_ccn(x),
     !!!props_sequence(x),
     !!!props_state(x),
     !!!props_type(x),
@@ -78,7 +81,7 @@ S7::method(as_list, EmergencyHospital) <- function(x) {
 S7::method(as_list, MedicaidOnly) <- function(x) {
   rlang::list2(
     category      = "Medicaid-Only Provider",
-    number        = prop_number(x),
+    number        = prop_ccn(x),
     !!!props_sequence(x),
     !!!props_state(x),
     !!!props_type(x),
@@ -88,10 +91,10 @@ S7::method(as_list, MedicaidOnly) <- function(x) {
   )
 }
 
-S7::method(as_list, IppsExcludedProvider) <- function(x) {
+S7::method(as_list, IppsExcluded) <- function(x) {
   rlang::list2(
     category      = "IPPS-Excluded Provider",
-    number        = prop_number(x),
+    number        = prop_ccn(x),
     !!!props_sequence(x),
     !!!props_state(x),
     !!!props_type(x),
@@ -104,7 +107,7 @@ S7::method(as_list, IppsExcludedProvider) <- function(x) {
 S7::method(as_list, IppsExcludedUnit) <- function(x) {
   rlang::list2(
     category  = "IPPS-Excluded Unit",
-    number    = prop_number(x),
+    number    = prop_ccn(x),
     !!!props_sequence(x),
     !!!props_state(x),
     !!!props_type(x),

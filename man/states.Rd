@@ -2,28 +2,22 @@
 % Please edit documentation in R/states.R
 \name{states}
 \alias{states}
-\alias{is_state_code}
-\alias{state_code}
-\alias{state_code_to_abbr}
-\alias{state_abbr_to_name}
+\alias{is_state}
+\alias{extract_state}
+\alias{state}
 \alias{state_abbr}
 \alias{state_name}
-\alias{state}
 \title{State Codes}
 \usage{
-is_state_code(x)
+is_state(x)
 
-state_code(x)
+extract_state(x)
 
-state_code_to_abbr(x)
-
-state_abbr_to_name(x)
+state(x)
 
 state_abbr(x)
 
 state_name(x)
-
-state(x)
 }
 \arguments{
 \item{x}{character vector of state codes to look up.}
@@ -35,17 +29,11 @@ character vector of names associated with codes.
 Convert state codes to their abbreviations or full names.
 }
 \examples{
-state("A5XXX")
-state_code(c("A5XXX", "14XXXXX"))
-
-
-(x <- sample(ccn::ccn_state_codes$state_code, 5L))
-
-is_state_code(x)
-
-state_code_to_abbr(x)
-
-(x <- state_abbr(x))
-
+(x <- sample(ccn::state_codes$code, 5L))
+is_state(x)
+state_abbr(x)
 state_name(x)
+
+extract_state(c("A5XXX", "14XXXXX"))
+state("A5XXX")
 }
