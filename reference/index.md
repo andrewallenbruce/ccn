@@ -2,17 +2,16 @@
 
 ## All functions
 
+- [`as_data_frame()`](https://andrewallenbruce.github.io/ccn/reference/as_data_frame.md)
+  : Convert to a data.frame
 - [`ccn`](https://andrewallenbruce.github.io/ccn/reference/ccn-package.md)
   [`ccn-package`](https://andrewallenbruce.github.io/ccn/reference/ccn-package.md)
   : ccn: Parse CMS Certification Numbers
-- [`as_list()`](https://andrewallenbruce.github.io/ccn/reference/data_frame.md)
-  [`as_data_frame()`](https://andrewallenbruce.github.io/ccn/reference/data_frame.md)
-  : Convert to list/data.frame
 - [`decode()`](https://andrewallenbruce.github.io/ccn/reference/decode.md)
   : Decode CMS Certification Numbers (CCNs)
-- [`is_type_emergency()`](https://andrewallenbruce.github.io/ccn/reference/emergency.md)
-  [`emergency_abbr()`](https://andrewallenbruce.github.io/ccn/reference/emergency.md)
-  [`emergency_desc()`](https://andrewallenbruce.github.io/ccn/reference/emergency.md)
+- [`is_emergency_type()`](https://andrewallenbruce.github.io/ccn/reference/emergency.md)
+  [`emergency_type_abbr()`](https://andrewallenbruce.github.io/ccn/reference/emergency.md)
+  [`emergency_type_desc()`](https://andrewallenbruce.github.io/ccn/reference/emergency.md)
   [`emergency_type()`](https://andrewallenbruce.github.io/ccn/reference/emergency.md)
   [`emergency_sequence()`](https://andrewallenbruce.github.io/ccn/reference/emergency.md)
   : Emergency Hospital
@@ -22,6 +21,7 @@
   [`excluded_type()`](https://andrewallenbruce.github.io/ccn/reference/excluded.md)
   : IPPS Excluded Types
 - [`medicaid_only_range()`](https://andrewallenbruce.github.io/ccn/reference/medicaid.md)
+  [`medicaid_only_range_j()`](https://andrewallenbruce.github.io/ccn/reference/medicaid.md)
   [`medicaid_only_range_abbr()`](https://andrewallenbruce.github.io/ccn/reference/medicaid.md)
   [`medicaid_only_range_desc()`](https://andrewallenbruce.github.io/ccn/reference/medicaid.md)
   [`medicaid_only_sequence()`](https://andrewallenbruce.github.io/ccn/reference/medicaid.md)
@@ -35,8 +35,6 @@
   [`medicare_range_desc()`](https://andrewallenbruce.github.io/ccn/reference/medicare.md)
   [`medicare_sequence()`](https://andrewallenbruce.github.io/ccn/reference/medicare.md)
   : Medicare Provider Ranges
-- [`medicare_ranges`](https://andrewallenbruce.github.io/ccn/reference/medicare_ranges.md)
-  : CCN Medicare Facility Ranges
 - [`is_type_opo()`](https://andrewallenbruce.github.io/ccn/reference/opo.md)
   [`opo_abbr()`](https://andrewallenbruce.github.io/ccn/reference/opo.md)
   [`opo_desc()`](https://andrewallenbruce.github.io/ccn/reference/opo.md)
@@ -58,6 +56,10 @@
   [`parse_excluded_unit()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
   : Parse CMS Certification Numbers
 - [`state_codes`](https://andrewallenbruce.github.io/ccn/reference/state_codes.md)
+  [`medicare_ranges`](https://andrewallenbruce.github.io/ccn/reference/state_codes.md)
+  [`medicaid_ranges`](https://andrewallenbruce.github.io/ccn/reference/state_codes.md)
+  [`medicaid_types`](https://andrewallenbruce.github.io/ccn/reference/state_codes.md)
+  [`medicaid_data`](https://andrewallenbruce.github.io/ccn/reference/state_codes.md)
   : CCN State Codes
 - [`is_state()`](https://andrewallenbruce.github.io/ccn/reference/states.md)
   [`extract_state()`](https://andrewallenbruce.github.io/ccn/reference/states.md)
@@ -65,11 +67,10 @@
   [`state_abbr()`](https://andrewallenbruce.github.io/ccn/reference/states.md)
   [`state_name()`](https://andrewallenbruce.github.io/ccn/reference/states.md)
   : State Codes
-- [`is_supplier()`](https://andrewallenbruce.github.io/ccn/reference/supplier.md)
-  [`is_supplier_type()`](https://andrewallenbruce.github.io/ccn/reference/supplier.md)
-  [`supplier_range()`](https://andrewallenbruce.github.io/ccn/reference/supplier.md)
+- [`is_supplier_type()`](https://andrewallenbruce.github.io/ccn/reference/supplier.md)
+  [`is_supplier()`](https://andrewallenbruce.github.io/ccn/reference/supplier.md)
   [`supplier_sequence()`](https://andrewallenbruce.github.io/ccn/reference/supplier.md)
-  [`supplier_abbr()`](https://andrewallenbruce.github.io/ccn/reference/supplier.md)
-  [`supplier_desc()`](https://andrewallenbruce.github.io/ccn/reference/supplier.md)
+  [`supplier_type_abbr()`](https://andrewallenbruce.github.io/ccn/reference/supplier.md)
+  [`supplier_type_desc()`](https://andrewallenbruce.github.io/ccn/reference/supplier.md)
   [`supplier_type()`](https://andrewallenbruce.github.io/ccn/reference/supplier.md)
   : Medicare Supplier

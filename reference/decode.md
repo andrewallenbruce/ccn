@@ -77,9 +77,9 @@ decode("01L008") # Medicaid Only Provider
 #>  .. @ name: chr "Alabama"
 #>  @ sequence : <ccn::MedicaidOnlySequence>
 #>  .. @ number: chr "008"
-#>  .. @ range : chr "001-099"
-#>  .. @ abbr  : chr "ACUTE"
-#>  .. @ desc  : chr "Medicaid-Only Short-Term Acute Care Hospital"
+#>  .. @ range : chr "001-999"
+#>  .. @ abbr  : chr NA
+#>  .. @ desc  : chr NA
 #>  @ extension: chr NA
 #>  @ type     : <ccn::MedicaidOnlyType>
 #>  .. @ code: chr "L"
@@ -110,9 +110,9 @@ decode("21T101")
 #>  .. @ name: chr "Maryland"
 #>  @ sequence : <ccn::MedicaidOnlySequence>
 #>  .. @ number: chr "101"
-#>  .. @ range : chr "100-199"
-#>  .. @ abbr  : chr "CHILD"
-#>  .. @ desc  : chr "Medicaid-Only Children's Hospital"
+#>  .. @ range : chr "001-999"
+#>  .. @ abbr  : chr NA
+#>  .. @ desc  : chr NA
 #>  @ extension: chr NA
 #>  @ type     : <ccn::Type>
 #>  .. @ code: chr "T"
@@ -128,9 +128,9 @@ decode("21S101")
 #>  .. @ name: chr "Maryland"
 #>  @ sequence : <ccn::MedicaidOnlySequence>
 #>  .. @ number: chr "101"
-#>  .. @ range : chr "100-199"
-#>  .. @ abbr  : chr "CHILD"
-#>  .. @ desc  : chr "Medicaid-Only Children's Hospital"
+#>  .. @ range : chr "001-999"
+#>  .. @ abbr  : chr NA
+#>  .. @ desc  : chr NA
 #>  @ extension: chr NA
 #>  @ type     : <ccn::Type>
 #>  .. @ code: chr "S"
@@ -146,9 +146,9 @@ decode("21U101")
 #>  .. @ name: chr "Maryland"
 #>  @ sequence : <ccn::MedicaidOnlySequence>
 #>  .. @ number: chr "101"
-#>  .. @ range : chr "100-199"
-#>  .. @ abbr  : chr "CHILD"
-#>  .. @ desc  : chr "Medicaid-Only Children's Hospital"
+#>  .. @ range : chr "001-999"
+#>  .. @ abbr  : chr NA
+#>  .. @ desc  : chr NA
 #>  @ extension: chr NA
 #>  @ type     : <ccn::Type>
 #>  .. @ code: chr "U"
@@ -240,9 +240,9 @@ decode("24T019A")
 #>  .. @ name: chr "Minnesota"
 #>  @ sequence : <ccn::MedicaidOnlySequence>
 #>  .. @ number: chr "019"
-#>  .. @ range : chr "001-099"
-#>  .. @ abbr  : chr "ACUTE"
-#>  .. @ desc  : chr "Medicaid-Only Short-Term Acute Care Hospital"
+#>  .. @ range : chr "001-999"
+#>  .. @ abbr  : chr NA
+#>  .. @ desc  : chr NA
 #>  @ extension: chr "A"
 #>  @ type     : <ccn::Type>
 #>  .. @ code: chr "T"
@@ -258,9 +258,9 @@ decode("33S23401")
 #>  .. @ name: chr "New York"
 #>  @ sequence : <ccn::MedicaidOnlySequence>
 #>  .. @ number: chr "234"
-#>  .. @ range : chr "200-299"
-#>  .. @ abbr  : chr "CPH"
-#>  .. @ desc  : chr "Medicaid-Only Children's Psychiatric Hospital"
+#>  .. @ range : chr "001-999"
+#>  .. @ abbr  : chr NA
+#>  .. @ desc  : chr NA
 #>  @ extension: chr "01"
 #>  @ type     : <ccn::Type>
 #>  .. @ code: chr "S"

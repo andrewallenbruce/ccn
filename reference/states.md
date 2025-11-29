@@ -30,14 +30,14 @@ character vector of names associated with codes.
 
 ``` r
 (x <- sample(ccn::state_codes$code, 5L))
-#> [1] "54" "42" "65" "B1" "04"
+#> [1] "65" "42" "04" "88" "43"
 is_state(x)
 #> [1] TRUE TRUE TRUE TRUE TRUE
 state_abbr(x)
-#> [1] "ID" "SC" "GU" "WV" "AR"
+#> [1] "GU" "SC" "AR" "TN" "SD"
 state_name(x)
-#> [1] "Idaho"          "South Carolina" "Guam"           "West Virginia" 
-#> [5] "Arkansas"      
+#> [1] "Guam"           "South Carolina" "Arkansas"       "Tennessee"     
+#> [5] "South Dakota"  
 
 extract_state(c("A5XXX", "14XXXXX"))
 #> [1] "A5" "14"
