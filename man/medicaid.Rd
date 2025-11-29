@@ -3,6 +3,7 @@
 \name{medicaid}
 \alias{medicaid}
 \alias{medicaid_only_range}
+\alias{medicaid_only_range_j}
 \alias{medicaid_only_range_abbr}
 \alias{medicaid_only_range_desc}
 \alias{medicaid_only_sequence}
@@ -13,6 +14,8 @@
 \title{Medicaid-Only}
 \usage{
 medicaid_only_range(x)
+
+medicaid_only_range_j(x)
 
 medicaid_only_range_abbr(x)
 
@@ -39,6 +42,7 @@ Convert various codes to their associated names.
 }
 \examples{
 medicaid_only_range(150)
+medicaid_only_range_j(150)
 medicaid_only_range_abbr("100-199")
 medicaid_only_range_desc("100-199")
 medicaid_only_sequence("250")

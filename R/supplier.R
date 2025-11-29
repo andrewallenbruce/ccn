@@ -8,80 +8,61 @@
 #' @returns character vector of names associated with codes.
 #' @examples
 #' is_supplier("10C0001062")
-#' is_supplier_type(c("C", "D", "X"))
-#' supplier_range("9000000")
 #' supplier_sequence("10C0001062")
-#' supplier_abbr(c("C", "D", "X"))
-#' supplier_desc(c("C", "D", "X"))
+#' is_supplier_type(c("C", "D", "X"))
+#' supplier_type_abbr(c("C", "D", "X"))
+#' supplier_type_desc(c("C", "D", "X"))
 NULL
+
+#' @rdname supplier
+#' @export
+is_supplier_type <- function(x) {
+  x %in% c("C", "D", "X")
+}
 
 #' @rdname supplier
 #' @export
 is_supplier <- function(x) {
   is_supplier_type(substr_(x, 3L)) &
-    (nchar(x) == 10L ||
-       nchar(x) > 10L & nchar(x) < 15L)
-}
-
-#' @rdname supplier
-#' @export
-is_supplier_type <- function(x) {
-  # vctrs::vec_in(x, c("C", "D", "X"))
-  x %in_% c("C", "D", "X")
-}
-
-#' @rdname supplier
-#' @export
-supplier_range <- function(x) {
-  x <- as_int(x)
-  cheapr::if_else_(x >= 1L & x <= 9999999L, "0000001-9999999", NA_character_)
+    (nchar(x) == 10L || nchar(x) > 10L & nchar(x) < 15L)
 }
 
 #' @rdname supplier
 #' @export
 supplier_sequence <- function(x) {
   Sequence(
-    number = substr_(x, c(4L, 10L)),
-    range = supplier_range(substr_(x, c(4L, 10L))))
+    number = x,
+    range = kit::iif(as_int(x) >= 1L & as_int(x) <= 9999999L, "0000001-9999999", NA_character_)
+  )
 }
 
 #' @rdname supplier
 #' @export
-supplier_abbr <- function(x) {
-  cheapr::val_match(
-    x,
-    "C" ~ "ASC",
-    "D" ~ "CLIA",
-    "X" ~ "XRAY",
-    .default = NA_character_
+supplier_type_abbr <- function(x) {
+  kit::vswitch(
+    x       = x,
+    values  = c("C", "D", "X"),
+    outputs = c("ASC", "CLIA", "XRAY"),
+    default = NA_character_,
+    nThread = 4L
   )
 }
-
-# TODO: Replace when vctrs updates
-# supplier_abbr <- function(x) {
-#   vctrs::vec_recode_values(x, c("C", "D", "X"), c("ASC", "CLIA", "XRAY"), default = NA_character_)
-# }
 
 #' @rdname supplier
 #' @export
-supplier_desc <- function(x) {
-  cheapr::val_match(
-    x,
-    "C" ~ "Ambulatory Surgical Center",
-    "D" ~ "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory",
-    "X" ~ "Portable X-Ray Facility",
-    .default = NA_character_
+supplier_type_desc <- function(x) {
+  kit::vswitch(
+    x       = x,
+    values  = c("C", "D", "X"),
+    outputs = c(
+      "Ambulatory Surgical Center",
+      "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory",
+      "Portable X-Ray Facility"
+    ),
+    default = NA_character_,
+    nThread = 4L
   )
 }
-
-# TODO: Replace when vctrs updates
-# supplier_desc <- function(x) {
-#   vctrs::vec_recode_values(
-#   x,
-#   c("C", "D", "X"),
-#   c("Ambulatory Surgical Center", "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory", "Portable X-Ray Facility"),
-#   NA_character_)
-# }
 
 #' @noRd
 SupplierType <- S7::new_class(
@@ -92,12 +73,12 @@ SupplierType <- S7::new_class(
     abbr = S7::new_property(
       S7::class_character,
       getter = function(self)
-        supplier_abbr(self@code)
+        supplier_type_abbr(self@code)
     ),
     desc = S7::new_property(
       S7::class_character,
       getter = function(self)
-        supplier_desc(self@code)
+        supplier_type_desc(self@code)
     )
   )
 )

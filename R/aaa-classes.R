@@ -3,7 +3,7 @@ NULL
 
 #' @noRd
 Extension_Prop <- S7::new_property(
-  class   = S7::class_character,
+  class = S7::class_character,
   default = NA_character_
 )
 

@@ -2,26 +2,23 @@
 % Please edit documentation in R/supplier.R
 \name{supplier}
 \alias{supplier}
-\alias{is_supplier}
 \alias{is_supplier_type}
-\alias{supplier_range}
+\alias{is_supplier}
 \alias{supplier_sequence}
-\alias{supplier_abbr}
-\alias{supplier_desc}
+\alias{supplier_type_abbr}
+\alias{supplier_type_desc}
 \alias{supplier_type}
 \title{Medicare Supplier}
 \usage{
-is_supplier(x)
-
 is_supplier_type(x)
 
-supplier_range(x)
+is_supplier(x)
 
 supplier_sequence(x)
 
-supplier_abbr(x)
+supplier_type_abbr(x)
 
-supplier_desc(x)
+supplier_type_desc(x)
 
 supplier_type(x)
 }
@@ -36,9 +33,8 @@ Convert various codes to their associated names.
 }
 \examples{
 is_supplier("10C0001062")
-is_supplier_type(c("C", "D", "X"))
-supplier_range("9000000")
 supplier_sequence("10C0001062")
-supplier_abbr(c("C", "D", "X"))
-supplier_desc(c("C", "D", "X"))
+is_supplier_type(c("C", "D", "X"))
+supplier_type_abbr(c("C", "D", "X"))
+supplier_type_desc(c("C", "D", "X"))
 }

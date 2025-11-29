@@ -1,5 +1,5 @@
 #' @noRd
-prefix_names <- function(prefix, sep = "_") {
+prefix_names <- function(x, prefix, sep = "_") {
   rlang::set_names(x, \(x) paste0(prefix, sep, x))
 }
 

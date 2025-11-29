@@ -2,18 +2,18 @@
 % Please edit documentation in R/emergency.R
 \name{emergency}
 \alias{emergency}
-\alias{is_type_emergency}
-\alias{emergency_abbr}
-\alias{emergency_desc}
+\alias{is_emergency_type}
+\alias{emergency_type_abbr}
+\alias{emergency_type_desc}
 \alias{emergency_type}
 \alias{emergency_sequence}
 \title{Emergency Hospital}
 \usage{
-is_type_emergency(x)
+is_emergency_type(x)
 
-emergency_abbr(x)
+emergency_type_abbr(x)
 
-emergency_desc(x)
+emergency_type_desc(x)
 
 emergency_type(x)
 
@@ -29,8 +29,8 @@ character vector of names associated with codes.
 Convert various codes to their associated names.
 }
 \examples{
-is_type_emergency(c("E", "F"))
-emergency_abbr(c("E", "F"))
-emergency_desc(c("E", "F"))
+is_emergency_type(c("E", "F"))
+emergency_type_abbr(c("E", "F"))
+emergency_type_desc(c("E", "F"))
 emergency_type("E")
 }

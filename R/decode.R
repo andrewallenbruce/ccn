@@ -11,7 +11,7 @@ provider_type <- function(x) {
   cheapr::case(
     is_numeric(x) ~ "medicare",
     is_type_opo(substr_(x, 3L)) ~ "opo",
-    is_type_emergency(substr_(x, 6L)) ~ "emergency",
+    is_emergency_type(substr_(x, 6L)) ~ "emergency",
     is_type_medicaid_only(substr_(x, 3L)) ~ "medicaid",
     is_type_excluded(substr_(x, 3L)) ~ "excluded",
     .default = NA_character_

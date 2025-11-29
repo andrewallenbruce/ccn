@@ -8,6 +8,7 @@
 #' @returns character vector of names associated with codes.
 #' @examples
 #' medicaid_only_range(150)
+#' medicaid_only_range_j(150)
 #' medicaid_only_range_abbr("100-199")
 #' medicaid_only_range_desc("100-199")
 #' medicaid_only_sequence("250")
@@ -20,48 +21,64 @@ NULL
 #' @rdname medicaid
 #' @export
 medicaid_only_range <- function(x) {
+  kit::iif(as_int(x) >= 1L & as_int(x) <= 999L, "001-999", NA_character_)
+}
+
+#' @rdname medicaid
+#' @export
+medicaid_only_range_j <- function(x) {
   x <- as_int(x)
-  cheapr::case(
-    x >= 1L   & x <= 99L  ~ "001-099",
-    x >= 100L & x <= 199L ~ "100-199",
-    x >= 200L & x <= 299L ~ "200-299",
-    x >= 300L & x <= 399L ~ "300-399",
-    x >= 400L & x <= 499L ~ "400-499",
-    x >= 500L & x <= 599L ~ "500-599",
-    x >= 600L & x <= 999L ~ "600-999",
-    .default = NA_character_
+  kit::nif(
+    x >= 1L   & x <= 99L,  "001-099",
+    x >= 100L & x <= 199L, "100-199",
+    x >= 200L & x <= 299L, "200-299",
+    x >= 300L & x <= 399L, "300-399",
+    x >= 400L & x <= 499L, "400-499",
+    x >= 500L & x <= 599L, "500-599",
+    x >= 600L & x <= 999L, "600-999",
+    default = NA_character_
   )
 }
 
 #' @rdname medicaid
 #' @export
 medicaid_only_range_abbr <- function(x) {
-  cheapr::val_match(
-    x,
-    "001-099" ~ "ACUTE",
-    "100-199" ~ "CHILD",
-    "200-299" ~ "CPH",
-    "300-399" ~ "PSYCH",
-    "400-499" ~ "REHAB",
-    "500-599" ~ "LTCH",
-    "600-999" ~ "RESERVED",
-    .default = NA_character_
+  kit::vswitch(
+    x       = x,
+    values  = ccn::medicaid_ranges$range,
+    outputs = ccn::medicaid_ranges$abbr,
+    default = NA_character_,
+    nThread = 4L
   )
 }
+
+
 
 #' @rdname medicaid
 #' @export
 medicaid_only_range_desc <- function(x) {
-  cheapr::val_match(
-    x,
-    "001-099" ~ "Medicaid-Only Short-Term Acute Care Hospital",
-    "100-199" ~ "Medicaid-Only Children's Hospital",
-    "200-299" ~ "Medicaid-Only Children's Psychiatric Hospital",
-    "300-399" ~ "Medicaid-Only Psychiatric Hospital",
-    "400-499" ~ "Medicaid-Only Rehabilitation Hospital",
-    "500-599" ~ "Medicaid-Only Long-Term Hospital",
-    "600-999" ~ "Reserved for Future Use",
-    .default = NA_character_
+  kit::vswitch(
+    x       = x,
+    values  = c(
+      "001-099",
+      "100-199",
+      "200-299",
+      "300-399",
+      "400-499",
+      "500-599",
+      "600-999"
+    ),
+    outputs = c(
+      "Medicaid-Only Short-Term Acute Care Hospital",
+      "Medicaid-Only Children's Hospital",
+      "Medicaid-Only Children's Psychiatric Hospital",
+      "Medicaid-Only Psychiatric Hospital",
+      "Medicaid-Only Rehabilitation Hospital",
+      "Medicaid-Only Long-Term Hospital",
+      "Reserved for Future Use"
+    ),
+    default = NA_character_,
+    nThread = 4L
   )
 }
 
