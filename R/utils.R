@@ -1,3 +1,7 @@
+#' @noRd
+prefix_names <- function(x, prefix, sep = "_") {
+  rlang::set_names(x, \(x) paste0(prefix, sep, x))
+}
 
 #' @noRd
 as_int <- function(x) {
@@ -44,6 +48,8 @@ remove_hyphen <- function(x) {
 clean <- function(x) {
   remove_hyphen(toupper(x))
 }
+
+################## REMOVE EVENTUALLY
 
 #' @noRd
 qs_url <- function(url) qs::qread_url(url)

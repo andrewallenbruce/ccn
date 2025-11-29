@@ -1,3 +1,19 @@
+
+# PXRF
+c("11X0009845", "11X0009814", "11X0009803", "11X0009840", "09X0000002", "21X0009807")
+
+# ASC
+c("65C0001000", "65C0001001", "55C0001197")
+
+# CLIA
+c("02D0873639", # Artic Envestigations Program Laboratory, Anchorage, AK
+  "40D0869394", # Dengue Laboratory, San Juan, PR
+  "11D1061576", # CDC/CGH/DGHA International Laboratory, Atlanta, GA
+  "11D0668319", # Infectious Diseases Laboratory, Atlanta, GA
+  "11D0668290", # National Center for Environmental Health, Division of Laboratory Science, Atlanta, GA
+  "06D0880233", # Vector-Borne Diseases Laboratory, Fort Collins, CO
+  "11D2306220") # Wiregrass Georgia Tech College Student Health Center, Valdosta, GA
+
 library(collapse)
 
 #-----Ambulatory Surgical Center Quality Measures - Facility-----

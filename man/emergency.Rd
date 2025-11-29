@@ -2,19 +2,10 @@
 % Please edit documentation in R/emergency.R
 \name{emergency}
 \alias{emergency}
-\alias{is_emergency_type}
-\alias{emergency_type_abbr}
-\alias{emergency_type_desc}
 \alias{emergency_type}
 \alias{emergency_sequence}
-\title{Emergency Hospital}
+\title{Emergency Hospital CCNs}
 \usage{
-is_emergency_type(x)
-
-emergency_type_abbr(x)
-
-emergency_type_desc(x)
-
 emergency_type(x)
 
 emergency_sequence(x)
@@ -23,14 +14,25 @@ emergency_sequence(x)
 \item{x}{character vector of codes to look up.}
 }
 \value{
-character vector of names associated with codes.
+S7 object of class \code{EmergencyHospital}.
 }
 \description{
-Convert various codes to their associated names.
+Emergency Hospital CMS Certification Numbers (Non-Participating Hospitals)
+Rev. 29, Pg. 411, Iss. 04-20-07, Eff./Imp. 10-01-2007
+
+The CCN for emergency hospitals is a 6-position alphanumeric code. The first
+2 digits are the State code. The third, fourth, and fifth digits represent a
+sequence number. The first emergency number in a State would contain the
+sequence number \code{"001"}. In the sixth position use the letter \code{"E"} for
+non-Federal emergency hospitals, or \code{"F"} for Federal emergency hospitals.
+
+For example, the 34th emergency hospital issued a CCN in Maryland would have
+the number \code{"21-034E"}. The RO assigns the CCN in strict numerical sequence
+without regard to the Federal or non-Federal status. If a terminated facility
+again qualifies as an emergency hospital, the RO issues a new CCN. For a
+non-participating hospital that is now fully participating, see subsection I.
 }
 \examples{
-is_emergency_type(c("E", "F"))
-emergency_type_abbr(c("E", "F"))
-emergency_type_desc(c("E", "F"))
-emergency_type("E")
+new_emergency("21034E")
+new_emergency("12345F")
 }

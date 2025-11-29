@@ -1,4 +1,4 @@
-#' Medicare Provider Ranges
+#' Medicare Providers
 #'
 #' @description
 #' Convert various codes to their associated names.
@@ -7,10 +7,7 @@
 #' @name medicare
 #' @returns character vector of names associated with codes.
 #' @examples
-#' medicare_range("9000")
-#' medicare_range_abbr("9000-9799")
-#' medicare_range_desc("9000-9799")
-#' medicare_sequence("9000")
+#' new_medicare("670055")
 NULL
 
 #' @rdname medicare
@@ -90,6 +87,11 @@ MedicareSequence <- S7::new_class(
   name = "MedicareSequence",
   parent = SequenceFull,
   properties = list(
+    range = S7::new_property(
+      S7::class_character,
+      getter = function(self)
+        medicare_range(self@number)
+    ),
     abbr = S7::new_property(
       S7::class_character,
       getter = function(self)
@@ -106,8 +108,24 @@ MedicareSequence <- S7::new_class(
 #' @rdname medicare
 #' @export
 medicare_sequence <- function(x) {
-  MedicareSequence(
-    number = x,
-    range = medicare_range(x)
+  MedicareSequence(number = x)
+}
+
+#' @noRd
+Medicare <- S7::new_class(
+  name = "Medicare",
+  parent = CCN,
+  properties = list(extension = PropExtension)
+)
+
+#' @rdname medicare
+#' @export
+new_medicare <- function(x) {
+  Medicare(
+    ccn = x,
+    entity = "Medicare Provider",
+    state = state(x),
+    sequence = medicare_sequence(substr_(x, c(3L, 6L)))
+    # extension = ext_provider(x@ccn)
   )
 }

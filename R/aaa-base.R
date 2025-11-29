@@ -2,10 +2,7 @@
 NULL
 
 #' @noRd
-Extension_Prop <- S7::new_property(
-  class = S7::class_character,
-  default = NA_character_
-)
+PropExtension <- S7::new_property(class = NULL | S7::class_character)
 
 #' @noRd
 Sequence <- S7::new_class(
@@ -33,8 +30,8 @@ Type <- S7::new_class(
     code = S7::class_character,
     desc = S7::class_character,
     abbr = S7::class_character
-    )
   )
+)
 
 #' @noRd
 CCN <- S7::new_class(
@@ -43,33 +40,8 @@ CCN <- S7::new_class(
     ccn = S7::class_character,
     entity = S7::class_character,
     state = State,
-    sequence  = Sequence | SequenceFull,
-    extension = Extension_Prop
+    sequence = Sequence | SequenceFull
   )
-)
-
-#' @noRd
-EmergencyHospital <- S7::new_class(
-  name = "EmergencyHospital",
-  parent = CCN,
-  properties = list(type = Type)
-)
-
-#' @noRd
-Medicare <- S7::new_class("Medicare", CCN)
-
-#' @noRd
-MedicareOPO <- S7::new_class(
-  name = "MedicareOPO",
-  parent = CCN,
-  properties = list(type = Type)
-)
-
-#' @noRd
-MedicaidOnly <- S7::new_class(
-  name = "MedicaidOnly",
-  parent = CCN,
-  properties = list(type = Type)
 )
 
 #' @noRd

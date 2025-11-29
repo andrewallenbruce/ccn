@@ -2,18 +2,13 @@
 % Please edit documentation in R/supplier.R
 \name{supplier}
 \alias{supplier}
-\alias{is_supplier_type}
-\alias{is_supplier}
 \alias{supplier_sequence}
 \alias{supplier_type_abbr}
 \alias{supplier_type_desc}
 \alias{supplier_type}
+\alias{new_supplier}
 \title{Medicare Supplier}
 \usage{
-is_supplier_type(x)
-
-is_supplier(x)
-
 supplier_sequence(x)
 
 supplier_type_abbr(x)
@@ -21,6 +16,8 @@ supplier_type_abbr(x)
 supplier_type_desc(x)
 
 supplier_type(x)
+
+new_supplier(x)
 }
 \arguments{
 \item{x}{character vector of codes to look up.}
@@ -32,9 +29,8 @@ character vector of names associated with codes.
 Convert various codes to their associated names.
 }
 \examples{
-is_supplier("10C0001062")
-supplier_sequence("10C0001062")
-is_supplier_type(c("C", "D", "X"))
-supplier_type_abbr(c("C", "D", "X"))
-supplier_type_desc(c("C", "D", "X"))
+new_supplier("10C0001062")
+new_supplier("45D0634589")
+new_supplier("21X0009807")
+new_supplier("12C0001062")
 }

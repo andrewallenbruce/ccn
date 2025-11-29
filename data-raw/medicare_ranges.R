@@ -1,4 +1,55 @@
-## code to prepare `medicare_ranges` dataset goes here
+#' CCN Medicare Facility Ranges
+#'
+#'    * Section __2779A1__
+#'    * Title: "CCN for Medicare Providers"
+#'    * Pgs. 405-406
+#'    * Rev. 226
+#'    * Iss./Eff./Impl. 12-06-24
+
+medicare_ranges <- tibble::tribble(
+  ~range,      ~abbr,           ~desc,
+  "0001-0879", "STC",           "Short-Term Hospital (General & Specialty)",
+  "0880-0899", "OCM",           "Hospital Participating in ORD (Oncology Care Model) Demonstration Project",
+  "0900-0999", "MHCMC (Ret.)",  "Multiple Hospital Component in a Medical Complex (Retired)",
+  "1000-1199", "FQHC",          "Federally Qualified Health Center",
+  "1200-1224", "ADH (Ret.)",    "Alcohol-Drug Hospital (Retired)",
+  "1225-1299", "MAF",           "Medical Assistance Facility",
+  "1300-1399", "CAH",           "Critical Access Hospital",
+  "1400-1499", "CMHC",          "Community Mental Health Center",
+  "1500-1799", "HSP",           "Hospice",
+  "1800-1989", "FQHC",          "Federally Qualified Health Center",
+  "1990-1999", "RNHCI",         "Religious Non-medical Health Care Institution",
+  "2000-2299", "LTCH (EIPPS)",  "Long-Term Care Hospital (Excluded from IPPS)",
+  "2300-2499", "HBRDF",         "Hospital-based Renal Dialysis Facility",
+  "2500-2899", "IRDF",          "Independent Renal Dialysis Facility",
+  "2900-2999", "ISPRDF",        "Independent Special Purpose Renal Dialysis Facility",
+  "3000-3024", "TBH (Ret.)",    "Tuberculosis Hospital (Retired)",
+  "3025-3099", "REHAB (EIPPS)", "Rehabilitation Hospital (Excluded from IPPS)",
+  "3100-3199", "HHA",           "Home Health Agency",
+  "3200-3299", "CORF",          "Comprehensive Outpatient Rehabilitation Facility",
+  "3300-3399", "CH (EIPPS)",    "Children's Hospital (Excluded from IPPS)",
+  "3400-3499", "RHC-P",         "Rural Health Clinic (Provider-based)",
+  "3500-3699", "HBSRDF",        "Hospital-based Satellite Renal Dialysis Facility",
+  "3700-3799", "HSP-RDF",       "Hospital-based Special Purpose Renal Dialysis Facility",
+  "3800-3974", "RHC-I",         "Rural Health Clinic (Free-standing)",
+  "3975-3999", "RHC-P",         "Rural Health Clinic (Provider-based)",
+  "4000-4499", "PH (EIPPS)",    "Psychiatric Hospital (Excluded from IPPS)",
+  "4500-4599", "CORF",          "Comprehensive Outpatient Rehabilitation Facility",
+  "4600-4799", "CMHC",          "Community Mental Health Center",
+  "4800-4899", "CORF",          "Comprehensive Outpatient Rehabilitation Facility",
+  "4900-4999", "CMHC",          "Community Mental Health Center",
+  "5000-6499", "SNF",           "Skilled Nursing Facility",
+  "6500-6989", "OPTS",          "Outpatient Physical Therapy Services",
+  "6990-6999", "RSVD",          "Number Reserved",
+  "7000-8499", "HHA",           "Home Health Agency",
+  "8500-8899", "RHC-P",         "Rural Health Clinic (Provider-based)",
+  "8900-8999", "RHC-I",         "Rural Health Clinic (Free-standing)",
+  "9000-9799", "HHA",           "Home Health Agency",
+  "9800-9899", "TC",            "Transplant Center",
+  "9900-9999", "FOTP",          "Freestanding Opioid Treatment Program",
+)
+
+usethis::use_data(medicare_ranges, overwrite = TRUE)
 
 conditions <- list(
   x >= 1L    & x <= 879L,
@@ -41,56 +92,3 @@ conditions <- list(
   x >= 9800L & x <= 9899L,
   x >= 9900L & x <= 9999L
 )
-
-medicare_ranges <- tibble::tibble(
-  range = c(
-    "0001-0879", "0880-0899", "0900-0999", "1000-1199", "1200-1224", "1225-1299",
-    "1300-1399", "1400-1499", "1500-1799", "1800-1989", "1990-1999", "2000-2299",
-    "2300-2499", "2500-2899", "2900-2999", "3000-3024", "3025-3099", "3100-3199",
-    "3200-3299", "3300-3399", "3400-3499", "3500-3699", "3700-3799", "3800-3974",
-    "3975-3999", "4000-4499", "4500-4599", "4600-4799", "4800-4899", "4900-4999",
-    "5000-6499", "6500-6989", "6990-6999", "7000-8499", "8500-8899", "8900-8999",
-    "9000-9799", "9800-9899", "9900-9999"
-  ),
-  abbr = c(
-    "ACUTE", "ORD", "MHCMC (RET)", "FQHC", "ADH (RET)", "MAF", "CAH", "CMHC",
-    "HOSPICE", "FQHC", "RNHCI", "LTCH", "RDF-H", "RDF-I", "RDF-I (SP)",
-    "TUBER (RET)", "REHAB", "HHA", "CORF", "CHILD", "RHC (PROV)", "RDF-H (SAT)",
-    "RDF-H (SP)", "RHC (FREE)", "RHC (PROV)", "PSYCH", "CORF", "CMHC", "CORF",
-    "CMHC", "SNF", "OPT", "RESERVED", "HHA", "RHC (PROV)", "RHC (FREE)", "HHA",
-    "TRANSPLANT", "OPIOID (FREE)"
-  ),
-  desc = c(
-    "Short-Term Hospital (General & Specialty)",
-    "Hospital Participating in ORD Demonstration Project",
-    "Multiple Hospital Component in a Medical Complex (Retired)",
-    "Federally Qualified Health Center", "Alcohol-Drug Hospital (Retired)",
-    "Medical Assistance Facility", "Critical Access Hospital",
-    "Community Mental Health Center", "Hospice",
-    "Federally Qualified Health Center",
-    "Religious Non-medical Health Care Institution",
-    "Long-Term Care Hospital (Excluded from IPPS)",
-    "Hospital-based Renal Dialysis Facility",
-    "Independent Renal Dialysis Facility",
-    "Independent Special Purpose Renal Dialysis Facility",
-    "Tuberculosis Hospital (Retired)",
-    "Rehabilitation Hospital (Excluded from IPPS)", "Home Health Agency",
-    "Comprehensive Outpatient Rehabilitation Facility",
-    "Children's Hospital (Excluded from IPPS)",
-    "Rural Health Clinic (Provider-based)",
-    "Hospital-based Satellite Renal Dialysis Facility",
-    "Hospital-based Special Purpose Renal Dialysis Facility",
-    "Rural Health Clinic (Free-standing)", "Rural Health Clinic (Provider-based)",
-    "Psychiatric Hospital (Excluded from IPPS)",
-    "Comprehensive Outpatient Rehabilitation Facility",
-    "Community Mental Health Center",
-    "Comprehensive Outpatient Rehabilitation Facility",
-    "Community Mental Health Center", "Skilled Nursing Facility",
-    "Outpatient Physical Therapy Services", "Number Reserved",
-    "Home Health Agency", "Rural Health Clinic (Provider-based)",
-    "Rural Health Clinic (Free-standing)", "Home Health Agency",
-    "Transplant Center", "Freestanding Opioid Treatment Program"
-  )
-)
-
-usethis::use_data(medicare_ranges, overwrite = TRUE)

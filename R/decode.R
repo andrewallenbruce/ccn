@@ -1,37 +1,78 @@
-#' @include as.R
+#' @include as-convert.R
 NULL
 
 #' @noRd
-is_provider <- function(x) {
-  nchar(x) == 6L || nchar(x) > 6L & nchar(x) < 10L
+is_provider_nchar <- function(x) {
+  nchar(x) == 6L
+}
+
+#' @noRd
+is_provider_ext_nchar <- function(x) {
+  nchar(x) > 6L & nchar(x) < 10L
+}
+
+#' @noRd
+is_supplier_nchar <- function(x) {
+  nchar(x) == 10L
+}
+
+#' @noRd
+is_supplier_type <- function(x) {
+  substr_(x, 3L) %in% c("C", "D", "X")
+}
+
+#' @noRd
+is_supplier_ext_nchar <- function(x) {
+  nchar(x) > 10L & nchar(x) < 15L
+}
+
+#' @noRd
+is_opo_type <- function(x) {
+  x == "P"
+}
+
+#' @noRd
+is_emergency_type <- function(x) {
+  x %in% c("E", "F")
 }
 
 #' @noRd
 provider_type <- function(x) {
-  cheapr::case(
-    is_numeric(x) ~ "medicare",
-    is_type_opo(substr_(x, 3L)) ~ "opo",
-    is_emergency_type(substr_(x, 6L)) ~ "emergency",
-    is_type_medicaid_only(substr_(x, 3L)) ~ "medicaid",
-    is_type_excluded(substr_(x, 3L)) ~ "excluded",
-    .default = NA_character_
+  kit::nif(
+    is_numeric(x), "medicare",
+    is_opo_type(substr_(x, 3L)), "opo",
+    is_emergency_type(substr_(x, 6L)), "emergency",
+    is_type_medicaid_only_facility(substr_(x, 3L)), "medicaid_facility",
+    is_type_medicaid_hospital(substr_(x, 3L)), "medicaid_hospital",
+    is_type_excluded(substr_(x, 3L)), "excluded",
+    default = NA_character_
   )
 }
 
-#' @noRd
-as_ccn <- function(x) {
-  CCN(ccn = clean(x), state = state(x))
-}
+# @noRd
+# as_ccn_provider <- function(x) {
+#   CCN(ccn = substr_(x, c(1L, 6L)),
+#       state = State(code = substr_(x, c(1L, 2L))),
+#       extension = substr_(x, c(7L, nchar(x)))
+#       )
+# }
+
+# @noRd
+# as_ccn_supplier <- function(x) {
+#   CCN(ccn = substr_(x, c(1L, 10L)),
+#       state = State(code = substr_(x, c(1L, 2L))),
+#       extension = substr_(x, c(11L, nchar(x))))
+# }
 
 #' Decode CMS Certification Numbers (CCNs)
 #'
 #' Decode a CCN into its component parts.
 #'
-#' @param x character vector of CCNs.
+# @param x character vector of CCNs.
 #'
-#' @return list of CCN components.
+# @return list of CCN components.
 #'
-#' @examples
+# @examplesIf FALSE
 #' decode("670055") # Medicare Provider
 #' decode("05P001") # Medicare OPO
 #' decode("12345E") # Emergency Hospital
@@ -57,24 +98,24 @@ as_ccn <- function(x) {
 #' decode("24T019A")
 #' decode("33S23401")
 #' decode("330027001")
-#' @export
-decode <- function(x) {
-  x <- as_ccn(x)
-
-  if (is_provider(x@ccn)) {
-    return(switch(
-      provider_type(x@ccn),
-      medicare  = as_medicare(x),
-      opo       = as_medicare_opo(x),
-      emergency = as_emergency(x),
-      medicaid  = as_medicaid_only(x),
-      excluded  = as_excluded(x),
-      x
-    ))
-  }
-
-  if (is_supplier(x@ccn)) {
-    return(as_supplier(x))
-  }
-  return(x)
-}
+# @noRd
+# decode <- function(x) {
+#   x <- clean(x)
+#
+#   if (is_provider_nchar(x)) {
+#     return(switch(
+#       provider_type(x@ccn),
+#       medicare  = as_medicare(x),
+#       opo       = as_medicare_opo(x),
+#       emergency = as_emergency(x),
+#       medicaid  = as_medicaid_only(x),
+#       excluded  = as_excluded(x),
+#       x
+#     ))
+#   }
+#
+#   if (is_supplier_nchar(x) & is_supplier_type(x)) {
+#     return(as_supplier(x))
+#   }
+#   return(x)
+# }

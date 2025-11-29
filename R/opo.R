@@ -6,37 +6,15 @@
 #' @param x character vector of codes to look up.
 #' @returns character vector of names associated with codes.
 #' @examples
-#' is_type_opo("P")
-#' opo_abbr(c("P", "X"))
-#' opo_desc("P")
-#' opo_sequence("001")
-#' opo_type("P")
+#' new_opo("05P001")
 NULL
-
-#' @rdname opo
-#' @export
-is_type_opo <- function(x) {
-  x == "P"
-}
-
-#' @rdname opo
-#' @export
-opo_abbr <- function(x) {
-  cheapr::if_else_(x == "P", "OPO", NA_character_)
-}
-
-#' @rdname opo
-#' @export
-opo_desc <- function(x) {
-  cheapr::if_else_(x == "P", "Organ Procurement Organization", NA_character_)
-}
 
 #' @rdname opo
 #' @export
 opo_sequence <- function(x) {
   Sequence(
     number = x,
-    range = cheapr::if_else_(as_int(x) >= 1L & as_int(x) <= 99L, "001-099", NA_character_)
+    range = kit::iif(as_int(x) >= 1L & as_int(x) <= 99L, "001-099", NA_character_)
   )
 }
 
@@ -45,7 +23,26 @@ opo_sequence <- function(x) {
 opo_type <- function(x) {
   Type(
     code = x,
-    abbr = opo_abbr(x),
-    desc = opo_desc(x)
+    abbr = kit::iif(x == "P", "OPO", NA_character_),
+    desc = kit::iif(x == "P", "Organ Procurement Organization", NA_character_)
+  )
+}
+
+#' @noRd
+OPO <- S7::new_class(
+  name = "OPO",
+  parent = CCN,
+  properties = list(type = Type)
+)
+
+#' @rdname opo
+#' @export
+new_opo <- function(x) {
+  OPO(
+    ccn      = x,
+    entity   = "Medicare Provider",
+    state    = state(x),
+    type     = opo_type(substr_(x, 3L)),
+    sequence = opo_sequence(substr_(x, c(4L, 6L)))
   )
 }

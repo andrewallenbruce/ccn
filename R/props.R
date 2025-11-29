@@ -1,9 +1,4 @@
 #' @noRd
-prefix_names <- function(x, prefix, sep = "_") {
-  rlang::set_names(x, \(x) paste0(prefix, sep, x))
-}
-
-#' @noRd
 prop_ccn <- function(x) {
   S7::prop(x, "ccn")
 }

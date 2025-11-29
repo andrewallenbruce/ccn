@@ -6,7 +6,8 @@
 \alias{medicare_range_abbr}
 \alias{medicare_range_desc}
 \alias{medicare_sequence}
-\title{Medicare Provider Ranges}
+\alias{new_medicare}
+\title{Medicare Providers}
 \usage{
 medicare_range(x)
 
@@ -15,6 +16,8 @@ medicare_range_abbr(x)
 medicare_range_desc(x)
 
 medicare_sequence(x)
+
+new_medicare(x)
 }
 \arguments{
 \item{x}{character vector of codes to look up.}
@@ -26,8 +29,5 @@ character vector of names associated with codes.
 Convert various codes to their associated names.
 }
 \examples{
-medicare_range("9000")
-medicare_range_abbr("9000-9799")
-medicare_range_desc("9000-9799")
-medicare_sequence("9000")
+new_medicare("670055")
 }

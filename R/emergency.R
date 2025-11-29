@@ -1,58 +1,45 @@
-#' Emergency Hospital
+#' Emergency Hospital CCNs
 #'
 #' @description
-#' Convert various codes to their associated names.
+#' Emergency Hospital CMS Certification Numbers (Non-Participating Hospitals)
+#' Rev. 29, Pg. 411, Iss. 04-20-07, Eff./Imp. 10-01-2007
+#'
+#' The CCN for emergency hospitals is a 6-position alphanumeric code. The first
+#' 2 digits are the State code. The third, fourth, and fifth digits represent a
+#' sequence number. The first emergency number in a State would contain the
+#' sequence number `"001"`. In the sixth position use the letter `"E"` for
+#' non-Federal emergency hospitals, or `"F"` for Federal emergency hospitals.
+#'
+#' For example, the 34th emergency hospital issued a CCN in Maryland would have
+#' the number `"21-034E"`. The RO assigns the CCN in strict numerical sequence
+#' without regard to the Federal or non-Federal status. If a terminated facility
+#' again qualifies as an emergency hospital, the RO issues a new CCN. For a
+#' non-participating hospital that is now fully participating, see subsection I.
 #'
 #' @param x character vector of codes to look up.
 #' @name emergency
-#' @returns character vector of names associated with codes.
+#' @returns S7 object of class `EmergencyHospital`.
 #' @examples
-#' is_emergency_type(c("E", "F"))
-#' emergency_type_abbr(c("E", "F"))
-#' emergency_type_desc(c("E", "F"))
-#' emergency_type("E")
+#' new_emergency("21034E")
+#' new_emergency("12345F")
 NULL
-
-#' @rdname emergency
-#' @export
-is_emergency_type <- function(x) {
-  x %in% c("E", "F")
-}
-
-#' @rdname emergency
-#' @export
-emergency_type_abbr <- function(x) {
-  kit::vswitch(
-    x       = x,
-    values  = c("E", "F"),
-    outputs = c("ER (NF)", "ER (F)"),
-    default = NA_character_,
-    nThread = 4L
-  )
-}
-
-#' @rdname emergency
-#' @export
-emergency_type_desc <- function(x) {
-  kit::vswitch(
-    x       = x,
-    values  = c("E", "F"),
-    outputs = c(
-      "Non-Federal Emergency Hospital (Non-Participating)",
-      "Federal Emergency Hospital (Non-Participating)"
-    ),
-    default = NA_character_,
-    nThread = 4L
-  )
-}
 
 #' @rdname emergency
 #' @export
 emergency_type <- function(x) {
   Type(
     code = x,
-    abbr = emergency_type_abbr(x),
-    desc = emergency_type_desc(x)
+    abbr = kit::vswitch(x, c("E", "F"), c("NFEH", "FEH"), NA_character_, nThread = 4L),
+    desc = kit::vswitch(
+      x,
+      c("E", "F"),
+      c(
+        "Non-Federal Emergency Hospital",
+        "Federal Emergency Hospital"
+      ),
+      NA_character_,
+      nThread = 4L
+    )
   )
 }
 
@@ -62,5 +49,24 @@ emergency_sequence <- function(x) {
   Sequence(
     number = x,
     range = kit::iif(as_int(x) >= 1L & as_int(x) <= 999L, "001-999", NA_character_)
+  )
+}
+
+#' @noRd
+EmergencyHospital <- S7::new_class(
+  name = "EmergencyHospital",
+  parent = CCN,
+  properties = list(type = Type)
+)
+
+#' @rdname opo
+#' @export
+new_emergency <- function(x) {
+  EmergencyHospital(
+    ccn      = x,
+    entity   = "Emergency Hospital",
+    state    = state(x),
+    type     = emergency_type(substr_(x, 6L)),
+    sequence = emergency_sequence(substr_(x, c(3L, 5L)))
   )
 }

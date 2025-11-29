@@ -3,10 +3,6 @@
 \docType{data}
 \name{state_codes}
 \alias{state_codes}
-\alias{medicare_ranges}
-\alias{medicaid_ranges}
-\alias{medicaid_types}
-\alias{medicaid_data}
 \title{CCN State Codes}
 \format{
 \subsection{\code{state_codes}}{
@@ -19,88 +15,20 @@ A data frame with 108 rows and 3 columns:
 ...
 }
 }
-
-\subsection{\code{medicare_ranges}}{
-
-A data frame with 39 rows and 3 columns:
-\describe{
-\item{range}{Facility range}
-\item{abbr}{Facility abbreviation}
-\item{desc}{Facility description}
-...
-}
-}
-
-\subsection{\code{medicaid_ranges}}{
-
-A data frame with 7 rows and 3 columns:
-\describe{
-\item{code}{Facility type code}
-\item{range}{Facility type range}
-\item{abbr}{Facility type abbreviation}
-\item{desc}{Facility type description}
-...
-}
-}
-
-\subsection{\code{medicaid_types}}{
-
-A data frame with 9 rows and 3 columns:
-\describe{
-\item{code}{Facility type code}
-\item{abbr}{Facility type abbreviation}
-\item{desc}{Facility type description}
-...
-}
-}
-
-\subsection{\code{medicaid_data}}{
-
-A data frame with 15 rows and 4 columns:
-\describe{
-\item{code}{Facility type code}
-\item{range}{Facility type range}
-\item{abbr}{Facility type abbreviation}
-\item{desc}{Facility type description}
-...
-}
-}
 }
 \source{
 \url{https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf}
 }
 \usage{
 state_codes
-
-medicare_ranges
-
-medicaid_ranges
-
-medicaid_types
-
-medicaid_data
 }
 \description{
-From Section 2779A1: CCN for Medicare Providers (pgs. 403-404)
-(Rev. 226; Issued: 12-06-24; Effective: 12-06-24; Implementation: 12-06-24)
-
-From Section 2779A1: CCN for Medicare Providers (pgs. 405-406)
-(Rev. 226; Issued: 12-06-24; Effective: 12-06-24; Implementation: 12-06-24)
-
-From Section 2779B:  CMS Certification Numbers for Medicaid Providers (pgs. 407-408)
-(Rev. 123; Issued: 10-03-14; Effective: 10-03-14; Implementation: 10-03-14)
-
-From Section 2779B:  CMS Certification Numbers for Medicaid Providers (pgs. 407-408)
-(Rev. 123; Issued: 10-03-14; Effective: 10-03-14; Implementation: 10-03-14)
-
-From Section 2779B:  CMS Certification Numbers for Medicaid Providers (pgs. 407-408)
-(Rev. 123; Issued: 10-03-14; Effective: 10-03-14; Implementation: 10-03-14)
+\itemize{
+\item Section \strong{2779A1}:
+\item Title: "CCN for Medicare Providers"
+\item Pgs. 403-404
+\item Rev. 226
+\item Iss./Eff./Impl. 12-06-24
 }
-\examples{
-state_codes
-medicare_ranges
-medicaid_ranges
-medicaid_types
-medicaid_data
 }
 \keyword{datasets}
