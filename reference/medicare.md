@@ -1,4 +1,4 @@
-# Medicare Provider Ranges
+# Medicare Providers
 
 Convert various codes to their associated names.
 
@@ -12,6 +12,8 @@ medicare_range_abbr(x)
 medicare_range_desc(x)
 
 medicare_sequence(x)
+
+new_medicare(x)
 ```
 
 ## Arguments
@@ -27,16 +29,18 @@ character vector of names associated with codes.
 ## Examples
 
 ``` r
-medicare_range("9000")
-#> [1] "9000-9799"
-medicare_range_abbr("9000-9799")
-#> [1] "HHA"
-medicare_range_desc("9000-9799")
-#> [1] "Home Health Agency"
-medicare_sequence("9000")
-#> <ccn::MedicareSequence>
-#>  @ number: chr "9000"
-#>  @ range : chr "9000-9799"
-#>  @ abbr  : chr "HHA"
-#>  @ desc  : chr "Home Health Agency"
+new_medicare("670055")
+#> <ccn::Medicare>
+#>  @ ccn      : chr "670055"
+#>  @ entity   : chr "Medicare Provider"
+#>  @ state    : <ccn::State>
+#>  .. @ code: chr "67"
+#>  .. @ abbr: chr "TX"
+#>  .. @ name: chr "Texas"
+#>  @ sequence : <ccn::MedicareSequence>
+#>  .. @ number: chr "0055"
+#>  .. @ range : chr "0001-0879"
+#>  .. @ abbr  : chr "STC"
+#>  .. @ desc  : chr "Short-Term Hospital (General & Specialty)"
+#>  @ extension: NULL
 ```

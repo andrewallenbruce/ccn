@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ccn</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9032</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9033</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,17 +63,10 @@
 
         <dt>
 
-          <code><a href="decode.html">decode()</a></code>
+          <code><a href="emergency.html">emergency_type()</a></code> <code><a href="emergency.html">emergency_sequence()</a></code>
 
         </dt>
-        <dd>Decode CMS Certification Numbers (CCNs)</dd>
-
-        <dt>
-
-          <code><a href="emergency.html">is_emergency_type()</a></code> <code><a href="emergency.html">emergency_type_abbr()</a></code> <code><a href="emergency.html">emergency_type_desc()</a></code> <code><a href="emergency.html">emergency_type()</a></code> <code><a href="emergency.html">emergency_sequence()</a></code>
-
-        </dt>
-        <dd>Emergency Hospital</dd>
+        <dd>Emergency Hospital CCNs</dd>
 
         <dt>
 
@@ -84,21 +77,49 @@
 
         <dt>
 
-          <code><a href="medicaid.html">medicaid_only_range()</a></code> <code><a href="medicaid.html">medicaid_only_range_j()</a></code> <code><a href="medicaid.html">medicaid_only_range_abbr()</a></code> <code><a href="medicaid.html">medicaid_only_range_desc()</a></code> <code><a href="medicaid.html">medicaid_only_sequence()</a></code> <code><a href="medicaid.html">is_type_medicaid_only()</a></code> <code><a href="medicaid.html">medicaid_only_type_abbr()</a></code> <code><a href="medicaid.html">medicaid_only_type_desc()</a></code> <code><a href="medicaid.html">medicaid_only_type()</a></code>
+          <code><a href="medicaid_facility.html">is_type_medicaid_only_facility()</a></code> <code><a href="medicaid_facility.html">medicaid_only_facility_type_abbr()</a></code> <code><a href="medicaid_facility.html">medicaid_only_facility_type_desc()</a></code> <code><a href="medicaid_facility.html">medicaid_only_facility_sequence()</a></code> <code><a href="medicaid_facility.html">medicaid_only_facility_type()</a></code> <code><a href="medicaid_facility.html">new_medicaid_only_facility()</a></code> <code><a href="medicaid_facility.html">is_type_medicaid_hospital()</a></code>
 
         </dt>
-        <dd>Medicaid-Only</dd>
+        <dd>Medicaid-Only Facilities</dd>
 
         <dt>
 
-          <code><a href="medicare.html">medicare_range()</a></code> <code><a href="medicare.html">medicare_range_abbr()</a></code> <code><a href="medicare.html">medicare_range_desc()</a></code> <code><a href="medicare.html">medicare_sequence()</a></code>
+          <code><a href="medicaid_hospital.html">medicaid_hospital_range()</a></code> <code><a href="medicaid_hospital.html">medicaid_hospital_range_abbr()</a></code> <code><a href="medicaid_hospital.html">medicaid_hospital_range_desc()</a></code> <code><a href="medicaid_hospital.html">medicaid_only_hospital_sequence()</a></code> <code><a href="medicaid_hospital.html">medicaid_only_hospital_type()</a></code> <code><a href="medicaid_hospital.html">new_medicaid_only_hospital()</a></code>
 
         </dt>
-        <dd>Medicare Provider Ranges</dd>
+        <dd>Medicaid-Only Hospitals</dd>
 
         <dt>
 
-          <code><a href="opo.html">is_type_opo()</a></code> <code><a href="opo.html">opo_abbr()</a></code> <code><a href="opo.html">opo_desc()</a></code> <code><a href="opo.html">opo_sequence()</a></code> <code><a href="opo.html">opo_type()</a></code>
+          <code><a href="medicaid_only_facility_types.html">medicaid_only_facility_types</a></code>
+
+        </dt>
+        <dd>CCN Medicaid-Only Facility Types</dd>
+
+        <dt>
+
+          <code><a href="medicaid_only_hospital_ranges.html">medicaid_only_hospital_ranges</a></code>
+
+        </dt>
+        <dd>CCN Medicaid-Only Hospital Ranges</dd>
+
+        <dt>
+
+          <code><a href="medicare.html">medicare_range()</a></code> <code><a href="medicare.html">medicare_range_abbr()</a></code> <code><a href="medicare.html">medicare_range_desc()</a></code> <code><a href="medicare.html">medicare_sequence()</a></code> <code><a href="medicare.html">new_medicare()</a></code>
+
+        </dt>
+        <dd>Medicare Providers</dd>
+
+        <dt>
+
+          <code><a href="medicare_ranges.html">medicare_ranges</a></code>
+
+        </dt>
+        <dd>CCN Medicare Facility Ranges</dd>
+
+        <dt>
+
+          <code><a href="opo.html">new_emergency()</a></code> <code><a href="opo.html">opo_sequence()</a></code> <code><a href="opo.html">opo_type()</a></code> <code><a href="opo.html">new_opo()</a></code>
 
         </dt>
         <dd>Organ Procurement Organizations (OPO)</dd>
@@ -119,7 +140,7 @@
 
         <dt>
 
-          <code><a href="state_codes.html">state_codes</a></code> <code><a href="state_codes.html">medicare_ranges</a></code> <code><a href="state_codes.html">medicaid_ranges</a></code> <code><a href="state_codes.html">medicaid_types</a></code> <code><a href="state_codes.html">medicaid_data</a></code>
+          <code><a href="state_codes.html">state_codes</a></code>
 
         </dt>
         <dd>CCN State Codes</dd>
@@ -133,7 +154,7 @@
 
         <dt>
 
-          <code><a href="supplier.html">is_supplier_type()</a></code> <code><a href="supplier.html">is_supplier()</a></code> <code><a href="supplier.html">supplier_sequence()</a></code> <code><a href="supplier.html">supplier_type_abbr()</a></code> <code><a href="supplier.html">supplier_type_desc()</a></code> <code><a href="supplier.html">supplier_type()</a></code>
+          <code><a href="supplier.html">supplier_sequence()</a></code> <code><a href="supplier.html">supplier_type_abbr()</a></code> <code><a href="supplier.html">supplier_type_desc()</a></code> <code><a href="supplier.html">supplier_type()</a></code> <code><a href="supplier.html">new_supplier()</a></code>
 
         </dt>
         <dd>Medicare Supplier</dd>

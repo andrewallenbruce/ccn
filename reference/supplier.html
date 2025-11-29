@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ccn</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9032</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9033</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,17 +45,15 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">is_supplier_type</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">is_supplier</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">supplier_sequence</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">supplier_sequence</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">supplier_type_abbr</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">supplier_type_desc</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">supplier_type</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">supplier_type</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">new_supplier</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -73,22 +71,70 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">is_supplier</span><span class="op">(</span><span class="st">"10C0001062"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
-<span class="r-in"><span><span class="fu">supplier_sequence</span><span class="op">(</span><span class="st">"10C0001062"</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>NAs introduced by coercion</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>NAs introduced by coercion</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Sequence&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ number: chr "10C0001062"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ range : chr NA</span>
-<span class="r-in"><span><span class="fu">is_supplier_type</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="st">"D"</span>, <span class="st">"X"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE TRUE TRUE</span>
-<span class="r-in"><span><span class="fu">supplier_type_abbr</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="st">"D"</span>, <span class="st">"X"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "ASC"  "CLIA" "XRAY"</span>
-<span class="r-in"><span><span class="fu">supplier_type_desc</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="st">"D"</span>, <span class="st">"X"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Ambulatory Surgical Center"                                          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2] "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3] "Portable X-Ray Facility"                                             </span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">new_supplier</span><span class="op">(</span><span class="st">"10C0001062"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Supplier&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn      : chr "10C0001062"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ entity   : chr "Medicare Supplier"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state    : &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "10"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "FL"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name: chr "Florida"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence : &lt;ccn::Sequence&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "0001062"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ range : chr "0000001-9999999"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type     : &lt;ccn::Type&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "C"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Ambulatory Surgical Center"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "ASC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ extension: NULL</span>
+<span class="r-in"><span><span class="fu">new_supplier</span><span class="op">(</span><span class="st">"45D0634589"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Supplier&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn      : chr "45D0634589"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ entity   : chr "Medicare Supplier"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state    : &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "45"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "TX"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name: chr "Texas"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence : &lt;ccn::Sequence&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "0634589"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ range : chr "0000001-9999999"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type     : &lt;ccn::Type&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "D"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "CLIA"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ extension: NULL</span>
+<span class="r-in"><span><span class="fu">new_supplier</span><span class="op">(</span><span class="st">"21X0009807"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Supplier&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn      : chr "21X0009807"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ entity   : chr "Medicare Supplier"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state    : &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "21"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "MD"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name: chr "Maryland"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence : &lt;ccn::Sequence&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "0009807"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ range : chr "0000001-9999999"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type     : &lt;ccn::Type&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "X"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Portable X-Ray Facility"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "PXRF"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ extension: NULL</span>
+<span class="r-in"><span><span class="fu">new_supplier</span><span class="op">(</span><span class="st">"12C0001062"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Supplier&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn      : chr "12C0001062"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ entity   : chr "Medicare Supplier"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state    : &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "12"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "HI"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name: chr "Hawaii"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence : &lt;ccn::Sequence&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "0001062"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ range : chr "0000001-9999999"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type     : &lt;ccn::Type&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "C"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Ambulatory Surgical Center"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "ASC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ extension: NULL</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

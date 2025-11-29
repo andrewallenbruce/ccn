@@ -1,5 +1,9 @@
 # Changelog
 
+## ccn 0.0.0.9033 (2025-11-29)
+
+- reconstructing internal data sources
+
 ## ccn 0.0.0.9032 (2025-11-28)
 
 - medicaid ranges/types overhaul

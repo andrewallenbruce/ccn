@@ -1,7 +1,14 @@
 # CCN Medicare Facility Ranges
 
-From Section 2779A1: CCN for Medicare Providers (pgs. 405-406) (Rev.
-226; Issued: 12-06-24; Effective: 12-06-24; Implementation: 12-06-24)
+- Section **2779A1**
+
+- Title: "CCN for Medicare Providers"
+
+- Pgs. 405-406
+
+- Rev. 226
+
+- Iss./Eff./Impl. 12-06-24
 
 ## Usage
 
@@ -17,16 +24,12 @@ A data frame with 39 rows and 3 columns:
 
 - range:
 
-  Facility range
+  Medicare facility range
 
 - abbr:
 
-  Facility abbreviation
+  Medicare facility abbreviation
 
 - desc:
 
-  Facility description
-
-## Source
-
-<https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf>
+  Medicare facility description
