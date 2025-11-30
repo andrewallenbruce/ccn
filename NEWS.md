@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9035 (2025-11-30)
+
+* work on `parse()` (#3)
+
+
 # ccn 0.0.0.9034 (2025-11-30)
 
 * more restructuring
