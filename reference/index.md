@@ -13,16 +13,16 @@
   [`excluded_desc()`](https://andrewallenbruce.github.io/ccn/reference/excluded.md)
   [`excluded_type()`](https://andrewallenbruce.github.io/ccn/reference/excluded.md)
   : IPPS Excluded Types
-- [`new_medicaid_only_facility()`](https://andrewallenbruce.github.io/ccn/reference/medicaid_facility.md)
+- [`medicaid_only_facility()`](https://andrewallenbruce.github.io/ccn/reference/medicaid_only_facility.md)
   : Medicaid-Only Facilities
 - [`medicaid_only_hospital()`](https://andrewallenbruce.github.io/ccn/reference/medicaid_only_hospital.md)
   : Medicaid-Only Hospitals
+- [`medicare_opo()`](https://andrewallenbruce.github.io/ccn/reference/medicare_opo.md)
+  : Organ Procurement Organizations (OPO)
 - [`medicare_provider()`](https://andrewallenbruce.github.io/ccn/reference/medicare_provider.md)
   : Medicare Provider
 - [`medicare_supplier()`](https://andrewallenbruce.github.io/ccn/reference/medicare_supplier.md)
   : Medicare Supplier
-- [`new_opo()`](https://andrewallenbruce.github.io/ccn/reference/opo.md)
-  : Organ Procurement Organizations (OPO)
 - [`ipps_excluded_unit_abbr()`](https://andrewallenbruce.github.io/ccn/reference/parent.md)
   [`ipps_excluded_unit_prefix()`](https://andrewallenbruce.github.io/ccn/reference/parent.md)
   [`get_unit_sequence()`](https://andrewallenbruce.github.io/ccn/reference/parent.md)

@@ -16,7 +16,7 @@ medicaid_only_hospital(x)
 
 ## Value
 
-character vector of names associated with codes.
+S7 object of class `MedicaidOnlyHospital`.
 
 ## Examples
 

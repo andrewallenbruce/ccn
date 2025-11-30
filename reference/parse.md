@@ -57,8 +57,8 @@ parse_excluded("21T101")
 #>                     type                 sequence 
 #>                      "T"                    "101" 
 parse_excluded_unit("02TA01")
-#>                 ccn              entity               state                type 
-#>            "02TA01" "Medicare Supplier"                "02"                 "T" 
-#>              parent            sequence 
-#>                 "A"                "01" 
+#>                  ccn               entity                state 
+#>             "02TA01" "IPPS Excluded Unit"                 "02" 
+#>                 type               parent             sequence 
+#>                  "T"                  "A"                 "01" 
 ```
