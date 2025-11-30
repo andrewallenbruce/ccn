@@ -8,6 +8,7 @@
 #' @returns S7 object of class `Medicare`.
 #' @examples
 #' medicare_provider("670055")
+#' medicare_provider("123456")
 NULL
 
 #' @noRd

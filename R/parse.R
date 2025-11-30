@@ -7,145 +7,104 @@
 #' @name parse
 #' @returns character vector of names associated with codes.
 #' @examples
-#' parse_medicare("670055")
-#' parse_opo("05P001")
-#' parse_emergency("12345E")
-#' parse_supplier("10C0001062")
-#' parse_excluded("21T101")
-#' parse_excluded_unit("02TA01")
+#' parse_medicare_provider("670055")
+#' parse_medicare_opo("05P001")
+#' parse_emergency_hospital("12345E")
+#' parse_medicare_supplier("10C0001062")
+#' parse_medicaid_only_hospital("A5J508")
+#' parse_medicaid_only_facility("23E301")
+#' parse_eipps_provider("21T101")
+#' parse_eipps_unit("02TA01")
 NULL
 
-#' @rdname parse
-#' @export
-parse_excluded <- function(x) {
-  # IPPS Excluded Provider:
-  # "21T101" -> "21 T 101"
-
-  unlist_(c(
-    x,
-    "IPPS Excluded Provider",
-    strsplit(
+#' @noRd
+parser <- function(entity,
+                   regex,
+                   groups = "\\1 \\2 \\3",
+                   names  = c("ccn", "entity", "state", "type", "sequence")) {
+  function(x) {
+    c(x, entity, strsplit(
       gsub(
-        "([A-Z0-9]{2})([A-Z])([0-9]{3})",
-        "\\1 \\2 \\3",
-        x,
-        perl = TRUE),
-      split = " ",
-      fixed = TRUE
-    ))) |>
-    rlang::set_names(c("ccn", "entity", "state", "type", "sequence"))
-
+        pattern     = paste0("([0-9A-B][0-9])", regex),
+        replacement = groups,
+        x           = x,
+        perl        = TRUE
+      ),
+      split         = " ",
+      fixed         = TRUE
+    )) |>
+      unlist_() |>
+      rlang::set_names(nm = names)
+  }
 }
 
+# Medicare Provider: 670055 -> 67 0055
 #' @rdname parse
 #' @export
-parse_medicaid_only <- function(x) {
-  # Medicaid Only Provider:
-  # "01L008" -> "01 L 008"
+parse_medicare_provider <- parser(
+  entity = "Medicare Provider",
+  regex  = "([0-9]{4})",
+  groups = "\\1 \\2",
+  names  = c("ccn", "entity", "state", "sequence")
+)
 
-  unlist_(c(
-    x,
-    "Medicaid Only Provider",
-    strsplit(
-      gsub(
-        "([A-Z0-9]{2})([A-Z])([0-9]{3})",
-        "\\1 \\2 \\3",
-        x,
-        perl = TRUE),
-      split = " ",
-      fixed = TRUE
-    ))) |>
-    rlang::set_names(c("ccn", "entity", "state", "type", "sequence"))
-}
-
+# Medicare OPO Provider: 05P001 -> 05 P 001
 #' @rdname parse
 #' @export
-parse_opo <- function(x) {
-  # Medicare OPO Provider:
-  # "05P001" -> "05 P 001"
+parse_medicare_opo <- parser(
+  entity = "Medicare Provider",
+  regex  = "([P])([0-9]{3})"
+)
 
-  unlist_(c(
-    x,
-    "Medicare Provider",
-    strsplit(
-      gsub(
-        "([A-Z0-9]{2})([P])([0-9]{3})",
-        "\\1 \\2 \\3",
-        x,
-        perl = TRUE),
-      split = " ",
-      fixed = TRUE
-    ))) |>
-    rlang::set_names(c("ccn", "entity", "state", "type", "sequence"))
-}
-
+# Emergency Hospital: 12345E -> 12 E 345
 #' @rdname parse
 #' @export
-parse_medicare <- function(x) {
-  # Medicare Provider:
-  # "670055" -> "67 0055"
+parse_emergency_hospital <- parser(
+  entity = "Emergency Hospital",
+  regex  = "([0-9]{3})([E])",
+  groups = "\\1 \\3 \\2"
+)
 
-  unlist_(c(
-    x,
-    "Medicare Provider",
-    strsplit(
-      gsub(
-        "([A-Z0-9]{2})([0-9]{4})",
-        "\\1 \\2",
-        x,
-        perl = TRUE),
-      split = " ",
-      fixed = TRUE
-      )
-    )
-  ) |>
-    rlang::set_names(c("ccn", "entity", "state", "sequence"))
-}
-
+# Medicare Supplier: 10C0001062 -> 10 C 0001062
 #' @rdname parse
 #' @export
-parse_emergency <- function(x) {
-  # Emergency Hospital:
-  # "12345E" -> "12 E 345"
+parse_medicare_supplier <- parser(
+  entity = "Medicare Supplier",
+  regex  = "([CDX])([0-9]{7})",
+  groups = "\\1 \\2 \\3"
+)
 
-  c(x, "Emergency Hospital", strsplit(
-    gsub("([A-Z0-9]{2})([0-9]{3})([E])", "\\1 \\3 \\2", x, perl = TRUE),
-    " ",
-    fixed = TRUE
-  )) |>
-    unlist_() |>
-    rlang::set_names(c("ccn", "entity", "state", "type", "sequence"))
-}
-
+# Medicaid-Only Hospital: 01L008 -> 01 L 008
 #' @rdname parse
 #' @export
-parse_supplier <- function(x) {
-  # Medicare Supplier:
-  # "10C0001062" -> "10 C 0001062"
+parse_medicaid_only_hospital <- parser(
+  entity = "Medicaid-Only Provider",
+  regex  = "([J])([0-9]{3})"
+)
 
-  c(x, "Medicare Supplier", strsplit(
-    gsub("([A-Z0-9]{2})([CDX])([0-9]{7})", "\\1 \\2 \\3", x, perl = TRUE),
-    " ",
-    fixed = TRUE
-  )) |>
-    unlist_() |>
-    rlang::set_names(c("ccn", "entity", "state", "type", "sequence"))
-}
-
+# Medicaid-Only Facility: 01L008 -> 01 L 008
 #' @rdname parse
 #' @export
-parse_excluded_unit <- function(x) {
-  # IPPS Excluded Unit:
-  # "02TA01" -> "02 T A 01"
+parse_medicaid_only_facility <- parser(
+  entity = "Medicaid-Only Provider",
+  regex  = "([ABE-HKL])([0-9]{3})"
+)
 
-  c(
-    x,
-    "IPPS Excluded Unit",
-    strsplit(
-    gsub("([A-Z0-9]{2})([A-Z])([A-Z])([0-9]{2})", "\\1 \\2 \\3 \\4", x, perl = TRUE),
-    " ",
-    fixed = TRUE
-  )) |>
-    unlist_() |>
-    rlang::set_names(c("ccn", "entity", "state", "type", "parent", "sequence"))
-}
+# IPPS-Excluded Provider: 21T101 -> 21 T 101
+#' @rdname parse
+#' @export
+parse_eipps_provider <- parser(
+  entity = "IPPS-Excluded Provider",
+  regex  = "([MR-UWYZ])([0-9]{3})",
+  groups = "\\1 \\2 \\3"
+)
+
+# IPPS-Excluded Unit: 02TA01 -> 02 T A 01
+#' @rdname parse
+#' @export
+parse_eipps_unit <- parser(
+  entity = "IPPS-Excluded Unit",
+  regex  = "([MR-UWYZ])([A-HJK])([0-9]{2})",
+  groups = "\\1 \\2 \\3 \\4",
+  names  = c("ccn", "entity", "state", "type", "parent", "sequence")
+)

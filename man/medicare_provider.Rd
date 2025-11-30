@@ -17,4 +17,5 @@ Convert various codes to their associated names.
 }
 \examples{
 medicare_provider("670055")
+medicare_provider("123456")
 }
