@@ -1,5 +1,27 @@
 # Emergency Hospital CCNs
 
+This S7 class represents CMS Certification Numbers (CCNs) assigned to
+emergency hospitals (both Federal and non-Federal) that do not
+participate in the Medicare program.
+
+## Usage
+
+``` r
+emergency_hospital(x)
+```
+
+## Arguments
+
+- x:
+
+  character vector of codes to look up.
+
+## Value
+
+S7 object of class `EmergencyHospital`.
+
+## Further Information
+
 Emergency Hospital CMS Certification Numbers (Non-Participating
 Hospitals) Rev. 29, Pg. 411, Iss. 04-20-07, Eff./Imp. 10-01-2007
 
@@ -17,26 +39,10 @@ terminated facility again qualifies as an emergency hospital, the RO
 issues a new CCN. For a non-participating hospital that is now fully
 participating, see subsection I.
 
-## Usage
-
-``` r
-new_emergency(x)
-```
-
-## Arguments
-
-- x:
-
-  character vector of codes to look up.
-
-## Value
-
-S7 object of class `EmergencyHospital`.
-
 ## Examples
 
 ``` r
-new_emergency("21034E")
+emergency_hospital("21034E")
 #> <ccn::EmergencyHospital>
 #>  @ ccn     : chr "21034E"
 #>  @ entity  : chr "Emergency Hospital"
@@ -51,7 +57,7 @@ new_emergency("21034E")
 #>  .. @ code: chr "E"
 #>  .. @ desc: chr "Non-Federal Emergency Hospital"
 #>  .. @ abbr: chr "NFEH"
-new_emergency("12345F")
+emergency_hospital("12345F")
 #> <ccn::EmergencyHospital>
 #>  @ ccn     : chr "12345F"
 #>  @ entity  : chr "Emergency Hospital"

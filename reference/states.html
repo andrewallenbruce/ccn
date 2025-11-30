@@ -45,15 +45,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">is_state</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">extract_state</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">state</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">state_abbr</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">state_name</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">state</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -66,28 +58,21 @@
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>character vector of names associated with codes.</p>
+    <p>S7 object of class <code>State</code>.</p>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="op">(</span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fu">ccn</span><span class="fu">::</span><span class="va"><a href="state_codes.html">state_codes</a></span><span class="op">$</span><span class="va">code</span>, <span class="fl">5L</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "54" "42" "65" "B1" "04"</span>
-<span class="r-in"><span><span class="fu">is_state</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE TRUE TRUE TRUE TRUE</span>
-<span class="r-in"><span><span class="fu">state_abbr</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "ID" "SC" "GU" "WV" "AR"</span>
-<span class="r-in"><span><span class="fu">state_name</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Idaho"          "South Carolina" "Guam"           "West Virginia" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [5] "Arkansas"      </span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">extract_state</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A5XXX"</span>, <span class="st">"14XXXXX"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "A5" "14"</span>
-<span class="r-in"><span><span class="fu">state</span><span class="op">(</span><span class="st">"A5XXX"</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">state</span><span class="op">(</span><span class="st">"A5XXX"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::State&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ code: chr "A5"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ abbr: chr "MS"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ name: chr "Mississippi"</span>
+<span class="r-in"><span><span class="fu">state</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fu">ccn</span><span class="fu">::</span><span class="va"><a href="state_codes.html">state_codes</a></span><span class="op">$</span><span class="va">code</span>, <span class="fl">1L</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ code: chr "54"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ abbr: chr "ID"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ name: chr "Idaho"</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

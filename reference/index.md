@@ -7,7 +7,7 @@
 - [`ccn`](https://andrewallenbruce.github.io/ccn/reference/ccn-package.md)
   [`ccn-package`](https://andrewallenbruce.github.io/ccn/reference/ccn-package.md)
   : ccn: Parse CMS Certification Numbers
-- [`new_emergency()`](https://andrewallenbruce.github.io/ccn/reference/emergency_hospital.md)
+- [`emergency_hospital()`](https://andrewallenbruce.github.io/ccn/reference/emergency_hospital.md)
   : Emergency Hospital CCNs
 - [`is_ipps_excluded_type()`](https://andrewallenbruce.github.io/ccn/reference/excluded.md)
   [`excluded_abbr()`](https://andrewallenbruce.github.io/ccn/reference/excluded.md)
@@ -35,11 +35,7 @@
   [`parse_supplier()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
   [`parse_excluded_unit()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
   : Parse CMS Certification Numbers
-- [`is_state()`](https://andrewallenbruce.github.io/ccn/reference/states.md)
-  [`extract_state()`](https://andrewallenbruce.github.io/ccn/reference/states.md)
-  [`state()`](https://andrewallenbruce.github.io/ccn/reference/states.md)
-  [`state_abbr()`](https://andrewallenbruce.github.io/ccn/reference/states.md)
-  [`state_name()`](https://andrewallenbruce.github.io/ccn/reference/states.md)
+- [`state()`](https://andrewallenbruce.github.io/ccn/reference/states.md)
   : State Codes
 - [`new_supplier()`](https://andrewallenbruce.github.io/ccn/reference/supplier.md)
   : Medicare Supplier
