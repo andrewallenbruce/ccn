@@ -4,7 +4,7 @@
 #' Convert state codes to their abbreviations or full names.
 #'
 #' @param x character vector of state codes to look up.
-#' @name states
+#' @name state
 #' @returns S7 object of class `State`.
 #' @examples
 #' state("A5XXX")
@@ -34,11 +34,6 @@ state_name <- function(x) {
 }
 
 #' @noRd
-extract_state <- function(x) {
-  substr_(x, c(1L, 2L))
-}
-
-#' @noRd
 State <- S7::new_class(
   name = "State",
   properties = list(
@@ -56,8 +51,8 @@ State <- S7::new_class(
   )
 )
 
-#' @rdname states
+#' @rdname state
 #' @export
 state <- function(x) {
-  State(code = extract_state(x))
+  State(code = get_state(x))
 }

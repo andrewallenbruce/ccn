@@ -7,12 +7,12 @@
 #' @name medicaid_only_hospital
 #' @returns character vector of names associated with codes.
 #' @examples
-#' new_medicaid_only_hospital("01J008")
-#' new_medicaid_only_hospital("A5J508")
+#' medicaid_only_hospital("01J008")
+#' medicaid_only_hospital("A5J508")
 NULL
 
 #' @noRd
-medicaid_hospital_range <- function(x) {
+moh_range <- function(x) {
   x <- as_int(x)
   kit::nif(
     x >= 1L   & x <= 99L,  "001-099",
@@ -27,7 +27,7 @@ medicaid_hospital_range <- function(x) {
 }
 
 #' @noRd
-medicaid_hospital_range_abbr <- function(x) {
+moh_range_abbr <- function(x) {
   kit::vswitch(
     x       = x,
     values  = ccn::medicaid_only_hospital_ranges$range,
@@ -38,7 +38,7 @@ medicaid_hospital_range_abbr <- function(x) {
 }
 
 #' @noRd
-medicaid_hospital_range_desc <- function(x) {
+moh_range_desc <- function(x) {
   kit::vswitch(
     x       = x,
     values  = ccn::medicaid_only_hospital_ranges$range,
@@ -49,58 +49,55 @@ medicaid_hospital_range_desc <- function(x) {
 }
 
 #' @noRd
-MedicaidHospitalSequence <- S7::new_class(
-  name = "MedicaidHospitalSequence",
-  parent = SequenceFull,
+SequenceMOH <- S7::new_class(
+  name       = "SequenceMOH",
+  parent     = SequenceFull,
   properties = list(
-    range = S7::new_property(
+    range    = S7::new_property(
       S7::class_character,
       getter = function(self)
-        medicaid_hospital_range(self@number)
+        moh_range(self@number)
     ),
-    abbr = S7::new_property(
+    abbr     = S7::new_property(
       S7::class_character,
       getter = function(self)
-        medicaid_hospital_range_abbr(self@range)
+        moh_range_abbr(self@range)
     ),
-    desc = S7::new_property(
+    desc     = S7::new_property(
       S7::class_character,
       getter = function(self)
-        medicaid_hospital_range_desc(self@range)
+        moh_range_desc(self@range)
     )
   )
 )
 
 #' @noRd
-medicaid_only_hospital_sequence <- function(x) {
-  MedicaidHospitalSequence(number = x)
+moh_sequence <- function(x) {
+  SequenceMOH(number = x)
 }
 
 #' @noRd
-medicaid_only_hospital_type <- function(x) {
-  Type(
-    code = x,
-    abbr = "MOH",
-    desc = "Medicaid-Only Hospital"
-  )
+moh_type <- function(x) {
+  Type(code = x,
+       abbr = "MOH",
+       desc = "Medicaid-Only Hospital")
 }
 
 #' @noRd
 MedicaidOnlyHospital <- S7::new_class(
-  name = "MedicaidOnlyHospital",
-  parent = CCN,
+  name       = "MedicaidOnlyHospital",
+  parent     = CCN,
   properties = list(type = Type)
 )
 
 #' @rdname medicaid_only_hospital
 #' @export
-new_medicaid_only_hospital <- function(x) {
+medicaid_only_hospital <- function(x) {
   MedicaidOnlyHospital(
-    ccn = x,
-    entity = "Medicaid-Only Provider",
-    state = state(x),
-    sequence = medicaid_only_hospital_sequence(substr_(x, c(4L, 6L))),
-    type = medicaid_only_hospital_type(substr_(x, 3L))
-    # extension = ext_provider(x)
+    ccn      = x,
+    entity   = "Medicaid-Only Provider",
+    state    = state(x),
+    sequence = moh_sequence(substr_(x, c(4L, 6L))),
+    type     = moh_type(get_type(x))
   )
 }

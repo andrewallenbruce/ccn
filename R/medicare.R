@@ -1,13 +1,13 @@
-#' Medicare Providers
+#' Medicare Provider
 #'
 #' @description
 #' Convert various codes to their associated names.
 #'
 #' @param x character vector of codes to look up.
-#' @name medicare
-#' @returns character vector of names associated with codes.
+#' @name medicare_provider
+#' @returns S7 object of class `Medicare`.
 #' @examples
-#' new_medicare("670055")
+#' medicare_provider("670055")
 NULL
 
 #' @noRd
@@ -81,20 +81,20 @@ medicare_range_desc <- function(x) {
 
 #' @noRd
 MedicareSequence <- S7::new_class(
-  name = "MedicareSequence",
-  parent = SequenceFull,
+  name       = "MedicareSequence",
+  parent     = SequenceFull,
   properties = list(
-    range = S7::new_property(
+    range    = S7::new_property(
       S7::class_character,
       getter = function(self)
         medicare_range(self@number)
     ),
-    abbr = S7::new_property(
+    abbr     = S7::new_property(
       S7::class_character,
       getter = function(self)
         medicare_range_abbr(self@range)
     ),
-    desc = S7::new_property(
+    desc     = S7::new_property(
       S7::class_character,
       getter = function(self)
         medicare_range_desc(self@range)
@@ -109,19 +109,18 @@ medicare_sequence <- function(x) {
 
 #' @noRd
 Medicare <- S7::new_class(
-  name = "Medicare",
-  parent = CCN,
+  name       = "Medicare",
+  parent     = CCN,
   properties = list(extension = PropExtension)
 )
 
-#' @rdname medicare
+#' @rdname medicare_provider
 #' @export
-new_medicare <- function(x) {
+medicare_provider <- function(x) {
   Medicare(
-    ccn = x,
-    entity = "Medicare Provider",
-    state = state(x),
+    ccn      = x,
+    entity   = "Medicare Provider",
+    state    = state(x),
     sequence = medicare_sequence(substr_(x, c(3L, 6L)))
-    # extension = ext_provider(x@ccn)
   )
 }

@@ -2,10 +2,9 @@
 % Please edit documentation in R/medicaid_hospital.R
 \name{medicaid_only_hospital}
 \alias{medicaid_only_hospital}
-\alias{new_medicaid_only_hospital}
 \title{Medicaid-Only Hospitals}
 \usage{
-new_medicaid_only_hospital(x)
+medicaid_only_hospital(x)
 }
 \arguments{
 \item{x}{character vector of codes to look up.}
@@ -17,6 +16,6 @@ character vector of names associated with codes.
 Convert various codes to their associated names.
 }
 \examples{
-new_medicaid_only_hospital("01J008")
-new_medicaid_only_hospital("A5J508")
+medicaid_only_hospital("01J008")
+medicaid_only_hospital("A5J508")
 }

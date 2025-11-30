@@ -23,7 +23,7 @@ is_supplier_nchar <- function(x) {
 
 #' @noRd
 is_supplier_type <- function(x) {
-  substr_(x, 3L) %in% c("C", "D", "X")
+  x %in% c("C", "D", "X")
 }
 
 #' @noRd
@@ -42,12 +42,12 @@ is_emergency_type <- function(x) {
 }
 
 #' @noRd
-is_medicaid_only_hospital_type <- function(x) {
+is_mo_hospital_type <- function(x) {
   x == "J"
 }
 
 #' @noRd
-is_medicaid_only_facility_type <- function(x) {
+is_mo_facility_type <- function(x) {
   x %in% ccn::medicaid_only_facility_types$code
 }
 
@@ -56,8 +56,7 @@ is_ipps_excluded_unit_type <- function(x) {
   x %in% c("A", "B", "C", "D", "E", "F", "G", "H", "J", "K")
 }
 
-#' @rdname excluded
-#' @export
+#' @noRd
 is_ipps_excluded_type <- function(x) {
   x %in% c("M", "R", "S", "T", "U", "W", "Y", "Z")
 }
@@ -66,11 +65,11 @@ is_ipps_excluded_type <- function(x) {
 provider_type <- function(x) {
   kit::nif(
     is_numeric(x), "medicare",
-    is_opo_type(substr_(x, 3L)), "opo",
+    is_opo_type(get_type(x)), "opo",
     is_emergency_type(substr_(x, 6L)), "emergency",
-    is_medicaid_only_facility_type(substr_(x, 3L)), "medicaid_facility",
-    is_medicaid_only_hospital_type(substr_(x, 3L)), "medicaid_hospital",
-    is_ipps_excluded_type(substr_(x, 3L)), "excluded",
+    is_mo_facility_type(get_type(x)), "medicaid_facility",
+    is_mo_hospital_type(get_type(x)), "medicaid_hospital",
+    is_ipps_excluded_type(get_type(x)), "excluded",
     default = NA_character_
   )
 }

@@ -4,24 +4,20 @@
 #' Convert various codes to their associated names.
 #'
 #' @param x character vector of codes to look up.
-#' @name supplier
-#' @returns character vector of names associated with codes.
+#' @name medicare_supplier
+#' @returns S7 object of class `Supplier`.
 #' @examples
-#' new_supplier("10C0001062")
-#' new_supplier("45D0634589")
-#' new_supplier("21X0009807")
-#' new_supplier("12C0001062")
+#' medicare_supplier("10C0001062")
+#' medicare_supplier("45D0634589")
+#' medicare_supplier("21X0009807")
+#' medicare_supplier("12C0001062")
 NULL
 
 #' @noRd
 supplier_sequence <- function(x) {
   Sequence(
     number = x,
-    range = kit::iif(
-      as_int(x) >= 1L & as_int(x) <= 9999999L,
-      "0000001-9999999",
-      NA_character_
-    )
+    range  = kit::iif(as_int(x) >= 1L & as_int(x) <= 9999999L, "0000001-9999999", NA_character_)
   )
 }
 
@@ -41,11 +37,9 @@ supplier_type_desc <- function(x) {
   kit::vswitch(
     x       = x,
     values  = c("C", "D", "X"),
-    outputs = c(
-      "Ambulatory Surgical Center",
-      "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory",
-      "Portable X-Ray Facility"
-    ),
+    outputs = c("Ambulatory Surgical Center",
+                "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory",
+                "Portable X-Ray Facility"),
     default = NA_character_,
     nThread = 4L
   )
@@ -53,17 +47,15 @@ supplier_type_desc <- function(x) {
 
 #' @noRd
 supplier_type <- function(x) {
-  Type(
-    code = x,
-    abbr = supplier_type_abbr(x),
-    desc = supplier_type_desc(x)
-  )
+  Type(code = x,
+       abbr = supplier_type_abbr(x),
+       desc = supplier_type_desc(x))
 }
 
 #' @noRd
 Supplier <- S7::new_class(
-  name = "Supplier",
-  parent = CCN,
+  name        = "Supplier",
+  parent      = CCN,
   properties  = list(
     sequence  = Sequence,
     type      = Type,
@@ -71,15 +63,14 @@ Supplier <- S7::new_class(
   )
 )
 
-#' @rdname supplier
+#' @rdname medicare_supplier
 #' @export
-new_supplier <- function(x) {
+medicare_supplier <- function(x) {
   Supplier(
-    ccn = x,
-    entity = "Medicare Supplier",
-    state = state(x),
-    type = supplier_type(substr_(x, 3L)),
-    sequence = supplier_sequence(substr_(x, c(4L, 10L)))
-    # extension = ext_supplier(x)
+    ccn      = x,
+    entity   = "Medicare Supplier",
+    state    = state(x),
+    type     = supplier_type(get_type(x)),
+    sequence = supplier_sequence(get_seq2(x))
   )
 }

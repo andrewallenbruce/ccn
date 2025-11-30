@@ -38,10 +38,7 @@ emergency_type <- function(x) {
     desc = kit::vswitch(
       x,
       c("E", "F"),
-      c(
-        "Non-Federal Emergency Hospital",
-        "Federal Emergency Hospital"
-      ),
+      c("Non-Federal Emergency Hospital", "Federal Emergency Hospital"),
       NA_character_,
       nThread = 4L
     )
@@ -52,14 +49,14 @@ emergency_type <- function(x) {
 emergency_sequence <- function(x) {
   Sequence(
     number = x,
-    range = kit::iif(as_int(x) >= 1L & as_int(x) <= 999L, "001-999", NA_character_)
+    range  = kit::iif(as_int(x) >= 1L & as_int(x) <= 999L, "001-999", NA_character_)
   )
 }
 
 #' @noRd
 EmergencyHospital <- S7::new_class(
-  name = "EmergencyHospital",
-  parent = CCN,
+  name       = "EmergencyHospital",
+  parent     = CCN,
   properties = list(type = Type)
 )
 
