@@ -11,8 +11,6 @@
 
 ## usethis namespace: start
 #' @import S7
-#' @importFrom collapse `%=%` `%==%` `%!=%` `%!in%` `%iin%` `%!iin%` .c
-#' @importFrom cheapr `%in_%` `%!in_%`
 #' @rawNamespace if (getRversion() < "4.3.0") importFrom("S7", "@")
 ## usethis namespace: end
 NULL

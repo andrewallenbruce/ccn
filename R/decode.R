@@ -2,6 +2,11 @@
 NULL
 
 #' @noRd
+is_state_code <- function(x) {
+  x %in% ccn::state_codes$code
+}
+
+#' @noRd
 is_provider_nchar <- function(x) {
   nchar(x) == 6L
 }

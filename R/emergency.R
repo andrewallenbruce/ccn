@@ -1,6 +1,12 @@
 #' Emergency Hospital CCNs
 #'
 #' @description
+#' This S7 class represents CMS Certification Numbers (CCNs) assigned to
+#' emergency hospitals (both Federal and non-Federal) that do not participate
+#' in the Medicare program.
+#'
+#' @section Further Information:
+#'
 #' Emergency Hospital CMS Certification Numbers (Non-Participating Hospitals)
 #' Rev. 29, Pg. 411, Iss. 04-20-07, Eff./Imp. 10-01-2007
 #'
@@ -20,8 +26,8 @@
 #' @name emergency_hospital
 #' @returns S7 object of class `EmergencyHospital`.
 #' @examples
-#' new_emergency("21034E")
-#' new_emergency("12345F")
+#' emergency_hospital("21034E")
+#' emergency_hospital("12345F")
 NULL
 
 #' @noRd
@@ -59,7 +65,7 @@ EmergencyHospital <- S7::new_class(
 
 #' @rdname emergency_hospital
 #' @export
-new_emergency <- function(x) {
+emergency_hospital <- function(x) {
   EmergencyHospital(
     ccn      = x,
     entity   = "Emergency Hospital",

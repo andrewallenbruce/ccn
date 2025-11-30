@@ -5,25 +5,35 @@
 #'
 #' @param x character vector of state codes to look up.
 #' @name states
-#' @returns character vector of names associated with codes.
+#' @returns S7 object of class `State`.
 #' @examples
-#' (x <- sample(ccn::state_codes$code, 5L))
-#' is_state(x)
-#' state_abbr(x)
-#' state_name(x)
-#'
-#' extract_state(c("A5XXX", "14XXXXX"))
 #' state("A5XXX")
+#' state(sample(ccn::state_codes$code, 1L))
 NULL
 
-#' @rdname states
-#' @export
-is_state <- function(x) {
-  x %in_% ccn::state_codes$code
+#' @noRd
+state_abbr <- function(x) {
+  kit::vswitch(
+    x       = x,
+    values  = ccn::state_codes$code,
+    outputs = ccn::state_codes$abbr,
+    default = NA_character_,
+    nThread = 4L
+  )
 }
 
-#' @rdname states
-#' @export
+#' @noRd
+state_name <- function(x) {
+  kit::vswitch(
+    x       = x,
+    values  = ccn::state_codes$code,
+    outputs = ccn::state_codes$name,
+    default = NA_character_,
+    nThread = 4L
+  )
+}
+
+#' @noRd
 extract_state <- function(x) {
   substr_(x, c(1L, 2L))
 }
@@ -50,28 +60,4 @@ State <- S7::new_class(
 #' @export
 state <- function(x) {
   State(code = extract_state(x))
-}
-
-#' @rdname states
-#' @export
-state_abbr <- function(x) {
-  kit::vswitch(
-    x       = x,
-    values  = ccn::state_codes$code,
-    outputs = ccn::state_codes$abbr,
-    default = NA_character_,
-    nThread = 4L
-  )
-}
-
-#' @rdname states
-#' @export
-state_name <- function(x) {
-  kit::vswitch(
-    x       = x,
-    values  = ccn::state_codes$code,
-    outputs = ccn::state_codes$name,
-    default = NA_character_,
-    nThread = 4L
-  )
 }

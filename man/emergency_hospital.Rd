@@ -2,10 +2,9 @@
 % Please edit documentation in R/emergency.R
 \name{emergency_hospital}
 \alias{emergency_hospital}
-\alias{new_emergency}
 \title{Emergency Hospital CCNs}
 \usage{
-new_emergency(x)
+emergency_hospital(x)
 }
 \arguments{
 \item{x}{character vector of codes to look up.}
@@ -14,6 +13,13 @@ new_emergency(x)
 S7 object of class \code{EmergencyHospital}.
 }
 \description{
+This S7 class represents CMS Certification Numbers (CCNs) assigned to
+emergency hospitals (both Federal and non-Federal) that do not participate
+in the Medicare program.
+}
+\section{Further Information}{
+
+
 Emergency Hospital CMS Certification Numbers (Non-Participating Hospitals)
 Rev. 29, Pg. 411, Iss. 04-20-07, Eff./Imp. 10-01-2007
 
@@ -29,7 +35,8 @@ without regard to the Federal or non-Federal status. If a terminated facility
 again qualifies as an emergency hospital, the RO issues a new CCN. For a
 non-participating hospital that is now fully participating, see subsection I.
 }
+
 \examples{
-new_emergency("21034E")
-new_emergency("12345F")
+emergency_hospital("21034E")
+emergency_hospital("12345F")
 }
