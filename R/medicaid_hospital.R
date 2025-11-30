@@ -4,21 +4,14 @@
 #' Convert various codes to their associated names.
 #'
 #' @param x character vector of codes to look up.
-#' @name medicaid_hospital
+#' @name medicaid_only_hospital
 #' @returns character vector of names associated with codes.
 #' @examples
 #' new_medicaid_only_hospital("01J008")
 #' new_medicaid_only_hospital("A5J508")
 NULL
 
-#' @rdname medicaid_facility
-#' @export
-is_type_medicaid_hospital <- function(x) {
-  x == "J"
-}
-
-#' @rdname medicaid_hospital
-#' @export
+#' @noRd
 medicaid_hospital_range <- function(x) {
   x <- as_int(x)
   kit::nif(
@@ -33,8 +26,7 @@ medicaid_hospital_range <- function(x) {
   )
 }
 
-#' @rdname medicaid_hospital
-#' @export
+#' @noRd
 medicaid_hospital_range_abbr <- function(x) {
   kit::vswitch(
     x       = x,
@@ -45,8 +37,7 @@ medicaid_hospital_range_abbr <- function(x) {
   )
 }
 
-#' @rdname medicaid_hospital
-#' @export
+#' @noRd
 medicaid_hospital_range_desc <- function(x) {
   kit::vswitch(
     x       = x,
@@ -80,14 +71,12 @@ MedicaidHospitalSequence <- S7::new_class(
   )
 )
 
-#' @rdname medicaid_hospital
-#' @export
+#' @noRd
 medicaid_only_hospital_sequence <- function(x) {
   MedicaidHospitalSequence(number = x)
 }
 
-#' @rdname medicaid_hospital
-#' @export
+#' @noRd
 medicaid_only_hospital_type <- function(x) {
   Type(
     code = x,
@@ -103,7 +92,7 @@ MedicaidOnlyHospital <- S7::new_class(
   properties = list(type = Type)
 )
 
-#' @rdname medicaid_hospital
+#' @rdname medicaid_only_hospital
 #' @export
 new_medicaid_only_hospital <- function(x) {
   MedicaidOnlyHospital(

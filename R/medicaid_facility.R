@@ -13,14 +13,7 @@
 #' new_medicaid_only_facility("34F401")
 NULL
 
-#' @rdname medicaid_facility
-#' @export
-is_type_medicaid_only_facility <- function(x) {
-  x %in% ccn::medicaid_only_facility_types$code
-}
-
-#' @rdname medicaid_facility
-#' @export
+#' @noRd
 medicaid_only_facility_type_abbr <- function(x) {
   kit::vswitch(
     x       = x,
@@ -31,8 +24,7 @@ medicaid_only_facility_type_abbr <- function(x) {
   )
 }
 
-#' @rdname medicaid_facility
-#' @export
+#' @noRd
 medicaid_only_facility_type_desc <- function(x) {
   kit::vswitch(
     x       = x,
@@ -61,8 +53,7 @@ MedicaidOnlyType <- S7::new_class(
   )
 )
 
-#' @rdname medicaid_facility
-#' @export
+#' @noRd
 medicaid_only_facility_sequence <- function(x) {
   Sequence(
     number = x,
@@ -70,8 +61,7 @@ medicaid_only_facility_sequence <- function(x) {
   )
 }
 
-#' @rdname medicaid_facility
-#' @export
+#' @noRd
 medicaid_only_facility_type <- function(x) {
   MedicaidOnlyType(code = x)
 }

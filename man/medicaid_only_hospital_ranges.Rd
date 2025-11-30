@@ -16,6 +16,9 @@ A data frame with 7 rows and 3 columns:
 }
 }
 }
+\source{
+\url{https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf}
+}
 \usage{
 medicaid_only_hospital_ranges
 }
@@ -28,4 +31,4 @@ medicaid_only_hospital_ranges
 \item Iss./Eff./Impl. 10-03-14
 }
 }
-\keyword{datasets}
+\keyword{internal}

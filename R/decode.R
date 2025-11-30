@@ -37,14 +37,35 @@ is_emergency_type <- function(x) {
 }
 
 #' @noRd
+is_medicaid_only_hospital_type <- function(x) {
+  x == "J"
+}
+
+#' @noRd
+is_medicaid_only_facility_type <- function(x) {
+  x %in% ccn::medicaid_only_facility_types$code
+}
+
+#' @noRd
+is_ipps_excluded_unit_type <- function(x) {
+  x %in% c("A", "B", "C", "D", "E", "F", "G", "H", "J", "K")
+}
+
+#' @rdname excluded
+#' @export
+is_ipps_excluded_type <- function(x) {
+  x %in% c("M", "R", "S", "T", "U", "W", "Y", "Z")
+}
+
+#' @noRd
 provider_type <- function(x) {
   kit::nif(
     is_numeric(x), "medicare",
     is_opo_type(substr_(x, 3L)), "opo",
     is_emergency_type(substr_(x, 6L)), "emergency",
-    is_type_medicaid_only_facility(substr_(x, 3L)), "medicaid_facility",
-    is_type_medicaid_hospital(substr_(x, 3L)), "medicaid_hospital",
-    is_type_excluded(substr_(x, 3L)), "excluded",
+    is_medicaid_only_facility_type(substr_(x, 3L)), "medicaid_facility",
+    is_medicaid_only_hospital_type(substr_(x, 3L)), "medicaid_hospital",
+    is_ipps_excluded_type(substr_(x, 3L)), "excluded",
     default = NA_character_
   )
 }

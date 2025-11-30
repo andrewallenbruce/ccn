@@ -9,8 +9,7 @@
 #' new_opo("05P001")
 NULL
 
-#' @rdname opo
-#' @export
+#' @noRd
 opo_sequence <- function(x) {
   Sequence(
     number = x,
@@ -18,8 +17,7 @@ opo_sequence <- function(x) {
   )
 }
 
-#' @rdname opo
-#' @export
+#' @noRd
 opo_type <- function(x) {
   Type(
     code = x,

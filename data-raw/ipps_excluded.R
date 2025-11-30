@@ -3,10 +3,10 @@
 #'    * Section __2779C__
 #'    * Title: Special Numbering System for
 #'       * IPPS Excluded Hospital Units
-#'       * and Hospitals & CAHs with Swing-Bed Approval
+#'       * Hospitals/CAHs with Swing-Bed Approval
 #'    * Pgs. 408-409
 #'    * Rev. 198
-#'    * Iss./Eff./Impl. 01-17-20
+#'    * Iss/Eff/Impl `01-17-20`
 #'
 #' An alpha character in the third position of a hospital's or CAH's CCN
 #' identifies either its swing-bed approval or its status as an IPPS-excluded
@@ -37,8 +37,8 @@ ipps_excluded_facility_types <- tibble::tribble(
   ~code, ~abbr,     ~desc,
   "M",   "PUCAH",   "Psychiatric Unit of a Critical Access Hospital",
   "R",   "RU/IRF",  "Rehabilitation Unit of a Critical Access Hospital",
-  "S",   "PBMU",    "Psychiatric Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital",
-  "T",   "RU/IRF",  "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital",
+  "S",   "PBMU",    "Psychiatric Unit (Excluded from IPPS)",
+  "T",   "RU/IRF",  "Rehabilitation Unit (Excluded from IPPS)",
   "U",   "SBA-STH", "Swing-Bed Approval for Short-Term Hospital",
   "W",   "SBA-LTC", "Swing-Bed Approval for Long-Term Care Hospital",
   "Y",   "SBA-RH",  "Swing-Bed Approval for Rehabilitation Hospital",

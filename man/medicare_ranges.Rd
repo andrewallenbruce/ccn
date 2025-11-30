@@ -16,6 +16,9 @@ A data frame with 39 rows and 3 columns:
 }
 }
 }
+\source{
+\url{https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf}
+}
 \usage{
 medicare_ranges
 }
@@ -28,4 +31,4 @@ medicare_ranges
 \item Iss./Eff./Impl. 12-06-24
 }
 }
-\keyword{datasets}
+\keyword{internal}

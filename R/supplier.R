@@ -13,8 +13,7 @@
 #' new_supplier("12C0001062")
 NULL
 
-#' @rdname supplier
-#' @export
+#' @noRd
 supplier_sequence <- function(x) {
   Sequence(
     number = x,
@@ -26,8 +25,7 @@ supplier_sequence <- function(x) {
   )
 }
 
-#' @rdname supplier
-#' @export
+#' @noRd
 supplier_type_abbr <- function(x) {
   kit::vswitch(
     x       = x,
@@ -38,8 +36,7 @@ supplier_type_abbr <- function(x) {
   )
 }
 
-#' @rdname supplier
-#' @export
+#' @noRd
 supplier_type_desc <- function(x) {
   kit::vswitch(
     x       = x,
@@ -54,8 +51,7 @@ supplier_type_desc <- function(x) {
   )
 }
 
-#' @rdname supplier
-#' @export
+#' @noRd
 supplier_type <- function(x) {
   Type(
     code = x,

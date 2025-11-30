@@ -8,17 +8,10 @@
 #' @returns character vector of names associated with codes.
 #' @examples
 #' x <- c("M", "R", "S", "T", "U", "W", "Y", "Z")
-#' is_type_excluded(x)
 #' excluded_abbr(x)
 #' excluded_desc(c("E", "F"))
 #' excluded_type("E")
 NULL
-
-#' @rdname excluded
-#' @export
-is_type_excluded <- function(x) {
-  x %in_% c("M", "R", "S", "T", "U", "W", "Y", "Z")
-}
 
 #' @rdname excluded
 #' @export

@@ -16,6 +16,9 @@ A data frame with 8 rows and 3 columns:
 }
 }
 }
+\source{
+\url{https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf}
+}
 \usage{
 medicaid_only_facility_types
 }
@@ -28,4 +31,4 @@ medicaid_only_facility_types
 \item Issued/Effective/Implementation: 10-03-14
 }
 }
-\keyword{datasets}
+\keyword{internal}

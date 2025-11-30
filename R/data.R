@@ -15,6 +15,7 @@
 #'   ...
 #' }
 #' @source <https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf>
+#' @keywords internal
 "state_codes"
 
 #' CCN Medicare Facility Ranges
@@ -33,6 +34,8 @@
 #'   \item{desc}{Medicare facility description}
 #'   ...
 #' }
+#' @source <https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf>
+#' @keywords internal
 "medicare_ranges"
 
 #' CCN Medicaid-Only Hospital Ranges
@@ -51,6 +54,8 @@
 #'   \item{desc}{Medicaid-only hospital description}
 #'   ...
 #' }
+#' @source <https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf>
+#' @keywords internal
 "medicaid_only_hospital_ranges"
 
 #' CCN Medicaid-Only Facility Types
@@ -69,4 +74,6 @@
 #'   \item{desc}{Medicaid-only facility type description}
 #'   ...
 #' }
+#' @source <https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf>
+#' @keywords internal
 "medicaid_only_facility_types"

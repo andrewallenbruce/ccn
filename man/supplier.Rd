@@ -2,21 +2,9 @@
 % Please edit documentation in R/supplier.R
 \name{supplier}
 \alias{supplier}
-\alias{supplier_sequence}
-\alias{supplier_type_abbr}
-\alias{supplier_type_desc}
-\alias{supplier_type}
 \alias{new_supplier}
 \title{Medicare Supplier}
 \usage{
-supplier_sequence(x)
-
-supplier_type_abbr(x)
-
-supplier_type_desc(x)
-
-supplier_type(x)
-
 new_supplier(x)
 }
 \arguments{

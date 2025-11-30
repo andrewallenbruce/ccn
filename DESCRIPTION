@@ -20,8 +20,7 @@ Imports:
     pins (>= 1.4.1),
     qs (>= 0.27.3),
     rlang (>= 1.1.6),
-    S7 (>= 0.2.1),
-    vctrs (>= 0.6.5)
+    S7 (>= 0.2.1)
 Suggests: 
     purrr (>= 1.2.0),
     testthat (>= 3.3.0)

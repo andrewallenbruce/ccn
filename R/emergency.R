@@ -17,15 +17,14 @@
 #' non-participating hospital that is now fully participating, see subsection I.
 #'
 #' @param x character vector of codes to look up.
-#' @name emergency
+#' @name emergency_hospital
 #' @returns S7 object of class `EmergencyHospital`.
 #' @examples
 #' new_emergency("21034E")
 #' new_emergency("12345F")
 NULL
 
-#' @rdname emergency
-#' @export
+#' @noRd
 emergency_type <- function(x) {
   Type(
     code = x,
@@ -43,8 +42,7 @@ emergency_type <- function(x) {
   )
 }
 
-#' @rdname emergency
-#' @export
+#' @noRd
 emergency_sequence <- function(x) {
   Sequence(
     number = x,
@@ -59,7 +57,7 @@ EmergencyHospital <- S7::new_class(
   properties = list(type = Type)
 )
 
-#' @rdname opo
+#' @rdname emergency_hospital
 #' @export
 new_emergency <- function(x) {
   EmergencyHospital(

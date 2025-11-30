@@ -2,21 +2,9 @@
 % Please edit documentation in R/medicare.R
 \name{medicare}
 \alias{medicare}
-\alias{medicare_range}
-\alias{medicare_range_abbr}
-\alias{medicare_range_desc}
-\alias{medicare_sequence}
 \alias{new_medicare}
 \title{Medicare Providers}
 \usage{
-medicare_range(x)
-
-medicare_range_abbr(x)
-
-medicare_range_desc(x)
-
-medicare_sequence(x)
-
 new_medicare(x)
 }
 \arguments{

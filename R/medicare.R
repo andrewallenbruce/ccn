@@ -10,8 +10,7 @@
 #' new_medicare("670055")
 NULL
 
-#' @rdname medicare
-#' @export
+#' @noRd
 medicare_range <- function(x) {
   x <- as_int(x)
   kit::nif(
@@ -58,8 +57,7 @@ medicare_range <- function(x) {
   )
 }
 
-#' @rdname medicare
-#' @export
+#' @noRd
 medicare_range_abbr <- function(x) {
   kit::vswitch(
     x       = x,
@@ -70,8 +68,7 @@ medicare_range_abbr <- function(x) {
   )
 }
 
-#' @rdname medicare
-#' @export
+#' @noRd
 medicare_range_desc <- function(x) {
   kit::vswitch(
     x       = x,
@@ -105,8 +102,7 @@ MedicareSequence <- S7::new_class(
   )
 )
 
-#' @rdname medicare
-#' @export
+#' @noRd
 medicare_sequence <- function(x) {
   MedicareSequence(number = x)
 }
