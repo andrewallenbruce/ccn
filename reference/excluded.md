@@ -5,8 +5,6 @@ Convert various codes to their associated names.
 ## Usage
 
 ``` r
-is_ipps_excluded_type(x)
-
 excluded_abbr(x)
 
 excluded_desc(x)

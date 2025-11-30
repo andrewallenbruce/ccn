@@ -5,7 +5,7 @@ Convert various codes to their associated names.
 ## Usage
 
 ``` r
-new_medicaid_only_hospital(x)
+medicaid_only_hospital(x)
 ```
 
 ## Arguments
@@ -21,7 +21,7 @@ character vector of names associated with codes.
 ## Examples
 
 ``` r
-new_medicaid_only_hospital("01J008")
+medicaid_only_hospital("01J008")
 #> <ccn::MedicaidOnlyHospital>
 #>  @ ccn     : chr "01J008"
 #>  @ entity  : chr "Medicaid-Only Provider"
@@ -29,7 +29,7 @@ new_medicaid_only_hospital("01J008")
 #>  .. @ code: chr "01"
 #>  .. @ abbr: chr "AL"
 #>  .. @ name: chr "Alabama"
-#>  @ sequence: <ccn::MedicaidHospitalSequence>
+#>  @ sequence: <ccn::SequenceMOH>
 #>  .. @ number: chr "008"
 #>  .. @ range : chr "001-099"
 #>  .. @ abbr  : chr "STACH"
@@ -38,7 +38,7 @@ new_medicaid_only_hospital("01J008")
 #>  .. @ code: chr "J"
 #>  .. @ desc: chr "Medicaid-Only Hospital"
 #>  .. @ abbr: chr "MOH"
-new_medicaid_only_hospital("A5J508")
+medicaid_only_hospital("A5J508")
 #> <ccn::MedicaidOnlyHospital>
 #>  @ ccn     : chr "A5J508"
 #>  @ entity  : chr "Medicaid-Only Provider"
@@ -46,7 +46,7 @@ new_medicaid_only_hospital("A5J508")
 #>  .. @ code: chr "A5"
 #>  .. @ abbr: chr "MS"
 #>  .. @ name: chr "Mississippi"
-#>  @ sequence: <ccn::MedicaidHospitalSequence>
+#>  @ sequence: <ccn::SequenceMOH>
 #>  .. @ number: chr "508"
 #>  .. @ range : chr "500-599"
 #>  .. @ abbr  : chr "LTCH"

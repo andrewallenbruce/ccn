@@ -9,17 +9,18 @@
   : ccn: Parse CMS Certification Numbers
 - [`emergency_hospital()`](https://andrewallenbruce.github.io/ccn/reference/emergency_hospital.md)
   : Emergency Hospital CCNs
-- [`is_ipps_excluded_type()`](https://andrewallenbruce.github.io/ccn/reference/excluded.md)
-  [`excluded_abbr()`](https://andrewallenbruce.github.io/ccn/reference/excluded.md)
+- [`excluded_abbr()`](https://andrewallenbruce.github.io/ccn/reference/excluded.md)
   [`excluded_desc()`](https://andrewallenbruce.github.io/ccn/reference/excluded.md)
   [`excluded_type()`](https://andrewallenbruce.github.io/ccn/reference/excluded.md)
   : IPPS Excluded Types
 - [`new_medicaid_only_facility()`](https://andrewallenbruce.github.io/ccn/reference/medicaid_facility.md)
   : Medicaid-Only Facilities
-- [`new_medicaid_only_hospital()`](https://andrewallenbruce.github.io/ccn/reference/medicaid_only_hospital.md)
+- [`medicaid_only_hospital()`](https://andrewallenbruce.github.io/ccn/reference/medicaid_only_hospital.md)
   : Medicaid-Only Hospitals
-- [`new_medicare()`](https://andrewallenbruce.github.io/ccn/reference/medicare.md)
-  : Medicare Providers
+- [`medicare_provider()`](https://andrewallenbruce.github.io/ccn/reference/medicare_provider.md)
+  : Medicare Provider
+- [`medicare_supplier()`](https://andrewallenbruce.github.io/ccn/reference/medicare_supplier.md)
+  : Medicare Supplier
 - [`new_opo()`](https://andrewallenbruce.github.io/ccn/reference/opo.md)
   : Organ Procurement Organizations (OPO)
 - [`ipps_excluded_unit_abbr()`](https://andrewallenbruce.github.io/ccn/reference/parent.md)
@@ -35,7 +36,5 @@
   [`parse_supplier()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
   [`parse_excluded_unit()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
   : Parse CMS Certification Numbers
-- [`state()`](https://andrewallenbruce.github.io/ccn/reference/states.md)
+- [`state()`](https://andrewallenbruce.github.io/ccn/reference/state.md)
   : State Codes
-- [`new_supplier()`](https://andrewallenbruce.github.io/ccn/reference/supplier.md)
-  : Medicare Supplier
