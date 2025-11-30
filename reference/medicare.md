@@ -5,14 +5,6 @@ Convert various codes to their associated names.
 ## Usage
 
 ``` r
-medicare_range(x)
-
-medicare_range_abbr(x)
-
-medicare_range_desc(x)
-
-medicare_sequence(x)
-
 new_medicare(x)
 ```
 

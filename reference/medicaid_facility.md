@@ -5,19 +5,7 @@ Convert various codes to their associated names.
 ## Usage
 
 ``` r
-is_type_medicaid_only_facility(x)
-
-medicaid_only_facility_type_abbr(x)
-
-medicaid_only_facility_type_desc(x)
-
-medicaid_only_facility_sequence(x)
-
-medicaid_only_facility_type(x)
-
 new_medicaid_only_facility(x)
-
-is_type_medicaid_hospital(x)
 ```
 
 ## Arguments

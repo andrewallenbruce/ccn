@@ -33,3 +33,7 @@ A data frame with 8 rows and 3 columns:
 - desc:
 
   Medicaid-only facility type description
+
+## Source
+
+<https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf>

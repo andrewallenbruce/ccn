@@ -1,5 +1,9 @@
 # Changelog
 
+## ccn 0.0.0.9034 (2025-11-30)
+
+- more restructuring
+
 ## ccn 0.0.0.9033 (2025-11-29)
 
 - reconstructing internal data sources

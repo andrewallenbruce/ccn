@@ -33,3 +33,7 @@ A data frame with 39 rows and 3 columns:
 - desc:
 
   Medicare facility description
+
+## Source
+
+<https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf>

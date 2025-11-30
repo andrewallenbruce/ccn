@@ -5,14 +5,6 @@ Convert various codes to their associated names.
 ## Usage
 
 ``` r
-supplier_sequence(x)
-
-supplier_type_abbr(x)
-
-supplier_type_desc(x)
-
-supplier_type(x)
-
 new_supplier(x)
 ```
 

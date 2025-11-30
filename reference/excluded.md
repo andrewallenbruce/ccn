@@ -5,7 +5,7 @@ Convert various codes to their associated names.
 ## Usage
 
 ``` r
-is_type_excluded(x)
+is_ipps_excluded_type(x)
 
 excluded_abbr(x)
 
@@ -28,8 +28,6 @@ character vector of names associated with codes.
 
 ``` r
 x <- c("M", "R", "S", "T", "U", "W", "Y", "Z")
-is_type_excluded(x)
-#> [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 excluded_abbr(x)
 #> [1] "PSYCH (CAH)" "REHAB (CAH)" "PSYCH"       "REHAB"       "SBA (ACUTE)"
 #> [6] "SBA (LTCH)"  "SBA (REHAB)" "SBA (CAH)"  

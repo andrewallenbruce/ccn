@@ -6,12 +6,6 @@ Functions for identifying and describing Organ Procurement Organizations
 ## Usage
 
 ``` r
-new_emergency(x)
-
-opo_sequence(x)
-
-opo_type(x)
-
 new_opo(x)
 ```
 
