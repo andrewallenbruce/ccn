@@ -10,7 +10,7 @@ medicaid_only_hospital(x)
 \item{x}{character vector of codes to look up.}
 }
 \value{
-character vector of names associated with codes.
+S7 object of class \code{MedicaidOnlyHospital}.
 }
 \description{
 Convert various codes to their associated names.

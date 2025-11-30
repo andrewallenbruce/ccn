@@ -40,7 +40,6 @@ Collate:
     'emergency.R'
     'examples.R'
     'excluded.R'
-    'extract.R'
     'supplier.R'
     'list.R'
     'medicaid_facility.R'

@@ -5,7 +5,7 @@
 #'
 #' @param x character vector of codes to look up.
 #' @name medicaid_only_hospital
-#' @returns character vector of names associated with codes.
+#' @returns S7 object of class `MedicaidOnlyHospital`.
 #' @examples
 #' medicaid_only_hospital("01J008")
 #' medicaid_only_hospital("A5J508")
@@ -97,7 +97,7 @@ medicaid_only_hospital <- function(x) {
     ccn      = x,
     entity   = "Medicaid-Only Provider",
     state    = state(x),
-    sequence = moh_sequence(substr_(x, c(4L, 6L))),
-    type     = moh_type(get_type(x))
+    sequence = moh_sequence(substr(x, 4L, 6L)),
+    type     = moh_type(substr_(x, 3L))
   )
 }

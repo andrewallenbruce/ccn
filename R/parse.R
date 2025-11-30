@@ -138,7 +138,10 @@ parse_excluded_unit <- function(x) {
   # IPPS Excluded Unit:
   # "02TA01" -> "02 T A 01"
 
-  c(x, "Medicare Supplier", strsplit(
+  c(
+    x,
+    "IPPS Excluded Unit",
+    strsplit(
     gsub("([A-Z0-9]{2})([A-Z])([A-Z])([0-9]{2})", "\\1 \\2 \\3 \\4", x, perl = TRUE),
     " ",
     fixed = TRUE

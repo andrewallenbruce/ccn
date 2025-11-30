@@ -65,11 +65,11 @@ is_ipps_excluded_type <- function(x) {
 provider_type <- function(x) {
   kit::nif(
     is_numeric(x), "medicare",
-    is_opo_type(get_type(x)), "opo",
+    is_opo_type(substr_(x, 3L)), "opo",
     is_emergency_type(substr_(x, 6L)), "emergency",
-    is_mo_facility_type(get_type(x)), "medicaid_facility",
-    is_mo_hospital_type(get_type(x)), "medicaid_hospital",
-    is_ipps_excluded_type(get_type(x)), "excluded",
+    is_mo_facility_type(substr_(x, 3L)), "medicaid_facility",
+    is_mo_hospital_type(substr_(x, 3L)), "medicaid_hospital",
+    is_ipps_excluded_type(substr_(x, 3L)), "excluded",
     default = NA_character_
   )
 }

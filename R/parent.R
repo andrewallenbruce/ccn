@@ -39,11 +39,11 @@ ipps_excluded_unit_prefix <- function(x) {
 #' @rdname parent
 #' @export
 get_unit_sequence <- function(x) {
-  paste0(ipps_excluded_unit_prefix(substr_(x, 4L)), substr_(x, c(5L, 6L)))
+  paste0(ipps_excluded_unit_prefix(substr_(x, 4L)), substr(x, 5L, 6L))
 }
 
 #' @rdname parent
 #' @export
 get_parent_ccn <- function(x) {
-  paste0(substr_(x, c(1L, 2L)), get_unit_sequence(x))
+  paste0(substr(x, 1L, 2L), get_unit_sequence(x))
 }

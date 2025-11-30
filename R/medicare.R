@@ -121,6 +121,6 @@ medicare_provider <- function(x) {
     ccn      = x,
     entity   = "Medicare Provider",
     state    = state(x),
-    sequence = medicare_sequence(substr_(x, c(3L, 6L)))
+    sequence = medicare_sequence(substr(x, 3L, 6L))
   )
 }

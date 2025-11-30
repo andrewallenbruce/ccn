@@ -4,17 +4,17 @@
 #' Convert various codes to their associated names.
 #'
 #' @param x character vector of codes to look up.
-#' @name medicaid_facility
-#' @returns character vector of names associated with codes.
+#' @name medicaid_only_facility
+#' @returns S7 object of class `MedicaidOnlyFacility`.
 #' @examples
-#' new_medicaid_only_facility("01L008")
-#' new_medicaid_only_facility("22B201")
-#' new_medicaid_only_facility("23E301")
-#' new_medicaid_only_facility("34F401")
+#' medicaid_only_facility("01L008")
+#' medicaid_only_facility("22B201")
+#' medicaid_only_facility("23E301")
+#' medicaid_only_facility("34F401")
 NULL
 
 #' @noRd
-medicaid_only_facility_type_abbr <- function(x) {
+mof_type_abbr <- function(x) {
   kit::vswitch(
     x       = x,
     values  = ccn::medicaid_only_facility_types$code,
@@ -25,7 +25,7 @@ medicaid_only_facility_type_abbr <- function(x) {
 }
 
 #' @noRd
-medicaid_only_facility_type_desc <- function(x) {
+mof_type_desc <- function(x) {
   kit::vswitch(
     x       = x,
     values  = ccn::medicaid_only_facility_types$code,
@@ -37,24 +37,24 @@ medicaid_only_facility_type_desc <- function(x) {
 
 #' @noRd
 MedicaidOnlyType <- S7::new_class(
-  name = "MedicaidOnlyType",
-  parent = Type,
+  name       = "MedicaidOnlyType",
+  parent     = Type,
   properties = list(
-    abbr = S7::new_property(
+    abbr     = S7::new_property(
       S7::class_character,
       getter = function(self)
-        medicaid_only_facility_type_abbr(self@code)
+        mof_type_abbr(self@code)
     ),
-    desc = S7::new_property(
+    desc     = S7::new_property(
       S7::class_character,
       getter = function(self)
-        medicaid_only_facility_type_desc(self@code)
+        mof_type_desc(self@code)
     )
   )
 )
 
 #' @noRd
-medicaid_only_facility_sequence <- function(x) {
+mof_sequence <- function(x) {
   Sequence(
     number = x,
     range = kit::iif(as_int(x) >= 1L & as_int(x) <= 999L, "001-999", NA_character_)
@@ -62,26 +62,25 @@ medicaid_only_facility_sequence <- function(x) {
 }
 
 #' @noRd
-medicaid_only_facility_type <- function(x) {
+mof_type <- function(x) {
   MedicaidOnlyType(code = x)
 }
 
 #' @noRd
 MedicaidOnlyFacility <- S7::new_class(
-  name = "MedicaidOnlyFacility",
-  parent = CCN,
+  name       = "MedicaidOnlyFacility",
+  parent     = CCN,
   properties = list(type = Type)
 )
 
-#' @rdname medicaid_facility
+#' @rdname medicaid_only_facility
 #' @export
-new_medicaid_only_facility <- function(x) {
+medicaid_only_facility <- function(x) {
   MedicaidOnlyFacility(
-    ccn = x,
-    entity = "Medicaid-Only Provider",
-    state = state(x),
-    sequence = medicaid_only_facility_sequence(substr_(x, c(4L, 6L))),
-    type = medicaid_only_facility_type(substr_(x, 3L))
-    # extension = ext_provider(x)
+    ccn      = x,
+    entity   = "Medicaid-Only Provider",
+    state    = state(x),
+    sequence = mof_sequence(substr(x, 4L, 6L)),
+    type     = mof_type(substr_(x, 3L))
   )
 }

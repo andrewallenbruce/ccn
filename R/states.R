@@ -12,6 +12,11 @@
 NULL
 
 #' @noRd
+str_state <- function(x) {
+  substr(x, 1L, 2L)
+}
+
+#' @noRd
 state_abbr <- function(x) {
   kit::vswitch(
     x       = x,
@@ -54,5 +59,5 @@ State <- S7::new_class(
 #' @rdname state
 #' @export
 state <- function(x) {
-  State(code = get_state(x))
+  State(code = str_state(x))
 }

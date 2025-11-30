@@ -112,7 +112,7 @@ state_codes <- tibble::tribble(
   "95",  "LA",   "Louisiana",
   "96",  "NM",   "New Mexico",
   "97",  "TX",   "Texas",
-  "99",  "FC",   "Foreign Countries (exceptions: Canada and Mexico)",
+  "99",  "FC",   "Foreign Countries (except Canada and Mexico)",
   "A0",  "CA",   "California",
   "A1",  "CA",   "California",
   "A2",  "FL",   "Florida",
@@ -125,7 +125,6 @@ state_codes <- tibble::tribble(
   "A9",  "TX",   "Texas",
   "B0",  "KY",   "Kentucky",
   "B1",  "WV",   "West Virginia",
-  "B2",  "CA",   "California",
-)
+  "B2",  "CA",   "California")
 
 usethis::use_data(state_codes, overwrite = TRUE)

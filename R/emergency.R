@@ -68,6 +68,6 @@ emergency_hospital <- function(x) {
     entity   = "Emergency Hospital",
     state    = state(x),
     type     = emergency_type(substr_(x, 6L)),
-    sequence = emergency_sequence(substr_(x, c(3L, 5L)))
+    sequence = emergency_sequence(substr(x, 3L, 5L))
   )
 }

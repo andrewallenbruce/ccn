@@ -70,7 +70,7 @@ medicare_supplier <- function(x) {
     ccn      = x,
     entity   = "Medicare Supplier",
     state    = state(x),
-    type     = supplier_type(get_type(x)),
-    sequence = supplier_sequence(get_seq2(x))
+    type     = supplier_type(substr_(x, 3L)),
+    sequence = supplier_sequence(substr(x, 4L, 10L))
   )
 }

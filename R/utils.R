@@ -19,9 +19,8 @@ unlist_ <- function(x, ...) {
 }
 
 #' @noRd
-substr_ <- function(x, i) {
-  i <- if (length(i) == 1L) c(i, i) else i
-  substr(x = x, start = i[1], stop = i[2])
+substr_ <- function(x, index) {
+  substr(x = x, start = index, stop = index)
 }
 
 #' @noRd
