@@ -1,5 +1,10 @@
 # Changelog
 
+## ccn 0.0.0.9036 (2025-11-30)
+
+- [`parse()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
+  development ([\#3](https://github.com/andrewallenbruce/ccn/issues/3))
+
 ## ccn 0.0.0.9035 (2025-11-30)
 
 - work on
