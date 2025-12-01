@@ -1,4 +1,4 @@
-#' IPPS Excluded Types
+#' IPPS-Excluded Hospital Units/Swing-Bed Approvals
 #'
 #' @description
 #' Convert various codes to their associated names.

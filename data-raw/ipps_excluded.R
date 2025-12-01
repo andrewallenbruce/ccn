@@ -45,6 +45,8 @@ ipps_excluded_facility_types <- tibble::tribble(
   "Z",   "SBA-CAH", "Swing-Bed Approval for Critical Access Hospital"
 )
 
+usethis::use_data(ipps_excluded_facility_types, overwrite = TRUE)
+
 #' IPPS-Excluded Hospitals with IPPS-Excluded Units
 #'
 #'    * Section __2779C1__

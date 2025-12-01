@@ -20,13 +20,13 @@ NULL
 #' @noRd
 parser <- function(entity,
                    regex,
-                   groups = "\\1 \\2 \\3",
-                   names  = c("ccn", "entity", "state", "type", "sequence")) {
+                   groups = "\\2 \\3",
+                   names  = c("type", "sequence")) {
   function(x) {
     c(x, entity, strsplit(
       gsub(
         pattern     = paste0("([0-9A-B][0-9])", regex),
-        replacement = groups,
+        replacement = paste0("\\1 ", groups),
         x           = x,
         perl        = TRUE
       ),
@@ -34,7 +34,7 @@ parser <- function(entity,
       fixed         = TRUE
     )) |>
       unlist_() |>
-      rlang::set_names(nm = names)
+      rlang::set_names(c("ccn", "entity", "state", names))
   }
 }
 
@@ -44,8 +44,18 @@ parser <- function(entity,
 parse_medicare_provider <- parser(
   entity = "Medicare Provider",
   regex  = "([0-9]{4})",
-  groups = "\\1 \\2",
-  names  = c("ccn", "entity", "state", "sequence")
+  groups = "\\2",
+  names  = "sequence"
+)
+
+# IPPS-Excluded Unit: 02TA01 -> 02 T A 01
+#' @rdname parse
+#' @export
+parse_eipps_unit <- parser(
+  entity = "IPPS-Excluded Unit",
+  regex  = "([MR-UWYZ])([A-HJK])([0-9]{2})",
+  groups = "\\2 \\3 \\4",
+  names  = c("type", "parent", "sequence")
 )
 
 # Medicare OPO Provider: 05P001 -> 05 P 001
@@ -62,7 +72,7 @@ parse_medicare_opo <- parser(
 parse_emergency_hospital <- parser(
   entity = "Emergency Hospital",
   regex  = "([0-9]{3})([E])",
-  groups = "\\1 \\3 \\2"
+  groups = "\\3 \\2"
 )
 
 # Medicare Supplier: 10C0001062 -> 10 C 0001062
@@ -71,7 +81,7 @@ parse_emergency_hospital <- parser(
 parse_medicare_supplier <- parser(
   entity = "Medicare Supplier",
   regex  = "([CDX])([0-9]{7})",
-  groups = "\\1 \\2 \\3"
+  groups = "\\2 \\3"
 )
 
 # Medicaid-Only Hospital: 01L008 -> 01 L 008
@@ -96,15 +106,5 @@ parse_medicaid_only_facility <- parser(
 parse_eipps_provider <- parser(
   entity = "IPPS-Excluded Provider",
   regex  = "([MR-UWYZ])([0-9]{3})",
-  groups = "\\1 \\2 \\3"
-)
-
-# IPPS-Excluded Unit: 02TA01 -> 02 T A 01
-#' @rdname parse
-#' @export
-parse_eipps_unit <- parser(
-  entity = "IPPS-Excluded Unit",
-  regex  = "([MR-UWYZ])([A-HJK])([0-9]{2})",
-  groups = "\\1 \\2 \\3 \\4",
-  names  = c("ccn", "entity", "state", "type", "parent", "sequence")
+  groups = "\\2 \\3"
 )

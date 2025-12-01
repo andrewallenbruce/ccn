@@ -5,7 +5,7 @@
 \alias{excluded_abbr}
 \alias{excluded_desc}
 \alias{excluded_type}
-\title{IPPS Excluded Types}
+\title{IPPS-Excluded Hospital Units/Swing-Bed Approvals}
 \usage{
 excluded_abbr(x)
 
