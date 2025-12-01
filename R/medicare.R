@@ -17,9 +17,7 @@ medicare_range <- function(x) {
     data.table::between(
       as_int(x),
       ccn::medicare_ranges$start,
-      ccn::medicare_ranges$end
-      )
-    ]
+      ccn::medicare_ranges$end)]
 }
 
 #' @noRd

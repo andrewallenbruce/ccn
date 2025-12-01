@@ -27,7 +27,7 @@
 #'    * Iss./Eff./Impl. 12-06-24
 #'
 #' @format ## `medicare_ranges`
-#' A data frame with 39 rows and 5 columns:
+#' A data frame with 43 rows and 5 columns:
 #' \describe{
 #'   \item{start}{Medicare facility range start}
 #'   \item{end}{Medicare facility range end}
@@ -49,8 +49,10 @@
 #'    * Iss./Eff./Impl. 10-03-14
 #'
 #' @format ## `medicaid_only_hospital_ranges`
-#' A data frame with 7 rows and 3 columns:
+#' A data frame with 7 rows and 5 columns:
 #' \describe{
+#'   \item{start}{Medicaid-only hospital range start}
+#'   \item{end}{Medicaid-only hospital range end}
 #'   \item{range}{Medicaid-only hospital range}
 #'   \item{abbr}{Medicaid-only hospital abbreviation}
 #'   \item{desc}{Medicaid-only hospital description}
@@ -69,7 +71,7 @@
 #'    * Issued/Effective/Implementation: 10-03-14
 #'
 #' @format ## `medicaid_only_facility_types`
-#' A data frame with 8 rows and 3 columns:
+#' A data frame with 9 rows and 3 columns:
 #' \describe{
 #'   \item{code}{Medicaid-only facility type code}
 #'   \item{abbr}{Medicaid-only facility type abbreviation}

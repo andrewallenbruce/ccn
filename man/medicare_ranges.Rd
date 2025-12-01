@@ -7,7 +7,7 @@
 \format{
 \subsection{\code{medicare_ranges}}{
 
-A data frame with 39 rows and 5 columns:
+A data frame with 43 rows and 5 columns:
 \describe{
 \item{start}{Medicare facility range start}
 \item{end}{Medicare facility range end}

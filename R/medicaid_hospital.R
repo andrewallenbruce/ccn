@@ -13,17 +13,11 @@ NULL
 
 #' @noRd
 moh_range <- function(x) {
-  x <- as_int(x)
-  kit::nif(
-    x >= 1L   & x <= 99L,  "001-099",
-    x >= 100L & x <= 199L, "100-199",
-    x >= 200L & x <= 299L, "200-299",
-    x >= 300L & x <= 399L, "300-399",
-    x >= 400L & x <= 499L, "400-499",
-    x >= 500L & x <= 599L, "500-599",
-    x >= 600L & x <= 999L, "600-999",
-    default = NA_character_
-  )
+  ccn::medicaid_only_hospital_ranges$range[
+    data.table::between(
+      as_int(x),
+      ccn::medicaid_only_hospital_ranges$start,
+      ccn::medicaid_only_hospital_ranges$end)]
 }
 
 #' @noRd
@@ -58,12 +52,12 @@ SequenceMOH <- S7::new_class(
       getter = function(self)
         moh_range(self@number)
     ),
-    abbr     = S7::new_property(
+    abbr = S7::new_property(
       S7::class_character,
       getter = function(self)
         moh_range_abbr(self@range)
     ),
-    desc     = S7::new_property(
+    desc = S7::new_property(
       S7::class_character,
       getter = function(self)
         moh_range_desc(self@range)
@@ -77,17 +71,10 @@ moh_sequence <- function(x) {
 }
 
 #' @noRd
-moh_type <- function(x) {
-  Type(code = x,
-       abbr = "MOH",
-       desc = "Medicaid-Only Hospital")
-}
-
-#' @noRd
 MedicaidOnlyHospital <- S7::new_class(
   name       = "MedicaidOnlyHospital",
   parent     = CCN,
-  properties = list(type = Type)
+  properties = list(type = MedicaidOnlyType)
 )
 
 #' @rdname medicaid_only_hospital
@@ -98,6 +85,6 @@ medicaid_only_hospital <- function(x) {
     entity   = "Medicaid-Only Provider",
     state    = state(x),
     sequence = moh_sequence(substr(x, 4L, 6L)),
-    type     = moh_type(substr_(x, 3L))
+    type     = mof_type(substr_(x, 3L))
   )
 }

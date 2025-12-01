@@ -54,16 +54,20 @@ MedicaidOnlyType <- S7::new_class(
 )
 
 #' @noRd
-mof_sequence <- function(x) {
-  Sequence(
-    number = x,
-    range = kit::iif(as_int(x) >= 1L & as_int(x) <= 999L, "001-999", NA_character_)
-  )
+mof_type <- function(x) {
+  MedicaidOnlyType(code = x)
 }
 
 #' @noRd
-mof_type <- function(x) {
-  MedicaidOnlyType(code = x)
+mof_sequence <- function(x) {
+  Sequence(
+    number = x,
+    range  = kit::iif(
+      data.table::between(as_int(x), 1L, 999L),
+      "001-999",
+      NA_character_
+    )
+  )
 }
 
 #' @noRd

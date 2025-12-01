@@ -13,7 +13,7 @@ medicaid_only_facility_types <- tibble::tribble(
   "F",   "NF",      "Nursing Facility (Formerly Assigned to ICF)",
   "G",   "ICF-IID", "Intermediate Care Facility for Individuals with Intellectual Disabilities",
   "H",   "ICF-IID", "Intermediate Care Facility for Individuals with Intellectual Disabilities",
-  # "J",   "MOH",     "Medicaid-Only Hospital",
+  "J",   "MOH",     "Medicaid-Only Hospital",
   "K",   "MHHA",    "Medicaid Home Health Agency",
   "L",   "PRTF",    "Psychiatric Residential Treatment Facility")
 usethis::use_data(medicaid_only_facility_types, overwrite = TRUE)
@@ -26,16 +26,15 @@ usethis::use_data(medicaid_only_facility_types, overwrite = TRUE)
 #'    * Rev. 123
 #'    * Iss./Eff./Impl. 10-03-14
 medicaid_only_hospital_ranges <- tibble::tribble(
-  ~range,    ~abbr,   ~desc,
-  "001-099", "STACH", "Short-Term Acute Care",
-  "100-199", "CH",    "Children's",
-  "200-299", "CPH",   "Children's Psychiatric",
-  "300-399", "PH",    "Psychiatric",
-  "400-499", "REHAB", "Rehabilitation",
-  "500-599", "LTCH",  "Long-Term",
-  "600-999", "RSVD",  "Reserved for Future Use")
-
-# All other Medicaid-only ranges are 001-999
+  ~start,  ~end,    ~range,    ~abbr,   ~desc,
+      1L,   99L, "001-099",  "STACH",   "Short-Term Acute Care",
+    100L,  199L, "100-199",     "CH",   "Children's",
+    200L,  299L, "200-299",    "CPH",   "Children's Psychiatric",
+    300L,  399L, "300-399",     "PH",   "Psychiatric",
+    400L,  499L, "400-499",  "REHAB",   "Rehabilitation",
+    500L,  599L, "500-599",   "LTCH",   "Long-Term",
+    600L,  999L, "600-999",   "RSVD",   "Reserved for Future Use")
 usethis::use_data(medicaid_only_hospital_ranges, overwrite = TRUE)
 
+# All other Medicaid-only ranges are 001-999
 # constructive::construct(state_codes, constructive::opts_tbl_df("tribble"))

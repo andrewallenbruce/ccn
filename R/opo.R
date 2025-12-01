@@ -14,7 +14,11 @@ opo_sequence <- function(x) {
   Sequence(
     number = x,
     # TODO Check if this range ends in 99 or 999
-    range = kit::iif(as_int(x) >= 1L & as_int(x) <= 99L, "001-099", NA_character_)
+    range  = kit::iif(
+      data.table::between(as_int(x), 1L, 99L),
+      "001-099",
+      NA_character_
+    )
   )
 }
 
