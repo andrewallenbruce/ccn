@@ -20,7 +20,7 @@ medicare_ranges
 
 ### `medicare_ranges`
 
-A data frame with 39 rows and 5 columns:
+A data frame with 43 rows and 5 columns:
 
 - start:
 

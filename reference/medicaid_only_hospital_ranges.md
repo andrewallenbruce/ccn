@@ -20,7 +20,15 @@ medicaid_only_hospital_ranges
 
 ### `medicaid_only_hospital_ranges`
 
-A data frame with 7 rows and 3 columns:
+A data frame with 7 rows and 5 columns:
+
+- start:
+
+  Medicaid-only hospital range start
+
+- end:
+
+  Medicaid-only hospital range end
 
 - range:
 

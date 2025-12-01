@@ -33,8 +33,8 @@ medicaid_only_hospital("01J008")
 #>  .. @ number: chr "008"
 #>  .. @ range : chr "001-099"
 #>  .. @ abbr  : chr "STACH"
-#>  .. @ desc  : chr "Medicaid-Only Hospital (Short-Term Acute Care)"
-#>  @ type    : <ccn::Type>
+#>  .. @ desc  : chr "Short-Term Acute Care"
+#>  @ type    : <ccn::MedicaidOnlyType>
 #>  .. @ code: chr "J"
 #>  .. @ desc: chr "Medicaid-Only Hospital"
 #>  .. @ abbr: chr "MOH"
@@ -50,8 +50,8 @@ medicaid_only_hospital("A5J508")
 #>  .. @ number: chr "508"
 #>  .. @ range : chr "500-599"
 #>  .. @ abbr  : chr "LTCH"
-#>  .. @ desc  : chr "Medicaid-Only Hospital (Long-Term)"
-#>  @ type    : <ccn::Type>
+#>  .. @ desc  : chr "Long-Term"
+#>  @ type    : <ccn::MedicaidOnlyType>
 #>  .. @ code: chr "J"
 #>  .. @ desc: chr "Medicaid-Only Hospital"
 #>  .. @ abbr: chr "MOH"
