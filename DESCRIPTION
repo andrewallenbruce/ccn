@@ -14,6 +14,7 @@ Depends:
     R (>= 4.1.0)
 Imports: 
     cheapr (>= 1.4.0),
+    data.table (>= 1.17.8),
     fs (>= 1.6.6),
     kit (>= 0.0.20),
     pins (>= 1.4.1),

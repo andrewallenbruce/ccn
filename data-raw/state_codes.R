@@ -112,7 +112,7 @@ state_codes <- tibble::tribble(
   "95",  "LA",   "Louisiana",
   "96",  "NM",   "New Mexico",
   "97",  "TX",   "Texas",
-  "99",  "FC",   "Foreign Countries (except Canada and Mexico)",
+  "99",  "FC",   "Foreign Country",
   "A0",  "CA",   "California",
   "A1",  "CA",   "California",
   "A2",  "FL",   "Florida",

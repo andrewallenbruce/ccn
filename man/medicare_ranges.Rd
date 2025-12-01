@@ -7,9 +7,11 @@
 \format{
 \subsection{\code{medicare_ranges}}{
 
-A data frame with 39 rows and 3 columns:
+A data frame with 39 rows and 5 columns:
 \describe{
-\item{range}{Medicare facility range}
+\item{start}{Medicare facility range start}
+\item{end}{Medicare facility range end}
+\item{range}{Medicare facility range label}
 \item{abbr}{Medicare facility abbreviation}
 \item{desc}{Medicare facility description}
 ...
