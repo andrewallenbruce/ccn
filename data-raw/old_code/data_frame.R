@@ -1,160 +1,75 @@
-#' Convert to data.frame
+#' Convert to a data.frame
 #'
 #' @param x ccn object
 #'
 #' @param ... additional arguments
 #'
-#' @returns data.frame
+#' @returns list or data.frame
 #'
-#' @examples
-#' c("670055", "05P001", "210101", "21T101", "21S101", "21U101", "01L008",
-#' "12345E", "10C0001062", "45D0634589", "21X0009807", "02TA01", "04SD38",
-#' "52TA05", "212026", "21SA26", "21TA26", "24T019A", "33S23401", "330027001") |>
-#' purrr::map(\(x) as_data_frame(ccn(x))) |>
-#' purrr::list_rbind() |>
-#' ccn:::tbl()
+#' @examplesIf FALSE
+#' as_data_frame(decode("670055"))
+#' as_data_frame(decode("05P001"))
+#'
+#' c("670055", "05P001", "210101", "21T101", "21S101", "21U101",
+#'   "01L008", "12345E", "10C0001062", "45D0634589", "21X0009807",
+#'   "02TA01", "04SD38", "52TA05", "212026", "21SA26", "21TA26",
+#'   "24T019A", "33S23401", "330027001") |>
+#' purrr::map(decode) |>
+#' as_data_frame()
+#' @name as_data_frame
+NULL
+
+#' @rdname as_data_frame
 #' @export
 as_data_frame <- S7::new_generic("as_data_frame", "x")
 
-S7::method(as_data_frame, MedicareProvider) <- function(x) {
+#' @noRd
+# as_df_impl <- function(ccn         = NA_character_,
+#                        entity      = NA_character_,
+#                        state_code  = NA_character_,
+#                        state_abbr  = NA_character_,
+#                        state_name  = NA_character_,
+#                        seq_number  = NA_character_,
+#                        seq_range   = NA_character_,
+#                        seq_abbr    = NA_character_,
+#                        seq_desc    = NA_character_,
+#                        type_code   = NA_character_,
+#                        type_abbr   = NA_character_,
+#                        type_desc   = NA_character_,
+#                        extension   = NA_character_,
+#                        parent_type = NA_character_,
+#                        parent_ccn  = NA_character_) {
+#   cheapr::fast_df(
+#     ccn         = ccn,
+#     entity      = entity,
+#     state_code  = state_code,
+#     state_abbr  = state_abbr,
+#     state_name  = state_name,
+#     seq_number  = seq_number,
+#     seq_range   = seq_range,
+#     seq_abbr    = seq_abbr,
+#     seq_desc    = seq_desc,
+#     type_code   = type_code,
+#     type_abbr   = type_abbr,
+#     type_desc   = type_desc,
+#     extension   = extension,
+#     parent_type = parent_type,
+#     parent_ccn  = parent_ccn
+#   )
+#
+# }
 
-  list2DF(as_list(x))
-
-  # cheapr::fast_df(
-  #   category      = "Medicare Provider",
-  #   number        = S7::prop(x, "number"),
-  #   seq_number    = S7::prop(x, "sequence")@number,
-  #   seq_range     = S7::prop(x, "sequence")@range,
-  #   seq_abbr      = S7::prop(x, "sequence")@abbr,
-  #   seq_desc      = S7::prop(x, "sequence")@desc,
-  #   state_code    = S7::prop(x, "state")@code,
-  #   state_abbr    = S7::prop(x, "state")@abbr,
-  #   state_name    = S7::prop(x, "state")@name,
-  #   extension     = S7::prop(x, "extension") %||% NA_character_,
-  #   type_code     = NA_character_,
-  #   type_abbr     = NA_character_,
-  #   type_desc     = NA_character_,
-  #   parent_code   = NA_character_,
-  #   parent_number = NA_character_
-  # )
-}
-
-S7::method(as_data_frame, MedicareOPO) <- function(x) {
-  cheapr::fast_df(
-    category      = "Medicare Provider",
-    number        = S7::prop(x, "number"),
-    seq_number    = S7::prop(x, "sequence")@number,
-    seq_range     = S7::prop(x, "sequence")@range,
-    seq_abbr      = NA_character_,
-    seq_desc      = NA_character_,
-    state_code    = S7::prop(x, "state")@code,
-    state_abbr    = S7::prop(x, "state")@abbr,
-    state_name    = S7::prop(x, "state")@name,
-    extension     = S7::prop(x, "extension") %||% NA_character_,
-    type_code     = S7::prop(x, "type")@code,
-    type_abbr     = S7::prop(x, "type")@abbr,
-    type_desc     = S7::prop(x, "type")@desc,
-    parent_code   = NA_character_,
-    parent_number = NA_character_
-  )
-}
-
-S7::method(as_data_frame, Supplier) <- function(x) {
-  cheapr::fast_df(
-    category      = "Medicare Supplier",
-    number        = S7::prop(x, "number"),
-    seq_number    = S7::prop(x, "sequence")@number,
-    seq_range     = S7::prop(x, "sequence")@range,
-    seq_abbr      = NA_character_,
-    seq_desc      = NA_character_,
-    state_code    = S7::prop(x, "state")@code,
-    state_abbr    = S7::prop(x, "state")@abbr,
-    state_name    = S7::prop(x, "state")@name,
-    extension     = S7::prop(x, "extension") %||% NA_character_,
-    type_code     = S7::prop(x, "type")@code,
-    type_abbr     = S7::prop(x, "type")@abbr,
-    type_desc     = S7::prop(x, "type")@desc,
-    parent_code   = NA_character_,
-    parent_number = NA_character_
-  )
-}
-
-S7::method(as_data_frame, EmergencyHospital) <- function(x) {
-  cheapr::fast_df(
-    category      = "Emergency Hospital",
-    number        = S7::prop(x, "number"),
-    seq_number    = S7::prop(x, "sequence")@number,
-    seq_range     = S7::prop(x, "sequence")@range,
-    seq_abbr      = NA_character_,
-    seq_desc      = NA_character_,
-    state_code    = S7::prop(x, "state")@code,
-    state_abbr    = S7::prop(x, "state")@abbr,
-    state_name    = S7::prop(x, "state")@name,
-    extension     = S7::prop(x, "extension") %||% NA_character_,
-    type_code     = S7::prop(x, "type")@code,
-    type_abbr     = S7::prop(x, "type")@abbr,
-    type_desc     = S7::prop(x, "type")@desc,
-    parent_code   = NA_character_,
-    parent_number = NA_character_
-  )
-}
-
-S7::method(as_data_frame, MedicaidOnlyProvider) <- function(x) {
-  cheapr::fast_df(
-    category      = "Medicaid-Only Provider",
-    number        = S7::prop(x, "number"),
-    seq_number    = S7::prop(x, "sequence")@number,
-    seq_range     = S7::prop(x, "sequence")@range,
-    seq_abbr      = S7::prop(x, "sequence")@abbr,
-    seq_desc      = S7::prop(x, "sequence")@desc,
-    state_code    = S7::prop(x, "state")@code,
-    state_abbr    = S7::prop(x, "state")@abbr,
-    state_name    = S7::prop(x, "state")@name,
-    extension     = S7::prop(x, "extension") %||% NA_character_,
-    type_code     = S7::prop(x, "type")@code,
-    type_abbr     = S7::prop(x, "type")@abbr,
-    type_desc     = S7::prop(x, "type")@desc,
-    parent_code   = NA_character_,
-    parent_number = NA_character_
-  )
-}
-
-S7::method(as_data_frame, IppsExcludedProvider) <- function(x) {
-  cheapr::fast_df(
-    category      = "IPPS-Excluded Provider",
-    number        = S7::prop(x, "number"),
-    seq_number    = S7::prop(x, "sequence")@number,
-    seq_range     = S7::prop(x, "sequence")@range,
-    seq_abbr      = S7::prop(x, "sequence")@abbr,
-    seq_desc      = S7::prop(x, "sequence")@desc,
-    state_code    = S7::prop(x, "state")@code,
-    state_abbr    = S7::prop(x, "state")@abbr,
-    state_name    = S7::prop(x, "state")@name,
-    extension     = S7::prop(x, "extension") %||% NA_character_,
-    type_code     = S7::prop(x, "type")@code,
-    type_abbr     = S7::prop(x, "type")@abbr,
-    type_desc     = S7::prop(x, "type")@desc,
-    parent_code   = NA_character_,
-    parent_number = NA_character_
-  )
-}
-
-S7::method(as_data_frame, IppsExcludedUnit) <- function(x) {
-  cheapr::fast_df(
-    category      = "IPPS-Excluded Unit",
-    number        = S7::prop(x, "number"),
-    seq_number    = S7::prop(x, "sequence")@number,
-    seq_range     = S7::prop(x, "sequence")@range,
-    seq_abbr      = S7::prop(x, "sequence")@abbr,
-    seq_desc      = S7::prop(x, "sequence")@desc,
-    state_code    = S7::prop(x, "state")@code,
-    state_abbr    = S7::prop(x, "state")@abbr,
-    state_name    = S7::prop(x, "state")@name,
-    extension     = S7::prop(x, "extension") %||% NA_character_,
-    type_code     = S7::prop(x, "type")@code,
-    type_abbr     = S7::prop(x, "type")@abbr,
-    type_desc     = S7::prop(x, "type")@desc,
-    parent_code   = S7::prop(x, "parent")@code,
-    parent_number = S7::prop(x, "parent")@number
-  )
-}
+# S7::method(as_data_frame, Medicare) <- function(x) {
+#   as_df_impl(
+#     ccn = x@ccn,
+#     entity = x@entity,
+#     state_code = x@state@code,
+#     state_abbr = x@state@abbr,
+#     state_name = x@state@name,
+#     seq_number = x@sequence@number,
+#     seq_range = x@sequence@range,
+#     seq_abbr = x@sequence@abbr,
+#     seq_desc = x@sequence@desc,
+#     extension = x@extension,
+#   )
+# }

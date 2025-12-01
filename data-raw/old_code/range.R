@@ -1,27 +1,3 @@
-library(vctrs)
-"Federally Qualified Health Center" = list(c(1000L, 1199L), c(1800L, 1989L)),
-"Alcohol/Drug Hospital (Number Retired)" = c(1200L, 1224L),
-"Medical Assistance Facility" = c(1225L, 1299L),
-"Critical Access Hospital" = c(1300L, 1399L)
-
-args   <- list(x = 1234L, left = 1000L, right = 1199L)
-args   <- vec_cast_common(!!!args)
-x      <- args$x
-args$x <- NULL
-args   <- vec_recycle_common(!!!args, .size = vec_size(x))
-
-left   <- args$left
-right  <- args$right
-
-left   <- vec_compare(x, left + 1000)
-left   <- left >= 0L
-
-right  <- vec_compare(x, right)
-right  <- right <= 0L
-
-left & right
-
-
 `%inrange%` <- data.table::`%inrange%`()
 `%between%` <- data.table::`%between%`
 
@@ -42,6 +18,8 @@ MEDICAID_HOSPITAL_RANGES = list(
 range <- data.table::data.table(
   start = c(1L, 100L, 200L, 300L, 400L, 500L),
   end = c(99L, 199L, 299L, 399L, 499L, 599L))
+
+names(MEDICAID_HOSPITAL_RANGES)[cheapr::which_(data.table::between(123L, range$start, range$end))]
 
 names(MEDICAID_HOSPITAL_RANGES)[data.table::between(123L, range$start, range$end)]
 
