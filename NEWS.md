@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9037 (2025-12-01)
+
+* trying `data.table::between` & `data.table::inrange` for facility ranges
+
+
 # ccn 0.0.0.9036 (2025-11-30)
 
 * `parse()` development (#3)
