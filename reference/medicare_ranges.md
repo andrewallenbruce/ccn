@@ -20,11 +20,19 @@ medicare_ranges
 
 ### `medicare_ranges`
 
-A data frame with 39 rows and 3 columns:
+A data frame with 39 rows and 5 columns:
+
+- start:
+
+  Medicare facility range start
+
+- end:
+
+  Medicare facility range end
 
 - range:
 
-  Medicare facility range
+  Medicare facility range label
 
 - abbr:
 

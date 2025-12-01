@@ -1,5 +1,13 @@
 # Changelog
 
+## ccn 0.0.0.9037 (2025-12-01)
+
+- trying
+  [`data.table::between`](https://rdatatable.gitlab.io/data.table/reference/between.html)
+  &
+  [`data.table::inrange`](https://rdatatable.gitlab.io/data.table/reference/between.html)
+  for facility ranges
+
 ## ccn 0.0.0.9036 (2025-11-30)
 
 - [`parse()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
