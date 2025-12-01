@@ -2,8 +2,6 @@
 
 ## All functions
 
-- [`as_data_frame()`](https://andrewallenbruce.github.io/ccn/reference/as_data_frame.md)
-  : Convert to a data.frame
 - [`ccn`](https://andrewallenbruce.github.io/ccn/reference/ccn-package.md)
   [`ccn-package`](https://andrewallenbruce.github.io/ccn/reference/ccn-package.md)
   : ccn: Parse CMS Certification Numbers
