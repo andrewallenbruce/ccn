@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9038 (2025-12-02)
+
+* ipps structure
+
+
 # ccn 0.0.0.9037 (2025-12-01)
 
 * trying `data.table::between` & `data.table::inrange` for facility ranges
