@@ -1,5 +1,9 @@
 # Changelog
 
+## ccn 0.0.0.9039 (2025-12-02)
+
+- eipps implementation work (parent lookup)
+
 ## ccn 0.0.0.9038 (2025-12-02)
 
 - ipps structure

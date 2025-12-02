@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ccn</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9038</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9039</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,7 +45,9 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">eipps_hospital</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">eipps_unit</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">eipps_unit2</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -77,10 +79,10 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "STC"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc  : chr "Short-Term Hospital (General &amp; Specialty)"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ extension: NULL</span>
-<span class="r-in"><span><span class="fu">eipps_hospital</span><span class="op">(</span><span class="st">"21T101"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Eipps&gt;</span>
+<span class="r-in"><span><span class="fu">eipps_unit</span><span class="op">(</span><span class="st">"21T101"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::EippsUnit&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn     : chr "21T101"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ entity  : chr "IPPS-Excluded"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ entity  : chr "IPPS-Excluded Unit"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ state   : &lt;ccn::State&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "21"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "MD"</span>
@@ -92,10 +94,10 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "T"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "IRF (EIPPS)"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Rehabilitation Unit (Excluded from IPPS)"</span>
-<span class="r-in"><span><span class="fu">eipps_hospital</span><span class="op">(</span><span class="st">"21S101"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Eipps&gt;</span>
+<span class="r-in"><span><span class="fu">eipps_unit</span><span class="op">(</span><span class="st">"21S101"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::EippsUnit&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn     : chr "21S101"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ entity  : chr "IPPS-Excluded"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ entity  : chr "IPPS-Excluded Unit"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ state   : &lt;ccn::State&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "21"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "MD"</span>
@@ -107,10 +109,10 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "S"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "PU (EIPPS)"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Psychiatric Unit (Excluded from IPPS)"</span>
-<span class="r-in"><span><span class="fu">eipps_hospital</span><span class="op">(</span><span class="st">"21U101"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Eipps&gt;</span>
+<span class="r-in"><span><span class="fu">eipps_unit</span><span class="op">(</span><span class="st">"21U101"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::EippsUnit&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn     : chr "21U101"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ entity  : chr "IPPS-Excluded"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ entity  : chr "IPPS-Excluded Unit"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ state   : &lt;ccn::State&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "21"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "MD"</span>
@@ -122,6 +124,171 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "U"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "STH (SBA)"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Swing-Bed Approval for Short-Term Hospital"</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="medicare_provider.html">medicare_provider</a></span><span class="op">(</span><span class="st">"212026"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Medicare&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn      : chr "212026"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ entity   : chr "Medicare Provider"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state    : &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "21"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "MD"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name: chr "Maryland"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence : &lt;ccn::MedicareSequence&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "2026"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ range : chr "2000-2299"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "LTC (EIPPS)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc  : chr "Long-Term Care Hospital (Excluded from IPPS)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ extension: NULL</span>
+<span class="r-in"><span><span class="fu">eipps_unit2</span><span class="op">(</span><span class="st">"21SA26"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::EippsUnit2&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn     : chr "21SA26"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ entity  : chr "IPPS-Excluded Unit"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state   : &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "21"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "MD"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name: chr "Maryland"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence: &lt;ccn::MedicareSequence&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "2026"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ range : chr "2000-2299"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "LTC (EIPPS)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc  : chr "Long-Term Care Hospital (Excluded from IPPS)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type    : &lt;ccn::Type&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "S"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "PU (EIPPS)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Psychiatric Unit (Excluded from IPPS)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ parent  : &lt;ccn::EippsParent&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "S"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ type: chr "PU (EIPPS)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ ccn : chr "212026"</span>
+<span class="r-in"><span><span class="fu">eipps_unit2</span><span class="op">(</span><span class="st">"21TA26"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::EippsUnit2&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn     : chr "21TA26"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ entity  : chr "IPPS-Excluded Unit"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state   : &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "21"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "MD"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name: chr "Maryland"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence: &lt;ccn::MedicareSequence&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "2026"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ range : chr "2000-2299"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "LTC (EIPPS)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc  : chr "Long-Term Care Hospital (Excluded from IPPS)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type    : &lt;ccn::Type&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "T"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "IRF (EIPPS)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Rehabilitation Unit (Excluded from IPPS)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ parent  : &lt;ccn::EippsParent&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "T"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ type: chr "IRF (EIPPS)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ ccn : chr "212026"</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="medicare_provider.html">medicare_provider</a></span><span class="op">(</span><span class="st">"022001"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Medicare&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn      : chr "022001"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ entity   : chr "Medicare Provider"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state    : &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "02"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "AK"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name: chr "Alaska"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence : &lt;ccn::MedicareSequence&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "2001"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ range : chr "2000-2299"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "LTC (EIPPS)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc  : chr "Long-Term Care Hospital (Excluded from IPPS)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ extension: NULL</span>
+<span class="r-in"><span><span class="fu">eipps_unit2</span><span class="op">(</span><span class="st">"02TA01"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::EippsUnit2&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn     : chr "02TA01"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ entity  : chr "IPPS-Excluded Unit"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state   : &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "02"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "AK"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name: chr "Alaska"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence: &lt;ccn::MedicareSequence&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "2001"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ range : chr "2000-2299"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "LTC (EIPPS)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc  : chr "Long-Term Care Hospital (Excluded from IPPS)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type    : &lt;ccn::Type&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "T"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "IRF (EIPPS)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Rehabilitation Unit (Excluded from IPPS)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ parent  : &lt;ccn::EippsParent&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "T"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ type: chr "IRF (EIPPS)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ ccn : chr "022001"</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="medicare_provider.html">medicare_provider</a></span><span class="op">(</span><span class="st">"043038"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Medicare&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn      : chr "043038"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ entity   : chr "Medicare Provider"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state    : &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "04"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "AR"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name: chr "Arkansas"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence : &lt;ccn::MedicareSequence&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "3038"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ range : chr "3025-3099"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "IRF (EIPPS)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc  : chr "Rehabilitation Hospital (Excluded from IPPS)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ extension: NULL</span>
+<span class="r-in"><span><span class="fu">eipps_unit2</span><span class="op">(</span><span class="st">"04SD38"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::EippsUnit2&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn     : chr "04SD38"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ entity  : chr "IPPS-Excluded Unit"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state   : &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "04"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "AR"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name: chr "Arkansas"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence: &lt;ccn::MedicareSequence&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "3038"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ range : chr "3025-3099"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "IRF (EIPPS)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc  : chr "Rehabilitation Hospital (Excluded from IPPS)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type    : &lt;ccn::Type&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "S"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "PU (EIPPS)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Psychiatric Unit (Excluded from IPPS)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ parent  : &lt;ccn::EippsParent&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "S"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ type: chr "PU (EIPPS)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ ccn : chr "043038"</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="medicare_provider.html">medicare_provider</a></span><span class="op">(</span><span class="st">"522005"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Medicare&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn      : chr "522005"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ entity   : chr "Medicare Provider"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state    : &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "52"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "WI"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name: chr "Wisconsin"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence : &lt;ccn::MedicareSequence&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "2005"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ range : chr "2000-2299"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "LTC (EIPPS)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc  : chr "Long-Term Care Hospital (Excluded from IPPS)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ extension: NULL</span>
+<span class="r-in"><span><span class="fu">eipps_unit2</span><span class="op">(</span><span class="st">"52TA05"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::EippsUnit2&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn     : chr "52TA05"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ entity  : chr "IPPS-Excluded Unit"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state   : &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "52"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "WI"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name: chr "Wisconsin"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence: &lt;ccn::MedicareSequence&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "2005"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ range : chr "2000-2299"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "LTC (EIPPS)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc  : chr "Long-Term Care Hospital (Excluded from IPPS)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type    : &lt;ccn::Type&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "T"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "IRF (EIPPS)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Rehabilitation Unit (Excluded from IPPS)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ parent  : &lt;ccn::EippsParent&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "T"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ type: chr "IRF (EIPPS)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ ccn : chr "522005"</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
