@@ -1,31 +1,31 @@
 #' @noRd
-is_state_code <- function(x) {
-  x %in% ccn::state_codes$code
-}
-
-#' @noRd
-is_provider_nchar <- function(x) {
+nchar_provider <- function(x) {
   nchar(x) == 6L
 }
 
 #' @noRd
-is_provider_ext_nchar <- function(x) {
-  nchar(x) > 6L & nchar(x) < 10L
+nchar_provider_ext <- function(x) {
+  nchar(x) %between% c(7L, 9L)
 }
 
 #' @noRd
-is_supplier_nchar <- function(x) {
+nchar_supplier <- function(x) {
   nchar(x) == 10L
 }
 
 #' @noRd
-is_supplier_type <- function(x) {
-  x %in% c("C", "D", "X")
+nchar_supplier_ext <- function(x) {
+  nchar(x) %between% c(11L, 14L)
 }
 
 #' @noRd
-is_supplier_ext_nchar <- function(x) {
-  nchar(x) > 10L & nchar(x) < 15L
+is_state_code <- function(x) {
+  x %chin% ccn::state_codes$code
+}
+
+#' @noRd
+is_supplier_type <- function(x) {
+  x %chin% c("C", "D", "X")
 }
 
 #' @noRd
@@ -35,27 +35,27 @@ is_opo_type <- function(x) {
 
 #' @noRd
 is_emergency_type <- function(x) {
-  x %in% c("E", "F")
+  x %chin% c("E", "F")
 }
 
 #' @noRd
-is_mo_hospital_type <- function(x) {
+is_moh_type <- function(x) {
   x == "J"
 }
 
 #' @noRd
-is_mo_facility_type <- function(x) {
-  x %in% ccn::medicaid_only_facility_types$code
+is_medicaid_type <- function(x) {
+  x %chin% ccn::medicaid_only_facility_types$code
 }
 
 #' @noRd
-is_ipps_excluded_unit_type <- function(x) {
-  x %chin% ccn::eipps_hospital_units_types$code
-}
-
-#' @noRd
-is_ipps_excluded_type <- function(x) {
+is_eipps_type <- function(x) {
   x %chin% ccn::eipps_unit_swing_types$code
+}
+
+#' @noRd
+is_eipps_unit_type <- function(x) {
+  x %chin% ccn::eipps_hospital_units_types$code
 }
 
 #' @noRd
@@ -64,9 +64,8 @@ provider_type <- function(x) {
     is_numeric(x), "medicare",
     is_opo_type(substr_(x, 3L)), "opo",
     is_emergency_type(substr_(x, 6L)), "emergency",
-    is_mo_facility_type(substr_(x, 3L)), "medicaid_facility",
-    is_mo_hospital_type(substr_(x, 3L)), "medicaid_hospital",
-    is_ipps_excluded_type(substr_(x, 3L)), "excluded",
+    is_medicaid_type(substr_(x, 3L)), "medicaid",
+    is_eipps_type(substr_(x, 3L)), "eipps",
     default = NA_character_
   )
 }

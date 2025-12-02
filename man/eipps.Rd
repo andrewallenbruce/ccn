@@ -2,10 +2,13 @@
 % Please edit documentation in R/excluded.R
 \name{eipps}
 \alias{eipps}
-\alias{eipps_hospital}
+\alias{eipps_unit}
+\alias{eipps_unit2}
 \title{IPPS-Excluded Hospital Units/Swing-Bed Approvals}
 \usage{
-eipps_hospital(x)
+eipps_unit(x)
+
+eipps_unit2(x)
 }
 \arguments{
 \item{x}{character vector of codes to look up.}
@@ -18,7 +21,20 @@ Convert various codes to their associated names.
 }
 \examples{
 medicare_provider("210101")
-eipps_hospital("21T101")
-eipps_hospital("21S101")
-eipps_hospital("21U101")
+eipps_unit("21T101")
+eipps_unit("21S101")
+eipps_unit("21U101")
+
+medicare_provider("212026")
+eipps_unit2("21SA26")
+eipps_unit2("21TA26")
+
+medicare_provider("022001")
+eipps_unit2("02TA01")
+
+medicare_provider("043038")
+eipps_unit2("04SD38")
+
+medicare_provider("522005")
+eipps_unit2("52TA05")
 }

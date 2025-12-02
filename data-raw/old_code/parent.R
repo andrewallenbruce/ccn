@@ -14,7 +14,7 @@ NULL
 
 #' @rdname parent
 #' @export
-ipps_excluded_unit_abbr <- function(x) {
+eipps_unit_abbr <- function(x) {
   kit::vswitch(
     x       = x,
     values  = ccn::eipps_hospital_units_types$code,
@@ -26,7 +26,7 @@ ipps_excluded_unit_abbr <- function(x) {
 
 #' @rdname parent
 #' @export
-ipps_excluded_unit_prefix <- function(x) {
+eipps_prefix <- function(x) {
   kit::vswitch(
     x       = x,
     values  = ccn::eipps_hospital_units_types$code,
@@ -38,12 +38,12 @@ ipps_excluded_unit_prefix <- function(x) {
 
 #' @rdname parent
 #' @export
-get_unit_sequence <- function(x) {
-  paste0(ipps_excluded_unit_prefix(substr_(x, 4L)), substr(x, 5L, 6L))
+eipps_sequence <- function(x) {
+  paste0(eipps_prefix(substr_(x, 4L)), substr(x, 5L, 6L))
 }
 
 #' @rdname parent
 #' @export
-get_parent_ccn <- function(x) {
-  paste0(substr(x, 1L, 2L), get_unit_sequence(x))
+eipps_parent_ccn <- function(x) {
+  paste0(substr(x, 1L, 2L), eipps_sequence(x))
 }

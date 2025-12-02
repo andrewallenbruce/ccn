@@ -13,7 +13,6 @@ BugReports: https://github.com/andrewallenbruce/ccn/issues
 Depends: 
     R (>= 4.1.0)
 Imports: 
-    collapse,
     data.table (>= 1.17.8),
     fs (>= 1.6.6),
     kit (>= 0.0.20),
@@ -42,7 +41,6 @@ Collate:
     'medicaid_hospital.R'
     'medicare.R'
     'opo.R'
-    'parent.R'
     'parse.R'
     'supplier.R'
     'utils.R'
