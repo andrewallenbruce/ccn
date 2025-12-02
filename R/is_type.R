@@ -50,12 +50,12 @@ is_mo_facility_type <- function(x) {
 
 #' @noRd
 is_ipps_excluded_unit_type <- function(x) {
-  x %in% c("A", "B", "C", "D", "E", "F", "G", "H", "J", "K")
+  x %chin% ccn::eipps_hospital_units_types$code
 }
 
 #' @noRd
 is_ipps_excluded_type <- function(x) {
-  x %in% c("M", "R", "S", "T", "U", "W", "Y", "Z")
+  x %chin% ccn::eipps_unit_swing_types$code
 }
 
 #' @noRd

@@ -81,3 +81,47 @@
 #' @source <https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf>
 #' @keywords internal
 "medicaid_only_facility_types"
+
+#' IPPS-Excluded Hospital Unit Types/Swing-Bed Approvals
+#'
+#'    * Section __2779C__
+#'    * Special Numbering System for Units of Hospitals That Are Excluded From
+#'    * the Inpatient Prospective Payment System (IPPS) and Hospitals and CAHs
+#'    * with Swing-Bed Approval
+#'    * Pgs. 408-409
+#'    * Rev. 198
+#'    * Issued/Effective/Implementation: 01-17-20
+#'
+#' @format ## `eipps_unit_swing_types`
+#' A data frame with 8 rows and 3 columns:
+#' \describe{
+#'   \item{code}{IPPS-Excluded type code}
+#'   \item{abbr}{IPPS-Excluded type abbreviation}
+#'   \item{desc}{IPPS-Excluded type description}
+#'   ...
+#' }
+#' @source <https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf>
+#' @keywords internal
+"eipps_unit_swing_types"
+
+#' IPPS-Excluded Hospital Unit Types/Swing-Bed Approvals
+#'
+#'    * Section __2779C__
+#'    * Special Numbering System for Units of Hospitals That Are Excluded From
+#'    * the Inpatient Prospective Payment System (IPPS) and Hospitals and CAHs
+#'    * with Swing-Bed Approval
+#'    * Pgs. 408-409
+#'    * Rev. 198
+#'    * Issued/Effective/Implementation: 01-17-20
+#'
+#' @format ## `eipps_hospital_units_types`
+#' A data frame with 10 rows and 3 columns:
+#' \describe{
+#'   \item{code}{IPPS-Excluded type code}
+#'   \item{prefix}{IPPS-Excluded type abbreviation}
+#'   \item{abbr}{IPPS-Excluded type description}
+#'   ...
+#' }
+#' @source <https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf>
+#' @keywords internal
+"eipps_hospital_units_types"

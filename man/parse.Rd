@@ -3,18 +3,16 @@
 \name{parse}
 \alias{parse}
 \alias{parse_medicare_provider}
-\alias{parse_eipps_unit}
 \alias{parse_medicare_opo}
 \alias{parse_emergency_hospital}
 \alias{parse_medicare_supplier}
 \alias{parse_medicaid_only_hospital}
 \alias{parse_medicaid_only_facility}
 \alias{parse_eipps_provider}
+\alias{parse_eipps_unit}
 \title{Parse CMS Certification Numbers}
 \usage{
 parse_medicare_provider(x)
-
-parse_eipps_unit(x)
 
 parse_medicare_opo(x)
 
@@ -27,6 +25,8 @@ parse_medicaid_only_hospital(x)
 parse_medicaid_only_facility(x)
 
 parse_eipps_provider(x)
+
+parse_eipps_unit(x)
 }
 \arguments{
 \item{x}{character vector of codes to look up.}

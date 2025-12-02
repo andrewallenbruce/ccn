@@ -17,8 +17,8 @@ NULL
 ipps_excluded_unit_abbr <- function(x) {
   kit::vswitch(
     x       = x,
-    values  = c("A", "B", "C", "D", "E", "F", "G", "H", "J", "K"),
-    outputs = c(rep.int("LTCH", 3), "REHAB", "CHILD", rep.int("PSYCH", 5)),
+    values  = ccn::eipps_hospital_units_types$code,
+    outputs = ccn::eipps_hospital_units_types$abbr,
     default = NA_character_,
     nThread = 4L
   )
@@ -29,8 +29,8 @@ ipps_excluded_unit_abbr <- function(x) {
 ipps_excluded_unit_prefix <- function(x) {
   kit::vswitch(
     x       = x,
-    values  = c("A", "B", "C", "D", "E", "F", "G", "H", "J", "K"),
-    outputs = c(20:22, "30", "33", 40:44),
+    values  = ccn::eipps_hospital_units_types$code,
+    outputs = ccn::eipps_hospital_units_types$prefix,
     default = NA_character_,
     nThread = 4L
   )

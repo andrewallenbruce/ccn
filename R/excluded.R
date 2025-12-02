@@ -4,55 +4,80 @@
 #' Convert various codes to their associated names.
 #'
 #' @param x character vector of codes to look up.
-#' @name excluded
+#' @name eipps
 #' @returns character vector of names associated with codes.
 #' @examples
-#' x <- c("M", "R", "S", "T", "U", "W", "Y", "Z")
-#' excluded_abbr(x)
-#' excluded_desc(c("E", "F"))
-#' excluded_type("E")
+#' medicare_provider("210101")
+#' eipps_hospital("21T101")
+#' eipps_hospital("21S101")
+#' eipps_hospital("21U101")
 NULL
 
-#' @rdname excluded
-#' @export
-excluded_abbr <- function(x) {
-  cheapr::val_match(
-    x,
-    "M" ~ "PSYCH (CAH)",
-    "R" ~ "REHAB (CAH)",
-    "S" ~ "PSYCH",
-    "T" ~ "REHAB",
-    "U" ~ "SBA (ACUTE)",
-    "W" ~ "SBA (LTCH)",
-    "Y" ~ "SBA (REHAB)",
-    "Z" ~ "SBA (CAH)",
-    .default = NA_character_
+#' @noRd
+eipps_abbr <- function(x) {
+  kit::vswitch(
+    x       = x,
+    values  = ccn::eipps_unit_swing_types$code,
+    outputs = ccn::eipps_unit_swing_types$abbr,
+    default = NA_character_,
+    nThread = 4L
   )
 }
 
-#' @rdname excluded
-#' @export
-excluded_desc <- function(x) {
-  cheapr::val_match(
-    x,
-    "M" ~ "Psychiatric Unit of a Critical Access Hospital",
-    "R" ~ "Rehabilitation Unit of a Critical Access Hospital",
-    "S" ~ "Psychiatric Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital",
-    "T" ~ "Rehabilitation Unit of a Short-Term, Cancer, Children's, LTCH, or Psychiatric Hospital",
-    "U" ~ "Swing-Bed Approval for Short-Term Hospital",
-    "W" ~ "Swing-Bed Approval for Long-Term Care Hospital",
-    "Y" ~ "Swing-Bed Approval for Rehabilitation Hospital",
-    "Z" ~ "Swing-Bed Approval for Critical Access Hospital",
-    .default = NA_character_
+#' @noRd
+eipps_desc <- function(x) {
+  kit::vswitch(
+    x       = x,
+    values  = ccn::eipps_unit_swing_types$code,
+    outputs = ccn::eipps_unit_swing_types$desc,
+    default = NA_character_,
+    nThread = 4L
   )
 }
 
-#' @rdname excluded
-#' @export
-excluded_type <- function(x) {
+#' @noRd
+eipps_type <- function(x) {
   Type(
     code = x,
-    abbr = excluded_abbr(x),
-    desc = excluded_desc(x)
+    abbr = eipps_abbr(x),
+    desc = eipps_desc(x)
   )
 }
+
+#' @noRd
+Eipps <- S7::new_class(
+  name = "Eipps",
+  parent = CCN,
+  properties = list(type = Type)
+)
+
+#' @rdname eipps
+#' @export
+eipps_hospital <- function(x) {
+  Eipps(
+    ccn      = x,
+    entity   = "IPPS-Excluded",
+    state    = state(x),
+    sequence = mof_sequence(substr(x, 4L, 6L)),
+    type     = eipps_type(substr_(x, 3L))
+  )
+}
+
+#' @noRd
+IppsExcludedParent <- S7::new_class(
+  name = "IppsExcludedParent",
+  properties = list(
+    type = S7::class_character,
+    ccn = S7::class_character
+  )
+)
+
+#' @noRd
+IppsExcludedUnit <- S7::new_class(
+  name = "IppsExcludedUnit",
+  parent = Eipps,
+  properties = list(
+    type = Type,
+    parent = IppsExcludedParent
+  )
+)

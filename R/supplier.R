@@ -18,9 +18,10 @@ supplier_sequence <- function(x) {
   Sequence(
     number = x,
     range  = kit::iif(
-      data.table::between(as_int(x), 1L, 9999999L),
+      as_int(x) %between% c(1L, 9999999L),
       "0000001-9999999",
-      NA_character_
+      NA_character_,
+      nThread = 4L
     )
   )
 }

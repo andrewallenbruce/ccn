@@ -63,9 +63,10 @@ mof_sequence <- function(x) {
   Sequence(
     number = x,
     range  = kit::iif(
-      data.table::between(as_int(x), 1L, 999L),
+      as_int(x) %between% c(1L, 999L),
       "001-999",
-      NA_character_
+      NA_character_,
+      nThread = 4L
     )
   )
 }

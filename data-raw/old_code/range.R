@@ -2,7 +2,9 @@
 `%between%` <- data.table::`%between%`
 
 x = 1234L
-x %between% c(1000L, 1199L) | x %between% c(1800L, 1989L)
+x %between% c(1000L, 1299L) | x %between% c(1800L, 1989L)
+x %inrange% list(start = c(1000L, 1800L), end = c(1299L, 1989L))
+x %inrange% c(1298L, 1800L, 1299L, 1989L)
 
 MEDICAID_HOSPITAL_RANGES = list(
   # pad to THREE digits before use (001-099)
