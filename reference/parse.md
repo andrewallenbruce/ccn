@@ -7,8 +7,6 @@ Convert various codes to their associated names.
 ``` r
 parse_medicare_provider(x)
 
-parse_eipps_unit(x)
-
 parse_medicare_opo(x)
 
 parse_emergency_hospital(x)
@@ -20,6 +18,8 @@ parse_medicaid_only_hospital(x)
 parse_medicaid_only_facility(x)
 
 parse_eipps_provider(x)
+
+parse_eipps_unit(x)
 ```
 
 ## Arguments

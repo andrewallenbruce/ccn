@@ -32,12 +32,12 @@ medicaid_only_hospital("01J008")
 #>  @ sequence: <ccn::SequenceMOH>
 #>  .. @ number: chr "008"
 #>  .. @ range : chr "001-099"
-#>  .. @ abbr  : chr "STACH"
-#>  .. @ desc  : chr "Short-Term Acute Care"
+#>  .. @ abbr  : chr "STC"
+#>  .. @ desc  : chr "Short-Term Acute Care Hospital"
 #>  @ type    : <ccn::MedicaidOnlyType>
 #>  .. @ code: chr "J"
-#>  .. @ desc: chr "Medicaid-Only Hospital"
 #>  .. @ abbr: chr "MOH"
+#>  .. @ desc: chr "Medicaid-Only Hospital"
 medicaid_only_hospital("A5J508")
 #> <ccn::MedicaidOnlyHospital>
 #>  @ ccn     : chr "A5J508"
@@ -49,10 +49,10 @@ medicaid_only_hospital("A5J508")
 #>  @ sequence: <ccn::SequenceMOH>
 #>  .. @ number: chr "508"
 #>  .. @ range : chr "500-599"
-#>  .. @ abbr  : chr "LTCH"
-#>  .. @ desc  : chr "Long-Term"
+#>  .. @ abbr  : chr "LTC"
+#>  .. @ desc  : chr "Long-Term Hospital"
 #>  @ type    : <ccn::MedicaidOnlyType>
 #>  .. @ code: chr "J"
-#>  .. @ desc: chr "Medicaid-Only Hospital"
 #>  .. @ abbr: chr "MOH"
+#>  .. @ desc: chr "Medicaid-Only Hospital"
 ```

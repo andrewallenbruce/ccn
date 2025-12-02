@@ -34,8 +34,8 @@ medicare_supplier("10C0001062")
 #>  .. @ range : chr "0000001-9999999"
 #>  @ type     : <ccn::Type>
 #>  .. @ code: chr "C"
-#>  .. @ desc: chr "Ambulatory Surgical Center"
 #>  .. @ abbr: chr "ASC"
+#>  .. @ desc: chr "Ambulatory Surgical Center"
 #>  @ extension: NULL
 medicare_supplier("45D0634589")
 #> <ccn::Supplier>
@@ -50,8 +50,8 @@ medicare_supplier("45D0634589")
 #>  .. @ range : chr "0000001-9999999"
 #>  @ type     : <ccn::Type>
 #>  .. @ code: chr "D"
-#>  .. @ desc: chr "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory"
 #>  .. @ abbr: chr "CLIA"
+#>  .. @ desc: chr "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory"
 #>  @ extension: NULL
 medicare_supplier("21X0009807")
 #> <ccn::Supplier>
@@ -66,8 +66,8 @@ medicare_supplier("21X0009807")
 #>  .. @ range : chr "0000001-9999999"
 #>  @ type     : <ccn::Type>
 #>  .. @ code: chr "X"
-#>  .. @ desc: chr "Portable X-Ray Facility"
 #>  .. @ abbr: chr "PXRF"
+#>  .. @ desc: chr "Portable X-Ray Facility"
 #>  @ extension: NULL
 medicare_supplier("12C0001062")
 #> <ccn::Supplier>
@@ -82,7 +82,7 @@ medicare_supplier("12C0001062")
 #>  .. @ range : chr "0000001-9999999"
 #>  @ type     : <ccn::Type>
 #>  .. @ code: chr "C"
-#>  .. @ desc: chr "Ambulatory Surgical Center"
 #>  .. @ abbr: chr "ASC"
+#>  .. @ desc: chr "Ambulatory Surgical Center"
 #>  @ extension: NULL
 ```

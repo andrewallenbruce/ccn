@@ -55,8 +55,8 @@ emergency_hospital("21034E")
 #>  .. @ range : chr "001-999"
 #>  @ type    : <ccn::Type>
 #>  .. @ code: chr "E"
-#>  .. @ desc: chr "Non-Federal Emergency Hospital"
 #>  .. @ abbr: chr "NFEH"
+#>  .. @ desc: chr "Non-Federal Emergency Hospital"
 emergency_hospital("12345F")
 #> <ccn::EmergencyHospital>
 #>  @ ccn     : chr "12345F"
@@ -70,6 +70,6 @@ emergency_hospital("12345F")
 #>  .. @ range : chr "001-999"
 #>  @ type    : <ccn::Type>
 #>  .. @ code: chr "F"
-#>  .. @ desc: chr "Federal Emergency Hospital"
 #>  .. @ abbr: chr "FEH"
+#>  .. @ desc: chr "Federal Emergency Hospital"
 ```

@@ -34,6 +34,6 @@ medicare_opo("05P001")
 #>  .. @ range : chr "001-099"
 #>  @ type    : <ccn::Type>
 #>  .. @ code: chr "P"
-#>  .. @ desc: chr "Organ Procurement Organization"
 #>  .. @ abbr: chr "OPO"
+#>  .. @ desc: chr "Organ Procurement Organization"
 ```

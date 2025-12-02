@@ -1,0 +1,83 @@
+# IPPS-Excluded Hospital Units/Swing-Bed Approvals
+
+Convert various codes to their associated names.
+
+## Usage
+
+``` r
+eipps_hospital(x)
+```
+
+## Arguments
+
+- x:
+
+  character vector of codes to look up.
+
+## Value
+
+character vector of names associated with codes.
+
+## Examples
+
+``` r
+medicare_provider("210101")
+#> <ccn::Medicare>
+#>  @ ccn      : chr "210101"
+#>  @ entity   : chr "Medicare Provider"
+#>  @ state    : <ccn::State>
+#>  .. @ code: chr "21"
+#>  .. @ abbr: chr "MD"
+#>  .. @ name: chr "Maryland"
+#>  @ sequence : <ccn::MedicareSequence>
+#>  .. @ number: chr "0101"
+#>  .. @ range : chr "0001-0879"
+#>  .. @ abbr  : chr "STC"
+#>  .. @ desc  : chr "Short-Term Hospital (General & Specialty)"
+#>  @ extension: NULL
+eipps_hospital("21T101")
+#> <ccn::Eipps>
+#>  @ ccn     : chr "21T101"
+#>  @ entity  : chr "IPPS-Excluded"
+#>  @ state   : <ccn::State>
+#>  .. @ code: chr "21"
+#>  .. @ abbr: chr "MD"
+#>  .. @ name: chr "Maryland"
+#>  @ sequence: <ccn::Sequence>
+#>  .. @ number: chr "101"
+#>  .. @ range : chr "001-999"
+#>  @ type    : <ccn::Type>
+#>  .. @ code: chr "T"
+#>  .. @ abbr: chr "IRF (EIPPS)"
+#>  .. @ desc: chr "Rehabilitation Unit (Excluded from IPPS)"
+eipps_hospital("21S101")
+#> <ccn::Eipps>
+#>  @ ccn     : chr "21S101"
+#>  @ entity  : chr "IPPS-Excluded"
+#>  @ state   : <ccn::State>
+#>  .. @ code: chr "21"
+#>  .. @ abbr: chr "MD"
+#>  .. @ name: chr "Maryland"
+#>  @ sequence: <ccn::Sequence>
+#>  .. @ number: chr "101"
+#>  .. @ range : chr "001-999"
+#>  @ type    : <ccn::Type>
+#>  .. @ code: chr "S"
+#>  .. @ abbr: chr "PU (EIPPS)"
+#>  .. @ desc: chr "Psychiatric Unit (Excluded from IPPS)"
+eipps_hospital("21U101")
+#> <ccn::Eipps>
+#>  @ ccn     : chr "21U101"
+#>  @ entity  : chr "IPPS-Excluded"
+#>  @ state   : <ccn::State>
+#>  .. @ code: chr "21"
+#>  .. @ abbr: chr "MD"
+#>  .. @ name: chr "Maryland"
+#>  @ sequence: <ccn::Sequence>
+#>  .. @ number: chr "101"
+#>  .. @ range : chr "001-999"
+#>  @ type    : <ccn::Type>
+#>  .. @ code: chr "U"
+#>  .. @ abbr: chr "STH (SBA)"
+#>  .. @ desc: chr "Swing-Bed Approval for Short-Term Hospital"
+```

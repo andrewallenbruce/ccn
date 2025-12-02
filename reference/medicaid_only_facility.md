@@ -34,8 +34,8 @@ medicaid_only_facility("01L008")
 #>  .. @ range : chr "001-999"
 #>  @ type    : <ccn::MedicaidOnlyType>
 #>  .. @ code: chr "L"
-#>  .. @ desc: chr "Psychiatric Residential Treatment Facility"
 #>  .. @ abbr: chr "PRTF"
+#>  .. @ desc: chr "Psychiatric Residential Treatment Facility"
 medicaid_only_facility("22B201")
 #> <ccn::MedicaidOnlyFacility>
 #>  @ ccn     : chr "22B201"
@@ -49,8 +49,8 @@ medicaid_only_facility("22B201")
 #>  .. @ range : chr "001-999"
 #>  @ type    : <ccn::MedicaidOnlyType>
 #>  .. @ code: chr "B"
-#>  .. @ desc: chr "Nursing Facility (Formerly Assigned to Medicaid SNF)"
 #>  .. @ abbr: chr "NF"
+#>  .. @ desc: chr "Nursing Facility (Formerly Assigned to Medicaid SNF)"
 medicaid_only_facility("23E301")
 #> <ccn::MedicaidOnlyFacility>
 #>  @ ccn     : chr "23E301"
@@ -64,8 +64,8 @@ medicaid_only_facility("23E301")
 #>  .. @ range : chr "001-999"
 #>  @ type    : <ccn::MedicaidOnlyType>
 #>  .. @ code: chr "E"
-#>  .. @ desc: chr "Nursing Facility (Formerly Assigned to ICF)"
 #>  .. @ abbr: chr "NF"
+#>  .. @ desc: chr "Nursing Facility (Formerly Assigned to ICF)"
 medicaid_only_facility("34F401")
 #> <ccn::MedicaidOnlyFacility>
 #>  @ ccn     : chr "34F401"
@@ -79,6 +79,6 @@ medicaid_only_facility("34F401")
 #>  .. @ range : chr "001-999"
 #>  @ type    : <ccn::MedicaidOnlyType>
 #>  .. @ code: chr "F"
-#>  .. @ desc: chr "Nursing Facility (Formerly Assigned to ICF)"
 #>  .. @ abbr: chr "NF"
+#>  .. @ desc: chr "Nursing Facility (Formerly Assigned to ICF)"
 ```

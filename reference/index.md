@@ -2,15 +2,10 @@
 
 ## All functions
 
-- [`ccn`](https://andrewallenbruce.github.io/ccn/reference/ccn-package.md)
-  [`ccn-package`](https://andrewallenbruce.github.io/ccn/reference/ccn-package.md)
-  : ccn: Parse CMS Certification Numbers
+- [`eipps_hospital()`](https://andrewallenbruce.github.io/ccn/reference/eipps.md)
+  : IPPS-Excluded Hospital Units/Swing-Bed Approvals
 - [`emergency_hospital()`](https://andrewallenbruce.github.io/ccn/reference/emergency_hospital.md)
   : Emergency Hospital CCNs
-- [`excluded_abbr()`](https://andrewallenbruce.github.io/ccn/reference/excluded.md)
-  [`excluded_desc()`](https://andrewallenbruce.github.io/ccn/reference/excluded.md)
-  [`excluded_type()`](https://andrewallenbruce.github.io/ccn/reference/excluded.md)
-  : IPPS-Excluded Hospital Units/Swing-Bed Approvals
 - [`medicaid_only_facility()`](https://andrewallenbruce.github.io/ccn/reference/medicaid_only_facility.md)
   : Medicaid-Only Facilities
 - [`medicaid_only_hospital()`](https://andrewallenbruce.github.io/ccn/reference/medicaid_only_hospital.md)
@@ -27,13 +22,13 @@
   [`get_parent_ccn()`](https://andrewallenbruce.github.io/ccn/reference/parent.md)
   : IPPS Excluded Unit Codes
 - [`parse_medicare_provider()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
-  [`parse_eipps_unit()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
   [`parse_medicare_opo()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
   [`parse_emergency_hospital()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
   [`parse_medicare_supplier()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
   [`parse_medicaid_only_hospital()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
   [`parse_medicaid_only_facility()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
   [`parse_eipps_provider()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
+  [`parse_eipps_unit()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
   : Parse CMS Certification Numbers
 - [`state()`](https://andrewallenbruce.github.io/ccn/reference/state.md)
   : State Codes
