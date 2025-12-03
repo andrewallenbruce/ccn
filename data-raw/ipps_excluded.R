@@ -40,6 +40,7 @@ eipps_unit_swing_types <- tibble::tribble(
   "S",   "PU (EIPPS)",  "Psychiatric Unit (Excluded from IPPS)",
   "T",   "IRF (EIPPS)", "Rehabilitation Unit (Excluded from IPPS)",
   "U",   "STH (SBA)",   "Swing-Bed Approval for Short-Term Hospital",
+  "V",   "ADU (Ret.)",  "Alcohol-Drug Unit (Retired)",
   "W",   "LTC (SBA)",   "Swing-Bed Approval for Long-Term Care Hospital",
   "Y",   "IRF (SBA)",   "Swing-Bed Approval for Rehabilitation Hospital",
   "Z",   "CAH (SBA)",   "Swing-Bed Approval for Critical Access Hospital")

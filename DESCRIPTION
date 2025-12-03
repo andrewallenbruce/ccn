@@ -31,11 +31,11 @@ Roxygen: list(markdown = TRUE, roclets = c("collate", "namespace", "rd"))
 RoxygenNote: 7.3.3
 Collate: 
     'states.R'
-    'aaa-base.R'
+    'aaa.R'
     'ccn-package.R'
     'data.R'
     'emergency.R'
-    'excluded.R'
+    'ipps_excluded.R'
     'is_type.R'
     'medicaid_facility.R'
     'medicaid_hospital.R'
