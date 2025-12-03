@@ -1,10 +1,3 @@
-#' CCN Medicaid-Only Facility Types
-#'
-#'    * Section __2779B__
-#'    * Title: "CMS Certification Numbers for Medicaid Providers"
-#'    * Pgs. 407-408
-#'    * Rev. 123
-#'    * Issued/Effective/Implementation: 10-03-14
 medicaid_only_facility_types <- tibble::tribble(
   ~code, ~abbr,     ~desc,
   "A",   "NF",      "Nursing Facility (Formerly Assigned to Medicaid SNF)",
@@ -18,13 +11,6 @@ medicaid_only_facility_types <- tibble::tribble(
   "L",   "PRTF",    "Psychiatric Residential Treatment Facility")
 usethis::use_data(medicaid_only_facility_types, overwrite = TRUE)
 
-#' CCN Medicaid-Only Hospital Ranges
-#'
-#'    * Section: __2779B__
-#'    * Title: "CMS Certification Numbers for Medicaid Providers"
-#'    * Pgs. 407-408
-#'    * Rev. 123
-#'    * Iss./Eff./Impl. 10-03-14
 medicaid_only_hospital_ranges <- tibble::tribble(
   ~start,  ~end,    ~range,    ~abbr,    ~desc,
       1L,   99L, "001-099",    "STC",    "Short-Term Acute Care Hospital",

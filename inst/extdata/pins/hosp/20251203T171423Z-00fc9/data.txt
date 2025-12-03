@@ -1,0 +1,10 @@
+file: hosp.qs
+file_size: 356946
+pin_hash: 00fc964ecf439cd3
+type: qs
+title: Hospital Enrollments
+description: Hospital Enrollments 2025
+tags: ~
+urls: ~
+created: 20251203T171423Z
+api_version: 1

@@ -1,21 +1,3 @@
-#' CCN State Codes
-#'
-#'    * Section __2779A1__:
-#'    * Title: "CCN for Medicare Providers"
-#'    * Pgs. 403-404
-#'    * Rev. 226
-#'    * Iss./Eff./Impl. 12-06-24
-#'
-#' @format ## `state_codes`
-#' A data frame with 108 rows and 3 columns:
-#' \describe{
-#'   \item{code}{State code}
-#'   \item{abbr}{State abbreviation}
-#'   \item{name}{State full name}
-#'   ...
-#' }
-#' @source <https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf>
-
 state_codes <- tibble::tribble(
   ~code, ~abbr,  ~name,
   "00",  "AZ",   "Arizona",

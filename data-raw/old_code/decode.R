@@ -1,17 +1,15 @@
-# @noRd
-# as_ccn_provider <- function(x) {
-#   CCN(ccn = substr_(x, c(1L, 6L)),
-#       state = State(code = substr_(x, c(1L, 2L))),
-#       extension = substr_(x, c(7L, nchar(x)))
-#       )
-# }
+as_ccn_provider <- function(x) {
+  CCN(ccn = substr_(x, c(1L, 6L)),
+      state = State(code = substr_(x, c(1L, 2L))),
+      extension = substr_(x, c(7L, nchar(x)))
+      )
+}
 
-# @noRd
-# as_ccn_supplier <- function(x) {
-#   CCN(ccn = substr_(x, c(1L, 10L)),
-#       state = State(code = substr_(x, c(1L, 2L))),
-#       extension = substr_(x, c(11L, nchar(x))))
-# }
+as_ccn_supplier <- function(x) {
+  CCN(ccn = substr_(x, c(1L, 10L)),
+      state = State(code = substr_(x, c(1L, 2L))),
+      extension = substr_(x, c(11L, nchar(x))))
+}
 
 #' Decode CMS Certification Numbers (CCNs)
 #'
@@ -47,24 +45,24 @@
 #' decode("24T019A")
 #' decode("33S23401")
 #' decode("330027001")
-# @noRd
-# decode <- function(x) {
-#   x <- clean(x)
-#
-#   if (is_provider_nchar(x)) {
-#     return(switch(
-#       provider_type(x@ccn),
-#       medicare  = as_medicare(x),
-#       opo       = as_medicare_opo(x),
-#       emergency = as_emergency(x),
-#       medicaid  = as_medicaid_only(x),
-#       excluded  = as_excluded(x),
-#       x
-#     ))
-#   }
-#
-#   if (is_supplier_nchar(x) & is_supplier_type(x)) {
-#     return(as_supplier(x))
-#   }
-#   return(x)
-# }
+#' @noRd
+decode <- function(x) {
+  x <- clean(x)
+
+  if (is_provider_nchar(x)) {
+    return(switch(
+      provider_type(x@ccn),
+      medicare  = as_medicare(x),
+      opo       = as_medicare_opo(x),
+      emergency = as_emergency(x),
+      medicaid  = as_medicaid_only(x),
+      excluded  = as_excluded(x),
+      x
+    ))
+  }
+
+  if (is_supplier_nchar(x) & is_supplier_type(x)) {
+    return(as_supplier(x))
+  }
+  return(x)
+}

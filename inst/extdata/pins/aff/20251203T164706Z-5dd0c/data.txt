@@ -1,0 +1,10 @@
+file: aff.qs
+file_size: 17855928
+pin_hash: 5dd0cac54e3f6d06
+type: qs
+title: Facility Affiliations
+description: CCNs Facility Affiliation
+tags: ~
+urls: ~
+created: 20251203T164706Z
+api_version: 1

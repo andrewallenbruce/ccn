@@ -11,14 +11,14 @@
 #' the same address.) Use XX-5000 series for facilities providing Medicare or
 #' Medicare/Medicaid services, and the alphanumeric series (XX-A000 or XX-E000
 #' or XX-G000) for Medicaid-only facilities, as shown in the following charts:
-#'
-ipps_excluded_facility_types <- tibble::tribble(
+
+ltc_ccns <- tibble::tribble(
   ~facility_type,                           ~ccn,
-#' FREE STANDING LTC FACILITIES
+  # FREE STANDING LTC FACILITIES
   "18 or 18/19 SNF",                        "5000",
   "19 NF",                                  "A000/E000",
   "ICF/IID",                                "G000",
-#' SNF/NF DUALLY-PARTICIPATING AND/OR DISTINCT PART FACILITIES
+  # SNF/NF DUALLY-PARTICIPATING AND/OR DISTINCT PART FACILITIES
   "18/19 SNF/NF DUAL",                      "5000",
   "18 SNF or 18/19 DUAL with SNF or NF DP", "5000",
   "18 or 18/19 DUAL with SNF or NF DP",     "5000",

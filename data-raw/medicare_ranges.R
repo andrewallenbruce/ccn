@@ -1,10 +1,3 @@
-#' CCN Medicare Facility Ranges
-#'
-#'    * Section __2779A1__
-#'    * Title: "CCN for Medicare Providers"
-#'    * Pgs. 405-406
-#'    * Rev. 226
-#'    * Iss./Eff./Impl. 12-06-24
 medicare_ranges <- tibble::tribble(
  ~start,  ~end,    ~range,         ~abbr,           ~desc,
      1L,  879L,    "0001-0879",    "STC",           "Short-Term Hospital (General & Specialty)",
@@ -25,7 +18,7 @@ medicare_ranges <- tibble::tribble(
   3000L,  3024L,   "3000-3024",    "TBH (Ret.)",    "Tuberculosis Hospital (Retired)",
   3025L,  3099L,   "3025-3099",    "IRF (EIPPS)",    "Rehabilitation Hospital (Excluded from IPPS)",
   # 3100L,  3199L,   "3100-3199",    "HHA",          "Home Health Agency",
-  3100L,  3199L,   "3100-3199",    "HHA",           "HHA Subunit (Nonprofit/Proprietary)",
+  3100L,  3199L,   "3100-3199",    "HHA",           "Home Health Agency Subunit (Nonprofit/Proprietary)",
   3200L,  3299L,   "3200-3299",    "CORF",          "Comprehensive Outpatient Rehabilitation Facility",
   3300L,  3399L,   "3300-3399",    "CH (EIPPS)",    "Children's Hospital (Excluded from IPPS)",
   3400L,  3499L,   "3400-3499",    "RHC-P",         "Rural Health Clinic (Provider-based)",
@@ -43,9 +36,9 @@ medicare_ranges <- tibble::tribble(
   6990L,  6999L,   "6990-6999",    "RSVD",          "Number Reserved (Formerly CSS)",
   # 7000L,  8499L,   "7000-8499",    "HHA",           "Home Health Agency",
   7000L,  7299L,   "7000-7299",    "HHA",           "Home Health Agency",
-  7300L,  7399L,   "7300-7399",    "HHA",           "HHA Subunit (Nonprofit/Proprietary)",
+  7300L,  7399L,   "7300-7399",    "HHA",           "Home Health Agency Subunit (Nonprofit/Proprietary)",
   7400L,  7799L,   "7400-7799",    "HHA",           "Home Health Agency",
-  7800L,  7999L,   "7800-7999",    "HHA",           "HHA Subunit (State/Local)",
+  7800L,  7999L,   "7800-7999",    "HHA",           "Home Health Agency Subunit (State/Local)",
   8000L,  8499L,   "8000-8499",    "HHA",           "Home Health Agency",
   8500L,  8899L,   "8500-8899",    "RHC-P",         "Rural Health Clinic (Provider-based)",
   8900L,  8999L,   "8900-8999",    "RHC-I",         "Rural Health Clinic (Free-standing)",
