@@ -16,13 +16,20 @@ aff <- readr::read_csv(
     `Facility Type Certification Number`         = readr::col_character())) |>
   janitor::clean_names() |>
   collapse::slt(
-    pac_ind = ind_pac_id,
-    last = provider_last_name,
-    first = provider_first_name,
-    middle = provider_middle_name,
     facility_type,
     ccn_facility = facility_affiliations_certification_number,
-    ccn_parent = facility_type_certification_number)
+    ccn_parent = facility_type_certification_number) |>
+  collapse::funique()
+
+
+aff <- list(
+  fac = collapse::sbt(aff, is.na(ccn_parent), -ccn_parent) |>
+    collapse::slt(ccn = ccn_facility, facility_type) |>
+    collapse::roworder(ccn),
+  sub = collapse::sbt(aff, !is.na(ccn_parent)) |>
+    collapse::slt(ccn = ccn_facility, parent = ccn_parent, facility_type) |>
+    collapse::roworder(ccn, parent)
+)
 
 pin_update(
   aff,
@@ -30,39 +37,15 @@ pin_update(
   title = "Facility Affiliations",
   description = "CCNs Facility Affiliation")
 
-############################################
+# SUBUNIT === 1,889 × 3
+# Inpatient rehabilitation facility     738 --> T
+# Nursing home                         1151 --> Z
 
-aff_slt <- function(x) {
-  x |> collapse::slt(facility_type, ccn_parent, ccn_facility, npi, pac)
-}
-
-# create row identifiers
-affl <- collapse::mtt(affl, i = seq_len(nrow(affl)))
-
-sub_vec <- collapse::fcount(affl, ccn_parent) |>
-  collapse::sbt(!cheapr::is_na(ccn_parent)) |>
-  _$ccn_parent
-
-subs <- collapse::sbt(affl, ccn_parent %iin% sub_vec)
-subi <- subs$i
-subs <- aff_slt(subs)
-
-affl <- aff_slt(collapse::sbt(affl, i %!iin% subi))
-affl <- affl[, !cheapr::col_all_na(affl)]
-
-affl <- list(parent = affl, subunit = subs)
-
-#-----SUBUNITS
-# facility_type                         N
-# Inpatient rehabilitation facility  2702 --> T
-# Nursing home                       2638 --> Z
-
-#-----OVERALL
-# facility_type                           N
-# Hospital                          1423652
-# Home health agency                 107527
-# Nursing home                        31362
-# Hospice                             25834
-# Dialysis facility                   18242
-# Inpatient rehabilitation facility   11731
-# Long-term care hospital              3762
+# OVERALL === 37,241 × 2
+# Nursing home                        12682
+# Dialysis facility                    7248
+# Home health agency                   6919
+# Hospice                              5114
+# Hospital                             4576
+# Inpatient rehabilitation facility     396
+# Long-term care hospital               306

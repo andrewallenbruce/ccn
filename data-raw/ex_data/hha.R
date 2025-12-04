@@ -32,25 +32,32 @@ hha <- readr::read_csv(
     inc_date = readr::parse_date(incorporation_date, format = "%m/%d/%Y"),
     inc_state = incorporation_state,
     address = providertwo:::make_address(address_line_1, address_line_2),
-    multi_npi = cheapr::val_match(multiple_npi_flag, "Y" ~ 1L, "N" ~ 0L, .default = NA_integer_)) |>
+    multi_npi = cheapr::val_match(multiple_npi_flag, "Y" ~ 1L, "N" ~ 0L, .default = NA_integer_),
+    organization_type_structure = data.table::fifelse(
+      !is.na(organization_other_type_text),
+      as.character(glue::glue("Other: {organization_other_type_text}")),
+      organization_type_structure
+    )) |>
   collapse::slt(
-    npi,
+    # npi,
+    # enid = enrollment_id,
+    # multi_npi,
+    # pac = associate_id,
+    # org_otxt = organization_other_type_text,
+    # address,
+    # city,
+    # zip = zip_code,
+    # inc_date,
+    # enid_state = enrollment_state,
+    # inc_state
+    # org_dba = doing_business_as_name,
     ccn,
-    enid = enrollment_id,
-    multi_npi,
-    pac = associate_id,
-    org_name = organization_name,
-    dba_name = doing_business_as_name,
-    prop_non = proprietary_nonprofit,
+    state,
     org_type = organization_type_structure,
-    org_other = organization_other_type_text,
-    address,
-    city,
-    zip = zip_code,
-    inc_date,
-    enid_state = enrollment_state,
-    inc_state,
-    loc_state = state)
+    prop_non = proprietary_nonprofit,
+    org_name = organization_name)
+
+collapse::fcount(hha, org_type)
 
 # both enid and ccn are unique
 pin_update(

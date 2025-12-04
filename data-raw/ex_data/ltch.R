@@ -24,9 +24,11 @@ ltch <- readr::read_csv(
   collapse::slt(
     ccn = cms_certification_number_ccn,
     provider_name,
-    city = city_town,
-    state)
+    # city = city_town,
+    state) |>
+  collapse::funique()
 
+# 324 × 3
 pin_update(
   ltch,
   name = "ltch",

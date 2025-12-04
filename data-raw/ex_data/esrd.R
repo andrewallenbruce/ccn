@@ -40,19 +40,22 @@ esrd <- readr::read_csv(
     offers_home_hemodialysis_training = cheapr::val_match(offers_home_hemodialysis_training, "Yes" ~ 1L, "No" ~ 0L, .default = NA_integer_)) |>
   collapse::slt(
     ccn = cms_certification_number_ccn,
-    facility_name,
-    city = city_town,
     state,
-    profit_non,
-    chain_owned,
-    chain_name = chain_organization,
-    five_star,
-    stations,
-    cert_year,
-    dialysis_office = offers_in_center_hemodialysis,
-    dialysis_peritoneal = offers_peritoneal_dialysis,
-    dialysis_home = offers_home_hemodialysis_training)
+    facility_name,
+    # city = city_town,
+    chain = chain_organization,
+    profit = profit_non,
+    # chain_owned,
+    # five_star,
+    # stations,
+    # cert_year,
+    office = offers_in_center_hemodialysis,
+    peri = offers_peritoneal_dialysis,
+    home = offers_home_hemodialysis_training
+  )
 
+
+# 7,561 × 8
 pin_update(
   esrd,
   name = "esrd",

@@ -1,7 +1,7 @@
 library(collapse)
 
 #-----HOSPITAL ENROLLMENT-----
-hosp    <- readr::read_csv(
+hosp <- readr::read_csv(
   file = fs::path("C:/Users/Andrew/Downloads/Hospital_Enrollments_2025.10.01.csv"),
   num_threads                        = 4L,
   col_types                          = readr::cols(
@@ -77,48 +77,88 @@ hosp    <- readr::read_csv(
       )
   ) |>
   collapse::slt(
-    npi,
-    ccn,
-    ccn_cah = cah_or_hospital_ccn,
-    enid = enrollment_id,
+    # npi,
+    # enid = enrollment_id,
     # enid_state = enrollment_state,
-    pac = associate_id,
+    # pac = associate_id,
+    ccn,
     org_name = organization_name,
-    org_dba = doing_business_as_name,
     prop_non = proprietary_nonprofit,
     org_type = organization_type_structure,
+    # org_dba = doing_business_as_name,
     # org_otxt = organization_other_type_text,
     # address,
-    city,
+    # city,
     # zip = zip_code,
     # inc_date,
     # inc_state,
-    state,
-    loc_type = practice_location_type,
     # loc_otxt = location_other_type_text,
     # multi_npi,
-    reh_flag,
     # reh_date,
-    sub_gen = subgroup_general,
-    sub_spec = subgroup_specialty_hospital,
-    sub_acute = subgroup_acute_care,
-    sub_stc = subgroup_short_term,
-    sub_adh = subgroup_alcohol_drug,
-    sub_ch = subgroup_childrens,
-    sub_ltc = subgroup_long_term,
-    sub_irf = subgroup_rehabilitation,
-    sub_sba = subgroup_swing_bed_approved,
-    sub_ph = subgroup_psychiatric,
-    sub_phu = subgroup_psychiatric_unit,
-    sub_irfu = subgroup_rehabilitation_unit,
-    sub_oth = subgroup_other,
-    sub_otxt = subgroup_other_text)
+    state,
+    loc_type = practice_location_type,
+    reh_ccns = cah_or_hospital_ccn,
+    sub_otxt = subgroup_other_text,
+    REH = reh_flag,
+    Other = subgroup_other,
+    General = subgroup_general,
+    Specialty = subgroup_specialty_hospital,
+    Acute = subgroup_acute_care,
+    STC = subgroup_short_term,
+    ADH = subgroup_alcohol_drug,
+    CH = subgroup_childrens,
+    LTC = subgroup_long_term,
+    IRF = subgroup_rehabilitation,
+    SBA = subgroup_swing_bed_approved,
+    PH = subgroup_psychiatric,
+    `PH Unit` = subgroup_psychiatric_unit,
+    `IRF Unit` = subgroup_rehabilitation_unit)
 
 pin_update(
   hosp,
   name = "hosp",
   title = "Hospital Enrollments",
   description = "Hospital Enrollments 2025")
+
+#############################################
+#    facility_type     N
+# 1  Acute          3056
+# 2  General        1548
+# 3  PH Unit         970
+# 4  IRF Unit        863
+# 5  PH              816
+# 6  IRF             645
+# 7  SBA             428
+# 8  LTC             336
+# 9  Other           280
+# 10 STC             128
+# 11 CH              106
+# 12 Specialty        75
+# 13 REH              41
+# 14 ADH              21
+
+# CCN count by facility type
+# 1  4625
+# 2  1210
+# 3   468
+# 4   151
+# 6     5
+# 5    36
+# 7     6
+# 8     1
+
+collapse::slt(hosp, ccn, REH:`IRF Unit`) |>
+  collapse::pivot(ids = c("ccn")) |>
+  collapse::roworder(ccn) |>
+  collapse::sbt(value %==% 1L, -value) |>
+  collapse::mtt(facility_type = stringr::str_remove(variable, "sub_"), variable = NULL) |>
+  # collapse::sbt(facility_type == "General")
+  collapse::fcount(facility_type) |>
+  collapse::roworder(-N)
+
+collapse::slt(hosp, ccn:sub_otxt) |>
+  collapse::sbt(!is.na(sub_otxt)) |>
+  collapse::fcount(sub_otxt)
 
 #############################################
 hosp <- collapse::mtt(hosp, i = seq_len(nrow(hosp))) |>
