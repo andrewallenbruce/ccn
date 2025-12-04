@@ -1,5 +1,9 @@
 # Changelog
 
+## ccn 0.0.0.9040 (2025-12-04)
+
+- testing data has been organized and minimized.
+
 ## ccn 0.0.0.9039 (2025-12-02)
 
 - eipps implementation work (parent lookup)
