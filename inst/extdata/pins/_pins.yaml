@@ -1,15 +1,17 @@
 aff:
 - aff/20251203T231549Z-b6f33/
 asc:
-- asc/20251204T053409Z-01a43/
+- asc/20251204T184721Z-e2ae0/
 ccn:
-- ccn/20251204T054449Z-8d2f5/
+- ccn/20251204T210410Z-c7934/
 esrd:
 - esrd/20251203T232246Z-68e5e/
 hha:
 - hha/20251203T233215Z-ba3a3/
 hosp:
 - hosp/20251204T001045Z-c49ac/
+hosp_info:
+- hosp_info/20251204T205214Z-1f944/
 irf:
 - irf/20251204T001255Z-5df95/
 ltch:

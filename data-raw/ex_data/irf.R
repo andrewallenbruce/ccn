@@ -1,4 +1,3 @@
-#-----Inpatient Rehabilitation Facility - Provider Data-----
 irf <- readr::read_csv(
   file = fs::path("C:/Users/Andrew/Downloads/Inpatient_Rehabilitation_Facility-Provider_Data_Sep2025.csv"),
   num_threads = 4L,
@@ -24,13 +23,12 @@ irf <- readr::read_csv(
   collapse::slt(
     ccn = cms_certification_number_ccn,
     provider_name,
-    # city = city_town,
     state) |>
   collapse::funique()
 
-# 1,221 × 3
+# irf === 1,221 × 3  [213.7 KB]
 pin_update(
   irf,
-  name = "irf",
-  title = "Inpatient Rehabilitation Facility",
+  name        = "irf",
+  title       = "Inpatient Rehabilitation Facility",
   description = "Inpatient Rehabilitation Facility - Provider Data")

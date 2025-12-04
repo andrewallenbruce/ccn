@@ -1,5 +1,15 @@
-# initial length == 76603
-# unique length  == 52049
+# asc  ===  5,536 × 3  [983.1 KB]
+# aff  === 39,130 × 3    [2.8 MB]
+# esrd ===  7,561 × 8    [1.5 MB]
+# hha  === 11,723 × 5    [1.9 MB]
+# ltch ===    324 × 3   [66.5 KB]
+# irf  ===  1,221 × 3  [213.7 KB]
+# hosp ===  9,217 × 22   [2.1 MB]
+# hosp_info === 5,381 × 6 [990.3 KB]
+
+
+# initial length == 81982
+# unique length  == 52256
 ccns <- vctrs::vec_c(
   get_pin("asc")$ccn,
   get_pin("aff")$fac$ccn,
@@ -8,6 +18,7 @@ ccns <- vctrs::vec_c(
   get_pin("esrd")$ccn,
   get_pin("hha")$ccn,
   get_pin("hosp")$ccn,
+  get_pin("hosp_info")$ccn,
   get_pin("irf")$ccn,
   get_pin("ltch")$ccn
 ) |>
@@ -15,10 +26,11 @@ ccns <- vctrs::vec_c(
   kit::psort(nThread = 4L) |>
   stringfish::convert_to_sf()
 
-pin_update(ccns,
-           name        = "ccn",
-           title       = "52k ccns",
-           description = "A character vector of 52k unique CCNs")
+pin_update(
+  ccns,
+  name        = "ccn",
+  title       = "52k ccns",
+  description = "A character vector of 52k unique CCNs")
 
 
 ccns = list(
@@ -30,26 +42,22 @@ ccns = list(
     "43TA03", "45SB14", "45TA23", "45TA34", "45TA38", "45TA39", "45TA62", "45TA80",
     "45TA83", "45TA94", "45TB06", "45TB08", "46TA05", "49SE01", "52TA05", "52TA08"),
   extension = c(
-    "24T019A",  "30S020A",  "31S032A",  "31S069A",  "39S006A",  "39S142A",  "39T142A",  "39T204A",
-    "05203900", "07001001", "07002201", "07003301", "10002900", "15403500", "22007401", "22007402",
-    "23203900", "26014100", "30000301", "31202000", "31302500", "31302501", "33010301", "33019501",
-    "33021401", "33023401", "33S19501", "33S23401", "33T23401", "39203900", "45003300", "45027200",
-    "45063400", "45303600", "45303601", "51200500", "52000901", "52003001", "52018901", "52019801",
-    "67303500", "78A005BP",
-    "330027001", "330125001", "330195004", "330395002", "33S027001", "33S395002", "33T027001")
+    "24T019A",  "30S020A",  "31S032A",  "31S069A",  "39S006A",  "39S142A",  "39T142A",
+    "39T204A",  "05203900", "07001001", "07002201", "07003301", "10002900", "15403500",
+    "22007401", "22007402", "23203900", "26014100", "30000301", "31202000", "31302500",
+    "31302501", "33010301", "33019501", "33021401", "33023401", "33S19501", "33S23401",
+    "33T23401", "39203900", "45003300", "45027200", "45063400", "45303600", "45303601",
+    "51200500", "52000901", "52003001", "52018901", "52019801", "67303500", "78A005BP",
+    "330027001","330125001", "330195004", "330395002", "33S027001", "33S395002", "33T027001"),
+  supplier = c(
+    c("11X0009845", "11X0009814", "11X0009803", "11X0009840", "09X0000002", "21X0009807"), # PXRF
+    c("65C0001000", "65C0001001", "55C0001197"), # ASC
+    c("02D0873639", # Artic Envestigations Program Laboratory, Anchorage, AK
+      "40D0869394", # Dengue Laboratory, San Juan, PR
+      "11D1061576", # CDC/CGH/DGHA International Laboratory, Atlanta, GA
+      "11D0668319", # Infectious Diseases Laboratory, Atlanta, GA
+      "11D0668290", # National Center for Environmental Health, Division of Laboratory Science, Atlanta, GA
+      "06D0880233", # Vector-Borne Diseases Laboratory, Fort Collins, CO
+      "11D2306220") # Wiregrass Georgia Tech College Student Health Center, Valdosta, GA
+    )
 )
-
-# PXRF
-c("11X0009845", "11X0009814", "11X0009803", "11X0009840", "09X0000002", "21X0009807")
-
-# ASC
-c("65C0001000", "65C0001001", "55C0001197")
-
-# CLIA
-c("02D0873639", # Artic Envestigations Program Laboratory, Anchorage, AK
-  "40D0869394", # Dengue Laboratory, San Juan, PR
-  "11D1061576", # CDC/CGH/DGHA International Laboratory, Atlanta, GA
-  "11D0668319", # Infectious Diseases Laboratory, Atlanta, GA
-  "11D0668290", # National Center for Environmental Health, Division of Laboratory Science, Atlanta, GA
-  "06D0880233", # Vector-Borne Diseases Laboratory, Fort Collins, CO
-  "11D2306220") # Wiregrass Georgia Tech College Student Health Center, Valdosta, GA

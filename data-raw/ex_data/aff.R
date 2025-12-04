@@ -1,6 +1,5 @@
 library(collapse)
 
-#-----FACILITY AFFILIATIONS-----
 aff <- readr::read_csv(
   file                                           = fs::path("C:/Users/Andrew/Downloads/Facility_Affiliation.csv"),
   num_threads                                    = 4L,
@@ -28,13 +27,13 @@ aff <- list(
     collapse::roworder(ccn),
   sub = collapse::sbt(aff, !is.na(ccn_parent)) |>
     collapse::slt(ccn = ccn_facility, parent = ccn_parent, facility_type) |>
-    collapse::roworder(ccn, parent)
-)
+    collapse::roworder(ccn, parent))
 
+# aff === 39,130 × 3 [2.8 MB]
 pin_update(
   aff,
-  name = "aff",
-  title = "Facility Affiliations",
+  name        = "aff",
+  title       = "Facility Affiliations",
   description = "CCNs Facility Affiliation")
 
 # SUBUNIT === 1,889 × 3

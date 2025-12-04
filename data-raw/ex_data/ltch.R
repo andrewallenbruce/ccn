@@ -1,4 +1,3 @@
-#-----Long-Term Care Hospital - Provider Data-----
 ltch <- readr::read_csv(
   file = fs::path("C:/Users/Andrew/Downloads/Long-Term_Care_Hospital-Provider_Data_Sep2025.csv"),
   num_threads = 4L,
@@ -24,13 +23,12 @@ ltch <- readr::read_csv(
   collapse::slt(
     ccn = cms_certification_number_ccn,
     provider_name,
-    # city = city_town,
     state) |>
   collapse::funique()
 
-# 324 × 3
+# ltch  ===  324 × 3 [66.5 KB]
 pin_update(
   ltch,
-  name = "ltch",
-  title = "Long-Term Care Hospitals",
+  name        = "ltch",
+  title       = "Long-Term Care Hospitals",
   description = "Long-Term Care Hospital - Provider Data")

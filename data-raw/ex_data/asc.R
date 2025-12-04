@@ -1,6 +1,5 @@
 library(collapse)
 
-#-----Ambulatory Surgical Center Quality Measures - Facility-----
 asc <- readr::read_csv(
   file                            = fs::path("C:/Users/Andrew/Downloads/ASC_Facility.csv"),
   num_threads                     = 4L,
@@ -57,11 +56,12 @@ asc <- readr::read_csv(
     `ASC-20 Footnote`             = readr::col_double())) |>
   janitor::clean_names() |>
   collapse::slt(ccn = facility_id, state, facility_name) |>
-  collapse::funique()
+  collapse::funique() |>
+  collapse::sbt(!is.na(ccn))
 
-# 5,538 × 3
+# asc === 5,536 × 3 [983.1 KB]
 pin_update(
   asc,
-  name = "asc",
-  title = "Ambulatory Surgical Centers",
+  name        = "asc",
+  title       = "Ambulatory Surgical Centers",
   description = "Ambulatory Surgical Center Quality Measures - Facility")

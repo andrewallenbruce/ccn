@@ -1,6 +1,5 @@
 library(collapse)
 
-#-----HOME HEALTH AGENCY ENROLLMENT-----
 hha <- readr::read_csv(
   file = fs::path("C:/Users/Andrew/Downloads/HHA_Enrollments_2025.10.01.csv"),
   col_types = readr::cols(
@@ -36,32 +35,20 @@ hha <- readr::read_csv(
     organization_type_structure = data.table::fifelse(
       !is.na(organization_other_type_text),
       as.character(glue::glue("Other: {organization_other_type_text}")),
-      organization_type_structure
-    )) |>
+      organization_type_structure)) |>
   collapse::slt(
-    # npi,
-    # enid = enrollment_id,
-    # multi_npi,
-    # pac = associate_id,
-    # org_otxt = organization_other_type_text,
-    # address,
-    # city,
-    # zip = zip_code,
-    # inc_date,
-    # enid_state = enrollment_state,
-    # inc_state
-    # org_dba = doing_business_as_name,
     ccn,
     state,
     org_type = organization_type_structure,
     prop_non = proprietary_nonprofit,
     org_name = organization_name)
 
+# both enid and ccn are unique
 collapse::fcount(hha, org_type)
 
-# both enid and ccn are unique
+# hha ===  11,723 × 5 [1.9 MB]
 pin_update(
   hha,
-  name = "hha",
-  title = "Home Health Enrollments",
+  name        = "hha",
+  title       = "Home Health Enrollments",
   description = "Home Health Enrollments 2025")

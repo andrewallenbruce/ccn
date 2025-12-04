@@ -1,6 +1,5 @@
 library(collapse)
 
-#-----Dialysis Facility - Listing by Facility-----
 esrd <- readr::read_csv(
   file                                  = fs::path("C:/Users/Andrew/Downloads/DFC_FACILITY.csv"),
   num_threads                           = 4L,
@@ -42,22 +41,15 @@ esrd <- readr::read_csv(
     ccn = cms_certification_number_ccn,
     state,
     facility_name,
-    # city = city_town,
     chain = chain_organization,
     profit = profit_non,
-    # chain_owned,
-    # five_star,
-    # stations,
-    # cert_year,
     office = offers_in_center_hemodialysis,
     peri = offers_peritoneal_dialysis,
-    home = offers_home_hemodialysis_training
-  )
+    home = offers_home_hemodialysis_training)
 
-
-# 7,561 × 8
+# esrd === 7,561 × 8 [1.500 MB]
 pin_update(
   esrd,
-  name = "esrd",
-  title = "Dialysis Facilities",
+  name        = "esrd",
+  title       = "Dialysis Facilities",
   description = "Dialysis Facility - Listing by Facility 2025")

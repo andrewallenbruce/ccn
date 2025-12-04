@@ -1,6 +1,3 @@
-library(collapse)
-
-#-----HOSPITAL ENROLLMENT-----
 hosp <- readr::read_csv(
   file = fs::path("C:/Users/Andrew/Downloads/Hospital_Enrollments_2025.10.01.csv"),
   num_threads                        = 4L,
@@ -114,10 +111,11 @@ hosp <- readr::read_csv(
     `PH Unit` = subgroup_psychiatric_unit,
     `IRF Unit` = subgroup_rehabilitation_unit)
 
+# hosp === 9,217 × 22 [2.1 MB]
 pin_update(
   hosp,
-  name = "hosp",
-  title = "Hospital Enrollments",
+  name        = "hosp",
+  title       = "Hospital Enrollments",
   description = "Hospital Enrollments 2025")
 
 #############################################
