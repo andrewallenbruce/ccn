@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9042 (2025-12-04)
+
+* renamed `parse_` functions
+
+
 # ccn 0.0.0.9041 (2025-12-04)
 
 * `eipps_parent` variation
