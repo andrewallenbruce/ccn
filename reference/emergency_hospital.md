@@ -52,7 +52,7 @@ emergency_hospital("21034E")
 #>  .. @ name: chr "Maryland"
 #>  @ sequence: <ccn::Sequence>
 #>  .. @ number: chr "034"
-#>  .. @ range : chr "001-999"
+#>  .. @ range : chr "0001-0009"
 #>  @ type    : <ccn::Type>
 #>  .. @ code: chr "E"
 #>  .. @ abbr: chr "NFEH"
@@ -67,7 +67,7 @@ emergency_hospital("12345F")
 #>  .. @ name: chr "Hawaii"
 #>  @ sequence: <ccn::Sequence>
 #>  .. @ number: chr "345"
-#>  .. @ range : chr "001-999"
+#>  .. @ range : chr "0001-0009"
 #>  @ type    : <ccn::Type>
 #>  .. @ code: chr "F"
 #>  .. @ abbr: chr "FEH"

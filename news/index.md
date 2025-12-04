@@ -1,5 +1,9 @@
 # Changelog
 
+## ccn 0.0.0.9041 (2025-12-04)
+
+- `eipps_parent` variation
+
 ## ccn 0.0.0.9040 (2025-12-04)
 
 - testing data has been organized and minimized.

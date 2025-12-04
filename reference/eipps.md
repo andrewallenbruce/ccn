@@ -8,6 +8,8 @@ Convert various codes to their associated names.
 eipps_unit(x)
 
 eipps_unit2(x)
+
+eipps_parent(x)
 ```
 
 ## Arguments
@@ -114,10 +116,30 @@ eipps_unit2("21SA26")
 #>  .. @ code: chr "S"
 #>  .. @ abbr: chr "PU (EIPPS)"
 #>  .. @ desc: chr "Psychiatric Unit (Excluded from IPPS)"
-#>  @ parent  : <ccn::EippsParent>
-#>  .. @ code: chr "S"
-#>  .. @ type: chr "PU (EIPPS)"
+#>  @ parent  : <ccn::EippsParent2>
+#>  .. @ code: chr "A"
 #>  .. @ ccn : chr "212026"
+eipps_parent("21SA26")
+#> <ccn::EippsParent>
+#>  @ ccn      : chr "212026"
+#>  @ entity   : chr "Medicare Provider"
+#>  @ state    : <ccn::State>
+#>  .. @ code: chr "21"
+#>  .. @ abbr: chr "MD"
+#>  .. @ name: chr "Maryland"
+#>  @ sequence : <ccn::MedicareSequence>
+#>  .. @ number: chr "2026"
+#>  .. @ range : chr "2000-2299"
+#>  .. @ abbr  : chr "LTC (EIPPS)"
+#>  .. @ desc  : chr "Long-Term Care Hospital (Excluded from IPPS)"
+#>  @ extension: NULL
+#>  @ subunit  : <ccn::SubUnit>
+#>  .. @ ccn   : chr "21SA26"
+#>  .. @ entity: chr "IPPS-Excluded Subunit"
+#>  .. @ type  : <ccn::Type>
+#>  .. .. @ code: chr "S"
+#>  .. .. @ abbr: chr "PU (EIPPS)"
+#>  .. .. @ desc: chr "Psychiatric Unit (Excluded from IPPS)"
 eipps_unit2("21TA26")
 #> <ccn::EippsUnit2>
 #>  @ ccn     : chr "21TA26"
@@ -135,10 +157,30 @@ eipps_unit2("21TA26")
 #>  .. @ code: chr "T"
 #>  .. @ abbr: chr "IRF (EIPPS)"
 #>  .. @ desc: chr "Rehabilitation Unit (Excluded from IPPS)"
-#>  @ parent  : <ccn::EippsParent>
-#>  .. @ code: chr "T"
-#>  .. @ type: chr "IRF (EIPPS)"
+#>  @ parent  : <ccn::EippsParent2>
+#>  .. @ code: chr "A"
 #>  .. @ ccn : chr "212026"
+eipps_parent("21TA26")
+#> <ccn::EippsParent>
+#>  @ ccn      : chr "212026"
+#>  @ entity   : chr "Medicare Provider"
+#>  @ state    : <ccn::State>
+#>  .. @ code: chr "21"
+#>  .. @ abbr: chr "MD"
+#>  .. @ name: chr "Maryland"
+#>  @ sequence : <ccn::MedicareSequence>
+#>  .. @ number: chr "2026"
+#>  .. @ range : chr "2000-2299"
+#>  .. @ abbr  : chr "LTC (EIPPS)"
+#>  .. @ desc  : chr "Long-Term Care Hospital (Excluded from IPPS)"
+#>  @ extension: NULL
+#>  @ subunit  : <ccn::SubUnit>
+#>  .. @ ccn   : chr "21TA26"
+#>  .. @ entity: chr "IPPS-Excluded Subunit"
+#>  .. @ type  : <ccn::Type>
+#>  .. .. @ code: chr "T"
+#>  .. .. @ abbr: chr "IRF (EIPPS)"
+#>  .. .. @ desc: chr "Rehabilitation Unit (Excluded from IPPS)"
 
 medicare_provider("022001")
 #> <ccn::Medicare>
@@ -171,10 +213,30 @@ eipps_unit2("02TA01")
 #>  .. @ code: chr "T"
 #>  .. @ abbr: chr "IRF (EIPPS)"
 #>  .. @ desc: chr "Rehabilitation Unit (Excluded from IPPS)"
-#>  @ parent  : <ccn::EippsParent>
-#>  .. @ code: chr "T"
-#>  .. @ type: chr "IRF (EIPPS)"
+#>  @ parent  : <ccn::EippsParent2>
+#>  .. @ code: chr "A"
 #>  .. @ ccn : chr "022001"
+eipps_parent("02TA01")
+#> <ccn::EippsParent>
+#>  @ ccn      : chr "022001"
+#>  @ entity   : chr "Medicare Provider"
+#>  @ state    : <ccn::State>
+#>  .. @ code: chr "02"
+#>  .. @ abbr: chr "AK"
+#>  .. @ name: chr "Alaska"
+#>  @ sequence : <ccn::MedicareSequence>
+#>  .. @ number: chr "2001"
+#>  .. @ range : chr "2000-2299"
+#>  .. @ abbr  : chr "LTC (EIPPS)"
+#>  .. @ desc  : chr "Long-Term Care Hospital (Excluded from IPPS)"
+#>  @ extension: NULL
+#>  @ subunit  : <ccn::SubUnit>
+#>  .. @ ccn   : chr "02TA01"
+#>  .. @ entity: chr "IPPS-Excluded Subunit"
+#>  .. @ type  : <ccn::Type>
+#>  .. .. @ code: chr "T"
+#>  .. .. @ abbr: chr "IRF (EIPPS)"
+#>  .. .. @ desc: chr "Rehabilitation Unit (Excluded from IPPS)"
 
 medicare_provider("043038")
 #> <ccn::Medicare>
@@ -207,10 +269,30 @@ eipps_unit2("04SD38")
 #>  .. @ code: chr "S"
 #>  .. @ abbr: chr "PU (EIPPS)"
 #>  .. @ desc: chr "Psychiatric Unit (Excluded from IPPS)"
-#>  @ parent  : <ccn::EippsParent>
-#>  .. @ code: chr "S"
-#>  .. @ type: chr "PU (EIPPS)"
+#>  @ parent  : <ccn::EippsParent2>
+#>  .. @ code: chr "D"
 #>  .. @ ccn : chr "043038"
+eipps_parent("04SD38")
+#> <ccn::EippsParent>
+#>  @ ccn      : chr "043038"
+#>  @ entity   : chr "Medicare Provider"
+#>  @ state    : <ccn::State>
+#>  .. @ code: chr "04"
+#>  .. @ abbr: chr "AR"
+#>  .. @ name: chr "Arkansas"
+#>  @ sequence : <ccn::MedicareSequence>
+#>  .. @ number: chr "3038"
+#>  .. @ range : chr "3025-3099"
+#>  .. @ abbr  : chr "IRF (EIPPS)"
+#>  .. @ desc  : chr "Rehabilitation Hospital (Excluded from IPPS)"
+#>  @ extension: NULL
+#>  @ subunit  : <ccn::SubUnit>
+#>  .. @ ccn   : chr "04SD38"
+#>  .. @ entity: chr "IPPS-Excluded Subunit"
+#>  .. @ type  : <ccn::Type>
+#>  .. .. @ code: chr "S"
+#>  .. .. @ abbr: chr "PU (EIPPS)"
+#>  .. .. @ desc: chr "Psychiatric Unit (Excluded from IPPS)"
 
 medicare_provider("522005")
 #> <ccn::Medicare>
@@ -243,8 +325,28 @@ eipps_unit2("52TA05")
 #>  .. @ code: chr "T"
 #>  .. @ abbr: chr "IRF (EIPPS)"
 #>  .. @ desc: chr "Rehabilitation Unit (Excluded from IPPS)"
-#>  @ parent  : <ccn::EippsParent>
-#>  .. @ code: chr "T"
-#>  .. @ type: chr "IRF (EIPPS)"
+#>  @ parent  : <ccn::EippsParent2>
+#>  .. @ code: chr "A"
 #>  .. @ ccn : chr "522005"
+eipps_parent("52TA05")
+#> <ccn::EippsParent>
+#>  @ ccn      : chr "522005"
+#>  @ entity   : chr "Medicare Provider"
+#>  @ state    : <ccn::State>
+#>  .. @ code: chr "52"
+#>  .. @ abbr: chr "WI"
+#>  .. @ name: chr "Wisconsin"
+#>  @ sequence : <ccn::MedicareSequence>
+#>  .. @ number: chr "2005"
+#>  .. @ range : chr "2000-2299"
+#>  .. @ abbr  : chr "LTC (EIPPS)"
+#>  .. @ desc  : chr "Long-Term Care Hospital (Excluded from IPPS)"
+#>  @ extension: NULL
+#>  @ subunit  : <ccn::SubUnit>
+#>  .. @ ccn   : chr "52TA05"
+#>  .. @ entity: chr "IPPS-Excluded Subunit"
+#>  .. @ type  : <ccn::Type>
+#>  .. .. @ code: chr "T"
+#>  .. .. @ abbr: chr "IRF (EIPPS)"
+#>  .. .. @ desc: chr "Rehabilitation Unit (Excluded from IPPS)"
 ```

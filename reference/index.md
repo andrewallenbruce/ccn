@@ -4,6 +4,7 @@
 
 - [`eipps_unit()`](https://andrewallenbruce.github.io/ccn/reference/eipps.md)
   [`eipps_unit2()`](https://andrewallenbruce.github.io/ccn/reference/eipps.md)
+  [`eipps_parent()`](https://andrewallenbruce.github.io/ccn/reference/eipps.md)
   : IPPS-Excluded Hospital Units/Swing-Bed Approvals
 - [`emergency_hospital()`](https://andrewallenbruce.github.io/ccn/reference/emergency_hospital.md)
   : Emergency Hospital CCNs
