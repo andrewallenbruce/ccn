@@ -43,3 +43,13 @@ CCN <- S7::new_class(
     sequence  = Sequence | SequenceFull
   )
 )
+
+#' @noRd
+SubUnit <- S7::new_class(
+  name        = "SubUnit",
+  properties  = list(
+    ccn       = S7::class_character,
+    entity    = S7::class_character,
+    type      = Type
+  )
+)

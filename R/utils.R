@@ -1,3 +1,11 @@
+# if_in(x, c(1L, 999L), "0001-0009")
+#' @noRd
+if_in <- function(x, rng, lbl) {
+  stopifnot("rng = c(1L, 999L)" = length(rng) == 2L,
+            'lbl = "0001-0009"' = length(lbl) == 1L)
+  kit::iif(as.integer(x) %between% rng, lbl, NA_character_, nThread = 4L)
+}
+
 #' @noRd
 prefix_names <- function(x, prefix, sep = "_") {
   rlang::set_names(x, \(x) paste0(prefix, sep, x))

@@ -11,19 +11,19 @@ NULL
 
 #' @noRd
 opo_sequence <- function(x) {
-  Sequence(
-    number = x,
-    # TODO Check if this range ends in 99 or 999
-    range  = kit::iif(as_int(x) %between% c(1L, 99L), "001-099", NA_character_)
-  )
+  Sequence(number = x, range = if_in(x, c(1L, 99L), "001-099"))
 }
 
 #' @noRd
 opo_type <- function(x) {
   Type(
     code = x,
-    abbr = kit::iif(x == "P", "OPO", NA_character_),
-    desc = kit::iif(x == "P", "Organ Procurement Organization", NA_character_)
+    abbr = kit::iif(is_opo_type(x), "OPO", NA_character_),
+    desc = kit::iif(
+      is_opo_type(x),
+      "Organ Procurement Organization",
+      NA_character_
+    )
   )
 }
 

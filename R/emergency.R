@@ -47,10 +47,7 @@ emergency_type <- function(x) {
 
 #' @noRd
 emergency_sequence <- function(x) {
-  Sequence(
-    number = x,
-    range  = kit::iif(as_int(x) %between% c(1L, 999L), "001-999", NA_character_)
-  )
+  Sequence(number = x, range = if_in(x, c(1L, 999L), "0001-0009"))
 }
 
 #' @noRd

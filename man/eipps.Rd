@@ -4,11 +4,14 @@
 \alias{eipps}
 \alias{eipps_unit}
 \alias{eipps_unit2}
+\alias{eipps_parent}
 \title{IPPS-Excluded Hospital Units/Swing-Bed Approvals}
 \usage{
 eipps_unit(x)
 
 eipps_unit2(x)
+
+eipps_parent(x)
 }
 \arguments{
 \item{x}{character vector of codes to look up.}
@@ -27,14 +30,19 @@ eipps_unit("21U101")
 
 medicare_provider("212026")
 eipps_unit2("21SA26")
+eipps_parent("21SA26")
 eipps_unit2("21TA26")
+eipps_parent("21TA26")
 
 medicare_provider("022001")
 eipps_unit2("02TA01")
+eipps_parent("02TA01")
 
 medicare_provider("043038")
 eipps_unit2("04SD38")
+eipps_parent("04SD38")
 
 medicare_provider("522005")
 eipps_unit2("52TA05")
+eipps_parent("52TA05")
 }

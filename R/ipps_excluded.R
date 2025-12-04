@@ -14,20 +14,25 @@
 #'
 #' medicare_provider("212026")
 #' eipps_unit2("21SA26")
+#' eipps_parent("21SA26")
 #' eipps_unit2("21TA26")
+#' eipps_parent("21TA26")
 #'
 #' medicare_provider("022001")
 #' eipps_unit2("02TA01")
+#' eipps_parent("02TA01")
 #'
 #' medicare_provider("043038")
 #' eipps_unit2("04SD38")
+#' eipps_parent("04SD38")
 #'
 #' medicare_provider("522005")
 #' eipps_unit2("52TA05")
+#' eipps_parent("52TA05")
 NULL
 
 #' @noRd
-eipps_type_abbr <- function(x) {
+eipps_abbr <- function(x) {
   kit::vswitch(
     x       = x,
     values  = ccn::eipps_unit_swing_types$code,
@@ -38,7 +43,7 @@ eipps_type_abbr <- function(x) {
 }
 
 #' @noRd
-eipps_type_desc <- function(x) {
+eipps_desc <- function(x) {
   kit::vswitch(
     x       = x,
     values  = ccn::eipps_unit_swing_types$code,
@@ -50,17 +55,15 @@ eipps_type_desc <- function(x) {
 
 #' @noRd
 eipps_type <- function(x) {
-  Type(
-    code = x,
-    abbr = eipps_type_abbr(x),
-    desc = eipps_type_desc(x)
-  )
+  Type(code = x,
+       abbr = eipps_abbr(x),
+       desc = eipps_desc(x))
 }
 
 #' @noRd
 EippsUnit <- S7::new_class(
-  name = "EippsUnit",
-  parent = CCN,
+  name       = "EippsUnit",
+  parent     = CCN,
   properties = list(type = Type)
 )
 
@@ -75,16 +78,6 @@ eipps_unit <- function(x) {
     type     = eipps_type(substr_(x, 3L))
   )
 }
-
-# eipps_unit_abbr <- function(x) {
-#   kit::vswitch(
-#     x       = x,
-#     values  = ccn::eipps_hospital_units_types$code,
-#     outputs = ccn::eipps_hospital_units_types$abbr,
-#     default = NA_character_,
-#     nThread = 4L
-#   )
-# }
 
 #' @noRd
 eipps_prefix <- function(x) {
@@ -104,33 +97,30 @@ eipps_sequence <- function(x) {
 
 #' @noRd
 eipps_parent_ccn <- function(x) {
-  paste0(substr(x, 1L, 2L), eipps_sequence(x))
+  paste0(str_state(x), eipps_sequence(x))
 }
 
 #' @noRd
-EippsParent <- S7::new_class(
-  name = "EippsParent",
+EippsParent2 <- S7::new_class(
+  name       = "EippsParent2",
   properties = list(
-    code = S7::class_character,
-    type = S7::new_property(
-      S7::class_character,
-      getter = function(self)
-        eipps_type_abbr(self@code)
-    ),
-    ccn = S7::class_character
+    code     = S7::class_character,
+    ccn      = S7::class_character
   )
 )
 
 #' @noRd
-eipps_parent <- function(x) {
-  EippsParent(code = substr_(x, 3L), ccn = eipps_parent_ccn(x))
+eipps_parent2 <- function(x) {
+  EippsParent2(
+    code = substr_(x, 4L),
+    ccn  = eipps_parent_ccn(x))
 }
 
 #' @noRd
 EippsUnit2 <- S7::new_class(
-  name = "EippsUnit2",
-  parent = EippsUnit,
-  properties = list(parent = EippsParent)
+  name       = "EippsUnit2",
+  parent     = EippsUnit,
+  properties = list(parent = EippsParent2)
 )
 
 #' @rdname eipps
@@ -142,6 +132,34 @@ eipps_unit2 <- function(x) {
     state    = state(x),
     sequence = medicare_sequence(eipps_sequence(x)),
     type     = eipps_type(substr_(x, 3L)),
-    parent   = eipps_parent(x)
+    parent   = eipps_parent2(x)
+  )
+}
+
+#' @noRd
+eipps_subunit <- function(x) {
+  SubUnit(
+    ccn    = x,
+    entity = "IPPS-Excluded Subunit",
+    type   = eipps_type(substr_(x, 3L)))
+}
+
+#' @include medicare.R
+#' @noRd
+EippsParent <- S7::new_class(
+  name       = "EippsParent",
+  parent     = Medicare,
+  properties = list(subunit = SubUnit)
+)
+
+#' @rdname eipps
+#' @export
+eipps_parent <- function(x) {
+  EippsParent(
+    ccn      = eipps_parent_ccn(x),
+    entity   = "Medicare Provider",
+    state    = state(x),
+    sequence = medicare_sequence(eipps_sequence(x)),
+    subunit  = eipps_subunit(x)
   )
 }
