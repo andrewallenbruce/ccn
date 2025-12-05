@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9043 (2025-12-04)
+
+* IPPS-Excluded: `unit`, `subunit`, `parent`
+
+
 # ccn 0.0.0.9042 (2025-12-04)
 
 * renamed `parse_` functions
