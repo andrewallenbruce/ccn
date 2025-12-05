@@ -45,17 +45,17 @@ is_moh_type <- function(x) {
 
 #' @noRd
 is_medicaid_type <- function(x) {
-  x %chin% ccn::medicaid_only_facility_types$code
+  x %chin% ccn::medicaid_types$code
 }
 
 #' @noRd
 is_eipps_type <- function(x) {
-  x %chin% ccn::eipps_unit_swing_types$code
+  x %chin% ccn::eipps_unit$code
 }
 
 #' @noRd
 is_eipps_unit_type <- function(x) {
-  x %chin% ccn::eipps_hospital_units_types$code
+  x %chin% ccn::eipps_subunit$code
 }
 
 #' @noRd

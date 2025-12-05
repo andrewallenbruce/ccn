@@ -48,7 +48,7 @@
 #'    * Rev. 123
 #'    * Iss./Eff./Impl. 10-03-14
 #'
-#' @format ## `medicaid_only_hospital_ranges`
+#' @format ## `medicaid_ranges`
 #' A data frame with 7 rows and 5 columns:
 #' \describe{
 #'   \item{start}{Medicaid-only hospital range start}
@@ -60,7 +60,7 @@
 #' }
 #' @source <https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf>
 #' @keywords internal
-"medicaid_only_hospital_ranges"
+"medicaid_ranges"
 
 #' CCN Medicaid-Only Facility Types
 #'
@@ -70,7 +70,7 @@
 #'    * Rev. 123
 #'    * Issued/Effective/Implementation: 10-03-14
 #'
-#' @format ## `medicaid_only_facility_types`
+#' @format ## `medicaid_types`
 #' A data frame with 9 rows and 3 columns:
 #' \describe{
 #'   \item{code}{Medicaid-only facility type code}
@@ -80,7 +80,7 @@
 #' }
 #' @source <https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf>
 #' @keywords internal
-"medicaid_only_facility_types"
+"medicaid_types"
 
 #' IPPS-Excluded Hospital Unit Types/Swing-Bed Approvals
 #'
@@ -92,7 +92,7 @@
 #'    * Rev. 198
 #'    * Issued/Effective/Implementation: 01-17-20
 #'
-#' @format ## `eipps_unit_swing_types`
+#' @format ## `eipps_unit`
 #' A data frame with 8 rows and 3 columns:
 #' \describe{
 #'   \item{code}{IPPS-Excluded type code}
@@ -102,7 +102,7 @@
 #' }
 #' @source <https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf>
 #' @keywords internal
-"eipps_unit_swing_types"
+"eipps_unit"
 
 #' IPPS-Excluded Hospital Unit Types/Swing-Bed Approvals
 #'
@@ -114,7 +114,7 @@
 #'    * Rev. 198
 #'    * Issued/Effective/Implementation: 01-17-20
 #'
-#' @format ## `eipps_hospital_units_types`
+#' @format ## `eipps_subunit`
 #' A data frame with 10 rows and 3 columns:
 #' \describe{
 #'   \item{code}{IPPS-Excluded type code}
@@ -124,4 +124,4 @@
 #' }
 #' @source <https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf>
 #' @keywords internal
-"eipps_hospital_units_types"
+"eipps_subunit"

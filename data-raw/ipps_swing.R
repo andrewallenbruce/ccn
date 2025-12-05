@@ -33,25 +33,26 @@
 #' NOTE: If it meets the applicable requirements, an acute care hospital or a
 #' CAH could have swing-bed approval, an IPPS-excluded rehabilitation unit, and/
 #' or an IPPS-excluded psychiatric unit.
-eipps_unit_swing_types <- tibble::tribble(
+eipps_unit <- tibble::tribble(
   ~code, ~abbr,         ~desc,
-  "M",   "PU (CAH)",    "Psychiatric Unit of a Critical Access Hospital",
-  "R",   "IRF (CAH)",   "Rehabilitation Unit of a Critical Access Hospital",
-  "S",   "PU (EIPPS)",  "Psychiatric Unit (Excluded from IPPS)",
-  "T",   "IRF (EIPPS)", "Rehabilitation Unit (Excluded from IPPS)",
-  "U",   "STH (SBA)",   "Swing-Bed Approval for Short-Term Hospital",
+  "M",   "PU",          "Psychiatric Unit of a Critical Access Hospital",
+  "R",   "IRF",         "Rehabilitation Unit of a Critical Access Hospital",
+  "S",   "PU",          "Psychiatric Unit (Excluded from IPPS)",
+  "T",   "IRF",         "Rehabilitation Unit (Excluded from IPPS)",
+  "U",   "STH",         "Swing-Bed Approval for Short-Term Hospital",
   "V",   "ADU (Ret.)",  "Alcohol-Drug Unit (Retired)",
-  "W",   "LTC (SBA)",   "Swing-Bed Approval for Long-Term Care Hospital",
-  "Y",   "IRF (SBA)",   "Swing-Bed Approval for Rehabilitation Hospital",
-  "Z",   "CAH (SBA)",   "Swing-Bed Approval for Critical Access Hospital")
-usethis::use_data(eipps_unit_swing_types, overwrite = TRUE)
+  "W",   "LTCH",        "Swing-Bed Approval for Long-Term Care Hospital",
+  "Y",   "IRF",         "Swing-Bed Approval for Rehabilitation Hospital",
+  "Z",   "CAH",         "Swing-Bed Approval for Critical Access Hospital")
 
-eipps_hospital_units_types <- tibble::tibble(
+usethis::use_data(eipps_unit, overwrite = TRUE)
+
+eipps_subunit <- tibble::tibble(
   code  = c("A", "B", "C", "D", "E", "F", "G", "H", "J", "K"),
   prefix = c(20:22, "30", "33", 40:44),
-  abbr = c(rep.int("LTC (EIPPS)", 3), "IRF (EIPPS)", "CH (EIPPS)", rep.int("PH (EIPPS)", 5)))
+  abbr = c(rep.int("LTCH", 3), "IRF", "CH", rep.int("PH", 5)))
 
-usethis::use_data(eipps_hospital_units_types, overwrite = TRUE)
+usethis::use_data(eipps_subunit, overwrite = TRUE)
 
 #' IPPS-Excluded Hospitals with IPPS-Excluded Units
 #'

@@ -34,8 +34,8 @@ NULL
 eipps_prefix <- function(x) {
   kit::vswitch(
     x       = x,
-    values  = ccn::eipps_hospital_units_types$code,
-    outputs = ccn::eipps_hospital_units_types$prefix,
+    values  = ccn::eipps_subunit$code,
+    outputs = ccn::eipps_subunit$prefix,
     default = NA_character_,
     nThread = 4L
   )

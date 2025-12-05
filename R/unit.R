@@ -17,8 +17,8 @@ NULL
 eipps_abbr <- function(x) {
   kit::vswitch(
     x       = x,
-    values  = ccn::eipps_unit_swing_types$code,
-    outputs = ccn::eipps_unit_swing_types$abbr,
+    values  = ccn::eipps_unit$code,
+    outputs = ccn::eipps_unit$abbr,
     default = NA_character_,
     nThread = 4L
   )
@@ -28,8 +28,8 @@ eipps_abbr <- function(x) {
 eipps_desc <- function(x) {
   kit::vswitch(
     x       = x,
-    values  = ccn::eipps_unit_swing_types$code,
-    outputs = ccn::eipps_unit_swing_types$desc,
+    values  = ccn::eipps_unit$code,
+    outputs = ccn::eipps_unit$desc,
     default = NA_character_,
     nThread = 4L
   )
