@@ -32,7 +32,7 @@ occasionally assist with some of these duties.
 
 ## All functions
 
-- [`emergency_hospital()`](https://andrewallenbruce.github.io/ccn/reference/emergency_hospital.md)
+- [`emergency()`](https://andrewallenbruce.github.io/ccn/reference/emergency.md)
   : Emergency Hospital CCNs
 - [`medicaid()`](https://andrewallenbruce.github.io/ccn/reference/medicaid.md)
   : Medicaid-Only Facilities
