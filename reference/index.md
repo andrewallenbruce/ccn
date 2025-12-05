@@ -2,10 +2,6 @@
 
 ## All functions
 
-- [`unit()`](https://andrewallenbruce.github.io/ccn/reference/eipps.md)
-  [`eipps()`](https://andrewallenbruce.github.io/ccn/reference/eipps.md)
-  [`parent()`](https://andrewallenbruce.github.io/ccn/reference/eipps.md)
-  : IPPS-Excluded Hospital Units/Swing-Bed Approvals
 - [`emergency_hospital()`](https://andrewallenbruce.github.io/ccn/reference/emergency_hospital.md)
   : Emergency Hospital CCNs
 - [`medicaid_only_facility()`](https://andrewallenbruce.github.io/ccn/reference/medicaid_only_facility.md)
@@ -26,5 +22,10 @@
   : Parse CMS Certification Numbers
 - [`state()`](https://andrewallenbruce.github.io/ccn/reference/state.md)
   : State Codes
+- [`subunit()`](https://andrewallenbruce.github.io/ccn/reference/subunit.md)
+  [`parent()`](https://andrewallenbruce.github.io/ccn/reference/subunit.md)
+  : IPPS-Excluded Hospital Sub-Units
 - [`supplier()`](https://andrewallenbruce.github.io/ccn/reference/supplier.md)
   : Medicare Supplier
+- [`unit()`](https://andrewallenbruce.github.io/ccn/reference/unit.md) :
+  IPPS-Excluded Hospital Units
