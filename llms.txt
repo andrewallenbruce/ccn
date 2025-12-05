@@ -32,9 +32,9 @@ occasionally assist with some of these duties.
 
 ## All functions
 
-- [`eipps_unit()`](https://andrewallenbruce.github.io/ccn/reference/eipps.md)
-  [`eipps_unit2()`](https://andrewallenbruce.github.io/ccn/reference/eipps.md)
-  [`eipps_parent()`](https://andrewallenbruce.github.io/ccn/reference/eipps.md)
+- [`unit()`](https://andrewallenbruce.github.io/ccn/reference/eipps.md)
+  [`eipps()`](https://andrewallenbruce.github.io/ccn/reference/eipps.md)
+  [`parent()`](https://andrewallenbruce.github.io/ccn/reference/eipps.md)
   : IPPS-Excluded Hospital Units/Swing-Bed Approvals
 - [`emergency_hospital()`](https://andrewallenbruce.github.io/ccn/reference/emergency_hospital.md)
   : Emergency Hospital CCNs
@@ -42,12 +42,10 @@ occasionally assist with some of these duties.
   : Medicaid-Only Facilities
 - [`medicaid_only_hospital()`](https://andrewallenbruce.github.io/ccn/reference/medicaid_only_hospital.md)
   : Medicaid-Only Hospitals
-- [`medicare_opo()`](https://andrewallenbruce.github.io/ccn/reference/medicare_opo.md)
-  : Organ Procurement Organizations (OPO)
-- [`medicare_provider()`](https://andrewallenbruce.github.io/ccn/reference/medicare_provider.md)
+- [`medicare()`](https://andrewallenbruce.github.io/ccn/reference/medicare.md)
   : Medicare Provider
-- [`medicare_supplier()`](https://andrewallenbruce.github.io/ccn/reference/medicare_supplier.md)
-  : Medicare Supplier
+- [`organ()`](https://andrewallenbruce.github.io/ccn/reference/organ.md)
+  : Organ Procurement Organizations (OPO)
 - [`parse_medicare()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
   [`parse_opo()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
   [`parse_emergency()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
@@ -58,4 +56,6 @@ occasionally assist with some of these duties.
   : Parse CMS Certification Numbers
 - [`state()`](https://andrewallenbruce.github.io/ccn/reference/state.md)
   : State Codes
+- [`supplier()`](https://andrewallenbruce.github.io/ccn/reference/supplier.md)
+  : Medicare Supplier
 

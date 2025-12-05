@@ -1,11 +1,11 @@
-# Medicare Providers
+# Medicare Provider
 
 Convert various codes to their associated names.
 
 ## Usage
 
 ``` r
-new_medicare(x)
+medicare(x)
 ```
 
 ## Arguments
@@ -16,12 +16,12 @@ new_medicare(x)
 
 ## Value
 
-character vector of names associated with codes.
+S7 object of class `Medicare`.
 
 ## Examples
 
 ``` r
-new_medicare("670055")
+medicare("670055")
 #> <ccn::Medicare>
 #>  @ ccn      : chr "670055"
 #>  @ entity   : chr "Medicare Provider"
@@ -34,5 +34,19 @@ new_medicare("670055")
 #>  .. @ range : chr "0001-0879"
 #>  .. @ abbr  : chr "STC"
 #>  .. @ desc  : chr "Short-Term Hospital (General & Specialty)"
+#>  @ extension: NULL
+medicare("123456")
+#> <ccn::Medicare>
+#>  @ ccn      : chr "123456"
+#>  @ entity   : chr "Medicare Provider"
+#>  @ state    : <ccn::State>
+#>  .. @ code: chr "12"
+#>  .. @ abbr: chr "HI"
+#>  .. @ name: chr "Hawaii"
+#>  @ sequence : <ccn::MedicareSequence>
+#>  .. @ number: chr "3456"
+#>  .. @ range : chr "3400-3499"
+#>  .. @ abbr  : chr "RHC-P"
+#>  .. @ desc  : chr "Rural Health Clinic (Provider-based)"
 #>  @ extension: NULL
 ```
