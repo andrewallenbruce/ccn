@@ -50,7 +50,7 @@ subunit("21SA26")
 #>  .. @ range : chr(0) 
 #>  @ type    : <ccn::Type>
 #>  .. @ code: chr "S"
-#>  .. @ abbr: chr "PU (EIPPS)"
+#>  .. @ abbr: chr "PU"
 #>  .. @ desc: chr "Psychiatric Unit (Excluded from IPPS)"
 #>  @ parent  : <ccn::SubunitParent>
 #>  .. @ code    : chr "A"
@@ -79,7 +79,7 @@ parent("21SA26")
 #>  .. @ entity: chr "IPPS-Excluded Subunit"
 #>  .. @ type  : <ccn::Type>
 #>  .. .. @ code: chr "S"
-#>  .. .. @ abbr: chr "PU (EIPPS)"
+#>  .. .. @ abbr: chr "PU"
 #>  .. .. @ desc: chr "Psychiatric Unit (Excluded from IPPS)"
 subunit("21TA26")
 #> <ccn::EippsSubunit>
@@ -94,7 +94,7 @@ subunit("21TA26")
 #>  .. @ range : chr(0) 
 #>  @ type    : <ccn::Type>
 #>  .. @ code: chr "T"
-#>  .. @ abbr: chr "IRF (EIPPS)"
+#>  .. @ abbr: chr "IRF"
 #>  .. @ desc: chr "Rehabilitation Unit (Excluded from IPPS)"
 #>  @ parent  : <ccn::SubunitParent>
 #>  .. @ code    : chr "A"
@@ -123,7 +123,7 @@ parent("21TA26")
 #>  .. @ entity: chr "IPPS-Excluded Subunit"
 #>  .. @ type  : <ccn::Type>
 #>  .. .. @ code: chr "T"
-#>  .. .. @ abbr: chr "IRF (EIPPS)"
+#>  .. .. @ abbr: chr "IRF"
 #>  .. .. @ desc: chr "Rehabilitation Unit (Excluded from IPPS)"
 
 medicare("022001")
@@ -153,7 +153,7 @@ subunit("02TA01")
 #>  .. @ range : chr(0) 
 #>  @ type    : <ccn::Type>
 #>  .. @ code: chr "T"
-#>  .. @ abbr: chr "IRF (EIPPS)"
+#>  .. @ abbr: chr "IRF"
 #>  .. @ desc: chr "Rehabilitation Unit (Excluded from IPPS)"
 #>  @ parent  : <ccn::SubunitParent>
 #>  .. @ code    : chr "A"
@@ -182,7 +182,7 @@ parent("02TA01")
 #>  .. @ entity: chr "IPPS-Excluded Subunit"
 #>  .. @ type  : <ccn::Type>
 #>  .. .. @ code: chr "T"
-#>  .. .. @ abbr: chr "IRF (EIPPS)"
+#>  .. .. @ abbr: chr "IRF"
 #>  .. .. @ desc: chr "Rehabilitation Unit (Excluded from IPPS)"
 
 medicare("043038")
@@ -212,7 +212,7 @@ subunit("04SD38")
 #>  .. @ range : chr(0) 
 #>  @ type    : <ccn::Type>
 #>  .. @ code: chr "S"
-#>  .. @ abbr: chr "PU (EIPPS)"
+#>  .. @ abbr: chr "PU"
 #>  .. @ desc: chr "Psychiatric Unit (Excluded from IPPS)"
 #>  @ parent  : <ccn::SubunitParent>
 #>  .. @ code    : chr "D"
@@ -241,7 +241,7 @@ parent("04SD38")
 #>  .. @ entity: chr "IPPS-Excluded Subunit"
 #>  .. @ type  : <ccn::Type>
 #>  .. .. @ code: chr "S"
-#>  .. .. @ abbr: chr "PU (EIPPS)"
+#>  .. .. @ abbr: chr "PU"
 #>  .. .. @ desc: chr "Psychiatric Unit (Excluded from IPPS)"
 
 medicare("522005")
@@ -271,7 +271,7 @@ subunit("52TA05")
 #>  .. @ range : chr(0) 
 #>  @ type    : <ccn::Type>
 #>  .. @ code: chr "T"
-#>  .. @ abbr: chr "IRF (EIPPS)"
+#>  .. @ abbr: chr "IRF"
 #>  .. @ desc: chr "Rehabilitation Unit (Excluded from IPPS)"
 #>  @ parent  : <ccn::SubunitParent>
 #>  .. @ code    : chr "A"
@@ -300,6 +300,6 @@ parent("52TA05")
 #>  .. @ entity: chr "IPPS-Excluded Subunit"
 #>  .. @ type  : <ccn::Type>
 #>  .. .. @ code: chr "T"
-#>  .. .. @ abbr: chr "IRF (EIPPS)"
+#>  .. .. @ abbr: chr "IRF"
 #>  .. .. @ desc: chr "Rehabilitation Unit (Excluded from IPPS)"
 ```

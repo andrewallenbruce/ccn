@@ -45,10 +45,10 @@ unit("21T101")
 #>  .. @ name: chr "Maryland"
 #>  @ sequence: <ccn::Sequence>
 #>  .. @ number: chr "101"
-#>  .. @ range : chr "001-999"
+#>  .. @ range : chr "0001-0009"
 #>  @ type    : <ccn::Type>
 #>  .. @ code: chr "T"
-#>  .. @ abbr: chr "IRF (EIPPS)"
+#>  .. @ abbr: chr "IRF"
 #>  .. @ desc: chr "Rehabilitation Unit (Excluded from IPPS)"
 unit("21S101")
 #> <ccn::Unit>
@@ -60,10 +60,10 @@ unit("21S101")
 #>  .. @ name: chr "Maryland"
 #>  @ sequence: <ccn::Sequence>
 #>  .. @ number: chr "101"
-#>  .. @ range : chr "001-999"
+#>  .. @ range : chr "0001-0009"
 #>  @ type    : <ccn::Type>
 #>  .. @ code: chr "S"
-#>  .. @ abbr: chr "PU (EIPPS)"
+#>  .. @ abbr: chr "PU"
 #>  .. @ desc: chr "Psychiatric Unit (Excluded from IPPS)"
 unit("21U101")
 #> <ccn::Unit>
@@ -75,9 +75,9 @@ unit("21U101")
 #>  .. @ name: chr "Maryland"
 #>  @ sequence: <ccn::Sequence>
 #>  .. @ number: chr "101"
-#>  .. @ range : chr "001-999"
+#>  .. @ range : chr "0001-0009"
 #>  @ type    : <ccn::Type>
 #>  .. @ code: chr "U"
-#>  .. @ abbr: chr "STH (SBA)"
+#>  .. @ abbr: chr "STH"
 #>  .. @ desc: chr "Swing-Bed Approval for Short-Term Hospital"
 ```

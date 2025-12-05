@@ -4,10 +4,8 @@
 
 - [`emergency_hospital()`](https://andrewallenbruce.github.io/ccn/reference/emergency_hospital.md)
   : Emergency Hospital CCNs
-- [`medicaid_only_facility()`](https://andrewallenbruce.github.io/ccn/reference/medicaid_only_facility.md)
+- [`medicaid()`](https://andrewallenbruce.github.io/ccn/reference/medicaid.md)
   : Medicaid-Only Facilities
-- [`medicaid_only_hospital()`](https://andrewallenbruce.github.io/ccn/reference/medicaid_only_hospital.md)
-  : Medicaid-Only Hospitals
 - [`medicare()`](https://andrewallenbruce.github.io/ccn/reference/medicare.md)
   : Medicare Provider
 - [`organ()`](https://andrewallenbruce.github.io/ccn/reference/organ.md)

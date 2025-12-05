@@ -1,5 +1,9 @@
 # Changelog
 
+## ccn 0.0.0.9044 (2025-12-05)
+
+- `medicaid` consolidated into one class
+
 ## ccn 0.0.0.9043 (2025-12-04)
 
 - IPPS-Excluded: `unit`, `subunit`, `parent`
