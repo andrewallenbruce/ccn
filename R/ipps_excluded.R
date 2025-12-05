@@ -7,28 +7,28 @@
 #' @name eipps
 #' @returns character vector of names associated with codes.
 #' @examples
-#' medicare_provider("210101")
-#' eipps_unit("21T101")
-#' eipps_unit("21S101")
-#' eipps_unit("21U101")
+#' medicare("210101")
+#' unit("21T101")
+#' unit("21S101")
+#' unit("21U101")
 #'
-#' medicare_provider("212026")
-#' eipps_unit2("21SA26")
-#' eipps_parent("21SA26")
-#' eipps_unit2("21TA26")
-#' eipps_parent("21TA26")
+#' medicare("212026")
+#' eipps("21SA26")
+#' parent("21SA26")
+#' eipps("21TA26")
+#' parent("21TA26")
 #'
-#' medicare_provider("022001")
-#' eipps_unit2("02TA01")
-#' eipps_parent("02TA01")
+#' medicare("022001")
+#' eipps("02TA01")
+#' parent("02TA01")
 #'
-#' medicare_provider("043038")
-#' eipps_unit2("04SD38")
-#' eipps_parent("04SD38")
+#' medicare("043038")
+#' eipps("04SD38")
+#' parent("04SD38")
 #'
-#' medicare_provider("522005")
-#' eipps_unit2("52TA05")
-#' eipps_parent("52TA05")
+#' medicare("522005")
+#' eipps("52TA05")
+#' parent("52TA05")
 NULL
 
 #' @noRd
@@ -54,32 +54,6 @@ eipps_desc <- function(x) {
 }
 
 #' @noRd
-eipps_type <- function(x) {
-  Type(code = x,
-       abbr = eipps_abbr(x),
-       desc = eipps_desc(x))
-}
-
-#' @noRd
-EippsUnit <- S7::new_class(
-  name       = "EippsUnit",
-  parent     = CCN,
-  properties = list(type = Type)
-)
-
-#' @rdname eipps
-#' @export
-eipps_unit <- function(x) {
-  EippsUnit(
-    ccn      = x,
-    entity   = "IPPS-Excluded Unit",
-    state    = state(x),
-    sequence = mof_sequence(substr(x, 4L, 6L)),
-    type     = eipps_type(substr_(x, 3L))
-  )
-}
-
-#' @noRd
 eipps_prefix <- function(x) {
   kit::vswitch(
     x       = x,
@@ -101,65 +75,85 @@ eipps_parent_ccn <- function(x) {
 }
 
 #' @noRd
-EippsParent2 <- S7::new_class(
-  name       = "EippsParent2",
-  properties = list(
-    code     = S7::class_character,
-    ccn      = S7::class_character
-  )
-)
-
-#' @noRd
-eipps_parent2 <- function(x) {
-  EippsParent2(
-    code = substr_(x, 4L),
-    ccn  = eipps_parent_ccn(x))
+eipps_type <- function(x) {
+  Type(code = x,
+       abbr = eipps_abbr(x),
+       desc = eipps_desc(x))
 }
 
 #' @noRd
-EippsUnit2 <- S7::new_class(
-  name       = "EippsUnit2",
-  parent     = EippsUnit,
-  properties = list(parent = EippsParent2)
+Unit <- S7::new_class(
+  name       = "Unit",
+  parent     = CCN,
+  properties = list(type = Type)
 )
 
 #' @rdname eipps
 #' @export
-eipps_unit2 <- function(x) {
-  EippsUnit2(
+unit <- function(x) {
+  Unit(
     ccn      = x,
     entity   = "IPPS-Excluded Unit",
     state    = state(x),
-    sequence = medicare_sequence(eipps_sequence(x)),
+    sequence = mof_sequence(substr(x, 4L, 6L)),
+    type     = eipps_type(substr_(x, 3L))
+  )
+}
+
+#' @include medicare.R
+#' @noRd
+SubunitParent <- S7::new_class(
+  name       = "SubunitParent",
+  properties = list(
+    code     = S7::class_character,
+    ccn      = S7::class_character,
+    sequence = MedicareSequence
+  )
+)
+
+#' @noRd
+subunit_parent <- function(x) {
+  SubunitParent(
+    code     = substr_(x, 4L),
+    ccn      = eipps_parent_ccn(x),
+    sequence = medicare_sequence(eipps_sequence(x)))
+}
+
+#' @noRd
+EippsSubunit <- S7::new_class(
+  name       = "EippsSubunit",
+  parent     = Unit,
+  properties = list(parent = SubunitParent)
+)
+
+#' @rdname eipps
+#' @export
+eipps <- function(x) {
+  EippsSubunit(
+    ccn      = x,
+    entity   = "IPPS-Excluded Provider",
+    state    = state(x),
     type     = eipps_type(substr_(x, 3L)),
-    parent   = eipps_parent2(x)
+    parent   = subunit_parent(x)
   )
 }
 
 #' @noRd
-eipps_subunit <- function(x) {
-  SubUnit(
+subunit <- function(x) {
+  Subunit(
     ccn    = x,
     entity = "IPPS-Excluded Subunit",
     type   = eipps_type(substr_(x, 3L)))
 }
 
-#' @include medicare.R
-#' @noRd
-EippsParent <- S7::new_class(
-  name       = "EippsParent",
-  parent     = Medicare,
-  properties = list(subunit = SubUnit)
-)
-
 #' @rdname eipps
 #' @export
-eipps_parent <- function(x) {
-  EippsParent(
+parent <- function(x) {
+  Parent(
     ccn      = eipps_parent_ccn(x),
     entity   = "Medicare Provider",
     state    = state(x),
     sequence = medicare_sequence(eipps_sequence(x)),
-    subunit  = eipps_subunit(x)
+    subunit  = subunit(x)
   )
 }

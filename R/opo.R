@@ -2,11 +2,11 @@
 #'
 #' Organ Procurement Organizations (OPO) based on their codes.
 #'
-#' @name medicare_opo
+#' @name organ
 #' @param x character vector of codes to look up.
-#' @returns S7 object of class `MedicareOPO`.
+#' @returns S7 object of class `Organ`.
 #' @examples
-#' medicare_opo("05P001")
+#' organ("05P001")
 NULL
 
 #' @noRd
@@ -28,16 +28,16 @@ opo_type <- function(x) {
 }
 
 #' @noRd
-MedicareOPO <- S7::new_class(
-  name       = "MedicareOPO",
+Organ <- S7::new_class(
+  name       = "Organ",
   parent     = CCN,
   properties = list(type = Type)
 )
 
-#' @rdname medicare_opo
+#' @rdname organ
 #' @export
-medicare_opo <- function(x) {
-  MedicareOPO(
+organ <- function(x) {
+  Organ(
     ccn      = x,
     entity   = "Medicare Provider",
     state    = state(x),

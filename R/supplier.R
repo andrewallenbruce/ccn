@@ -4,25 +4,20 @@
 #' Convert various codes to their associated names.
 #'
 #' @param x character vector of codes to look up.
-#' @name medicare_supplier
+#' @name supplier
 #' @returns S7 object of class `Supplier`.
 #' @examples
-#' medicare_supplier("10C0001062")
-#' medicare_supplier("45D0634589")
-#' medicare_supplier("21X0009807")
-#' medicare_supplier("12C0001062")
+#' supplier("10C0001062")
+#' supplier("45D0634589")
+#' supplier("21X0009807")
+#' supplier("12C0001062")
 NULL
 
 #' @noRd
 supplier_sequence <- function(x) {
   Sequence(
     number = x,
-    range  = kit::iif(
-      as_int(x) %between% c(1L, 9999999L),
-      "0000001-9999999",
-      NA_character_,
-      nThread = 4L
-    )
+    range  = if_in(x, c(1L, 9999999L), "0000001-9999999")
   )
 }
 
@@ -64,13 +59,13 @@ Supplier <- S7::new_class(
   properties  = list(
     sequence  = Sequence,
     type      = Type,
-    extension = PropExtension
+    extension = Extension
   )
 )
 
-#' @rdname medicare_supplier
+#' @rdname supplier
 #' @export
-medicare_supplier <- function(x) {
+supplier <- function(x) {
   Supplier(
     ccn      = x,
     entity   = "Medicare Supplier",

@@ -50,6 +50,7 @@ eipps_hospital_units_types <- tibble::tibble(
   code  = c("A", "B", "C", "D", "E", "F", "G", "H", "J", "K"),
   prefix = c(20:22, "30", "33", 40:44),
   abbr = c(rep.int("LTC (EIPPS)", 3), "IRF (EIPPS)", "CH (EIPPS)", rep.int("PH (EIPPS)", 5)))
+
 usethis::use_data(eipps_hospital_units_types, overwrite = TRUE)
 
 #' IPPS-Excluded Hospitals with IPPS-Excluded Units

@@ -2,16 +2,15 @@
 % Please edit documentation in R/ipps_excluded.R
 \name{eipps}
 \alias{eipps}
-\alias{eipps_unit}
-\alias{eipps_unit2}
-\alias{eipps_parent}
+\alias{unit}
+\alias{parent}
 \title{IPPS-Excluded Hospital Units/Swing-Bed Approvals}
 \usage{
-eipps_unit(x)
+unit(x)
 
-eipps_unit2(x)
+eipps(x)
 
-eipps_parent(x)
+parent(x)
 }
 \arguments{
 \item{x}{character vector of codes to look up.}
@@ -23,26 +22,26 @@ character vector of names associated with codes.
 Convert various codes to their associated names.
 }
 \examples{
-medicare_provider("210101")
-eipps_unit("21T101")
-eipps_unit("21S101")
-eipps_unit("21U101")
+medicare("210101")
+unit("21T101")
+unit("21S101")
+unit("21U101")
 
-medicare_provider("212026")
-eipps_unit2("21SA26")
-eipps_parent("21SA26")
-eipps_unit2("21TA26")
-eipps_parent("21TA26")
+medicare("212026")
+eipps("21SA26")
+parent("21SA26")
+eipps("21TA26")
+parent("21TA26")
 
-medicare_provider("022001")
-eipps_unit2("02TA01")
-eipps_parent("02TA01")
+medicare("022001")
+eipps("02TA01")
+parent("02TA01")
 
-medicare_provider("043038")
-eipps_unit2("04SD38")
-eipps_parent("04SD38")
+medicare("043038")
+eipps("04SD38")
+parent("04SD38")
 
-medicare_provider("522005")
-eipps_unit2("52TA05")
-eipps_parent("52TA05")
+medicare("522005")
+eipps("52TA05")
+parent("52TA05")
 }

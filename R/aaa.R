@@ -2,7 +2,7 @@
 NULL
 
 #' @noRd
-PropExtension <- S7::new_property(class = NULL | S7::class_character)
+Extension <- S7::new_property(class = NULL | S7::class_character)
 
 #' @noRd
 Sequence <- S7::new_class(
@@ -45,11 +45,25 @@ CCN <- S7::new_class(
 )
 
 #' @noRd
-SubUnit <- S7::new_class(
-  name        = "SubUnit",
+Medicare <- S7::new_class(
+  name       = "Medicare",
+  parent     = CCN,
+  properties = list(extension = Extension)
+)
+
+#' @noRd
+Subunit <- S7::new_class(
+  name        = "Subunit",
   properties  = list(
     ccn       = S7::class_character,
     entity    = S7::class_character,
     type      = Type
   )
+)
+
+#' @noRd
+Parent <- S7::new_class(
+  name       = "Parent",
+  parent     = Medicare,
+  properties = list(subunit = Subunit)
 )

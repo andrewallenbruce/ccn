@@ -4,11 +4,11 @@
 #' Convert various codes to their associated names.
 #'
 #' @param x character vector of codes to look up.
-#' @name medicare_provider
+#' @name medicare
 #' @returns S7 object of class `Medicare`.
 #' @examples
-#' medicare_provider("670055")
-#' medicare_provider("123456")
+#' medicare("670055")
+#' medicare("123456")
 NULL
 
 #' @noRd
@@ -70,16 +70,9 @@ medicare_sequence <- function(x) {
   MedicareSequence(number = x)
 }
 
-#' @noRd
-Medicare <- S7::new_class(
-  name       = "Medicare",
-  parent     = CCN,
-  properties = list(extension = PropExtension)
-)
-
-#' @rdname medicare_provider
+#' @rdname medicare
 #' @export
-medicare_provider <- function(x) {
+medicare <- function(x) {
   Medicare(
     ccn      = x,
     entity   = "Medicare Provider",
