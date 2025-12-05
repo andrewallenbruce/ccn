@@ -29,7 +29,7 @@ is_supplier_type <- function(x) {
 }
 
 #' @noRd
-is_opo_type <- function(x) {
+is_organ_type <- function(x) {
   x == "P"
 }
 
@@ -62,7 +62,7 @@ is_eipps_unit_type <- function(x) {
 provider_type <- function(x) {
   kit::nif(
     is_numeric(x), "medicare",
-    is_opo_type(substr_(x, 3L)), "opo",
+    is_organ_type(substr_(x, 3L)), "organ",
     is_emergency_type(substr_(x, 6L)), "emergency",
     is_medicaid_type(substr_(x, 3L)), "medicaid",
     is_eipps_type(substr_(x, 3L)), "eipps",

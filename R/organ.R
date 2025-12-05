@@ -10,17 +10,17 @@
 NULL
 
 #' @noRd
-opo_sequence <- function(x) {
-  Sequence(number = x, range = if_in(x, c(1L, 99L), "001-099"))
+org_seq <- function(x) {
+  Sequence(x, if_in(x, c(1L, 99L), "001-099"))
 }
 
 #' @noRd
-opo_type <- function(x) {
+org_type <- function(x) {
   Type(
     code = x,
-    abbr = kit::iif(is_opo_type(x), "OPO", NA_character_),
+    abbr = kit::iif(is_organ_type(x), "OPO", NA_character_),
     desc = kit::iif(
-      is_opo_type(x),
+      is_organ_type(x),
       "Organ Procurement Organization",
       NA_character_
     )
@@ -41,7 +41,7 @@ organ <- function(x) {
     ccn      = x,
     entity   = "Medicare Provider",
     state    = state(x),
-    type     = opo_type(substr_(x, 3L)),
-    sequence = opo_sequence(substr(x, 4L, 6L))
+    type     = org_type(substr_(x, 3L)),
+    sequence = org_seq(substr(x, 4L, 6L))
   )
 }

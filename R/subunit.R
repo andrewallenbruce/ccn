@@ -1,57 +1,34 @@
-#' IPPS-Excluded Hospital Units/Swing-Bed Approvals
+#' @include medicare.R
+#' @include unit.R
+NULL
+
+#' IPPS-Excluded Hospital Sub-Units
 #'
 #' @description
 #' Convert various codes to their associated names.
 #'
 #' @param x character vector of codes to look up.
-#' @name eipps
+#' @name subunit
 #' @returns character vector of names associated with codes.
 #' @examples
-#' medicare("210101")
-#' unit("21T101")
-#' unit("21S101")
-#' unit("21U101")
-#'
 #' medicare("212026")
-#' eipps("21SA26")
+#' subunit("21SA26")
 #' parent("21SA26")
-#' eipps("21TA26")
+#' subunit("21TA26")
 #' parent("21TA26")
 #'
 #' medicare("022001")
-#' eipps("02TA01")
+#' subunit("02TA01")
 #' parent("02TA01")
 #'
 #' medicare("043038")
-#' eipps("04SD38")
+#' subunit("04SD38")
 #' parent("04SD38")
 #'
 #' medicare("522005")
-#' eipps("52TA05")
+#' subunit("52TA05")
 #' parent("52TA05")
 NULL
-
-#' @noRd
-eipps_abbr <- function(x) {
-  kit::vswitch(
-    x       = x,
-    values  = ccn::eipps_unit_swing_types$code,
-    outputs = ccn::eipps_unit_swing_types$abbr,
-    default = NA_character_,
-    nThread = 4L
-  )
-}
-
-#' @noRd
-eipps_desc <- function(x) {
-  kit::vswitch(
-    x       = x,
-    values  = ccn::eipps_unit_swing_types$code,
-    outputs = ccn::eipps_unit_swing_types$desc,
-    default = NA_character_,
-    nThread = 4L
-  )
-}
 
 #' @noRd
 eipps_prefix <- function(x) {
@@ -74,33 +51,6 @@ eipps_parent_ccn <- function(x) {
   paste0(str_state(x), eipps_sequence(x))
 }
 
-#' @noRd
-eipps_type <- function(x) {
-  Type(code = x,
-       abbr = eipps_abbr(x),
-       desc = eipps_desc(x))
-}
-
-#' @noRd
-Unit <- S7::new_class(
-  name       = "Unit",
-  parent     = CCN,
-  properties = list(type = Type)
-)
-
-#' @rdname eipps
-#' @export
-unit <- function(x) {
-  Unit(
-    ccn      = x,
-    entity   = "IPPS-Excluded Unit",
-    state    = state(x),
-    sequence = mof_sequence(substr(x, 4L, 6L)),
-    type     = eipps_type(substr_(x, 3L))
-  )
-}
-
-#' @include medicare.R
 #' @noRd
 SubunitParent <- S7::new_class(
   name       = "SubunitParent",
@@ -126,9 +76,9 @@ EippsSubunit <- S7::new_class(
   properties = list(parent = SubunitParent)
 )
 
-#' @rdname eipps
+#' @rdname subunit
 #' @export
-eipps <- function(x) {
+subunit <- function(x) {
   EippsSubunit(
     ccn      = x,
     entity   = "IPPS-Excluded Provider",
@@ -139,14 +89,14 @@ eipps <- function(x) {
 }
 
 #' @noRd
-subunit <- function(x) {
+subunit_ <- function(x) {
   Subunit(
     ccn    = x,
     entity = "IPPS-Excluded Subunit",
     type   = eipps_type(substr_(x, 3L)))
 }
 
-#' @rdname eipps
+#' @rdname subunit
 #' @export
 parent <- function(x) {
   Parent(
@@ -154,6 +104,6 @@ parent <- function(x) {
     entity   = "Medicare Provider",
     state    = state(x),
     sequence = medicare_sequence(eipps_sequence(x)),
-    subunit  = subunit(x)
+    subunit  = subunit_(x)
   )
 }
