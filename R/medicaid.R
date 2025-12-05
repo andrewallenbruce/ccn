@@ -41,7 +41,9 @@ mof_type_desc <- function(x) {
 moh_range <- function(x) {
   ccn::medicaid_ranges$range[
     data.table::between(
-      as_int(x), ccn::medicaid_ranges$start, ccn::medicaid_ranges$end)]
+      as_int(x),
+      ccn::medicaid_ranges$start,
+      ccn::medicaid_ranges$end)]
 }
 
 #' @noRd
@@ -132,22 +134,15 @@ Medicaid <- S7::new_class(
 #' @rdname medicaid
 #' @export
 medicaid <- function(x) {
-  if (substr_(x, 3L) == "J") {
-    Medicaid(
-      ccn      = x,
-      entity   = "Medicaid-Only Provider",
-      state    = state(x),
-      sequence = moh_sequence(substr(x, 4L, 6L)),
-      type     = mof_type(substr_(x, 3L))
-    )
-  } else {
-    Medicaid(
-      ccn      = x,
-      entity   = "Medicaid-Only Provider",
-      state    = state(x),
-      sequence = mof_sequence(substr(x, 4L, 6L)),
-      type     = mof_type(substr_(x, 3L))
-    )
-  }
+  Medicaid(
+    ccn      = x,
+    entity   = "Medicaid-Only Provider",
+    state    = state(x),
+    sequence = if (substr_(x, 3L) == "J")
+      moh_sequence(substr(x, 4L, 6L))
+    else
+      mof_sequence(substr(x, 4L, 6L)),
+    type     = mof_type(substr_(x, 3L))
+  )
 }
 

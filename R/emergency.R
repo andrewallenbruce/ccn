@@ -23,11 +23,11 @@
 #' non-participating hospital that is now fully participating, see subsection I.
 #'
 #' @param x character vector of codes to look up.
-#' @name emergency_hospital
+#' @name emergency
 #' @returns S7 object of class `EmergencyHospital`.
 #' @examples
-#' emergency_hospital("21034E")
-#' emergency_hospital("12345F")
+#' emergency("21034E")
+#' emergency("12345F")
 NULL
 
 #' @noRd
@@ -51,16 +51,16 @@ emergency_sequence <- function(x) {
 }
 
 #' @noRd
-EmergencyHospital <- S7::new_class(
-  name       = "EmergencyHospital",
+Emergency <- S7::new_class(
+  name       = "Emergency",
   parent     = CCN,
   properties = list(type = Type)
 )
 
-#' @rdname emergency_hospital
+#' @rdname emergency
 #' @export
-emergency_hospital <- function(x) {
-  EmergencyHospital(
+emergency <- function(x) {
+  Emergency(
     ccn      = x,
     entity   = "Emergency Hospital",
     state    = state(x),
