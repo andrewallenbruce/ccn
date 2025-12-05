@@ -2,14 +2,20 @@ url: https://andrewallenbruce.github.io/ccn/
 
 template:
   bootstrap: 5
+  theme: tango
   light-switch: true
   bslib:
-    base_font: {google: "Roboto"}
-    heading_font: {google: "Roboto Slab"}
-    code_font: {google: "Source Code Pro"}
+    base_font: {google: "Zilla Slab"}
+    heading_font: {google: "Gloock"}
+    code_font: {google: "Google Sans Code"}
+    #font_scale: 1.1
 
 
 home:
   title: ccn • Parse CMS Certification Numbers
   description: >
     Validate and parse CMS Certification Numbers (CCNs) used in the United States healthcare system.
+
+news:
+  one_page: false
+  cran_dates: false

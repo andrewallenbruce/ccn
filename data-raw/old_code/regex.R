@@ -16,7 +16,7 @@ glue_rex <- function(state    = NULL,
 ccn_rex   = list(
   state     = "[0-9A-B][0-9]",
   medicare  = list(sequence = "[0-9]{4}"),
-  opo       = list(type = "P", sequence = "[0-9]{3}"),
+  organ     = list(type = "P", sequence = "[0-9]{3}"),
   medicaid  = list(type = "ABEFGHJKL", sequence = "[0-9]{3}"),
   supplier  = list(type = "CDX", sequence = "[0-9]{7}"),
   emergency = list(type = "EF", sequence = "[0-9]{3}"),
