@@ -13,7 +13,7 @@ glue_rex <- function(state    = NULL,
              sep = "", .null = NULL)
 }
 
-ccn_rex   = list(
+ccn_rex = list(
   state     = "[0-9A-B][0-9]",
   medicare  = list(sequence = "[0-9]{4}"),
   organ     = list(type = "P", sequence = "[0-9]{3}"),

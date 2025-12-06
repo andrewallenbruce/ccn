@@ -2,11 +2,12 @@ url: https://andrewallenbruce.github.io/ccn/
 
 template:
   bootstrap: 5
-  theme: tango
-  light-switch: true
+  theme: radical
+  light-switch: false
   bslib:
-    base_font: {google: "Zilla Slab"}
-    heading_font: {google: "Gloock"}
+    bootswatch: lux
+    base_font: {google: "Atkinson Hyperlegible Next"}
+    heading_font: {google: "Bricolage Grotesque"}
     code_font: {google: "Google Sans Code"}
     #font_scale: 1.1
 
