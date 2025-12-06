@@ -5,7 +5,6 @@ template:
   theme: haddock
   light-switch: false
   bslib:
-    bootswatch: brite
     heading_font: {google: "Rubik"}
     base_font: {google: "Atkinson Hyperlegible Next"}
     code_font: {google: "Google Sans Code"}
@@ -20,3 +19,6 @@ home:
 news:
   one_page: false
   cran_dates: false
+
+deploy:
+  install_metadata: true
