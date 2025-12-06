@@ -17,24 +17,12 @@ NULL
 
 #' @noRd
 mof_type_abbr <- function(x) {
-  kit::vswitch(
-    x       = x,
-    values  = ccn::medicaid_types$code,
-    outputs = ccn::medicaid_types$abbr,
-    default = NA_character_,
-    nThread = 4L
-  )
+  vs(x, ccn::medicaid_types$code, ccn::medicaid_types$abbr)
 }
 
 #' @noRd
 mof_type_desc <- function(x) {
-  kit::vswitch(
-    x       = x,
-    values  = ccn::medicaid_types$code,
-    outputs = ccn::medicaid_types$desc,
-    default = NA_character_,
-    nThread = 4L
-  )
+  vs(x, ccn::medicaid_types$code, ccn::medicaid_types$desc)
 }
 
 #' @noRd
@@ -48,24 +36,12 @@ moh_range <- function(x) {
 
 #' @noRd
 moh_range_abbr <- function(x) {
-  kit::vswitch(
-    x       = x,
-    values  = ccn::medicaid_ranges$range,
-    outputs = ccn::medicaid_ranges$abbr,
-    default = NA_character_,
-    nThread = 4L
-  )
+  vs(x, ccn::medicaid_ranges$range, ccn::medicaid_ranges$abbr)
 }
 
 #' @noRd
 moh_range_desc <- function(x) {
-  kit::vswitch(
-    x       = x,
-    values  = ccn::medicaid_ranges$range,
-    outputs = ccn::medicaid_ranges$desc,
-    default = NA_character_,
-    nThread = 4L
-  )
+  vs(x, ccn::medicaid_ranges$range, ccn::medicaid_ranges$desc)
 }
 
 #' @noRd

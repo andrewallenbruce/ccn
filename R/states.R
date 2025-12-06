@@ -18,24 +18,12 @@ str_state <- function(x) {
 
 #' @noRd
 state_abbr <- function(x) {
-  kit::vswitch(
-    x       = x,
-    values  = ccn::state_codes$code,
-    outputs = ccn::state_codes$abbr,
-    default = NA_character_,
-    nThread = 4L
-  )
+  vs(x, ccn::state_codes$code, ccn::state_codes$abbr)
 }
 
 #' @noRd
 state_name <- function(x) {
-  kit::vswitch(
-    x       = x,
-    values  = ccn::state_codes$code,
-    outputs = ccn::state_codes$name,
-    default = NA_character_,
-    nThread = 4L
-  )
+  vs(x, ccn::state_codes$code, ccn::state_codes$name)
 }
 
 #' @rdname state

@@ -32,13 +32,7 @@ NULL
 
 #' @noRd
 eipps_prefix <- function(x) {
-  kit::vswitch(
-    x       = x,
-    values  = ccn::eipps_subunit$code,
-    outputs = ccn::eipps_subunit$prefix,
-    default = NA_character_,
-    nThread = 4L
-  )
+  vs(x, ccn::eipps_subunit$code, ccn::eipps_subunit$prefix)
 }
 
 #' @noRd

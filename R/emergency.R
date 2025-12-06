@@ -34,21 +34,8 @@ NULL
 emergency_type <- function(x) {
   Type(
     code = x,
-    abbr = kit::vswitch(
-      x,
-      c("E",    "F"),
-      c("NFEH", "FEH"),
-      NA_character_,
-      nThread = 4L
-    ),
-    desc = kit::vswitch(
-      x,
-      c("E", "F"),
-      c("Non-Federal Emergency Hospital",
-        "Federal Emergency Hospital"),
-      NA_character_,
-      nThread = 4L
-    )
+    abbr = vs(x, c("E", "F"), c("NFEH", "FEH")),
+    desc = vs(x, c("E", "F"), c("Non-Federal Emergency Hospital", "Federal Emergency Hospital"))
   )
 }
 

@@ -20,26 +20,16 @@ supplier_range <- function(x) {
 
 #' @noRd
 supplier_type_abbr <- function(x) {
-  kit::vswitch(
-    x       = x,
-    values  = c("C", "D", "X"),
-    outputs = c("ASC", "CLIA", "PXRF"),
-    default = NA_character_,
-    nThread = 4L
-  )
+  vs(x, c("C", "D", "X"), c("ASC", "CLIA", "PXRF"))
 }
 
 #' @noRd
 supplier_type_desc <- function(x) {
-  kit::vswitch(
-    x       = x,
-    values  = c("C", "D", "X"),
-    outputs = c("Ambulatory Surgical Center",
-                "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory",
-                "Portable X-Ray Facility"),
-    default = NA_character_,
-    nThread = 4L
-  )
+  vs(x, c("C", "D", "X"), c(
+    "Ambulatory Surgical Center",
+    "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory",
+    "Portable X-Ray Facility"
+    ))
 }
 
 #' @noRd

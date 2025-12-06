@@ -1,3 +1,15 @@
+# vs(x, c("C", "D", "X"), c("ASC", "CLIA", "PXRF"))
+#' @noRd
+vs <- function(x, v, o) {
+  kit::vswitch(
+    x       = x,
+    values  = v,
+    outputs = o,
+    default = NA_character_,
+    nThread = 4L
+  )
+}
+
 # if_in(x, c(1L, 999L), "0001-0009")
 #' @noRd
 if_in <- function(x, rng, lbl) {

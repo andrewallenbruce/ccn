@@ -23,10 +23,10 @@ Extension <- S7::new_property(S7::class_character, default = NA_character_)
 Range <- S7::new_class(
   name       = "Range",
   properties = list(
-    number = S7::class_character,
-    range = S7::class_character,
-    abbr = S7::class_character,
-    desc = S7::class_character
+    number   = S7::class_character,
+    range    = S7::class_character,
+    abbr     = S7::class_character,
+    desc     = S7::class_character
   )
 )
 
@@ -60,11 +60,11 @@ Medicare <- S7::new_class(
 
 #' @noRd
 Supplier <- S7::new_class(
-  name = "Supplier",
-  parent = CCN,
+  name       = "Supplier",
+  parent     = CCN,
   properties = list(
-    type = Type,
-    ext = Extension
+    type     = Type,
+    ext      = Extension
   )
 )
 

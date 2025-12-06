@@ -15,24 +15,12 @@ NULL
 
 #' @noRd
 eipps_abbr <- function(x) {
-  kit::vswitch(
-    x       = x,
-    values  = ccn::eipps_unit$code,
-    outputs = ccn::eipps_unit$abbr,
-    default = NA_character_,
-    nThread = 4L
-  )
+  vs(x, ccn::eipps_unit$code, ccn::eipps_unit$abbr)
 }
 
 #' @noRd
 eipps_desc <- function(x) {
-  kit::vswitch(
-    x       = x,
-    values  = ccn::eipps_unit$code,
-    outputs = ccn::eipps_unit$desc,
-    default = NA_character_,
-    nThread = 4L
-  )
+  vs(x, ccn::eipps_unit$code, ccn::eipps_unit$desc)
 }
 
 #' @noRd

@@ -22,24 +22,12 @@ medicare_range <- function(x) {
 
 #' @noRd
 medicare_range_abbr <- function(x) {
-  kit::vswitch(
-    x       = x,
-    values  = ccn::medicare_ranges$range,
-    outputs = ccn::medicare_ranges$abbr,
-    default = NA_character_,
-    nThread = 4L
-  )
+  vs(x, ccn::medicare_ranges$range, ccn::medicare_ranges$abbr)
 }
 
 #' @noRd
 medicare_range_desc <- function(x) {
-  kit::vswitch(
-    x       = x,
-    values  = ccn::medicare_ranges$range,
-    outputs = ccn::medicare_ranges$desc,
-    default = NA_character_,
-    nThread = 4L
-  )
+  vs(x, ccn::medicare_ranges$range, ccn::medicare_ranges$desc)
 }
 
 #' @noRd
