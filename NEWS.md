@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9045 (2025-12-06)
+
+* simplifying classes
+
+
 # ccn 0.0.0.9044 (2025-12-05)
 
 * `medicaid` consolidated into one class
