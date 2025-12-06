@@ -2,14 +2,14 @@ url: https://andrewallenbruce.github.io/ccn/
 
 template:
   bootstrap: 5
-  theme: haddock
-  light-switch: false
+  light-switch: true
   bslib:
-    heading_font: {google: "Rubik"}
     base_font: {google: "Atkinson Hyperlegible Next"}
+    heading_font: {google: "Roboto Slab"}
     code_font: {google: "Google Sans Code"}
-    #font_scale: 1.1
-
+  #   code_font: "Hack, mono"
+  # includes:
+  #   in_header: <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack-subset.css">
 
 home:
   title: ccn • Parse CMS Certification Numbers
