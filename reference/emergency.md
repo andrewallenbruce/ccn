@@ -18,7 +18,7 @@ emergency(x)
 
 ## Value
 
-S7 object of class `EmergencyHospital`.
+S7 object of class `Emergency`.
 
 ## Further Information
 
@@ -45,14 +45,12 @@ participating, see subsection I.
 emergency("21034E")
 #> <ccn::Emergency>
 #>  @ ccn     : chr "21034E"
-#>  @ entity  : chr "Emergency Hospital"
 #>  @ state   : <ccn::State>
 #>  .. @ code: chr "21"
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
-#>  @ sequence: <ccn::Sequence>
-#>  .. @ number: chr "034"
-#>  .. @ range : chr "0001-0009"
+#>  @ sequence: chr "034"
+#>  @ range   : chr "001-099"
 #>  @ type    : <ccn::Type>
 #>  .. @ code: chr "E"
 #>  .. @ abbr: chr "NFEH"
@@ -60,14 +58,12 @@ emergency("21034E")
 emergency("12345F")
 #> <ccn::Emergency>
 #>  @ ccn     : chr "12345F"
-#>  @ entity  : chr "Emergency Hospital"
 #>  @ state   : <ccn::State>
 #>  .. @ code: chr "12"
 #>  .. @ abbr: chr "HI"
 #>  .. @ name: chr "Hawaii"
-#>  @ sequence: <ccn::Sequence>
-#>  .. @ number: chr "345"
-#>  .. @ range : chr "0001-0009"
+#>  @ sequence: chr "345"
+#>  @ range   : chr NA
 #>  @ type    : <ccn::Type>
 #>  .. @ code: chr "F"
 #>  .. @ abbr: chr "FEH"

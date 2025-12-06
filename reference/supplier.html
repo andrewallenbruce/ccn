@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ccn</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9044</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9045</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,68 +65,60 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">supplier</span><span class="op">(</span><span class="st">"10C0001062"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Supplier&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn      : chr "10C0001062"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ entity   : chr "Medicare Supplier"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state    : &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn     : chr "10C0001062"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state   : &lt;ccn::State&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "10"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "FL"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name: chr "Florida"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence : &lt;ccn::Sequence&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "0001062"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ range : chr "0000001-9999999"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type     : &lt;ccn::Type&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence: chr "0001062"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ range   : chr "0000001-9999999"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type    : &lt;ccn::Type&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "C"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "ASC"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Ambulatory Surgical Center"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ extension: NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ext     : chr NA</span>
 <span class="r-in"><span><span class="fu">supplier</span><span class="op">(</span><span class="st">"45D0634589"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Supplier&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn      : chr "45D0634589"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ entity   : chr "Medicare Supplier"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state    : &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn     : chr "45D0634589"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state   : &lt;ccn::State&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "45"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "TX"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name: chr "Texas"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence : &lt;ccn::Sequence&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "0634589"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ range : chr "0000001-9999999"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type     : &lt;ccn::Type&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence: chr "0634589"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ range   : chr "0000001-9999999"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type    : &lt;ccn::Type&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "D"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "CLIA"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ extension: NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ext     : chr NA</span>
 <span class="r-in"><span><span class="fu">supplier</span><span class="op">(</span><span class="st">"21X0009807"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Supplier&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn      : chr "21X0009807"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ entity   : chr "Medicare Supplier"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state    : &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn     : chr "21X0009807"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state   : &lt;ccn::State&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "21"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "MD"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name: chr "Maryland"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence : &lt;ccn::Sequence&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "0009807"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ range : chr "0000001-9999999"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type     : &lt;ccn::Type&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence: chr "0009807"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ range   : chr "0000001-9999999"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type    : &lt;ccn::Type&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "X"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "PXRF"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Portable X-Ray Facility"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ extension: NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ext     : chr NA</span>
 <span class="r-in"><span><span class="fu">supplier</span><span class="op">(</span><span class="st">"12C0001062"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Supplier&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn      : chr "12C0001062"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ entity   : chr "Medicare Supplier"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state    : &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn     : chr "12C0001062"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state   : &lt;ccn::State&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "12"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "HI"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name: chr "Hawaii"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence : &lt;ccn::Sequence&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "0001062"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ range : chr "0000001-9999999"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type     : &lt;ccn::Type&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence: chr "0001062"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ range   : chr "0000001-9999999"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type    : &lt;ccn::Type&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "C"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "ASC"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Ambulatory Surgical Center"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ extension: NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ext     : chr NA</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

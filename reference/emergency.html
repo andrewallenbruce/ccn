@@ -11,7 +11,7 @@ in the Medicare program."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">ccn</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9044</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9045</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,7 +64,7 @@ in the Medicare program.</p>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>S7 object of class <code>EmergencyHospital</code>.</p>
+    <p>S7 object of class <code>Emergency</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="further-information">Further Information<a class="anchor" aria-label="anchor" href="#further-information"></a></h2>
@@ -90,14 +90,12 @@ non-participating hospital that is now fully participating, see subsection I.</p
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">emergency</span><span class="op">(</span><span class="st">"21034E"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Emergency&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn     : chr "21034E"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ entity  : chr "Emergency Hospital"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ state   : &lt;ccn::State&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "21"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "MD"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name: chr "Maryland"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence: &lt;ccn::Sequence&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "034"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ range : chr "0001-0009"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence: chr "034"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ range   : chr "001-099"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ type    : &lt;ccn::Type&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "E"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "NFEH"</span>
@@ -105,14 +103,12 @@ non-participating hospital that is now fully participating, see subsection I.</p
 <span class="r-in"><span><span class="fu">emergency</span><span class="op">(</span><span class="st">"12345F"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Emergency&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn     : chr "12345F"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ entity  : chr "Emergency Hospital"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ state   : &lt;ccn::State&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "12"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "HI"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name: chr "Hawaii"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence: &lt;ccn::Sequence&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ number: chr "345"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ range : chr "0001-0009"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ sequence: chr "345"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ range   : chr NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ type    : &lt;ccn::Type&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ code: chr "F"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "FEH"</span>

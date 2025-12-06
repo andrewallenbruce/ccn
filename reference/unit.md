@@ -23,29 +23,27 @@ character vector of names associated with codes.
 ``` r
 medicare("210101")
 #> <ccn::Medicare>
-#>  @ ccn      : chr "210101"
-#>  @ entity   : chr "Medicare Provider"
-#>  @ state    : <ccn::State>
-#>  .. @ code: chr "21"
-#>  .. @ abbr: chr "MD"
-#>  .. @ name: chr "Maryland"
-#>  @ sequence : <ccn::MedicareSequence>
-#>  .. @ number: chr "0101"
-#>  .. @ range : chr "0001-0879"
-#>  .. @ abbr  : chr "STC"
-#>  .. @ desc  : chr "Short-Term Hospital (General & Specialty)"
-#>  @ extension: NULL
-unit("21T101")
-#> <ccn::Unit>
-#>  @ ccn     : chr "21T101"
-#>  @ entity  : chr "IPPS-Excluded Unit"
+#>  @ ccn     : chr "210101"
 #>  @ state   : <ccn::State>
 #>  .. @ code: chr "21"
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
-#>  @ sequence: <ccn::Sequence>
-#>  .. @ number: chr "101"
-#>  .. @ range : chr "0001-0009"
+#>  @ sequence: chr "0101"
+#>  @ range   : <ccn::RangeMDC>
+#>  .. @ number: chr "0101"
+#>  .. @ range : chr "0001-0879"
+#>  .. @ abbr  : chr "STC"
+#>  .. @ desc  : chr "Short-Term Hospital (General & Specialty)"
+#>  @ ext     : chr NA
+unit("21T101")
+#> <ccn::Unit>
+#>  @ ccn     : chr "21T101"
+#>  @ state   : <ccn::State>
+#>  .. @ code: chr "21"
+#>  .. @ abbr: chr "MD"
+#>  .. @ name: chr "Maryland"
+#>  @ sequence: chr "101"
+#>  @ range   : chr "0001-0009"
 #>  @ type    : <ccn::Type>
 #>  .. @ code: chr "T"
 #>  .. @ abbr: chr "IRF"
@@ -53,14 +51,12 @@ unit("21T101")
 unit("21S101")
 #> <ccn::Unit>
 #>  @ ccn     : chr "21S101"
-#>  @ entity  : chr "IPPS-Excluded Unit"
 #>  @ state   : <ccn::State>
 #>  .. @ code: chr "21"
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
-#>  @ sequence: <ccn::Sequence>
-#>  .. @ number: chr "101"
-#>  .. @ range : chr "0001-0009"
+#>  @ sequence: chr "101"
+#>  @ range   : chr "0001-0009"
 #>  @ type    : <ccn::Type>
 #>  .. @ code: chr "S"
 #>  .. @ abbr: chr "PU"
@@ -68,14 +64,12 @@ unit("21S101")
 unit("21U101")
 #> <ccn::Unit>
 #>  @ ccn     : chr "21U101"
-#>  @ entity  : chr "IPPS-Excluded Unit"
 #>  @ state   : <ccn::State>
 #>  .. @ code: chr "21"
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
-#>  @ sequence: <ccn::Sequence>
-#>  .. @ number: chr "101"
-#>  .. @ range : chr "0001-0009"
+#>  @ sequence: chr "101"
+#>  @ range   : chr "0001-0009"
 #>  @ type    : <ccn::Type>
 #>  .. @ code: chr "U"
 #>  .. @ abbr: chr "STH"
