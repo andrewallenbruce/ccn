@@ -38,24 +38,6 @@ state_name <- function(x) {
   )
 }
 
-#' @noRd
-State <- S7::new_class(
-  name = "State",
-  properties = list(
-    code = S7::class_character,
-    abbr = S7::new_property(
-      S7::class_character,
-      getter = function(self)
-        state_abbr(self@code)
-    ),
-    name = S7::new_property(
-      S7::class_character,
-      getter = function(self)
-        state_name(self@code)
-    )
-  )
-)
-
 #' @rdname state
 #' @export
 state <- function(x) {

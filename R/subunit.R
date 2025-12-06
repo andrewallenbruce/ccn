@@ -7,7 +7,7 @@ NULL
 #' @description
 #' Convert various codes to their associated names.
 #'
-#' @param x character vector of codes to look up.
+#' @param x <character> scalar.
 #' @name subunit
 #' @returns character vector of names associated with codes.
 #' @examples
@@ -57,7 +57,7 @@ SubunitParent <- S7::new_class(
   properties = list(
     code     = S7::class_character,
     ccn      = S7::class_character,
-    sequence = MedicareSequence
+    sequence = RangeMDC
   )
 )
 
@@ -66,7 +66,7 @@ subunit_parent <- function(x) {
   SubunitParent(
     code     = substr_(x, 4L),
     ccn      = eipps_parent_ccn(x),
-    sequence = medicare_sequence(eipps_sequence(x)))
+    sequence = range_mdc(eipps_sequence(x)))
 }
 
 #' @noRd
@@ -81,7 +81,6 @@ EippsSubunit <- S7::new_class(
 subunit <- function(x) {
   EippsSubunit(
     ccn      = x,
-    entity   = "IPPS-Excluded Provider",
     state    = state(x),
     type     = eipps_type(substr_(x, 3L)),
     parent   = subunit_parent(x)
@@ -90,10 +89,7 @@ subunit <- function(x) {
 
 #' @noRd
 subunit_ <- function(x) {
-  Subunit(
-    ccn    = x,
-    entity = "IPPS-Excluded Subunit",
-    type   = eipps_type(substr_(x, 3L)))
+  Subunit(ccn = x, type = eipps_type(substr_(x, 3L)))
 }
 
 #' @rdname subunit
@@ -101,9 +97,9 @@ subunit_ <- function(x) {
 parent <- function(x) {
   Parent(
     ccn      = eipps_parent_ccn(x),
-    entity   = "Medicare Provider",
     state    = state(x),
-    sequence = medicare_sequence(eipps_sequence(x)),
+    sequence = eipps_sequence(x),
+    range = range_mdc(eipps_sequence(x)),
     subunit  = subunit_(x)
   )
 }

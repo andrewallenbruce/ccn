@@ -43,9 +43,9 @@ medicare_range_desc <- function(x) {
 }
 
 #' @noRd
-MedicareSequence <- S7::new_class(
-  name       = "MedicareSequence",
-  parent     = SequenceFull,
+RangeMDC <- S7::new_class(
+  name       = "RangeMDC",
+  parent     = Range,
   properties = list(
     range    = S7::new_property(
       S7::class_character,
@@ -66,8 +66,8 @@ MedicareSequence <- S7::new_class(
 )
 
 #' @noRd
-medicare_sequence <- function(x) {
-  MedicareSequence(number = x)
+range_mdc <- function(x) {
+  RangeMDC(number = x)
 }
 
 #' @rdname medicare
@@ -75,8 +75,8 @@ medicare_sequence <- function(x) {
 medicare <- function(x) {
   Medicare(
     ccn      = x,
-    entity   = "Medicare Provider",
     state    = state(x),
-    sequence = medicare_sequence(substr(x, 3L, 6L))
+    sequence = substr(x, 3L, 6L),
+    range = range_mdc(substr(x, 3L, 6L))
   )
 }

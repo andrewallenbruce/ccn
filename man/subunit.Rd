@@ -10,7 +10,7 @@ subunit(x)
 parent(x)
 }
 \arguments{
-\item{x}{character vector of codes to look up.}
+\item{x}{\if{html}{\out{<character>}} scalar.}
 }
 \value{
 character vector of names associated with codes.

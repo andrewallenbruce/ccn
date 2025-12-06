@@ -35,7 +35,6 @@ eipps_desc <- function(x) {
   )
 }
 
-
 #' @noRd
 eipps_type <- function(x) {
   Type(code = x,
@@ -43,21 +42,14 @@ eipps_type <- function(x) {
        desc = eipps_desc(x))
 }
 
-#' @noRd
-Unit <- S7::new_class(
-  name       = "Unit",
-  parent     = CCN,
-  properties = list(type = Type)
-)
-
 #' @rdname unit
 #' @export
 unit <- function(x) {
   Unit(
     ccn      = x,
-    entity   = "IPPS-Excluded Unit",
     state    = state(x),
-    sequence = mof_sequence(substr(x, 4L, 6L)),
+    sequence = substr(x, 4L, 6L),
+    range    = range_mof(x),
     type     = eipps_type(substr_(x, 3L))
   )
 }

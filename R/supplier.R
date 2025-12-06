@@ -14,11 +14,8 @@
 NULL
 
 #' @noRd
-supplier_sequence <- function(x) {
-  Sequence(
-    number = x,
-    range  = if_in(x, c(1L, 9999999L), "0000001-9999999")
-  )
+supplier_range <- function(x) {
+  if_in(substr(x, 4L, 10L), c(1L, 9999999L), "0000001-9999999")
 }
 
 #' @noRd
@@ -52,25 +49,14 @@ supplier_type <- function(x) {
        desc = supplier_type_desc(x))
 }
 
-#' @noRd
-Supplier <- S7::new_class(
-  name        = "Supplier",
-  parent      = CCN,
-  properties  = list(
-    sequence  = Sequence,
-    type      = Type,
-    extension = Extension
-  )
-)
-
 #' @rdname supplier
 #' @export
 supplier <- function(x) {
   Supplier(
     ccn      = x,
-    entity   = "Medicare Supplier",
     state    = state(x),
-    type     = supplier_type(substr_(x, 3L)),
-    sequence = supplier_sequence(substr(x, 4L, 10L))
+    sequence = substr(x, 4L, 10L),
+    range    = supplier_range(x),
+    type     = supplier_type(substr_(x, 3L))
   )
 }

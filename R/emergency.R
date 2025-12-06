@@ -24,7 +24,7 @@
 #'
 #' @param x character vector of codes to look up.
 #' @name emergency
-#' @returns S7 object of class `EmergencyHospital`.
+#' @returns S7 object of class `Emergency`.
 #' @examples
 #' emergency("21034E")
 #' emergency("12345F")
@@ -34,11 +34,18 @@ NULL
 emergency_type <- function(x) {
   Type(
     code = x,
-    abbr = kit::vswitch(x, c("E", "F"), c("NFEH", "FEH"), NA_character_, nThread = 4L),
+    abbr = kit::vswitch(
+      x,
+      c("E",    "F"),
+      c("NFEH", "FEH"),
+      NA_character_,
+      nThread = 4L
+    ),
     desc = kit::vswitch(
       x,
       c("E", "F"),
-      c("Non-Federal Emergency Hospital", "Federal Emergency Hospital"),
+      c("Non-Federal Emergency Hospital",
+        "Federal Emergency Hospital"),
       NA_character_,
       nThread = 4L
     )
@@ -46,25 +53,18 @@ emergency_type <- function(x) {
 }
 
 #' @noRd
-emergency_sequence <- function(x) {
-  Sequence(x, if_in(x, c(1L, 999L), "0001-0009"))
+emergency_range <- function(x) {
+  if_in(substr(x, 3L, 5L), c(1L, 99L), "001-099")
 }
-
-#' @noRd
-Emergency <- S7::new_class(
-  name       = "Emergency",
-  parent     = CCN,
-  properties = list(type = Type)
-)
 
 #' @rdname emergency
 #' @export
 emergency <- function(x) {
   Emergency(
     ccn      = x,
-    entity   = "Emergency Hospital",
     state    = state(x),
-    type     = emergency_type(substr_(x, 6L)),
-    sequence = emergency_sequence(substr(x, 3L, 5L))
+    sequence = substr(x, 3L, 5L),
+    range    = emergency_range(x),
+    type     = emergency_type(substr_(x, 6L))
   )
 }

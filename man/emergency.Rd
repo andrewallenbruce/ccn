@@ -10,7 +10,7 @@ emergency(x)
 \item{x}{character vector of codes to look up.}
 }
 \value{
-S7 object of class \code{EmergencyHospital}.
+S7 object of class \code{Emergency}.
 }
 \description{
 This S7 class represents CMS Certification Numbers (CCNs) assigned to

@@ -10,8 +10,8 @@
 NULL
 
 #' @noRd
-org_seq <- function(x) {
-  Sequence(x, if_in(x, c(1L, 99L), "001-099"))
+org_range <- function(x) {
+  if_in(substr(x, 4L, 6L), c(1L, 99L), "001-099")
 }
 
 #' @noRd
@@ -27,21 +27,14 @@ org_type <- function(x) {
   )
 }
 
-#' @noRd
-Organ <- S7::new_class(
-  name       = "Organ",
-  parent     = CCN,
-  properties = list(type = Type)
-)
-
 #' @rdname organ
 #' @export
 organ <- function(x) {
   Organ(
     ccn      = x,
-    entity   = "Medicare Provider",
     state    = state(x),
-    type     = org_type(substr_(x, 3L)),
-    sequence = org_seq(substr(x, 4L, 6L))
+    sequence = substr(x, 4L, 6L),
+    range    = org_range(x),
+    type     = org_type(substr_(x, 3L))
   )
 }

@@ -69,8 +69,8 @@ moh_range_desc <- function(x) {
 }
 
 #' @noRd
-MedicaidType <- S7::new_class(
-  name       = "MedicaidType",
+TypeMOF <- S7::new_class(
+  name       = "TypeMOF",
   parent     = Type,
   properties = list(
     abbr     = S7::new_property(
@@ -87,9 +87,14 @@ MedicaidType <- S7::new_class(
 )
 
 #' @noRd
-SequenceMOH <- S7::new_class(
-  name       = "SequenceMOH",
-  parent     = SequenceFull,
+mof_type <- function(x) {
+  TypeMOF(code = x)
+}
+
+#' @noRd
+RangeMOH <- S7::new_class(
+  name       = "RangeMOH",
+  parent     = Range,
   properties = list(
     range    = S7::new_property(
       S7::class_character,
@@ -110,38 +115,24 @@ SequenceMOH <- S7::new_class(
 )
 
 #' @noRd
-mof_type <- function(x) {
-  MedicaidType(code = x)
+range_moh <- function(x) {
+  RangeMOH(number = x)
 }
 
-#' @noRd
-mof_sequence <- function(x) {
-  Sequence(x, if_in(x, c(1L, 999L), "0001-0009"))
-}
 
 #' @noRd
-moh_sequence <- function(x) {
-  SequenceMOH(number = x)
+range_mof <- function(x) {
+  if_in(substr(x, 4L, 6L), c(1L, 999L), "0001-0009")
 }
-
-#' @noRd
-Medicaid <- S7::new_class(
-  name       = "Medicaid",
-  parent     = CCN,
-  properties = list(type = Type)
-)
 
 #' @rdname medicaid
 #' @export
 medicaid <- function(x) {
   Medicaid(
     ccn      = x,
-    entity   = "Medicaid-Only Provider",
     state    = state(x),
-    sequence = if (substr_(x, 3L) == "J")
-      moh_sequence(substr(x, 4L, 6L))
-    else
-      mof_sequence(substr(x, 4L, 6L)),
+    sequence = substr_(x, 3L),
+    range    = if (is_moh_type(substr_(x, 3L))) range_moh(x) else range_mof(x),
     type     = mof_type(substr_(x, 3L))
   )
 }

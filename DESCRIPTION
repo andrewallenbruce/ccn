@@ -30,7 +30,6 @@ LazyData: true
 Roxygen: list(markdown = TRUE, roclets = c("collate", "namespace", "rd"))
 RoxygenNote: 7.3.3
 Collate: 
-    'states.R'
     'aaa.R'
     'ccn-package.R'
     'data.R'
@@ -40,6 +39,7 @@ Collate:
     'medicare.R'
     'organ.R'
     'parse.R'
+    'states.R'
     'unit.R'
     'subunit.R'
     'supplier.R'

@@ -33,7 +33,7 @@ glue_rex(
   sequence = ccn_rex$excluded$subunit$sequence
 )
 
-jsonify::to_json(ccn_regex, unbox = F) |>
+jsonify::to_json(ccn_regex, unbox = FALSE) |>
   jsonify::pretty_json()
 
 cat(yaml12::format_yaml(ccn_regex))
