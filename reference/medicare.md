@@ -46,7 +46,7 @@ medicare("123456")
 #>  @ range   : <ccn::RangeMDC>
 #>  .. @ number: chr "3456"
 #>  .. @ range : chr "3400-3499"
-#>  .. @ abbr  : chr "RHC-P"
+#>  .. @ abbr  : chr "RHC"
 #>  .. @ desc  : chr "Rural Health Clinic (Provider-based)"
 #>  @ ext     : chr NA
 ```

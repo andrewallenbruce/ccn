@@ -34,8 +34,8 @@ medicare("212026")
 #>  @ range   : <ccn::RangeMDC>
 #>  .. @ number: chr "2026"
 #>  .. @ range : chr "2000-2299"
-#>  .. @ abbr  : chr "LTC (EIPPS)"
-#>  .. @ desc  : chr "Long-Term Care Hospital (Excluded from IPPS)"
+#>  .. @ abbr  : chr "LTC"
+#>  .. @ desc  : chr "Long-Term Care Hospital (IPPS-Excluded)"
 #>  @ ext     : chr NA
 subunit("21SA26")
 #> <ccn::EippsSubunit>
@@ -56,8 +56,8 @@ subunit("21SA26")
 #>  .. @ sequence: <ccn::RangeMDC>
 #>  .. .. @ number: chr "2026"
 #>  .. .. @ range : chr "2000-2299"
-#>  .. .. @ abbr  : chr "LTC (EIPPS)"
-#>  .. .. @ desc  : chr "Long-Term Care Hospital (Excluded from IPPS)"
+#>  .. .. @ abbr  : chr "LTC"
+#>  .. .. @ desc  : chr "Long-Term Care Hospital (IPPS-Excluded)"
 parent("21SA26")
 #> <ccn::Parent>
 #>  @ ccn     : chr "212026"
@@ -69,8 +69,8 @@ parent("21SA26")
 #>  @ range   : <ccn::RangeMDC>
 #>  .. @ number: chr "2026"
 #>  .. @ range : chr "2000-2299"
-#>  .. @ abbr  : chr "LTC (EIPPS)"
-#>  .. @ desc  : chr "Long-Term Care Hospital (Excluded from IPPS)"
+#>  .. @ abbr  : chr "LTC"
+#>  .. @ desc  : chr "Long-Term Care Hospital (IPPS-Excluded)"
 #>  @ ext     : chr NA
 #>  @ subunit : <ccn::Subunit>
 #>  .. @ ccn : chr "21SA26"
@@ -97,8 +97,8 @@ subunit("21TA26")
 #>  .. @ sequence: <ccn::RangeMDC>
 #>  .. .. @ number: chr "2026"
 #>  .. .. @ range : chr "2000-2299"
-#>  .. .. @ abbr  : chr "LTC (EIPPS)"
-#>  .. .. @ desc  : chr "Long-Term Care Hospital (Excluded from IPPS)"
+#>  .. .. @ abbr  : chr "LTC"
+#>  .. .. @ desc  : chr "Long-Term Care Hospital (IPPS-Excluded)"
 parent("21TA26")
 #> <ccn::Parent>
 #>  @ ccn     : chr "212026"
@@ -110,8 +110,8 @@ parent("21TA26")
 #>  @ range   : <ccn::RangeMDC>
 #>  .. @ number: chr "2026"
 #>  .. @ range : chr "2000-2299"
-#>  .. @ abbr  : chr "LTC (EIPPS)"
-#>  .. @ desc  : chr "Long-Term Care Hospital (Excluded from IPPS)"
+#>  .. @ abbr  : chr "LTC"
+#>  .. @ desc  : chr "Long-Term Care Hospital (IPPS-Excluded)"
 #>  @ ext     : chr NA
 #>  @ subunit : <ccn::Subunit>
 #>  .. @ ccn : chr "21TA26"
@@ -131,8 +131,8 @@ medicare("022001")
 #>  @ range   : <ccn::RangeMDC>
 #>  .. @ number: chr "2001"
 #>  .. @ range : chr "2000-2299"
-#>  .. @ abbr  : chr "LTC (EIPPS)"
-#>  .. @ desc  : chr "Long-Term Care Hospital (Excluded from IPPS)"
+#>  .. @ abbr  : chr "LTC"
+#>  .. @ desc  : chr "Long-Term Care Hospital (IPPS-Excluded)"
 #>  @ ext     : chr NA
 subunit("02TA01")
 #> <ccn::EippsSubunit>
@@ -153,8 +153,8 @@ subunit("02TA01")
 #>  .. @ sequence: <ccn::RangeMDC>
 #>  .. .. @ number: chr "2001"
 #>  .. .. @ range : chr "2000-2299"
-#>  .. .. @ abbr  : chr "LTC (EIPPS)"
-#>  .. .. @ desc  : chr "Long-Term Care Hospital (Excluded from IPPS)"
+#>  .. .. @ abbr  : chr "LTC"
+#>  .. .. @ desc  : chr "Long-Term Care Hospital (IPPS-Excluded)"
 parent("02TA01")
 #> <ccn::Parent>
 #>  @ ccn     : chr "022001"
@@ -166,8 +166,8 @@ parent("02TA01")
 #>  @ range   : <ccn::RangeMDC>
 #>  .. @ number: chr "2001"
 #>  .. @ range : chr "2000-2299"
-#>  .. @ abbr  : chr "LTC (EIPPS)"
-#>  .. @ desc  : chr "Long-Term Care Hospital (Excluded from IPPS)"
+#>  .. @ abbr  : chr "LTC"
+#>  .. @ desc  : chr "Long-Term Care Hospital (IPPS-Excluded)"
 #>  @ ext     : chr NA
 #>  @ subunit : <ccn::Subunit>
 #>  .. @ ccn : chr "02TA01"
@@ -187,8 +187,8 @@ medicare("043038")
 #>  @ range   : <ccn::RangeMDC>
 #>  .. @ number: chr "3038"
 #>  .. @ range : chr "3025-3099"
-#>  .. @ abbr  : chr "IRF (EIPPS)"
-#>  .. @ desc  : chr "Rehabilitation Hospital (Excluded from IPPS)"
+#>  .. @ abbr  : chr "IRF"
+#>  .. @ desc  : chr "Rehabilitation Hospital (IPPS-Excluded)"
 #>  @ ext     : chr NA
 subunit("04SD38")
 #> <ccn::EippsSubunit>
@@ -209,8 +209,8 @@ subunit("04SD38")
 #>  .. @ sequence: <ccn::RangeMDC>
 #>  .. .. @ number: chr "3038"
 #>  .. .. @ range : chr "3025-3099"
-#>  .. .. @ abbr  : chr "IRF (EIPPS)"
-#>  .. .. @ desc  : chr "Rehabilitation Hospital (Excluded from IPPS)"
+#>  .. .. @ abbr  : chr "IRF"
+#>  .. .. @ desc  : chr "Rehabilitation Hospital (IPPS-Excluded)"
 parent("04SD38")
 #> <ccn::Parent>
 #>  @ ccn     : chr "043038"
@@ -222,8 +222,8 @@ parent("04SD38")
 #>  @ range   : <ccn::RangeMDC>
 #>  .. @ number: chr "3038"
 #>  .. @ range : chr "3025-3099"
-#>  .. @ abbr  : chr "IRF (EIPPS)"
-#>  .. @ desc  : chr "Rehabilitation Hospital (Excluded from IPPS)"
+#>  .. @ abbr  : chr "IRF"
+#>  .. @ desc  : chr "Rehabilitation Hospital (IPPS-Excluded)"
 #>  @ ext     : chr NA
 #>  @ subunit : <ccn::Subunit>
 #>  .. @ ccn : chr "04SD38"
@@ -243,8 +243,8 @@ medicare("522005")
 #>  @ range   : <ccn::RangeMDC>
 #>  .. @ number: chr "2005"
 #>  .. @ range : chr "2000-2299"
-#>  .. @ abbr  : chr "LTC (EIPPS)"
-#>  .. @ desc  : chr "Long-Term Care Hospital (Excluded from IPPS)"
+#>  .. @ abbr  : chr "LTC"
+#>  .. @ desc  : chr "Long-Term Care Hospital (IPPS-Excluded)"
 #>  @ ext     : chr NA
 subunit("52TA05")
 #> <ccn::EippsSubunit>
@@ -265,8 +265,8 @@ subunit("52TA05")
 #>  .. @ sequence: <ccn::RangeMDC>
 #>  .. .. @ number: chr "2005"
 #>  .. .. @ range : chr "2000-2299"
-#>  .. .. @ abbr  : chr "LTC (EIPPS)"
-#>  .. .. @ desc  : chr "Long-Term Care Hospital (Excluded from IPPS)"
+#>  .. .. @ abbr  : chr "LTC"
+#>  .. .. @ desc  : chr "Long-Term Care Hospital (IPPS-Excluded)"
 parent("52TA05")
 #> <ccn::Parent>
 #>  @ ccn     : chr "522005"
@@ -278,8 +278,8 @@ parent("52TA05")
 #>  @ range   : <ccn::RangeMDC>
 #>  .. @ number: chr "2005"
 #>  .. @ range : chr "2000-2299"
-#>  .. @ abbr  : chr "LTC (EIPPS)"
-#>  .. @ desc  : chr "Long-Term Care Hospital (Excluded from IPPS)"
+#>  .. @ abbr  : chr "LTC"
+#>  .. @ desc  : chr "Long-Term Care Hospital (IPPS-Excluded)"
 #>  @ ext     : chr NA
 #>  @ subunit : <ccn::Subunit>
 #>  .. @ ccn : chr "52TA05"

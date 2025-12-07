@@ -46,7 +46,7 @@ medicaid("22B201")
 #>  @ type    : <ccn::TypeMOF>
 #>  .. @ code: chr "B"
 #>  .. @ abbr: chr "NF"
-#>  .. @ desc: chr "Nursing Facility (Formerly Assigned to Medicaid SNF)"
+#>  .. @ desc: chr "Nursing Facility"
 medicaid("23E301")
 #> <ccn::Medicaid>
 #>  @ ccn     : chr "23E301"
@@ -59,7 +59,7 @@ medicaid("23E301")
 #>  @ type    : <ccn::TypeMOF>
 #>  .. @ code: chr "E"
 #>  .. @ abbr: chr "NF"
-#>  .. @ desc: chr "Nursing Facility (Formerly Assigned to ICF)"
+#>  .. @ desc: chr "Nursing Facility"
 medicaid("34F401")
 #> <ccn::Medicaid>
 #>  @ ccn     : chr "34F401"
@@ -72,7 +72,7 @@ medicaid("34F401")
 #>  @ type    : <ccn::TypeMOF>
 #>  .. @ code: chr "F"
 #>  .. @ abbr: chr "NF"
-#>  .. @ desc: chr "Nursing Facility (Formerly Assigned to ICF)"
+#>  .. @ desc: chr "Nursing Facility"
 medicaid("01J008")
 #> <ccn::Medicaid>
 #>  @ ccn     : chr "01J008"
@@ -82,13 +82,10 @@ medicaid("01J008")
 #>  .. @ name: chr "Alabama"
 #>  @ sequence: chr "J"
 #>  @ range   : <ccn::RangeMOH>
-#> Warning: NAs introduced by coercion
-#> Warning: NAs introduced by coercion
-#> Warning: NAs introduced by coercion
-#>  .. @ number: chr "01J008"
-#>  .. @ range : chr [1:7] NA NA NA NA NA NA NA
-#>  .. @ abbr  : chr [1:7] NA NA NA NA NA NA NA
-#>  .. @ desc  : chr [1:7] NA NA NA NA NA NA NA
+#>  .. @ number: chr "008"
+#>  .. @ range : chr "001-099"
+#>  .. @ abbr  : chr "STAC"
+#>  .. @ desc  : chr "Short-Term Acute Care Hospital"
 #>  @ type    : <ccn::TypeMOF>
 #>  .. @ code: chr "J"
 #>  .. @ abbr: chr "MOH"
@@ -102,13 +99,10 @@ medicaid("A5J508")
 #>  .. @ name: chr "Mississippi"
 #>  @ sequence: chr "J"
 #>  @ range   : <ccn::RangeMOH>
-#> Warning: NAs introduced by coercion
-#> Warning: NAs introduced by coercion
-#> Warning: NAs introduced by coercion
-#>  .. @ number: chr "A5J508"
-#>  .. @ range : chr [1:7] NA NA NA NA NA NA NA
-#>  .. @ abbr  : chr [1:7] NA NA NA NA NA NA NA
-#>  .. @ desc  : chr [1:7] NA NA NA NA NA NA NA
+#>  .. @ number: chr "508"
+#>  .. @ range : chr "500-599"
+#>  .. @ abbr  : chr "LTC"
+#>  .. @ desc  : chr "Long-Term Hospital"
 #>  @ type    : <ccn::TypeMOF>
 #>  .. @ code: chr "J"
 #>  .. @ abbr: chr "MOH"
