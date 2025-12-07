@@ -28,7 +28,7 @@ medicaid("01L008")
 #>  .. @ code: chr "01"
 #>  .. @ abbr: chr "AL"
 #>  .. @ name: chr "Alabama"
-#>  @ sequence: chr "L"
+#>  @ sequence: chr "008"
 #>  @ range   : chr "0001-0009"
 #>  @ type    : <ccn::TypeMOF>
 #>  .. @ code: chr "L"
@@ -41,7 +41,7 @@ medicaid("22B201")
 #>  .. @ code: chr "22"
 #>  .. @ abbr: chr "MA"
 #>  .. @ name: chr "Massachusetts"
-#>  @ sequence: chr "B"
+#>  @ sequence: chr "201"
 #>  @ range   : chr "0001-0009"
 #>  @ type    : <ccn::TypeMOF>
 #>  .. @ code: chr "B"
@@ -54,7 +54,7 @@ medicaid("23E301")
 #>  .. @ code: chr "23"
 #>  .. @ abbr: chr "MI"
 #>  .. @ name: chr "Michigan"
-#>  @ sequence: chr "E"
+#>  @ sequence: chr "301"
 #>  @ range   : chr "0001-0009"
 #>  @ type    : <ccn::TypeMOF>
 #>  .. @ code: chr "E"
@@ -67,7 +67,7 @@ medicaid("34F401")
 #>  .. @ code: chr "34"
 #>  .. @ abbr: chr "NC"
 #>  .. @ name: chr "North Carolina"
-#>  @ sequence: chr "F"
+#>  @ sequence: chr "401"
 #>  @ range   : chr "0001-0009"
 #>  @ type    : <ccn::TypeMOF>
 #>  .. @ code: chr "F"
@@ -80,7 +80,7 @@ medicaid("01J008")
 #>  .. @ code: chr "01"
 #>  .. @ abbr: chr "AL"
 #>  .. @ name: chr "Alabama"
-#>  @ sequence: chr "J"
+#>  @ sequence: chr "008"
 #>  @ range   : <ccn::RangeMOH>
 #>  .. @ number: chr "008"
 #>  .. @ range : chr "001-099"
@@ -97,7 +97,7 @@ medicaid("A5J508")
 #>  .. @ code: chr "A5"
 #>  .. @ abbr: chr "MS"
 #>  .. @ name: chr "Mississippi"
-#>  @ sequence: chr "J"
+#>  @ sequence: chr "508"
 #>  @ range   : <ccn::RangeMOH>
 #>  .. @ number: chr "508"
 #>  .. @ range : chr "500-599"

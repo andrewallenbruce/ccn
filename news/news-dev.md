@@ -214,3 +214,9 @@
 
 - fixed bug in
   [`medicaid()`](https://andrewallenbruce.github.io/ccn/reference/medicaid.md)
+
+## ccn 0.0.0.9047 (2025-12-07)
+
+- fix: another
+  [`medicaid()`](https://andrewallenbruce.github.io/ccn/reference/medicaid.md)
+  bug
