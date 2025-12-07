@@ -61,10 +61,8 @@ is_sub_type <- function(x) {
 #' @noRd
 ccn_type <- function(x) {
   kit::nif(
-    nchar_provider(x),     "provider",
-    nchar_provider_ext(x), "provider",
-    nchar_supplier(x),     "supplier",
-    nchar_supplier_ext(x), "supplier",
+    nchar_provider(x) | nchar_provider_ext(x), "provider",
+    nchar_supplier(x) | nchar_supplier_ext(x), "supplier",
     default = NA_character_
   )
 }

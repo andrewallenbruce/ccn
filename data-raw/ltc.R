@@ -15,18 +15,18 @@
 #' Medicaid-only facilities:
 
 ltc_ccns <- tibble::tribble(
-  ~code,            ~range,        ~entity,                                 ~ltc_type,
-  NA_character_,    "5000-6499",   "SNF (18 or 18/19)",                     "Free-Standing LTC",
-  "A",              "000",         "NF (19)",                               "Free-Standing LTC",
-  "E",              "000",         "NF (19)",                               "Free-Standing LTC",
-  "G",              "000",         "ICF/IID",                               "Free-Standing LTC",
-  NA_character_,    "5000-6499",   "SNF/NF (18/19 DUAL)",                   "SNF/NF DUAL and/or DP",
-  NA_character_,    "5000-6499",   "SNF (18 or 18/19 DUAL with SNF/NF DP)", "SNF/NF DUAL and/or DP",
-  "G",              "000",         "NF (19)",                               "SNF/NF DUAL and/or DP",
-  "A",              "000",         "NF (19 with ICF/IID DP)",               "SNF/NF DUAL and/or DP",
-  "E",              "000",         "NF (19 with ICF/IID DP)",               "SNF/NF DUAL and/or DP",
-  "G",              "000",         "NF (19 with ICF/IID DP)",               "SNF/NF DUAL and/or DP",
-)
+  ~code,            ~range,        ~facility_type,                         ~facility_category,
+  NA_character_,    "5000-6499",   "18:SNF||18-19:SNF",                   "Free-Standing LTC",
+  "A",              "000",         "19:NF",                               "Free-Standing LTC",
+  "E",              "000",         "19:NF",                               "Free-Standing LTC",
+  "G",              "000",         "ICF-IID",                             "Free-Standing LTC",
+  NA_character_,    "5000-6499",   "18-19:S[NF]+{DUAL}",                  "S[NF] DUAL:DP",
+  NA_character_,    "5000-6499",   "18:SNF||18-19:SNF+{DUAL}++DP:S[NF]",  "S[NF] DUAL:DP",
+  "G",              "000",         "19:NF",                               "S[NF] DUAL:DP",
+  "A",              "000",         "19:NF++DP:ICF-IID",                   "S[NF] DUAL:DP",
+  "E",              "000",         "19:NF++DP:ICF-IID",                   "S[NF] DUAL:DP",
+  "G",              "000",         "19:NF++DP:ICF-IID",                   "S[NF] DUAL:DP"
+  )
 
 #' *EXCEPTION: As the chart indicates, the RO always assigns a separate ICF/IID
 #' (XX-G000) number to an ICF/IID or ICF/IID DP.
