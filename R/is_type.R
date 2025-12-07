@@ -49,23 +49,35 @@ is_medicaid_type <- function(x) {
 }
 
 #' @noRd
-is_eipps_type <- function(x) {
+is_unit_type <- function(x) {
   x %chin% ccn::eipps_unit$code
 }
 
 #' @noRd
-is_eipps_unit_type <- function(x) {
+is_sub_type <- function(x) {
   x %chin% ccn::eipps_subunit$code
+}
+
+#' @noRd
+ccn_type <- function(x) {
+  kit::nif(
+    nchar_provider(x),     "provider",
+    nchar_provider_ext(x), "provider",
+    nchar_supplier(x),     "supplier",
+    nchar_supplier_ext(x), "supplier",
+    default = NA_character_
+  )
 }
 
 #' @noRd
 provider_type <- function(x) {
   kit::nif(
-    is_numeric(x), "medicare",
-    is_organ_type(substr_(x, 3L)), "organ",
-    is_emergency_type(substr_(x, 6L)), "emergency",
-    is_medicaid_type(substr_(x, 3L)), "medicaid",
-    is_eipps_type(substr_(x, 3L)), "eipps",
+    is_numeric(x),                                              "medicare",
+    is_organ_type(substr_(x, 3L)),                              "organ",
+    is_emergency_type(substr_(x, 6L)),                          "emergency",
+    is_medicaid_type(substr_(x, 3L)),                           "medicaid",
+    is_unit_type(substr_(x, 3L)) & is_numeric(substr_(x, 4L)),  "unit",
+    is_unit_type(substr_(x, 3L)) & is_sub_type(substr_(x, 4L)), "subunit",
     default = NA_character_
   )
 }

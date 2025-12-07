@@ -8,22 +8,24 @@
 #'
 #' The RO assigns only one CCN per facility. (For purposes of this section,
 #' “facility” means an institution providing SNF and/or NF or ICF/IID care at
-#' the same address.) Use XX-5000 series for facilities providing Medicare or
-#' Medicare/Medicaid services, and the alphanumeric series (XX-A000 or XX-E000
-#' or XX-G000) for Medicaid-only facilities, as shown in the following charts:
+#' the same address.).
+#'
+#' Use XX-5000 series for facilities providing Medicare or Medicare/Medicaid
+#' services, and the alphanumeric series (XX-A000 or XX-E000 or XX-G000) for
+#' Medicaid-only facilities:
 
 ltc_ccns <- tibble::tribble(
-  ~facility_type,                           ~ccn,
-  # FREE STANDING LTC FACILITIES
-  "18 or 18/19 SNF",                        "5000",
-  "19 NF",                                  "A000/E000",
-  "ICF/IID",                                "G000",
-  # SNF/NF DUALLY-PARTICIPATING AND/OR DISTINCT PART FACILITIES
-  "18/19 SNF/NF DUAL",                      "5000",
-  "18 SNF or 18/19 DUAL with SNF or NF DP", "5000",
-  "18 or 18/19 DUAL with SNF or NF DP",     "5000",
-  "19 NF",                                  "A000",
-  "19 NF with ICF/IID DP",                  "A000/E000/G000*"
+  ~code,            ~range,        ~entity,                                 ~ltc_type,
+  NA_character_,    "5000-6499",   "SNF (18 or 18/19)",                     "Free-Standing LTC",
+  "A",              "000",         "NF (19)",                               "Free-Standing LTC",
+  "E",              "000",         "NF (19)",                               "Free-Standing LTC",
+  "G",              "000",         "ICF/IID",                               "Free-Standing LTC",
+  NA_character_,    "5000-6499",   "SNF/NF (18/19 DUAL)",                   "SNF/NF DUAL and/or DP",
+  NA_character_,    "5000-6499",   "SNF (18 or 18/19 DUAL with SNF/NF DP)", "SNF/NF DUAL and/or DP",
+  "G",              "000",         "NF (19)",                               "SNF/NF DUAL and/or DP",
+  "A",              "000",         "NF (19 with ICF/IID DP)",               "SNF/NF DUAL and/or DP",
+  "E",              "000",         "NF (19 with ICF/IID DP)",               "SNF/NF DUAL and/or DP",
+  "G",              "000",         "NF (19 with ICF/IID DP)",               "SNF/NF DUAL and/or DP",
 )
 
 #' *EXCEPTION: As the chart indicates, the RO always assigns a separate ICF/IID

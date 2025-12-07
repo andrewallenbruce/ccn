@@ -92,7 +92,7 @@ RangeMOH <- S7::new_class(
 
 #' @noRd
 range_moh <- function(x) {
-  RangeMOH(number = x)
+  RangeMOH(number = substr(x, 4L, 6L))
 }
 
 
