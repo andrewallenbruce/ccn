@@ -52,6 +52,6 @@ emergency <- function(x) {
     state    = state(x),
     sequence = substr(x, 3L, 5L),
     range    = emergency_range(x),
-    type     = emergency_type(substr_(x, 6L))
+    type     = emergency_type(str6(x))
   )
 }

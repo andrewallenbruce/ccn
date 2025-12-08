@@ -24,8 +24,10 @@ hha <- readr::read_csv(
     STATE                          = readr::col_character(),
     `ZIP CODE`                     = readr::col_character(),
     `PRACTICE LOCATION TYPE`       = readr::col_character(),
-    `LOCATION OTHER TYPE TEXT`     = readr::col_logical()),
-  num_threads = 4L) |>
+    `LOCATION OTHER TYPE TEXT`     = readr::col_logical()
+  ),
+  num_threads = 4L
+) |>
   janitor::clean_names() |>
   collapse::mtt(
     inc_date = readr::parse_date(incorporation_date, format = "%m/%d/%Y"),
@@ -35,13 +37,16 @@ hha <- readr::read_csv(
     organization_type_structure = data.table::fifelse(
       !is.na(organization_other_type_text),
       as.character(glue::glue("Other: {organization_other_type_text}")),
-      organization_type_structure)) |>
+      organization_type_structure
+    )
+  ) |>
   collapse::slt(
     ccn,
     state,
     org_type = organization_type_structure,
     prop_non = proprietary_nonprofit,
-    org_name = organization_name)
+    org_name = organization_name
+  )
 
 # both enid and ccn are unique
 collapse::fcount(hha, org_type)
@@ -51,4 +56,5 @@ pin_update(
   hha,
   name        = "hha",
   title       = "Home Health Enrollments",
-  description = "Home Health Enrollments 2025")
+  description = "Home Health Enrollments 2025"
+)

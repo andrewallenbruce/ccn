@@ -7,17 +7,18 @@
 #' @returns data.frame
 #'
 #' @examples
-#' c("670055", "05P001", "210101", "21T101", "21S101", "21U101", "01L008",
-#' "12345E", "10C0001062", "45D0634589", "21X0009807", "02TA01", "04SD38",
-#' "52TA05", "212026", "21SA26", "21TA26", "24T019A", "33S23401", "330027001") |>
-#' purrr::map(\(x) as_data_frame(ccn(x))) |>
-#' purrr::list_rbind() |>
-#' ccn:::tbl()
+#' c(
+#'   "670055", "05P001", "210101", "21T101", "21S101", "21U101", "01L008",
+#'   "12345E", "10C0001062", "45D0634589", "21X0009807", "02TA01", "04SD38",
+#'   "52TA05", "212026", "21SA26", "21TA26", "24T019A", "33S23401", "330027001"
+#' ) |>
+#'   purrr::map(\(x) as_data_frame(ccn(x))) |>
+#'   purrr::list_rbind() |>
+#'   ccn:::tbl()
 #' @export
 as_data_frame <- S7::new_generic("as_data_frame", "x")
 
 S7::method(as_data_frame, MedicareProvider) <- function(x) {
-
   list2DF(as_list(x))
 
   # cheapr::fast_df(

@@ -15,19 +15,21 @@ NULL
 
 #' @noRd
 eipps_abbr <- function(x) {
-  vs(x, ccn::eipps_unit$code, ccn::eipps_unit$abbr)
+  vs(x, ccn::eipps_unit[["code"]], ccn::eipps_unit[["abbr"]])
 }
 
 #' @noRd
 eipps_desc <- function(x) {
-  vs(x, ccn::eipps_unit$code, ccn::eipps_unit$desc)
+  vs(x, ccn::eipps_unit[["code"]], ccn::eipps_unit[["desc"]])
 }
 
 #' @noRd
 eipps_type <- function(x) {
-  Type(code = x,
-       abbr = eipps_abbr(x),
-       desc = eipps_desc(x))
+  Type(
+    code = x,
+    abbr = eipps_abbr(x),
+    desc = eipps_desc(x)
+  )
 }
 
 #' @rdname unit
@@ -38,6 +40,6 @@ unit <- function(x) {
     state    = state(x),
     sequence = substr(x, 4L, 6L),
     range    = range_mof(x),
-    type     = eipps_type(substr_(x, 3L))
+    type     = eipps_type(str3(x))
   )
 }

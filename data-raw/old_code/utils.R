@@ -5,8 +5,9 @@ check_character <- function(x,
   if (!is.character(x)) {
     cli::cli_abort(
       c("Input {.arg {arg}} must be a {.cls character} vector.",
-        "x" = "You've supplied a {.cls {class(x)}} vector."),
-      arg  = arg,
+        "x" = "You've supplied a {.cls {class(x)}} vector."
+      ),
+      arg = arg,
       call = call
     )
   }
@@ -19,8 +20,9 @@ check_length <- function(x,
   if (!nchar(x) %in% 6:10) {
     cli::cli_abort(
       c("Input {.arg {arg}} must be between {.emph 6 - 10 characters}.",
-        "x" = "{.var {x}} is {.val {nchar(x)}} character{?s}."),
-      arg  = arg,
+        "x" = "{.var {x}} is {.val {nchar(x)}} character{?s}."
+      ),
+      arg = arg,
       call = call
     )
   }
@@ -32,7 +34,7 @@ pad_three <- function(x) {
   n <- nchar(x)
 
   x[n == 1] <- paste0("00", x[n == 1])
-  x[n == 2] <- paste0("0",  x[n == 2])
+  x[n == 2] <- paste0("0", x[n == 2])
 
   stringfish::sf_convert(x)
 }
@@ -43,8 +45,8 @@ pad_four <- function(x) {
   n <- nchar(x)
 
   x[n == 1] <- paste0("000", x[n == 1])
-  x[n == 2] <- paste0("00",  x[n == 2])
-  x[n == 3] <- paste0("0",   x[n == 3])
+  x[n == 2] <- paste0("00", x[n == 2])
+  x[n == 3] <- paste0("0", x[n == 3])
 
   stringfish::sf_convert(x)
 }
@@ -55,11 +57,11 @@ pad_seven <- function(x) {
   n <- nchar(x)
 
   x[n == 1] <- paste0("000000", x[n == 1])
-  x[n == 2] <- paste0("00000",  x[n == 2])
-  x[n == 3] <- paste0("0000",   x[n == 3])
-  x[n == 4] <- paste0("000",    x[n == 4])
-  x[n == 5] <- paste0("00",     x[n == 5])
-  x[n == 6] <- paste0("0",      x[n == 6])
+  x[n == 2] <- paste0("00000", x[n == 2])
+  x[n == 3] <- paste0("0000", x[n == 3])
+  x[n == 4] <- paste0("000", x[n == 4])
+  x[n == 5] <- paste0("00", x[n == 5])
+  x[n == 6] <- paste0("0", x[n == 6])
 
   stringfish::sf_convert(x)
 }
@@ -92,7 +94,6 @@ make_df <- function(x, col_names = NULL) {
 
 #' @noRd
 make_switch <- function(x) {
-
   e <- purrr::map(x, \(x) cheapr::fast_df(field = x)) |>
     purrr::list_rbind(names_to = "constant") |>
     collapse::roworderv(c("constant", "field"))

@@ -1,11 +1,11 @@
 ext_provider <- function(x) {
- x <- substr_(x, c(7L, nchar(x)))
- if (x == "") NA_character_ else x
+  x <- substr_(x, c(7L, nchar(x)))
+  if (x == "") NA_character_ else x
 }
 
 ext_supplier <- function(x) {
- x <- substr_(x, c(11L, nchar(x)))
- if (x == "") NA_character_ else x
+  x <- substr_(x, c(11L, nchar(x)))
+  if (x == "") NA_character_ else x
 }
 
 as_medicare <- function(x) {

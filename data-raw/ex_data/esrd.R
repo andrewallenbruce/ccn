@@ -1,9 +1,9 @@
 library(collapse)
 
 esrd <- readr::read_csv(
-  file                                  = fs::path("C:/Users/Andrew/Downloads/DFC_FACILITY.csv"),
-  num_threads                           = 4L,
-  col_types                             = readr::cols(
+  file = fs::path("C:/Users/Andrew/Downloads/DFC_FACILITY.csv"),
+  num_threads = 4L,
+  col_types = readr::cols(
     `CMS Certification Number (CCN)`    = readr::col_character(),
     Network                             = readr::col_integer(),
     `Facility Name`                     = readr::col_character(),
@@ -25,7 +25,9 @@ esrd <- readr::read_csv(
     `Offers in-center hemodialysis`     = readr::col_character(),
     `Offers peritoneal dialysis`        = readr::col_character(),
     `Offers home hemodialysis training` = readr::col_character(),
-    `Certification Date`                = readr::col_character())) |>
+    `Certification Date`                = readr::col_character()
+  )
+) |>
   janitor::clean_names() |>
   collapse::mtt(
     cert_year                         = substr(certification_date, 6, 9) |> as.integer(),
@@ -36,7 +38,8 @@ esrd <- readr::read_csv(
     stations                          = as.integer(number_of_dialysis_stations),
     offers_in_center_hemodialysis     = cheapr::val_match(offers_in_center_hemodialysis, "Yes" ~ 1L, "No" ~ 0L, .default = NA_integer_),
     offers_peritoneal_dialysis        = cheapr::val_match(offers_peritoneal_dialysis, "Yes" ~ 1L, "No" ~ 0L, .default = NA_integer_),
-    offers_home_hemodialysis_training = cheapr::val_match(offers_home_hemodialysis_training, "Yes" ~ 1L, "No" ~ 0L, .default = NA_integer_)) |>
+    offers_home_hemodialysis_training = cheapr::val_match(offers_home_hemodialysis_training, "Yes" ~ 1L, "No" ~ 0L, .default = NA_integer_)
+  ) |>
   collapse::slt(
     ccn = cms_certification_number_ccn,
     state,
@@ -45,11 +48,13 @@ esrd <- readr::read_csv(
     profit = profit_non,
     office = offers_in_center_hemodialysis,
     peri = offers_peritoneal_dialysis,
-    home = offers_home_hemodialysis_training)
+    home = offers_home_hemodialysis_training
+  )
 
 # esrd === 7,561 × 8 [1.500 MB]
 pin_update(
   esrd,
   name        = "esrd",
   title       = "Dialysis Facilities",
-  description = "Dialysis Facility - Listing by Facility 2025")
+  description = "Dialysis Facility - Listing by Facility 2025"
+)

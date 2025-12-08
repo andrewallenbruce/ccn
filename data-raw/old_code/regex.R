@@ -1,26 +1,27 @@
 # REGEX FOR EACH CCN STANDARD
 rm_brace <- \(x) stringr::str_remove_all(x, "[\\(\\)]")
 
-glue_rex <- function(state    = NULL,
-                     type     = NULL,
+glue_rex <- function(state = NULL,
+                     type = NULL,
                      sequence = NULL,
-                     parent   = NULL) {
+                     parent = NULL) {
   glue::glue("^", "{state}",
-             if (!is.null(type))   "[{type}]"   else "{type}",
-             if (!is.null(parent)) "[{parent}]" else "{parent}",
-             "{sequence}",
-             "$",
-             sep = "", .null = NULL)
+    if (!is.null(type)) "[{type}]" else "{type}",
+    if (!is.null(parent)) "[{parent}]" else "{parent}",
+    "{sequence}",
+    "$",
+    sep = "", .null = NULL
+  )
 }
 
-ccn_rex = list(
-  state     = "[0-9A-B][0-9]",
-  medicare  = list(sequence = "[0-9]{4}"),
-  organ     = list(type = "P", sequence = "[0-9]{3}"),
-  medicaid  = list(type = "ABEFGHJKL", sequence = "[0-9]{3}"),
-  supplier  = list(type = "CDX", sequence = "[0-9]{7}"),
+ccn_rex <- list(
+  state = "[0-9A-B][0-9]",
+  medicare = list(sequence = "[0-9]{4}"),
+  organ = list(type = "P", sequence = "[0-9]{3}"),
+  medicaid = list(type = "ABEFGHJKL", sequence = "[0-9]{3}"),
+  supplier = list(type = "CDX", sequence = "[0-9]{7}"),
   emergency = list(type = "EF", sequence = "[0-9]{3}"),
-  excluded  = list(
+  excluded = list(
     unit    = list(type = "MRSTUWYZ", sequence = "[0-9]{3}"),
     subunit = list(type = "MRSTUWYZ", parent = "ABCDEFGHJK", sequence = "[0-9]{2}")
   )
@@ -52,4 +53,4 @@ fastplyr::list_tidy(
   asc = stringr::str_replace(cap, "\\[CDX\\]", "C"),
   clia = stringr::str_replace(cap, "\\[CDX\\]", "D"),
   prxf = stringr::str_replace(cap, "\\[CDX\\]", "X")
-  )
+)

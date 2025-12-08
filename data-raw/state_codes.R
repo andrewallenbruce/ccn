@@ -107,6 +107,7 @@ state_codes <- tibble::tribble(
   "A9",  "TX",   "Texas",
   "B0",  "KY",   "Kentucky",
   "B1",  "WV",   "West Virginia",
-  "B2",  "CA",   "California")
+  "B2",  "CA",   "California"
+)
 
 usethis::use_data(state_codes, overwrite = TRUE)

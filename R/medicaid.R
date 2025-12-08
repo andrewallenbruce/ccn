@@ -17,47 +17,51 @@ NULL
 
 #' @noRd
 mof_type_abbr <- function(x) {
-  vs(x, ccn::medicaid_types$code, ccn::medicaid_types$abbr)
+  vs(x, ccn::medicaid_types[["code"]], ccn::medicaid_types[["abbr"]])
 }
 
 #' @noRd
 mof_type_desc <- function(x) {
-  vs(x, ccn::medicaid_types$code, ccn::medicaid_types$desc)
+  vs(x, ccn::medicaid_types[["code"]], ccn::medicaid_types[["desc"]])
 }
 
 #' @noRd
 moh_range <- function(x) {
-  ccn::medicaid_ranges$range[
+  ccn::medicaid_ranges[["range"]][
     data.table::between(
       as_int(x),
-      ccn::medicaid_ranges$start,
-      ccn::medicaid_ranges$end)]
+      ccn::medicaid_ranges[["start"]],
+      ccn::medicaid_ranges[["end"]]
+    )
+  ]
 }
 
 #' @noRd
 moh_range_abbr <- function(x) {
-  vs(x, ccn::medicaid_ranges$range, ccn::medicaid_ranges$abbr)
+  vs(x, ccn::medicaid_ranges[["range"]], ccn::medicaid_ranges[["abbr"]])
 }
 
 #' @noRd
 moh_range_desc <- function(x) {
-  vs(x, ccn::medicaid_ranges$range, ccn::medicaid_ranges$desc)
+  vs(x, ccn::medicaid_ranges[["range"]], ccn::medicaid_ranges[["desc"]])
 }
 
 #' @noRd
 TypeMOF <- S7::new_class(
-  name       = "TypeMOF",
-  parent     = Type,
+  name = "TypeMOF",
+  parent = Type,
   properties = list(
-    abbr     = S7::new_property(
+    abbr = S7::new_property(
       S7::class_character,
-      getter = function(self)
+      getter = function(self) {
         mof_type_abbr(self@code)
+      }
     ),
-    desc     = S7::new_property(
+    desc = S7::new_property(
       S7::class_character,
-      getter = function(self)
+      getter = function(self) {
         mof_type_desc(self@code)
+      }
     )
   )
 )
@@ -69,23 +73,26 @@ mof_type <- function(x) {
 
 #' @noRd
 RangeMOH <- S7::new_class(
-  name       = "RangeMOH",
-  parent     = Range,
+  name = "RangeMOH",
+  parent = Range,
   properties = list(
-    range    = S7::new_property(
+    range = S7::new_property(
       S7::class_character,
-      getter = function(self)
+      getter = function(self) {
         moh_range(self@number)
+      }
     ),
     abbr = S7::new_property(
       S7::class_character,
-      getter = function(self)
+      getter = function(self) {
         moh_range_abbr(self@range)
+      }
     ),
     desc = S7::new_property(
       S7::class_character,
-      getter = function(self)
+      getter = function(self) {
         moh_range_desc(self@range)
+      }
     )
   )
 )
@@ -108,8 +115,7 @@ medicaid <- function(x) {
     ccn      = x,
     state    = state(x),
     sequence = substr(x, 4L, 6L),
-    range    = if (is_moh_type(substr_(x, 3L))) range_moh(x) else range_mof(x),
-    type     = mof_type(substr_(x, 3L))
+    range    = if (is_moh_type(str3(x))) range_moh(x) else range_mof(x),
+    type     = mof_type(str3(x))
   )
 }
-

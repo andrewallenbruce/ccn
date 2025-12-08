@@ -17,13 +17,16 @@ irf <- readr::read_csv(
     Footnote                         = readr::col_character(),
     `Start Date`                     = readr::col_character(),
     `End Date`                       = readr::col_character(),
-    `Measure Date Range`             = readr::col_character())) |>
+    `Measure Date Range`             = readr::col_character()
+  )
+) |>
   janitor::clean_names() |>
   collapse::mtt(address = providertwo:::make_address(address_line_1, address_line_2)) |>
   collapse::slt(
     ccn = cms_certification_number_ccn,
     provider_name,
-    state) |>
+    state
+  ) |>
   collapse::funique()
 
 # irf === 1,221 × 3  [213.7 KB]
@@ -31,4 +34,5 @@ pin_update(
   irf,
   name        = "irf",
   title       = "Inpatient Rehabilitation Facility",
-  description = "Inpatient Rehabilitation Facility - Provider Data")
+  description = "Inpatient Rehabilitation Facility - Provider Data"
+)

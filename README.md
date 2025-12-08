@@ -6,8 +6,6 @@
 <b>c</b>:<b>c</b>:<b>n</b>
 </h1>
 
-> Parse **CMS Certification Numbers** in R
-
 <br>
 
 <!-- badges: start -->

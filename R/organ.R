@@ -18,12 +18,8 @@ org_range <- function(x) {
 org_type <- function(x) {
   Type(
     code = x,
-    abbr = kit::iif(is_organ_type(x), "OPO", NA_character_),
-    desc = kit::iif(
-      is_organ_type(x),
-      "Organ Procurement Organization",
-      NA_character_
-    )
+    abbr = is_in(is_organ_type(x), "OPO"),
+    desc = is_in(is_organ_type(x), "Organ Procurement Organization")
   )
 }
 
@@ -35,6 +31,6 @@ organ <- function(x) {
     state    = state(x),
     sequence = substr(x, 4L, 6L),
     range    = org_range(x),
-    type     = org_type(substr_(x, 3L))
+    type     = org_type(str3(x))
   )
 }

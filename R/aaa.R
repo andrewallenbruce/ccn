@@ -5,13 +5,15 @@ State <- S7::new_class(
     code = S7::class_character,
     abbr = S7::new_property(
       S7::class_character,
-      getter = function(self)
+      getter = function(self) {
         state_abbr(self@code)
+      }
     ),
     name = S7::new_property(
       S7::class_character,
-      getter = function(self)
+      getter = function(self) {
         state_name(self@code)
+      }
     )
   )
 )
@@ -21,7 +23,7 @@ Extension <- S7::new_property(S7::class_character, default = NA_character_)
 
 #' @noRd
 Range <- S7::new_class(
-  name       = "Range",
+  name = "Range",
   properties = list(
     number   = S7::class_character,
     range    = S7::class_character,
@@ -32,7 +34,7 @@ Range <- S7::new_class(
 
 #' @noRd
 Type <- S7::new_class(
-  name       = "Type",
+  name = "Type",
   properties = list(
     code     = S7::class_character,
     abbr     = S7::class_character,
@@ -42,8 +44,8 @@ Type <- S7::new_class(
 
 #' @noRd
 CCN <- S7::new_class(
-  name        = "CCN",
-  properties  = list(
+  name = "CCN",
+  properties = list(
     ccn       = S7::class_character,
     state     = State,
     sequence  = S7::class_character,
@@ -60,8 +62,8 @@ Medicare <- S7::new_class(
 
 #' @noRd
 Supplier <- S7::new_class(
-  name       = "Supplier",
-  parent     = CCN,
+  name = "Supplier",
+  parent = CCN,
   properties = list(
     type     = Type,
     ext      = Extension
@@ -98,8 +100,8 @@ Unit <- S7::new_class(
 
 #' @noRd
 Subunit <- S7::new_class(
-  name        = "Subunit",
-  properties  = list(
+  name = "Subunit",
+  properties = list(
     ccn       = S7::class_character,
     type      = Type
   )

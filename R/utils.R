@@ -13,9 +13,17 @@ vs <- function(x, v, o) {
 # if_in(x, c(1L, 999L), "0001-0009")
 #' @noRd
 if_in <- function(x, rng, lbl) {
-  stopifnot("rng = c(1L, 999L)" = length(rng) == 2L,
-            'lbl = "0001-0009"' = length(lbl) == 1L)
+  stopifnot(
+    "rng = c(1L, 999L)" = length(rng) == 2L,
+    'lbl = "0001-0009"' = length(lbl) == 1L
+  )
   kit::iif(as.integer(x) %between% rng, lbl, NA_character_, nThread = 4L)
+}
+
+# is_in(is_organ_type(x), "OPO")
+#' @noRd
+is_in <- function(x, txt) {
+  kit::iif(x, txt, NA_character_, nThread = 4L)
 }
 
 #' @noRd
@@ -75,25 +83,22 @@ qs_url <- function(url) qs::qread_url(url)
 
 #' @noRd
 mount_board <- function(source = c("local", "remote")) {
-  switch(
-    match.arg(source),
+  switch(match.arg(source),
     local = pins::board_folder(fs::path_package(
       "extdata/pins",
       package = "ccn"
-      )
-    ),
+    )),
     remote = pins::board_url(paste0(
       "https://raw.githubusercontent.com/",
       "andrewallenbruce/ccn/master/inst/extdata/pins/"
-      )
-    )
+    ))
   )
 }
 
 #' @noRd
 get_pin <- function(pin, ...) {
   board <- mount_board(...)
-  pin   <- rlang::arg_match0(pin, list_pins())
+  pin <- rlang::arg_match0(pin, list_pins())
   pins::pin_read(board, pin)
 }
 

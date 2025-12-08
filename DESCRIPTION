@@ -34,6 +34,7 @@ Collate:
     'ccn-package.R'
     'data.R'
     'emergency.R'
+    'init.R'
     'is_type.R'
     'medicaid.R'
     'medicare.R'

@@ -43,14 +43,16 @@ eipps_unit <- tibble::tribble(
   "V",   "ADU (Ret.)",  "Alcohol-Drug Unit (Retired)",
   "W",   "LTCH",        "Swing-Bed Approval for Long-Term Care Hospital",
   "Y",   "IRF",         "Swing-Bed Approval for Rehabilitation Hospital",
-  "Z",   "CAH",         "Swing-Bed Approval for Critical Access Hospital")
+  "Z",   "CAH",         "Swing-Bed Approval for Critical Access Hospital"
+)
 
 usethis::use_data(eipps_unit, overwrite = TRUE)
 
 eipps_subunit <- tibble::tibble(
-  code  = c("A", "B", "C", "D", "E", "F", "G", "H", "J", "K"),
+  code = c("A", "B", "C", "D", "E", "F", "G", "H", "J", "K"),
   prefix = c(20:22, "30", "33", 40:44),
-  abbr = c(rep.int("LTCH", 3), "IRF", "CH", rep.int("PH", 5)))
+  abbr = c(rep.int("LTCH", 3), "IRF", "CH", rep.int("PH", 5))
+)
 
 usethis::use_data(eipps_subunit, overwrite = TRUE)
 
@@ -74,25 +76,26 @@ usethis::use_data(eipps_subunit, overwrite = TRUE)
 #'
 #' Note: This table does not apply to CAHs.
 rehab_unit_range <- tibble::tribble(
-  ~medicare_range,   ~medicare_abbr,   ~unit_type,    ~parent_code,     ~rehab_unit_range,
-  "2000-2099",       "LTC (EIPPS)",    "T",                    "A",    "00-99",
-  "2100-2199",       "LTC (EIPPS)",    "T",                    "B",    "00-99",
-  "2200-2299",       "LTC (EIPPS)",    "T",                    "C",    "00-99",
-  "3300-3399",       "CH (EIPPS)",     "T",                    "E",    "00-99",
-  "4400-4499",       "PH (EIPPS)",     "T",                    "K",    "00-99",
-  "4000-4099",       "PH (EIPPS)",     "T",                    "F",    "00-99",
-  "4100-4199",       "PH (EIPPS)",     "T",                    "G",    "00-99",
-  "4200-4299",       "PH (EIPPS)",     "T",                    "H",    "00-99",
-  "4300-4399",       "PH (EIPPS)",     "T",                    "J",    "00-99"
+  ~medicare_range, ~medicare_abbr, ~unit_type, ~parent_code, ~rehab_unit_range,
+  "2000-2099", "LTC (EIPPS)", "T", "A", "00-99",
+  "2100-2199", "LTC (EIPPS)", "T", "B", "00-99",
+  "2200-2299", "LTC (EIPPS)", "T", "C", "00-99",
+  "3300-3399", "CH (EIPPS)", "T", "E", "00-99",
+  "4400-4499", "PH (EIPPS)", "T", "K", "00-99",
+  "4000-4099", "PH (EIPPS)", "T", "F", "00-99",
+  "4100-4199", "PH (EIPPS)", "T", "G", "00-99",
+  "4200-4299", "PH (EIPPS)", "T", "H", "00-99",
+  "4300-4399", "PH (EIPPS)", "T", "J", "00-99"
 )
 
 psych_unit_range <- tibble::tribble(
-  ~medicare_range,   ~medicare_abbr,   ~unit_type,    ~parent_code,     ~psych_unit_range,
-  "2000-2099",       "LTC (EIPPS)",    "S",                    "A",    "00-99",
-  "2100-2199",       "LTC (EIPPS)",    "S",                    "B",    "00-99",
-  "2200-2299",       "LTC (EIPPS)",    "S",                    "C",    "00-99",
-  "3025-3099",       "PH (EIPPS)",     "S",                    "D",    "00-99",
-  "3300-3399",       "CH (EIPPS)",     "S",                    "E",    "00-99")
+  ~medicare_range, ~medicare_abbr, ~unit_type, ~parent_code, ~psych_unit_range,
+  "2000-2099", "LTC (EIPPS)", "S", "A", "00-99",
+  "2100-2199", "LTC (EIPPS)", "S", "B", "00-99",
+  "2200-2299", "LTC (EIPPS)", "S", "C", "00-99",
+  "3025-3099", "PH (EIPPS)", "S", "D", "00-99",
+  "3300-3399", "CH (EIPPS)", "S", "E", "00-99"
+)
 
 #' NOTE: An IPPS-excluded hospital may not have an IPPS-excluded unit of the
 #' same type (psychiatric or rehabilitation) as the hospital (for example, an

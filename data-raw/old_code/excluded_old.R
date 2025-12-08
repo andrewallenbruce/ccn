@@ -2,14 +2,16 @@
 #' @export
 get_parent_prefix <- function(x) {
   unlist_(EXCLUDED$PARENT)[seq_along(EXCLUDED$PARENT) %% 2L == 0L][
-    collapse::fmatch(substr_(x, 4L), rlang::names2(EXCLUDED$PARENT))]
+    collapse::fmatch(substr_(x, 4L), rlang::names2(EXCLUDED$PARENT))
+  ]
 }
 
 #' @rdname parent
 #' @export
 get_parent_abbr <- function(x) {
   unlist_(EXCLUDED$PARENT)[seq_along(EXCLUDED$PARENT) %% 2L == 1L][
-    collapse::fmatch(substr_(x, 4L), rlang::names2(EXCLUDED$PARENT))]
+    collapse::fmatch(substr_(x, 4L), rlang::names2(EXCLUDED$PARENT))
+  ]
 }
 
 #' @rdname parent

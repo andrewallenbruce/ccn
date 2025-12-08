@@ -39,7 +39,9 @@ hosp_info <- readr::read_csv(
     `Pt Exp Group Footnote`                            = readr::col_double(),
     `TE Group Measure Count`                           = readr::col_character(),
     `Count of Facility TE Measures`                    = readr::col_character(),
-    `TE Group Footnote`                                = readr::col_double())) |>
+    `TE Group Footnote`                                = readr::col_double()
+  )
+) |>
   janitor::clean_names() |>
   collapse::mtt(
     emergency_services = cheapr::val_match(emergency_services, "Yes" ~ 1L, "No" ~ 0L, .default = NA_integer_),
@@ -64,4 +66,5 @@ pin_update(
   hosp_info,
   name        = "hosp_info",
   title       = "Hospital Information",
-  description = "Hospital General Information 2025")
+  description = "Hospital General Information 2025"
+)

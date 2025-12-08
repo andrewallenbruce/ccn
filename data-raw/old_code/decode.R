@@ -1,14 +1,17 @@
 as_ccn_provider <- function(x) {
-  CCN(ccn = substr_(x, c(1L, 6L)),
-      state = State(code = substr_(x, c(1L, 2L))),
-      extension = substr_(x, c(7L, nchar(x)))
-      )
+  CCN(
+    ccn = substr_(x, c(1L, 6L)),
+    state = State(code = substr_(x, c(1L, 2L))),
+    extension = substr_(x, c(7L, nchar(x)))
+  )
 }
 
 as_ccn_supplier <- function(x) {
-  CCN(ccn = substr_(x, c(1L, 10L)),
-      state = State(code = substr_(x, c(1L, 2L))),
-      extension = substr_(x, c(11L, nchar(x))))
+  CCN(
+    ccn = substr_(x, c(1L, 10L)),
+    state = State(code = substr_(x, c(1L, 2L))),
+    extension = substr_(x, c(11L, nchar(x)))
+  )
 }
 
 #' Decode CMS Certification Numbers (CCNs)
@@ -50,8 +53,7 @@ decode <- function(x) {
   x <- clean(x)
 
   if (is_provider_nchar(x)) {
-    return(switch(
-      provider_type(x@ccn),
+    return(switch(provider_type(x@ccn),
       medicare  = as_medicare(x),
       opo       = as_medicare_opo(x),
       emergency = as_emergency(x),

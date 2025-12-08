@@ -1,9 +1,9 @@
 library(collapse)
 
 asc <- readr::read_csv(
-  file                            = fs::path("C:/Users/Andrew/Downloads/ASC_Facility.csv"),
-  num_threads                     = 4L,
-  col_types                       = readr::cols(
+  file = fs::path("C:/Users/Andrew/Downloads/ASC_Facility.csv"),
+  num_threads = 4L,
+  col_types = readr::cols(
     `Facility Name`               = readr::col_character(),
     `Facility ID`                 = readr::col_character(),
     NPI                           = readr::col_integer(),
@@ -53,7 +53,9 @@ asc <- readr::read_csv(
     `ASC-19 Footnote`             = readr::col_double(),
     `ASC-20 Sample`               = readr::col_double(),
     `ASC-20 Rate*`                = readr::col_character(),
-    `ASC-20 Footnote`             = readr::col_double())) |>
+    `ASC-20 Footnote`             = readr::col_double()
+  )
+) |>
   janitor::clean_names() |>
   collapse::slt(ccn = facility_id, state, facility_name) |>
   collapse::funique() |>
@@ -64,4 +66,5 @@ pin_update(
   asc,
   name        = "asc",
   title       = "Ambulatory Surgical Centers",
-  description = "Ambulatory Surgical Center Quality Measures - Facility")
+  description = "Ambulatory Surgical Center Quality Measures - Facility"
+)

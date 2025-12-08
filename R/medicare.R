@@ -13,42 +13,47 @@ NULL
 
 #' @noRd
 medicare_range <- function(x) {
-  ccn::medicare_ranges$range[
+  ccn::medicare_ranges[["range"]][
     data.table::between(
       as_int(x),
-      ccn::medicare_ranges$start,
-      ccn::medicare_ranges$end)]
+      ccn::medicare_ranges[["start"]],
+      ccn::medicare_ranges[["end"]]
+    )
+  ]
 }
 
 #' @noRd
 medicare_range_abbr <- function(x) {
-  vs(x, ccn::medicare_ranges$range, ccn::medicare_ranges$abbr)
+  vs(x, ccn::medicare_ranges[["range"]], ccn::medicare_ranges[["abbr"]])
 }
 
 #' @noRd
 medicare_range_desc <- function(x) {
-  vs(x, ccn::medicare_ranges$range, ccn::medicare_ranges$desc)
+  vs(x, ccn::medicare_ranges[["range"]], ccn::medicare_ranges[["desc"]])
 }
 
 #' @noRd
 RangeMDC <- S7::new_class(
-  name       = "RangeMDC",
-  parent     = Range,
+  name = "RangeMDC",
+  parent = Range,
   properties = list(
-    range    = S7::new_property(
+    range = S7::new_property(
       S7::class_character,
-      getter = function(self)
+      getter = function(self) {
         medicare_range(self@number)
+      }
     ),
-    abbr     = S7::new_property(
+    abbr = S7::new_property(
       S7::class_character,
-      getter = function(self)
+      getter = function(self) {
         medicare_range_abbr(self@range)
+      }
     ),
-    desc     = S7::new_property(
+    desc = S7::new_property(
       S7::class_character,
-      getter = function(self)
+      getter = function(self) {
         medicare_range_desc(self@range)
+      }
     )
   )
 )
@@ -62,8 +67,8 @@ range_mdc <- function(x) {
 #' @export
 medicare <- function(x) {
   Medicare(
-    ccn      = x,
-    state    = state(x),
+    ccn = x,
+    state = state(x),
     sequence = substr(x, 3L, 6L),
     range = range_mdc(substr(x, 3L, 6L))
   )

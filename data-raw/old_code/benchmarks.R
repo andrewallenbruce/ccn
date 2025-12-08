@@ -5,7 +5,8 @@ list_pins()
 ltch <- get_pin("ltch")
 
 bench::mark(
-  medicare = purrr::map(ltch$ccn, medicare))
+  medicare = purrr::map(ltch$ccn, medicare)
+)
 
 x <- purrr::map(ltch$ccn, medicare)
 

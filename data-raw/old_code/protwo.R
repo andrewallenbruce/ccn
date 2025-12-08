@@ -26,8 +26,8 @@ ccn_dataset_info |>
   collapse::sbt(catalog == "prov") |>
   collapse::fcount(alias) |>
   print(n = Inf)
-  # collapse::roworder(alias) |>
-  collapse::sbt(title == "Medicare Durable Medical Equipment, Devices & Supplies - by Supplier") |>
+# collapse::roworder(alias) |>
+collapse::sbt(title == "Medicare Durable Medical Equipment, Devices & Supplies - by Supplier") |>
   collapse::fcount(alias, field) |>
   print(n = Inf)
 
@@ -36,7 +36,8 @@ ccn_dataset_info |>
     catalog != "open" &
       point == "temporal" &
       stringr::str_detect(field, "ccn|CCN|Ccn|certification_number") &
-      stringr::str_detect(alias, "_chow$", negate = TRUE)) |>
+      stringr::str_detect(alias, "_chow$", negate = TRUE)
+  ) |>
   collapse::funique(cols = "alias") |>
   collapse::roworder(catalog, point, alias) |>
   collapse::slt(catalog, alias, title)
@@ -47,12 +48,14 @@ ccn_dataset_info |>
   _$alias |>
   cat(sep = "\n")
 
-c("fqhc_enroll",
+c(
+  "fqhc_enroll",
   "hha_enroll",
   "hosp_enroll",
   "rhc_enroll",
   "snf_enroll",
-  "spice_enroll")
+  "spice_enroll"
+)
 
 # "dial_facility"
 # "hha_cost"

@@ -1,7 +1,7 @@
 hosp <- readr::read_csv(
   file = fs::path("C:/Users/Andrew/Downloads/Hospital_Enrollments_2025.10.01.csv"),
-  num_threads                        = 4L,
-  col_types                          = readr::cols(
+  num_threads = 4L,
+  col_types = readr::cols(
     `ENROLLMENT ID`                  = readr::col_character(),
     `ENROLLMENT STATE`               = readr::col_character(),
     `PROVIDER TYPE CODE`             = readr::col_character(),
@@ -40,7 +40,9 @@ hosp <- readr::read_csv(
     `SUBGROUP - OTHER TEXT`          = readr::col_character(),
     `REH CONVERSION FLAG`            = readr::col_character(),
     `REH CONVERSION DATE`            = readr::col_character(),
-    `CAH OR HOSPITAL CCN`            = readr::col_character())) |>
+    `CAH OR HOSPITAL CCN`            = readr::col_character()
+  )
+) |>
   janitor::clean_names() |>
   collapse::mtt(
     inc_date = readr::parse_date(incorporation_date, format = "%m/%d/%Y"),
@@ -71,7 +73,7 @@ hosp <- readr::read_csv(
       !is.na(location_other_type_text),
       as.character(glue::glue("Other: {location_other_type_text}")),
       practice_location_type
-      )
+    )
   ) |>
   collapse::slt(
     # npi,
@@ -109,14 +111,16 @@ hosp <- readr::read_csv(
     SBA = subgroup_swing_bed_approved,
     PH = subgroup_psychiatric,
     `PH Unit` = subgroup_psychiatric_unit,
-    `IRF Unit` = subgroup_rehabilitation_unit)
+    `IRF Unit` = subgroup_rehabilitation_unit
+  )
 
 # hosp === 9,217 × 22 [2.1 MB]
 pin_update(
   hosp,
   name        = "hosp",
   title       = "Hospital Enrollments",
-  description = "Hospital Enrollments 2025")
+  description = "Hospital Enrollments 2025"
+)
 
 #############################################
 #    facility_type     N
@@ -162,16 +166,17 @@ collapse::slt(hosp, ccn:sub_otxt) |>
 hosp <- collapse::mtt(hosp, i = seq_len(nrow(hosp))) |>
   collapse::mtt(has_alpha = stringr::str_detect(ccn, "[A-Z]")) |>
   collapse::colorder(i) |>
-  collapse::rsplit(~ has_alpha) |>
+  collapse::rsplit(~has_alpha) |>
   rlang::set_names(c("numeric_ccn", "alphanumeric_ccn"))
 
 hosp$other_ccn <- collapse::rowbind(
   collapse::sbt(hosp$alphanumeric_ccn, !is.na(sub_otxt)),
   collapse::sbt(hosp$numeric_ccn, !is.na(sub_otxt)),
-  fill = TRUE)
+  fill = TRUE
+)
 
 hosp$alphanumeric_ccn <- collapse::sbt(hosp$alphanumeric_ccn, i %!iin% hosp$other_ccn$i)
-hosp$numeric_ccn      <- collapse::sbt(hosp$numeric_ccn, i %!iin% hosp$other_ccn$i)
+hosp$numeric_ccn <- collapse::sbt(hosp$numeric_ccn, i %!iin% hosp$other_ccn$i)
 
 # reh_date is all NA
 hosp$alphanumeric_ccn <- hosp$alphanumeric_ccn[, !cheapr::col_all_na(hosp$alphanumeric_ccn)]
@@ -188,7 +193,7 @@ fastplyr::new_tbl(
   state = get_state_code(ccn),
   state_nm = get_state_name(state),
   three = get_three(ccn),
-  four  = get_four(ccn),
+  four = get_four(ccn),
   six = get_six(ccn),
   alpha3 = is_letter(three) |> as.integer(),
   alpha4 = is_letter(four) |> as.integer(),
@@ -199,11 +204,11 @@ fastplyr::new_tbl(
   print(n = Inf)
 
 # both enid and ccn are unique
-x   <- colnames(hosp$numeric_ccn)
+x <- colnames(hosp$numeric_ccn)
 sub <- x[startsWith(x, "sub")]
 
 sub_numeric <- hosp$numeric_ccn |>
-  collapse::slt(c('i', 'ccn', sub))
+  collapse::slt(c("i", "ccn", sub))
 
 sub_numeric |>
   collapse::slt(-sub_otxt) |>

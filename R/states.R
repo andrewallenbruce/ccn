@@ -12,22 +12,17 @@
 NULL
 
 #' @noRd
-str_state <- function(x) {
-  substr(x, 1L, 2L)
-}
-
-#' @noRd
 state_abbr <- function(x) {
-  vs(x, ccn::state_codes$code, ccn::state_codes$abbr)
+  vs(x, ccn::state_codes[["code"]], ccn::state_codes[["abbr"]])
 }
 
 #' @noRd
 state_name <- function(x) {
-  vs(x, ccn::state_codes$code, ccn::state_codes$name)
+  vs(x, ccn::state_codes[["code"]], ccn::state_codes[["name"]])
 }
 
 #' @rdname state
 #' @export
 state <- function(x) {
-  State(code = str_state(x))
+  State(code = str_ste(x))
 }
