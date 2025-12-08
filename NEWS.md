@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9049 (2025-12-08)
+
+* `init` sketch
+
+
 # ccn 0.0.0.9048 (2025-12-07)
 
 * `ccn_` sketch of S7 initial parser
