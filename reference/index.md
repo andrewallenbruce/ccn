@@ -20,6 +20,14 @@
   [`parse_unit()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
   [`parse_subunit()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
   : Parse CMS Certification Numbers
+- [`slice_medicare()`](https://andrewallenbruce.github.io/ccn/reference/slice.md)
+  [`slice_organ()`](https://andrewallenbruce.github.io/ccn/reference/slice.md)
+  [`slice_emergency()`](https://andrewallenbruce.github.io/ccn/reference/slice.md)
+  [`slice_supplier()`](https://andrewallenbruce.github.io/ccn/reference/slice.md)
+  [`slice_medicaid()`](https://andrewallenbruce.github.io/ccn/reference/slice.md)
+  [`slice_unit()`](https://andrewallenbruce.github.io/ccn/reference/slice.md)
+  [`slice_subunit()`](https://andrewallenbruce.github.io/ccn/reference/slice.md)
+  : Slice CMS Certification Numbers
 - [`state()`](https://andrewallenbruce.github.io/ccn/reference/state.md)
   : State Codes
 - [`subunit()`](https://andrewallenbruce.github.io/ccn/reference/subunit.md)
