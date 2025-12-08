@@ -220,3 +220,8 @@
 - fix: another
   [`medicaid()`](https://andrewallenbruce.github.io/ccn/reference/medicaid.md)
   bug
+
+## ccn 0.0.0.9048 (2025-12-07)
+
+- `ccn_` sketch of S7 initial parser
+- added `air` as formatter
