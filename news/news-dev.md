@@ -225,3 +225,7 @@
 
 - `ccn_` sketch of S7 initial parser
 - added `air` as formatter
+
+## ccn 0.0.0.9049 (2025-12-08)
+
+- `init` sketch

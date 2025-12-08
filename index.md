@@ -1,7 +1,5 @@
 # **c**:**c**:**n**
 
-> Parse **CMS Certification Numbers** in R
-
   
 
 ## 📦 Installation

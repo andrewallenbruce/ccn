@@ -4,6 +4,8 @@
 
 - [`emergency()`](https://andrewallenbruce.github.io/ccn/reference/emergency.md)
   : Emergency Hospital CCNs
+- [`init()`](https://andrewallenbruce.github.io/ccn/reference/init.md) :
+  Init CCN Parser
 - [`medicaid()`](https://andrewallenbruce.github.io/ccn/reference/medicaid.md)
   : Medicaid-Only Facilities
 - [`medicare()`](https://andrewallenbruce.github.io/ccn/reference/medicare.md)
