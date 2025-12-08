@@ -233,3 +233,8 @@
 ## ccn 0.0.0.9050 (2025-12-08)
 
 - `slice` sketch
+
+## ccn 0.0.0.9051 (2025-12-08)
+
+- [`slice()`](https://andrewallenbruce.github.io/ccn/reference/slice.md)
+  implementation
