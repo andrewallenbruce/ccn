@@ -1,5 +1,11 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9048 (2025-12-07)
+
+* `ccn_` sketch of S7 initial parser
+* added `air` as formatter
+
+
 # ccn 0.0.0.9047 (2025-12-07)
 
 * fix: another `medicaid()` bug
