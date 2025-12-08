@@ -68,7 +68,7 @@ has_hyphen <- function(x) {
 
 #' @noRd
 remove_hyphen <- function(x) {
-  if (has_hyphen(x)) gsub("-", "", x, fixed = TRUE) else x
+  gsub("-", "", x, fixed = TRUE)
 }
 
 #' @noRd

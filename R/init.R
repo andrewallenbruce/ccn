@@ -13,7 +13,7 @@ ccn_type <- function(x) {
 #' @noRd
 provider_type <- function(x) {
   kit::nif(
-    is_numeric(x), "medicare",
+    is_numeric(slice_provider(x)), "medicare",
     is_organ_type(str3(x)), "organ",
     is_emergency_type(str6(x)), "emergency",
     is_medicaid_type(str3(x)), "medicaid",

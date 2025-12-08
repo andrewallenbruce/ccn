@@ -2,15 +2,30 @@
 % Please edit documentation in R/slice.R
 \name{slice}
 \alias{slice}
+\alias{provider_slice}
+\alias{ccn_slice}
+\alias{slice_provider}
+\alias{slice_provider_ext}
 \alias{slice_medicare}
 \alias{slice_organ}
 \alias{slice_emergency}
 \alias{slice_supplier}
+\alias{slice_supplier_ext}
 \alias{slice_medicaid}
 \alias{slice_unit}
 \alias{slice_subunit}
 \title{Slice CMS Certification Numbers}
 \usage{
+slice(x)
+
+provider_slice(x)
+
+ccn_slice(x)
+
+slice_provider(x)
+
+slice_provider_ext(x)
+
 slice_medicare(x)
 
 slice_organ(x)
@@ -18,6 +33,8 @@ slice_organ(x)
 slice_emergency(x)
 
 slice_supplier(x)
+
+slice_supplier_ext(x)
 
 slice_medicaid(x)
 
@@ -35,11 +52,13 @@ character vector of names associated with codes.
 Convert various codes to their associated names.
 }
 \examples{
-slice_medicare("670055")
-slice_organ("05P001")
-slice_emergency("12345E")
-slice_supplier("10C0001062")
-slice_medicaid("A5J508")
-slice_unit("21T101")
-slice_subunit("02TA01")
+slice("670055")
+slice("05P001")
+slice("12345E")
+slice("10C0001062")
+slice("A5J508")
+slice("21T101")
+slice("02TA01")
+slice("240019A")
+slice("330125001")
 }
