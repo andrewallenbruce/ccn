@@ -9,7 +9,6 @@ ccn_type <- function(x) {
   )
 }
 
-
 #' @noRd
 provider_type <- function(x) {
   kit::nif(

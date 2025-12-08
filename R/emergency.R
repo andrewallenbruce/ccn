@@ -35,7 +35,11 @@ emergency_type <- function(x) {
   Type(
     code = x,
     abbr = vs(x, c("E", "F"), c("NFEH", "FEH")),
-    desc = vs(x, c("E", "F"), c("Non-Federal Emergency Hospital", "Federal Emergency Hospital"))
+    desc = vs(
+      x,
+      c("E", "F"),
+      c("Non-Federal Emergency Hospital", "Federal Emergency Hospital")
+    )
   )
 }
 
@@ -48,10 +52,10 @@ emergency_range <- function(x) {
 #' @export
 emergency <- function(x) {
   Emergency(
-    ccn      = x,
-    state    = state(x),
+    ccn = x,
+    state = state(x),
     sequence = substr(x, 3L, 5L),
-    range    = emergency_range(x),
-    type     = emergency_type(str6(x))
+    range = emergency_range(x),
+    type = emergency_type(str6(x))
   )
 }

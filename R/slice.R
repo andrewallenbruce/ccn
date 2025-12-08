@@ -64,17 +64,21 @@ slice_provider_ext <- function(x) {
   x <- substring(x, c(1L, 7L), c(6L, 9L))
 
   ext <- x[2]
-  x   <- x[1]
+  x <- x[1]
 
-  c(switch(provider_type(x),
+  c(
+    switch(
+      provider_type(x),
       medicare = slice_medicare(x),
       organ = slice_organ(x),
       emergency = slice_emergency(x),
       medicaid = slice_medicaid(x),
       unit = slice_unit(x),
       subunit = slice_subunit(x),
-      cli::cli_abort("CCN type not recognized: {(x)}")),
-    ext)
+      cli::cli_abort("CCN type not recognized: {(x)}")
+    ),
+    ext
+  )
 }
 
 # Medicare Provider: 670055 -> 67 0055
