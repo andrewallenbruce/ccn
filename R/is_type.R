@@ -48,7 +48,6 @@ nchar_supplier_ext <- function(x) {
   nchar(x) %between% c(11L, 14L)
 }
 
-
 #' @noRd
 is_supplier_type <- function(x) {
   x %chin% c("C", "D", "X")

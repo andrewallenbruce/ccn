@@ -41,3 +41,40 @@ purrr::map_chr(x, ~ purrr::pluck(.x, "entity"))
 purrr::map_chr(x, ~ purrr::pluck(.x, "X1"))
 purrr::map_chr(x, ~ purrr::pluck(.x, "X2"))
 purrr::map_chr(x, ~ purrr::pluck(.x, "X3"))
+
+
+"05P001" |>
+  substring(
+    c(1L, 3L, 4L),
+    c(2L, 3L, 6L)
+  )
+
+"A5J508" |>
+  substring(
+    c(1L, 3L, 4L),
+    c(2L, 3L, 6L)
+  )
+
+"21T101" |>
+  substring(
+    c(1L, 3L, 4L),
+    c(2L, 3L, 6L)
+  )
+
+"02TA01" |>
+  substring(
+    c(1L, 3L, 4L, 5L),
+    c(2L, 3L, 4L, 6L)
+  )
+
+"12345E" |>
+  substring(
+    c(1L, 3L, 6L),
+    c(2L, 5L, 6L)
+  )
+
+"10C0001062" |>
+  substring(
+    c(1L, 3L, 4L),
+    c(2L, 3L, 10L)
+  )
