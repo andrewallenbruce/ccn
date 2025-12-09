@@ -238,3 +238,7 @@
 
 - [`slice()`](https://andrewallenbruce.github.io/ccn/reference/slice.md)
   implementation
+
+## ccn 0.0.0.9052 (2025-12-09)
+
+- updated state codes internal data
