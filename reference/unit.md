@@ -47,7 +47,7 @@ unit("21T101")
 #>  @ type    : <ccn::Type>
 #>  .. @ code: chr "T"
 #>  .. @ abbr: chr "IRF"
-#>  .. @ desc: chr "Rehabilitation Unit (Excluded from IPPS)"
+#>  .. @ desc: chr "Rehabilitation Unit (IPPS-Excluded)"
 unit("21S101")
 #> <ccn::Unit>
 #>  @ ccn     : chr "21S101"
@@ -59,8 +59,8 @@ unit("21S101")
 #>  @ range   : chr "0001-0009"
 #>  @ type    : <ccn::Type>
 #>  .. @ code: chr "S"
-#>  .. @ abbr: chr "PU"
-#>  .. @ desc: chr "Psychiatric Unit (Excluded from IPPS)"
+#>  .. @ abbr: chr "PSY"
+#>  .. @ desc: chr "Psychiatric Unit (IPPS-Excluded)"
 unit("21U101")
 #> <ccn::Unit>
 #>  @ ccn     : chr "21U101"
@@ -72,6 +72,6 @@ unit("21U101")
 #>  @ range   : chr "0001-0009"
 #>  @ type    : <ccn::Type>
 #>  .. @ code: chr "U"
-#>  .. @ abbr: chr "STH"
-#>  .. @ desc: chr "Swing-Bed Approval for Short-Term Hospital"
+#>  .. @ abbr: chr "SBA"
+#>  .. @ desc: chr "Swing-Bed Approval - Short-Term Hospital"
 ```
