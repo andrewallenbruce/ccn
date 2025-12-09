@@ -50,6 +50,12 @@ hosp <- readr::read_csv(
     inc_date = readr::parse_date(incorporation_date, format = "%m/%d/%Y"),
     inc_state = incorporation_state,
     address = providertwo:::make_address(address_line_1, address_line_2),
+    proprietary_nonprofit = cheapr::val_match(
+      proprietary_nonprofit,
+      "P" ~ 1L,
+      "N" ~ 0L,
+      .default = NA_integer_
+    ),
     multi_npi = cheapr::val_match(
       multiple_npi_flag,
       "Y" ~ 1L,
@@ -93,9 +99,10 @@ hosp <- readr::read_csv(
     # enid_state = enrollment_state,
     # pac = associate_id,
     ccn,
-    org_name = organization_name,
-    prop_non = proprietary_nonprofit,
-    org_type = organization_type_structure,
+    prop = proprietary_nonprofit,
+    state,
+    name = organization_name,
+    org = organization_type_structure,
     # org_dba = doing_business_as_name,
     # org_otxt = organization_other_type_text,
     # address,
@@ -106,8 +113,7 @@ hosp <- readr::read_csv(
     # loc_otxt = location_other_type_text,
     # multi_npi,
     # reh_date,
-    state,
-    loc_type = practice_location_type,
+    location = practice_location_type,
     reh_ccns = cah_or_hospital_ccn,
     sub_otxt = subgroup_other_text,
     REH = reh_flag,
@@ -117,16 +123,48 @@ hosp <- readr::read_csv(
     Acute = subgroup_acute_care,
     STC = subgroup_short_term,
     ADH = subgroup_alcohol_drug,
-    CH = subgroup_childrens,
+    Childs = subgroup_childrens,
     LTC = subgroup_long_term,
     IRF = subgroup_rehabilitation,
-    SBA = subgroup_swing_bed_approved,
-    PH = subgroup_psychiatric,
-    `PH Unit` = subgroup_psychiatric_unit,
+    `Swing Bed` = subgroup_swing_bed_approved,
+    Psych = subgroup_psychiatric,
+    `Psych Unit` = subgroup_psychiatric_unit,
     `IRF Unit` = subgroup_rehabilitation_unit
   )
 
-# hosp === 9,217 × 22 [2.1 MB]
+hosp_facility_type <- hosp |>
+  collapse::slt(ccn, REH:`IRF Unit`) |>
+  collapse::pivot(ids = c("ccn")) |>
+  collapse::roworder(ccn) |>
+  collapse::sbt(value %==% 1L, -value) |>
+  collapse::mtt(
+    subgroup = stringr::str_remove(variable, "sub_"),
+    variable = NULL
+  ) |>
+  collapse::fgroup_by(ccn) |>
+  collapse::mtt(subgroup = toString(subgroup)) |>
+  collapse::funique() |>
+  collapse::fungroup()
+
+hosp <- hosp |>
+  collapse::slt(ccn:sub_otxt) |>
+  collapse::join(hosp_facility_type, on = "ccn") |>
+  collapse::mtt(
+    subgroup = data.table::fifelse(
+      !is.na(sub_otxt),
+      as.character(glue::glue("{subgroup}, {sub_otxt}")),
+      subgroup
+    ),
+    subgroup = data.table::fifelse(
+      !is.na(reh_ccns),
+      as.character(glue::glue("{subgroup}: {reh_ccns}")),
+      subgroup
+    ),
+    sub_otxt = NULL,
+    reh_ccns = NULL
+  )
+
+# hosp === 9,217 × 7 [1.5 MB]
 pin_update(
   hosp,
   name = "hosp",
@@ -134,7 +172,6 @@ pin_update(
   description = "Hospital Enrollments 2025"
 )
 
-#############################################
 #    facility_type     N
 # 1  Acute          3056
 # 2  General        1548
@@ -160,84 +197,3 @@ pin_update(
 # 5    36
 # 7     6
 # 8     1
-
-collapse::slt(hosp, ccn, REH:`IRF Unit`) |>
-  collapse::pivot(ids = c("ccn")) |>
-  collapse::roworder(ccn) |>
-  collapse::sbt(value %==% 1L, -value) |>
-  collapse::mtt(
-    facility_type = stringr::str_remove(variable, "sub_"),
-    variable = NULL
-  ) |>
-  # collapse::sbt(facility_type == "General")
-  collapse::fcount(facility_type) |>
-  collapse::roworder(-N)
-
-collapse::slt(hosp, ccn:sub_otxt) |>
-  collapse::sbt(!is.na(sub_otxt)) |>
-  collapse::fcount(sub_otxt)
-
-#############################################
-hosp <- collapse::mtt(hosp, i = seq_len(nrow(hosp))) |>
-  collapse::mtt(has_alpha = stringr::str_detect(ccn, "[A-Z]")) |>
-  collapse::colorder(i) |>
-  collapse::rsplit(~has_alpha) |>
-  rlang::set_names(c("numeric_ccn", "alphanumeric_ccn"))
-
-hosp$other_ccn <- collapse::rowbind(
-  collapse::sbt(hosp$alphanumeric_ccn, !is.na(sub_otxt)),
-  collapse::sbt(hosp$numeric_ccn, !is.na(sub_otxt)),
-  fill = TRUE
-)
-
-hosp$alphanumeric_ccn <- collapse::sbt(
-  hosp$alphanumeric_ccn,
-  i %!iin% hosp$other_ccn$i
-)
-hosp$numeric_ccn <- collapse::sbt(hosp$numeric_ccn, i %!iin% hosp$other_ccn$i)
-
-# reh_date is all NA
-hosp$alphanumeric_ccn <- hosp$alphanumeric_ccn[,
-  !cheapr::col_all_na(hosp$alphanumeric_ccn)
-]
-
-
-#-----Transforming the Subunits-----
-hosp_ccn <- get_pin("hospital_enrollment")$alphanumeric_ccn$ccn
-
-fastplyr::new_tbl(
-  ccn = hosp_ccn,
-  chr = nchar(ccn),
-  # valid = (nchar(ccn) %in% c(6L, 10L)) |> as.integer(),
-  # ten = (nchar(ccn) == 10L) |> as.integer(),
-  state = get_state_code(ccn),
-  state_nm = get_state_name(state),
-  three = get_three(ccn),
-  four = get_four(ccn),
-  six = get_six(ccn),
-  alpha3 = is_letter(three) |> as.integer(),
-  alpha4 = is_letter(four) |> as.integer(),
-  alpha6 = is_letter(six) |> as.integer()
-) |>
-  # collapse::fcount(chr) |>
-  collapse::sbt(chr > 6L) |>
-  print(n = Inf)
-
-# both enid and ccn are unique
-x <- colnames(hosp$numeric_ccn)
-sub <- x[startsWith(x, "sub")]
-
-sub_numeric <- hosp$numeric_ccn |>
-  collapse::slt(c("i", "ccn", sub))
-
-sub_numeric |>
-  collapse::slt(-sub_otxt) |>
-  collapse::pivot(ids = c("i", "ccn")) |>
-  collapse::roworder(ccn) |>
-  collapse::sbt(value %==% 1L) |>
-  collapse::mtt(variable = stringr::str_remove(variable, "sub_")) |>
-  collapse::fcount(variable)
-
-hosp$other_ccn |>
-  collapse::sbt(!is.na(sub_otxt)) |>
-  collapse::slt(sub_other, sub_otxt)
