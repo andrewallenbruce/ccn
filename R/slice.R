@@ -61,24 +61,7 @@ slice_provider <- function(x) {
 #' @rdname slice
 #' @export
 slice_provider_ext <- function(x) {
-  x <- substring(x, c(1L, 7L), c(6L, 9L))
-
-  ext <- x[2]
-  x <- x[1]
-
-  c(
-    switch(
-      provider_type(x),
-      medicare = slice_medicare(x),
-      organ = slice_organ(x),
-      emergency = slice_emergency(x),
-      medicaid = slice_medicaid(x),
-      unit = slice_unit(x),
-      subunit = slice_subunit(x),
-      cli::cli_abort("CCN type not recognized: {(x)}")
-    ),
-    ext
-  )
+  c(provider_slice(slice_provider(x)), ext = substring(x, 7L, nchar(x)))
 }
 
 # Medicare Provider: 670055 -> 67 0055
@@ -124,11 +107,7 @@ slice_supplier <- function(x) {
 #' @rdname slice
 #' @export
 slice_supplier_ext <- function(x) {
-  substring(
-    x,
-    c(1L, 3L, 4L, 11L),
-    c(2L, 3L, 10L, nchar(x))
-  )
+  c(slice_supplier(substring(x, 1L, 10L)), ext = substring(x, 11L, nchar(x)))
 }
 
 # Medicaid-Only Facility: 01L008 -> 01 L 008
