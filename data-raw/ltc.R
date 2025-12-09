@@ -15,17 +15,17 @@
 #' Medicaid-only facilities:
 
 ltc_ccns <- tibble::tribble(
-  ~code, ~range, ~facility_type, ~facility_category,
-  NA_character_, "5000-6499", "18:SNF||18-19:SNF", "Free-Standing LTC",
-  "A", "000", "19:NF", "Free-Standing LTC",
-  "E", "000", "19:NF", "Free-Standing LTC",
-  "G", "000", "ICF-IID", "Free-Standing LTC",
-  NA_character_, "5000-6499", "18-19:S[NF]+{DUAL}", "S[NF] DUAL:DP",
-  NA_character_, "5000-6499", "18:SNF||18-19:SNF+{DUAL}++DP:S[NF]", "S[NF] DUAL:DP",
-  "G", "000", "19:NF", "S[NF] DUAL:DP",
-  "A", "000", "19:NF++DP:ICF-IID", "S[NF] DUAL:DP",
-  "E", "000", "19:NF++DP:ICF-IID", "S[NF] DUAL:DP",
-  "G", "000", "19:NF++DP:ICF-IID", "S[NF] DUAL:DP"
+  ~code         , ~range      , ~facility_type                       , ~facility_category  ,
+  NA_character_ , "5000-6499" , "18:SNF||18-19:SNF"                  , "Free-Standing LTC" ,
+  "A"           , "2000-2099" , "19:NF"                              , "Free-Standing LTC" ,
+  "E"           , "3300-3399" , "19:NF"                              , "Free-Standing LTC" ,
+  "G"           , "4100-4199" , "ICF-IID"                            , "Free-Standing LTC" ,
+  NA_character_ , "5000-6499" , "18-19:S[NF]+{DUAL}"                 , "S[NF] DUAL:DP"     ,
+  NA_character_ , "5000-6499" , "18:SNF||18-19:SNF+{DUAL}++DP:S[NF]" , "S[NF] DUAL:DP"     ,
+  "G"           , "4100-4199" , "19:NF"                              , "S[NF] DUAL:DP"     ,
+  "A"           , "2000-2099" , "19:NF++DP:ICF-IID"                  , "S[NF] DUAL:DP"     ,
+  "E"           , "3300-3399" , "19:NF++DP:ICF-IID"                  , "S[NF] DUAL:DP"     ,
+  "G"           , "4100-4199" , "19:NF++DP:ICF-IID"                  , "S[NF] DUAL:DP"
 )
 
 #' *EXCEPTION: As the chart indicates, the RO always assigns a separate ICF/IID
@@ -35,3 +35,6 @@ ltc_ccns <- tibble::tribble(
 #' separate from the hospital number according to the above guidelines. A
 #' hospital is permitted to have only one hospital-based SNF DP and one
 #' hospital-based NF DP.
+
+ccn::eipps_subunit |>
+  collapse::sbt(code %in% c("A", "E", "G"))

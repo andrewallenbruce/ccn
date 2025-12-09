@@ -1,10 +1,14 @@
 #' @noRd
 ccn_type <- function(x) {
   kit::nif(
-    nchar_provider(x), "provider",
-    nchar_provider_ext(x), "provider_ext",
-    nchar_supplier(x), "supplier",
-    nchar_supplier_ext(x), "supplier_ext",
+    nchar_provider(x),
+    "provider",
+    nchar_provider_ext(x),
+    "provider_ext",
+    nchar_supplier(x),
+    "supplier",
+    nchar_supplier_ext(x),
+    "supplier_ext",
     default = NA_character_
   )
 }
@@ -12,12 +16,18 @@ ccn_type <- function(x) {
 #' @noRd
 provider_type <- function(x) {
   kit::nif(
-    is_numeric(slice_provider(x)), "medicare",
-    is_organ_type(str3(x)), "organ",
-    is_emergency_type(str6(x)), "emergency",
-    is_medicaid_type(str3(x)), "medicaid",
-    is_unit_type(str3(x)) & is_numeric(str4(x)), "unit",
-    is_unit_type(str3(x)) & is_sub_type(str4(x)), "subunit",
+    is_numeric(slice_provider(x)),
+    "medicare",
+    is_organ_type(str3(x)),
+    "organ",
+    is_emergency_type(str6(x)),
+    "emergency",
+    is_medicaid_type(str3(x)),
+    "medicaid",
+    is_unit_type(str3(x)) & is_numeric(str4(x)),
+    "unit",
+    is_unit_type(str3(x)) & is_sub_type(str4(x)),
+    "subunit",
     default = NA_character_
   )
 }
@@ -44,7 +54,8 @@ str6 <- function(x) {
 
 #' @noRd
 str_seq <- function(x) {
-  switch(provider_type(x),
+  switch(
+    provider_type(x),
     organ = ,
     medicaid = ,
     unit = substr(x, 4L, 6L),
@@ -57,7 +68,8 @@ str_seq <- function(x) {
 
 #' @noRd
 str_typ <- function(x) {
-  switch(provider_type(x),
+  switch(
+    provider_type(x),
     organ = ,
     medicaid = ,
     unit = ,
@@ -95,7 +107,9 @@ init <- S7::new_class(
     ste = S7::new_property(getter = \(self) str_ste(self@num)),
     seq = S7::new_property(getter = \(self) str_seq(self@num)),
     typ = S7::new_property(getter = \(self) str_typ(self@num)),
-    par = S7::new_property(getter = \(self) is_in(provider_type(self@num) == "subunit", str4(self@num))),
+    par = S7::new_property(getter = \(self) {
+      is_in(provider_type(self@num) == "subunit", str4(self@num))
+    }),
     ext = S7::new_property(default = NA_character_)
   )
 )

@@ -25,11 +25,15 @@ supplier_type_abbr <- function(x) {
 
 #' @noRd
 supplier_type_desc <- function(x) {
-  vs(x, c("C", "D", "X"), c(
-    "Ambulatory Surgical Center",
-    "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory",
-    "Portable X-Ray Facility"
-  ))
+  vs(
+    x,
+    c("C", "D", "X"),
+    c(
+      "Ambulatory Surgical Center",
+      "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory",
+      "Portable X-Ray Facility"
+    )
+  )
 }
 
 #' @noRd
@@ -45,10 +49,10 @@ supplier_type <- function(x) {
 #' @export
 supplier <- function(x) {
   Supplier(
-    ccn      = x,
-    state    = state(x),
+    ccn = x,
+    state = state(x),
     sequence = substr(x, 4L, 10L),
-    range    = supplier_range(x),
-    type     = supplier_type(str3(x))
+    range = supplier_range(x),
+    type = supplier_type(str3(x))
   )
 }

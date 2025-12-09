@@ -1,46 +1,48 @@
 hosp <- readr::read_csv(
-  file = fs::path("C:/Users/Andrew/Downloads/Hospital_Enrollments_2025.10.01.csv"),
+  file = fs::path(
+    "C:/Users/Andrew/Downloads/Hospital_Enrollments_2025.10.01.csv"
+  ),
   num_threads = 4L,
   col_types = readr::cols(
-    `ENROLLMENT ID`                  = readr::col_character(),
-    `ENROLLMENT STATE`               = readr::col_character(),
-    `PROVIDER TYPE CODE`             = readr::col_character(),
-    `PROVIDER TYPE TEXT`             = readr::col_character(),
-    NPI                              = readr::col_integer(),
-    `MULTIPLE NPI FLAG`              = readr::col_character(),
-    CCN                              = readr::col_character(),
-    `ASSOCIATE ID`                   = readr::col_character(),
-    `ORGANIZATION NAME`              = readr::col_character(),
-    `DOING BUSINESS AS NAME`         = readr::col_character(),
-    `INCORPORATION DATE`             = readr::col_character(),
-    `INCORPORATION STATE`            = readr::col_character(),
-    `ORGANIZATION TYPE STRUCTURE`    = readr::col_character(),
-    `ORGANIZATION OTHER TYPE TEXT`   = readr::col_character(),
-    `PROPRIETARY NONPROFIT`          = readr::col_character(),
-    `ADDRESS LINE 1`                 = readr::col_character(),
-    `ADDRESS LINE 2`                 = readr::col_character(),
-    CITY                             = readr::col_character(),
-    STATE                            = readr::col_character(),
-    `ZIP CODE`                       = readr::col_character(),
-    `PRACTICE LOCATION TYPE`         = readr::col_character(),
-    `LOCATION OTHER TYPE TEXT`       = readr::col_character(),
-    `SUBGROUP - GENERAL`             = readr::col_character(),
-    `SUBGROUP - ACUTE CARE`          = readr::col_character(),
-    `SUBGROUP - ALCOHOL DRUG`        = readr::col_character(),
-    `SUBGROUP - CHILDRENS`           = readr::col_character(),
-    `SUBGROUP - LONG-TERM`           = readr::col_character(),
-    `SUBGROUP - PSYCHIATRIC`         = readr::col_character(),
-    `SUBGROUP - REHABILITATION`      = readr::col_character(),
-    `SUBGROUP - SHORT-TERM`          = readr::col_character(),
-    `SUBGROUP - SWING-BED APPROVED`  = readr::col_character(),
-    `SUBGROUP - PSYCHIATRIC UNIT`    = readr::col_character(),
+    `ENROLLMENT ID` = readr::col_character(),
+    `ENROLLMENT STATE` = readr::col_character(),
+    `PROVIDER TYPE CODE` = readr::col_character(),
+    `PROVIDER TYPE TEXT` = readr::col_character(),
+    NPI = readr::col_integer(),
+    `MULTIPLE NPI FLAG` = readr::col_character(),
+    CCN = readr::col_character(),
+    `ASSOCIATE ID` = readr::col_character(),
+    `ORGANIZATION NAME` = readr::col_character(),
+    `DOING BUSINESS AS NAME` = readr::col_character(),
+    `INCORPORATION DATE` = readr::col_character(),
+    `INCORPORATION STATE` = readr::col_character(),
+    `ORGANIZATION TYPE STRUCTURE` = readr::col_character(),
+    `ORGANIZATION OTHER TYPE TEXT` = readr::col_character(),
+    `PROPRIETARY NONPROFIT` = readr::col_character(),
+    `ADDRESS LINE 1` = readr::col_character(),
+    `ADDRESS LINE 2` = readr::col_character(),
+    CITY = readr::col_character(),
+    STATE = readr::col_character(),
+    `ZIP CODE` = readr::col_character(),
+    `PRACTICE LOCATION TYPE` = readr::col_character(),
+    `LOCATION OTHER TYPE TEXT` = readr::col_character(),
+    `SUBGROUP - GENERAL` = readr::col_character(),
+    `SUBGROUP - ACUTE CARE` = readr::col_character(),
+    `SUBGROUP - ALCOHOL DRUG` = readr::col_character(),
+    `SUBGROUP - CHILDRENS` = readr::col_character(),
+    `SUBGROUP - LONG-TERM` = readr::col_character(),
+    `SUBGROUP - PSYCHIATRIC` = readr::col_character(),
+    `SUBGROUP - REHABILITATION` = readr::col_character(),
+    `SUBGROUP - SHORT-TERM` = readr::col_character(),
+    `SUBGROUP - SWING-BED APPROVED` = readr::col_character(),
+    `SUBGROUP - PSYCHIATRIC UNIT` = readr::col_character(),
     `SUBGROUP - REHABILITATION UNIT` = readr::col_character(),
-    `SUBGROUP - SPECIALTY HOSPITAL`  = readr::col_character(),
-    `SUBGROUP - OTHER`               = readr::col_character(),
-    `SUBGROUP - OTHER TEXT`          = readr::col_character(),
-    `REH CONVERSION FLAG`            = readr::col_character(),
-    `REH CONVERSION DATE`            = readr::col_character(),
-    `CAH OR HOSPITAL CCN`            = readr::col_character()
+    `SUBGROUP - SPECIALTY HOSPITAL` = readr::col_character(),
+    `SUBGROUP - OTHER` = readr::col_character(),
+    `SUBGROUP - OTHER TEXT` = readr::col_character(),
+    `REH CONVERSION FLAG` = readr::col_character(),
+    `REH CONVERSION DATE` = readr::col_character(),
+    `CAH OR HOSPITAL CCN` = readr::col_character()
   )
 ) |>
   janitor::clean_names() |>
@@ -48,8 +50,18 @@ hosp <- readr::read_csv(
     inc_date = readr::parse_date(incorporation_date, format = "%m/%d/%Y"),
     inc_state = incorporation_state,
     address = providertwo:::make_address(address_line_1, address_line_2),
-    multi_npi = cheapr::val_match(multiple_npi_flag, "Y" ~ 1L, "N" ~ 0L, .default = NA_integer_),
-    reh_flag = cheapr::val_match(reh_conversion_flag, "Y" ~ 1L, "N" ~ 0L, .default = NA_integer_),
+    multi_npi = cheapr::val_match(
+      multiple_npi_flag,
+      "Y" ~ 1L,
+      "N" ~ 0L,
+      .default = NA_integer_
+    ),
+    reh_flag = cheapr::val_match(
+      reh_conversion_flag,
+      "Y" ~ 1L,
+      "N" ~ 0L,
+      .default = NA_integer_
+    ),
     reh_date = readr::parse_date(reh_conversion_date, format = "%m/%d/%Y"),
     acr(
       c(
@@ -117,8 +129,8 @@ hosp <- readr::read_csv(
 # hosp === 9,217 × 22 [2.1 MB]
 pin_update(
   hosp,
-  name        = "hosp",
-  title       = "Hospital Enrollments",
+  name = "hosp",
+  title = "Hospital Enrollments",
   description = "Hospital Enrollments 2025"
 )
 
@@ -153,7 +165,10 @@ collapse::slt(hosp, ccn, REH:`IRF Unit`) |>
   collapse::pivot(ids = c("ccn")) |>
   collapse::roworder(ccn) |>
   collapse::sbt(value %==% 1L, -value) |>
-  collapse::mtt(facility_type = stringr::str_remove(variable, "sub_"), variable = NULL) |>
+  collapse::mtt(
+    facility_type = stringr::str_remove(variable, "sub_"),
+    variable = NULL
+  ) |>
   # collapse::sbt(facility_type == "General")
   collapse::fcount(facility_type) |>
   collapse::roworder(-N)
@@ -175,11 +190,16 @@ hosp$other_ccn <- collapse::rowbind(
   fill = TRUE
 )
 
-hosp$alphanumeric_ccn <- collapse::sbt(hosp$alphanumeric_ccn, i %!iin% hosp$other_ccn$i)
+hosp$alphanumeric_ccn <- collapse::sbt(
+  hosp$alphanumeric_ccn,
+  i %!iin% hosp$other_ccn$i
+)
 hosp$numeric_ccn <- collapse::sbt(hosp$numeric_ccn, i %!iin% hosp$other_ccn$i)
 
 # reh_date is all NA
-hosp$alphanumeric_ccn <- hosp$alphanumeric_ccn[, !cheapr::col_all_na(hosp$alphanumeric_ccn)]
+hosp$alphanumeric_ccn <- hosp$alphanumeric_ccn[,
+  !cheapr::col_all_na(hosp$alphanumeric_ccn)
+]
 
 
 #-----Transforming the Subunits-----

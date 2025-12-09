@@ -8,10 +8,10 @@ pin_update <- function(x, name, title, description) {
   board |>
     pins::pin_write(
       x,
-      name        = name,
-      title       = title,
+      name = name,
+      title = title,
       description = description,
-      type        = "qs"
+      type = "qs"
     )
 
   board |> pins::write_board_manifest()

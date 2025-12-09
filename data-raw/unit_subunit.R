@@ -34,16 +34,16 @@
 #' CAH could have swing-bed approval, an IPPS-excluded rehabilitation unit, and/
 #' or an IPPS-excluded psychiatric unit.
 eipps_unit <- tibble::tribble(
-  ~code, ~abbr,         ~desc,
-  "M",   "PU",          "Psychiatric Unit of a Critical Access Hospital",
-  "R",   "IRF",         "Rehabilitation Unit of a Critical Access Hospital",
-  "S",   "PU",          "Psychiatric Unit (Excluded from IPPS)",
-  "T",   "IRF",         "Rehabilitation Unit (Excluded from IPPS)",
-  "U",   "STH",         "Swing-Bed Approval for Short-Term Hospital",
-  "V",   "ADU (Ret.)",  "Alcohol-Drug Unit (Retired)",
-  "W",   "LTCH",        "Swing-Bed Approval for Long-Term Care Hospital",
-  "Y",   "IRF",         "Swing-Bed Approval for Rehabilitation Hospital",
-  "Z",   "CAH",         "Swing-Bed Approval for Critical Access Hospital"
+  ~code , ~abbr , ~desc                                               ,
+  "M"   , "PSY" , "Psychiatric Unit of a Critical Access Hospital"    ,
+  "R"   , "IRF" , "Rehabilitation Unit of a Critical Access Hospital" ,
+  "S"   , "PSY" , "Psychiatric Unit (IPPS-Excluded)"                  ,
+  "T"   , "IRF" , "Rehabilitation Unit (IPPS-Excluded)"               ,
+  "U"   , "SBA" , "Swing-Bed Approval - Short-Term Hospital"          ,
+  "V"   , "ADU" , "Alcohol-Drug Unit (Retired, IPPS-Excluded)"        ,
+  "W"   , "SBA" , "Swing-Bed Approval - Long-Term Care Hospital"      ,
+  "Y"   , "SBA" , "Swing-Bed Approval - Rehabilitation Hospital"      ,
+  "Z"   , "SBA" , "Swing-Bed Approval - Critical Access Hospital"
 )
 
 usethis::use_data(eipps_unit, overwrite = TRUE)
@@ -76,25 +76,25 @@ usethis::use_data(eipps_subunit, overwrite = TRUE)
 #'
 #' Note: This table does not apply to CAHs.
 rehab_unit_range <- tibble::tribble(
-  ~medicare_range, ~medicare_abbr, ~unit_type, ~parent_code, ~rehab_unit_range,
-  "2000-2099", "LTC (EIPPS)", "T", "A", "00-99",
-  "2100-2199", "LTC (EIPPS)", "T", "B", "00-99",
-  "2200-2299", "LTC (EIPPS)", "T", "C", "00-99",
-  "3300-3399", "CH (EIPPS)", "T", "E", "00-99",
-  "4400-4499", "PH (EIPPS)", "T", "K", "00-99",
-  "4000-4099", "PH (EIPPS)", "T", "F", "00-99",
-  "4100-4199", "PH (EIPPS)", "T", "G", "00-99",
-  "4200-4299", "PH (EIPPS)", "T", "H", "00-99",
-  "4300-4399", "PH (EIPPS)", "T", "J", "00-99"
+  ~medicare_range , ~medicare_abbr , ~unit_type , ~parent_code , ~rehab_unit_range ,
+  "2000-2099"     , "LTC"          , "T"        , "A"          , "00-99"           ,
+  "2100-2199"     , "LTC"          , "T"        , "B"          , "00-99"           ,
+  "2200-2299"     , "LTC"          , "T"        , "C"          , "00-99"           ,
+  "3300-3399"     , "CH"           , "T"        , "E"          , "00-99"           ,
+  "4400-4499"     , "PH"           , "T"        , "K"          , "00-99"           ,
+  "4000-4099"     , "PH"           , "T"        , "F"          , "00-99"           ,
+  "4100-4199"     , "PH"           , "T"        , "G"          , "00-99"           ,
+  "4200-4299"     , "PH"           , "T"        , "H"          , "00-99"           ,
+  "4300-4399"     , "PH"           , "T"        , "J"          , "00-99"
 )
 
 psych_unit_range <- tibble::tribble(
-  ~medicare_range, ~medicare_abbr, ~unit_type, ~parent_code, ~psych_unit_range,
-  "2000-2099", "LTC (EIPPS)", "S", "A", "00-99",
-  "2100-2199", "LTC (EIPPS)", "S", "B", "00-99",
-  "2200-2299", "LTC (EIPPS)", "S", "C", "00-99",
-  "3025-3099", "PH (EIPPS)", "S", "D", "00-99",
-  "3300-3399", "CH (EIPPS)", "S", "E", "00-99"
+  ~medicare_range , ~medicare_abbr , ~unit_type , ~parent_code , ~psych_unit_range ,
+  "2000-2099"     , "LTC"          , "S"        , "A"          , "00-99"           ,
+  "2100-2199"     , "LTC"          , "S"        , "B"          , "00-99"           ,
+  "2200-2299"     , "LTC"          , "S"        , "C"          , "00-99"           ,
+  "3025-3099"     , "PH"           , "S"        , "D"          , "00-99"           ,
+  "3300-3399"     , "CH"           , "S"        , "E"          , "00-99"
 )
 
 #' NOTE: An IPPS-excluded hospital may not have an IPPS-excluded unit of the

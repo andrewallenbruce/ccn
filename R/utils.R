@@ -2,8 +2,8 @@
 #' @noRd
 vs <- function(x, v, o) {
   kit::vswitch(
-    x       = x,
-    values  = v,
+    x = x,
+    values = v,
     outputs = o,
     default = NA_character_,
     nThread = 4L
@@ -83,7 +83,8 @@ qs_url <- function(url) qs::qread_url(url)
 
 #' @noRd
 mount_board <- function(source = c("local", "remote")) {
-  switch(match.arg(source),
+  switch(
+    match.arg(source),
     local = pins::board_folder(fs::path_package(
       "extdata/pins",
       package = "ccn"

@@ -27,10 +27,10 @@ org_type <- function(x) {
 #' @export
 organ <- function(x) {
   Organ(
-    ccn      = x,
-    state    = state(x),
+    ccn = x,
+    state = state(x),
     sequence = substr(x, 4L, 6L),
-    range    = org_range(x),
-    type     = org_type(str3(x))
+    range = org_range(x),
+    type = org_type(str3(x))
   )
 }

@@ -49,8 +49,8 @@ eipps_parent_ccn <- function(x) {
 SubunitParent <- S7::new_class(
   name = "SubunitParent",
   properties = list(
-    code     = S7::class_character,
-    ccn      = S7::class_character,
+    code = S7::class_character,
+    ccn = S7::class_character,
     sequence = RangeMDC
   )
 )
@@ -58,16 +58,16 @@ SubunitParent <- S7::new_class(
 #' @noRd
 subunit_parent <- function(x) {
   SubunitParent(
-    code     = str4(x),
-    ccn      = eipps_parent_ccn(x),
+    code = str4(x),
+    ccn = eipps_parent_ccn(x),
     sequence = range_mdc(eipps_sequence(x))
   )
 }
 
 #' @noRd
 EippsSubunit <- S7::new_class(
-  name       = "EippsSubunit",
-  parent     = Unit,
+  name = "EippsSubunit",
+  parent = Unit,
   properties = list(parent = SubunitParent)
 )
 
@@ -75,10 +75,10 @@ EippsSubunit <- S7::new_class(
 #' @export
 subunit <- function(x) {
   EippsSubunit(
-    ccn      = x,
-    state    = state(x),
-    type     = eipps_type(str3(x)),
-    parent   = subunit_parent(x)
+    ccn = x,
+    state = state(x),
+    type = eipps_type(str3(x)),
+    parent = subunit_parent(x)
   )
 }
 

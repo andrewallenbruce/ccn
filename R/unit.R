@@ -36,10 +36,10 @@ eipps_type <- function(x) {
 #' @export
 unit <- function(x) {
   Unit(
-    ccn      = x,
-    state    = state(x),
+    ccn = x,
+    state = state(x),
     sequence = substr(x, 4L, 6L),
-    range    = range_mof(x),
-    type     = eipps_type(str3(x))
+    range = range_mof(x),
+    type = eipps_type(str3(x))
   )
 }

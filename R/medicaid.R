@@ -112,10 +112,10 @@ range_mof <- function(x) {
 #' @export
 medicaid <- function(x) {
   Medicaid(
-    ccn      = x,
-    state    = state(x),
+    ccn = x,
+    state = state(x),
     sequence = substr(x, 4L, 6L),
-    range    = if (is_moh_type(str3(x))) range_moh(x) else range_mof(x),
-    type     = mof_type(str3(x))
+    range = if (is_moh_type(str3(x))) range_moh(x) else range_mof(x),
+    type = mof_type(str3(x))
   )
 }

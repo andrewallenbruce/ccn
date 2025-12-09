@@ -4,15 +4,15 @@ aff <- readr::read_csv(
   file = fs::path("C:/Users/Andrew/Downloads/Facility_Affiliation.csv"),
   num_threads = 4L,
   col_types = readr::cols(
-    NPI                                          = readr::col_integer(),
-    Ind_PAC_ID                                   = readr::col_character(),
-    `Provider Last Name`                         = readr::col_character(),
-    `Provider First Name`                        = readr::col_character(),
-    `Provider Middle Name`                       = readr::col_character(),
-    suff                                         = readr::col_character(),
-    facility_type                                = readr::col_character(),
+    NPI = readr::col_integer(),
+    Ind_PAC_ID = readr::col_character(),
+    `Provider Last Name` = readr::col_character(),
+    `Provider First Name` = readr::col_character(),
+    `Provider Middle Name` = readr::col_character(),
+    suff = readr::col_character(),
+    facility_type = readr::col_character(),
     `Facility Affiliations Certification Number` = readr::col_character(),
-    `Facility Type Certification Number`         = readr::col_character()
+    `Facility Type Certification Number` = readr::col_character()
   )
 ) |>
   janitor::clean_names() |>
@@ -36,8 +36,8 @@ aff <- list(
 # aff === 39,130 × 3 [2.8 MB]
 pin_update(
   aff,
-  name        = "aff",
-  title       = "Facility Affiliations",
+  name = "aff",
+  title = "Facility Affiliations",
   description = "CCNs Facility Affiliation"
 )
 
