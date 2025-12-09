@@ -21,8 +21,8 @@
   [`parse_subunit()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
   : Parse CMS Certification Numbers
 - [`slice()`](https://andrewallenbruce.github.io/ccn/reference/slice.md)
-  [`provider_slice()`](https://andrewallenbruce.github.io/ccn/reference/slice.md)
-  [`ccn_slice()`](https://andrewallenbruce.github.io/ccn/reference/slice.md)
+  [`switch_provider()`](https://andrewallenbruce.github.io/ccn/reference/slice.md)
+  [`switch_ccn()`](https://andrewallenbruce.github.io/ccn/reference/slice.md)
   [`slice_provider()`](https://andrewallenbruce.github.io/ccn/reference/slice.md)
   [`slice_provider_ext()`](https://andrewallenbruce.github.io/ccn/reference/slice.md)
   [`slice_medicare()`](https://andrewallenbruce.github.io/ccn/reference/slice.md)

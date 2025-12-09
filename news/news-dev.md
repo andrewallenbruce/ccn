@@ -246,3 +246,7 @@
 ## ccn 0.0.0.9053 (2025-12-09)
 
 - fixed slicing ccns with extensions
+
+## ccn 0.0.0.9054 (2025-12-09)
+
+- sliced vectors now have names

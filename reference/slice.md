@@ -7,9 +7,9 @@ Convert various codes to their associated names.
 ``` r
 slice(x)
 
-provider_slice(x)
+switch_provider(x)
 
-ccn_slice(x)
+switch_ccn(x)
 
 slice_provider(x)
 
@@ -46,23 +46,30 @@ character vector of names associated with codes.
 
 ``` r
 slice("670055")
-#> [1] "67"   "0055"
+#>     entity      state   sequence 
+#> "medicare"       "67"     "0055" 
 slice("05P001")
-#> [1] "05"  "P"   "001"
+#>    state     type sequence 
+#>     "05"      "P"    "001" 
 slice("12345E")
-#> [1] "12"  "345" "E"  
+#>    state sequence     type 
+#>     "12"    "345"      "E" 
 slice("10C0001062")
-#> [1] "10"      "C"       "0001062"
+#>     state      type  sequence 
+#>      "10"       "C" "0001062" 
 slice("A5J508")
-#> [1] "A5"  "J"   "508"
+#>    state     type sequence 
+#>     "A5"      "J"    "508" 
 slice("21T101")
-#> [1] "21"  "T"   "101"
+#>    state     type sequence 
+#>     "21"      "T"    "101" 
 slice("02TA01")
-#> [1] "02" "T"  "A"  "01"
+#>    state     type   parent sequence 
+#>     "02"      "T"      "A"     "01" 
 slice("240019A")
-#>                  ext 
-#>   "24" "0019"    "A" 
+#>     entity      state   sequence        ext 
+#> "medicare"       "24"     "0019"        "A" 
 slice("330125001")
-#>                  ext 
-#>   "33" "0125"  "001" 
+#>     entity      state   sequence        ext 
+#> "medicare"       "33"     "0125"      "001" 
 ```
