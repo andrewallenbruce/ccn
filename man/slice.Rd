@@ -2,8 +2,8 @@
 % Please edit documentation in R/slice.R
 \name{slice}
 \alias{slice}
-\alias{provider_slice}
-\alias{ccn_slice}
+\alias{switch_provider}
+\alias{switch_ccn}
 \alias{slice_provider}
 \alias{slice_provider_ext}
 \alias{slice_medicare}
@@ -18,9 +18,9 @@
 \usage{
 slice(x)
 
-provider_slice(x)
+switch_provider(x)
 
-ccn_slice(x)
+switch_ccn(x)
 
 slice_provider(x)
 

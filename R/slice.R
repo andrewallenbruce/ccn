@@ -21,12 +21,12 @@ NULL
 #' @rdname slice
 #' @export
 slice <- function(x) {
-  ccn_slice(clean(x))
+  switch_ccn(clean(x))
 }
 
 #' @rdname slice
 #' @export
-provider_slice <- function(x) {
+switch_provider <- function(x) {
   switch(
     provider_type(x),
     medicare = slice_medicare(x),
@@ -41,10 +41,10 @@ provider_slice <- function(x) {
 
 #' @rdname slice
 #' @export
-ccn_slice <- function(x) {
+switch_ccn <- function(x) {
   switch(
     ccn_type(x),
-    provider = provider_slice(x),
+    provider = switch_provider(x),
     provider_ext = slice_provider_ext(x),
     supplier = slice_supplier(x),
     supplier_ext = slice_supplier_ext(x),
@@ -61,14 +61,18 @@ slice_provider <- function(x) {
 #' @rdname slice
 #' @export
 slice_provider_ext <- function(x) {
-  c(provider_slice(slice_provider(x)), ext = substring(x, 7L, nchar(x)))
+  c(switch_provider(slice_provider(x)), ext = substring(x, 7L, nchar(x)))
 }
 
 # Medicare Provider: 670055 -> 67 0055
 #' @rdname slice
 #' @export
 slice_medicare <- function(x) {
-  substring(x, c(1L, 3L), c(2L, 6L))
+  c(
+    entity = "medicare",
+    substring(x, c(1L, 3L), c(2L, 6L)) |>
+      stats::setNames(c("state", "sequence"))
+  )
 }
 
 # Medicare OPO Provider: 05P001 -> 05 P 001
@@ -79,7 +83,8 @@ slice_organ <- function(x) {
     x,
     c(1L, 3L, 4L),
     c(2L, 3L, 6L)
-  )
+  ) |>
+    stats::setNames(c("state", "type", "sequence"))
 }
 
 # Emergency Hospital: 12345E -> 12 345 E
@@ -90,7 +95,8 @@ slice_emergency <- function(x) {
     x,
     c(1L, 3L, 6L),
     c(2L, 5L, 6L)
-  )
+  ) |>
+    stats::setNames(c("state", "sequence", "type"))
 }
 
 # Medicare Supplier: 10C0001062 -> 10 C 0001062
@@ -101,7 +107,8 @@ slice_supplier <- function(x) {
     x,
     c(1L, 3L, 4L),
     c(2L, 3L, 10L)
-  )
+  ) |>
+    stats::setNames(c("state", "type", "sequence"))
 }
 
 #' @rdname slice
@@ -118,7 +125,8 @@ slice_medicaid <- function(x) {
     x,
     c(1L, 3L, 4L),
     c(2L, 3L, 6L)
-  )
+  ) |>
+    stats::setNames(c("state", "type", "sequence"))
 }
 
 # IPPS-Excluded Provider: 21T101 -> 21 T 101
@@ -129,7 +137,8 @@ slice_unit <- function(x) {
     x,
     c(1L, 3L, 4L),
     c(2L, 3L, 6L)
-  )
+  ) |>
+    stats::setNames(c("state", "type", "sequence"))
 }
 
 # IPPS-Excluded Unit: 02TA01 -> 02 T A 01
@@ -140,5 +149,6 @@ slice_subunit <- function(x) {
     x,
     c(1L, 3L, 4L, 5L),
     c(2L, 3L, 4L, 6L)
-  )
+  ) |>
+    stats::setNames(c("state", "type", "parent", "sequence"))
 }
