@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9052 (2025-12-09)
+
+* updated state codes internal data
+
+
 # ccn 0.0.0.9051 (2025-12-08)
 
 * `slice()` implementation
