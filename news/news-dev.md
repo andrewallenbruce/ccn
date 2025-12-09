@@ -242,3 +242,7 @@
 ## ccn 0.0.0.9052 (2025-12-09)
 
 - updated state codes internal data
+
+## ccn 0.0.0.9053 (2025-12-09)
+
+- fixed slicing ccns with extensions
