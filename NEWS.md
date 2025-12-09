@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9053 (2025-12-09)
+
+* fixed slicing ccns with extensions
+
+
 # ccn 0.0.0.9052 (2025-12-09)
 
 * updated state codes internal data
