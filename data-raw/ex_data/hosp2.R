@@ -73,3 +73,32 @@ pin_update(
   title = "Hospital Information",
   description = "Hospital General Information 2025"
 )
+
+# All states are correct
+get_pin("hosp_info") |>
+  # collapse::slt(ccn, state, type) |>
+  collapse::mtt(
+    # state_check = ccn:::state_abbr(substring(ccn, 1L, 2L)) == state,
+    prov_type = ccn:::provider_type(ccn),
+    code = data.table::fifelse(
+      prov_type == "medicare",
+      substring(ccn, 3L, 6L),
+      substring(ccn, 6L, 6L)
+    ),
+    fac_type = data.table::fifelse(
+      prov_type == "medicare",
+      purrr::map(code, ccn:::medicare_range) |>
+        purrr::pluck(1) |>
+        ccn:::medicare_range_desc(),
+      purrr::map(code, \(x) {
+        ifelse(
+          x == "E",
+          "Non-Federal Emergency Hospital",
+          "Federal Emergency Hospital"
+        )
+      }) |>
+        purrr::pluck(1)
+    )
+  ) |>
+  collapse::sbt(prov_type != "medicare") |>
+  collapse::fcount(fac_type)
