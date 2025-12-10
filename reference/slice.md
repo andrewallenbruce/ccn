@@ -49,23 +49,23 @@ slice("670055")
 #>     entity      state   sequence 
 #> "medicare"       "67"     "0055" 
 slice("05P001")
-#>    state     type sequence 
-#>     "05"      "P"    "001" 
+#>   entity    state     type sequence 
+#>  "organ"     "05"      "P"    "001" 
 slice("12345E")
-#>    state sequence     type 
-#>     "12"    "345"      "E" 
+#>      entity       state    sequence        type 
+#> "emergency"        "12"       "345"         "E" 
 slice("10C0001062")
-#>     state      type  sequence 
-#>      "10"       "C" "0001062" 
+#>     entity      state       type   sequence 
+#> "supplier"       "10"        "C"  "0001062" 
 slice("A5J508")
-#>    state     type sequence 
-#>     "A5"      "J"    "508" 
+#>     entity      state       type   sequence 
+#> "medicaid"       "A5"        "J"      "508" 
 slice("21T101")
-#>    state     type sequence 
-#>     "21"      "T"    "101" 
+#>   entity    state     type sequence 
+#>   "unit"     "21"      "T"    "101" 
 slice("02TA01")
-#>    state     type   parent sequence 
-#>     "02"      "T"      "A"     "01" 
+#>    entity     state      type    parent  sequence 
+#> "subunit"      "02"       "T"       "A"      "01" 
 slice("240019A")
 #>     entity      state   sequence        ext 
 #> "medicare"       "24"     "0019"        "A" 

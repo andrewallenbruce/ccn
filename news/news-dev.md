@@ -258,3 +258,7 @@
 ## ccn 0.0.0.9056 (2025-12-10)
 
 - fix bug in emergency
+
+## ccn 0.0.0.9057 (2025-12-10)
+
+- all `slice_` fns now identify entity type
