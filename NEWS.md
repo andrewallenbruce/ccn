@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9057 (2025-12-10)
+
+* all `slice_` fns now identify entity type
+
+
 # ccn 0.0.0.9056 (2025-12-10)
 
 * fix bug in emergency
