@@ -69,7 +69,7 @@ medicare <- function(x) {
   Medicare(
     ccn = x,
     state = state(x),
-    sequence = substr(x, 3L, 6L),
-    range = range_mdc(substr(x, 3L, 6L))
+    sequence = substring(x, 3L, 6L),
+    range = range_mdc(substring(x, 3L, 6L))
   )
 }

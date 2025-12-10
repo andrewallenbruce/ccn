@@ -71,7 +71,7 @@ slice_medicare <- function(x) {
   c(
     entity = "medicare",
     substring(x, c(1L, 3L), c(2L, 6L)) |>
-      stats::setNames(c("state", "sequence"))
+      `names<-`(c("state", "sequence"))
   )
 }
 
@@ -84,7 +84,7 @@ slice_organ <- function(x) {
     c(1L, 3L, 4L),
     c(2L, 3L, 6L)
   ) |>
-    stats::setNames(c("state", "type", "sequence"))
+    `names<-`(c("state", "type", "sequence"))
 }
 
 # Emergency Hospital: 12345E -> 12 345 E

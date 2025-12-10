@@ -37,7 +37,7 @@ eipps_prefix <- function(x) {
 
 #' @noRd
 eipps_sequence <- function(x) {
-  paste0(eipps_prefix(str4(x)), substr(x, 5L, 6L))
+  paste0(eipps_prefix(substring(x, 4L, 4L)), substring(x, 5L, 6L))
 }
 
 #' @noRd
@@ -58,7 +58,7 @@ SubunitParent <- S7::new_class(
 #' @noRd
 subunit_parent <- function(x) {
   SubunitParent(
-    code = str4(x),
+    code = substring(x, 4L, 4L),
     ccn = eipps_parent_ccn(x),
     sequence = range_mdc(eipps_sequence(x))
   )
@@ -77,14 +77,14 @@ subunit <- function(x) {
   EippsSubunit(
     ccn = x,
     state = state(x),
-    type = eipps_type(str3(x)),
+    type = eipps_type(substring(x, 3L, 3L)),
     parent = subunit_parent(x)
   )
 }
 
 #' @noRd
 subunit_ <- function(x) {
-  Subunit(ccn = x, type = eipps_type(str3(x)))
+  Subunit(ccn = x, type = eipps_type(substring(x, 3L, 3L)))
 }
 
 #' @rdname subunit

@@ -11,7 +11,7 @@ NULL
 
 #' @noRd
 org_range <- function(x) {
-  if_in(substr(x, 4L, 6L), c(1L, 99L), "001-099")
+  if_in(x, c(1L, 99L), "001-099")
 }
 
 #' @noRd
@@ -29,8 +29,8 @@ organ <- function(x) {
   Organ(
     ccn = x,
     state = state(x),
-    sequence = substr(x, 4L, 6L),
-    range = org_range(x),
-    type = org_type(str3(x))
+    sequence = substring(x, 4L, 6L),
+    range = org_range(substring(x, 4L, 6L)),
+    type = org_type(substring(x, 3L, 3L))
   )
 }

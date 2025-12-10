@@ -18,15 +18,15 @@ provider_type <- function(x) {
   kit::nif(
     is_numeric(slice_provider(x)),
     "medicare",
-    is_organ_type(str3(x)),
+    is_organ_type(substring(x, 3L, 3L)),
     "organ",
-    is_emergency_type(str6(x)),
+    is_emergency_type(substring(x, 6L, 6L)),
     "emergency",
-    is_medicaid_type(str3(x)),
+    is_medicaid_type(substring(x, 3L, 3L)),
     "medicaid",
-    is_unit_type(str3(x)) & is_numeric(str4(x)),
+    is_unit_type(substring(x, 3L, 3L)) & is_numeric(substring(x, 4L, 4L)),
     "unit",
-    is_unit_type(str3(x)) & is_sub_type(str4(x)),
+    is_unit_type(substring(x, 3L, 3L)) & is_sub_type(substring(x, 4L, 4L)),
     "subunit",
     default = NA_character_
   )
@@ -34,22 +34,22 @@ provider_type <- function(x) {
 
 #' @noRd
 str_ste <- function(x) {
-  substr(x, 1L, 2L)
+  substring(x, 1L, 2L)
 }
 
 #' @noRd
 str3 <- function(x) {
-  substr_(x, 3L)
+  substring(x, 3L, 3L)
 }
 
 #' @noRd
 str4 <- function(x) {
-  substr_(x, 4L)
+  substring(x, 4L, 4L)
 }
 
 #' @noRd
 str6 <- function(x) {
-  substr_(x, 6L)
+  substring(x, 6L, 6L)
 }
 
 #' @noRd
@@ -58,10 +58,10 @@ str_seq <- function(x) {
     provider_type(x),
     organ = ,
     medicaid = ,
-    unit = substr(x, 4L, 6L),
-    medicare = substr(x, 3L, 6L),
-    emergency = substr(x, 3L, 5L),
-    subunit = substr(x, 5L, 6L),
+    unit = substring(x, 4L, 6L),
+    medicare = substring(x, 3L, 6L),
+    emergency = substring(x, 3L, 5L),
+    subunit = substring(x, 5L, 6L),
     NA_character_
   )
 }
@@ -73,8 +73,8 @@ str_typ <- function(x) {
     organ = ,
     medicaid = ,
     unit = ,
-    subunit = str3(x),
-    emergency = str6(x),
+    subunit = substring(x, 3L, 3L),
+    emergency = substring(x, 6L, 6L),
     NA_character_
   )
 }
@@ -108,7 +108,7 @@ init <- S7::new_class(
     seq = S7::new_property(getter = \(self) str_seq(self@num)),
     typ = S7::new_property(getter = \(self) str_typ(self@num)),
     par = S7::new_property(getter = \(self) {
-      is_in(provider_type(self@num) == "subunit", str4(self@num))
+      is_in(provider_type(self@num) == "subunit", substring(self@num, 4L, 4L))
     }),
     ext = S7::new_property(default = NA_character_)
   )

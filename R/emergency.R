@@ -45,7 +45,7 @@ emergency_type <- function(x) {
 
 #' @noRd
 emergency_range <- function(x) {
-  if_in(substr(x, 3L, 5L), c(1L, 99L), "001-099")
+  if_in(x, c(1L, 99L), "001-099")
 }
 
 #' @rdname emergency
@@ -54,8 +54,8 @@ emergency <- function(x) {
   Emergency(
     ccn = x,
     state = state(x),
-    sequence = substr(x, 3L, 5L),
-    range = emergency_range(x),
-    type = emergency_type(str6(x))
+    sequence = substring(x, 3L, 5L),
+    range = emergency_range(substring(x, 3L, 5L)),
+    type = emergency_type(substring(x, 6L, 6L))
   )
 }
