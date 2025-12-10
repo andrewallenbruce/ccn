@@ -15,7 +15,7 @@ NULL
 
 #' @noRd
 supplier_range <- function(x) {
-  if_in(substring(x, 4L, 10L), c(1L, 9999999L), "0000001-9999999")
+  if_in(x, c(1L, 9999999L), "0000001-9999999")
 }
 
 #' @noRd
@@ -52,7 +52,7 @@ supplier <- function(x) {
     ccn = x,
     state = state(x),
     sequence = substring(x, 4L, 10L),
-    range = supplier_range(x),
+    range = supplier_range(substring(x, 4L, 10L)),
     type = supplier_type(substring(x, 3L, 3L))
   )
 }

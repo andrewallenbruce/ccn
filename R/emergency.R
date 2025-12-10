@@ -31,21 +31,31 @@
 NULL
 
 #' @noRd
+emergency_type_abbr <- function(x) {
+  vs(x, c("E", "F"), c("NFEH", "FEH"))
+}
+
+#' @noRd
+emergency_type_desc <- function(x) {
+  vs(
+    x,
+    c("E", "F"),
+    c("Non-Federal Emergency Hospital", "Federal Emergency Hospital")
+  )
+}
+
+#' @noRd
 emergency_type <- function(x) {
   Type(
     code = x,
-    abbr = vs(x, c("E", "F"), c("NFEH", "FEH")),
-    desc = vs(
-      x,
-      c("E", "F"),
-      c("Non-Federal Emergency Hospital", "Federal Emergency Hospital")
-    )
+    abbr = emergency_type_abbr(x),
+    desc = emergency_type_desc(x)
   )
 }
 
 #' @noRd
 emergency_range <- function(x) {
-  if_in(x, c(1L, 99L), "001-099")
+  if_in(x, c(1L, 999L), "001-999")
 }
 
 #' @rdname emergency
