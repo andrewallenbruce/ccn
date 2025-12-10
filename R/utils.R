@@ -73,7 +73,7 @@ remove_hyphen <- function(x) {
 
 #' @noRd
 clean <- function(x) {
-  remove_hyphen(toupper(x))
+  trimws(remove_hyphen(toupper(x)))
 }
 
 ################## REMOVE EVENTUALLY

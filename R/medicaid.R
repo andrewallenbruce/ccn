@@ -25,6 +25,7 @@ mof_type_desc <- function(x) {
   vs(x, ccn::medicaid_types[["code"]], ccn::medicaid_types[["desc"]])
 }
 
+# purrr::map_chr(1:10, moh_range)
 #' @noRd
 moh_range <- function(x) {
   ccn::medicaid_ranges[["range"]][

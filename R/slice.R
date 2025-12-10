@@ -35,7 +35,7 @@ switch_provider <- function(x) {
     medicaid = slice_medicaid(x),
     unit = slice_unit(x),
     subunit = slice_subunit(x),
-    cli::cli_abort("CCN type not recognized")
+    cli::cli_abort("Provider CCN type not recognized")
   )
 }
 
@@ -79,36 +79,33 @@ slice_medicare <- function(x) {
 #' @rdname slice
 #' @export
 slice_organ <- function(x) {
-  substring(
-    x,
-    c(1L, 3L, 4L),
-    c(2L, 3L, 6L)
-  ) |>
-    `names<-`(c("state", "type", "sequence"))
+  c(
+    entity = "organ",
+    substring(x, c(1L, 3L, 4L), c(2L, 3L, 6L)) |>
+      `names<-`(c("state", "type", "sequence"))
+  )
 }
 
 # Emergency Hospital: 12345E -> 12 345 E
 #' @rdname slice
 #' @export
 slice_emergency <- function(x) {
-  substring(
-    x,
-    c(1L, 3L, 6L),
-    c(2L, 5L, 6L)
-  ) |>
-    stats::setNames(c("state", "sequence", "type"))
+  c(
+    entity = "emergency",
+    substring(x, c(1L, 3L, 6L), c(2L, 5L, 6L)) |>
+      `names<-`(c("state", "sequence", "type"))
+  )
 }
 
 # Medicare Supplier: 10C0001062 -> 10 C 0001062
 #' @rdname slice
 #' @export
 slice_supplier <- function(x) {
-  substring(
-    x,
-    c(1L, 3L, 4L),
-    c(2L, 3L, 10L)
-  ) |>
-    stats::setNames(c("state", "type", "sequence"))
+  c(
+    entity = "supplier",
+    substring(x, c(1L, 3L, 4L), c(2L, 3L, 10L)) |>
+      `names<-`(c("state", "type", "sequence"))
+  )
 }
 
 #' @rdname slice
@@ -121,34 +118,31 @@ slice_supplier_ext <- function(x) {
 #' @rdname slice
 #' @export
 slice_medicaid <- function(x) {
-  substring(
-    x,
-    c(1L, 3L, 4L),
-    c(2L, 3L, 6L)
-  ) |>
-    stats::setNames(c("state", "type", "sequence"))
+  c(
+    entity = "medicaid",
+    substring(x, c(1L, 3L, 4L), c(2L, 3L, 6L)) |>
+      `names<-`(c("state", "type", "sequence"))
+  )
 }
 
 # IPPS-Excluded Provider: 21T101 -> 21 T 101
 #' @rdname slice
 #' @export
 slice_unit <- function(x) {
-  substring(
-    x,
-    c(1L, 3L, 4L),
-    c(2L, 3L, 6L)
-  ) |>
-    stats::setNames(c("state", "type", "sequence"))
+  c(
+    entity = "unit",
+    substring(x, c(1L, 3L, 4L), c(2L, 3L, 6L)) |>
+      `names<-`(c("state", "type", "sequence"))
+  )
 }
 
 # IPPS-Excluded Unit: 02TA01 -> 02 T A 01
 #' @rdname slice
 #' @export
 slice_subunit <- function(x) {
-  substring(
-    x,
-    c(1L, 3L, 4L, 5L),
-    c(2L, 3L, 4L, 6L)
-  ) |>
-    stats::setNames(c("state", "type", "parent", "sequence"))
+  c(
+    entity = "subunit",
+    substring(x, c(1L, 3L, 4L, 5L), c(2L, 3L, 4L, 6L)) |>
+      `names<-`(c("state", "type", "parent", "sequence"))
+  )
 }
