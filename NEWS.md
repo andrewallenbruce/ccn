@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9056 (2025-12-10)
+
+* fix bug in emergency
+
+
 # ccn 0.0.0.9055 (2025-12-09)
 
 * updated medicare ranges table
