@@ -172,6 +172,23 @@ pin_update(
   description = "Hospital Enrollments 2025"
 )
 
+# 4   Z      1321
+# 2   S       736
+# 1   T       718
+# 3   U       292
+# 6   M        46
+# 7   R         6
+# 8   E         2
+# 11  W         2
+# 9   Y         1
+# 5   F         1
+# 10 TA        38
+# 12 SA         5
+# 13 TB         2
+# 14 SE         1
+# 15 SB         1
+# 16 SD         1
+
 #    facility_type     N
 # 1  Acute          3056
 # 2  General        1548

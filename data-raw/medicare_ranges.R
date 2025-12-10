@@ -43,7 +43,7 @@ medicare_ranges <- tibble::tribble(
   8500L  , 8899L , "8500-8899" , "RHC"          , "Rural Health Clinic (Provider-based)"                                      ,
   8900L  , 8999L , "8900-8999" , "RHC"          , "Rural Health Clinic (Free-standing)"                                       ,
   9000L  , 9799L , "9000-9799" , "HHA"          , "Home Health Agency"                                                        ,
-  9800L  , 9899L , "9800-9899" , "TC"           , "Transplant Center"                                                         ,
+  9800L  , 9899L , "9800-9899" , "TXC"          , "Transplant Center"                                                         ,
   9900L  , 9999L , "9900-9999" , "FOTP"         , "Freestanding Opioid Treatment Program"
 )
 
