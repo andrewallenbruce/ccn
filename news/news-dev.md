@@ -254,3 +254,7 @@
 ## ccn 0.0.0.9055 (2025-12-09)
 
 - updated medicare ranges table
+
+## ccn 0.0.0.9056 (2025-12-10)
+
+- fix bug in emergency

@@ -50,7 +50,7 @@ emergency("21034E")
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
 #>  @ sequence: chr "034"
-#>  @ range   : chr "001-099"
+#>  @ range   : chr "001-999"
 #>  @ type    : <ccn::Type>
 #>  .. @ code: chr "E"
 #>  .. @ abbr: chr "NFEH"
@@ -63,7 +63,7 @@ emergency("12345F")
 #>  .. @ abbr: chr "HI"
 #>  .. @ name: chr "Hawaii"
 #>  @ sequence: chr "345"
-#>  @ range   : chr NA
+#>  @ range   : chr "001-999"
 #>  @ type    : <ccn::Type>
 #>  .. @ code: chr "F"
 #>  .. @ abbr: chr "FEH"
