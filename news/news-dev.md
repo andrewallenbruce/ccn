@@ -250,3 +250,7 @@
 ## ccn 0.0.0.9054 (2025-12-09)
 
 - sliced vectors now have names
+
+## ccn 0.0.0.9055 (2025-12-09)
+
+- updated medicare ranges table
