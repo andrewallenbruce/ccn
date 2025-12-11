@@ -100,13 +100,13 @@ RangeMOH <- S7::new_class(
 
 #' @noRd
 range_moh <- function(x) {
-  RangeMOH(number = substring(x, 4L, 6L))
+  RangeMOH(number = x)
 }
 
 
 #' @noRd
 range_mof <- function(x) {
-  if_in(substring(x, 4L, 6L), c(1L, 999L), "0001-0009")
+  if_in(x, c(1L, 999L), "001-999")
 }
 
 #' @rdname medicaid
@@ -117,9 +117,9 @@ medicaid <- function(x) {
     state = state(x),
     sequence = substring(x, 4L, 6L),
     range = if (is_moh_type(substring(x, 3L, 3L))) {
-      range_moh(x)
+      range_moh(substring(x, 4L, 6L))
     } else {
-      range_mof(x)
+      range_mof(substring(x, 4L, 6L))
     },
     type = mof_type(substring(x, 3L, 3L))
   )

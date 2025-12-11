@@ -8,7 +8,7 @@
 #' @returns S7 object of class `State`.
 #' @examples
 #' state("A5XXX")
-#' state(sample(ccn::state_codes$code, 5L)) # should only accept length 1
+#' try(state(sample(ccn::state_codes$code, 5L))) # should only accept length 1
 NULL
 
 #' @noRd

@@ -17,5 +17,5 @@ Convert state codes to their abbreviations or full names.
 }
 \examples{
 state("A5XXX")
-state(sample(ccn::state_codes$code, 5L)) # should only accept length 1
+try(state(sample(ccn::state_codes$code, 5L))) # should only accept length 1
 }
