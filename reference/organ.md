@@ -25,7 +25,6 @@ organ("05P001")
 #> <ccn::Organ>
 #>  @ ccn     : chr "05P001"
 #>  @ state   : <ccn::State>
-#>  .. @ code: chr "05"
 #>  .. @ abbr: chr "CA"
 #>  .. @ name: chr "California"
 #>  @ sequence: chr "001"

@@ -25,7 +25,6 @@ supplier("10C0001062")
 #> <ccn::Supplier>
 #>  @ ccn     : chr "10C0001062"
 #>  @ state   : <ccn::State>
-#>  .. @ code: chr "10"
 #>  .. @ abbr: chr "FL"
 #>  .. @ name: chr "Florida"
 #>  @ sequence: chr "0001062"
@@ -39,7 +38,6 @@ supplier("45D0634589")
 #> <ccn::Supplier>
 #>  @ ccn     : chr "45D0634589"
 #>  @ state   : <ccn::State>
-#>  .. @ code: chr "45"
 #>  .. @ abbr: chr "TX"
 #>  .. @ name: chr "Texas"
 #>  @ sequence: chr "0634589"
@@ -53,7 +51,6 @@ supplier("21X0009807")
 #> <ccn::Supplier>
 #>  @ ccn     : chr "21X0009807"
 #>  @ state   : <ccn::State>
-#>  .. @ code: chr "21"
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
 #>  @ sequence: chr "0009807"
@@ -67,7 +64,6 @@ supplier("12C0001062")
 #> <ccn::Supplier>
 #>  @ ccn     : chr "12C0001062"
 #>  @ state   : <ccn::State>
-#>  .. @ code: chr "12"
 #>  .. @ abbr: chr "HI"
 #>  .. @ name: chr "Hawaii"
 #>  @ sequence: chr "0001062"

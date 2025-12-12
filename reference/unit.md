@@ -25,7 +25,6 @@ medicare("210101")
 #> <ccn::Medicare>
 #>  @ ccn     : chr "210101"
 #>  @ state   : <ccn::State>
-#>  .. @ code: chr "21"
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
 #>  @ sequence: chr "0101"
@@ -36,40 +35,40 @@ medicare("210101")
 #>  .. @ desc  : chr "Short-Term Hospital (General & Specialty)"
 #>  @ ext     : chr NA
 unit("21T101")
+#> Warning: NAs introduced by coercion
 #> <ccn::Unit>
 #>  @ ccn     : chr "21T101"
 #>  @ state   : <ccn::State>
-#>  .. @ code: chr "21"
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
 #>  @ sequence: chr "101"
-#>  @ range   : chr "0001-0009"
+#>  @ range   : chr NA
 #>  @ type    : <ccn::Type>
 #>  .. @ code: chr "T"
 #>  .. @ abbr: chr "IRF"
 #>  .. @ desc: chr "Rehabilitation Unit (IPPS-Excluded)"
 unit("21S101")
+#> Warning: NAs introduced by coercion
 #> <ccn::Unit>
 #>  @ ccn     : chr "21S101"
 #>  @ state   : <ccn::State>
-#>  .. @ code: chr "21"
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
 #>  @ sequence: chr "101"
-#>  @ range   : chr "0001-0009"
+#>  @ range   : chr NA
 #>  @ type    : <ccn::Type>
 #>  .. @ code: chr "S"
 #>  .. @ abbr: chr "PSY"
 #>  .. @ desc: chr "Psychiatric Unit (IPPS-Excluded)"
 unit("21U101")
+#> Warning: NAs introduced by coercion
 #> <ccn::Unit>
 #>  @ ccn     : chr "21U101"
 #>  @ state   : <ccn::State>
-#>  .. @ code: chr "21"
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
 #>  @ sequence: chr "101"
-#>  @ range   : chr "0001-0009"
+#>  @ range   : chr NA
 #>  @ type    : <ccn::Type>
 #>  .. @ code: chr "U"
 #>  .. @ abbr: chr "SBA"

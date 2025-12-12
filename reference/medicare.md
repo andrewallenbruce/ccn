@@ -25,7 +25,6 @@ medicare("670055")
 #> <ccn::Medicare>
 #>  @ ccn     : chr "670055"
 #>  @ state   : <ccn::State>
-#>  .. @ code: chr "67"
 #>  .. @ abbr: chr "TX"
 #>  .. @ name: chr "Texas"
 #>  @ sequence: chr "0055"
@@ -39,7 +38,6 @@ medicare("123456")
 #> <ccn::Medicare>
 #>  @ ccn     : chr "123456"
 #>  @ state   : <ccn::State>
-#>  .. @ code: chr "12"
 #>  .. @ abbr: chr "HI"
 #>  .. @ name: chr "Hawaii"
 #>  @ sequence: chr "3456"

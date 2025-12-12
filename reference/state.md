@@ -23,12 +23,9 @@ S7 object of class `State`.
 ``` r
 state("A5XXX")
 #> <ccn::State>
-#>  @ code: chr "A5"
 #>  @ abbr: chr "MS"
 #>  @ name: chr "Mississippi"
-state(sample(ccn::state_codes$code, 5L)) # should only accept length 1
-#> <ccn::State>
-#>  @ code: chr [1:5] "82" "80" "01" "65" "54"
-#>  @ abbr: chr [1:5] "MA" "MD" "AL" "GU" "ID"
-#>  @ name: chr [1:5] "Massachusetts" "Maryland" "Alabama" "Guam" "Idaho"
+try(state(sample(ccn::state_codes$code, 5L))) # should only accept length 1
+#> Error in state(sample(ccn::state_codes$code, 5L)) : 
+#>   `str_ste(x)` must be length 1.
 ```

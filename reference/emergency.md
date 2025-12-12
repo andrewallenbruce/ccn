@@ -46,7 +46,6 @@ emergency("21034E")
 #> <ccn::Emergency>
 #>  @ ccn     : chr "21034E"
 #>  @ state   : <ccn::State>
-#>  .. @ code: chr "21"
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
 #>  @ sequence: chr "034"
@@ -59,7 +58,6 @@ emergency("12345F")
 #> <ccn::Emergency>
 #>  @ ccn     : chr "12345F"
 #>  @ state   : <ccn::State>
-#>  .. @ code: chr "12"
 #>  .. @ abbr: chr "HI"
 #>  .. @ name: chr "Hawaii"
 #>  @ sequence: chr "345"

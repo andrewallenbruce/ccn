@@ -27,7 +27,6 @@ medicare("212026")
 #> <ccn::Medicare>
 #>  @ ccn     : chr "212026"
 #>  @ state   : <ccn::State>
-#>  .. @ code: chr "21"
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
 #>  @ sequence: chr "2026"
@@ -41,7 +40,6 @@ subunit("21SA26")
 #> <ccn::EippsSubunit>
 #>  @ ccn     : chr "21SA26"
 #>  @ state   : <ccn::State>
-#>  .. @ code: chr "21"
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
 #>  @ sequence: chr(0) 
@@ -62,7 +60,6 @@ parent("21SA26")
 #> <ccn::Parent>
 #>  @ ccn     : chr "212026"
 #>  @ state   : <ccn::State>
-#>  .. @ code: chr "21"
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
 #>  @ sequence: chr "2026"
@@ -82,7 +79,6 @@ subunit("21TA26")
 #> <ccn::EippsSubunit>
 #>  @ ccn     : chr "21TA26"
 #>  @ state   : <ccn::State>
-#>  .. @ code: chr "21"
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
 #>  @ sequence: chr(0) 
@@ -103,7 +99,6 @@ parent("21TA26")
 #> <ccn::Parent>
 #>  @ ccn     : chr "212026"
 #>  @ state   : <ccn::State>
-#>  .. @ code: chr "21"
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
 #>  @ sequence: chr "2026"
@@ -124,7 +119,6 @@ medicare("022001")
 #> <ccn::Medicare>
 #>  @ ccn     : chr "022001"
 #>  @ state   : <ccn::State>
-#>  .. @ code: chr "02"
 #>  .. @ abbr: chr "AK"
 #>  .. @ name: chr "Alaska"
 #>  @ sequence: chr "2001"
@@ -138,7 +132,6 @@ subunit("02TA01")
 #> <ccn::EippsSubunit>
 #>  @ ccn     : chr "02TA01"
 #>  @ state   : <ccn::State>
-#>  .. @ code: chr "02"
 #>  .. @ abbr: chr "AK"
 #>  .. @ name: chr "Alaska"
 #>  @ sequence: chr(0) 
@@ -159,7 +152,6 @@ parent("02TA01")
 #> <ccn::Parent>
 #>  @ ccn     : chr "022001"
 #>  @ state   : <ccn::State>
-#>  .. @ code: chr "02"
 #>  .. @ abbr: chr "AK"
 #>  .. @ name: chr "Alaska"
 #>  @ sequence: chr "2001"
@@ -180,7 +172,6 @@ medicare("043038")
 #> <ccn::Medicare>
 #>  @ ccn     : chr "043038"
 #>  @ state   : <ccn::State>
-#>  .. @ code: chr "04"
 #>  .. @ abbr: chr "AR"
 #>  .. @ name: chr "Arkansas"
 #>  @ sequence: chr "3038"
@@ -194,7 +185,6 @@ subunit("04SD38")
 #> <ccn::EippsSubunit>
 #>  @ ccn     : chr "04SD38"
 #>  @ state   : <ccn::State>
-#>  .. @ code: chr "04"
 #>  .. @ abbr: chr "AR"
 #>  .. @ name: chr "Arkansas"
 #>  @ sequence: chr(0) 
@@ -215,7 +205,6 @@ parent("04SD38")
 #> <ccn::Parent>
 #>  @ ccn     : chr "043038"
 #>  @ state   : <ccn::State>
-#>  .. @ code: chr "04"
 #>  .. @ abbr: chr "AR"
 #>  .. @ name: chr "Arkansas"
 #>  @ sequence: chr "3038"
@@ -236,7 +225,6 @@ medicare("522005")
 #> <ccn::Medicare>
 #>  @ ccn     : chr "522005"
 #>  @ state   : <ccn::State>
-#>  .. @ code: chr "52"
 #>  .. @ abbr: chr "WI"
 #>  .. @ name: chr "Wisconsin"
 #>  @ sequence: chr "2005"
@@ -250,7 +238,6 @@ subunit("52TA05")
 #> <ccn::EippsSubunit>
 #>  @ ccn     : chr "52TA05"
 #>  @ state   : <ccn::State>
-#>  .. @ code: chr "52"
 #>  .. @ abbr: chr "WI"
 #>  .. @ name: chr "Wisconsin"
 #>  @ sequence: chr(0) 
@@ -271,7 +258,6 @@ parent("52TA05")
 #> <ccn::Parent>
 #>  @ ccn     : chr "522005"
 #>  @ state   : <ccn::State>
-#>  .. @ code: chr "52"
 #>  .. @ abbr: chr "WI"
 #>  .. @ name: chr "Wisconsin"
 #>  @ sequence: chr "2005"

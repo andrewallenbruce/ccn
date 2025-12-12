@@ -262,3 +262,8 @@
 ## ccn 0.0.0.9057 (2025-12-10)
 
 - all `slice_` fns now identify entity type
+
+## ccn 0.0.0.9058 (2025-12-11)
+
+- `State` class now has constructor, only accepts length 1 input
+- Fixed mistake in MOF range label
