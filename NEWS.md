@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9059 (2025-12-12)
+
+* removed `@sequence` slot from classes
+
+
 # ccn 0.0.0.9058 (2025-12-11)
 
 * `State` class now has constructor, only accepts length 1 input
