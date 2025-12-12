@@ -23,28 +23,26 @@ S7 object of class `Medicare`.
 ``` r
 medicare("670055")
 #> <ccn::Medicare>
-#>  @ ccn     : chr "670055"
-#>  @ state   : <ccn::State>
+#>  @ ccn  : chr "670055"
+#>  @ state: <ccn::State>
 #>  .. @ abbr: chr "TX"
 #>  .. @ name: chr "Texas"
-#>  @ sequence: chr "0055"
-#>  @ range   : <ccn::RangeMDC>
+#>  @ range: <ccn::RangeMDC>
 #>  .. @ number: chr "0055"
 #>  .. @ range : chr "0001-0879"
 #>  .. @ abbr  : chr "STC"
 #>  .. @ desc  : chr "Short-Term Hospital (General & Specialty)"
-#>  @ ext     : chr NA
+#>  @ ext  : chr NA
 medicare("123456")
 #> <ccn::Medicare>
-#>  @ ccn     : chr "123456"
-#>  @ state   : <ccn::State>
+#>  @ ccn  : chr "123456"
+#>  @ state: <ccn::State>
 #>  .. @ abbr: chr "HI"
 #>  .. @ name: chr "Hawaii"
-#>  @ sequence: chr "3456"
-#>  @ range   : <ccn::RangeMDC>
+#>  @ range: <ccn::RangeMDC>
 #>  .. @ number: chr "3456"
 #>  .. @ range : chr "3400-3499"
 #>  .. @ abbr  : chr "RHC"
 #>  .. @ desc  : chr "Rural Health Clinic (Provider-based)"
-#>  @ ext     : chr NA
+#>  @ ext  : chr NA
 ```

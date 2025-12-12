@@ -44,26 +44,24 @@ participating, see subsection I.
 ``` r
 emergency("21034E")
 #> <ccn::Emergency>
-#>  @ ccn     : chr "21034E"
-#>  @ state   : <ccn::State>
+#>  @ ccn  : chr "21034E"
+#>  @ state: <ccn::State>
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
-#>  @ sequence: chr "034"
-#>  @ range   : chr "001-999"
-#>  @ type    : <ccn::Type>
+#>  @ range: chr "001-999"
+#>  @ type : <ccn::Type>
 #>  .. @ code: chr "E"
 #>  .. @ abbr: chr "NFEH"
-#>  .. @ desc: chr "Non-Federal Emergency Hospital"
+#>  .. @ desc: chr "Emergency Hospital (Non-Federal)"
 emergency("12345F")
 #> <ccn::Emergency>
-#>  @ ccn     : chr "12345F"
-#>  @ state   : <ccn::State>
+#>  @ ccn  : chr "12345F"
+#>  @ state: <ccn::State>
 #>  .. @ abbr: chr "HI"
 #>  .. @ name: chr "Hawaii"
-#>  @ sequence: chr "345"
-#>  @ range   : chr "001-999"
-#>  @ type    : <ccn::Type>
+#>  @ range: chr "001-999"
+#>  @ type : <ccn::Type>
 #>  .. @ code: chr "F"
 #>  .. @ abbr: chr "FEH"
-#>  .. @ desc: chr "Federal Emergency Hospital"
+#>  .. @ desc: chr "Emergency Hospital (Federal)"
 ```

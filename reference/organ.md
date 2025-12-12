@@ -23,13 +23,12 @@ S7 object of class `Organ`.
 ``` r
 organ("05P001")
 #> <ccn::Organ>
-#>  @ ccn     : chr "05P001"
-#>  @ state   : <ccn::State>
+#>  @ ccn  : chr "05P001"
+#>  @ state: <ccn::State>
 #>  .. @ abbr: chr "CA"
 #>  .. @ name: chr "California"
-#>  @ sequence: chr "001"
-#>  @ range   : chr "001-099"
-#>  @ type    : <ccn::Type>
+#>  @ range: chr "001-099"
+#>  @ type : <ccn::Type>
 #>  .. @ code: chr "P"
 #>  .. @ abbr: chr "OPO"
 #>  .. @ desc: chr "Organ Procurement Organization"

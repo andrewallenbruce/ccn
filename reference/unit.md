@@ -23,53 +23,46 @@ character vector of names associated with codes.
 ``` r
 medicare("210101")
 #> <ccn::Medicare>
-#>  @ ccn     : chr "210101"
-#>  @ state   : <ccn::State>
+#>  @ ccn  : chr "210101"
+#>  @ state: <ccn::State>
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
-#>  @ sequence: chr "0101"
-#>  @ range   : <ccn::RangeMDC>
+#>  @ range: <ccn::RangeMDC>
 #>  .. @ number: chr "0101"
 #>  .. @ range : chr "0001-0879"
 #>  .. @ abbr  : chr "STC"
 #>  .. @ desc  : chr "Short-Term Hospital (General & Specialty)"
-#>  @ ext     : chr NA
+#>  @ ext  : chr NA
 unit("21T101")
-#> Warning: NAs introduced by coercion
 #> <ccn::Unit>
-#>  @ ccn     : chr "21T101"
-#>  @ state   : <ccn::State>
+#>  @ ccn  : chr "21T101"
+#>  @ state: <ccn::State>
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
-#>  @ sequence: chr "101"
-#>  @ range   : chr NA
-#>  @ type    : <ccn::Type>
+#>  @ range: chr "001-999"
+#>  @ type : <ccn::Type>
 #>  .. @ code: chr "T"
 #>  .. @ abbr: chr "IRF"
 #>  .. @ desc: chr "Rehabilitation Unit (IPPS-Excluded)"
 unit("21S101")
-#> Warning: NAs introduced by coercion
 #> <ccn::Unit>
-#>  @ ccn     : chr "21S101"
-#>  @ state   : <ccn::State>
+#>  @ ccn  : chr "21S101"
+#>  @ state: <ccn::State>
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
-#>  @ sequence: chr "101"
-#>  @ range   : chr NA
-#>  @ type    : <ccn::Type>
+#>  @ range: chr "001-999"
+#>  @ type : <ccn::Type>
 #>  .. @ code: chr "S"
 #>  .. @ abbr: chr "PSY"
 #>  .. @ desc: chr "Psychiatric Unit (IPPS-Excluded)"
 unit("21U101")
-#> Warning: NAs introduced by coercion
 #> <ccn::Unit>
-#>  @ ccn     : chr "21U101"
-#>  @ state   : <ccn::State>
+#>  @ ccn  : chr "21U101"
+#>  @ state: <ccn::State>
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
-#>  @ sequence: chr "101"
-#>  @ range   : chr NA
-#>  @ type    : <ccn::Type>
+#>  @ range: chr "001-999"
+#>  @ type : <ccn::Type>
 #>  .. @ code: chr "U"
 #>  .. @ abbr: chr "SBA"
 #>  .. @ desc: chr "Swing-Bed Approval - Short-Term Hospital"

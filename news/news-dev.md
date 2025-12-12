@@ -267,3 +267,7 @@
 
 - `State` class now has constructor, only accepts length 1 input
 - Fixed mistake in MOF range label
+
+## ccn 0.0.0.9059 (2025-12-12)
+
+- removed `@sequence` slot from classes
