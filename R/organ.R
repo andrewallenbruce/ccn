@@ -29,7 +29,6 @@ organ <- function(x) {
   Organ(
     ccn = x,
     state = state(x),
-    sequence = substring(x, 4L, 6L),
     range = org_range(substring(x, 4L, 6L)),
     type = org_type(substring(x, 3L, 3L))
   )

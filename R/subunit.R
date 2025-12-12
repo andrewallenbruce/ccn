@@ -51,7 +51,7 @@ SubunitParent <- S7::new_class(
   properties = list(
     code = S7::class_character,
     ccn = S7::class_character,
-    sequence = RangeMDC
+    range = RangeMDC
   )
 )
 
@@ -60,7 +60,7 @@ subunit_parent <- function(x) {
   SubunitParent(
     code = substring(x, 4L, 4L),
     ccn = eipps_parent_ccn(x),
-    sequence = range_mdc(eipps_sequence(x))
+    range = range_mdc(eipps_sequence(x))
   )
 }
 
@@ -93,7 +93,6 @@ parent <- function(x) {
   Parent(
     ccn = eipps_parent_ccn(x),
     state = state(x),
-    sequence = eipps_sequence(x),
     range = range_mdc(eipps_sequence(x)),
     subunit = subunit_(x)
   )

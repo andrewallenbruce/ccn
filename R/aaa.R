@@ -70,7 +70,6 @@ CCN <- S7::new_class(
   properties = list(
     ccn = S7::class_character,
     state = State,
-    sequence = S7::class_character,
     range = S7::class_character | Range
   )
 )

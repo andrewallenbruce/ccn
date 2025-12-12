@@ -51,7 +51,6 @@ supplier <- function(x) {
   Supplier(
     ccn = x,
     state = state(x),
-    sequence = substring(x, 4L, 10L),
     range = supplier_range(substring(x, 4L, 10L)),
     type = supplier_type(substring(x, 3L, 3L))
   )

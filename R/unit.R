@@ -38,8 +38,7 @@ unit <- function(x) {
   Unit(
     ccn = x,
     state = state(x),
-    sequence = substring(x, 4L, 6L),
-    range = range_mof(x),
+    range = range_mof(substring(x, 4L, 6L)),
     type = eipps_type(substring(x, 3L, 3L))
   )
 }

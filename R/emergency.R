@@ -40,7 +40,7 @@ emergency_type_desc <- function(x) {
   vs(
     x,
     c("E", "F"),
-    c("Non-Federal Emergency Hospital", "Federal Emergency Hospital")
+    c("Emergency Hospital (Non-Federal)", "Emergency Hospital (Federal)")
   )
 }
 
@@ -64,7 +64,6 @@ emergency <- function(x) {
   Emergency(
     ccn = x,
     state = state(x),
-    sequence = substring(x, 3L, 5L),
     range = emergency_range(substring(x, 3L, 5L)),
     type = emergency_type(substring(x, 6L, 6L))
   )

@@ -115,7 +115,6 @@ medicaid <- function(x) {
   Medicaid(
     ccn = x,
     state = state(x),
-    sequence = substring(x, 4L, 6L),
     range = if (is_moh_type(substring(x, 3L, 3L))) {
       range_moh(substring(x, 4L, 6L))
     } else {
