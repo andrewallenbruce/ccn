@@ -1,44 +1,4 @@
-#' @noRd
-State <- S7::new_class(
-  name = "State",
-  properties = list(
-    abbr = S7::class_character,
-    name = S7::class_character
-  ),
-  constructor = function(
-    code,
-    arg = rlang::caller_arg(code),
-    call = rlang::caller_env()
-  ) {
-    if (length(code) != 1L) {
-      cli::cli_abort(
-        c("{.arg {arg}} must be length {.strong 1}."),
-        arg = arg,
-        call = call
-      )
-    }
-    if (nchar(code) != 2L) {
-      cli::cli_abort(
-        c("{.arg {arg}} must be {.strong 2} characters."),
-        arg = arg,
-        call = call
-      )
-    }
-    if (!code %in% ccn::state_codes[["code"]]) {
-      cli::cli_abort(
-        c("{.arg {arg}} is an invalid state code."),
-        arg = arg,
-        call = call
-      )
-    }
-
-    S7::new_object(
-      .parent = S7::S7_object(),
-      abbr = state_abbr(code),
-      name = state_name(code)
-    )
-  }
-)
+#' @include states.R
 
 #' @noRd
 Extension <- S7::new_property(S7::class_character, default = NA_character_)

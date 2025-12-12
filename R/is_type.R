@@ -52,3 +52,42 @@ nchar_supplier_ext <- function(x) {
 is_supplier_type <- function(x) {
   x %chin% c("C", "D", "X")
 }
+
+#' @noRd
+is_state_code <- function(x) {
+  x %chin% ccn::state_codes[["code"]]
+}
+
+#' @noRd
+ccn_type <- function(x) {
+  kit::nif(
+    nchar_provider(x),
+    "provider",
+    nchar_provider_ext(x),
+    "provider_ext",
+    nchar_supplier(x),
+    "supplier",
+    nchar_supplier_ext(x),
+    "supplier_ext",
+    default = NA_character_
+  )
+}
+
+#' @noRd
+provider_type <- function(x) {
+  kit::nif(
+    is_numeric(slice_provider(x)),
+    "medicare",
+    is_organ_type(substring(x, 3L, 3L)),
+    "organ",
+    is_emergency_type(substring(x, 6L, 6L)),
+    "emergency",
+    is_medicaid_type(substring(x, 3L, 3L)),
+    "medicaid",
+    is_unit_type(substring(x, 3L, 3L)) & is_numeric(substring(x, 4L, 4L)),
+    "unit",
+    is_unit_type(substring(x, 3L, 3L)) & is_sub_type(substring(x, 4L, 4L)),
+    "subunit",
+    default = NA_character_
+  )
+}

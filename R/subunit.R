@@ -32,7 +32,7 @@ NULL
 
 #' @noRd
 eipps_prefix <- function(x) {
-  vs(x, ccn::eipps_subunit$code, ccn::eipps_subunit$prefix)
+  vs(x, ccn::eipps_subunit[["code"]], ccn::eipps_subunit[["prefix"]])
 }
 
 #' @noRd
@@ -42,7 +42,7 @@ eipps_sequence <- function(x) {
 
 #' @noRd
 eipps_parent_ccn <- function(x) {
-  paste0(str_ste(x), eipps_sequence(x))
+  paste0(substring(x, 1L, 2L), eipps_sequence(x))
 }
 
 #' @noRd
