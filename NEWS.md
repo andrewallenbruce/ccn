@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9060 (2025-12-12)
+
+* cleaned up arg checks in State class
+
+
 # ccn 0.0.0.9059 (2025-12-12)
 
 * removed `@sequence` slot from classes
