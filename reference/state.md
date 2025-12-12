@@ -25,7 +25,8 @@ state("A5XXX")
 #> <ccn::State>
 #>  @ abbr: chr "MS"
 #>  @ name: chr "Mississippi"
-try(state(sample(ccn::state_codes$code, 5L))) # should only accept length 1
-#> Error in state(sample(ccn::state_codes$code, 5L)) : 
-#>   `str_ste(x)` must be length 1.
+state(sample(ccn::state_codes$code, 1L))
+#> <ccn::State>
+#>  @ abbr: chr "MI"
+#>  @ name: chr "Michigan"
 ```

@@ -271,3 +271,7 @@
 ## ccn 0.0.0.9059 (2025-12-12)
 
 - removed `@sequence` slot from classes
+
+## ccn 0.0.0.9060 (2025-12-12)
+
+- cleaned up arg checks in State class
