@@ -11,8 +11,6 @@ switch_provider(x)
 
 switch_ccn(x)
 
-slice_provider(x)
-
 slice_provider_ext(x)
 
 slice_medicare(x)
@@ -30,6 +28,27 @@ slice_medicaid(x)
 slice_unit(x)
 
 slice_subunit(x)
+
+# S3 method for class 'medicare'
+print(x, ...)
+
+# S3 method for class 'organ'
+print(x, ...)
+
+# S3 method for class 'emergency'
+print(x, ...)
+
+# S3 method for class 'supplier'
+print(x, ...)
+
+# S3 method for class 'medicaid'
+print(x, ...)
+
+# S3 method for class 'unit'
+print(x, ...)
+
+# S3 method for class 'subunit'
+print(x, ...)
 ```
 
 ## Arguments
@@ -37,6 +56,10 @@ slice_subunit(x)
 - x:
 
   character vector of codes to look up.
+
+- ...:
+
+  additional arguments passed to methods.
 
 ## Value
 
@@ -46,30 +69,66 @@ character vector of names associated with codes.
 
 ``` r
 slice("670055")
-#>     entity      state   sequence 
-#> "medicare"       "67"     "0055" 
+#> 
+#> ── <ccn::medicare> 
+#>      ccn: 670055
+#>    state: 67
+#> sequence: 0055
 slice("05P001")
-#>   entity    state     type sequence 
-#>  "organ"     "05"      "P"    "001" 
+#> 
+#> ── <ccn::organ> 
+#>      ccn: 05P001
+#>    state: 05
+#>     type: P
+#> sequence: 001
 slice("12345E")
-#>      entity       state    sequence        type 
-#> "emergency"        "12"       "345"         "E" 
+#> 
+#> ── <ccn::emergency> 
+#>      ccn: 12345E
+#>    state: 12
+#> sequence: 345
+#>     type: E
 slice("10C0001062")
-#>     entity      state       type   sequence 
-#> "supplier"       "10"        "C"  "0001062" 
+#> 
+#> ── <ccn::supplier> 
+#>      ccn: 10C0001062
+#>    state: 10
+#>     type: C
+#> sequence: 0001062
 slice("A5J508")
-#>     entity      state       type   sequence 
-#> "medicaid"       "A5"        "J"      "508" 
+#> 
+#> ── <ccn::medicaid> 
+#>      ccn: A5J508
+#>    state: A5
+#>     type: J
+#> sequence: 508
 slice("21T101")
-#>   entity    state     type sequence 
-#>   "unit"     "21"      "T"    "101" 
+#> 
+#> ── <ccn::unit> 
+#>      ccn: 21T101
+#>    state: 21
+#>     type: T
+#> sequence: 101
 slice("02TA01")
-#>    entity     state      type    parent  sequence 
-#> "subunit"      "02"       "T"       "A"      "01" 
+#> 
+#> ── <ccn::subunit> 
+#>      ccn: 02TA01
+#>    state: 02
+#>     type: T
+#>   parent: A
+#> sequence: 01
 slice("240019A")
-#>     entity      state   sequence        ext 
-#> "medicare"       "24"     "0019"        "A" 
+#> 
+#> ── <ccn::medicare> 
+#>      ccn: 240019
+#>    state: 24
+#> sequence: 0019
+#>      ext: A
 slice("330125001")
-#>     entity      state   sequence        ext 
-#> "medicare"       "33"     "0125"      "001" 
+#> 
+#> ── <ccn::medicare> 
+#>      ccn: 330125
+#>    state: 33
+#> sequence: 0125
+#>      ext: 001
 ```

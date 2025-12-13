@@ -275,3 +275,7 @@
 ## ccn 0.0.0.9060 (2025-12-12)
 
 - cleaned up arg checks in State class
+
+## ccn 0.0.0.9061 (2025-12-12)
+
+- print method for slices

@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ccn</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9060</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9061</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,8 +51,6 @@
 <span></span>
 <span><span class="fu">switch_ccn</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">slice_provider</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
-<span></span>
 <span><span class="fu">slice_provider_ext</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">slice_medicare</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
@@ -69,7 +67,28 @@
 <span></span>
 <span><span class="fu">slice_unit</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">slice_subunit</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">slice_subunit</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for class 'medicare'</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for class 'organ'</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for class 'emergency'</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for class 'supplier'</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for class 'medicaid'</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for class 'unit'</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for class 'subunit'</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -78,6 +97,10 @@
 
 <dl><dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
 <dd><p>character vector of codes to look up.</p></dd>
+
+
+<dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
+<dd><p>additional arguments passed to methods.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -88,32 +111,68 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">slice</span><span class="op">(</span><span class="st">"670055"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     entity      state   sequence </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> "medicare"       "67"     "0055" </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── &lt;ccn::medicare&gt; </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      ccn: 670055</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    state: 67</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sequence: 0055</span>
 <span class="r-in"><span><span class="fu">slice</span><span class="op">(</span><span class="st">"05P001"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   entity    state     type sequence </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  "organ"     "05"      "P"    "001" </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── &lt;ccn::organ&gt; </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      ccn: 05P001</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    state: 05</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     type: P</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sequence: 001</span>
 <span class="r-in"><span><span class="fu">slice</span><span class="op">(</span><span class="st">"12345E"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      entity       state    sequence        type </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> "emergency"        "12"       "345"         "E" </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── &lt;ccn::emergency&gt; </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      ccn: 12345E</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    state: 12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sequence: 345</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     type: E</span>
 <span class="r-in"><span><span class="fu">slice</span><span class="op">(</span><span class="st">"10C0001062"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     entity      state       type   sequence </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> "supplier"       "10"        "C"  "0001062" </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── &lt;ccn::supplier&gt; </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      ccn: 10C0001062</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    state: 10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     type: C</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sequence: 0001062</span>
 <span class="r-in"><span><span class="fu">slice</span><span class="op">(</span><span class="st">"A5J508"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     entity      state       type   sequence </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> "medicaid"       "A5"        "J"      "508" </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── &lt;ccn::medicaid&gt; </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      ccn: A5J508</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    state: A5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     type: J</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sequence: 508</span>
 <span class="r-in"><span><span class="fu">slice</span><span class="op">(</span><span class="st">"21T101"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   entity    state     type sequence </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "unit"     "21"      "T"    "101" </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── &lt;ccn::unit&gt; </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      ccn: 21T101</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    state: 21</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     type: T</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sequence: 101</span>
 <span class="r-in"><span><span class="fu">slice</span><span class="op">(</span><span class="st">"02TA01"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    entity     state      type    parent  sequence </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> "subunit"      "02"       "T"       "A"      "01" </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── &lt;ccn::subunit&gt; </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      ccn: 02TA01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    state: 02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     type: T</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   parent: A</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sequence: 01</span>
 <span class="r-in"><span><span class="fu">slice</span><span class="op">(</span><span class="st">"240019A"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     entity      state   sequence        ext </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> "medicare"       "24"     "0019"        "A" </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── &lt;ccn::medicare&gt; </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      ccn: 240019</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    state: 24</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sequence: 0019</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      ext: A</span>
 <span class="r-in"><span><span class="fu">slice</span><span class="op">(</span><span class="st">"330125001"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     entity      state   sequence        ext </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> "medicare"       "33"     "0125"      "001" </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── &lt;ccn::medicare&gt; </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      ccn: 330125</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    state: 33</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sequence: 0125</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      ext: 001</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
