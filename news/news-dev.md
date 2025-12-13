@@ -280,3 +280,7 @@
 ## ccn 0.0.0.9062 (2025-12-13)
 
 - simplifying the interface
+
+## ccn 0.0.0.9063 (2025-12-13)
+
+- adding input checks

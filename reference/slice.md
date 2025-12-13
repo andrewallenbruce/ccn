@@ -122,4 +122,20 @@ slice("330125001")
 #>     state: 33
 #>  sequence: 0125
 #> extension: 001
+slice("000000000")
+#> ────<ccn:medicare>
+#>       ccn: 000000
+#>     state: 00
+#>  sequence: 0000
+#> extension: 000
+slice("000000000000")
+#> ────<ccn:supplier>
+#>       ccn: 0000000000
+#>     state: 00
+#>      type: 0
+#>  sequence: 0000000
+#> extension: 00
+# slice("0000000000000000")
+# slice("")
+# slice("IIIIII")
 ```
