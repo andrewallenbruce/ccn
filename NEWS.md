@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9063 (2025-12-13)
+
+* adding input checks
+
+
 # ccn 0.0.0.9062 (2025-12-13)
 
 * simplifying the interface
