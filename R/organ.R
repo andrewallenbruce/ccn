@@ -17,7 +17,6 @@ org_range <- function(x) {
 #' @noRd
 org_type <- function(x) {
   Type(
-    code = x,
     abbr = is_in(is_organ_type(x), "OPO"),
     desc = is_in(is_organ_type(x), "Organ Procurement Organization")
   )

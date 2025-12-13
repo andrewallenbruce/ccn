@@ -7,7 +7,6 @@ Extension <- S7::new_property(S7::class_character, default = NA_character_)
 Range <- S7::new_class(
   name = "Range",
   properties = list(
-    number = S7::class_character,
     series = S7::class_character,
     abbr = S7::class_character,
     desc = S7::class_character
@@ -18,7 +17,6 @@ Range <- S7::new_class(
 Type <- S7::new_class(
   name = "Type",
   properties = list(
-    code = S7::class_character,
     abbr = S7::class_character,
     desc = S7::class_character
   )

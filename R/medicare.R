@@ -33,16 +33,10 @@ medicare_range_desc <- function(x) {
 }
 
 #' @noRd
-RangeMDC <- S7::new_class(
-  name = "RangeMDC",
+RangeMCR <- S7::new_class(
+  name = "RangeMCR",
   parent = Range,
   properties = list(
-    series = S7::new_property(
-      S7::class_character,
-      getter = function(self) {
-        medicare_range(self@number)
-      }
-    ),
     abbr = S7::new_property(
       S7::class_character,
       getter = function(self) {
@@ -55,7 +49,16 @@ RangeMDC <- S7::new_class(
         medicare_range_desc(self@series)
       }
     )
-  )
+  ),
+  constructor = function(code) {
+    if (length(code) != 1L) {
+      check_arg(code, "must be length {.strong 1}.")
+    }
+    S7::new_object(
+      S7::S7_object(),
+      series = medicare_range(code)
+    )
+  }
 )
 
 #' @rdname medicare
@@ -64,6 +67,6 @@ medicare <- function(x) {
   Medicare(
     ccn = x,
     state = state(x),
-    range = RangeMDC(number = substring(x, 3L, 6L))
+    range = RangeMCR(code = substring(x, 3L, 6L))
   )
 }

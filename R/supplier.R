@@ -39,7 +39,7 @@ supplier_type_desc <- function(x) {
 #' @noRd
 supplier_type <- function(x) {
   Type(
-    code = x,
+    # code = x,
     abbr = supplier_type_abbr(x),
     desc = supplier_type_desc(x)
   )

@@ -47,7 +47,7 @@ emergency_type_desc <- function(x) {
 #' @noRd
 emergency_type <- function(x) {
   Type(
-    code = x,
+    # code = x,
     abbr = emergency_type_abbr(x),
     desc = emergency_type_desc(x)
   )

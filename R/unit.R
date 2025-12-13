@@ -14,23 +14,36 @@
 NULL
 
 #' @noRd
-eipps_abbr <- function(x) {
+unit_abbr <- function(x) {
   vs(x, ccn::eipps_unit[["code"]], ccn::eipps_unit[["abbr"]])
 }
 
 #' @noRd
-eipps_desc <- function(x) {
+unit_desc <- function(x) {
   vs(x, ccn::eipps_unit[["code"]], ccn::eipps_unit[["desc"]])
 }
 
 #' @noRd
-eipps_type <- function(x) {
-  Type(
-    code = x,
-    abbr = eipps_abbr(x),
-    desc = eipps_desc(x)
-  )
-}
+TypeUnit <- S7::new_class(
+  name = "TypeUnit",
+  parent = Type,
+  constructor = function(code) {
+    if (length(code) != 1L) {
+      check_arg(code, "must be length {.strong 1}.")
+    }
+    if (nchar(code) != 1L) {
+      check_arg(code, "must be {.strong 1} character.")
+    }
+    if (!is_unit_type(code)) {
+      check_arg(code, "{.val {x}} is an invalid unit type.")
+    }
+    S7::new_object(
+      S7::S7_object(),
+      abbr = unit_abbr(code),
+      desc = unit_desc(code)
+    )
+  }
+)
 
 #' @rdname unit
 #' @export
@@ -38,7 +51,7 @@ unit <- function(x) {
   Unit(
     ccn = x,
     state = state(x),
-    range = range_mof(substring(x, 4L, 6L)),
-    type = eipps_type(substring(x, 3L, 3L))
+    range = if_in(substring(x, 4L, 6L), c(1L, 999L), "001-999"),
+    type = TypeUnit(substring(x, 3L, 3L))
   )
 }

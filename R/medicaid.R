@@ -27,7 +27,7 @@ mof_type_desc <- function(x) {
 
 # purrr::map_chr(1:10, moh_range)
 #' @noRd
-moh_range <- function(x) {
+moh_range_series <- function(x) {
   ccn::medicaid_ranges[["range"]][
     data.table::between(
       as_int(x),
@@ -51,20 +51,22 @@ moh_range_desc <- function(x) {
 TypeMOF <- S7::new_class(
   name = "TypeMOF",
   parent = Type,
-  properties = list(
-    abbr = S7::new_property(
-      S7::class_character,
-      getter = function(self) {
-        mof_type_abbr(self@code)
-      }
-    ),
-    desc = S7::new_property(
-      S7::class_character,
-      getter = function(self) {
-        mof_type_desc(self@code)
-      }
+  constructor = function(code) {
+    if (length(code) != 1L) {
+      check_arg(code, "must be length {.strong 1}.")
+    }
+    if (nchar(code) != 1L) {
+      check_arg(code, "must be {.strong 1} character.")
+    }
+    if (!is_medicaid_type(code)) {
+      check_arg(code, "{.val {x}} is an invalid medicaid type.")
+    }
+    S7::new_object(
+      S7::S7_object(),
+      abbr = mof_type_abbr(code),
+      desc = mof_type_desc(code)
     )
-  )
+  }
 )
 
 #' @noRd
@@ -72,12 +74,6 @@ RangeMOH <- S7::new_class(
   name = "RangeMOH",
   parent = Range,
   properties = list(
-    series = S7::new_property(
-      S7::class_character,
-      getter = function(self) {
-        moh_range(self@number)
-      }
-    ),
     abbr = S7::new_property(
       S7::class_character,
       getter = function(self) {
@@ -90,13 +86,17 @@ RangeMOH <- S7::new_class(
         moh_range_desc(self@series)
       }
     )
-  )
+  ),
+  constructor = function(code) {
+    if (length(code) != 1L) {
+      check_arg(code, "must be length {.strong 1}.")
+    }
+    S7::new_object(
+      S7::S7_object(),
+      series = moh_range_series(code)
+    )
+  }
 )
-
-#' @noRd
-range_mof <- function(x) {
-  if_in(x, c(1L, 999L), "001-999")
-}
 
 #' @rdname medicaid
 #' @export
@@ -107,7 +107,7 @@ medicaid <- function(x) {
     range = if (is_moh_type(substring(x, 3L, 3L))) {
       RangeMOH(substring(x, 4L, 6L))
     } else {
-      range_mof(substring(x, 4L, 6L))
+      if_in(substring(x, 4L, 6L), c(1L, 999L), "001-999")
     },
     type = TypeMOF(substring(x, 3L, 3L))
   )

@@ -60,7 +60,7 @@ switch_ccn <- function(x) {
     provider_ext = slice_provider_ext(x),
     supplier = slice_supplier(x),
     supplier_ext = slice_supplier_ext(x),
-    check_arg(x, "is an invalid CCN: {.val {x}}.") # TODO redundant
+    check_arg(x, "is an invalid CCN: {.val {x}}.") # TODO redundant?
   )
 }
 

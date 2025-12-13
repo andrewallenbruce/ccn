@@ -19,21 +19,17 @@ character vector of names associated with codes.
 Convert various codes to their associated names.
 }
 \examples{
-medicare("212026")
 subunit("21SA26")
 parent("21SA26")
 subunit("21TA26")
 parent("21TA26")
 
-medicare("022001")
 subunit("02TA01")
 parent("02TA01")
 
-medicare("043038")
 subunit("04SD38")
 parent("04SD38")
 
-medicare("522005")
 subunit("52TA05")
 parent("52TA05")
 }
