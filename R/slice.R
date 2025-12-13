@@ -36,7 +36,7 @@ switch_provider <- function(x) {
     medicaid = slice_medicaid(x),
     unit = slice_unit(x),
     subunit = slice_subunit(x),
-    cli::cli_abort("Provider CCN type not recognized")
+    cli::cli_abort("Provider type not recognized: {x}")
   )
 }
 
@@ -49,7 +49,7 @@ switch_ccn <- function(x) {
     provider_ext = slice_provider_ext(x),
     supplier = slice_supplier(x),
     supplier_ext = slice_supplier_ext(x),
-    cli::cli_abort("CCN type not recognized")
+    cli::cli_abort("CCN type not recognized: {x}")
   )
 }
 
@@ -61,7 +61,7 @@ slice_provider_ext <- function(x) {
   structure(
     c(
       p,
-      ext = substring(x, 7L, nchar(x))
+      extension = substring(x, 7L, nchar(x))
     ),
     class = class(p)
   )
@@ -131,7 +131,7 @@ slice_supplier_ext <- function(x) {
   structure(
     c(
       p,
-      ext = substring(x, 11L, nchar(x))
+      extension = substring(x, 11L, nchar(x))
     ),
     class = class(p)
   )
@@ -181,8 +181,14 @@ slice_subunit <- function(x) {
 
 #' @noRd
 print_impl <- function(x) {
-  cli::cli_h3("<ccn::{class(x)}>")
-  glue::glue('{format(names(x), justify = "right")}: {unname(x)}') |>
+  cli::cli_text(
+    paste0(rep(cli::symbol$line, 4), collapse = ""),
+    "<ccn:{cli::col_cyan(class(x))}>"
+  )
+  glue::glue(
+    '{cli::col_silver(format(names(x), justify = "right"))}',
+    '{cli::col_grey(":")} {unname(x)}'
+  ) |>
     cat(sep = "\n")
   invisible(x)
 }

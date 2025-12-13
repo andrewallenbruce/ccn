@@ -60,7 +60,7 @@ subunit_parent <- function(x) {
   SubunitParent(
     code = substring(x, 4L, 4L),
     ccn = eipps_parent_ccn(x),
-    range = range_mdc(eipps_sequence(x))
+    range = RangeMDC(eipps_sequence(x))
   )
 }
 
@@ -93,7 +93,7 @@ parent <- function(x) {
   Parent(
     ccn = eipps_parent_ccn(x),
     state = state(x),
-    range = range_mdc(eipps_sequence(x)),
+    range = RangeMDC(eipps_sequence(x)),
     subunit = subunit_(x)
   )
 }

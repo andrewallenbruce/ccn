@@ -41,7 +41,6 @@ Collate:
     'medicaid.R'
     'medicare.R'
     'organ.R'
-    'parse.R'
     'slice.R'
     'unit.R'
     'subunit.R'

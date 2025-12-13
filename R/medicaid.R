@@ -68,16 +68,11 @@ TypeMOF <- S7::new_class(
 )
 
 #' @noRd
-mof_type <- function(x) {
-  TypeMOF(code = x)
-}
-
-#' @noRd
 RangeMOH <- S7::new_class(
   name = "RangeMOH",
   parent = Range,
   properties = list(
-    range = S7::new_property(
+    series = S7::new_property(
       S7::class_character,
       getter = function(self) {
         moh_range(self@number)
@@ -86,23 +81,17 @@ RangeMOH <- S7::new_class(
     abbr = S7::new_property(
       S7::class_character,
       getter = function(self) {
-        moh_range_abbr(self@range)
+        moh_range_abbr(self@series)
       }
     ),
     desc = S7::new_property(
       S7::class_character,
       getter = function(self) {
-        moh_range_desc(self@range)
+        moh_range_desc(self@series)
       }
     )
   )
 )
-
-#' @noRd
-range_moh <- function(x) {
-  RangeMOH(number = x)
-}
-
 
 #' @noRd
 range_mof <- function(x) {
@@ -116,10 +105,10 @@ medicaid <- function(x) {
     ccn = x,
     state = state(x),
     range = if (is_moh_type(substring(x, 3L, 3L))) {
-      range_moh(substring(x, 4L, 6L))
+      RangeMOH(substring(x, 4L, 6L))
     } else {
       range_mof(substring(x, 4L, 6L))
     },
-    type = mof_type(substring(x, 3L, 3L))
+    type = TypeMOF(substring(x, 3L, 3L))
   )
 }

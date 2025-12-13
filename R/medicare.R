@@ -37,7 +37,7 @@ RangeMDC <- S7::new_class(
   name = "RangeMDC",
   parent = Range,
   properties = list(
-    range = S7::new_property(
+    series = S7::new_property(
       S7::class_character,
       getter = function(self) {
         medicare_range(self@number)
@@ -46,22 +46,17 @@ RangeMDC <- S7::new_class(
     abbr = S7::new_property(
       S7::class_character,
       getter = function(self) {
-        medicare_range_abbr(self@range)
+        medicare_range_abbr(self@series)
       }
     ),
     desc = S7::new_property(
       S7::class_character,
       getter = function(self) {
-        medicare_range_desc(self@range)
+        medicare_range_desc(self@series)
       }
     )
   )
 )
-
-#' @noRd
-range_mdc <- function(x) {
-  RangeMDC(number = x)
-}
 
 #' @rdname medicare
 #' @export
@@ -69,6 +64,6 @@ medicare <- function(x) {
   Medicare(
     ccn = x,
     state = state(x),
-    range = range_mdc(substring(x, 3L, 6L))
+    range = RangeMDC(number = substring(x, 3L, 6L))
   )
 }
