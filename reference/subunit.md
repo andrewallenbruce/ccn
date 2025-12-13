@@ -31,7 +31,7 @@ medicare("212026")
 #>  .. @ name: chr "Maryland"
 #>  @ range: <ccn::RangeMDC>
 #>  .. @ number: chr "2026"
-#>  .. @ range : chr "2000-2299"
+#>  .. @ series: chr "2000-2299"
 #>  .. @ abbr  : chr "LTC"
 #>  .. @ desc  : chr "Long-Term Care Hospital (IPPS-Excluded)"
 #>  @ ext  : chr NA
@@ -51,7 +51,7 @@ subunit("21SA26")
 #>  .. @ ccn  : chr "212026"
 #>  .. @ range: <ccn::RangeMDC>
 #>  .. .. @ number: chr "2026"
-#>  .. .. @ range : chr "2000-2299"
+#>  .. .. @ series: chr "2000-2299"
 #>  .. .. @ abbr  : chr "LTC"
 #>  .. .. @ desc  : chr "Long-Term Care Hospital (IPPS-Excluded)"
 parent("21SA26")
@@ -62,7 +62,7 @@ parent("21SA26")
 #>  .. @ name: chr "Maryland"
 #>  @ range  : <ccn::RangeMDC>
 #>  .. @ number: chr "2026"
-#>  .. @ range : chr "2000-2299"
+#>  .. @ series: chr "2000-2299"
 #>  .. @ abbr  : chr "LTC"
 #>  .. @ desc  : chr "Long-Term Care Hospital (IPPS-Excluded)"
 #>  @ ext    : chr NA
@@ -88,7 +88,7 @@ subunit("21TA26")
 #>  .. @ ccn  : chr "212026"
 #>  .. @ range: <ccn::RangeMDC>
 #>  .. .. @ number: chr "2026"
-#>  .. .. @ range : chr "2000-2299"
+#>  .. .. @ series: chr "2000-2299"
 #>  .. .. @ abbr  : chr "LTC"
 #>  .. .. @ desc  : chr "Long-Term Care Hospital (IPPS-Excluded)"
 parent("21TA26")
@@ -99,7 +99,7 @@ parent("21TA26")
 #>  .. @ name: chr "Maryland"
 #>  @ range  : <ccn::RangeMDC>
 #>  .. @ number: chr "2026"
-#>  .. @ range : chr "2000-2299"
+#>  .. @ series: chr "2000-2299"
 #>  .. @ abbr  : chr "LTC"
 #>  .. @ desc  : chr "Long-Term Care Hospital (IPPS-Excluded)"
 #>  @ ext    : chr NA
@@ -118,7 +118,7 @@ medicare("022001")
 #>  .. @ name: chr "Alaska"
 #>  @ range: <ccn::RangeMDC>
 #>  .. @ number: chr "2001"
-#>  .. @ range : chr "2000-2299"
+#>  .. @ series: chr "2000-2299"
 #>  .. @ abbr  : chr "LTC"
 #>  .. @ desc  : chr "Long-Term Care Hospital (IPPS-Excluded)"
 #>  @ ext  : chr NA
@@ -138,7 +138,7 @@ subunit("02TA01")
 #>  .. @ ccn  : chr "022001"
 #>  .. @ range: <ccn::RangeMDC>
 #>  .. .. @ number: chr "2001"
-#>  .. .. @ range : chr "2000-2299"
+#>  .. .. @ series: chr "2000-2299"
 #>  .. .. @ abbr  : chr "LTC"
 #>  .. .. @ desc  : chr "Long-Term Care Hospital (IPPS-Excluded)"
 parent("02TA01")
@@ -149,7 +149,7 @@ parent("02TA01")
 #>  .. @ name: chr "Alaska"
 #>  @ range  : <ccn::RangeMDC>
 #>  .. @ number: chr "2001"
-#>  .. @ range : chr "2000-2299"
+#>  .. @ series: chr "2000-2299"
 #>  .. @ abbr  : chr "LTC"
 #>  .. @ desc  : chr "Long-Term Care Hospital (IPPS-Excluded)"
 #>  @ ext    : chr NA
@@ -168,7 +168,7 @@ medicare("043038")
 #>  .. @ name: chr "Arkansas"
 #>  @ range: <ccn::RangeMDC>
 #>  .. @ number: chr "3038"
-#>  .. @ range : chr "3025-3099"
+#>  .. @ series: chr "3025-3099"
 #>  .. @ abbr  : chr "IRF"
 #>  .. @ desc  : chr "Rehabilitation Hospital (IPPS-Excluded)"
 #>  @ ext  : chr NA
@@ -188,7 +188,7 @@ subunit("04SD38")
 #>  .. @ ccn  : chr "043038"
 #>  .. @ range: <ccn::RangeMDC>
 #>  .. .. @ number: chr "3038"
-#>  .. .. @ range : chr "3025-3099"
+#>  .. .. @ series: chr "3025-3099"
 #>  .. .. @ abbr  : chr "IRF"
 #>  .. .. @ desc  : chr "Rehabilitation Hospital (IPPS-Excluded)"
 parent("04SD38")
@@ -199,7 +199,7 @@ parent("04SD38")
 #>  .. @ name: chr "Arkansas"
 #>  @ range  : <ccn::RangeMDC>
 #>  .. @ number: chr "3038"
-#>  .. @ range : chr "3025-3099"
+#>  .. @ series: chr "3025-3099"
 #>  .. @ abbr  : chr "IRF"
 #>  .. @ desc  : chr "Rehabilitation Hospital (IPPS-Excluded)"
 #>  @ ext    : chr NA
@@ -218,7 +218,7 @@ medicare("522005")
 #>  .. @ name: chr "Wisconsin"
 #>  @ range: <ccn::RangeMDC>
 #>  .. @ number: chr "2005"
-#>  .. @ range : chr "2000-2299"
+#>  .. @ series: chr "2000-2299"
 #>  .. @ abbr  : chr "LTC"
 #>  .. @ desc  : chr "Long-Term Care Hospital (IPPS-Excluded)"
 #>  @ ext  : chr NA
@@ -238,7 +238,7 @@ subunit("52TA05")
 #>  .. @ ccn  : chr "522005"
 #>  .. @ range: <ccn::RangeMDC>
 #>  .. .. @ number: chr "2005"
-#>  .. .. @ range : chr "2000-2299"
+#>  .. .. @ series: chr "2000-2299"
 #>  .. .. @ abbr  : chr "LTC"
 #>  .. .. @ desc  : chr "Long-Term Care Hospital (IPPS-Excluded)"
 parent("52TA05")
@@ -249,7 +249,7 @@ parent("52TA05")
 #>  .. @ name: chr "Wisconsin"
 #>  @ range  : <ccn::RangeMDC>
 #>  .. @ number: chr "2005"
-#>  .. @ range : chr "2000-2299"
+#>  .. @ series: chr "2000-2299"
 #>  .. @ abbr  : chr "LTC"
 #>  .. @ desc  : chr "Long-Term Care Hospital (IPPS-Excluded)"
 #>  @ ext    : chr NA

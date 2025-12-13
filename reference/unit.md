@@ -29,7 +29,7 @@ medicare("210101")
 #>  .. @ name: chr "Maryland"
 #>  @ range: <ccn::RangeMDC>
 #>  .. @ number: chr "0101"
-#>  .. @ range : chr "0001-0879"
+#>  .. @ series: chr "0001-0879"
 #>  .. @ abbr  : chr "STC"
 #>  .. @ desc  : chr "Short-Term Hospital (General & Specialty)"
 #>  @ ext  : chr NA

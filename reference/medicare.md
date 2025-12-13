@@ -29,7 +29,7 @@ medicare("670055")
 #>  .. @ name: chr "Texas"
 #>  @ range: <ccn::RangeMDC>
 #>  .. @ number: chr "0055"
-#>  .. @ range : chr "0001-0879"
+#>  .. @ series: chr "0001-0879"
 #>  .. @ abbr  : chr "STC"
 #>  .. @ desc  : chr "Short-Term Hospital (General & Specialty)"
 #>  @ ext  : chr NA
@@ -41,7 +41,7 @@ medicare("123456")
 #>  .. @ name: chr "Hawaii"
 #>  @ range: <ccn::RangeMDC>
 #>  .. @ number: chr "3456"
-#>  .. @ range : chr "3400-3499"
+#>  .. @ series: chr "3400-3499"
 #>  .. @ abbr  : chr "RHC"
 #>  .. @ desc  : chr "Rural Health Clinic (Provider-based)"
 #>  @ ext  : chr NA

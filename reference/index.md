@@ -10,14 +10,6 @@
   : Medicare Provider
 - [`organ()`](https://andrewallenbruce.github.io/ccn/reference/organ.md)
   : Organ Procurement Organizations (OPO)
-- [`parse_medicare()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
-  [`parse_opo()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
-  [`parse_emergency()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
-  [`parse_supplier()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
-  [`parse_medicaid()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
-  [`parse_unit()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
-  [`parse_subunit()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
-  : Parse CMS Certification Numbers
 - [`slice()`](https://andrewallenbruce.github.io/ccn/reference/slice.md)
   [`switch_provider()`](https://andrewallenbruce.github.io/ccn/reference/slice.md)
   [`switch_ccn()`](https://andrewallenbruce.github.io/ccn/reference/slice.md)

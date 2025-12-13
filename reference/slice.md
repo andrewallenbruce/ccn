@@ -69,66 +69,57 @@ character vector of names associated with codes.
 
 ``` r
 slice("670055")
-#> 
-#> ── <ccn::medicare> 
+#> ────<ccn:medicare>
 #>      ccn: 670055
 #>    state: 67
 #> sequence: 0055
 slice("05P001")
-#> 
-#> ── <ccn::organ> 
+#> ────<ccn:organ>
 #>      ccn: 05P001
 #>    state: 05
 #>     type: P
 #> sequence: 001
 slice("12345E")
-#> 
-#> ── <ccn::emergency> 
+#> ────<ccn:emergency>
 #>      ccn: 12345E
 #>    state: 12
 #> sequence: 345
 #>     type: E
 slice("10C0001062")
-#> 
-#> ── <ccn::supplier> 
+#> ────<ccn:supplier>
 #>      ccn: 10C0001062
 #>    state: 10
 #>     type: C
 #> sequence: 0001062
 slice("A5J508")
-#> 
-#> ── <ccn::medicaid> 
+#> ────<ccn:medicaid>
 #>      ccn: A5J508
 #>    state: A5
 #>     type: J
 #> sequence: 508
 slice("21T101")
-#> 
-#> ── <ccn::unit> 
+#> ────<ccn:unit>
 #>      ccn: 21T101
 #>    state: 21
 #>     type: T
 #> sequence: 101
 slice("02TA01")
-#> 
-#> ── <ccn::subunit> 
+#> ────<ccn:subunit>
 #>      ccn: 02TA01
 #>    state: 02
 #>     type: T
 #>   parent: A
 #> sequence: 01
 slice("240019A")
-#> 
-#> ── <ccn::medicare> 
-#>      ccn: 240019
-#>    state: 24
-#> sequence: 0019
-#>      ext: A
+#> ────<ccn:medicare>
+#>       ccn: 240019
+#>     state: 24
+#>  sequence: 0019
+#> extension: A
 slice("330125001")
-#> 
-#> ── <ccn::medicare> 
-#>      ccn: 330125
-#>    state: 33
-#> sequence: 0125
-#>      ext: 001
+#> ────<ccn:medicare>
+#>       ccn: 330125
+#>     state: 33
+#>  sequence: 0125
+#> extension: 001
 ```

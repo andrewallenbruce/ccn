@@ -73,7 +73,7 @@ medicaid("01J008")
 #>  .. @ name: chr "Alabama"
 #>  @ range: <ccn::RangeMOH>
 #>  .. @ number: chr "008"
-#>  .. @ range : chr "001-099"
+#>  .. @ series: chr "001-099"
 #>  .. @ abbr  : chr "STAC"
 #>  .. @ desc  : chr "Short-Term Acute Care Hospital"
 #>  @ type : <ccn::TypeMOF>
@@ -88,7 +88,7 @@ medicaid("A5J508")
 #>  .. @ name: chr "Mississippi"
 #>  @ range: <ccn::RangeMOH>
 #>  .. @ number: chr "508"
-#>  .. @ range : chr "500-599"
+#>  .. @ series: chr "500-599"
 #>  .. @ abbr  : chr "LTC"
 #>  .. @ desc  : chr "Long-Term Hospital"
 #>  @ type : <ccn::TypeMOF>
