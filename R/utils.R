@@ -48,7 +48,7 @@ unlist_ <- function(x, ...) {
 
 #' @noRd
 substr_ <- function(x, index) {
-  substr(x = x, start = index, stop = index)
+  substring(text = x, first = index, last = index)
 }
 
 #' @noRd
@@ -72,8 +72,19 @@ remove_hyphen <- function(x) {
 }
 
 #' @noRd
+remove_non_alnums <- function(x) {
+  gsub("[^[:alnum:]]*", "", x, perl = TRUE)
+}
+
+#' @noRd
+remove_any_spaces <- function(x) {
+  gsub("[[:space:]]*", "", x, perl = TRUE)
+}
+
+# clean("adsfgd ;.-")
+#' @noRd
 clean <- function(x) {
-  trimws(remove_hyphen(toupper(x)))
+  remove_any_spaces(remove_non_alnums(toupper(x)))
 }
 
 ################## REMOVE EVENTUALLY

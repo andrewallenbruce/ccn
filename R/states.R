@@ -22,16 +22,6 @@ state_name <- function(x) {
 }
 
 #' @noRd
-check_arg <- function(
-  x,
-  msg,
-  arg = rlang::caller_arg(x),
-  call = rlang::caller_env()
-) {
-  cli::cli_abort(paste("{.arg {arg}}", msg), arg = arg, call = call)
-}
-
-#' @noRd
 State <- S7::new_class(
   name = "State",
   properties = list(

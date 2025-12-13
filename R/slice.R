@@ -17,11 +17,22 @@
 #' slice("02TA01")
 #' slice("240019A")
 #' slice("330125001")
+#' slice("000000000")
+#' slice("000000000000")
+#' # slice("0000000000000000")
+#' # slice("")
+#' # slice("IIIIII")
 NULL
 
 #' @rdname slice
 #' @export
 slice <- function(x) {
+  if (!nzchar(x)) {
+    check_arg(x, "cannot be an {.strong empty} string.")
+  }
+  if (!nchar_ccn(x)) {
+    check_arg(x, "must be {.strong 6 - 14} characters.")
+  }
   switch_ccn(clean(x))
 }
 
@@ -36,7 +47,7 @@ switch_provider <- function(x) {
     medicaid = slice_medicaid(x),
     unit = slice_unit(x),
     subunit = slice_subunit(x),
-    cli::cli_abort("Provider type not recognized: {x}")
+    check_arg(x, "is an invalid Provider CCN: {.val {x}}.")
   )
 }
 
@@ -49,7 +60,7 @@ switch_ccn <- function(x) {
     provider_ext = slice_provider_ext(x),
     supplier = slice_supplier(x),
     supplier_ext = slice_supplier_ext(x),
-    cli::cli_abort("CCN type not recognized: {x}")
+    check_arg(x, "is an invalid CCN: {.val {x}}.") # TODO redundant
   )
 }
 
