@@ -34,7 +34,7 @@ is_unit_type <- function(x) {
 }
 
 #' @noRd
-is_sub_type <- function(x) {
+is_subunit_type <- function(x) {
   x %chin% ccn::eipps_subunit[["code"]]
 }
 
@@ -76,7 +76,7 @@ ccn_type <- function(x) {
 #' @noRd
 provider_type <- function(x) {
   kit::nif(
-    is_numeric(slice_provider(x)),
+    is_numeric(substring(x, 1L, 6L)),
     "medicare",
     is_organ_type(substring(x, 3L, 3L)),
     "organ",
@@ -86,7 +86,7 @@ provider_type <- function(x) {
     "medicaid",
     is_unit_type(substring(x, 3L, 3L)) & is_numeric(substring(x, 4L, 4L)),
     "unit",
-    is_unit_type(substring(x, 3L, 3L)) & is_sub_type(substring(x, 4L, 4L)),
+    is_unit_type(substring(x, 3L, 3L)) & is_subunit_type(substring(x, 4L, 4L)),
     "subunit",
     default = NA_character_
   )

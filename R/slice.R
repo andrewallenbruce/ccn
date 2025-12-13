@@ -4,6 +4,7 @@
 #' Convert various codes to their associated names.
 #'
 #' @param x character vector of codes to look up.
+#' @param ... additional arguments passed to methods.
 #' @name slice
 #' @returns character vector of names associated with codes.
 #' @examples
@@ -54,24 +55,29 @@ switch_ccn <- function(x) {
 
 #' @rdname slice
 #' @export
-slice_provider <- function(x) {
-  substring(x, 1L, 6L)
-}
-
-#' @rdname slice
-#' @export
 slice_provider_ext <- function(x) {
-  c(switch_provider(slice_provider(x)), ext = substring(x, 7L, nchar(x)))
+  p <- switch_provider(substring(x, 1L, 6L))
+
+  structure(
+    c(
+      p,
+      ext = substring(x, 7L, nchar(x))
+    ),
+    class = class(p)
+  )
 }
 
 # Medicare Provider: 670055 -> 67 0055
 #' @rdname slice
 #' @export
 slice_medicare <- function(x) {
-  c(
-    entity = "medicare",
-    substring(x, c(1L, 3L), c(2L, 6L)) |>
-      `names<-`(c("state", "sequence"))
+  structure(
+    c(
+      ccn = x,
+      substring(x, c(1L, 3L), c(2L, 6L)) |>
+        `names<-`(c("state", "sequence"))
+    ),
+    class = "medicare"
   )
 }
 
@@ -79,10 +85,13 @@ slice_medicare <- function(x) {
 #' @rdname slice
 #' @export
 slice_organ <- function(x) {
-  c(
-    entity = "organ",
-    substring(x, c(1L, 3L, 4L), c(2L, 3L, 6L)) |>
-      `names<-`(c("state", "type", "sequence"))
+  structure(
+    c(
+      ccn = x,
+      substring(x, c(1L, 3L, 4L), c(2L, 3L, 6L)) |>
+        `names<-`(c("state", "type", "sequence"))
+    ),
+    class = "organ"
   )
 }
 
@@ -90,10 +99,13 @@ slice_organ <- function(x) {
 #' @rdname slice
 #' @export
 slice_emergency <- function(x) {
-  c(
-    entity = "emergency",
-    substring(x, c(1L, 3L, 6L), c(2L, 5L, 6L)) |>
-      `names<-`(c("state", "sequence", "type"))
+  structure(
+    c(
+      ccn = x,
+      substring(x, c(1L, 3L, 6L), c(2L, 5L, 6L)) |>
+        `names<-`(c("state", "sequence", "type"))
+    ),
+    class = "emergency"
   )
 }
 
@@ -101,27 +113,41 @@ slice_emergency <- function(x) {
 #' @rdname slice
 #' @export
 slice_supplier <- function(x) {
-  c(
-    entity = "supplier",
-    substring(x, c(1L, 3L, 4L), c(2L, 3L, 10L)) |>
-      `names<-`(c("state", "type", "sequence"))
+  structure(
+    c(
+      ccn = x,
+      substring(x, c(1L, 3L, 4L), c(2L, 3L, 10L)) |>
+        `names<-`(c("state", "type", "sequence"))
+    ),
+    class = "supplier"
   )
 }
 
 #' @rdname slice
 #' @export
 slice_supplier_ext <- function(x) {
-  c(slice_supplier(substring(x, 1L, 10L)), ext = substring(x, 11L, nchar(x)))
+  p <- slice_supplier(substring(x, 1L, 10L))
+
+  structure(
+    c(
+      p,
+      ext = substring(x, 11L, nchar(x))
+    ),
+    class = class(p)
+  )
 }
 
 # Medicaid-Only Facility: 01L008 -> 01 L 008
 #' @rdname slice
 #' @export
 slice_medicaid <- function(x) {
-  c(
-    entity = "medicaid",
-    substring(x, c(1L, 3L, 4L), c(2L, 3L, 6L)) |>
-      `names<-`(c("state", "type", "sequence"))
+  structure(
+    c(
+      ccn = x,
+      substring(x, c(1L, 3L, 4L), c(2L, 3L, 6L)) |>
+        `names<-`(c("state", "type", "sequence"))
+    ),
+    class = "medicaid"
   )
 }
 
@@ -129,10 +155,13 @@ slice_medicaid <- function(x) {
 #' @rdname slice
 #' @export
 slice_unit <- function(x) {
-  c(
-    entity = "unit",
-    substring(x, c(1L, 3L, 4L), c(2L, 3L, 6L)) |>
-      `names<-`(c("state", "type", "sequence"))
+  structure(
+    c(
+      ccn = x,
+      substring(x, c(1L, 3L, 4L), c(2L, 3L, 6L)) |>
+        `names<-`(c("state", "type", "sequence"))
+    ),
+    class = "unit"
   )
 }
 
@@ -140,9 +169,62 @@ slice_unit <- function(x) {
 #' @rdname slice
 #' @export
 slice_subunit <- function(x) {
-  c(
-    entity = "subunit",
-    substring(x, c(1L, 3L, 4L, 5L), c(2L, 3L, 4L, 6L)) |>
-      `names<-`(c("state", "type", "parent", "sequence"))
+  structure(
+    c(
+      ccn = x,
+      substring(x, c(1L, 3L, 4L, 5L), c(2L, 3L, 4L, 6L)) |>
+        `names<-`(c("state", "type", "parent", "sequence"))
+    ),
+    class = "subunit"
   )
+}
+
+#' @noRd
+print_impl <- function(x) {
+  cli::cli_h3("<ccn::{class(x)}>")
+  glue::glue('{format(names(x), justify = "right")}: {unname(x)}') |>
+    cat(sep = "\n")
+  invisible(x)
+}
+
+#' @rdname slice
+#' @export
+print.medicare <- function(x, ...) {
+  print_impl(x)
+}
+
+#' @rdname slice
+#' @export
+print.organ <- function(x, ...) {
+  print_impl(x)
+}
+
+#' @rdname slice
+#' @export
+print.emergency <- function(x, ...) {
+  print_impl(x)
+}
+
+#' @rdname slice
+#' @export
+print.supplier <- function(x, ...) {
+  print_impl(x)
+}
+
+#' @rdname slice
+#' @export
+print.medicaid <- function(x, ...) {
+  print_impl(x)
+}
+
+#' @rdname slice
+#' @export
+print.unit <- function(x, ...) {
+  print_impl(x)
+}
+
+#' @rdname slice
+#' @export
+print.subunit <- function(x, ...) {
+  print_impl(x)
 }

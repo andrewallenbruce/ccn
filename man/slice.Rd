@@ -4,7 +4,6 @@
 \alias{slice}
 \alias{switch_provider}
 \alias{switch_ccn}
-\alias{slice_provider}
 \alias{slice_provider_ext}
 \alias{slice_medicare}
 \alias{slice_organ}
@@ -14,6 +13,13 @@
 \alias{slice_medicaid}
 \alias{slice_unit}
 \alias{slice_subunit}
+\alias{print.medicare}
+\alias{print.organ}
+\alias{print.emergency}
+\alias{print.supplier}
+\alias{print.medicaid}
+\alias{print.unit}
+\alias{print.subunit}
 \title{Slice CMS Certification Numbers}
 \usage{
 slice(x)
@@ -21,8 +27,6 @@ slice(x)
 switch_provider(x)
 
 switch_ccn(x)
-
-slice_provider(x)
 
 slice_provider_ext(x)
 
@@ -41,9 +45,25 @@ slice_medicaid(x)
 slice_unit(x)
 
 slice_subunit(x)
+
+\method{print}{medicare}(x, ...)
+
+\method{print}{organ}(x, ...)
+
+\method{print}{emergency}(x, ...)
+
+\method{print}{supplier}(x, ...)
+
+\method{print}{medicaid}(x, ...)
+
+\method{print}{unit}(x, ...)
+
+\method{print}{subunit}(x, ...)
 }
 \arguments{
 \item{x}{character vector of codes to look up.}
+
+\item{...}{additional arguments passed to methods.}
 }
 \value{
 character vector of names associated with codes.
