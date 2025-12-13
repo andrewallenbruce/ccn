@@ -31,6 +31,7 @@ medicare("210101")
 #>  .. @ series: chr "0001-0879"
 #>  .. @ abbr  : chr "STC"
 #>  .. @ desc  : chr "Short-Term Hospital (General & Specialty)"
+#>  .. @ eipps : logi FALSE
 #>  @ ext  : chr NA
 unit("21T101")
 #> <ccn::Unit>
@@ -40,8 +41,9 @@ unit("21T101")
 #>  .. @ name: chr "Maryland"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::TypeUnit>
-#>  .. @ abbr: chr "IRF"
-#>  .. @ desc: chr "Rehabilitation Unit (IPPS-Excluded)"
+#>  .. @ abbr : chr "IRF"
+#>  .. @ desc : chr "Rehabilitation Unit"
+#>  .. @ eipps: logi TRUE
 unit("21S101")
 #> <ccn::Unit>
 #>  @ ccn  : chr "21S101"
@@ -50,8 +52,9 @@ unit("21S101")
 #>  .. @ name: chr "Maryland"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::TypeUnit>
-#>  .. @ abbr: chr "PSY"
-#>  .. @ desc: chr "Psychiatric Unit (IPPS-Excluded)"
+#>  .. @ abbr : chr "PSY"
+#>  .. @ desc : chr "Psychiatric Unit"
+#>  .. @ eipps: logi TRUE
 unit("21U101")
 #> <ccn::Unit>
 #>  @ ccn  : chr "21U101"
@@ -60,6 +63,7 @@ unit("21U101")
 #>  .. @ name: chr "Maryland"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::TypeUnit>
-#>  .. @ abbr: chr "SBA"
-#>  .. @ desc: chr "Swing-Bed Approval - Short-Term Hospital"
+#>  .. @ abbr : chr "SBA"
+#>  .. @ desc : chr "Swing-Bed Approval - STC"
+#>  .. @ eipps: logi FALSE
 ```

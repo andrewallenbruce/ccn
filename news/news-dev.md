@@ -288,3 +288,8 @@
 ## ccn 0.0.0.9064 (2025-12-13)
 
 - simplifying classes again
+
+## ccn 0.0.0.9065 (2025-12-13)
+
+- added slot `@eipps`
+- updated internal data structures

@@ -31,6 +31,7 @@ medicare("670055")
 #>  .. @ series: chr "0001-0879"
 #>  .. @ abbr  : chr "STC"
 #>  .. @ desc  : chr "Short-Term Hospital (General & Specialty)"
+#>  .. @ eipps : logi FALSE
 #>  @ ext  : chr NA
 medicare("123456")
 #> <ccn::Medicare>
@@ -42,5 +43,6 @@ medicare("123456")
 #>  .. @ series: chr "3400-3499"
 #>  .. @ abbr  : chr "RHC"
 #>  .. @ desc  : chr "Rural Health Clinic (Provider-based)"
+#>  .. @ eipps : logi FALSE
 #>  @ ext  : chr NA
 ```

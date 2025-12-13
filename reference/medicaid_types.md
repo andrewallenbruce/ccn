@@ -1,14 +1,6 @@
 # CCN Medicaid-Only Facility Types
 
-- Section **2779B**
-
-- Title: "CMS Certification Numbers for Medicaid Providers"
-
-- Pgs. 407-408
-
-- Rev. 123
-
-- Issued/Effective/Implementation: 10-03-14
+CCN Medicaid-Only Facility Types
 
 ## Usage
 
@@ -33,7 +25,3 @@ A data frame with 9 rows and 3 columns:
 - desc:
 
   Medicaid-only facility type description
-
-## Source
-
-<https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf>
