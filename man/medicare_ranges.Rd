@@ -18,19 +18,10 @@ A data frame with 43 rows and 5 columns:
 }
 }
 }
-\source{
-\url{https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf}
-}
 \usage{
 medicare_ranges
 }
 \description{
-\itemize{
-\item Section \strong{2779A1}
-\item Title: "CCN for Medicare Providers"
-\item Pgs. 405-406
-\item Rev. 226
-\item Iss./Eff./Impl. 12-06-24
-}
+CCN Medicare Facility Ranges
 }
 \keyword{internal}

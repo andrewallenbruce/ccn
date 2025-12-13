@@ -18,19 +18,10 @@ A data frame with 7 rows and 5 columns:
 }
 }
 }
-\source{
-\url{https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf}
-}
 \usage{
 medicaid_ranges
 }
 \description{
-\itemize{
-\item Section: \strong{2779B}
-\item Title: "CMS Certification Numbers for Medicaid Providers"
-\item Pgs. 407-408
-\item Rev. 123
-\item Iss./Eff./Impl. 10-03-14
-}
+CCN Medicaid-Only Hospital Ranges
 }
 \keyword{internal}

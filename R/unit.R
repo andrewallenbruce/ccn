@@ -15,18 +15,19 @@ NULL
 
 #' @noRd
 unit_abbr <- function(x) {
-  vs(x, ccn::eipps_unit[["code"]], ccn::eipps_unit[["abbr"]])
+  vs(x, ccn::unit_types[["code"]], ccn::unit_types[["abbr"]])
 }
 
 #' @noRd
 unit_desc <- function(x) {
-  vs(x, ccn::eipps_unit[["code"]], ccn::eipps_unit[["desc"]])
+  vs(x, ccn::unit_types[["code"]], ccn::unit_types[["desc"]])
 }
 
 #' @noRd
 TypeUnit <- S7::new_class(
   name = "TypeUnit",
   parent = Type,
+  properties = list(eipps = S7::class_logical),
   constructor = function(code) {
     if (length(code) != 1L) {
       check_arg(code, "must be length {.strong 1}.")
@@ -40,7 +41,8 @@ TypeUnit <- S7::new_class(
     S7::new_object(
       S7::S7_object(),
       abbr = unit_abbr(code),
-      desc = unit_desc(code)
+      desc = unit_desc(code),
+      eipps = is_eipps_type(code)
     )
   }
 )

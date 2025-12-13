@@ -1,11 +1,5 @@
 #' CCN State Codes
 #'
-#'    * Section __2779A1__:
-#'    * Title: "CCN for Medicare Providers"
-#'    * Pgs. 403-404
-#'    * Rev. 226
-#'    * Iss./Eff./Impl. 12-06-24
-#'
 #' @format ## `state_codes`
 #' A data frame with 108 rows and 3 columns:
 #' \describe{
@@ -14,17 +8,10 @@
 #'   \item{name}{State full name}
 #'   ...
 #' }
-#' @source <https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf>
 #' @keywords internal
 "state_codes"
 
 #' CCN Medicare Facility Ranges
-#'
-#'    * Section __2779A1__
-#'    * Title: "CCN for Medicare Providers"
-#'    * Pgs. 405-406
-#'    * Rev. 226
-#'    * Iss./Eff./Impl. 12-06-24
 #'
 #' @format ## `medicare_ranges`
 #' A data frame with 43 rows and 5 columns:
@@ -36,17 +23,10 @@
 #'   \item{desc}{Medicare facility description}
 #'   ...
 #' }
-#' @source <https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf>
 #' @keywords internal
 "medicare_ranges"
 
 #' CCN Medicaid-Only Hospital Ranges
-#'
-#'    * Section: __2779B__
-#'    * Title: "CMS Certification Numbers for Medicaid Providers"
-#'    * Pgs. 407-408
-#'    * Rev. 123
-#'    * Iss./Eff./Impl. 10-03-14
 #'
 #' @format ## `medicaid_ranges`
 #' A data frame with 7 rows and 5 columns:
@@ -58,17 +38,10 @@
 #'   \item{desc}{Medicaid-only hospital description}
 #'   ...
 #' }
-#' @source <https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf>
 #' @keywords internal
 "medicaid_ranges"
 
 #' CCN Medicaid-Only Facility Types
-#'
-#'    * Section __2779B__
-#'    * Title: "CMS Certification Numbers for Medicaid Providers"
-#'    * Pgs. 407-408
-#'    * Rev. 123
-#'    * Issued/Effective/Implementation: 10-03-14
 #'
 #' @format ## `medicaid_types`
 #' A data frame with 9 rows and 3 columns:
@@ -78,43 +51,25 @@
 #'   \item{desc}{Medicaid-only facility type description}
 #'   ...
 #' }
-#' @source <https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf>
 #' @keywords internal
 "medicaid_types"
 
 #' IPPS-Excluded Hospital Unit Types/Swing-Bed Approvals
 #'
-#'    * Section __2779C__
-#'    * Special Numbering System for Units of Hospitals That Are Excluded From
-#'    * the Inpatient Prospective Payment System (IPPS) and Hospitals and CAHs
-#'    * with Swing-Bed Approval
-#'    * Pgs. 408-409
-#'    * Rev. 198
-#'    * Issued/Effective/Implementation: 01-17-20
-#'
-#' @format ## `eipps_unit`
-#' A data frame with 8 rows and 3 columns:
+#' @format ## `unit_types`
+#' A data frame with 9 rows and 3 columns:
 #' \describe{
 #'   \item{code}{IPPS-Excluded type code}
 #'   \item{abbr}{IPPS-Excluded type abbreviation}
 #'   \item{desc}{IPPS-Excluded type description}
 #'   ...
 #' }
-#' @source <https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf>
 #' @keywords internal
-"eipps_unit"
+"unit_types"
 
 #' IPPS-Excluded Hospital Unit Types/Swing-Bed Approvals
 #'
-#'    * Section __2779C__
-#'    * Special Numbering System for Units of Hospitals That Are Excluded From
-#'    * the Inpatient Prospective Payment System (IPPS) and Hospitals and CAHs
-#'    * with Swing-Bed Approval
-#'    * Pgs. 408-409
-#'    * Rev. 198
-#'    * Issued/Effective/Implementation: 01-17-20
-#'
-#' @format ## `eipps_subunit`
+#' @format ## `subunit_types`
 #' A data frame with 10 rows and 3 columns:
 #' \describe{
 #'   \item{code}{IPPS-Excluded type code}
@@ -122,6 +77,33 @@
 #'   \item{abbr}{IPPS-Excluded type description}
 #'   ...
 #' }
-#' @source <https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf>
 #' @keywords internal
-"eipps_subunit"
+"subunit_types"
+
+#' IPPS-Excluded Hospital Unit Types/Swing-Bed Approvals
+#'
+#' @format ## `eipps_types`
+#' A data frame with 3 rows and 3 columns:
+#' \describe{
+#'   \item{code}{IPPS-Excluded type code}
+#'   \item{abbr}{IPPS-Excluded type abbreviation}
+#'   \item{desc}{IPPS-Excluded type description}
+#'   ...
+#' }
+#' @keywords internal
+"eipps_types"
+
+#' IPPS-Excluded Hospital Unit Types/Swing-Bed Approvals
+#'
+#' @format ## `eipps_ranges`
+#' A data frame with 3 rows and 3 columns:
+#' \describe{
+#'   \item{start}{IPPS-Excluded range start}
+#'   \item{end}{IPPS-Excluded range end}
+#'   \item{range}{IPPS-Excluded range label}
+#'   \item{abbr}{IPPS-Excluded abbreviation}
+#'   \item{desc}{IPPS-Excluded description}
+#'   ...
+#' }
+#' @keywords internal
+"eipps_ranges"

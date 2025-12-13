@@ -16,19 +16,10 @@ A data frame with 108 rows and 3 columns:
 }
 }
 }
-\source{
-\url{https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf}
-}
 \usage{
 state_codes
 }
 \description{
-\itemize{
-\item Section \strong{2779A1}:
-\item Title: "CCN for Medicare Providers"
-\item Pgs. 403-404
-\item Rev. 226
-\item Iss./Eff./Impl. 12-06-24
-}
+CCN State Codes
 }
 \keyword{internal}

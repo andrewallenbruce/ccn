@@ -16,8 +16,8 @@ medicaid_ranges <- tibble::tribble(
   ~start , ~end , ~range    , ~abbr  , ~desc                             ,
     1L   ,  99L , "001-099" , "STAC" , "Short-Term Acute Care Hospital"  ,
   100L   , 199L , "100-199" , "CH"   , "Children's Hospital"             ,
-  200L   , 299L , "200-299" , "CP"   , "Children's Psychiatric Hospital" ,
-  300L   , 399L , "300-399" , "PH"   , "Psychiatric Hospital"            ,
+  200L   , 299L , "200-299" , "CPH"  , "Children's Psychiatric Hospital" ,
+  300L   , 399L , "300-399" , "PSY"  , "Psychiatric Hospital"            ,
   400L   , 499L , "400-499" , "IRF"  , "Rehabilitation Hospital"         ,
   500L   , 599L , "500-599" , "LTC"  , "Long-Term Hospital"              ,
   600L   , 999L , "600-999" , "RSVD" , "Reserved for Future Use"

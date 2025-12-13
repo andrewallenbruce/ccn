@@ -16,19 +16,10 @@ A data frame with 9 rows and 3 columns:
 }
 }
 }
-\source{
-\url{https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf}
-}
 \usage{
 medicaid_types
 }
 \description{
-\itemize{
-\item Section \strong{2779B}
-\item Title: "CMS Certification Numbers for Medicaid Providers"
-\item Pgs. 407-408
-\item Rev. 123
-\item Issued/Effective/Implementation: 10-03-14
-}
+CCN Medicaid-Only Facility Types
 }
 \keyword{internal}

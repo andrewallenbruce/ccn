@@ -4,29 +4,29 @@ medicare_ranges <- tibble::tribble(
    880L  ,  899L , "0880-0899" , "OCM"          , "Hospital Participating in ORD (Oncology Care Model) Demonstration Project" ,
    900L  ,  999L , "0900-0999" , "MHCMC (Ret.)" , "Multiple Hospital Component in a Medical Complex (Retired)"                ,
   1000L  , 1199L , "1000-1199" , "FQHC"         , "Federally Qualified Health Center"                                         ,
-  1200L  , 1224L , "1200-1224" , "ADH (Ret.)"   , "Alcohol-Drug Hospital (IPPS-Excluded, Retired)"                            ,
+  1200L  , 1224L , "1200-1224" , "ADH (Ret.)"   , "Alcohol-Drug Hospital (Retired)"                                           ,
   1225L  , 1299L , "1225-1299" , "MAF"          , "Medical Assistance Facility"                                               ,
   1300L  , 1399L , "1300-1399" , "CAH"          , "Critical Access Hospital"                                                  ,
   1400L  , 1499L , "1400-1499" , "CMHC"         , "Community Mental Health Center"                                            ,
   1500L  , 1799L , "1500-1799" , "HSP"          , "Hospice"                                                                   ,
   1800L  , 1989L , "1800-1989" , "FQHC"         , "Federally Qualified Health Center"                                         ,
   1990L  , 1999L , "1990-1999" , "RNHCI"        , "Religious Non-medical Health Care Institution"                             ,
-  2000L  , 2299L , "2000-2299" , "LTC"          , "Long-Term Care Hospital (IPPS-Excluded)"                                   ,
+  2000L  , 2299L , "2000-2299" , "LTC"          , "Long-Term Care Hospital"                                                   ,
   2300L  , 2499L , "2300-2499" , "HBRDF"        , "Hospital-based Renal Dialysis Facility"                                    ,
   2500L  , 2899L , "2500-2899" , "IRDF"         , "Independent Renal Dialysis Facility"                                       ,
   2900L  , 2999L , "2900-2999" , "ISPRDF"       , "Independent Special Purpose Renal Dialysis Facility"                       ,
   3000L  , 3024L , "3000-3024" , "TBH (Ret.)"   , "Tuberculosis Hospital (Retired)"                                           ,
-  3025L  , 3099L , "3025-3099" , "IRF"          , "Rehabilitation Hospital (IPPS-Excluded)"                                   ,
+  3025L  , 3099L , "3025-3099" , "IRF"          , "Rehabilitation Hospital"                                                   ,
   # 3100L,  3199L,   "3100-3199",    "HHA",          "Home Health Agency",
   3100L  , 3199L , "3100-3199" , "HHA"          , "Home Health Agency Subunit (Nonprofit/Proprietary)"                        ,
   3200L  , 3299L , "3200-3299" , "CORF"         , "Comprehensive Outpatient Rehabilitation Facility"                          ,
-  3300L  , 3399L , "3300-3399" , "CH"           , "Children's Hospital (IPPS-Excluded)"                                       ,
+  3300L  , 3399L , "3300-3399" , "CH"           , "Children's Hospital"                                                       ,
   3400L  , 3499L , "3400-3499" , "RHC"          , "Rural Health Clinic (Provider-based)"                                      ,
   3500L  , 3699L , "3500-3699" , "HBSRDF"       , "Hospital-based Satellite Renal Dialysis Facility"                          ,
   3700L  , 3799L , "3700-3799" , "HSPRDF"       , "Hospital-based Special Purpose Renal Dialysis Facility"                    ,
   3800L  , 3974L , "3800-3974" , "RHC"          , "Rural Health Clinic (Free-standing)"                                       ,
   3975L  , 3999L , "3975-3999" , "RHC"          , "Rural Health Clinic (Provider-based)"                                      ,
-  4000L  , 4499L , "4000-4499" , "PH"           , "Psychiatric Hospital (IPPS-Excluded)"                                      ,
+  4000L  , 4499L , "4000-4499" , "PH"           , "Psychiatric Hospital"                                                      ,
   4500L  , 4599L , "4500-4599" , "CORF"         , "Comprehensive Outpatient Rehabilitation Facility"                          ,
   4600L  , 4799L , "4600-4799" , "CMHC"         , "Community Mental Health Center"                                            ,
   4800L  , 4899L , "4800-4899" , "CORF"         , "Comprehensive Outpatient Rehabilitation Facility"                          ,
@@ -48,3 +48,14 @@ medicare_ranges <- tibble::tribble(
 )
 
 usethis::use_data(medicare_ranges, overwrite = TRUE)
+
+eipps_ranges <- tibble::tribble(
+  ~start , ~end  , ~range      , ~abbr        , ~desc                             ,
+  1200L  , 1224L , "1200-1224" , "ADH (Ret.)" , "Alcohol-Drug Hospital (Retired)" ,
+  2000L  , 2299L , "2000-2299" , "LTC"        , "Long-Term Care Hospital"         ,
+  3025L  , 3099L , "3025-3099" , "IRF"        , "Rehabilitation Hospital"         ,
+  3300L  , 3399L , "3300-3399" , "CH"         , "Children's Hospital"             ,
+  4000L  , 4499L , "4000-4499" , "PH"         , "Psychiatric Hospital"
+)
+
+usethis::use_data(eipps_ranges, overwrite = TRUE)

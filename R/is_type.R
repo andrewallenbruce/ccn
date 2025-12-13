@@ -55,12 +55,17 @@ is_medicaid_type <- function(x) {
 
 #' @noRd
 is_unit_type <- function(x) {
-  x %chin% ccn::eipps_unit[["code"]]
+  x %chin% ccn::unit_types[["code"]]
 }
 
 #' @noRd
 is_subunit_type <- function(x) {
-  x %chin% ccn::eipps_subunit[["code"]]
+  x %chin% ccn::subunit_types[["code"]]
+}
+
+#' @noRd
+is_eipps_type <- function(x) {
+  x %chin% ccn::eipps_types[["code"]]
 }
 
 #' @noRd

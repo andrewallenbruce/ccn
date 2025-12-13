@@ -10,11 +10,6 @@
 NULL
 
 #' @noRd
-org_range <- function(x) {
-  if_in(x, c(1L, 99L), "001-099")
-}
-
-#' @noRd
 org_type <- function(x) {
   Type(
     abbr = is_in(is_organ_type(x), "OPO"),
@@ -28,7 +23,7 @@ organ <- function(x) {
   Organ(
     ccn = x,
     state = state(x),
-    range = org_range(substring(x, 4L, 6L)),
+    range = if_in(substring(x, 4L, 6L), c(1L, 99L), "001-099"),
     type = org_type(substring(x, 3L, 3L))
   )
 }

@@ -14,34 +14,18 @@
 NULL
 
 #' @noRd
-supplier_range <- function(x) {
-  if_in(x, c(1L, 9999999L), "0000001-9999999")
-}
-
-#' @noRd
-supplier_type_abbr <- function(x) {
-  vs(x, c("C", "D", "X"), c("ASC", "CLIA", "PXRF"))
-}
-
-#' @noRd
-supplier_type_desc <- function(x) {
-  vs(
-    x,
-    c("C", "D", "X"),
-    c(
-      "Ambulatory Surgical Center",
-      "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory",
-      "Portable X-Ray Facility"
-    )
-  )
-}
-
-#' @noRd
 supplier_type <- function(x) {
   Type(
-    # code = x,
-    abbr = supplier_type_abbr(x),
-    desc = supplier_type_desc(x)
+    abbr = vs(x, c("C", "D", "X"), c("ASC", "CLIA", "PXRF")),
+    desc = vs(
+      x,
+      c("C", "D", "X"),
+      c(
+        "Ambulatory Surgical Center",
+        "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory",
+        "Portable X-Ray Facility"
+      )
+    )
   )
 }
 
@@ -51,7 +35,7 @@ supplier <- function(x) {
   Supplier(
     ccn = x,
     state = state(x),
-    range = supplier_range(substring(x, 4L, 10L)),
+    range = if_in(substring(x, 4L, 10L), c(1L, 9999999L), "0000001-9999999"),
     type = supplier_type(substring(x, 3L, 3L))
   )
 }

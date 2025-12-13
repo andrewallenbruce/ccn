@@ -31,30 +31,39 @@
 #'    * 21-U101 - ABC Hospital’s Swing-Bed Approval
 #'
 #' NOTE: If it meets the applicable requirements, an acute care hospital or a
-#' CAH could have swing-bed approval, an IPPS-excluded rehabilitation unit, and/
-#' or an IPPS-excluded psychiatric unit.
-eipps_unit <- tibble::tribble(
-  ~code , ~abbr , ~desc                                               ,
-  "M"   , "PSY" , "Psychiatric Unit of a Critical Access Hospital"    ,
-  "R"   , "IRF" , "Rehabilitation Unit of a Critical Access Hospital" ,
-  "S"   , "PSY" , "Psychiatric Unit (IPPS-Excluded)"                  ,
-  "T"   , "IRF" , "Rehabilitation Unit (IPPS-Excluded)"               ,
-  "U"   , "SBA" , "Swing-Bed Approval - Short-Term Hospital"          ,
-  "V"   , "ADU" , "Alcohol-Drug Unit (Retired, IPPS-Excluded)"        ,
-  "W"   , "SBA" , "Swing-Bed Approval - Long-Term Care Hospital"      ,
-  "Y"   , "SBA" , "Swing-Bed Approval - Rehabilitation Hospital"      ,
-  "Z"   , "SBA" , "Swing-Bed Approval - Critical Access Hospital"
+#' CAH could have swing-bed approval, an IPPS-excluded rehabilitation unit,
+#' and/or an IPPS-excluded psychiatric unit.
+unit_types <- tibble::tribble(
+  ~code , ~abbr , ~desc                         ,
+  "M"   , "PSY" , "Psychiatric Unit - CAH"      ,
+  "R"   , "IRF" , "Rehabilitation Unit - CAH"   ,
+  "S"   , "PSY" , "Psychiatric Unit"            ,
+  "T"   , "IRF" , "Rehabilitation Unit"         ,
+  "U"   , "SBA" , "Swing-Bed Approval - STC"    ,
+  "V"   , "ADU" , "Alcohol-Drug Unit (Retired)" ,
+  "W"   , "SBA" , "Swing-Bed Approval - LTCH"   ,
+  "Y"   , "SBA" , "Swing-Bed Approval - IRF"    ,
+  "Z"   , "SBA" , "Swing-Bed Approval - CAH"
 )
 
-usethis::use_data(eipps_unit, overwrite = TRUE)
+usethis::use_data(unit_types, overwrite = TRUE)
 
-eipps_subunit <- tibble::tibble(
+subunit_types <- tibble::tibble(
   code = c("A", "B", "C", "D", "E", "F", "G", "H", "J", "K"),
   prefix = c(20:22, "30", "33", 40:44),
-  abbr = c(rep.int("LTCH", 3), "IRF", "CH", rep.int("PH", 5))
+  abbr = c(rep.int("LTCH", 3), "IRF", "CH", rep.int("PSY", 5))
 )
 
-usethis::use_data(eipps_subunit, overwrite = TRUE)
+usethis::use_data(subunit_types, overwrite = TRUE)
+
+eipps_types <- tibble::tribble(
+  ~code , ~abbr , ~desc                         ,
+  "S"   , "PSY" , "Psychiatric Unit"            ,
+  "T"   , "IRF" , "Rehabilitation Unit"         ,
+  "V"   , "ADU" , "Alcohol-Drug Unit (Retired)"
+)
+
+usethis::use_data(eipps_types, overwrite = TRUE)
 
 #' IPPS-Excluded Hospitals with IPPS-Excluded Units
 #'
