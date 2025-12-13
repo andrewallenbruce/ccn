@@ -29,7 +29,6 @@ organ("05P001")
 #>  .. @ name: chr "California"
 #>  @ range: chr "001-099"
 #>  @ type : <ccn::Type>
-#>  .. @ code: chr "P"
 #>  .. @ abbr: chr "OPO"
 #>  .. @ desc: chr "Organ Procurement Organization"
 ```

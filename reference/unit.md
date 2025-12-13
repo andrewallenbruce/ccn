@@ -27,8 +27,7 @@ medicare("210101")
 #>  @ state: <ccn::State>
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
-#>  @ range: <ccn::RangeMDC>
-#>  .. @ number: chr "0101"
+#>  @ range: <ccn::RangeMCR>
 #>  .. @ series: chr "0001-0879"
 #>  .. @ abbr  : chr "STC"
 #>  .. @ desc  : chr "Short-Term Hospital (General & Specialty)"
@@ -40,8 +39,7 @@ unit("21T101")
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
 #>  @ range: chr "001-999"
-#>  @ type : <ccn::Type>
-#>  .. @ code: chr "T"
+#>  @ type : <ccn::TypeUnit>
 #>  .. @ abbr: chr "IRF"
 #>  .. @ desc: chr "Rehabilitation Unit (IPPS-Excluded)"
 unit("21S101")
@@ -51,8 +49,7 @@ unit("21S101")
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
 #>  @ range: chr "001-999"
-#>  @ type : <ccn::Type>
-#>  .. @ code: chr "S"
+#>  @ type : <ccn::TypeUnit>
 #>  .. @ abbr: chr "PSY"
 #>  .. @ desc: chr "Psychiatric Unit (IPPS-Excluded)"
 unit("21U101")
@@ -62,8 +59,7 @@ unit("21U101")
 #>  .. @ abbr: chr "MD"
 #>  .. @ name: chr "Maryland"
 #>  @ range: chr "001-999"
-#>  @ type : <ccn::Type>
-#>  .. @ code: chr "U"
+#>  @ type : <ccn::TypeUnit>
 #>  .. @ abbr: chr "SBA"
 #>  .. @ desc: chr "Swing-Bed Approval - Short-Term Hospital"
 ```

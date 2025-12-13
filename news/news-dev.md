@@ -284,3 +284,7 @@
 ## ccn 0.0.0.9063 (2025-12-13)
 
 - adding input checks
+
+## ccn 0.0.0.9064 (2025-12-13)
+
+- simplifying classes again

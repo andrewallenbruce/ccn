@@ -29,7 +29,6 @@ supplier("10C0001062")
 #>  .. @ name: chr "Florida"
 #>  @ range: chr "0000001-9999999"
 #>  @ type : <ccn::Type>
-#>  .. @ code: chr "C"
 #>  .. @ abbr: chr "ASC"
 #>  .. @ desc: chr "Ambulatory Surgical Center"
 #>  @ ext  : chr NA
@@ -41,7 +40,6 @@ supplier("45D0634589")
 #>  .. @ name: chr "Texas"
 #>  @ range: chr "0000001-9999999"
 #>  @ type : <ccn::Type>
-#>  .. @ code: chr "D"
 #>  .. @ abbr: chr "CLIA"
 #>  .. @ desc: chr "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory"
 #>  @ ext  : chr NA
@@ -53,7 +51,6 @@ supplier("21X0009807")
 #>  .. @ name: chr "Maryland"
 #>  @ range: chr "0000001-9999999"
 #>  @ type : <ccn::Type>
-#>  .. @ code: chr "X"
 #>  .. @ abbr: chr "PXRF"
 #>  .. @ desc: chr "Portable X-Ray Facility"
 #>  @ ext  : chr NA
@@ -65,7 +62,6 @@ supplier("12C0001062")
 #>  .. @ name: chr "Hawaii"
 #>  @ range: chr "0000001-9999999"
 #>  @ type : <ccn::Type>
-#>  .. @ code: chr "C"
 #>  .. @ abbr: chr "ASC"
 #>  .. @ desc: chr "Ambulatory Surgical Center"
 #>  @ ext  : chr NA

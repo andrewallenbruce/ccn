@@ -29,7 +29,6 @@ medicaid("01L008")
 #>  .. @ name: chr "Alabama"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::TypeMOF>
-#>  .. @ code: chr "L"
 #>  .. @ abbr: chr "PRTF"
 #>  .. @ desc: chr "Psychiatric Residential Treatment Facility"
 medicaid("22B201")
@@ -40,7 +39,6 @@ medicaid("22B201")
 #>  .. @ name: chr "Massachusetts"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::TypeMOF>
-#>  .. @ code: chr "B"
 #>  .. @ abbr: chr "NF"
 #>  .. @ desc: chr "Nursing Facility"
 medicaid("23E301")
@@ -51,7 +49,6 @@ medicaid("23E301")
 #>  .. @ name: chr "Michigan"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::TypeMOF>
-#>  .. @ code: chr "E"
 #>  .. @ abbr: chr "NF"
 #>  .. @ desc: chr "Nursing Facility"
 medicaid("34F401")
@@ -62,7 +59,6 @@ medicaid("34F401")
 #>  .. @ name: chr "North Carolina"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::TypeMOF>
-#>  .. @ code: chr "F"
 #>  .. @ abbr: chr "NF"
 #>  .. @ desc: chr "Nursing Facility"
 medicaid("01J008")
@@ -72,12 +68,10 @@ medicaid("01J008")
 #>  .. @ abbr: chr "AL"
 #>  .. @ name: chr "Alabama"
 #>  @ range: <ccn::RangeMOH>
-#>  .. @ number: chr "008"
 #>  .. @ series: chr "001-099"
 #>  .. @ abbr  : chr "STAC"
 #>  .. @ desc  : chr "Short-Term Acute Care Hospital"
 #>  @ type : <ccn::TypeMOF>
-#>  .. @ code: chr "J"
 #>  .. @ abbr: chr "MOH"
 #>  .. @ desc: chr "Medicaid-Only Hospital"
 medicaid("A5J508")
@@ -87,12 +81,10 @@ medicaid("A5J508")
 #>  .. @ abbr: chr "MS"
 #>  .. @ name: chr "Mississippi"
 #>  @ range: <ccn::RangeMOH>
-#>  .. @ number: chr "508"
 #>  .. @ series: chr "500-599"
 #>  .. @ abbr  : chr "LTC"
 #>  .. @ desc  : chr "Long-Term Hospital"
 #>  @ type : <ccn::TypeMOF>
-#>  .. @ code: chr "J"
 #>  .. @ abbr: chr "MOH"
 #>  .. @ desc: chr "Medicaid-Only Hospital"
 ```

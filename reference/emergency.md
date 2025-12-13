@@ -50,7 +50,6 @@ emergency("21034E")
 #>  .. @ name: chr "Maryland"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::Type>
-#>  .. @ code: chr "E"
 #>  .. @ abbr: chr "NFEH"
 #>  .. @ desc: chr "Emergency Hospital (Non-Federal)"
 emergency("12345F")
@@ -61,7 +60,6 @@ emergency("12345F")
 #>  .. @ name: chr "Hawaii"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::Type>
-#>  .. @ code: chr "F"
 #>  .. @ abbr: chr "FEH"
 #>  .. @ desc: chr "Emergency Hospital (Federal)"
 ```
