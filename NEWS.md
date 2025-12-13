@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9064 (2025-12-13)
+
+* simplifying classes again
+
+
 # ccn 0.0.0.9063 (2025-12-13)
 
 * adding input checks
