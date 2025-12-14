@@ -5,9 +5,6 @@ Convert state codes to their abbreviations or full names.
 ## Usage
 
 ``` r
-# S3 method for class '`ccn::State`'
-print(x, ...)
-
 state(x)
 ```
 
@@ -16,10 +13,6 @@ state(x)
 - x:
 
   character vector of state codes to look up.
-
-- ...:
-
-  unused.
 
 ## Value
 

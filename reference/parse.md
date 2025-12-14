@@ -6,49 +6,6 @@ Convert various codes to their associated names.
 
 ``` r
 parse(x)
-
-switch_provider(x)
-
-switch_ccn(x)
-
-slice_provider_ext(x)
-
-slice_medicare(x)
-
-slice_organ(x)
-
-slice_emergency(x)
-
-slice_supplier(x)
-
-slice_supplier_ext(x)
-
-slice_medicaid(x)
-
-slice_unit(x)
-
-slice_subunit(x)
-
-# S3 method for class 'medicare'
-print(x, ...)
-
-# S3 method for class 'organ'
-print(x, ...)
-
-# S3 method for class 'emergency'
-print(x, ...)
-
-# S3 method for class 'supplier'
-print(x, ...)
-
-# S3 method for class 'medicaid'
-print(x, ...)
-
-# S3 method for class 'unit'
-print(x, ...)
-
-# S3 method for class 'subunit'
-print(x, ...)
 ```
 
 ## Arguments

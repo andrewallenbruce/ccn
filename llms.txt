@@ -40,8 +40,9 @@ occasionally assist with some of these duties.
   : Medicare Provider
 - [`organ()`](https://andrewallenbruce.github.io/ccn/reference/organ.md)
   : Organ Procurement Organizations (OPO)
-- [`print(`*`<ccn::State>`*`)`](https://andrewallenbruce.github.io/ccn/reference/state.md)
-  [`state()`](https://andrewallenbruce.github.io/ccn/reference/state.md)
+- [`parse()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
+  : Parse CMS Certification Numbers
+- [`state()`](https://andrewallenbruce.github.io/ccn/reference/state.md)
   : State Codes
 - [`subunit()`](https://andrewallenbruce.github.io/ccn/reference/subunit.md)
   [`parent()`](https://andrewallenbruce.github.io/ccn/reference/subunit.md)

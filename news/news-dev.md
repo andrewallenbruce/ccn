@@ -303,3 +303,7 @@
 ## ccn 0.0.0.9067 (2025-12-14)
 
 - adding more print methods
+
+## ccn 0.0.0.9068 (2025-12-14)
+
+- print method madness
