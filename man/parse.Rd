@@ -2,63 +2,9 @@
 % Please edit documentation in R/parse.R
 \name{parse}
 \alias{parse}
-\alias{switch_provider}
-\alias{switch_ccn}
-\alias{slice_provider_ext}
-\alias{slice_medicare}
-\alias{slice_organ}
-\alias{slice_emergency}
-\alias{slice_supplier}
-\alias{slice_supplier_ext}
-\alias{slice_medicaid}
-\alias{slice_unit}
-\alias{slice_subunit}
-\alias{print.medicare}
-\alias{print.organ}
-\alias{print.emergency}
-\alias{print.supplier}
-\alias{print.medicaid}
-\alias{print.unit}
-\alias{print.subunit}
 \title{Parse CMS Certification Numbers}
 \usage{
 parse(x)
-
-switch_provider(x)
-
-switch_ccn(x)
-
-slice_provider_ext(x)
-
-slice_medicare(x)
-
-slice_organ(x)
-
-slice_emergency(x)
-
-slice_supplier(x)
-
-slice_supplier_ext(x)
-
-slice_medicaid(x)
-
-slice_unit(x)
-
-slice_subunit(x)
-
-\method{print}{medicare}(x, ...)
-
-\method{print}{organ}(x, ...)
-
-\method{print}{emergency}(x, ...)
-
-\method{print}{supplier}(x, ...)
-
-\method{print}{medicaid}(x, ...)
-
-\method{print}{unit}(x, ...)
-
-\method{print}{subunit}(x, ...)
 }
 \arguments{
 \item{x}{character vector of codes to look up.}
@@ -82,4 +28,3 @@ parse("330125001")
 parse("000000000")
 parse("000000000000")
 }
-\keyword{internal}

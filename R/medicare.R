@@ -4,6 +4,7 @@
 #' Convert various codes to their associated names.
 #'
 #' @param x character vector of codes to look up.
+#' @param ... additional arguments (not used).
 #' @name medicare
 #' @returns S7 object of class `Medicare`.
 #' @examples

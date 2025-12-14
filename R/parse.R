@@ -18,6 +18,7 @@
 #' parse("000000000")
 #' parse("000000000000")
 #' @export
+#' @name parse
 parse <- function(x) {
   if (!nzchar(x)) {
     check_arg(x, "cannot be an {.strong empty} string.")
@@ -28,7 +29,15 @@ parse <- function(x) {
   switch_ccn(clean(x))
 }
 
-#' @rdname parse
+#' Internal slice functions
+#'
+#' @param x character vector of codes to look up.
+#' @returns character vector of names associated with codes.
+#' @name slice
+#' @keywords internal
+#' @export
+
+#' @rdname slice
 #' @keywords internal
 #' @export
 switch_provider <- function(x) {
@@ -44,7 +53,7 @@ switch_provider <- function(x) {
   )
 }
 
-#' @rdname parse
+#' @rdname slice
 #' @keywords internal
 #' @export
 switch_ccn <- function(x) {
@@ -58,7 +67,7 @@ switch_ccn <- function(x) {
   )
 }
 
-#' @rdname parse
+#' @rdname slice
 #' @keywords internal
 #' @export
 slice_provider_ext <- function(x) {
@@ -74,7 +83,7 @@ slice_provider_ext <- function(x) {
 }
 
 # Medicare Provider: 670055 -> 67 0055
-#' @rdname parse
+#' @rdname slice
 #' @keywords internal
 #' @export
 slice_medicare <- function(x) {
@@ -90,7 +99,7 @@ slice_medicare <- function(x) {
 }
 
 # Medicare OPO Provider: 05P001 -> 05 P 001
-#' @rdname parse
+#' @rdname slice
 #' @keywords internal
 #' @export
 slice_organ <- function(x) {
@@ -106,7 +115,7 @@ slice_organ <- function(x) {
 }
 
 # Emergency Hospital: 12345E -> 12 345 E
-#' @rdname parse
+#' @rdname slice
 #' @keywords internal
 #' @export
 slice_emergency <- function(x) {
@@ -122,7 +131,7 @@ slice_emergency <- function(x) {
 }
 
 # Medicare Supplier: 10C0001062 -> 10 C 0001062
-#' @rdname parse
+#' @rdname slice
 #' @keywords internal
 #' @export
 slice_supplier <- function(x) {
@@ -137,7 +146,7 @@ slice_supplier <- function(x) {
   )
 }
 
-#' @rdname parse
+#' @rdname slice
 #' @keywords internal
 #' @export
 slice_supplier_ext <- function(x) {
@@ -153,7 +162,7 @@ slice_supplier_ext <- function(x) {
 }
 
 # Medicaid-Only Facility: 01L008 -> 01 L 008
-#' @rdname parse
+#' @rdname slice
 #' @keywords internal
 #' @export
 slice_medicaid <- function(x) {
@@ -169,7 +178,7 @@ slice_medicaid <- function(x) {
 }
 
 # IPPS-Excluded Provider: 21T101 -> 21 T 101
-#' @rdname parse
+#' @rdname slice
 #' @keywords internal
 #' @export
 slice_unit <- function(x) {
@@ -185,7 +194,7 @@ slice_unit <- function(x) {
 }
 
 # IPPS-Excluded Unit: 02TA01 -> 02 T A 01
-#' @rdname parse
+#' @rdname slice
 #' @keywords internal
 #' @export
 slice_subunit <- function(x) {
@@ -214,49 +223,49 @@ print_impl <- function(x) {
   invisible(x)
 }
 
-#' @rdname parse
+#' @rdname slice
 #' @keywords internal
 #' @export
 print.medicare <- function(x, ...) {
   print_impl(x)
 }
 
-#' @rdname parse
+#' @rdname slice
 #' @keywords internal
 #' @export
 print.organ <- function(x, ...) {
   print_impl(x)
 }
 
-#' @rdname parse
+#' @rdname slice
 #' @keywords internal
 #' @export
 print.emergency <- function(x, ...) {
   print_impl(x)
 }
 
-#' @rdname parse
+#' @rdname slice
 #' @keywords internal
 #' @export
 print.supplier <- function(x, ...) {
   print_impl(x)
 }
 
-#' @rdname parse
+#' @rdname slice
 #' @keywords internal
 #' @export
 print.medicaid <- function(x, ...) {
   print_impl(x)
 }
 
-#' @rdname parse
+#' @rdname slice
 #' @keywords internal
 #' @export
 print.unit <- function(x, ...) {
   print_impl(x)
 }
 
-#' @rdname parse
+#' @rdname slice
 #' @keywords internal
 #' @export
 print.subunit <- function(x, ...) {

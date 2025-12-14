@@ -47,6 +47,7 @@ print2_impl <- function(x) {
   invisible(x)
 }
 
+#' @rdname medicare
 #' @export
 `print.ccn::Medicare` <- function(x, ...) {
   print2_impl(x)
