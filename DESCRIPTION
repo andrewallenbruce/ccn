@@ -36,6 +36,7 @@ Collate:
     'aaa.R'
     'ccn-package.R'
     'data.R'
+    'decode.R'
     'emergency.R'
     'is_type.R'
     'medicaid.R'

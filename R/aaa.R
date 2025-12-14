@@ -36,7 +36,7 @@ CCN <- S7::new_class(
 Medicare <- S7::new_class(
   name = "Medicare",
   parent = CCN,
-  properties = list(ext = Extension)
+  properties = list(extension = Extension)
 )
 
 #' @noRd
@@ -45,7 +45,7 @@ Supplier <- S7::new_class(
   parent = CCN,
   properties = list(
     type = Type,
-    ext = Extension
+    extension = Extension
   )
 )
 

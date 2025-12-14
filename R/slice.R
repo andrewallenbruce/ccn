@@ -87,7 +87,8 @@ slice_medicare <- function(x) {
       ccn = x,
       substring(x, c(1L, 3L), c(2L, 6L)) |>
         `names<-`(c("state", "sequence"))
-    ),
+    ) |>
+      as.list(),
     class = "medicare"
   )
 }
@@ -101,7 +102,8 @@ slice_organ <- function(x) {
       ccn = x,
       substring(x, c(1L, 3L, 4L), c(2L, 3L, 6L)) |>
         `names<-`(c("state", "type", "sequence"))
-    ),
+    ) |>
+      as.list(),
     class = "organ"
   )
 }
@@ -115,7 +117,8 @@ slice_emergency <- function(x) {
       ccn = x,
       substring(x, c(1L, 3L, 6L), c(2L, 5L, 6L)) |>
         `names<-`(c("state", "sequence", "type"))
-    ),
+    ) |>
+      as.list(),
     class = "emergency"
   )
 }
@@ -129,7 +132,8 @@ slice_supplier <- function(x) {
       ccn = x,
       substring(x, c(1L, 3L, 4L), c(2L, 3L, 10L)) |>
         `names<-`(c("state", "type", "sequence"))
-    ),
+    ) |>
+      as.list(),
     class = "supplier"
   )
 }
@@ -157,7 +161,8 @@ slice_medicaid <- function(x) {
       ccn = x,
       substring(x, c(1L, 3L, 4L), c(2L, 3L, 6L)) |>
         `names<-`(c("state", "type", "sequence"))
-    ),
+    ) |>
+      as.list(),
     class = "medicaid"
   )
 }
@@ -171,7 +176,8 @@ slice_unit <- function(x) {
       ccn = x,
       substring(x, c(1L, 3L, 4L), c(2L, 3L, 6L)) |>
         `names<-`(c("state", "type", "sequence"))
-    ),
+    ) |>
+      as.list(),
     class = "unit"
   )
 }
@@ -185,7 +191,8 @@ slice_subunit <- function(x) {
       ccn = x,
       substring(x, c(1L, 3L, 4L, 5L), c(2L, 3L, 4L, 6L)) |>
         `names<-`(c("state", "type", "parent", "sequence"))
-    ),
+    ) |>
+      as.list(),
     class = "subunit"
   )
 }
