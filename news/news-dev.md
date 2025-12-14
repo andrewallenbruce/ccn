@@ -91,7 +91,9 @@
 - standard `is_*` prefix added to logical predicates
 - `OPOSequence` -\> `OpoSequence` & `OPOType` -\> `OpoType`, standard
   CamelCase convention for class names
-- initial base [`parse()`](https://rdrr.io/r/base/parse.html) sketch
+- initial base
+  [`parse()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
+  sketch
 
 ## ccn 0.0.0.9021 (2025-11-20)
 
@@ -159,13 +161,14 @@
 
 ## ccn 0.0.0.9035 (2025-11-30)
 
-- work on [`parse()`](https://rdrr.io/r/base/parse.html)
+- work on
+  [`parse()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
   ([\#3](https://github.com/andrewallenbruce/ccn/issues/3))
 
 ## ccn 0.0.0.9036 (2025-11-30)
 
-- [`parse()`](https://rdrr.io/r/base/parse.html) development
-  ([\#3](https://github.com/andrewallenbruce/ccn/issues/3))
+- [`parse()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
+  development ([\#3](https://github.com/andrewallenbruce/ccn/issues/3))
 
 ## ccn 0.0.0.9037 (2025-12-01)
 
@@ -233,8 +236,7 @@
 
 ## ccn 0.0.0.9051 (2025-12-08)
 
-- [`slice()`](https://andrewallenbruce.github.io/ccn/reference/slice.md)
-  implementation
+- `slice()` implementation
 
 ## ccn 0.0.0.9052 (2025-12-09)
 

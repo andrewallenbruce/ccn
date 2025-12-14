@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ccn</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9061</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9067</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,19 +45,50 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">parse_medicare</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">parse</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">parse_opo</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span><span class="fu">switch_provider</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">parse_emergency</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span><span class="fu">switch_ccn</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">parse_supplier</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span><span class="fu">slice_provider_ext</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">parse_medicaid</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span><span class="fu">slice_medicare</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">parse_unit</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span><span class="fu">slice_organ</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">parse_subunit</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">slice_emergency</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">slice_supplier</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">slice_supplier_ext</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">slice_medicaid</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">slice_unit</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">slice_subunit</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for class 'medicare'</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for class 'organ'</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for class 'emergency'</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for class 'supplier'</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for class 'medicaid'</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for class 'unit'</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for class 'subunit'</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -75,39 +106,73 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">parse_medicare</span><span class="op">(</span><span class="st">"670055"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 ccn              entity               state            sequence </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            "670055" "Medicare Provider"                "67"              "0055" </span>
-<span class="r-in"><span><span class="fu">parse_opo</span><span class="op">(</span><span class="st">"05P001"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 ccn              entity               state                type </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            "05P001" "Medicare Provider"                "05"                 "P" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            sequence </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               "001" </span>
-<span class="r-in"><span><span class="fu">parse_emergency</span><span class="op">(</span><span class="st">"12345E"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                  ccn               entity                state </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             "12345E" "Emergency Hospital"                 "12" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 type             sequence </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                  "E"                "345" </span>
-<span class="r-in"><span><span class="fu">parse_supplier</span><span class="op">(</span><span class="st">"10C0001062"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 ccn              entity               state                type </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        "10C0001062" "Medicare Supplier"                "10"                 "C" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            sequence </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           "0001062" </span>
-<span class="r-in"><span><span class="fu">parse_medicaid</span><span class="op">(</span><span class="st">"A5J508"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                      ccn                   entity                    state </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 "A5J508" "Medicaid-Only Provider"                     "A5" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     type                 sequence </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                      "J"                    "508" </span>
-<span class="r-in"><span><span class="fu">parse_unit</span><span class="op">(</span><span class="st">"21T101"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                  ccn               entity                state </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             "21T101" "IPPS-Excluded Unit"                 "21" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 type             sequence </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                  "T"                "101" </span>
-<span class="r-in"><span><span class="fu">parse_subunit</span><span class="op">(</span><span class="st">"02TA01"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     ccn                  entity                   state </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                "02TA01" "IPPS-Excluded Subunit"                    "02" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    type                  parent                sequence </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     "T"                     "A"                    "01" </span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">parse</span><span class="op">(</span><span class="st">"670055"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ────&lt;<span style="color: #BB0000;">parsed</span>::<span style="color: #BBBB00;">medicare</span>&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">     ccn:</span> 670055</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">   state:</span> 67</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">sequence:</span> 0055</span>
+<span class="r-in"><span><span class="fu">parse</span><span class="op">(</span><span class="st">"05P001"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ────&lt;<span style="color: #BB0000;">parsed</span>::<span style="color: #BBBB00;">organ</span>&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">     ccn:</span> 05P001</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">   state:</span> 05</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">    type:</span> P</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">sequence:</span> 001</span>
+<span class="r-in"><span><span class="fu">parse</span><span class="op">(</span><span class="st">"12345E"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ────&lt;<span style="color: #BB0000;">parsed</span>::<span style="color: #BBBB00;">emergency</span>&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">     ccn:</span> 12345E</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">   state:</span> 12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">sequence:</span> 345</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">    type:</span> E</span>
+<span class="r-in"><span><span class="fu">parse</span><span class="op">(</span><span class="st">"10C0001062"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ────&lt;<span style="color: #BB0000;">parsed</span>::<span style="color: #BBBB00;">supplier</span>&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">     ccn:</span> 10C0001062</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">   state:</span> 10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">    type:</span> C</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">sequence:</span> 0001062</span>
+<span class="r-in"><span><span class="fu">parse</span><span class="op">(</span><span class="st">"A5J508"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ────&lt;<span style="color: #BB0000;">parsed</span>::<span style="color: #BBBB00;">medicaid</span>&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">     ccn:</span> A5J508</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">   state:</span> A5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">    type:</span> J</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">sequence:</span> 508</span>
+<span class="r-in"><span><span class="fu">parse</span><span class="op">(</span><span class="st">"21T101"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ────&lt;<span style="color: #BB0000;">parsed</span>::<span style="color: #BBBB00;">unit</span>&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">     ccn:</span> 21T101</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">   state:</span> 21</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">    type:</span> T</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">sequence:</span> 101</span>
+<span class="r-in"><span><span class="fu">parse</span><span class="op">(</span><span class="st">"02TA01"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ────&lt;<span style="color: #BB0000;">parsed</span>::<span style="color: #BBBB00;">subunit</span>&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">     ccn:</span> 02TA01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">   state:</span> 02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">    type:</span> T</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">  parent:</span> A</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">sequence:</span> 01</span>
+<span class="r-in"><span><span class="fu">parse</span><span class="op">(</span><span class="st">"240019A"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ────&lt;<span style="color: #BB0000;">parsed</span>::<span style="color: #BBBB00;">medicare</span>&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">      ccn:</span> 240019</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">    state:</span> 24</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> sequence:</span> 0019</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">extension:</span> A</span>
+<span class="r-in"><span><span class="fu">parse</span><span class="op">(</span><span class="st">"330125001"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ────&lt;<span style="color: #BB0000;">parsed</span>::<span style="color: #BBBB00;">medicare</span>&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">      ccn:</span> 330125</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">    state:</span> 33</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> sequence:</span> 0125</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">extension:</span> 001</span>
+<span class="r-in"><span><span class="fu">parse</span><span class="op">(</span><span class="st">"000000000"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ────&lt;<span style="color: #BB0000;">parsed</span>::<span style="color: #BBBB00;">medicare</span>&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">      ccn:</span> 000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">    state:</span> 00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> sequence:</span> 0000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">extension:</span> 000</span>
+<span class="r-in"><span><span class="fu">parse</span><span class="op">(</span><span class="st">"000000000000"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ────&lt;<span style="color: #BB0000;">parsed</span>::<span style="color: #BBBB00;">supplier</span>&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">      ccn:</span> 0000000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">    state:</span> 00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">     type:</span> 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> sequence:</span> 0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">extension:</span> 00</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

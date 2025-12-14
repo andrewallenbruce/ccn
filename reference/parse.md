@@ -5,19 +5,50 @@ Convert various codes to their associated names.
 ## Usage
 
 ``` r
-parse_medicare(x)
+parse(x)
 
-parse_opo(x)
+switch_provider(x)
 
-parse_emergency(x)
+switch_ccn(x)
 
-parse_supplier(x)
+slice_provider_ext(x)
 
-parse_medicaid(x)
+slice_medicare(x)
 
-parse_unit(x)
+slice_organ(x)
 
-parse_subunit(x)
+slice_emergency(x)
+
+slice_supplier(x)
+
+slice_supplier_ext(x)
+
+slice_medicaid(x)
+
+slice_unit(x)
+
+slice_subunit(x)
+
+# S3 method for class 'medicare'
+print(x, ...)
+
+# S3 method for class 'organ'
+print(x, ...)
+
+# S3 method for class 'emergency'
+print(x, ...)
+
+# S3 method for class 'supplier'
+print(x, ...)
+
+# S3 method for class 'medicaid'
+print(x, ...)
+
+# S3 method for class 'unit'
+print(x, ...)
+
+# S3 method for class 'subunit'
+print(x, ...)
 ```
 
 ## Arguments
@@ -33,37 +64,71 @@ character vector of names associated with codes.
 ## Examples
 
 ``` r
-parse_medicare("670055")
-#>                 ccn              entity               state            sequence 
-#>            "670055" "Medicare Provider"                "67"              "0055" 
-parse_opo("05P001")
-#>                 ccn              entity               state                type 
-#>            "05P001" "Medicare Provider"                "05"                 "P" 
-#>            sequence 
-#>               "001" 
-parse_emergency("12345E")
-#>                  ccn               entity                state 
-#>             "12345E" "Emergency Hospital"                 "12" 
-#>                 type             sequence 
-#>                  "E"                "345" 
-parse_supplier("10C0001062")
-#>                 ccn              entity               state                type 
-#>        "10C0001062" "Medicare Supplier"                "10"                 "C" 
-#>            sequence 
-#>           "0001062" 
-parse_medicaid("A5J508")
-#>                      ccn                   entity                    state 
-#>                 "A5J508" "Medicaid-Only Provider"                     "A5" 
-#>                     type                 sequence 
-#>                      "J"                    "508" 
-parse_unit("21T101")
-#>                  ccn               entity                state 
-#>             "21T101" "IPPS-Excluded Unit"                 "21" 
-#>                 type             sequence 
-#>                  "T"                "101" 
-parse_subunit("02TA01")
-#>                     ccn                  entity                   state 
-#>                "02TA01" "IPPS-Excluded Subunit"                    "02" 
-#>                    type                  parent                sequence 
-#>                     "T"                     "A"                    "01" 
+parse("670055")
+#> ────<parsed::medicare>
+#>      ccn: 670055
+#>    state: 67
+#> sequence: 0055
+parse("05P001")
+#> ────<parsed::organ>
+#>      ccn: 05P001
+#>    state: 05
+#>     type: P
+#> sequence: 001
+parse("12345E")
+#> ────<parsed::emergency>
+#>      ccn: 12345E
+#>    state: 12
+#> sequence: 345
+#>     type: E
+parse("10C0001062")
+#> ────<parsed::supplier>
+#>      ccn: 10C0001062
+#>    state: 10
+#>     type: C
+#> sequence: 0001062
+parse("A5J508")
+#> ────<parsed::medicaid>
+#>      ccn: A5J508
+#>    state: A5
+#>     type: J
+#> sequence: 508
+parse("21T101")
+#> ────<parsed::unit>
+#>      ccn: 21T101
+#>    state: 21
+#>     type: T
+#> sequence: 101
+parse("02TA01")
+#> ────<parsed::subunit>
+#>      ccn: 02TA01
+#>    state: 02
+#>     type: T
+#>   parent: A
+#> sequence: 01
+parse("240019A")
+#> ────<parsed::medicare>
+#>       ccn: 240019
+#>     state: 24
+#>  sequence: 0019
+#> extension: A
+parse("330125001")
+#> ────<parsed::medicare>
+#>       ccn: 330125
+#>     state: 33
+#>  sequence: 0125
+#> extension: 001
+parse("000000000")
+#> ────<parsed::medicare>
+#>       ccn: 000000
+#>     state: 00
+#>  sequence: 0000
+#> extension: 000
+parse("000000000000")
+#> ────<parsed::supplier>
+#>       ccn: 0000000000
+#>     state: 00
+#>      type: 0
+#>  sequence: 0000000
+#> extension: 00
 ```
