@@ -26,14 +26,12 @@ Rev. 29, Pg. 411, Iss. 04-20-07, Eff./Imp. 10-01-2007
 The CCN for emergency hospitals is a 6-position alphanumeric code. The first
 2 digits are the State code. The third, fourth, and fifth digits represent a
 sequence number. The first emergency number in a State would contain the
-sequence number \code{"001"}. In the sixth position use the letter \code{"E"} for
-non-Federal emergency hospitals, or \code{"F"} for Federal emergency hospitals.
+sequence number \code{001}. In the sixth position use the letter \code{E} for
+non-Federal emergency hospitals, or \code{F} for Federal emergency hospitals.
 
 For example, the 34th emergency hospital issued a CCN in Maryland would have
-the number \code{"21-034E"}. The RO assigns the CCN in strict numerical sequence
-without regard to the Federal or non-Federal status. If a terminated facility
-again qualifies as an emergency hospital, the RO issues a new CCN. For a
-non-participating hospital that is now fully participating, see subsection I.
+the number \verb{21-034E}. The RO assigns the CCN in strict numerical sequence
+without regard to the Federal or non-Federal status.
 }
 
 \examples{

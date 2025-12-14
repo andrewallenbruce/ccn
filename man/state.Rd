@@ -2,12 +2,17 @@
 % Please edit documentation in R/states.R
 \name{state}
 \alias{state}
+\alias{print.ccn::State}
 \title{State Codes}
 \usage{
+\method{print}{`ccn::State`}(x, ...)
+
 state(x)
 }
 \arguments{
 \item{x}{character vector of state codes to look up.}
+
+\item{...}{unused.}
 }
 \value{
 S7 object of class \code{State}.

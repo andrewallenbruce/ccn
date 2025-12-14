@@ -13,6 +13,19 @@ Range <- S7::new_class(
   )
 )
 
+#' @export
+`print.ccn::Range` <- function(x, ...) {
+  cli::cli_text("<{cli::col_cyan(class(x)[1])}>")
+
+  glue::glue(
+    '{cli::col_silver(format(S7::prop_names(x), justify = "right"))}',
+    '{cli::col_grey(":")} {unname(S7::props(x))}'
+  ) |>
+    cat(sep = "\n")
+
+  invisible(x)
+}
+
 #' @noRd
 Type <- S7::new_class(
   name = "Type",
@@ -21,6 +34,19 @@ Type <- S7::new_class(
     desc = S7::class_character
   )
 )
+
+#' @export
+`print.ccn::Type` <- function(x, ...) {
+  cli::cli_text("<{cli::col_cyan(class(x)[1])}>")
+
+  glue::glue(
+    '{cli::col_silver(format(S7::prop_names(x), justify = "right"))}',
+    '{cli::col_grey(":")} {unname(S7::props(x))}'
+  ) |>
+    cat(sep = "\n")
+
+  invisible(x)
+}
 
 #' @noRd
 CCN <- S7::new_class(

@@ -4,6 +4,7 @@
 #' Convert state codes to their abbreviations or full names.
 #'
 #' @param x character vector of state codes to look up.
+#' @param ... unused.
 #' @name state
 #' @returns S7 object of class `State`.
 #' @examples
@@ -45,6 +46,20 @@ State <- S7::new_class(
     )
   }
 )
+
+#' @rdname state
+#' @export
+`print.ccn::State` <- function(x, ...) {
+  cli::cli_text("<{cli::col_cyan(class(x)[1])}>")
+
+  glue::glue(
+    '{cli::col_silver(format(S7::prop_names(x), justify = "right"))}',
+    '{cli::col_grey(":")} {unname(S7::props(x))}'
+  ) |>
+    cat(sep = "\n")
+
+  invisible(x)
+}
 
 #' @rdname state
 #' @export
