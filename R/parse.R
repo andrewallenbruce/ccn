@@ -1,32 +1,24 @@
-#' Slice CMS Certification Numbers
+#' Parse CMS Certification Numbers
 #'
 #' @description
 #' Convert various codes to their associated names.
 #'
 #' @param x character vector of codes to look up.
-#' @param ... additional arguments passed to methods.
-#' @name slice
 #' @returns character vector of names associated with codes.
 #' @examples
-#' slice("670055")
-#' slice("05P001")
-#' slice("12345E")
-#' slice("10C0001062")
-#' slice("A5J508")
-#' slice("21T101")
-#' slice("02TA01")
-#' slice("240019A")
-#' slice("330125001")
-#' slice("000000000")
-#' slice("000000000000")
-#' # slice("0000000000000000")
-#' # slice("")
-#' # slice("IIIIII")
-NULL
-
-#' @rdname slice
+#' parse("670055")
+#' parse("05P001")
+#' parse("12345E")
+#' parse("10C0001062")
+#' parse("A5J508")
+#' parse("21T101")
+#' parse("02TA01")
+#' parse("240019A")
+#' parse("330125001")
+#' parse("000000000")
+#' parse("000000000000")
 #' @export
-slice <- function(x) {
+parse <- function(x) {
   if (!nzchar(x)) {
     check_arg(x, "cannot be an {.strong empty} string.")
   }
@@ -36,7 +28,8 @@ slice <- function(x) {
   switch_ccn(clean(x))
 }
 
-#' @rdname slice
+#' @rdname parse
+#' @keywords internal
 #' @export
 switch_provider <- function(x) {
   switch(
@@ -51,7 +44,8 @@ switch_provider <- function(x) {
   )
 }
 
-#' @rdname slice
+#' @rdname parse
+#' @keywords internal
 #' @export
 switch_ccn <- function(x) {
   switch(
@@ -64,7 +58,8 @@ switch_ccn <- function(x) {
   )
 }
 
-#' @rdname slice
+#' @rdname parse
+#' @keywords internal
 #' @export
 slice_provider_ext <- function(x) {
   p <- switch_provider(substring(x, 1L, 6L))
@@ -79,7 +74,8 @@ slice_provider_ext <- function(x) {
 }
 
 # Medicare Provider: 670055 -> 67 0055
-#' @rdname slice
+#' @rdname parse
+#' @keywords internal
 #' @export
 slice_medicare <- function(x) {
   structure(
@@ -94,7 +90,8 @@ slice_medicare <- function(x) {
 }
 
 # Medicare OPO Provider: 05P001 -> 05 P 001
-#' @rdname slice
+#' @rdname parse
+#' @keywords internal
 #' @export
 slice_organ <- function(x) {
   structure(
@@ -109,7 +106,8 @@ slice_organ <- function(x) {
 }
 
 # Emergency Hospital: 12345E -> 12 345 E
-#' @rdname slice
+#' @rdname parse
+#' @keywords internal
 #' @export
 slice_emergency <- function(x) {
   structure(
@@ -124,7 +122,8 @@ slice_emergency <- function(x) {
 }
 
 # Medicare Supplier: 10C0001062 -> 10 C 0001062
-#' @rdname slice
+#' @rdname parse
+#' @keywords internal
 #' @export
 slice_supplier <- function(x) {
   structure(
@@ -138,7 +137,8 @@ slice_supplier <- function(x) {
   )
 }
 
-#' @rdname slice
+#' @rdname parse
+#' @keywords internal
 #' @export
 slice_supplier_ext <- function(x) {
   p <- slice_supplier(substring(x, 1L, 10L))
@@ -153,7 +153,8 @@ slice_supplier_ext <- function(x) {
 }
 
 # Medicaid-Only Facility: 01L008 -> 01 L 008
-#' @rdname slice
+#' @rdname parse
+#' @keywords internal
 #' @export
 slice_medicaid <- function(x) {
   structure(
@@ -168,7 +169,8 @@ slice_medicaid <- function(x) {
 }
 
 # IPPS-Excluded Provider: 21T101 -> 21 T 101
-#' @rdname slice
+#' @rdname parse
+#' @keywords internal
 #' @export
 slice_unit <- function(x) {
   structure(
@@ -183,7 +185,8 @@ slice_unit <- function(x) {
 }
 
 # IPPS-Excluded Unit: 02TA01 -> 02 T A 01
-#' @rdname slice
+#' @rdname parse
+#' @keywords internal
 #' @export
 slice_subunit <- function(x) {
   structure(
@@ -211,43 +214,50 @@ print_impl <- function(x) {
   invisible(x)
 }
 
-#' @rdname slice
+#' @rdname parse
+#' @keywords internal
 #' @export
 print.medicare <- function(x, ...) {
   print_impl(x)
 }
 
-#' @rdname slice
+#' @rdname parse
+#' @keywords internal
 #' @export
 print.organ <- function(x, ...) {
   print_impl(x)
 }
 
-#' @rdname slice
+#' @rdname parse
+#' @keywords internal
 #' @export
 print.emergency <- function(x, ...) {
   print_impl(x)
 }
 
-#' @rdname slice
+#' @rdname parse
+#' @keywords internal
 #' @export
 print.supplier <- function(x, ...) {
   print_impl(x)
 }
 
-#' @rdname slice
+#' @rdname parse
+#' @keywords internal
 #' @export
 print.medicaid <- function(x, ...) {
   print_impl(x)
 }
 
-#' @rdname slice
+#' @rdname parse
+#' @keywords internal
 #' @export
 print.unit <- function(x, ...) {
   print_impl(x)
 }
 
-#' @rdname slice
+#' @rdname parse
+#' @keywords internal
 #' @export
 print.subunit <- function(x, ...) {
   print_impl(x)

@@ -4,15 +4,19 @@
 #' Convert various codes to their associated names.
 #'
 #' @param x character vector of codes to look up.
-#' @param ... additional arguments (not used).
 #' @returns S7 object of class `Medicare`.
 #' @examples
-#' decode(slice("670055"))
-#' decode(slice("123456"))
+#' decode("670055")
+#' decode("123456")
 #' @export
-decode <- S7::new_generic("decode", "x")
+decode <- function(x) {
+  decode_(parse(x))
+}
 
-S7::method(decode, S7::new_S3_class("medicare")) <- function(x) {
+#' @noRd
+decode_ <- S7::new_generic("decode_", "x")
+
+S7::method(decode_, S7::new_S3_class("medicare")) <- function(x) {
   Medicare(
     ccn = x[["ccn"]],
     state = State(x[["state"]]),

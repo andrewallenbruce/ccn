@@ -4,12 +4,10 @@
 \alias{decode}
 \title{Decode CCNs}
 \usage{
-decode(x, ...)
+decode(x)
 }
 \arguments{
 \item{x}{character vector of codes to look up.}
-
-\item{...}{additional arguments (not used).}
 }
 \value{
 S7 object of class \code{Medicare}.
@@ -18,6 +16,6 @@ S7 object of class \code{Medicare}.
 Convert various codes to their associated names.
 }
 \examples{
-decode(slice("670055"))
-decode(slice("123456"))
+decode("670055")
+decode("123456")
 }
