@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9068 (2025-12-14)
+
+* print method madness
+
+
 # ccn 0.0.0.9067 (2025-12-14)
 
 * adding more print methods
