@@ -22,27 +22,15 @@ S7 object of class `Medicare`.
 
 ``` r
 medicare("670055")
-#> <ccn::Medicare>
-#>  @ ccn  : chr "670055"
-#>  @ state: <ccn::State>
-#>  .. @ abbr: chr "TX"
-#>  .. @ name: chr "Texas"
-#>  @ range: <ccn::RangeMCR>
-#>  .. @ series: chr "0001-0879"
-#>  .. @ abbr  : chr "STC"
-#>  .. @ desc  : chr "Short-Term Hospital (General & Specialty)"
-#>  .. @ eipps : logi FALSE
-#>  @ ext  : chr NA
+#> ────<ccn::Medicare>
+#> ◉ CCN: <670055>
+#> ◉ State: TX - Texas
+#> ◉ Facility Type: STC - Short-Term Hospital (General & Specialty)
+#> ◉ IPPS-Excluded: ✖
 medicare("123456")
-#> <ccn::Medicare>
-#>  @ ccn  : chr "123456"
-#>  @ state: <ccn::State>
-#>  .. @ abbr: chr "HI"
-#>  .. @ name: chr "Hawaii"
-#>  @ range: <ccn::RangeMCR>
-#>  .. @ series: chr "3400-3499"
-#>  .. @ abbr  : chr "RHC"
-#>  .. @ desc  : chr "Rural Health Clinic (Provider-based)"
-#>  .. @ eipps : logi FALSE
-#>  @ ext  : chr NA
+#> ────<ccn::Medicare>
+#> ◉ CCN: <123456>
+#> ◉ State: HI - Hawaii
+#> ◉ Facility Type: RHC - Rural Health Clinic (Provider-based)
+#> ◉ IPPS-Excluded: ✖
 ```

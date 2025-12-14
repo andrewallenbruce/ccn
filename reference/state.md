@@ -27,6 +27,6 @@ state("A5XXX")
 #>  @ name: chr "Mississippi"
 state(sample(ccn::state_codes$code, 1L))
 #> <ccn::State>
-#>  @ abbr: chr "OH"
-#>  @ name: chr "Ohio"
+#>  @ abbr: chr "MI"
+#>  @ name: chr "Michigan"
 ```

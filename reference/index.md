@@ -2,6 +2,8 @@
 
 ## All functions
 
+- [`decode()`](https://andrewallenbruce.github.io/ccn/reference/decode.md)
+  : Decode CCNs
 - [`emergency()`](https://andrewallenbruce.github.io/ccn/reference/emergency.md)
   : Emergency Hospital CCNs
 - [`medicaid()`](https://andrewallenbruce.github.io/ccn/reference/medicaid.md)

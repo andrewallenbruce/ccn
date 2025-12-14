@@ -43,23 +43,11 @@ subunit("21SA26")
 #>  .. .. @ desc  : chr "Long-Term Care Hospital"
 #>  .. .. @ eipps : logi TRUE
 parent("21SA26")
-#> <ccn::Parent>
-#>  @ ccn    : chr "212026"
-#>  @ state  : <ccn::State>
-#>  .. @ abbr: chr "MD"
-#>  .. @ name: chr "Maryland"
-#>  @ range  : <ccn::RangeMCR>
-#>  .. @ series: chr "2000-2299"
-#>  .. @ abbr  : chr "LTC"
-#>  .. @ desc  : chr "Long-Term Care Hospital"
-#>  .. @ eipps : logi TRUE
-#>  @ ext    : chr NA
-#>  @ subunit: <ccn::Subunit>
-#>  .. @ ccn : chr "21SA26"
-#>  .. @ type: <ccn::TypeUnit>
-#>  .. .. @ abbr : chr "PSY"
-#>  .. .. @ desc : chr "Psychiatric Unit"
-#>  .. .. @ eipps: logi TRUE
+#> ────<ccn::Parent>
+#> ◉ CCN: <212026>
+#> ◉ State: MD - Maryland
+#> ◉ Facility Type: LTC - Long-Term Care Hospital
+#> ◉ IPPS-Excluded: ✔
 subunit("21TA26")
 #> <ccn::EippsSubunit>
 #>  @ ccn   : chr "21TA26"
@@ -80,23 +68,11 @@ subunit("21TA26")
 #>  .. .. @ desc  : chr "Long-Term Care Hospital"
 #>  .. .. @ eipps : logi TRUE
 parent("21TA26")
-#> <ccn::Parent>
-#>  @ ccn    : chr "212026"
-#>  @ state  : <ccn::State>
-#>  .. @ abbr: chr "MD"
-#>  .. @ name: chr "Maryland"
-#>  @ range  : <ccn::RangeMCR>
-#>  .. @ series: chr "2000-2299"
-#>  .. @ abbr  : chr "LTC"
-#>  .. @ desc  : chr "Long-Term Care Hospital"
-#>  .. @ eipps : logi TRUE
-#>  @ ext    : chr NA
-#>  @ subunit: <ccn::Subunit>
-#>  .. @ ccn : chr "21TA26"
-#>  .. @ type: <ccn::TypeUnit>
-#>  .. .. @ abbr : chr "IRF"
-#>  .. .. @ desc : chr "Rehabilitation Unit"
-#>  .. .. @ eipps: logi TRUE
+#> ────<ccn::Parent>
+#> ◉ CCN: <212026>
+#> ◉ State: MD - Maryland
+#> ◉ Facility Type: LTC - Long-Term Care Hospital
+#> ◉ IPPS-Excluded: ✔
 
 subunit("02TA01")
 #> <ccn::EippsSubunit>
@@ -118,23 +94,11 @@ subunit("02TA01")
 #>  .. .. @ desc  : chr "Long-Term Care Hospital"
 #>  .. .. @ eipps : logi TRUE
 parent("02TA01")
-#> <ccn::Parent>
-#>  @ ccn    : chr "022001"
-#>  @ state  : <ccn::State>
-#>  .. @ abbr: chr "AK"
-#>  .. @ name: chr "Alaska"
-#>  @ range  : <ccn::RangeMCR>
-#>  .. @ series: chr "2000-2299"
-#>  .. @ abbr  : chr "LTC"
-#>  .. @ desc  : chr "Long-Term Care Hospital"
-#>  .. @ eipps : logi TRUE
-#>  @ ext    : chr NA
-#>  @ subunit: <ccn::Subunit>
-#>  .. @ ccn : chr "02TA01"
-#>  .. @ type: <ccn::TypeUnit>
-#>  .. .. @ abbr : chr "IRF"
-#>  .. .. @ desc : chr "Rehabilitation Unit"
-#>  .. .. @ eipps: logi TRUE
+#> ────<ccn::Parent>
+#> ◉ CCN: <022001>
+#> ◉ State: AK - Alaska
+#> ◉ Facility Type: LTC - Long-Term Care Hospital
+#> ◉ IPPS-Excluded: ✔
 
 subunit("04SD38")
 #> <ccn::EippsSubunit>
@@ -156,23 +120,11 @@ subunit("04SD38")
 #>  .. .. @ desc  : chr "Rehabilitation Hospital"
 #>  .. .. @ eipps : logi TRUE
 parent("04SD38")
-#> <ccn::Parent>
-#>  @ ccn    : chr "043038"
-#>  @ state  : <ccn::State>
-#>  .. @ abbr: chr "AR"
-#>  .. @ name: chr "Arkansas"
-#>  @ range  : <ccn::RangeMCR>
-#>  .. @ series: chr "3025-3099"
-#>  .. @ abbr  : chr "IRF"
-#>  .. @ desc  : chr "Rehabilitation Hospital"
-#>  .. @ eipps : logi TRUE
-#>  @ ext    : chr NA
-#>  @ subunit: <ccn::Subunit>
-#>  .. @ ccn : chr "04SD38"
-#>  .. @ type: <ccn::TypeUnit>
-#>  .. .. @ abbr : chr "PSY"
-#>  .. .. @ desc : chr "Psychiatric Unit"
-#>  .. .. @ eipps: logi TRUE
+#> ────<ccn::Parent>
+#> ◉ CCN: <043038>
+#> ◉ State: AR - Arkansas
+#> ◉ Facility Type: IRF - Rehabilitation Hospital
+#> ◉ IPPS-Excluded: ✔
 
 subunit("52TA05")
 #> <ccn::EippsSubunit>
@@ -194,21 +146,9 @@ subunit("52TA05")
 #>  .. .. @ desc  : chr "Long-Term Care Hospital"
 #>  .. .. @ eipps : logi TRUE
 parent("52TA05")
-#> <ccn::Parent>
-#>  @ ccn    : chr "522005"
-#>  @ state  : <ccn::State>
-#>  .. @ abbr: chr "WI"
-#>  .. @ name: chr "Wisconsin"
-#>  @ range  : <ccn::RangeMCR>
-#>  .. @ series: chr "2000-2299"
-#>  .. @ abbr  : chr "LTC"
-#>  .. @ desc  : chr "Long-Term Care Hospital"
-#>  .. @ eipps : logi TRUE
-#>  @ ext    : chr NA
-#>  @ subunit: <ccn::Subunit>
-#>  .. @ ccn : chr "52TA05"
-#>  .. @ type: <ccn::TypeUnit>
-#>  .. .. @ abbr : chr "IRF"
-#>  .. .. @ desc : chr "Rehabilitation Unit"
-#>  .. .. @ eipps: logi TRUE
+#> ────<ccn::Parent>
+#> ◉ CCN: <522005>
+#> ◉ State: WI - Wisconsin
+#> ◉ Facility Type: LTC - Long-Term Care Hospital
+#> ◉ IPPS-Excluded: ✔
 ```

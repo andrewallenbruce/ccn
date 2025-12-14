@@ -293,3 +293,7 @@
 
 - added slot `@eipps`
 - updated internal data structures
+
+## ccn 0.0.0.9066 (2025-12-13)
+
+- initial `decode` generic
