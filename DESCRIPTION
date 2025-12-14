@@ -43,6 +43,7 @@ Collate:
     'medicare.R'
     'organ.R'
     'parse.R'
+    'slice.R'
     'unit.R'
     'subunit.R'
     'supplier.R'
