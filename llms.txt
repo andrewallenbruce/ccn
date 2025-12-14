@@ -60,7 +60,8 @@ occasionally assist with some of these duties.
   [`print(`*`<unit>`*`)`](https://andrewallenbruce.github.io/ccn/reference/slice.md)
   [`print(`*`<subunit>`*`)`](https://andrewallenbruce.github.io/ccn/reference/slice.md)
   : Slice CMS Certification Numbers
-- [`state()`](https://andrewallenbruce.github.io/ccn/reference/state.md)
+- [`print(`*`<ccn::State>`*`)`](https://andrewallenbruce.github.io/ccn/reference/state.md)
+  [`state()`](https://andrewallenbruce.github.io/ccn/reference/state.md)
   : State Codes
 - [`subunit()`](https://andrewallenbruce.github.io/ccn/reference/subunit.md)
   [`parent()`](https://andrewallenbruce.github.io/ccn/reference/subunit.md)

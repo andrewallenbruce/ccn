@@ -5,6 +5,9 @@ Convert state codes to their abbreviations or full names.
 ## Usage
 
 ``` r
+# S3 method for class '`ccn::State`'
+print(x, ...)
+
 state(x)
 ```
 
@@ -13,6 +16,10 @@ state(x)
 - x:
 
   character vector of state codes to look up.
+
+- ...:
+
+  unused.
 
 ## Value
 
@@ -23,10 +30,10 @@ S7 object of class `State`.
 ``` r
 state("A5XXX")
 #> <ccn::State>
-#>  @ abbr: chr "MS"
-#>  @ name: chr "Mississippi"
+#> abbr: MS
+#> name: Mississippi
 state(sample(ccn::state_codes$code, 1L))
 #> <ccn::State>
-#>  @ abbr: chr "MI"
-#>  @ name: chr "Michigan"
+#> abbr: MI
+#> name: Michigan
 ```

@@ -297,3 +297,7 @@
 ## ccn 0.0.0.9066 (2025-12-13)
 
 - initial `decode` generic
+
+## ccn 0.0.0.9067 (2025-12-14)
+
+- adding more print methods
