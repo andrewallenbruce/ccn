@@ -35,6 +35,18 @@ decode("670055")
 #>  .. @ desc  : chr "Short-Term Hospital (General & Specialty)"
 #>  .. @ eipps : logi FALSE
 #>  @ extension: chr NA
+decode("05P001")
+#> <ccn::Organ>
+#>  @ ccn  : chr "05P001"
+#>  @ state: <ccn::State>
+#>  .. @ abbr  : chr "CA"
+#>  .. @ name  : chr "California"
+#>  .. @ region: chr "IX"
+#>  .. @ office: chr "San Francisco"
+#>  @ range: chr "001-099"
+#>  @ type : <ccn::Type>
+#>  .. @ abbr: chr "OPO"
+#>  .. @ desc: chr "Organ Procurement Organization"
 decode("123456")
 #> <ccn::Medicare>
 #>  @ ccn      : chr "123456"
@@ -269,4 +281,98 @@ decode("52TA05")
 #>  .. @ desc : chr "Rehabilitation Unit"
 #>  .. @ eipps: logi TRUE
 #>  @ parent: chr "522005"
+decode("10C0001062")
+#> <ccn::Supplier>
+#>  @ ccn      : chr "10C0001062"
+#>  @ state    : <ccn::State>
+#>  .. @ abbr  : chr "FL"
+#>  .. @ name  : chr "Florida"
+#>  .. @ region: chr "IV"
+#>  .. @ office: chr "Atlanta"
+#>  @ range    : chr "0000001-9999999"
+#>  @ type     : <ccn::Type>
+#>  .. @ abbr: chr "ASC"
+#>  .. @ desc: chr "Ambulatory Surgical Center"
+#>  @ extension: chr NA
+decode("45D0634589")
+#> <ccn::Supplier>
+#>  @ ccn      : chr "45D0634589"
+#>  @ state    : <ccn::State>
+#>  .. @ abbr  : chr "TX"
+#>  .. @ name  : chr "Texas"
+#>  .. @ region: chr "VI"
+#>  .. @ office: chr "Dallas"
+#>  @ range    : chr "0000001-9999999"
+#>  @ type     : <ccn::Type>
+#>  .. @ abbr: chr "CLIA"
+#>  .. @ desc: chr "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory"
+#>  @ extension: chr NA
+decode("21X0009807")
+#> <ccn::Supplier>
+#>  @ ccn      : chr "21X0009807"
+#>  @ state    : <ccn::State>
+#>  .. @ abbr  : chr "MD"
+#>  .. @ name  : chr "Maryland"
+#>  .. @ region: chr "III"
+#>  .. @ office: chr "Philadelphia"
+#>  @ range    : chr "0000001-9999999"
+#>  @ type     : <ccn::Type>
+#>  .. @ abbr: chr "PXRF"
+#>  .. @ desc: chr "Portable X-Ray Facility"
+#>  @ extension: chr NA
+decode("12C0001062")
+#> <ccn::Supplier>
+#>  @ ccn      : chr "12C0001062"
+#>  @ state    : <ccn::State>
+#>  .. @ abbr  : chr "HI"
+#>  .. @ name  : chr "Hawaii"
+#>  .. @ region: chr "IX"
+#>  .. @ office: chr "San Francisco"
+#>  @ range    : chr "0000001-9999999"
+#>  @ type     : <ccn::Type>
+#>  .. @ abbr: chr "ASC"
+#>  .. @ desc: chr "Ambulatory Surgical Center"
+#>  @ extension: chr NA
+decode("240019A")
+#> <ccn::Medicare>
+#>  @ ccn      : chr "240019"
+#>  @ state    : <ccn::State>
+#>  .. @ abbr  : chr "MN"
+#>  .. @ name  : chr "Minnesota"
+#>  .. @ region: chr "V"
+#>  .. @ office: chr "Chicago"
+#>  @ range    : <ccn::RangeMCR>
+#>  .. @ series: chr "0001-0879"
+#>  .. @ abbr  : chr "STC"
+#>  .. @ desc  : chr "Short-Term Hospital (General & Specialty)"
+#>  .. @ eipps : logi FALSE
+#>  @ extension: chr "A"
+decode("330125001")
+#> <ccn::Medicare>
+#>  @ ccn      : chr "330125"
+#>  @ state    : <ccn::State>
+#>  .. @ abbr  : chr "NY"
+#>  .. @ name  : chr "New York"
+#>  .. @ region: chr "II"
+#>  .. @ office: chr "New York"
+#>  @ range    : <ccn::RangeMCR>
+#>  .. @ series: chr "0001-0879"
+#>  .. @ abbr  : chr "STC"
+#>  .. @ desc  : chr "Short-Term Hospital (General & Specialty)"
+#>  .. @ eipps : logi FALSE
+#>  @ extension: chr "001"
+decode("000000000000")
+#> <ccn::Supplier>
+#>  @ ccn      : chr "0000000000"
+#>  @ state    : <ccn::State>
+#>  .. @ abbr  : chr "AZ"
+#>  .. @ name  : chr "Arizona"
+#>  .. @ region: chr "IX"
+#>  .. @ office: chr "San Francisco"
+#>  @ range    : chr NA
+#>  @ type     : <ccn::Type>
+#>  .. @ abbr: chr NA
+#>  .. @ desc: chr NA
+#>  @ extension: chr "00"
+# decode("000000000")
 ```

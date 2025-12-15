@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ccn</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9071</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9073</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,6 +77,18 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc  : chr "Short-Term Hospital (General &amp; Specialty)"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ eipps : logi FALSE</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ extension: chr NA</span>
+<span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="st">"05P001"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Organ&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn  : chr "05P001"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state: &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "CA"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name  : chr "California"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ region: chr "IX"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ office: chr "San Francisco"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ range: chr "001-099"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type : &lt;ccn::Type&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "OPO"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Organ Procurement Organization"</span>
 <span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="st">"123456"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Medicare&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn      : chr "123456"</span>
@@ -311,6 +323,100 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc : chr "Rehabilitation Unit"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ eipps: logi TRUE</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ parent: chr "522005"</span>
+<span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="st">"10C0001062"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Supplier&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn      : chr "10C0001062"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state    : &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "FL"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name  : chr "Florida"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ region: chr "IV"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ office: chr "Atlanta"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ range    : chr "0000001-9999999"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type     : &lt;ccn::Type&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "ASC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Ambulatory Surgical Center"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ extension: chr NA</span>
+<span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="st">"45D0634589"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Supplier&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn      : chr "45D0634589"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state    : &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "TX"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name  : chr "Texas"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ region: chr "VI"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ office: chr "Dallas"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ range    : chr "0000001-9999999"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type     : &lt;ccn::Type&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "CLIA"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratory"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ extension: chr NA</span>
+<span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="st">"21X0009807"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Supplier&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn      : chr "21X0009807"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state    : &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "MD"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name  : chr "Maryland"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ region: chr "III"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ office: chr "Philadelphia"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ range    : chr "0000001-9999999"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type     : &lt;ccn::Type&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "PXRF"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Portable X-Ray Facility"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ extension: chr NA</span>
+<span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="st">"12C0001062"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Supplier&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn      : chr "12C0001062"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state    : &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "HI"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name  : chr "Hawaii"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ region: chr "IX"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ office: chr "San Francisco"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ range    : chr "0000001-9999999"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type     : &lt;ccn::Type&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "ASC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Ambulatory Surgical Center"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ extension: chr NA</span>
+<span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="st">"240019A"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Medicare&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn      : chr "240019"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state    : &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "MN"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name  : chr "Minnesota"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ region: chr "V"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ office: chr "Chicago"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ range    : &lt;ccn::RangeMCR&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ series: chr "0001-0879"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "STC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc  : chr "Short-Term Hospital (General &amp; Specialty)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ eipps : logi FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ extension: chr "A"</span>
+<span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="st">"330125001"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Medicare&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn      : chr "330125"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state    : &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "NY"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name  : chr "New York"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ region: chr "II"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ office: chr "New York"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ range    : &lt;ccn::RangeMCR&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ series: chr "0001-0879"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "STC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc  : chr "Short-Term Hospital (General &amp; Specialty)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ eipps : logi FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ extension: chr "001"</span>
+<span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="st">"000000000000"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Supplier&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn      : chr "0000000000"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state    : &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "AZ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name  : chr "Arizona"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ region: chr "IX"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ office: chr "San Francisco"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ range    : chr NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type     : &lt;ccn::Type&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ extension: chr "00"</span>
+<span class="r-in"><span><span class="co"># decode("000000000")</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

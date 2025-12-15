@@ -319,3 +319,13 @@
 ## ccn 0.0.0.9071 (2025-12-15)
 
 - refactoring `Subunit` class
+
+## ccn 0.0.0.9072 (2025-12-15)
+
+- fix:
+  [`decode()`](https://andrewallenbruce.github.io/ccn/reference/decode.md)
+  handles parsed or unparsed input now
+
+## ccn 0.0.0.9073 (2025-12-15)
+
+- checks for range boundaries
