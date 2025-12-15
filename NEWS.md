@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9072 (2025-12-15)
+
+* fix: `decode()` handles parsed or unparsed input now
+
+
 # ccn 0.0.0.9071 (2025-12-15)
 
 * refactoring `Subunit` class
