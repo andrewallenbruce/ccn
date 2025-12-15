@@ -32,24 +32,11 @@
 #' decode("12C0001062")
 #' decode("240019A")
 #' decode("330125001")
-#' decode("000000000")
 #' decode("000000000000")
+#' # decode("000000000")
 #' @export
 decode <- function(x) {
-  if (
-    rlang::inherits_any(
-      x,
-      c(
-        "medicare",
-        "organ",
-        "emergency",
-        "supplier",
-        "medicaid",
-        "unit",
-        "subunit"
-      )
-    )
-  ) {
+  if (is_parsed(x)) {
     return(decode_(x))
   }
   decode_(parse(x))

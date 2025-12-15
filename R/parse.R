@@ -53,3 +53,19 @@ switch_ccn <- function(x) {
     check_arg(x, "is an invalid CCN: {.val {x}}.") # TODO redundant?
   )
 }
+
+#' @noRd
+is_parsed <- function(x) {
+  rlang::inherits_any(
+    x,
+    c(
+      "medicare",
+      "organ",
+      "emergency",
+      "supplier",
+      "medicaid",
+      "unit",
+      "subunit"
+    )
+  )
+}

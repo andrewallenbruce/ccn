@@ -69,6 +69,11 @@ is_eipps_type <- function(x) {
 }
 
 #' @noRd
+series_is_eipps <- function(x) {
+  x %chin% ccn::eipps_ranges[["range"]]
+}
+
+#' @noRd
 is_supplier_type <- function(x) {
   x %chin% c("C", "D", "X")
 }

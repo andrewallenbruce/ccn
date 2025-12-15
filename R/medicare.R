@@ -10,21 +10,36 @@
 #' medicare("670055")
 #' medicare("123456")
 NULL
-
+# collapse::frange(c(ccn::medicare_ranges$start, ccn::medicare_ranges$end))
 #' @noRd
-medicare_range <- function(x) {
+medicare_range <- function(
+  x,
+  arg = rlang::caller_arg(x),
+  call = rlang::caller_env()
+) {
+  if (as.integer(x) < 1L) {
+    cli::cli_abort(
+      "{.arg {arg}} must be greater than 0",
+      arg = arg,
+      call = call
+    )
+  }
+
+  if (as.integer(x) > max(ccn::medicare_ranges[["end"]])) {
+    cli::cli_abort(
+      "{.arg {arg}} must be less than {max(ccn::medicare_ranges$end)}",
+      arg = arg,
+      call = call
+    )
+  }
+
   ccn::medicare_ranges[["range"]][
     data.table::between(
-      as_int(x),
+      as.integer(x),
       ccn::medicare_ranges[["start"]],
       ccn::medicare_ranges[["end"]]
     )
   ]
-}
-
-#' @noRd
-series_is_eipps <- function(x) {
-  x %chin% ccn::eipps_ranges[["range"]]
 }
 
 #' @noRd

@@ -27,10 +27,29 @@ mof_type_desc <- function(x) {
 
 # purrr::map_chr(1:10, moh_range)
 #' @noRd
-moh_range_series <- function(x) {
+moh_range_series <- function(
+  x,
+  arg = rlang::caller_arg(x),
+  call = rlang::caller_env()
+) {
+  if (as.integer(x) < 1L) {
+    cli::cli_abort(
+      "{.arg {arg}} must be greater than 0",
+      arg = arg,
+      call = call
+    )
+  }
+
+  if (as.integer(x) > max(ccn::medicaid_ranges[["end"]])) {
+    cli::cli_abort(
+      "{.arg {arg}} must be less than {max(ccn::medicaid_ranges$end)}",
+      arg = arg,
+      call = call
+    )
+  }
   ccn::medicaid_ranges[["range"]][
     data.table::between(
-      as_int(x),
+      as.integer(x),
       ccn::medicaid_ranges[["start"]],
       ccn::medicaid_ranges[["end"]]
     )

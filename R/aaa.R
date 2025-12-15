@@ -37,20 +37,6 @@ Type <- S7::new_class(
   )
 )
 
-# local({
-#   S7::method(print, Type) <- function(x, ...) {
-#     cli::cli_text("<{cli::col_cyan(class(x)[1])}>")
-#
-#     glue::glue(
-#       '{cli::col_silver(format(S7::prop_names(x), justify = "right"))}',
-#       '{cli::col_grey(":")} {unname(S7::props(x))}'
-#     ) |>
-#       cat(sep = "\n")
-#
-#     invisible(x)
-#   }
-# })
-
 #' @noRd
 CCN <- S7::new_class(
   name = "CCN",
