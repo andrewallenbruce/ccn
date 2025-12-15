@@ -17,7 +17,6 @@
 - [`state()`](https://andrewallenbruce.github.io/ccn/reference/state.md)
   : State Codes
 - [`subunit()`](https://andrewallenbruce.github.io/ccn/reference/subunit.md)
-  [`parent()`](https://andrewallenbruce.github.io/ccn/reference/subunit.md)
   : IPPS-Excluded Hospital Sub-Units
 - [`supplier()`](https://andrewallenbruce.github.io/ccn/reference/supplier.md)
   : Medicare Supplier

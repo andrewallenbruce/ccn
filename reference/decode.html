@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ccn</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9070</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9071</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,17 +64,33 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="st">"670055"</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ────&lt;<span style="color: #00BBBB;">ccn::Medicare</span>&gt;</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ◉ CCN: &lt;<span style="color: #BBBB00;">670055</span>&gt;</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ◉ State: <span style="color: #BBBB00;">TX</span> - <span style="color: #00BB00;">Texas</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ◉ Facility Type: <span style="color: #BBBB00;">STC</span> - <span style="color: #00BB00;">Short-Term Hospital (General &amp; Specialty)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ◉ IPPS-Excluded: <span style="color: #BBBB00;">✖</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Medicare&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn      : chr "670055"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state    : &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "TX"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name  : chr "Texas"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ region: chr "VI"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ office: chr "Dallas"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ range    : &lt;ccn::RangeMCR&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ series: chr "0001-0879"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "STC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc  : chr "Short-Term Hospital (General &amp; Specialty)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ eipps : logi FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ extension: chr NA</span>
 <span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="st">"123456"</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ────&lt;<span style="color: #00BBBB;">ccn::Medicare</span>&gt;</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ◉ CCN: &lt;<span style="color: #BBBB00;">123456</span>&gt;</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ◉ State: <span style="color: #BBBB00;">HI</span> - <span style="color: #00BB00;">Hawaii</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ◉ Facility Type: <span style="color: #BBBB00;">RHC</span> - <span style="color: #00BB00;">Rural Health Clinic (Provider-based)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ◉ IPPS-Excluded: <span style="color: #BBBB00;">✖</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Medicare&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn      : chr "123456"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state    : &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "HI"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name  : chr "Hawaii"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ region: chr "IX"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ office: chr "San Francisco"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ range    : &lt;ccn::RangeMCR&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ series: chr "3400-3499"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "RHC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc  : chr "Rural Health Clinic (Provider-based)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ eipps : logi FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ extension: chr NA</span>
 <span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="st">"21034E"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Emergency&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn  : chr "21034E"</span>
@@ -100,11 +116,19 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "FEH"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Emergency Hospital (Federal)"</span>
 <span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="st">"210101"</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ────&lt;<span style="color: #00BBBB;">ccn::Medicare</span>&gt;</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ◉ CCN: &lt;<span style="color: #BBBB00;">210101</span>&gt;</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ◉ State: <span style="color: #BBBB00;">MD</span> - <span style="color: #00BB00;">Maryland</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ◉ Facility Type: <span style="color: #BBBB00;">STC</span> - <span style="color: #00BB00;">Short-Term Hospital (General &amp; Specialty)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ◉ IPPS-Excluded: <span style="color: #BBBB00;">✖</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Medicare&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn      : chr "210101"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state    : &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "MD"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name  : chr "Maryland"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ region: chr "III"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ office: chr "Philadelphia"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ range    : &lt;ccn::RangeMCR&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ series: chr "0001-0879"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "STC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc  : chr "Short-Term Hospital (General &amp; Specialty)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ eipps : logi FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ extension: chr NA</span>
 <span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="st">"21T101"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Unit&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn  : chr "21T101"</span>
@@ -144,6 +168,149 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr : chr "SBA"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc : chr "Swing-Bed Approval - STC"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ eipps: logi FALSE</span>
+<span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="st">"01L008"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Medicaid&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn  : chr "01L008"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state: &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "AL"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name  : chr "Alabama"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ region: chr "IV"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ office: chr "Atlanta"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ range: chr "001-999"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type : &lt;ccn::TypeMOF&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "PRTF"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Psychiatric Residential Treatment Facility"</span>
+<span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="st">"22B201"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Medicaid&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn  : chr "22B201"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state: &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "MA"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name  : chr "Massachusetts"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ region: chr "I"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ office: chr "Boston"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ range: chr "001-999"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type : &lt;ccn::TypeMOF&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "NF"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Nursing Facility"</span>
+<span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="st">"23E301"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Medicaid&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn  : chr "23E301"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state: &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "MI"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name  : chr "Michigan"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ region: chr "V"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ office: chr "Chicago"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ range: chr "001-999"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type : &lt;ccn::TypeMOF&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "NF"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Nursing Facility"</span>
+<span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="st">"34F401"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Medicaid&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn  : chr "34F401"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state: &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "NC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name  : chr "North Carolina"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ region: chr "IV"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ office: chr "Atlanta"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ range: chr "001-999"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type : &lt;ccn::TypeMOF&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "NF"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Nursing Facility"</span>
+<span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="st">"01J008"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Medicaid&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn  : chr "01J008"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state: &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "AL"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name  : chr "Alabama"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ region: chr "IV"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ office: chr "Atlanta"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ range: &lt;ccn::RangeMOH&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ series: chr "001-099"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "STAC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc  : chr "Short-Term Acute Care Hospital"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type : &lt;ccn::TypeMOF&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "MOH"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Medicaid-Only Hospital"</span>
+<span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="st">"A5J508"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Medicaid&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn  : chr "A5J508"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state: &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "MS"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name  : chr "Mississippi"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ region: chr "IV"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ office: chr "Atlanta"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ range: &lt;ccn::RangeMOH&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ series: chr "500-599"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "LTC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc  : chr "Long-Term Hospital"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type : &lt;ccn::TypeMOF&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "MOH"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Medicaid-Only Hospital"</span>
+<span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="st">"21SA26"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Subunit&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn   : chr "21SA26"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state : &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "MD"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name  : chr "Maryland"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ region: chr "III"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ office: chr "Philadelphia"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type  : &lt;ccn::TypeUnit&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr : chr "PSY"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc : chr "Psychiatric Unit"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ eipps: logi TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ parent: chr "212026"</span>
+<span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="st">"21TA26"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Subunit&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn   : chr "21TA26"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state : &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "MD"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name  : chr "Maryland"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ region: chr "III"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ office: chr "Philadelphia"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type  : &lt;ccn::TypeUnit&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr : chr "IRF"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc : chr "Rehabilitation Unit"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ eipps: logi TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ parent: chr "212026"</span>
+<span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="st">"02TA01"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Subunit&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn   : chr "02TA01"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state : &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "AK"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name  : chr "Alaska"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ region: chr "X"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ office: chr "Seattle"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type  : &lt;ccn::TypeUnit&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr : chr "IRF"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc : chr "Rehabilitation Unit"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ eipps: logi TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ parent: chr "022001"</span>
+<span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="st">"04SD38"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Subunit&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn   : chr "04SD38"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state : &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "AR"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name  : chr "Arkansas"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ region: chr "VI"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ office: chr "Dallas"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type  : &lt;ccn::TypeUnit&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr : chr "PSY"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc : chr "Psychiatric Unit"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ eipps: logi TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ parent: chr "043038"</span>
+<span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="st">"52TA05"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Subunit&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn   : chr "52TA05"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state : &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "WI"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name  : chr "Wisconsin"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ region: chr "V"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ office: chr "Chicago"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type  : &lt;ccn::TypeUnit&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr : chr "IRF"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc : chr "Rehabilitation Unit"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ eipps: logi TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ parent: chr "522005"</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

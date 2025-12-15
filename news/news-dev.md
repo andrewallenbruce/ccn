@@ -315,3 +315,7 @@
 ## ccn 0.0.0.9070 (2025-12-14)
 
 - added region and office slots to `State` class
+
+## ccn 0.0.0.9071 (2025-12-15)
+
+- refactoring `Subunit` class

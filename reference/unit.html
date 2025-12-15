@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ccn</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9070</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9071</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,11 +64,19 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="medicare.html">medicare</a></span><span class="op">(</span><span class="st">"210101"</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ────&lt;<span style="color: #00BBBB;">ccn::Medicare</span>&gt;</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ◉ CCN: &lt;<span style="color: #BBBB00;">210101</span>&gt;</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ◉ State: <span style="color: #BBBB00;">MD</span> - <span style="color: #00BB00;">Maryland</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ◉ Facility Type: <span style="color: #BBBB00;">STC</span> - <span style="color: #00BB00;">Short-Term Hospital (General &amp; Specialty)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ◉ IPPS-Excluded: <span style="color: #BBBB00;">✖</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Medicare&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn      : chr "210101"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state    : &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "MD"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name  : chr "Maryland"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ region: chr "III"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ office: chr "Philadelphia"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ range    : &lt;ccn::RangeMCR&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ series: chr "0001-0879"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "STC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc  : chr "Short-Term Hospital (General &amp; Specialty)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ eipps : logi FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ extension: chr NA</span>
 <span class="r-in"><span><span class="fu">unit</span><span class="op">(</span><span class="st">"21T101"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Unit&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn  : chr "21T101"</span>

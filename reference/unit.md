@@ -22,11 +22,19 @@ character vector of names associated with codes.
 
 ``` r
 medicare("210101")
-#> ────<ccn::Medicare>
-#> ◉ CCN: <210101>
-#> ◉ State: MD - Maryland
-#> ◉ Facility Type: STC - Short-Term Hospital (General & Specialty)
-#> ◉ IPPS-Excluded: ✖
+#> <ccn::Medicare>
+#>  @ ccn      : chr "210101"
+#>  @ state    : <ccn::State>
+#>  .. @ abbr  : chr "MD"
+#>  .. @ name  : chr "Maryland"
+#>  .. @ region: chr "III"
+#>  .. @ office: chr "Philadelphia"
+#>  @ range    : <ccn::RangeMCR>
+#>  .. @ series: chr "0001-0879"
+#>  .. @ abbr  : chr "STC"
+#>  .. @ desc  : chr "Short-Term Hospital (General & Specialty)"
+#>  .. @ eipps : logi FALSE
+#>  @ extension: chr NA
 unit("21T101")
 #> <ccn::Unit>
 #>  @ ccn  : chr "21T101"
