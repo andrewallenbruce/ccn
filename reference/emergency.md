@@ -1,8 +1,7 @@
-# Emergency Hospital CCNs
+# Emergency Hospitals
 
-This S7 class represents CMS Certification Numbers (CCNs) assigned to
-emergency hospitals (both Federal and non-Federal) that do not
-participate in the Medicare program.
+S7 class for CCNs assigned to Emergency Hospitals (both Federal and
+non-Federal) that do not participate in the Medicare program.
 
 ## Usage
 
@@ -22,9 +21,6 @@ S7 object of class `Emergency`.
 
 ## Further Information
 
-Emergency Hospital CMS Certification Numbers (Non-Participating
-Hospitals) Rev. 29, Pg. 411, Iss. 04-20-07, Eff./Imp. 10-01-2007
-
 The CCN for emergency hospitals is a 6-position alphanumeric code. The
 first 2 digits are the State code. The third, fourth, and fifth digits
 represent a sequence number. The first emergency number in a State would
@@ -43,8 +39,10 @@ emergency("21034E")
 #> <ccn::Emergency>
 #>  @ ccn  : chr "21034E"
 #>  @ state: <ccn::State>
-#>  .. @ abbr: chr "MD"
-#>  .. @ name: chr "Maryland"
+#>  .. @ abbr  : chr "MD"
+#>  .. @ name  : chr "Maryland"
+#>  .. @ region: chr "III"
+#>  .. @ office: chr "Philadelphia"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::Type>
 #>  .. @ abbr: chr "NFEH"
@@ -53,8 +51,10 @@ emergency("12345F")
 #> <ccn::Emergency>
 #>  @ ccn  : chr "12345F"
 #>  @ state: <ccn::State>
-#>  .. @ abbr: chr "HI"
-#>  .. @ name: chr "Hawaii"
+#>  .. @ abbr  : chr "HI"
+#>  .. @ name  : chr "Hawaii"
+#>  .. @ region: chr "IX"
+#>  .. @ office: chr "San Francisco"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::Type>
 #>  .. @ abbr: chr "FEH"

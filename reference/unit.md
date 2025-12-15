@@ -31,8 +31,10 @@ unit("21T101")
 #> <ccn::Unit>
 #>  @ ccn  : chr "21T101"
 #>  @ state: <ccn::State>
-#>  .. @ abbr: chr "MD"
-#>  .. @ name: chr "Maryland"
+#>  .. @ abbr  : chr "MD"
+#>  .. @ name  : chr "Maryland"
+#>  .. @ region: chr "III"
+#>  .. @ office: chr "Philadelphia"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::TypeUnit>
 #>  .. @ abbr : chr "IRF"
@@ -42,8 +44,10 @@ unit("21S101")
 #> <ccn::Unit>
 #>  @ ccn  : chr "21S101"
 #>  @ state: <ccn::State>
-#>  .. @ abbr: chr "MD"
-#>  .. @ name: chr "Maryland"
+#>  .. @ abbr  : chr "MD"
+#>  .. @ name  : chr "Maryland"
+#>  .. @ region: chr "III"
+#>  .. @ office: chr "Philadelphia"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::TypeUnit>
 #>  .. @ abbr : chr "PSY"
@@ -53,8 +57,10 @@ unit("21U101")
 #> <ccn::Unit>
 #>  @ ccn  : chr "21U101"
 #>  @ state: <ccn::State>
-#>  .. @ abbr: chr "MD"
-#>  .. @ name: chr "Maryland"
+#>  .. @ abbr  : chr "MD"
+#>  .. @ name  : chr "Maryland"
+#>  .. @ region: chr "III"
+#>  .. @ office: chr "Philadelphia"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::TypeUnit>
 #>  .. @ abbr : chr "SBA"

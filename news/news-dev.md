@@ -311,3 +311,7 @@
 ## ccn 0.0.0.9069 (2025-12-14)
 
 - added CMS Regional Office internal data
+
+## ccn 0.0.0.9070 (2025-12-14)
+
+- added region and office slots to `State` class

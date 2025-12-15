@@ -25,8 +25,10 @@ organ("05P001")
 #> <ccn::Organ>
 #>  @ ccn  : chr "05P001"
 #>  @ state: <ccn::State>
-#>  .. @ abbr: chr "CA"
-#>  .. @ name: chr "California"
+#>  .. @ abbr  : chr "CA"
+#>  .. @ name  : chr "California"
+#>  .. @ region: chr "IX"
+#>  .. @ office: chr "San Francisco"
 #>  @ range: chr "001-099"
 #>  @ type : <ccn::Type>
 #>  .. @ abbr: chr "OPO"

@@ -25,8 +25,10 @@ supplier("10C0001062")
 #> <ccn::Supplier>
 #>  @ ccn      : chr "10C0001062"
 #>  @ state    : <ccn::State>
-#>  .. @ abbr: chr "FL"
-#>  .. @ name: chr "Florida"
+#>  .. @ abbr  : chr "FL"
+#>  .. @ name  : chr "Florida"
+#>  .. @ region: chr "IV"
+#>  .. @ office: chr "Atlanta"
 #>  @ range    : chr "0000001-9999999"
 #>  @ type     : <ccn::Type>
 #>  .. @ abbr: chr "ASC"
@@ -36,8 +38,10 @@ supplier("45D0634589")
 #> <ccn::Supplier>
 #>  @ ccn      : chr "45D0634589"
 #>  @ state    : <ccn::State>
-#>  .. @ abbr: chr "TX"
-#>  .. @ name: chr "Texas"
+#>  .. @ abbr  : chr "TX"
+#>  .. @ name  : chr "Texas"
+#>  .. @ region: chr "VI"
+#>  .. @ office: chr "Dallas"
 #>  @ range    : chr "0000001-9999999"
 #>  @ type     : <ccn::Type>
 #>  .. @ abbr: chr "CLIA"
@@ -47,8 +51,10 @@ supplier("21X0009807")
 #> <ccn::Supplier>
 #>  @ ccn      : chr "21X0009807"
 #>  @ state    : <ccn::State>
-#>  .. @ abbr: chr "MD"
-#>  .. @ name: chr "Maryland"
+#>  .. @ abbr  : chr "MD"
+#>  .. @ name  : chr "Maryland"
+#>  .. @ region: chr "III"
+#>  .. @ office: chr "Philadelphia"
 #>  @ range    : chr "0000001-9999999"
 #>  @ type     : <ccn::Type>
 #>  .. @ abbr: chr "PXRF"
@@ -58,8 +64,10 @@ supplier("12C0001062")
 #> <ccn::Supplier>
 #>  @ ccn      : chr "12C0001062"
 #>  @ state    : <ccn::State>
-#>  .. @ abbr: chr "HI"
-#>  .. @ name: chr "Hawaii"
+#>  .. @ abbr  : chr "HI"
+#>  .. @ name  : chr "Hawaii"
+#>  .. @ region: chr "IX"
+#>  .. @ office: chr "San Francisco"
 #>  @ range    : chr "0000001-9999999"
 #>  @ type     : <ccn::Type>
 #>  .. @ abbr: chr "ASC"

@@ -25,8 +25,10 @@ medicaid("01L008")
 #> <ccn::Medicaid>
 #>  @ ccn  : chr "01L008"
 #>  @ state: <ccn::State>
-#>  .. @ abbr: chr "AL"
-#>  .. @ name: chr "Alabama"
+#>  .. @ abbr  : chr "AL"
+#>  .. @ name  : chr "Alabama"
+#>  .. @ region: chr "IV"
+#>  .. @ office: chr "Atlanta"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::TypeMOF>
 #>  .. @ abbr: chr "PRTF"
@@ -35,8 +37,10 @@ medicaid("22B201")
 #> <ccn::Medicaid>
 #>  @ ccn  : chr "22B201"
 #>  @ state: <ccn::State>
-#>  .. @ abbr: chr "MA"
-#>  .. @ name: chr "Massachusetts"
+#>  .. @ abbr  : chr "MA"
+#>  .. @ name  : chr "Massachusetts"
+#>  .. @ region: chr "I"
+#>  .. @ office: chr "Boston"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::TypeMOF>
 #>  .. @ abbr: chr "NF"
@@ -45,8 +49,10 @@ medicaid("23E301")
 #> <ccn::Medicaid>
 #>  @ ccn  : chr "23E301"
 #>  @ state: <ccn::State>
-#>  .. @ abbr: chr "MI"
-#>  .. @ name: chr "Michigan"
+#>  .. @ abbr  : chr "MI"
+#>  .. @ name  : chr "Michigan"
+#>  .. @ region: chr "V"
+#>  .. @ office: chr "Chicago"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::TypeMOF>
 #>  .. @ abbr: chr "NF"
@@ -55,8 +61,10 @@ medicaid("34F401")
 #> <ccn::Medicaid>
 #>  @ ccn  : chr "34F401"
 #>  @ state: <ccn::State>
-#>  .. @ abbr: chr "NC"
-#>  .. @ name: chr "North Carolina"
+#>  .. @ abbr  : chr "NC"
+#>  .. @ name  : chr "North Carolina"
+#>  .. @ region: chr "IV"
+#>  .. @ office: chr "Atlanta"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::TypeMOF>
 #>  .. @ abbr: chr "NF"
@@ -65,8 +73,10 @@ medicaid("01J008")
 #> <ccn::Medicaid>
 #>  @ ccn  : chr "01J008"
 #>  @ state: <ccn::State>
-#>  .. @ abbr: chr "AL"
-#>  .. @ name: chr "Alabama"
+#>  .. @ abbr  : chr "AL"
+#>  .. @ name  : chr "Alabama"
+#>  .. @ region: chr "IV"
+#>  .. @ office: chr "Atlanta"
 #>  @ range: <ccn::RangeMOH>
 #>  .. @ series: chr "001-099"
 #>  .. @ abbr  : chr "STAC"
@@ -78,8 +88,10 @@ medicaid("A5J508")
 #> <ccn::Medicaid>
 #>  @ ccn  : chr "A5J508"
 #>  @ state: <ccn::State>
-#>  .. @ abbr: chr "MS"
-#>  .. @ name: chr "Mississippi"
+#>  .. @ abbr  : chr "MS"
+#>  .. @ name  : chr "Mississippi"
+#>  .. @ region: chr "IV"
+#>  .. @ office: chr "Atlanta"
 #>  @ range: <ccn::RangeMOH>
 #>  .. @ series: chr "500-599"
 #>  .. @ abbr  : chr "LTC"

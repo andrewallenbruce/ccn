@@ -27,8 +27,10 @@ subunit("21SA26")
 #> <ccn::EippsSubunit>
 #>  @ ccn   : chr "21SA26"
 #>  @ state : <ccn::State>
-#>  .. @ abbr: chr "MD"
-#>  .. @ name: chr "Maryland"
+#>  .. @ abbr  : chr "MD"
+#>  .. @ name  : chr "Maryland"
+#>  .. @ region: chr "III"
+#>  .. @ office: chr "Philadelphia"
 #>  @ range : chr(0) 
 #>  @ type  : <ccn::TypeUnit>
 #>  .. @ abbr : chr "PSY"
@@ -52,8 +54,10 @@ subunit("21TA26")
 #> <ccn::EippsSubunit>
 #>  @ ccn   : chr "21TA26"
 #>  @ state : <ccn::State>
-#>  .. @ abbr: chr "MD"
-#>  .. @ name: chr "Maryland"
+#>  .. @ abbr  : chr "MD"
+#>  .. @ name  : chr "Maryland"
+#>  .. @ region: chr "III"
+#>  .. @ office: chr "Philadelphia"
 #>  @ range : chr(0) 
 #>  @ type  : <ccn::TypeUnit>
 #>  .. @ abbr : chr "IRF"
@@ -78,8 +82,10 @@ subunit("02TA01")
 #> <ccn::EippsSubunit>
 #>  @ ccn   : chr "02TA01"
 #>  @ state : <ccn::State>
-#>  .. @ abbr: chr "AK"
-#>  .. @ name: chr "Alaska"
+#>  .. @ abbr  : chr "AK"
+#>  .. @ name  : chr "Alaska"
+#>  .. @ region: chr "X"
+#>  .. @ office: chr "Seattle"
 #>  @ range : chr(0) 
 #>  @ type  : <ccn::TypeUnit>
 #>  .. @ abbr : chr "IRF"
@@ -104,8 +110,10 @@ subunit("04SD38")
 #> <ccn::EippsSubunit>
 #>  @ ccn   : chr "04SD38"
 #>  @ state : <ccn::State>
-#>  .. @ abbr: chr "AR"
-#>  .. @ name: chr "Arkansas"
+#>  .. @ abbr  : chr "AR"
+#>  .. @ name  : chr "Arkansas"
+#>  .. @ region: chr "VI"
+#>  .. @ office: chr "Dallas"
 #>  @ range : chr(0) 
 #>  @ type  : <ccn::TypeUnit>
 #>  .. @ abbr : chr "PSY"
@@ -130,8 +138,10 @@ subunit("52TA05")
 #> <ccn::EippsSubunit>
 #>  @ ccn   : chr "52TA05"
 #>  @ state : <ccn::State>
-#>  .. @ abbr: chr "WI"
-#>  .. @ name: chr "Wisconsin"
+#>  .. @ abbr  : chr "WI"
+#>  .. @ name  : chr "Wisconsin"
+#>  .. @ region: chr "V"
+#>  .. @ office: chr "Chicago"
 #>  @ range : chr(0) 
 #>  @ type  : <ccn::TypeUnit>
 #>  .. @ abbr : chr "IRF"

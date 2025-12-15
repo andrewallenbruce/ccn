@@ -5,7 +5,7 @@
 - [`decode()`](https://andrewallenbruce.github.io/ccn/reference/decode.md)
   : Decode CCNs
 - [`emergency()`](https://andrewallenbruce.github.io/ccn/reference/emergency.md)
-  : Emergency Hospital CCNs
+  : Emergency Hospitals
 - [`medicaid()`](https://andrewallenbruce.github.io/ccn/reference/medicaid.md)
   : Medicaid-Only Facilities
 - [`medicare()`](https://andrewallenbruce.github.io/ccn/reference/medicare.md)

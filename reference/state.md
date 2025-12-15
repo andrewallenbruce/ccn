@@ -23,10 +23,14 @@ S7 object of class `State`.
 ``` r
 state("A5XXX")
 #> <ccn::State>
-#> abbr: MS
-#> name: Mississippi
+#>   abbr: MS
+#>   name: Mississippi
+#> region: IV
+#> office: Atlanta
 state(sample(ccn::state_codes$code, 1L))
 #> <ccn::State>
-#> abbr: MI
-#> name: Michigan
+#>   abbr: MI
+#>   name: Michigan
+#> region: V
+#> office: Chicago
 ```
