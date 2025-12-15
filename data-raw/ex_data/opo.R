@@ -76,6 +76,12 @@ opo <- readr::read_csv(
   ) |>
   collapse::roworder(state, ccn)
 
+collapse::fcount(opo, region) |>
+  collapse::roworder(-N) |>
+  print(n = Inf)
+
+vctrs::vec_split(opo$state, opo$region)
+
 opo_current <- collapse::join(opo, opo_county, on = c("state", "county")) |>
   print(n = Inf)
 

@@ -11,6 +11,20 @@
 #' @keywords internal
 "state_codes"
 
+#' CMS Regional Office Codes
+#'
+#' @format ## `regional_offices`
+#' A data frame with 59 rows and 4 columns:
+#' \describe{
+#'   \item{ro}{Region number}
+#'   \item{ro_region}{Region roman numeral}
+#'   \item{state}{State abbreviation}
+#'   \item{ro_city}{Regional office city}
+#'   ...
+#' }
+#' @keywords internal
+"regional_offices"
+
 #' CCN Medicare Facility Ranges
 #'
 #' @format ## `medicare_ranges`
