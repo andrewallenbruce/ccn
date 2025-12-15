@@ -2,12 +2,9 @@
 % Please edit documentation in R/subunit.R
 \name{subunit}
 \alias{subunit}
-\alias{parent}
 \title{IPPS-Excluded Hospital Sub-Units}
 \usage{
 subunit(x)
-
-parent(x)
 }
 \arguments{
 \item{x}{\if{html}{\out{<character>}} scalar.}
@@ -20,16 +17,8 @@ Convert various codes to their associated names.
 }
 \examples{
 subunit("21SA26")
-parent("21SA26")
 subunit("21TA26")
-parent("21TA26")
-
 subunit("02TA01")
-parent("02TA01")
-
 subunit("04SD38")
-parent("04SD38")
-
 subunit("52TA05")
-parent("52TA05")
 }

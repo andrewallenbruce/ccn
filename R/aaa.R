@@ -104,19 +104,3 @@ Unit <- S7::new_class(
   parent = CCN,
   properties = list(type = Type)
 )
-
-#' @noRd
-Subunit <- S7::new_class(
-  name = "Subunit",
-  properties = list(
-    ccn = S7::class_character,
-    type = Type
-  )
-)
-
-#' @noRd
-Parent <- S7::new_class(
-  name = "Parent",
-  parent = Medicare,
-  properties = list(subunit = Subunit)
-)
