@@ -18,4 +18,10 @@ Convert various codes to their associated names.
 \examples{
 decode("670055")
 decode("123456")
+decode("21034E")
+decode("12345F")
+decode("210101")
+decode("21T101")
+decode("21S101")
+decode("21U101")
 }

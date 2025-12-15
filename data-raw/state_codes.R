@@ -113,8 +113,8 @@ state_codes <- tibble::tribble(
 
 usethis::use_data(state_codes, overwrite = TRUE)
 
-regional_offices <- tibble::tribble(
-  ~ro , ~ro_region    , ~state , ~ro_city        ,
+regions <- tibble::tribble(
+  ~ro , ~region       , ~state , ~city           ,
    0L , NA_character_ , "CN"   , NA_character_   ,
    0L , NA_character_ , "FC"   , NA_character_   ,
    0L , NA_character_ , "MX"   , NA_character_   ,
@@ -176,6 +176,6 @@ regional_offices <- tibble::tribble(
   10L , "X"           , "WA"   , "Seattle"       ,
 )
 
-usethis::use_data(regional_offices, overwrite = TRUE)
+usethis::use_data(regions, overwrite = TRUE)
 
 # constructive::construct(constructive::opts_tbl_df("tribble"))

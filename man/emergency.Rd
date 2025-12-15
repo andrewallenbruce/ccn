@@ -2,7 +2,7 @@
 % Please edit documentation in R/emergency.R
 \name{emergency}
 \alias{emergency}
-\title{Emergency Hospital CCNs}
+\title{Emergency Hospitals}
 \usage{
 emergency(x)
 }
@@ -13,15 +13,10 @@ emergency(x)
 S7 object of class \code{Emergency}.
 }
 \description{
-This S7 class represents CMS Certification Numbers (CCNs) assigned to
-emergency hospitals (both Federal and non-Federal) that do not participate
-in the Medicare program.
+S7 class for CCNs assigned to Emergency Hospitals (both Federal and non-Federal)
+that do not participate in the Medicare program.
 }
 \section{Further Information}{
-
-
-Emergency Hospital CMS Certification Numbers (Non-Participating Hospitals)
-Rev. 29, Pg. 411, Iss. 04-20-07, Eff./Imp. 10-01-2007
 
 The CCN for emergency hospitals is a 6-position alphanumeric code. The first
 2 digits are the State code. The third, fourth, and fifth digits represent a

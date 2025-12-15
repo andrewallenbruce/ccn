@@ -8,6 +8,12 @@
 #' @examples
 #' decode("670055")
 #' decode("123456")
+#' decode("21034E")
+#' decode("12345F")
+#' decode("210101")
+#' decode("21T101")
+#' decode("21S101")
+#' decode("21U101")
 #' @export
 decode <- function(x) {
   decode_(parse(x))
@@ -22,6 +28,24 @@ S7::method(decode_, S7::new_S3_class("medicare")) <- function(x) {
     state = State(x[["state"]]),
     range = RangeMCR(x[["sequence"]]),
     extension = x[["extension"]] %||% NA_character_
+  )
+}
+
+S7::method(decode_, S7::new_S3_class("emergency")) <- function(x) {
+  Emergency(
+    ccn = x[["ccn"]],
+    state = State(x[["state"]]),
+    range = if_in(x[["sequence"]], c(1L, 999L), "001-999"),
+    type = emergency_type(x[["type"]])
+  )
+}
+
+S7::method(decode_, S7::new_S3_class("unit")) <- function(x) {
+  Unit(
+    ccn = x[["ccn"]],
+    state = State(x[["state"]]),
+    range = if_in(x[["sequence"]], c(1L, 999L), "001-999"),
+    type = TypeUnit(x[["type"]])
   )
 }
 

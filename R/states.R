@@ -12,6 +12,16 @@
 NULL
 
 #' @noRd
+state_region <- function(x) {
+  vs(x, ccn::regions[["state"]], ccn::regions[["region"]])
+}
+
+#' @noRd
+state_city <- function(x) {
+  vs(x, ccn::regions[["state"]], ccn::regions[["city"]])
+}
+
+#' @noRd
 state_abbr <- function(x) {
   vs(x, ccn::state_codes[["code"]], ccn::state_codes[["abbr"]])
 }
@@ -26,7 +36,19 @@ State <- S7::new_class(
   name = "State",
   properties = list(
     abbr = S7::class_character,
-    name = S7::class_character
+    name = S7::class_character,
+    region = S7::new_property(
+      S7::class_integer,
+      getter = function(self) {
+        state_region(self@abbr)
+      }
+    ),
+    office = S7::new_property(
+      S7::class_character,
+      getter = function(self) {
+        state_city(self@abbr)
+      }
+    )
   ),
   constructor = function(code) {
     if (length(code) != 1L) {

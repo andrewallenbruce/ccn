@@ -1,12 +1,13 @@
-# vs(x, c("C", "D", "X"), c("ASC", "CLIA", "PXRF"))
+# vs(x, c("C", "D", "X"), c("ASC", "CLIA", "PXRF"), checkEnc = FALSE)
 #' @noRd
-vs <- function(x, v, o) {
+vs <- function(x, v, o, ...) {
   kit::vswitch(
     x = x,
     values = v,
     outputs = o,
     default = NA_character_,
-    nThread = 4L
+    nThread = 4L,
+    ...
   )
 }
 
