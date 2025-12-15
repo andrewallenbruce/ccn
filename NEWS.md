@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9073 (2025-12-15)
+
+* checks for range boundaries
+
+
 # ccn 0.0.0.9072 (2025-12-15)
 
 * fix: `decode()` handles parsed or unparsed input now
