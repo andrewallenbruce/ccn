@@ -17,6 +17,7 @@ Convert various codes to their associated names.
 }
 \examples{
 decode("670055")
+decode("05P001")
 decode("123456")
 decode("21034E")
 decode("12345F")
@@ -35,4 +36,12 @@ decode("21TA26")
 decode("02TA01")
 decode("04SD38")
 decode("52TA05")
+decode("10C0001062")
+decode("45D0634589")
+decode("21X0009807")
+decode("12C0001062")
+decode("240019A")
+decode("330125001")
+decode("000000000")
+decode("000000000000")
 }

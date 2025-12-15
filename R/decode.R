@@ -7,6 +7,7 @@
 #' @returns S7 object of class `Medicare`.
 #' @examples
 #' decode("670055")
+#' decode("05P001")
 #' decode("123456")
 #' decode("21034E")
 #' decode("12345F")
@@ -25,20 +26,44 @@
 #' decode("02TA01")
 #' decode("04SD38")
 #' decode("52TA05")
+#' decode("10C0001062")
+#' decode("45D0634589")
+#' decode("21X0009807")
+#' decode("12C0001062")
+#' decode("240019A")
+#' decode("330125001")
+#' decode("000000000")
+#' decode("000000000000")
 #' @export
 decode <- function(x) {
+  if (
+    rlang::inherits_any(
+      x,
+      c(
+        "medicare",
+        "organ",
+        "emergency",
+        "supplier",
+        "medicaid",
+        "unit",
+        "subunit"
+      )
+    )
+  ) {
+    return(decode_(x))
+  }
   decode_(parse(x))
 }
 
 #' @noRd
 decode_ <- S7::new_generic("decode_", "x")
 
-S7::method(decode_, S7::new_S3_class("medicare")) <- function(x) {
-  Medicare(
+S7::method(decode_, S7::new_S3_class("emergency")) <- function(x) {
+  Emergency(
     ccn = x[["ccn"]],
     state = State(x[["state"]]),
-    range = RangeMCR(x[["sequence"]]),
-    extension = x[["extension"]] %||% NA_character_
+    range = if_in(x[["sequence"]], c(1L, 999L), "001-999"),
+    type = emergency_type(x[["type"]])
   )
 }
 
@@ -55,12 +80,39 @@ S7::method(decode_, S7::new_S3_class("medicaid")) <- function(x) {
   )
 }
 
-S7::method(decode_, S7::new_S3_class("emergency")) <- function(x) {
-  Emergency(
+S7::method(decode_, S7::new_S3_class("medicare")) <- function(x) {
+  Medicare(
     ccn = x[["ccn"]],
     state = State(x[["state"]]),
-    range = if_in(x[["sequence"]], c(1L, 999L), "001-999"),
-    type = emergency_type(x[["type"]])
+    range = RangeMCR(x[["sequence"]]),
+    extension = x[["extension"]] %||% NA_character_
+  )
+}
+
+S7::method(decode_, S7::new_S3_class("organ")) <- function(x) {
+  Organ(
+    ccn = x[["ccn"]],
+    state = State(x[["state"]]),
+    range = if_in(x[["sequence"]], c(1L, 99L), "001-099"),
+    type = org_type(x[["type"]])
+  )
+}
+
+S7::method(decode_, S7::new_S3_class("subunit")) <- function(x) {
+  Subunit(
+    ccn = x[["ccn"]],
+    state = State(x[["state"]]),
+    type = TypeUnit(x[["type"]])
+  )
+}
+
+S7::method(decode_, S7::new_S3_class("supplier")) <- function(x) {
+  Supplier(
+    ccn = x[["ccn"]],
+    state = State(x[["state"]]),
+    range = if_in(x[["sequence"]], c(1L, 9999999L), "0000001-9999999"),
+    type = supplier_type(x[["type"]]),
+    extension = x[["extension"]] %||% NA_character_
   )
 }
 
@@ -69,14 +121,6 @@ S7::method(decode_, S7::new_S3_class("unit")) <- function(x) {
     ccn = x[["ccn"]],
     state = State(x[["state"]]),
     range = if_in(x[["sequence"]], c(1L, 999L), "001-999"),
-    type = TypeUnit(x[["type"]])
-  )
-}
-
-S7::method(decode_, S7::new_S3_class("subunit")) <- function(x) {
-  Subunit(
-    ccn = x[["ccn"]],
-    state = State(x[["state"]]),
     type = TypeUnit(x[["type"]])
   )
 }
