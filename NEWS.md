@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9070 (2025-12-14)
+
+* added region and office slots to `State` class
+
+
 # ccn 0.0.0.9069 (2025-12-14)
 
 * added CMS Regional Office internal data
