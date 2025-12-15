@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9069 (2025-12-14)
+
+* added CMS Regional Office internal data
+
+
 # ccn 0.0.0.9068 (2025-12-14)
 
 * print method madness
