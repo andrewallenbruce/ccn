@@ -1,4 +1,4 @@
-# ccn: Parse CMS Certification Numbers
+# ccn: CMS Certification Numbers
 
 An [S7 class](https://github.com/RConsortium/S7/) representing a **CMS
 Certification Number**, a uniform way of identifying Providers or

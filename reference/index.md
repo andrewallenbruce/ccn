@@ -1,9 +1,18 @@
 # Package index
 
-## All functions
+## Manipulation
+
+Parse and decode CMS Certification Numbers.
 
 - [`decode()`](https://andrewallenbruce.github.io/ccn/reference/decode.md)
   : Decode CMS Certification Numbers
+- [`parse()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
+  : Parse CMS Certification Numbers
+
+## Classes
+
+CMS Certification Number classes.
+
 - [`emergency()`](https://andrewallenbruce.github.io/ccn/reference/emergency.md)
   : Emergency Hospitals
 - [`medicaid()`](https://andrewallenbruce.github.io/ccn/reference/medicaid.md)
@@ -14,8 +23,6 @@
   : Organ Procurement Organizations
 - [`parent()`](https://andrewallenbruce.github.io/ccn/reference/parent.md)
   : Unit Parents
-- [`parse()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
-  : Parse CMS Certification Numbers
 - [`state()`](https://andrewallenbruce.github.io/ccn/reference/state.md)
   : State Codes
 - [`subunit()`](https://andrewallenbruce.github.io/ccn/reference/subunit.md)
