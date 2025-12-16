@@ -71,8 +71,8 @@ decode("21034E")
 #>  .. @ office: chr "Philadelphia"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::Type>
-#>  .. @ abbr: chr "NFEH"
-#>  .. @ desc: chr "Emergency Hospital (Non-Federal)"
+#>  .. @ abbr: chr "NF"
+#>  .. @ desc: chr "Non-Federal"
 decode("12345F")
 #> <ccn::Emergency>
 #>  @ ccn  : chr "12345F"
@@ -83,8 +83,8 @@ decode("12345F")
 #>  .. @ office: chr "San Francisco"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::Type>
-#>  .. @ abbr: chr "FEH"
-#>  .. @ desc: chr "Emergency Hospital (Federal)"
+#>  .. @ abbr: chr "F"
+#>  .. @ desc: chr "Federal"
 decode("210101")
 #> <ccn::Medicare>
 #>  @ ccn      : chr "210101"
@@ -101,43 +101,46 @@ decode("210101")
 #>  @ extension: chr NA
 decode("21T101")
 #> <ccn::Unit>
-#>  @ ccn  : chr "21T101"
-#>  @ state: <ccn::State>
+#>  @ ccn   : chr "21T101"
+#>  @ state : <ccn::State>
 #>  .. @ abbr  : chr "MD"
 #>  .. @ name  : chr "Maryland"
 #>  .. @ region: chr "III"
 #>  .. @ office: chr "Philadelphia"
-#>  @ range: chr "001-999"
-#>  @ type : <ccn::TypeUnit>
+#>  @ range : chr "001-999"
+#>  @ type  : <ccn::TypeUnit>
 #>  .. @ abbr : chr "IRF"
 #>  .. @ desc : chr "Rehabilitation Unit"
 #>  .. @ eipps: logi TRUE
+#>  @ parent: chr "21_101"
 decode("21S101")
 #> <ccn::Unit>
-#>  @ ccn  : chr "21S101"
-#>  @ state: <ccn::State>
+#>  @ ccn   : chr "21S101"
+#>  @ state : <ccn::State>
 #>  .. @ abbr  : chr "MD"
 #>  .. @ name  : chr "Maryland"
 #>  .. @ region: chr "III"
 #>  .. @ office: chr "Philadelphia"
-#>  @ range: chr "001-999"
-#>  @ type : <ccn::TypeUnit>
+#>  @ range : chr "001-999"
+#>  @ type  : <ccn::TypeUnit>
 #>  .. @ abbr : chr "PSY"
 #>  .. @ desc : chr "Psychiatric Unit"
 #>  .. @ eipps: logi TRUE
+#>  @ parent: chr "21_101"
 decode("21U101")
 #> <ccn::Unit>
-#>  @ ccn  : chr "21U101"
-#>  @ state: <ccn::State>
+#>  @ ccn   : chr "21U101"
+#>  @ state : <ccn::State>
 #>  .. @ abbr  : chr "MD"
 #>  .. @ name  : chr "Maryland"
 #>  .. @ region: chr "III"
 #>  .. @ office: chr "Philadelphia"
-#>  @ range: chr "001-999"
-#>  @ type : <ccn::TypeUnit>
+#>  @ range : chr "001-999"
+#>  @ type  : <ccn::TypeUnit>
 #>  .. @ abbr : chr "SBA"
 #>  .. @ desc : chr "Swing-Bed Approval - STC"
 #>  .. @ eipps: logi FALSE
+#>  @ parent: chr "21_101"
 decode("01L008")
 #> <ccn::Medicaid>
 #>  @ ccn  : chr "01L008"

@@ -113,8 +113,8 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ office: chr "Philadelphia"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ range: chr "001-999"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ type : &lt;ccn::Type&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "NFEH"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Emergency Hospital (Non-Federal)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "NF"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Non-Federal"</span>
 <span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="st">"12345F"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Emergency&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn  : chr "12345F"</span>
@@ -125,8 +125,8 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ office: chr "San Francisco"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ range: chr "001-999"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ type : &lt;ccn::Type&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "FEH"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Emergency Hospital (Federal)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr: chr "F"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc: chr "Federal"</span>
 <span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="st">"210101"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Medicare&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn      : chr "210101"</span>
@@ -143,43 +143,46 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ extension: chr NA</span>
 <span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="st">"21T101"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Unit&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn  : chr "21T101"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state: &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn   : chr "21T101"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state : &lt;ccn::State&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "MD"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name  : chr "Maryland"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ region: chr "III"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ office: chr "Philadelphia"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ range: chr "001-999"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type : &lt;ccn::TypeUnit&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ range : chr "001-999"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type  : &lt;ccn::TypeUnit&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr : chr "IRF"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc : chr "Rehabilitation Unit"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ eipps: logi TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ parent: chr "21_101"</span>
 <span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="st">"21S101"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Unit&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn  : chr "21S101"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state: &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn   : chr "21S101"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state : &lt;ccn::State&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "MD"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name  : chr "Maryland"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ region: chr "III"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ office: chr "Philadelphia"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ range: chr "001-999"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type : &lt;ccn::TypeUnit&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ range : chr "001-999"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type  : &lt;ccn::TypeUnit&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr : chr "PSY"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc : chr "Psychiatric Unit"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ eipps: logi TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ parent: chr "21_101"</span>
 <span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="st">"21U101"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Unit&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn  : chr "21U101"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state: &lt;ccn::State&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn   : chr "21U101"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ state : &lt;ccn::State&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr  : chr "MD"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ name  : chr "Maryland"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ region: chr "III"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ office: chr "Philadelphia"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ range: chr "001-999"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type : &lt;ccn::TypeUnit&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ range : chr "001-999"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ type  : &lt;ccn::TypeUnit&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ abbr : chr "SBA"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ desc : chr "Swing-Bed Approval - STC"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  .. @ eipps: logi FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  @ parent: chr "21_101"</span>
 <span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="st">"01L008"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Medicaid&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  @ ccn  : chr "01L008"</span>

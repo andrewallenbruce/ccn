@@ -45,8 +45,8 @@ emergency("21034E")
 #>  .. @ office: chr "Philadelphia"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::Type>
-#>  .. @ abbr: chr "NFEH"
-#>  .. @ desc: chr "Emergency Hospital (Non-Federal)"
+#>  .. @ abbr: chr "NF"
+#>  .. @ desc: chr "Non-Federal"
 emergency("12345F")
 #> <ccn::Emergency>
 #>  @ ccn  : chr "12345F"
@@ -57,6 +57,6 @@ emergency("12345F")
 #>  .. @ office: chr "San Francisco"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::Type>
-#>  .. @ abbr: chr "FEH"
-#>  .. @ desc: chr "Emergency Hospital (Federal)"
+#>  .. @ abbr: chr "F"
+#>  .. @ desc: chr "Federal"
 ```

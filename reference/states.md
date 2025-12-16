@@ -1,34 +1,27 @@
-# State Codes
+# CCN State Codes
 
-Convert state codes to their abbreviations or full names.
+CCN State Codes
 
 ## Usage
 
 ``` r
-state(x)
+states
 ```
 
-## Arguments
+## Format
 
-- x:
+### `states`
 
-  character vector of state codes to look up.
+A data frame with 108 rows and 3 columns:
 
-## Value
+- code:
 
-S7 object of class `State`.
+  State code
 
-## Examples
+- abbr:
 
-``` r
-state("A5XXX")
-#> <ccn::State>
-#>  @ code: chr "A5"
-#>  @ abbr: chr "MS"
-#>  @ name: chr "Mississippi"
-state(sample(ccn::state_codes$code, 1L))
-#> <ccn::State>
-#>  @ code: chr "54"
-#>  @ abbr: chr "ID"
-#>  @ name: chr "Idaho"
-```
+  State abbreviation
+
+- name:
+
+  State full name
