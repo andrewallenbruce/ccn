@@ -1,14 +1,4 @@
 #' @noRd
-check_arg <- function(
-  x,
-  msg,
-  arg = rlang::caller_arg(x),
-  call = rlang::caller_env()
-) {
-  cli::cli_abort(paste("{.arg {arg}}", msg), arg = arg, call = call)
-}
-
-#' @noRd
 nchar_ccn <- function(x) {
   nchar(x) %between% c(6L, 14L)
 }

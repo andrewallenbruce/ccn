@@ -48,10 +48,18 @@ unit_types <- tibble::tribble(
 
 usethis::use_data(unit_types, overwrite = TRUE)
 
-subunit_types <- tibble::tibble(
-  code = c("A", "B", "C", "D", "E", "F", "G", "H", "J", "K"),
-  prefix = c(20:22, "30", "33", 40:44),
-  abbr = c(rep.int("LTCH", 3), "IRF", "CH", rep.int("PSY", 5))
+subunit_types <- tibble::tribble(
+  ~code , ~prefix , ~abbr  ,
+  "A"   , "20"    , "LTCH" ,
+  "B"   , "21"    , "LTCH" ,
+  "C"   , "22"    , "LTCH" ,
+  "D"   , "30"    , "IRF"  ,
+  "E"   , "33"    , "CH"   ,
+  "F"   , "40"    , "PSY"  ,
+  "G"   , "41"    , "PSY"  ,
+  "H"   , "42"    , "PSY"  ,
+  "J"   , "43"    , "PSY"  ,
+  "K"   , "44"    , "PSY"  ,
 )
 
 usethis::use_data(subunit_types, overwrite = TRUE)
@@ -104,3 +112,10 @@ psych_unit_range <- tibble::tribble(
 #' EXAMPLE: 21-2026 - XYZ Hospital (IPPS-excluded Long Term Care Hospital)
 #'    * 21-SA26 - XYZ Long Term Care Hospital’s IPPS-excluded Psychiatric Unit
 #     * 21-TA26 - XYZ Long Term Care Hospital’s IPPS-excluded Rehabilitation Unit
+
+# constructive::construct(ccn::subunit_types, constructive::opts_tbl_df("tribble"))
+# subunit_types <- tibble::tibble(
+#   code = c("A", "B", "C", "D", "E", "F", "G", "H", "J", "K"),
+#   prefix = c(20:22, "30", "33", 40:44),
+#   abbr = c(rep.int("LTCH", 3), "IRF", "CH", rep.int("PSY", 5))
+# )

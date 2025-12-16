@@ -8,7 +8,7 @@
 # hosp_info  ===     5,381 ×  6  |=>   [990.3 k]
 
 # initial length == 81982
-# unique length  == 52256
+# unique length  == 51270
 ccns <- vctrs::vec_c(
   get_pin("asc")$ccn,
   get_pin("aff")$fac$ccn,
@@ -32,8 +32,7 @@ pin_update(
   description = "A character vector of 52k unique CCNs"
 )
 
-
-ccns <- list(
+ccn_extras <- list(
   eipps_hosp_with_eipps_unit = c(
     "02TA01",
     "04SD38",

@@ -160,6 +160,55 @@ print_impl <- function(x) {
 #' @rdname slice_medicare
 #' @export
 #' @keywords internal
+as.data.frame.medicare <- function(x, ...) {
+  list2DF(x)
+}
+
+#' @rdname slice_medicare
+#' @export
+#' @keywords internal
+as.data.frame.organ <- function(x, ...) {
+  list2DF(x)
+}
+
+#' @rdname slice_medicare
+#' @export
+#' @keywords internal
+as.data.frame.emergency <- function(x, ...) {
+  list2DF(x)
+}
+
+#' @rdname slice_medicare
+#' @export
+#' @keywords internal
+as.data.frame.supplier <- function(x, ...) {
+  list2DF(x)
+}
+
+#' @rdname slice_medicare
+#' @export
+#' @keywords internal
+as.data.frame.medicaid <- function(x, ...) {
+  list2DF(x)
+}
+
+#' @rdname slice_medicare
+#' @export
+#' @keywords internal
+as.data.frame.unit <- function(x, ...) {
+  list2DF(x)
+}
+
+#' @rdname slice_medicare
+#' @export
+#' @keywords internal
+as.data.frame.subunit <- function(x, ...) {
+  list2DF(x)
+}
+
+#' @rdname slice_medicare
+#' @export
+#' @keywords internal
 print.medicare <- function(x, ...) {
   print_impl(x)
 }

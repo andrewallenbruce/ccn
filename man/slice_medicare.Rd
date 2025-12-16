@@ -10,6 +10,13 @@
 \alias{slice_medicaid}
 \alias{slice_unit}
 \alias{slice_subunit}
+\alias{as.data.frame.medicare}
+\alias{as.data.frame.organ}
+\alias{as.data.frame.emergency}
+\alias{as.data.frame.supplier}
+\alias{as.data.frame.medicaid}
+\alias{as.data.frame.unit}
+\alias{as.data.frame.subunit}
 \alias{print.medicare}
 \alias{print.organ}
 \alias{print.emergency}
@@ -36,6 +43,20 @@ slice_medicaid(x)
 slice_unit(x)
 
 slice_subunit(x)
+
+\method{as.data.frame}{medicare}(x, ...)
+
+\method{as.data.frame}{organ}(x, ...)
+
+\method{as.data.frame}{emergency}(x, ...)
+
+\method{as.data.frame}{supplier}(x, ...)
+
+\method{as.data.frame}{medicaid}(x, ...)
+
+\method{as.data.frame}{unit}(x, ...)
+
+\method{as.data.frame}{subunit}(x, ...)
 
 \method{print}{medicare}(x, ...)
 

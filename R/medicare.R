@@ -12,26 +12,8 @@
 NULL
 
 #' @noRd
-medicare_range <- function(
-  x,
-  arg = rlang::caller_arg(x),
-  call = rlang::caller_env()
-) {
-  if (as.integer(x) < 1L) {
-    cli::cli_abort(
-      "{.arg {arg}} must be greater than 0",
-      arg = arg,
-      call = call
-    )
-  }
-
-  if (as.integer(x) > max(ccn::medicare_ranges[["end"]])) {
-    cli::cli_abort(
-      "{.arg {arg}} must be less than {max(ccn::medicare_ranges$end)}",
-      arg = arg,
-      call = call
-    )
-  }
+medicare_range <- function(x) {
+  check_range(x, c(1L, 9999L), "Medicare")
 
   ccn::medicare_ranges[["range"]][
     data.table::between(

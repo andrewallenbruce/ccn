@@ -13,17 +13,20 @@ supplier(x)
 S7 object of class \verb{<Supplier>}.
 }
 \description{
-Suppliers that are paid by Part B carriers have a 10-digit alphanumeric CCN.
-The first 2 digits identify the State in which the supplier is located. The
-third digit is an alpha character that identifies the type of facility. The
-remaining 7 digits are the unique facility identifier.
+CCNs assigned to Medicare suppliers that are paid by Part B carriers
+}
+\details{
+Suppliers have a 10-digit alphanumeric CCN. The first 2 digits identify the
+State in which the supplier is located. The third digit is an alpha character
+that identifies the type of facility. The remaining 7 digits are the unique
+facility identifier.
 
-The RO assigns the following alpha-characters in the third position as
-indicated:
+The RO (Regional Office) assigns the following alpha-characters in the third
+position as indicated:
 \itemize{
-\item \code{C} - Ambulatory Surgical Centers
-\item \code{D} - Clinical Laboratory Improvement Amendments of 1988 (CLIA) Laboratories
-\item \code{X} - Portable X-Ray Facilities
+\item \code{C}: Ambulatory Surgical Centers (ASC)
+\item \code{D}: Clinical Laboratory Improvement Amendments of 1988 Laboratories (CLIA)
+\item \code{X}: Portable X-Ray Facilities (PXRF)
 }
 }
 \examples{

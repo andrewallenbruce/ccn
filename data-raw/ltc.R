@@ -21,14 +21,14 @@
 ltc_ccns <- tibble::tribble(
   ~code         , ~range      , ~facility_type                       , ~facility_category  , ~service_type                   ,
   NA_character_ , "5000-6499" , "18:SNF||18-19:SNF"                  , "Free-Standing LTC" , "Medicare or Medicare/Medicaid" ,
-  "A"           , "2000-2099" , "19:NF"                              , "Free-Standing LTC" , "Medicare or Medicare/Medicaid" ,
-  "E"           , "3300-3399" , "19:NF"                              , "Free-Standing LTC" , "Medicare or Medicare/Medicaid" ,
-  "G"           , "4100-4199" , "ICF-IID"                            , "Free-Standing LTC" , "Medicare or Medicare/Medicaid" ,
-  NA_character_ , "5000-6499" , "18-19:S[NF]+{DUAL}"                 , "S[NF] DUAL:DP"     , "Medicaid-Only"                 ,
-  NA_character_ , "5000-6499" , "18:SNF||18-19:SNF+{DUAL}++DP:S[NF]" , "S[NF] DUAL:DP"     , "Medicaid-Only"                 ,
-  "G"           , "4100-4199" , "19:NF"                              , "S[NF] DUAL:DP"     , "Medicaid-Only"                 ,
+  NA_character_ , "5000-6499" , "18-19:S[NF]+{DUAL}"                 , "Free-Standing LTC" , "Medicare or Medicare/Medicaid" ,
+  NA_character_ , "5000-6499" , "18:SNF||18-19:SNF+{DUAL}++DP:S[NF]" , "Free-Standing LTC" , "Medicare or Medicare/Medicaid" ,
+  "A"           , "2000-2099" , "19:NF"                              , "S[NF] DUAL:DP"     , "Medicaid-Only"                 ,
   "A"           , "2000-2099" , "19:NF++DP:ICF-IID"                  , "S[NF] DUAL:DP"     , "Medicaid-Only"                 ,
+  "E"           , "3300-3399" , "19:NF"                              , "S[NF] DUAL:DP"     , "Medicaid-Only"                 ,
   "E"           , "3300-3399" , "19:NF++DP:ICF-IID"                  , "S[NF] DUAL:DP"     , "Medicaid-Only"                 ,
+  "G"           , "4100-4199" , "ICF-IID"                            , "S[NF] DUAL:DP"     , "Medicaid-Only"                 ,
+  "G"           , "4100-4199" , "19:NF"                              , "S[NF] DUAL:DP"     , "Medicaid-Only"                 ,
   "G"           , "4100-4199" , "19:NF++DP:ICF-IID"                  , "S[NF] DUAL:DP"     , "Medicaid-Only"
 )
 
