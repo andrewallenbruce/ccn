@@ -1,5 +1,11 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9076 (2025-12-16)
+
+* `as.data.frame` method for `parse` (#2)
+* facility ranges check
+
+
 # ccn 0.0.0.9075 (2025-12-16)
 
 * `parent` method
