@@ -10,7 +10,7 @@
 #' medicare("670055")
 #' medicare("123456")
 NULL
-# collapse::frange(c(ccn::medicare_ranges$start, ccn::medicare_ranges$end))
+
 #' @noRd
 medicare_range <- function(
   x,

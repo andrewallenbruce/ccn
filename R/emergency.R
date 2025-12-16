@@ -26,11 +26,11 @@ NULL
 #' @noRd
 emergency_type <- function(x) {
   Type(
-    abbr = vs(x, c("E", "F"), c("NFEH", "FEH")),
+    abbr = vs(x, c("E", "F"), c("NF", "F")),
     desc = vs(
       x,
       c("E", "F"),
-      c("Emergency Hospital (Non-Federal)", "Emergency Hospital (Federal)")
+      c("Non-Federal", "Federal")
     )
   )
 }

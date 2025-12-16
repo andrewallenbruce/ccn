@@ -8,7 +8,7 @@
 #' @returns S7 object of class `State`.
 #' @examples
 #' state("A5XXX")
-#' state(sample(ccn::state_codes$code, 1L))
+#' state("00")
 NULL
 
 #' @noRd
@@ -23,12 +23,12 @@ state_city <- function(x) {
 
 #' @noRd
 state_abbr <- function(x) {
-  vs(x, ccn::state_codes[["code"]], ccn::state_codes[["abbr"]])
+  vs(x, ccn::states[["code"]], ccn::states[["abbr"]])
 }
 
 #' @noRd
 state_name <- function(x) {
-  vs(x, ccn::state_codes[["code"]], ccn::state_codes[["name"]])
+  vs(x, ccn::states[["code"]], ccn::states[["name"]])
 }
 
 #' @noRd
@@ -73,17 +73,3 @@ State <- S7::new_class(
 state <- function(x) {
   State(code = substring(x, 1L, 2L))
 }
-
-local({
-  S7::method(print, State) <- function(x, ...) {
-    cli::cli_text("<{cli::col_cyan(class(x)[1])}>")
-
-    glue::glue(
-      '{cli::col_silver(format(S7::prop_names(x), justify = "right"))}',
-      '{cli::col_grey(":")} {unname(S7::props(x))}'
-    ) |>
-      cat(sep = "\n")
-
-    invisible(x)
-  }
-})

@@ -35,6 +35,7 @@ Collate:
     'states.R'
     'aaa.R'
     'ccn-package.R'
+    'cli.R'
     'data.R'
     'decode.R'
     'emergency.R'

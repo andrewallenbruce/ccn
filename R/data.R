@@ -1,6 +1,6 @@
 #' CCN State Codes
 #'
-#' @format ## `state_codes`
+#' @format ## `states`
 #' A data frame with 108 rows and 3 columns:
 #' \describe{
 #'   \item{code}{State code}
@@ -9,7 +9,7 @@
 #'   ...
 #' }
 #' @keywords internal
-"state_codes"
+"states"
 
 #' CMS Regional Office Codes
 #'

@@ -1,4 +1,4 @@
-state_codes <- tibble::tribble(
+states <- tibble::tribble(
   ~code , ~abbr , ~name                                           ,
   "00"  , "AZ"  , "Arizona"                                       ,
   "01"  , "AL"  , "Alabama"                                       ,
@@ -111,7 +111,7 @@ state_codes <- tibble::tribble(
   "B2"  , "CA"  , "California"
 )
 
-usethis::use_data(state_codes, overwrite = TRUE)
+usethis::use_data(states, overwrite = TRUE)
 
 regions <- tibble::tribble(
   ~ro , ~region       , ~state , ~city           ,

@@ -56,15 +56,6 @@ subunit_types <- tibble::tibble(
 
 usethis::use_data(subunit_types, overwrite = TRUE)
 
-eipps_types <- tibble::tribble(
-  ~code , ~abbr , ~desc                         ,
-  "S"   , "PSY" , "Psychiatric Unit"            ,
-  "T"   , "IRF" , "Rehabilitation Unit"         ,
-  "V"   , "ADU" , "Alcohol-Drug Unit (Retired)"
-)
-
-usethis::use_data(eipps_types, overwrite = TRUE)
-
 #' IPPS-Excluded Hospitals with IPPS-Excluded Units
 #'
 #'    * Section __2779C1__

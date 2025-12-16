@@ -84,10 +84,3 @@ Medicaid <- S7::new_class(
   parent = CCN,
   properties = list(type = Type)
 )
-
-#' @noRd
-Unit <- S7::new_class(
-  name = "Unit",
-  parent = CCN,
-  properties = list(type = Type)
-)

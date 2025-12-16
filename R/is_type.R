@@ -80,7 +80,7 @@ is_supplier_type <- function(x) {
 
 #' @noRd
 is_state_code <- function(x) {
-  x %chin% ccn::state_codes[["code"]]
+  x %chin% ccn::states[["code"]]
 }
 
 #' @noRd

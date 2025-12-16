@@ -14,13 +14,18 @@
 NULL
 
 #' @noRd
-unit_abbr <- function(x) {
+unit_type_abbr <- function(x) {
   vs(x, ccn::unit_types[["code"]], ccn::unit_types[["abbr"]])
 }
 
 #' @noRd
-unit_desc <- function(x) {
+unit_type_desc <- function(x) {
   vs(x, ccn::unit_types[["code"]], ccn::unit_types[["desc"]])
+}
+
+#' @noRd
+unit_parent_ccn <- function(x) {
+  paste0(substring(x, 1L, 2L), "_", substring(x, 4L, 6L))
 }
 
 #' @noRd
@@ -40,11 +45,28 @@ TypeUnit <- S7::new_class(
     }
     S7::new_object(
       S7::S7_object(),
-      abbr = unit_abbr(code),
-      desc = unit_desc(code),
+      abbr = unit_type_abbr(code),
+      desc = unit_type_desc(code),
       eipps = is_eipps_type(code)
     )
   }
+)
+
+#' @noRd
+Unit <- S7::new_class(
+  name = "Unit",
+  properties = list(
+    ccn = S7::class_character,
+    state = State,
+    range = S7::class_character,
+    type = TypeUnit,
+    parent = S7::new_property(
+      S7::class_character,
+      getter = function(self) {
+        unit_parent_ccn(self@ccn)
+      }
+    )
+  )
 )
 
 #' @rdname unit
