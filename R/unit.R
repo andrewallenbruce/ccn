@@ -1,11 +1,19 @@
-#' IPPS-Excluded Hospital Units
+#' Hospital Units
 #'
 #' @description
-#' Convert various codes to their associated names.
+#' An alpha character in the third position of a CCN identifies either hospitals
+#' with swing-bed approval, rehabilitation units, or psychiatric units excluded
+#' from IPPS payment.
 #'
-#' @param x character vector of codes to look up.
+#' The first 2 digits identify the State in which the provider is located. The
+#' third position (which is alpha) identifies the type of unit or swing-bed
+#' designation.
+#'
+#' __The last 3 digits must match the last 3 digits of the parent provider.__
+#'
+#' @param x `<character>` 6-position alphanumeric code.
 #' @name unit
-#' @returns character vector of names associated with codes.
+#' @returns S7 object of class `<Unit>`.
 #' @examples
 #' medicare("210101")
 #' unit("21T101")

@@ -2,7 +2,7 @@
 % Please edit documentation in R/medicare.R
 \name{medicare}
 \alias{medicare}
-\title{Medicare Provider}
+\title{Medicare Providers}
 \usage{
 medicare(x)
 }

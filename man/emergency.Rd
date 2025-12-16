@@ -7,17 +7,16 @@
 emergency(x)
 }
 \arguments{
-\item{x}{character vector of codes to look up.}
+\item{x}{\verb{<character>} 6-position alphanumeric code.}
 }
 \value{
-S7 object of class \code{Emergency}.
+S7 object of class \verb{<Emergency>}.
 }
 \description{
-S7 class for CCNs assigned to Emergency Hospitals (both Federal and non-Federal)
+CCNs assigned to Emergency Hospitals (both Federal and non-Federal)
 that do not participate in the Medicare program.
 }
-\section{Further Information}{
-
+\details{
 The CCN for emergency hospitals is a 6-position alphanumeric code. The first
 2 digits are the State code. The third, fourth, and fifth digits represent a
 sequence number. The first emergency number in a State would contain the
@@ -28,7 +27,6 @@ For example, the 34th emergency hospital issued a CCN in Maryland would have
 the number \verb{21-034E}. The RO assigns the CCN in strict numerical sequence
 without regard to the Federal or non-Federal status.
 }
-
 \examples{
 emergency("21034E")
 emergency("12345F")

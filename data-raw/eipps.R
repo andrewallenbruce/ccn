@@ -11,6 +11,8 @@ usethis::use_data(eipps_ranges, overwrite = TRUE)
 
 eipps_types <- tibble::tribble(
   ~code , ~abbr , ~desc                         ,
+  "M"   , "PSY" , "Psychiatric Unit - CAH"      ,
+  "R"   , "IRF" , "Rehabilitation Unit - CAH"   ,
   "S"   , "PSY" , "Psychiatric Unit"            ,
   "T"   , "IRF" , "Rehabilitation Unit"         ,
   "V"   , "ADU" , "Alcohol-Drug Unit (Retired)"

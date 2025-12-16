@@ -1,4 +1,4 @@
-#' Medicare Provider
+#' Medicare Providers
 #'
 #' @description
 #' Convert various codes to their associated names.

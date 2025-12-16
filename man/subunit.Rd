@@ -2,15 +2,15 @@
 % Please edit documentation in R/subunit.R
 \name{subunit}
 \alias{subunit}
-\title{IPPS-Excluded Hospital Sub-Units}
+\title{IPPS-Excluded Hospital Subunits}
 \usage{
 subunit(x)
 }
 \arguments{
-\item{x}{\if{html}{\out{<character>}} scalar.}
+\item{x}{\verb{<character>} 6-position alphanumeric code.}
 }
 \value{
-character vector of names associated with codes.
+S7 object of class \verb{<Subunit>}.
 }
 \description{
 Convert various codes to their associated names.

@@ -2,18 +2,20 @@
 % Please edit documentation in R/organ.R
 \name{organ}
 \alias{organ}
-\title{Organ Procurement Organizations (OPO)}
+\title{Organ Procurement Organizations}
 \usage{
 organ(x)
 }
 \arguments{
-\item{x}{character vector of codes to look up.}
+\item{x}{\verb{<character>} 6-position alphanumeric code.}
 }
 \value{
-S7 object of class \code{Organ}.
+S7 object of class \verb{<Organ>}.
 }
 \description{
-Organ Procurement Organizations (OPO) based on their codes.
+Organ procurement organizations (OPOs) are assigned a 6-digit alphanumeric
+CCN. The first 2 digits identify the State code. The third digit is the alpha
+character \code{P}. The remaining 3 digits are the unique facility identifier.
 }
 \examples{
 organ("05P001")

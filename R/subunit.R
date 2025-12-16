@@ -1,14 +1,14 @@
 #' @include unit.R
 NULL
 
-#' IPPS-Excluded Hospital Sub-Units
+#' IPPS-Excluded Hospital Subunits
 #'
 #' @description
 #' Convert various codes to their associated names.
 #'
-#' @param x <character> scalar.
+#' @param x `<character>` 6-position alphanumeric code.
 #' @name subunit
-#' @returns character vector of names associated with codes.
+#' @returns S7 object of class `<Subunit>`.
 #' @examples
 #' subunit("21SA26")
 #' subunit("21TA26")

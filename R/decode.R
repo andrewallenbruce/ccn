@@ -1,4 +1,4 @@
-#' Decode CCNs
+#' Decode CMS Certification Numbers
 #'
 #' @description
 #' Convert various codes to their associated names.

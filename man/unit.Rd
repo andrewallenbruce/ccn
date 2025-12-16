@@ -2,18 +2,26 @@
 % Please edit documentation in R/unit.R
 \name{unit}
 \alias{unit}
-\title{IPPS-Excluded Hospital Units}
+\title{Hospital Units}
 \usage{
 unit(x)
 }
 \arguments{
-\item{x}{character vector of codes to look up.}
+\item{x}{\verb{<character>} 6-position alphanumeric code.}
 }
 \value{
-character vector of names associated with codes.
+S7 object of class \verb{<Unit>}.
 }
 \description{
-Convert various codes to their associated names.
+An alpha character in the third position of a CCN identifies either hospitals
+with swing-bed approval, rehabilitation units, or psychiatric units excluded
+from IPPS payment.
+
+The first 2 digits identify the State in which the provider is located. The
+third position (which is alpha) identifies the type of unit or swing-bed
+designation.
+
+\strong{The last 3 digits must match the last 3 digits of the parent provider.}
 }
 \examples{
 medicare("210101")

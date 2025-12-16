@@ -2,7 +2,7 @@
 % Please edit documentation in R/decode.R
 \name{decode}
 \alias{decode}
-\title{Decode CCNs}
+\title{Decode CMS Certification Numbers}
 \usage{
 decode(x)
 }

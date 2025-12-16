@@ -2,18 +2,22 @@
 % Please edit documentation in R/medicaid.R
 \name{medicaid}
 \alias{medicaid}
-\title{Medicaid-Only Facilities}
+\title{Medicaid-Only Providers}
 \usage{
 medicaid(x)
 }
 \arguments{
-\item{x}{character vector of codes to look up.}
+\item{x}{\verb{<character>} 6-position alphanumeric code.}
 }
 \value{
-S7 object of class \code{Medicaid}.
+S7 object of class \verb{<Medicaid>}.
 }
 \description{
-Convert various codes to their associated names.
+Title XIX-only providers are identified by a 6-digit alphanumeric CCN. The
+first 2 digits identify the State in which the provider is located. The third
+position, which is an alpha character, identifies the type of facility by
+level or type of care being provided. The last 3 digits make up a sequential
+number series beginning with \code{001}.
 }
 \examples{
 medicaid("01L008")
