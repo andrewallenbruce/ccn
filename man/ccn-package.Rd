@@ -4,7 +4,7 @@
 \name{ccn-package}
 \alias{ccn}
 \alias{ccn-package}
-\title{ccn: Parse CMS Certification Numbers}
+\title{ccn: CMS Certification Numbers}
 \description{
 An \href{https://github.com/RConsortium/S7/}{S7 class} representing a
 \strong{CMS Certification Number}, a uniform way of identifying Providers or

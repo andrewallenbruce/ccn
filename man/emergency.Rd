@@ -17,17 +17,22 @@ CCNs assigned to Emergency Hospitals (both Federal and non-Federal)
 that do not participate in the Medicare program.
 }
 \details{
-The CCN for emergency hospitals is a 6-position alphanumeric code. The first
-2 digits are the State code. The third, fourth, and fifth digits represent a
-sequence number. The first emergency number in a State would contain the
-sequence number \code{001}. In the sixth position use the letter \code{E} for
-non-Federal emergency hospitals, or \code{F} for Federal emergency hospitals.
+Emergency hospitals are identified by a 6-position alphanumeric CCN.
 
-For example, the 34th emergency hospital issued a CCN in Maryland would have
-the number \verb{21-034E}. The RO assigns the CCN in strict numerical sequence
+Positions one and two identify the state in which the hospital is located.
+
+Position six, an alpha character, identifies whether the hospital is Federal
+(\code{F}) or non-Federal (\code{E}).
+
+Positions three, four and five represent a sequence beginning with \code{001}.
+This sequence identifies the order, by state, in which the CCN was issued.
+
+For example, the CCN of the 34th emergency hospital in Maryland would be
+\verb{21034E}. The Regional Office assigns the CCN in strict numerical sequence
 without regard to the Federal or non-Federal status.
 }
 \examples{
 emergency("21034E")
 emergency("12345F")
+emergency("11038F") # USAF Hospital (Moody)
 }

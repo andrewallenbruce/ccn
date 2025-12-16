@@ -9,6 +9,9 @@
 #' @examples
 #' medicare("670055")
 #' medicare("123456")
+#' medicare("119802")
+#' medicare("114036") # Greenleaf
+#' medicare("110122") # SGMC
 NULL
 
 #' @noRd

@@ -6,12 +6,12 @@ template:
   bslib:
     base_font: {google: "Atkinson Hyperlegible Next"}
     heading_font: {google: "Roboto Slab"}
-    code_font: {google: "Google Sans Code"}
+    code_font: {google: "JetBrains Mono"}
 
 home:
-  title: ccn • Parse CMS Certification Numbers
+  title: ccn • CMS Certification Numbers
   description: >
-    Validate and parse CMS Certification Numbers (CCNs) used in the United States healthcare system.
+    Validate and parse CMS Certification Numbers (CCNs).
 
 news:
   one_page: false
@@ -19,3 +19,26 @@ news:
 
 deploy:
   install_metadata: true
+
+reference:
+
+- title: Manipulation
+  desc: >
+    Parse and decode CMS Certification Numbers.
+  contents:
+  - decode
+  - parse
+
+- title: Classes
+  desc: >
+    CMS Certification Number classes.
+  contents:
+  - emergency
+  - medicaid
+  - medicare
+  - organ
+  - parent
+  - state
+  - subunit
+  - supplier
+  - unit

@@ -1,11 +1,17 @@
 #' Medicaid-Only Providers
 #'
 #' @description
-#' Title XIX-only providers are identified by a 6-digit alphanumeric CCN. The
-#' first 2 digits identify the State in which the provider is located. The third
-#' position, which is an alpha character, identifies the type of facility by
-#' level or type of care being provided. The last 3 digits make up a sequential
-#' number series beginning with `001`.
+#' CCNs assigned to Medicaid-only hospitals and facilities.
+#'
+#' @details
+#' Title XIX-only providers are identified by a 6-position alphanumeric CCN.
+#'
+#' Positions one and two identify the state in which the provider is located.
+#'
+#' Position three, an alpha character, identifies the type of facility, by
+#' either level or type of care being provided.
+#'
+#' Positions four, five and six represent a sequence beginning with `001`.
 #'
 #' @param x `<character>` 6-position alphanumeric code.
 #' @name medicaid
