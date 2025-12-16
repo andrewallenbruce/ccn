@@ -38,6 +38,27 @@ slice_unit(x)
 slice_subunit(x)
 
 # S3 method for class 'medicare'
+as.data.frame(x, ...)
+
+# S3 method for class 'organ'
+as.data.frame(x, ...)
+
+# S3 method for class 'emergency'
+as.data.frame(x, ...)
+
+# S3 method for class 'supplier'
+as.data.frame(x, ...)
+
+# S3 method for class 'medicaid'
+as.data.frame(x, ...)
+
+# S3 method for class 'unit'
+as.data.frame(x, ...)
+
+# S3 method for class 'subunit'
+as.data.frame(x, ...)
+
+# S3 method for class 'medicare'
 print(x, ...)
 
 # S3 method for class 'organ'

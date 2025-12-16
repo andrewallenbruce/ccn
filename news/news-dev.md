@@ -338,3 +338,9 @@
 ## ccn 0.0.0.9075 (2025-12-16)
 
 - `parent` method
+
+## ccn 0.0.0.9076 (2025-12-16)
+
+- `as.data.frame` method for `parse`
+  ([\#2](https://github.com/andrewallenbruce/ccn/issues/2))
+- facility ranges check
