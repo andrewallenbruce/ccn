@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9075 (2025-12-16)
+
+* `parent` method
+
+
 # ccn 0.0.0.9074 (2025-12-16)
 
 * fix: `eipps_types` internal dataset
