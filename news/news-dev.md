@@ -334,3 +334,7 @@
 
 - fix: `eipps_types` internal dataset
 - chore: documentation
+
+## ccn 0.0.0.9075 (2025-12-16)
+
+- `parent` method

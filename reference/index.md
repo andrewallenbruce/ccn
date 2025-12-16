@@ -12,6 +12,8 @@
   : Medicare Providers
 - [`organ()`](https://andrewallenbruce.github.io/ccn/reference/organ.md)
   : Organ Procurement Organizations
+- [`parent()`](https://andrewallenbruce.github.io/ccn/reference/parent.md)
+  : Unit Parents
 - [`parse()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
   : Parse CMS Certification Numbers
 - [`state()`](https://andrewallenbruce.github.io/ccn/reference/state.md)
