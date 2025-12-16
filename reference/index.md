@@ -3,22 +3,22 @@
 ## All functions
 
 - [`decode()`](https://andrewallenbruce.github.io/ccn/reference/decode.md)
-  : Decode CCNs
+  : Decode CMS Certification Numbers
 - [`emergency()`](https://andrewallenbruce.github.io/ccn/reference/emergency.md)
   : Emergency Hospitals
 - [`medicaid()`](https://andrewallenbruce.github.io/ccn/reference/medicaid.md)
-  : Medicaid-Only Facilities
+  : Medicaid-Only Providers
 - [`medicare()`](https://andrewallenbruce.github.io/ccn/reference/medicare.md)
-  : Medicare Provider
+  : Medicare Providers
 - [`organ()`](https://andrewallenbruce.github.io/ccn/reference/organ.md)
-  : Organ Procurement Organizations (OPO)
+  : Organ Procurement Organizations
 - [`parse()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
   : Parse CMS Certification Numbers
 - [`state()`](https://andrewallenbruce.github.io/ccn/reference/state.md)
   : State Codes
 - [`subunit()`](https://andrewallenbruce.github.io/ccn/reference/subunit.md)
-  : IPPS-Excluded Hospital Sub-Units
+  : IPPS-Excluded Hospital Subunits
 - [`supplier()`](https://andrewallenbruce.github.io/ccn/reference/supplier.md)
-  : Medicare Supplier
+  : Suppliers
 - [`unit()`](https://andrewallenbruce.github.io/ccn/reference/unit.md) :
-  IPPS-Excluded Hospital Units
+  Hospital Units

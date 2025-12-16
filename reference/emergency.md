@@ -1,7 +1,7 @@
 # Emergency Hospitals
 
-S7 class for CCNs assigned to Emergency Hospitals (both Federal and
-non-Federal) that do not participate in the Medicare program.
+CCNs assigned to Emergency Hospitals (both Federal and non-Federal) that
+do not participate in the Medicare program.
 
 ## Usage
 
@@ -13,13 +13,13 @@ emergency(x)
 
 - x:
 
-  character vector of codes to look up.
+  `<character>` 6-position alphanumeric code.
 
 ## Value
 
-S7 object of class `Emergency`.
+S7 object of class `<Emergency>`.
 
-## Further Information
+## Details
 
 The CCN for emergency hospitals is a 6-position alphanumeric code. The
 first 2 digits are the State code. The third, fourth, and fifth digits

@@ -1,6 +1,10 @@
-# Medicaid-Only Facilities
+# Medicaid-Only Providers
 
-Convert various codes to their associated names.
+Title XIX-only providers are identified by a 6-digit alphanumeric CCN.
+The first 2 digits identify the State in which the provider is located.
+The third position, which is an alpha character, identifies the type of
+facility by level or type of care being provided. The last 3 digits make
+up a sequential number series beginning with `001`.
 
 ## Usage
 
@@ -12,11 +16,11 @@ medicaid(x)
 
 - x:
 
-  character vector of codes to look up.
+  `<character>` 6-position alphanumeric code.
 
 ## Value
 
-S7 object of class `Medicaid`.
+S7 object of class `<Medicaid>`.
 
 ## Examples
 

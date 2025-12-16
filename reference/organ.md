@@ -1,6 +1,9 @@
-# Organ Procurement Organizations (OPO)
+# Organ Procurement Organizations
 
-Organ Procurement Organizations (OPO) based on their codes.
+Organ procurement organizations (OPOs) are assigned a 6-digit
+alphanumeric CCN. The first 2 digits identify the State code. The third
+digit is the alpha character `P`. The remaining 3 digits are the unique
+facility identifier.
 
 ## Usage
 
@@ -12,11 +15,11 @@ organ(x)
 
 - x:
 
-  character vector of codes to look up.
+  `<character>` 6-position alphanumeric code.
 
 ## Value
 
-S7 object of class `Organ`.
+S7 object of class `<Organ>`.
 
 ## Examples
 

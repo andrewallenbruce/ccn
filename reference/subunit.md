@@ -1,4 +1,4 @@
-# IPPS-Excluded Hospital Sub-Units
+# IPPS-Excluded Hospital Subunits
 
 Convert various codes to their associated names.
 
@@ -12,11 +12,11 @@ subunit(x)
 
 - x:
 
-  scalar.
+  `<character>` 6-position alphanumeric code.
 
 ## Value
 
-character vector of names associated with codes.
+S7 object of class `<Subunit>`.
 
 ## Examples
 

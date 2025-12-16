@@ -329,3 +329,8 @@
 ## ccn 0.0.0.9073 (2025-12-15)
 
 - checks for range boundaries
+
+## ccn 0.0.0.9074 (2025-12-16)
+
+- fix: `eipps_types` internal dataset
+- chore: documentation
