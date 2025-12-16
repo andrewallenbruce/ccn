@@ -1,5 +1,11 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9074 (2025-12-16)
+
+* fix: `eipps_types` internal dataset
+* chore: documentation
+
+
 # ccn 0.0.0.9073 (2025-12-15)
 
 * checks for range boundaries
