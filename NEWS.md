@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9078 (2025-12-17)
+
+* `unit_parents` internal dataset
+* `check_state` assertion
+* class preserved in `as.data.frame` method
+
+
 # ccn 0.0.0.9077 (2025-12-16)
 
 * fix: bug in `provider_type`
