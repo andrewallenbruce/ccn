@@ -11,7 +11,7 @@ medicare_ranges <- tibble::tribble(
   1500L  , 1799L , "1500-1799" , "HSP"          , "Hospice"                                                                   ,
   1800L  , 1989L , "1800-1989" , "FQHC"         , "Federally Qualified Health Center"                                         ,
   1990L  , 1999L , "1990-1999" , "RNHCI"        , "Religious Non-medical Health Care Institution"                             ,
-  2000L  , 2299L , "2000-2299" , "LTC"          , "Long-Term Care Hospital"                                                   ,
+  2000L  , 2299L , "2000-2299" , "LTCH"         , "Long-Term Care Hospital"                                                   ,
   2300L  , 2499L , "2300-2499" , "HBRDF"        , "Hospital-based Renal Dialysis Facility"                                    ,
   2500L  , 2899L , "2500-2899" , "IRDF"         , "Independent Renal Dialysis Facility"                                       ,
   2900L  , 2999L , "2900-2999" , "ISPRDF"       , "Independent Special Purpose Renal Dialysis Facility"                       ,
@@ -32,7 +32,7 @@ medicare_ranges <- tibble::tribble(
   4800L  , 4899L , "4800-4899" , "CORF"         , "Comprehensive Outpatient Rehabilitation Facility"                          ,
   4900L  , 4999L , "4900-4999" , "CMHC"         , "Community Mental Health Center"                                            ,
   5000L  , 6499L , "5000-6499" , "SNF"          , "Skilled Nursing Facility"                                                  ,
-  6500L  , 6989L , "6500-6989" , "OPTS"         , "Outpatient Physical Therapy Services"                                      ,
+  6500L  , 6989L , "6500-6989" , "OPT"          , "Outpatient Physical Therapy Services"                                      ,
   6990L  , 6999L , "6990-6999" , "RSVD"         , "Number Reserved (Formerly CSS)"                                            ,
   # 7000L,  8499L,   "7000-8499",    "HHA",           "Home Health Agency",
   7000L  , 7299L , "7000-7299" , "HHA"          , "Home Health Agency"                                                        ,
@@ -44,7 +44,7 @@ medicare_ranges <- tibble::tribble(
   8900L  , 8999L , "8900-8999" , "RHC"          , "Rural Health Clinic (Free-standing)"                                       ,
   9000L  , 9799L , "9000-9799" , "HHA"          , "Home Health Agency"                                                        ,
   9800L  , 9899L , "9800-9899" , "TXC"          , "Transplant Center"                                                         ,
-  9900L  , 9999L , "9900-9999" , "FOTP"         , "Freestanding Opioid Treatment Program"
+  9900L  , 9999L , "9900-9999" , "OTP"          , "Freestanding Opioid Treatment Program"
 )
 
 usethis::use_data(medicare_ranges, overwrite = TRUE)

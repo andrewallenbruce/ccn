@@ -28,3 +28,10 @@ check_range <- function(x, bounds, name) {
     )
   }
 }
+
+#' @noRd
+check_state <- function(x) {
+  if (!is_state_code(x)) {
+    cli::cli_abort(c("x" = "{.strong {x}} is not a valid state code."))
+  }
+}

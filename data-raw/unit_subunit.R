@@ -48,6 +48,18 @@ unit_types <- tibble::tribble(
 
 usethis::use_data(unit_types, overwrite = TRUE)
 
+unit_parents <- tibble::tribble(
+  ~code , ~infix , ~range        , ~abbr         , ~desc                                       ,
+  "U"   , "0"    , "0001-0879"   , "STC"         , "Short-Term Hospital (General & Specialty)" ,
+  "M"   , "1"    , "1300-1399"   , "CAH"         , "Critical Access Hospital"                  ,
+  "R"   , "1"    , "1300-1399"   , "CAH"         , "Critical Access Hospital"                  ,
+  "Z"   , "1"    , "1300-1399"   , "CAH"         , "Critical Access Hospital"                  ,
+  "W"   , "2"    , "2000-2299"   , "LTCH"        , "Long-Term Care Hospital"                   ,
+  "Y"   , "3"    , "3025-3099"   , "IRF"         , "Rehabilitation Hospital"                   ,
+  "S"   , "_"    , NA_character_ , NA_character_ , NA_character_                               ,
+  "T"   , "_"    , NA_character_ , NA_character_ , NA_character_
+)
+
 subunit_types <- tibble::tribble(
   ~code , ~prefix , ~abbr  ,
   "A"   , "20"    , "LTCH" ,

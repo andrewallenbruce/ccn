@@ -144,6 +144,61 @@ slice_subunit <- function(x) {
 }
 
 #' @noRd
+df_impl <- function(x) {
+  # class(x) <- c("tbl_df", "tbl", "data.frame")
+  list2DF(c(entity = class(x), x))
+}
+
+#' @rdname slice_medicare
+#' @export
+#' @keywords internal
+as.data.frame.medicare <- function(x, ...) {
+  df_impl(x)
+}
+
+#' @rdname slice_medicare
+#' @export
+#' @keywords internal
+as.data.frame.organ <- function(x, ...) {
+  df_impl(x)
+}
+
+#' @rdname slice_medicare
+#' @export
+#' @keywords internal
+as.data.frame.emergency <- function(x, ...) {
+  df_impl(x)
+}
+
+#' @rdname slice_medicare
+#' @export
+#' @keywords internal
+as.data.frame.supplier <- function(x, ...) {
+  df_impl(x)
+}
+
+#' @rdname slice_medicare
+#' @export
+#' @keywords internal
+as.data.frame.medicaid <- function(x, ...) {
+  df_impl(x)
+}
+
+#' @rdname slice_medicare
+#' @export
+#' @keywords internal
+as.data.frame.unit <- function(x, ...) {
+  df_impl(x)
+}
+
+#' @rdname slice_medicare
+#' @export
+#' @keywords internal
+as.data.frame.subunit <- function(x, ...) {
+  df_impl(x)
+}
+
+#' @noRd
 print_impl <- function(x) {
   cli::cli_text(
     paste0(rep(cli::symbol$line, 2), collapse = ""),
@@ -155,55 +210,6 @@ print_impl <- function(x) {
   ) |>
     cat(sep = "\n")
   invisible(x)
-}
-
-#' @rdname slice_medicare
-#' @export
-#' @keywords internal
-as.data.frame.medicare <- function(x, ...) {
-  list2DF(x)
-}
-
-#' @rdname slice_medicare
-#' @export
-#' @keywords internal
-as.data.frame.organ <- function(x, ...) {
-  list2DF(x)
-}
-
-#' @rdname slice_medicare
-#' @export
-#' @keywords internal
-as.data.frame.emergency <- function(x, ...) {
-  list2DF(x)
-}
-
-#' @rdname slice_medicare
-#' @export
-#' @keywords internal
-as.data.frame.supplier <- function(x, ...) {
-  list2DF(x)
-}
-
-#' @rdname slice_medicare
-#' @export
-#' @keywords internal
-as.data.frame.medicaid <- function(x, ...) {
-  list2DF(x)
-}
-
-#' @rdname slice_medicare
-#' @export
-#' @keywords internal
-as.data.frame.unit <- function(x, ...) {
-  list2DF(x)
-}
-
-#' @rdname slice_medicare
-#' @export
-#' @keywords internal
-as.data.frame.subunit <- function(x, ...) {
-  list2DF(x)
 }
 
 #' @rdname slice_medicare
