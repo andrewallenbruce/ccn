@@ -112,7 +112,7 @@ S7::method(as_data_frame, Organ) <- function(x) {
 S7::method(as_data_frame, Subunit) <- function(x) {
   cheapr::fast_df(
     ccn = x@ccn,
-    entity = "organ",
+    entity = "subunit",
     state = x@state@abbr,
     region = x@state@region,
     range = NA_character_,
@@ -126,7 +126,7 @@ S7::method(as_data_frame, Subunit) <- function(x) {
 S7::method(as_data_frame, Unit) <- function(x) {
   cheapr::fast_df(
     ccn = x@ccn,
-    entity = "organ",
+    entity = "unit",
     state = x@state@abbr,
     region = x@state@region,
     range = x@range,
@@ -140,7 +140,7 @@ S7::method(as_data_frame, Unit) <- function(x) {
 S7::method(as_data_frame, Supplier) <- function(x) {
   cheapr::fast_df(
     ccn = x@ccn,
-    entity = "organ",
+    entity = "supplier",
     state = x@state@abbr,
     region = x@state@region,
     range = x@range,
