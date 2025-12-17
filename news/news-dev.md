@@ -344,3 +344,8 @@
 - `as.data.frame` method for `parse`
   ([\#2](https://github.com/andrewallenbruce/ccn/issues/2))
 - facility ranges check
+
+## ccn 0.0.0.9077 (2025-12-16)
+
+- fix: bug in `provider_type`
+- fix: states internal dataset
