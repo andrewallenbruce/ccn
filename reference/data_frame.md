@@ -38,11 +38,11 @@ data_frame("05P001")
 #> 1 05P001  organ    CA     IX 001-099    NA  OPO   <NA> <NA>
 data_frame("21U101")
 #>      ccn entity state region   range eipps type parent  ext
-#> 1 21U101  organ    MD    III 001-999 FALSE  SBA 210101 <NA>
+#> 1 21U101   unit    MD    III 001-999 FALSE  SBA 210101 <NA>
 data_frame("21TA26")
-#>      ccn entity state region range eipps type parent  ext
-#> 1 21TA26  organ    MD    III  <NA>  TRUE  IRF 212026 <NA>
+#>      ccn  entity state region range eipps type parent  ext
+#> 1 21TA26 subunit    MD    III  <NA>  TRUE  IRF 212026 <NA>
 data_frame("45D0634589")
-#>          ccn entity state region           range eipps type parent  ext
-#> 1 45D0634589  organ    TX     VI 0000001-9999999    NA CLIA   <NA> <NA>
+#>          ccn   entity state region           range eipps type parent  ext
+#> 1 45D0634589 supplier    TX     VI 0000001-9999999    NA CLIA   <NA> <NA>
 ```
