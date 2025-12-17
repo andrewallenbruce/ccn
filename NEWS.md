@@ -1,5 +1,11 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9079 (2025-12-17)
+
+* initial Unit `@parent` implementation
+* `as.data.frame` method for decoded ccns (closes #2)
+
+
 # ccn 0.0.0.9078 (2025-12-17)
 
 * `unit_parents` internal dataset
