@@ -85,5 +85,34 @@ unit("21U101")
 #>  .. @ abbr : chr "SBA"
 #>  .. @ desc : chr "Swing-Bed Approval - STC"
 #>  .. @ eipps: logi FALSE
-#>  @ parent: chr "21_101"
+#>  @ parent: chr "210101"
+
+unit("28Z348")
+#> <ccn::Unit>
+#>  @ ccn   : chr "28Z348"
+#>  @ state : <ccn::State>
+#>  .. @ abbr  : chr "NE"
+#>  .. @ name  : chr "Nebraska"
+#>  .. @ region: chr "VII"
+#>  .. @ office: chr "Kansas City"
+#>  @ range : chr "001-999"
+#>  @ type  : <ccn::TypeUnit>
+#>  .. @ abbr : chr "SBA"
+#>  .. @ desc : chr "Swing-Bed Approval - CAH"
+#>  .. @ eipps: logi FALSE
+#>  @ parent: chr "281348"
+medicare("281348")
+#> <ccn::Medicare>
+#>  @ ccn      : chr "281348"
+#>  @ state    : <ccn::State>
+#>  .. @ abbr  : chr "NE"
+#>  .. @ name  : chr "Nebraska"
+#>  .. @ region: chr "VII"
+#>  .. @ office: chr "Kansas City"
+#>  @ range    : <ccn::RangeMCR>
+#>  .. @ series: chr "1300-1399"
+#>  .. @ abbr  : chr "CAH"
+#>  .. @ desc  : chr "Critical Access Hospital"
+#>  .. @ eipps : logi FALSE
+#>  @ extension: chr NA
 ```

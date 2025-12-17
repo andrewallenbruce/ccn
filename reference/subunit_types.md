@@ -20,7 +20,7 @@ A data frame with 10 rows and 3 columns:
 
 - prefix:
 
-  IPPS-Excluded type abbreviation
+  IPPS-Excluded range prefix
 
 - abbr:
 

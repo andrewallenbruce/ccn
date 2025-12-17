@@ -36,6 +36,8 @@ Parse and decode CMS Certification Numbers.
   : Decode CMS Certification Numbers
 - [`parse()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
   : Parse CMS Certification Numbers
+- [`data_frame()`](https://andrewallenbruce.github.io/ccn/reference/data_frame.md)
+  : Convert to a data.frame
 
 ## Classes
 

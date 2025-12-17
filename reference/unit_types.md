@@ -12,7 +12,7 @@ unit_types
 
 ### `unit_types`
 
-A data frame with 9 rows and 3 columns:
+A data frame with 9 rows and 4 columns:
 
 - code:
 
@@ -25,3 +25,7 @@ A data frame with 9 rows and 3 columns:
 - desc:
 
   IPPS-Excluded type description
+
+- infix:
+
+  IPPS-Excluded range infix

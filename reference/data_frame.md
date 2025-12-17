@@ -1,41 +1,48 @@
-# Convert to list/data.frame
+# Convert to a data.frame
 
-Convert to list/data.frame
+Convert various codes to their associated names.
 
 ## Usage
 
 ``` r
-as_list(x, ...)
-
-as_data_frame(x, ...)
+data_frame(x)
 ```
 
 ## Arguments
 
 - x:
 
-  ccn object
-
-- ...:
-
-  additional arguments
+  character vector of codes to look up.
 
 ## Value
 
-list or data.frame
+data.frame
 
 ## Examples
 
 ``` r
-if (FALSE) { # interactive()
-as_list(decode("670055"))
-as_list(decode("05P001"))
-
-c("670055", "05P001", "210101", "21T101", "21S101", "21U101",
-  "01L008", "12345E", "10C0001062", "45D0634589", "21X0009807",
-  "02TA01", "04SD38", "52TA05", "212026", "21SA26", "21TA26",
-  "24T019A", "33S23401", "330027001") |>
-purrr::map(decode) |>
-as_data_frame()
-}
+data_frame("670055")
+#>      ccn   entity state region     range eipps type parent  ext
+#> 1 670055 medicare    TX     VI 0001-0879 FALSE  STC   <NA> <NA>
+data_frame("21034E")
+#>      ccn    entity state region   range eipps type parent  ext
+#> 1 21034E emergency    MD    III 001-999    NA   NF   <NA> <NA>
+data_frame("01L008")
+#>      ccn   entity state region   range eipps type parent  ext
+#> 1 01L008 medicaid    AL     IV 001-999    NA PRTF   <NA> <NA>
+data_frame("01J008")
+#>      ccn   entity state region   range eipps type parent  ext
+#> 1 01J008 medicaid    AL     IV 001-099    NA STAC   <NA> <NA>
+data_frame("05P001")
+#>      ccn entity state region   range eipps type parent  ext
+#> 1 05P001  organ    CA     IX 001-099    NA  OPO   <NA> <NA>
+data_frame("21U101")
+#>      ccn entity state region   range eipps type parent  ext
+#> 1 21U101  organ    MD    III 001-999 FALSE  SBA 210101 <NA>
+data_frame("21TA26")
+#>      ccn entity state region range eipps type parent  ext
+#> 1 21TA26  organ    MD    III  <NA>  TRUE  IRF 212026 <NA>
+data_frame("45D0634589")
+#>          ccn entity state region           range eipps type parent  ext
+#> 1 45D0634589  organ    TX     VI 0000001-9999999    NA CLIA   <NA> <NA>
 ```

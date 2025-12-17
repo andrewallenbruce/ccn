@@ -140,7 +140,7 @@ decode("21U101")
 #>  .. @ abbr : chr "SBA"
 #>  .. @ desc : chr "Swing-Bed Approval - STC"
 #>  .. @ eipps: logi FALSE
-#>  @ parent: chr "21_101"
+#>  @ parent: chr "210101"
 decode("01L008")
 #> <ccn::Medicaid>
 #>  @ ccn  : chr "01L008"

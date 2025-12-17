@@ -355,3 +355,9 @@
 - `unit_parents` internal dataset
 - `check_state` assertion
 - class preserved in `as.data.frame` method
+
+## ccn 0.0.0.9079 (2025-12-17)
+
+- initial Unit `@parent` implementation
+- `as.data.frame` method for decoded ccns (closes
+  [\#2](https://github.com/andrewallenbruce/ccn/issues/2))
