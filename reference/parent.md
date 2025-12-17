@@ -62,7 +62,7 @@ parent("21SB26")
 #>  .. @ office: chr "Philadelphia"
 #>  @ range    : <ccn::RangeMCR>
 #>  .. @ series: chr "2000-2299"
-#>  .. @ abbr  : chr "LTC"
+#>  .. @ abbr  : chr "LTCH"
 #>  .. @ desc  : chr "Long-Term Care Hospital"
 #>  .. @ eipps : logi TRUE
 #>  @ extension: chr NA

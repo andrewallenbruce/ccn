@@ -349,3 +349,9 @@
 
 - fix: bug in `provider_type`
 - fix: states internal dataset
+
+## ccn 0.0.0.9078 (2025-12-17)
+
+- `unit_parents` internal dataset
+- `check_state` assertion
+- class preserved in `as.data.frame` method
