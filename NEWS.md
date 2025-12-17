@@ -1,5 +1,11 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9077 (2025-12-16)
+
+* fix: bug in `provider_type`
+* fix: states internal dataset
+
+
 # ccn 0.0.0.9076 (2025-12-16)
 
 * `as.data.frame` method for `parse` (#2)
