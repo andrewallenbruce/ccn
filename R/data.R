@@ -71,11 +71,12 @@
 #' IPPS-Excluded Hospital Unit Types/Swing-Bed Approvals
 #'
 #' @format ## `unit_types`
-#' A data frame with 9 rows and 3 columns:
+#' A data frame with 9 rows and 4 columns:
 #' \describe{
 #'   \item{code}{IPPS-Excluded type code}
 #'   \item{abbr}{IPPS-Excluded type abbreviation}
 #'   \item{desc}{IPPS-Excluded type description}
+#'   \item{infix}{IPPS-Excluded range infix}
 #'   ...
 #' }
 #' @keywords internal
@@ -87,7 +88,7 @@
 #' A data frame with 10 rows and 3 columns:
 #' \describe{
 #'   \item{code}{IPPS-Excluded type code}
-#'   \item{prefix}{IPPS-Excluded type abbreviation}
+#'   \item{prefix}{IPPS-Excluded range prefix}
 #'   \item{abbr}{IPPS-Excluded type description}
 #'   ...
 #' }

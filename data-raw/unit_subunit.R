@@ -34,30 +34,31 @@
 #' CAH could have swing-bed approval, an IPPS-excluded rehabilitation unit,
 #' and/or an IPPS-excluded psychiatric unit.
 unit_types <- tibble::tribble(
-  ~code , ~abbr , ~desc                         ,
-  "M"   , "PSY" , "Psychiatric Unit - CAH"      ,
-  "R"   , "IRF" , "Rehabilitation Unit - CAH"   ,
-  "S"   , "PSY" , "Psychiatric Unit"            ,
-  "T"   , "IRF" , "Rehabilitation Unit"         ,
-  "U"   , "SBA" , "Swing-Bed Approval - STC"    ,
-  "V"   , "ADU" , "Alcohol-Drug Unit (Retired)" ,
-  "W"   , "SBA" , "Swing-Bed Approval - LTCH"   ,
-  "Y"   , "SBA" , "Swing-Bed Approval - IRF"    ,
-  "Z"   , "SBA" , "Swing-Bed Approval - CAH"
+  ~code , ~abbr , ~desc                         , ~infix ,
+  "M"   , "PSY" , "Psychiatric Unit - CAH"      , "1"    ,
+  "R"   , "IRF" , "Rehabilitation Unit - CAH"   , "1"    ,
+  "S"   , "PSY" , "Psychiatric Unit"            , "_"    ,
+  "T"   , "IRF" , "Rehabilitation Unit"         , "_"    ,
+  "U"   , "SBA" , "Swing-Bed Approval - STC"    , "0"    ,
+  "V"   , "ADU" , "Alcohol-Drug Unit (Retired)" , "_"    ,
+  "W"   , "SBA" , "Swing-Bed Approval - LTCH"   , "2"    ,
+  "Y"   , "SBA" , "Swing-Bed Approval - IRF"    , "3"    ,
+  "Z"   , "SBA" , "Swing-Bed Approval - CAH"    , "1"
 )
 
 usethis::use_data(unit_types, overwrite = TRUE)
 
 unit_parents <- tibble::tribble(
   ~code , ~infix , ~range        , ~abbr         , ~desc                                       ,
-  "U"   , "0"    , "0001-0879"   , "STC"         , "Short-Term Hospital (General & Specialty)" ,
   "M"   , "1"    , "1300-1399"   , "CAH"         , "Critical Access Hospital"                  ,
   "R"   , "1"    , "1300-1399"   , "CAH"         , "Critical Access Hospital"                  ,
-  "Z"   , "1"    , "1300-1399"   , "CAH"         , "Critical Access Hospital"                  ,
+  "S"   , "_"    , NA_character_ , NA_character_ , NA_character_                               ,
+  "T"   , "_"    , NA_character_ , NA_character_ , NA_character_                               ,
+  "U"   , "0"    , "0001-0879"   , "STC"         , "Short-Term Hospital (General & Specialty)" ,
+  "V"   , "_"    , NA_character_ , "ADU"         , "Alcohol-Drug Unit (Retired)"               ,
   "W"   , "2"    , "2000-2299"   , "LTCH"        , "Long-Term Care Hospital"                   ,
   "Y"   , "3"    , "3025-3099"   , "IRF"         , "Rehabilitation Hospital"                   ,
-  "S"   , "_"    , NA_character_ , NA_character_ , NA_character_                               ,
-  "T"   , "_"    , NA_character_ , NA_character_ , NA_character_
+  "Z"   , "1"    , "1300-1399"   , "CAH"         , "Critical Access Hospital"                  ,
 )
 
 subunit_types <- tibble::tribble(

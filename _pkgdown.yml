@@ -28,6 +28,7 @@ reference:
   contents:
   - decode
   - parse
+  - data_frame
 
 - title: Classes
   desc: >

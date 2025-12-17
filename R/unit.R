@@ -19,7 +19,15 @@
 #' unit("21T101")
 #' unit("21S101")
 #' unit("21U101")
+#'
+#' unit("28Z348")
+#' medicare("281348")
 NULL
+
+#' @noRd
+unit_type_infix <- function(x) {
+  vs(x, ccn::unit_types[["code"]], ccn::unit_types[["infix"]])
+}
 
 #' @noRd
 unit_type_abbr <- function(x) {
@@ -33,7 +41,11 @@ unit_type_desc <- function(x) {
 
 #' @noRd
 unit_parent_ccn <- function(x) {
-  paste0(substring(x, 1L, 2L), "_", substring(x, 4L, 6L))
+  paste0(
+    substring(x, 1L, 2L),
+    unit_type_infix(substring(x, 3L, 3L)),
+    substring(x, 4L, 6L)
+  )
 }
 
 #' @noRd

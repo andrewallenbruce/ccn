@@ -10,7 +10,7 @@
 A data frame with 10 rows and 3 columns:
 \describe{
 \item{code}{IPPS-Excluded type code}
-\item{prefix}{IPPS-Excluded type abbreviation}
+\item{prefix}{IPPS-Excluded range prefix}
 \item{abbr}{IPPS-Excluded type description}
 ...
 }

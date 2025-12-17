@@ -18,6 +18,8 @@ x_unit <- x$six[
     is_numeric(substring(x$six, 4L, 6L))
 ]
 
+x_unit[!substring(x_unit, 3L, 3L) %in% c("S", "T", "V")]
+
 # Emergency
 x_emergency <- x$six[is_emergency_type(substring(x$six, 6L, 6L))]
 
