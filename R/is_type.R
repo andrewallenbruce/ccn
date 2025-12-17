@@ -91,7 +91,7 @@ ccn_type <- function(x) {
 #' @noRd
 provider_type <- function(x) {
   kit::nif(
-    is_numeric(substring(x, 1L, 6L)),
+    is_numeric(substring(x, 3L, 6L)),
     "medicare",
     is_organ_type(substring(x, 3L, 3L)),
     "organ",
