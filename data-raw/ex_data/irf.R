@@ -33,6 +33,16 @@ irf <- readr::read_csv(
   ) |>
   collapse::funique()
 
+unit_parent_incomplete <- purrr::map(irf$ccn, data_frame) |>
+  data.table::rbindlist() |>
+  collapse::sbt(entity == "unit" & substring(parent, 3L, 3L) == "_") |>
+  _$parent
+
+purrr::map(c(unit_parent, irf$ccn), data_frame) |>
+  data.table::rbindlist() |>
+  fastplyr::as_tbl()
+
+
 # irf === 1,221 × 3  [213.7 KB]
 pin_update(
   irf,

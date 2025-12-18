@@ -19,8 +19,37 @@ NULL
 #' @export
 parent <- S7::new_generic("parent", "x")
 
-S7::method(parent, class_character) <- function(x) {
-  decode(x) |>
-    S7::prop("parent") |>
-    decode()
+#' @noRd
+has_parent <- function(x) {
+  inherits(x, "subunit") ||
+    inherits(x, "unit") & (!x$type %chin% c("S", "T", "V"))
+}
+
+S7::method(parent, S7::class_character) <- function(x) {
+  x <- parse(x)
+
+  if (has_parent(x)) {
+    return(parent(x))
+  }
+  cli::cli_alert_danger(
+    "{.strong {.pkg {x$ccn}}} ({.obj_type_friendly {x}}) has no {.cls parent} unit."
+  )
+  invisible(NULL)
+}
+
+S7::method(parent, S7::new_S3_class("unit")) <- function(x) {
+  unit_parent_ccn(x$ccn) |>
+    parse() |>
+    parent()
+}
+
+
+S7::method(parent, S7::new_S3_class("subunit")) <- function(x) {
+  subunit_parent_ccn(x$ccn) |>
+    parse() |>
+    parent()
+}
+
+S7::method(parent, S7::new_S3_class("medicare")) <- function(x) {
+  decode(x)
 }
