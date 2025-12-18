@@ -22,27 +22,43 @@ data.frame
 
 ``` r
 data_frame("670055")
-#>      ccn   entity state region     range eipps type parent  ext
-#> 1 670055 medicare    TX     VI 0001-0879 FALSE  STC   <NA> <NA>
+#> # A tibble: 1 × 9
+#>   ccn    entity   state      region      range     eipps type       parent ext  
+#>   <chr>  <chr>    <chr>      <chr>       <chr>     <lgl> <chr>      <chr>  <chr>
+#> 1 670055 Medicare TX (Texas) VI (Dallas) 0001-0879 FALSE STC (Shor… NA     NA   
 data_frame("21034E")
-#>      ccn    entity state region   range eipps type parent  ext
-#> 1 21034E emergency    MD    III 001-999    NA   NF   <NA> <NA>
+#> # A tibble: 1 × 9
+#>   ccn    entity             state         region  range eipps type  parent ext  
+#>   <chr>  <chr>              <chr>         <chr>   <chr> <lgl> <chr> <chr>  <chr>
+#> 1 21034E Emergency Hospital MD (Maryland) III (P… 001-… NA    NF (… NA     NA   
 data_frame("01L008")
-#>      ccn   entity state region   range eipps type parent  ext
-#> 1 01L008 medicaid    AL     IV 001-999    NA PRTF   <NA> <NA>
+#> # A tibble: 1 × 9
+#>   ccn    entity        state        region       range  eipps type  parent ext  
+#>   <chr>  <chr>         <chr>        <chr>        <chr>  <lgl> <chr> <chr>  <chr>
+#> 1 01L008 Medicaid-Only AL (Alabama) IV (Atlanta) 001-9… NA    PRTF… NA     NA   
 data_frame("01J008")
-#>      ccn   entity state region   range eipps type parent  ext
-#> 1 01J008 medicaid    AL     IV 001-099    NA STAC   <NA> <NA>
+#> # A tibble: 1 × 9
+#>   ccn    entity        state        region       range  eipps type  parent ext  
+#>   <chr>  <chr>         <chr>        <chr>        <chr>  <lgl> <chr> <chr>  <chr>
+#> 1 01J008 Medicaid-Only AL (Alabama) IV (Atlanta) 001-0… NA    STAC… NA     NA   
 data_frame("05P001")
-#>      ccn entity state region   range eipps type parent  ext
-#> 1 05P001  organ    CA     IX 001-099    NA  OPO   <NA> <NA>
+#> # A tibble: 1 × 9
+#>   ccn    entity   state           region          range eipps type  parent ext  
+#>   <chr>  <chr>    <chr>           <chr>           <chr> <lgl> <chr> <chr>  <chr>
+#> 1 05P001 Medicare CA (California) IX (San Franci… 001-… NA    OPO … NA     NA   
 data_frame("21U101")
-#>      ccn entity state region   range eipps type parent  ext
-#> 1 21U101   unit    MD    III 001-999 FALSE  SBA 210101 <NA>
+#> # A tibble: 1 × 9
+#>   ccn    entity state         region             range  eipps type  parent ext  
+#>   <chr>  <chr>  <chr>         <chr>              <chr>  <lgl> <chr> <chr>  <chr>
+#> 1 21U101 Unit   MD (Maryland) III (Philadelphia) 001-9… FALSE SBA … 210101 NA   
 data_frame("21TA26")
-#>      ccn  entity state region range eipps type parent  ext
-#> 1 21TA26 subunit    MD    III  <NA>  TRUE  IRF 212026 <NA>
+#> # A tibble: 1 × 9
+#>   ccn    entity  state         region             range eipps type  parent ext  
+#>   <chr>  <chr>   <chr>         <chr>              <chr> <lgl> <chr> <chr>  <chr>
+#> 1 21TA26 Subunit MD (Maryland) III (Philadelphia) NA    TRUE  IRF … 212026 NA   
 data_frame("45D0634589")
-#>          ccn   entity state region           range eipps type parent  ext
-#> 1 45D0634589 supplier    TX     VI 0000001-9999999    NA CLIA   <NA> <NA>
+#> # A tibble: 1 × 9
+#>   ccn        entity   state      region      range      eipps type  parent ext  
+#>   <chr>      <chr>    <chr>      <chr>       <chr>      <lgl> <chr> <chr>  <chr>
+#> 1 45D0634589 Supplier TX (Texas) VI (Dallas) 0000001-9… NA    CLIA… NA     NA   
 ```
