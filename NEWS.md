@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9080 (2025-12-17)
+
+* parent generic and methods
+
+
 # ccn 0.0.0.9079 (2025-12-17)
 
 * initial Unit `@parent` implementation
