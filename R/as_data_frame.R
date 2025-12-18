@@ -43,110 +43,139 @@ is_decoded <- function(x) {
 }
 
 #' @noRd
-as_data_frame <- S7::new_generic("as_data_frame", "x")
+state0 <- function(x) {
+  S7::prop(x, "state") |>
+    (\(x) paste0(S7::prop(x, "abbr"), " (", S7::prop(x, "name"), ")"))()
+}
 
-S7::method(as_data_frame, Emergency) <- function(x) {
-  cheapr::fast_df(
-    ccn = x@ccn,
-    entity = "emergency",
-    state = x@state@abbr,
-    region = x@state@region,
-    range = x@range,
-    eipps = NA,
-    type = x@type@abbr,
-    parent = NA_character_,
-    ext = NA_character_
+#' @noRd
+region0 <- function(x) {
+  S7::prop(x, "state") |>
+    (\(x) paste0(S7::prop(x, "region"), " (", S7::prop(x, "office"), ")"))()
+}
+
+#' @noRd
+type0 <- function(x) {
+  S7::prop(x, "type") |>
+    (\(x) paste0(S7::prop(x, "abbr"), " (", S7::prop(x, "desc"), ")"))()
+}
+
+#' @noRd
+range0 <- function(x) {
+  S7::prop(x, "range") |>
+    (\(x) paste0(S7::prop(x, "abbr"), " (", S7::prop(x, "desc"), ")"))()
+}
+
+#' @noRd
+series0 <- function(x) {
+  S7::prop(x, "range") |> S7::prop("series")
+}
+
+#' @noRd
+ext0 <- function(x) {
+  S7::prop(x, "extension")
+}
+
+#' @noRd
+range0_medicaid <- function(x) {
+  if (substring(S7::prop(x, "ccn"), 3L, 3L) == "J") {
+    series0(x)
+  } else {
+    S7::prop(x, "range")
+  }
+}
+
+#' @noRd
+type0_medicaid <- function(x) {
+  if (substring(S7::prop(x, "ccn"), 3L, 3L) == "J") {
+    range0(x)
+  } else {
+    type0(x)
+  }
+}
+
+#' @noRd
+S7_as_df <- function(
+  x,
+  entity,
+  range = S7::prop(x, "range"),
+  eipps = NA,
+  type = type0(x),
+  parent = NA_character_,
+  ext = NA_character_
+) {
+  `class<-`(
+    cheapr::fast_df(
+      ccn = S7::prop(x, "ccn"),
+      entity = entity,
+      state = state0(x),
+      region = region0(x),
+      range = range,
+      eipps = eipps,
+      type = type,
+      parent = parent,
+      ext = ext
+    ),
+    c("tbl_df", "tbl", "data.frame")
   )
 }
 
+#' @noRd
+as_data_frame <- S7::new_generic("as_data_frame", "x")
+
+S7::method(as_data_frame, Emergency) <- function(x) {
+  S7_as_df(x, entity = "Emergency Hospital")
+}
+
 S7::method(as_data_frame, Medicaid) <- function(x) {
-  cheapr::fast_df(
-    ccn = x@ccn,
-    entity = "medicaid",
-    state = x@state@abbr,
-    region = x@state@region,
-    range = if (is_moh_type(substring(x@ccn, 3L, 3L))) {
-      x@range@series
-    } else {
-      x@range
-    },
-    eipps = NA,
-    type = if (is_moh_type(substring(x@ccn, 3L, 3L))) {
-      x@range@abbr
-    } else {
-      x@type@abbr
-    },
-    parent = NA_character_,
-    ext = NA_character_
+  S7_as_df(
+    x,
+    entity = "Medicaid-Only",
+    range = range0_medicaid(x),
+    type = type0_medicaid(x)
   )
 }
 
 S7::method(as_data_frame, Medicare) <- function(x) {
-  cheapr::fast_df(
-    ccn = x@ccn,
-    entity = "medicare",
-    state = x@state@abbr,
-    region = x@state@region,
-    range = x@range@series,
-    eipps = x@range@eipps,
-    type = x@range@abbr,
-    parent = NA_character_,
-    ext = x@extension
+  S7_as_df(
+    x,
+    entity = "Medicare",
+    range = series0(x),
+    eipps = S7::prop(x, "range") |> S7::prop("eipps"),
+    type = range0(x),
+    ext = ext0(x)
   )
 }
 
 S7::method(as_data_frame, Organ) <- function(x) {
-  cheapr::fast_df(
-    ccn = x@ccn,
-    entity = "organ",
-    state = x@state@abbr,
-    region = x@state@region,
-    range = x@range,
-    eipps = NA,
-    type = x@type@abbr,
-    parent = NA_character_,
-    ext = NA_character_
-  )
+  S7_as_df(x, entity = "Medicare")
 }
 
 S7::method(as_data_frame, Subunit) <- function(x) {
-  cheapr::fast_df(
-    ccn = x@ccn,
-    entity = "subunit",
-    state = x@state@abbr,
-    region = x@state@region,
+  S7_as_df(
+    x,
+    entity = "Subunit",
     range = NA_character_,
-    eipps = x@type@eipps,
-    type = x@type@abbr,
-    parent = x@parent,
-    ext = NA_character_
+    eipps = S7::prop(x, "type") |> S7::prop("eipps"),
+    type = type0(x),
+    parent = S7::prop(x, "parent")
   )
 }
 
 S7::method(as_data_frame, Unit) <- function(x) {
-  cheapr::fast_df(
-    ccn = x@ccn,
-    entity = "unit",
-    state = x@state@abbr,
-    region = x@state@region,
-    range = x@range,
-    eipps = x@type@eipps,
-    type = x@type@abbr,
-    parent = x@parent,
-    ext = NA_character_
+  S7_as_df(
+    x,
+    entity = "Unit",
+    eipps = S7::prop(x, "type") |> S7::prop("eipps"),
+    type = type0(x),
+    parent = S7::prop(x, "parent")
   )
 }
 
 S7::method(as_data_frame, Supplier) <- function(x) {
-  cheapr::fast_df(
-    ccn = x@ccn,
-    entity = "supplier",
-    state = x@state@abbr,
-    region = x@state@region,
-    range = x@range,
-    eipps = NA,
-    type = x@type@abbr,
-    parent = NA_character_,
-    ext = NA_character_
+  S7_as_df(
+    x,
+    entity = "Supplier",
+    ext = ext0(x)
   )
 }

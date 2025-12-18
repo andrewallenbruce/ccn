@@ -144,58 +144,57 @@ slice_subunit <- function(x) {
 }
 
 #' @noRd
-df_impl <- function(x) {
-  # class(x) <- c("tbl_df", "tbl", "data.frame")
-  list2DF(c(entity = class(x), x))
+S3_as_df <- function(x) {
+  `class<-`(list2DF(c(entity = class(x), x)), c("tbl_df", "tbl", "data.frame"))
 }
 
 #' @rdname slice_medicare
 #' @export
 #' @keywords internal
 as.data.frame.medicare <- function(x, ...) {
-  df_impl(x)
+  S3_as_df(x)
 }
 
 #' @rdname slice_medicare
 #' @export
 #' @keywords internal
 as.data.frame.organ <- function(x, ...) {
-  df_impl(x)
+  S3_as_df(x)
 }
 
 #' @rdname slice_medicare
 #' @export
 #' @keywords internal
 as.data.frame.emergency <- function(x, ...) {
-  df_impl(x)
+  S3_as_df(x)
 }
 
 #' @rdname slice_medicare
 #' @export
 #' @keywords internal
 as.data.frame.supplier <- function(x, ...) {
-  df_impl(x)
+  S3_as_df(x)
 }
 
 #' @rdname slice_medicare
 #' @export
 #' @keywords internal
 as.data.frame.medicaid <- function(x, ...) {
-  df_impl(x)
+  S3_as_df(x)
 }
 
 #' @rdname slice_medicare
 #' @export
 #' @keywords internal
 as.data.frame.unit <- function(x, ...) {
-  df_impl(x)
+  S3_as_df(x)
 }
 
 #' @rdname slice_medicare
 #' @export
 #' @keywords internal
 as.data.frame.subunit <- function(x, ...) {
-  df_impl(x)
+  S3_as_df(x)
 }
 
 #' @noRd
