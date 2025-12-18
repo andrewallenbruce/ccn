@@ -361,3 +361,7 @@
 - initial Unit `@parent` implementation
 - `as.data.frame` method for decoded ccns (closes
   [\#2](https://github.com/andrewallenbruce/ccn/issues/2))
+
+## ccn 0.0.0.9080 (2025-12-17)
+
+- parent generic and methods
