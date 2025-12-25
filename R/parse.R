@@ -16,7 +16,7 @@
 #' parse("240019A")
 #' parse("330125001")
 #' parse("000000000")
-#' parse("000000000000")
+#' parse("00000000000000")
 #' @export
 parse <- function(x) {
   if (!nzchar(x)) {

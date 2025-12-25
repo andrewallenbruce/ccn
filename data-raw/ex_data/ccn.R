@@ -7,33 +7,8 @@
 # hosp       ===     9,217 × 22  |=>     [2.1 m]
 # hosp_info  ===     5,381 ×  6  |=>   [990.3 k]
 
-# initial length == 81982
-# unique length  == 51270
-ccns <- vctrs::vec_c(
-  get_pin("asc")$ccn,
-  get_pin("aff")$fac$ccn,
-  get_pin("aff")$sub$ccn,
-  get_pin("aff")$sub$parent,
-  get_pin("esrd")$ccn,
-  get_pin("hha")$ccn,
-  get_pin("hosp")$ccn,
-  get_pin("hosp_info")$ccn,
-  get_pin("irf")$ccn,
-  get_pin("ltch")$ccn
-) |>
-  collapse::funique() |>
-  kit::psort(nThread = 4L) |>
-  stringfish::convert_to_sf()
-
-pin_update(
-  ccns,
-  name = "ccn",
-  title = "52k ccns",
-  description = "A character vector of 52k unique CCNs"
-)
-
-ccn_extras <- list(
-  eipps_hosp_with_eipps_unit = c(
+extras <- list(
+  subunits = c(
     "02TA01",
     "04SD38",
     "05TA46",
@@ -83,7 +58,7 @@ ccn_extras <- list(
     "52TA05",
     "52TA08"
   ),
-  extension = c(
+  extensions = c(
     "24T019A",
     "30S020A",
     "31S032A",
@@ -134,7 +109,7 @@ ccn_extras <- list(
     "33S395002",
     "33T027001"
   ),
-  supplier = c(
+  suppliers = c(
     c(
       "11X0009845",
       "11X0009814",
@@ -154,4 +129,31 @@ ccn_extras <- list(
       "11D2306220"
     ) # Wiregrass Georgia Tech College Student Health Center, Valdosta, GA
   )
+)
+
+# initial    == 82095
+# unique     == 52270
+# duplicates == 29825
+ccns <- vctrs::vec_c(
+  ccn:::unlist_(extras),
+  get_pin("asc")$ccn,
+  get_pin("aff")$fac$ccn,
+  get_pin("aff")$sub$ccn,
+  get_pin("aff")$sub$parent,
+  get_pin("esrd")$ccn,
+  get_pin("hha")$ccn,
+  get_pin("hosp")$ccn,
+  get_pin("hosp_info")$ccn,
+  get_pin("irf")$ccn,
+  get_pin("ltch")$ccn
+) |>
+  collapse::funique() |>
+  kit::psort(nThread = 4L) |>
+  stringfish::convert_to_sf()
+
+pin_update(
+  ccns,
+  name = "ccn",
+  title = "52k ccns",
+  description = "A character vector of 52k unique CCNs"
 )

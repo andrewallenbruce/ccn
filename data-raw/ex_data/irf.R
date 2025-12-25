@@ -40,3 +40,13 @@ pin_update(
   title = "Inpatient Rehabilitation Facility",
   description = "Inpatient Rehabilitation Facility - Provider Data"
 )
+
+x <- get_pin("irf")
+
+x
+
+x_decode <- purrr::map(x$ccn, \(x) ccn::data_frame(x)) |>
+  collapse::rowbind(fill = TRUE)
+
+x_decode |>
+  collapse::descr()

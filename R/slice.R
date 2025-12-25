@@ -200,7 +200,7 @@ as.data.frame.subunit <- function(x, ...) {
 #' @noRd
 print_impl <- function(x) {
   cli::cli_text(
-    paste0(rep(cli::symbol$line, 2), collapse = ""),
+    # paste0(rep(cli::symbol$line, 2), collapse = ""),
     "<{cli::col_red('parsed')}:{cli::col_yellow(class(x))}>"
   )
   glue::glue(
