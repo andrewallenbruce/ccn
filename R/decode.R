@@ -33,7 +33,6 @@
 #' decode("240019A")
 #' decode("330125001")
 #' decode("000000000000")
-#' # decode("000000000")
 #' @export
 decode <- function(x) {
   if (is_parsed(x)) {

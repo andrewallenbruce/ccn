@@ -18,10 +18,8 @@ S7 object of class \code{Medicare}.
 Convert various codes to their associated names.
 }
 \examples{
+parent("21AE26")
 parent("21SE26")
-subunit("21SE26")
 parent("21SB26")
-subunit("21SB26")
 parent("21SD26")
-subunit("21SD26")
 }
