@@ -68,7 +68,7 @@ unit("21S101")
 #>  .. @ office: chr "Philadelphia"
 #>  @ range : chr "001-999"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "PSY"
+#>  .. @ abbr : chr "PU"
 #>  .. @ desc : chr "Psychiatric Unit"
 #>  .. @ eipps: logi TRUE
 #>  @ parent: chr "21_101"
@@ -83,7 +83,7 @@ unit("21U101")
 #>  @ range : chr "001-999"
 #>  @ type  : <ccn::TypeUnit>
 #>  .. @ abbr : chr "SBA"
-#>  .. @ desc : chr "Swing-Bed Approval - STC"
+#>  .. @ desc : chr "Swing-Bed Approval [STC]"
 #>  .. @ eipps: logi FALSE
 #>  @ parent: chr "210101"
 
@@ -98,7 +98,7 @@ unit("28Z348")
 #>  @ range : chr "001-999"
 #>  @ type  : <ccn::TypeUnit>
 #>  .. @ abbr : chr "SBA"
-#>  .. @ desc : chr "Swing-Bed Approval - CAH"
+#>  .. @ desc : chr "Swing-Bed Approval [CAH]"
 #>  .. @ eipps: logi FALSE
 #>  @ parent: chr "281348"
 medicare("281348")

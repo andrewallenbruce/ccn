@@ -92,7 +92,7 @@ medicaid("01J008")
 #>  .. @ office: chr "Atlanta"
 #>  @ range: <ccn::RangeMOH>
 #>  .. @ series: chr "001-099"
-#>  .. @ abbr  : chr "STAC"
+#>  .. @ abbr  : chr "STC"
 #>  .. @ desc  : chr "Short-Term Acute Care Hospital"
 #>  @ type : <ccn::TypeMOF>
 #>  .. @ abbr: chr "MOH"
@@ -107,7 +107,7 @@ medicaid("A5J508")
 #>  .. @ office: chr "Atlanta"
 #>  @ range: <ccn::RangeMOH>
 #>  .. @ series: chr "500-599"
-#>  .. @ abbr  : chr "LTC"
+#>  .. @ abbr  : chr "LTCH"
 #>  .. @ desc  : chr "Long-Term Hospital"
 #>  @ type : <ccn::TypeMOF>
 #>  .. @ abbr: chr "MOH"

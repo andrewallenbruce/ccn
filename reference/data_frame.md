@@ -40,7 +40,7 @@ data_frame("01J008")
 #> # A tibble: 1 × 9
 #>   ccn    entity        state        region       range  eipps type  parent ext  
 #>   <chr>  <chr>         <chr>        <chr>        <chr>  <lgl> <chr> <chr>  <chr>
-#> 1 01J008 Medicaid-Only AL (Alabama) IV (Atlanta) 001-0… NA    STAC… NA     NA   
+#> 1 01J008 Medicaid-Only AL (Alabama) IV (Atlanta) 001-0… NA    STC … NA     NA   
 data_frame("05P001")
 #> # A tibble: 1 × 9
 #>   ccn    entity   state           region          range eipps type  parent ext  

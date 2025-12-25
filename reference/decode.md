@@ -123,7 +123,7 @@ decode("21S101")
 #>  .. @ office: chr "Philadelphia"
 #>  @ range : chr "001-999"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "PSY"
+#>  .. @ abbr : chr "PU"
 #>  .. @ desc : chr "Psychiatric Unit"
 #>  .. @ eipps: logi TRUE
 #>  @ parent: chr "21_101"
@@ -138,7 +138,7 @@ decode("21U101")
 #>  @ range : chr "001-999"
 #>  @ type  : <ccn::TypeUnit>
 #>  .. @ abbr : chr "SBA"
-#>  .. @ desc : chr "Swing-Bed Approval - STC"
+#>  .. @ desc : chr "Swing-Bed Approval [STC]"
 #>  .. @ eipps: logi FALSE
 #>  @ parent: chr "210101"
 decode("01L008")
@@ -199,7 +199,7 @@ decode("01J008")
 #>  .. @ office: chr "Atlanta"
 #>  @ range: <ccn::RangeMOH>
 #>  .. @ series: chr "001-099"
-#>  .. @ abbr  : chr "STAC"
+#>  .. @ abbr  : chr "STC"
 #>  .. @ desc  : chr "Short-Term Acute Care Hospital"
 #>  @ type : <ccn::TypeMOF>
 #>  .. @ abbr: chr "MOH"
@@ -214,7 +214,7 @@ decode("A5J508")
 #>  .. @ office: chr "Atlanta"
 #>  @ range: <ccn::RangeMOH>
 #>  .. @ series: chr "500-599"
-#>  .. @ abbr  : chr "LTC"
+#>  .. @ abbr  : chr "LTCH"
 #>  .. @ desc  : chr "Long-Term Hospital"
 #>  @ type : <ccn::TypeMOF>
 #>  .. @ abbr: chr "MOH"
@@ -228,7 +228,7 @@ decode("21SA26")
 #>  .. @ region: chr "III"
 #>  .. @ office: chr "Philadelphia"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "PSY"
+#>  .. @ abbr : chr "PU"
 #>  .. @ desc : chr "Psychiatric Unit"
 #>  .. @ eipps: logi TRUE
 #>  @ parent: chr "212026"
@@ -267,7 +267,7 @@ decode("04SD38")
 #>  .. @ region: chr "VI"
 #>  .. @ office: chr "Dallas"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "PSY"
+#>  .. @ abbr : chr "PU"
 #>  .. @ desc : chr "Psychiatric Unit"
 #>  .. @ eipps: logi TRUE
 #>  @ parent: chr "043038"

@@ -26,6 +26,6 @@ A data frame with 59 rows and 4 columns:
 
   State abbreviation
 
-- city:
+- office:
 
   Regional office city

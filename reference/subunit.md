@@ -30,7 +30,7 @@ subunit("21SA26")
 #>  .. @ region: chr "III"
 #>  .. @ office: chr "Philadelphia"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "PSY"
+#>  .. @ abbr : chr "PU"
 #>  .. @ desc : chr "Psychiatric Unit"
 #>  .. @ eipps: logi TRUE
 #>  @ parent: chr "212026"
@@ -69,7 +69,7 @@ subunit("04SD38")
 #>  .. @ region: chr "VI"
 #>  .. @ office: chr "Dallas"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "PSY"
+#>  .. @ abbr : chr "PU"
 #>  .. @ desc : chr "Psychiatric Unit"
 #>  .. @ eipps: logi TRUE
 #>  @ parent: chr "043038"
