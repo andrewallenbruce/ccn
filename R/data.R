@@ -19,7 +19,7 @@
 #'   \item{ro}{Region number}
 #'   \item{region}{Region roman numeral}
 #'   \item{state}{State abbreviation}
-#'   \item{city}{Regional office city}
+#'   \item{office}{Regional office city}
 #'   ...
 #' }
 #' @keywords internal

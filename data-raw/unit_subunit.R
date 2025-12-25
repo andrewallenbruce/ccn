@@ -35,31 +35,31 @@
 #' and/or an IPPS-excluded psychiatric unit.
 unit_types <- tibble::tribble(
   ~code , ~abbr , ~desc                         , ~infix ,
-  "M"   , "PSY" , "Psychiatric Unit - CAH"      , "1"    ,
-  "R"   , "IRF" , "Rehabilitation Unit - CAH"   , "1"    ,
-  "S"   , "PSY" , "Psychiatric Unit"            , "_"    ,
+  "M"   , "PU"  , "Psychiatric Unit [CAH]"      , "1"    ,
+  "R"   , "IRF" , "Rehabilitation Unit [CAH]"   , "1"    ,
+  "S"   , "PU"  , "Psychiatric Unit"            , "_"    ,
   "T"   , "IRF" , "Rehabilitation Unit"         , "_"    ,
-  "U"   , "SBA" , "Swing-Bed Approval - STC"    , "0"    ,
+  "U"   , "SBA" , "Swing-Bed Approval [STC]"    , "0"    ,
   "V"   , "ADU" , "Alcohol-Drug Unit (Retired)" , "_"    ,
-  "W"   , "SBA" , "Swing-Bed Approval - LTCH"   , "2"    ,
-  "Y"   , "SBA" , "Swing-Bed Approval - IRF"    , "3"    ,
-  "Z"   , "SBA" , "Swing-Bed Approval - CAH"    , "1"
+  "W"   , "SBA" , "Swing-Bed Approval [LTCH]"   , "2"    ,
+  "Y"   , "SBA" , "Swing-Bed Approval [IRF]"    , "3"    ,
+  "Z"   , "SBA" , "Swing-Bed Approval [CAH]"    , "1"    ,
 )
 
 usethis::use_data(unit_types, overwrite = TRUE)
 
-unit_parents <- tibble::tribble(
-  ~code , ~infix , ~range        , ~abbr         , ~desc                                       ,
-  "M"   , "1"    , "1300-1399"   , "CAH"         , "Critical Access Hospital"                  ,
-  "R"   , "1"    , "1300-1399"   , "CAH"         , "Critical Access Hospital"                  ,
-  "S"   , "_"    , NA_character_ , NA_character_ , NA_character_                               ,
-  "T"   , "_"    , NA_character_ , NA_character_ , NA_character_                               ,
-  "U"   , "0"    , "0001-0879"   , "STC"         , "Short-Term Hospital (General & Specialty)" ,
-  "V"   , "_"    , NA_character_ , "ADU"         , "Alcohol-Drug Unit (Retired)"               ,
-  "W"   , "2"    , "2000-2299"   , "LTCH"        , "Long-Term Care Hospital"                   ,
-  "Y"   , "3"    , "3025-3099"   , "IRF"         , "Rehabilitation Hospital"                   ,
-  "Z"   , "1"    , "1300-1399"   , "CAH"         , "Critical Access Hospital"                  ,
-)
+# unit_parents <- tibble::tribble(
+#   ~code , ~infix , ~range        , ~abbr         , ~desc                                       ,
+#   "M"   , "1"    , "1300-1399"   , "CAH"         , "Critical Access Hospital"                  ,
+#   "R"   , "1"    , "1300-1399"   , "CAH"         , "Critical Access Hospital"                  ,
+#   "S"   , "_"    , NA_character_ , NA_character_ , NA_character_                               ,
+#   "T"   , "_"    , NA_character_ , NA_character_ , NA_character_                               ,
+#   "U"   , "0"    , "0001-0879"   , "STC"         , "Short-Term Hospital (General & Specialty)" ,
+#   "V"   , "_"    , NA_character_ , "ADU"         , "Alcohol-Drug Unit (Retired)"               ,
+#   "W"   , "2"    , "2000-2299"   , "LTCH"        , "Long-Term Care Hospital"                   ,
+#   "Y"   , "3"    , "3025-3099"   , "IRF"         , "Rehabilitation Hospital"                   ,
+#   "Z"   , "1"    , "1300-1399"   , "CAH"         , "Critical Access Hospital"                  ,
+# )
 
 subunit_types <- tibble::tribble(
   ~code , ~prefix , ~abbr  ,
@@ -68,11 +68,11 @@ subunit_types <- tibble::tribble(
   "C"   , "22"    , "LTCH" ,
   "D"   , "30"    , "IRF"  ,
   "E"   , "33"    , "CH"   ,
-  "F"   , "40"    , "PSY"  ,
-  "G"   , "41"    , "PSY"  ,
-  "H"   , "42"    , "PSY"  ,
-  "J"   , "43"    , "PSY"  ,
-  "K"   , "44"    , "PSY"  ,
+  "F"   , "40"    , "PH"   ,
+  "G"   , "41"    , "PH"   ,
+  "H"   , "42"    , "PH"   ,
+  "J"   , "43"    , "PH"   ,
+  "K"   , "44"    , "PH"   ,
 )
 
 usethis::use_data(subunit_types, overwrite = TRUE)

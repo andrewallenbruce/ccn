@@ -17,8 +17,8 @@ state_region <- function(x) {
 }
 
 #' @noRd
-state_city <- function(x) {
-  vs(x, ccn::regions[["state"]], ccn::regions[["city"]])
+state_office <- function(x) {
+  vs(x, ccn::regions[["state"]], ccn::regions[["office"]])
 }
 
 #' @noRd
@@ -46,7 +46,7 @@ State <- S7::new_class(
     office = S7::new_property(
       S7::class_character,
       getter = function(self) {
-        state_city(self@abbr)
+        state_office(self@abbr)
       }
     )
   ),
