@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9082 (2025-12-24)
+
+* updated dependencies
+
+
 # ccn 0.0.0.9081 (2025-12-18)
 
 * refactored S3 and S7 `as.data.frame` methods
