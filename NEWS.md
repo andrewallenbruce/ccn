@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9083 (2025-12-25)
+
+* updates to internal datasets
+
+
 # ccn 0.0.0.9082 (2025-12-24)
 
 * updated dependencies
