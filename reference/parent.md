@@ -25,6 +25,8 @@ S7 object of class `Medicare`.
 ## Examples
 
 ``` r
+parent("21AE26")
+#> ✖ 21AE26 (a <medicaid> object) has no <parent> unit.
 parent("21SE26")
 #> <ccn::Medicare>
 #>  @ ccn      : chr "213326"
@@ -39,19 +41,6 @@ parent("21SE26")
 #>  .. @ desc  : chr "Children's Hospital"
 #>  .. @ eipps : logi TRUE
 #>  @ extension: chr NA
-subunit("21SE26")
-#> <ccn::Subunit>
-#>  @ ccn   : chr "21SE26"
-#>  @ state : <ccn::State>
-#>  .. @ abbr  : chr "MD"
-#>  .. @ name  : chr "Maryland"
-#>  .. @ region: chr "III"
-#>  .. @ office: chr "Philadelphia"
-#>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "PSY"
-#>  .. @ desc : chr "Psychiatric Unit"
-#>  .. @ eipps: logi TRUE
-#>  @ parent: chr "213326"
 parent("21SB26")
 #> <ccn::Medicare>
 #>  @ ccn      : chr "212126"
@@ -66,19 +55,6 @@ parent("21SB26")
 #>  .. @ desc  : chr "Long-Term Care Hospital"
 #>  .. @ eipps : logi TRUE
 #>  @ extension: chr NA
-subunit("21SB26")
-#> <ccn::Subunit>
-#>  @ ccn   : chr "21SB26"
-#>  @ state : <ccn::State>
-#>  .. @ abbr  : chr "MD"
-#>  .. @ name  : chr "Maryland"
-#>  .. @ region: chr "III"
-#>  .. @ office: chr "Philadelphia"
-#>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "PSY"
-#>  .. @ desc : chr "Psychiatric Unit"
-#>  .. @ eipps: logi TRUE
-#>  @ parent: chr "212126"
 parent("21SD26")
 #> <ccn::Medicare>
 #>  @ ccn      : chr "213026"
@@ -93,17 +69,4 @@ parent("21SD26")
 #>  .. @ desc  : chr "Rehabilitation Hospital"
 #>  .. @ eipps : logi TRUE
 #>  @ extension: chr NA
-subunit("21SD26")
-#> <ccn::Subunit>
-#>  @ ccn   : chr "21SD26"
-#>  @ state : <ccn::State>
-#>  .. @ abbr  : chr "MD"
-#>  .. @ name  : chr "Maryland"
-#>  .. @ region: chr "III"
-#>  .. @ office: chr "Philadelphia"
-#>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "PSY"
-#>  .. @ desc : chr "Psychiatric Unit"
-#>  .. @ eipps: logi TRUE
-#>  @ parent: chr "213026"
 ```

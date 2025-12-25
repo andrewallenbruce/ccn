@@ -377,5 +377,4 @@ decode("000000000000")
 #>  .. @ abbr: chr NA
 #>  .. @ desc: chr NA
 #>  @ extension: chr "00"
-# decode("000000000")
 ```
