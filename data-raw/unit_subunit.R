@@ -34,16 +34,16 @@
 #' CAH could have swing-bed approval, an IPPS-excluded rehabilitation unit,
 #' and/or an IPPS-excluded psychiatric unit.
 unit_types <- tibble::tribble(
-  ~code , ~abbr , ~desc                         , ~infix ,
-  "M"   , "PU"  , "Psychiatric Unit [CAH]"      , "1"    ,
-  "R"   , "IRF" , "Rehabilitation Unit [CAH]"   , "1"    ,
-  "S"   , "PU"  , "Psychiatric Unit"            , "_"    ,
-  "T"   , "IRF" , "Rehabilitation Unit"         , "_"    ,
-  "U"   , "SBA" , "Swing-Bed Approval [STC]"    , "0"    ,
-  "V"   , "ADU" , "Alcohol-Drug Unit (Retired)" , "_"    ,
-  "W"   , "SBA" , "Swing-Bed Approval [LTCH]"   , "2"    ,
-  "Y"   , "SBA" , "Swing-Bed Approval [IRF]"    , "3"    ,
-  "Z"   , "SBA" , "Swing-Bed Approval [CAH]"    , "1"    ,
+  ~code , ~abbr  , ~desc                         , ~infix ,
+  "M"   , "Pu"   , "Psychiatric Unit [CAH]"      , "1"    ,
+  "R"   , "IRFu" , "Rehabilitation Unit [CAH]"   , "1"    ,
+  "S"   , "Pu"   , "Psychiatric Unit"            , "_"    ,
+  "T"   , "IRFu" , "Rehabilitation Unit"         , "_"    ,
+  "U"   , "SBA"  , "Swing-Bed Approval [STC]"    , "0"    ,
+  "V"   , "ADu"  , "Alcohol-Drug Unit (Retired)" , "_"    ,
+  "W"   , "SBA"  , "Swing-Bed Approval [LTCH]"   , "2"    ,
+  "Y"   , "SBA"  , "Swing-Bed Approval [IRF]"    , "3"    ,
+  "Z"   , "SBA"  , "Swing-Bed Approval [CAH]"    , "1"    ,
 )
 
 usethis::use_data(unit_types, overwrite = TRUE)
@@ -98,9 +98,9 @@ usethis::use_data(subunit_types, overwrite = TRUE)
 #' Note: This table does not apply to CAHs.
 rehab_unit_range <- tibble::tribble(
   ~medicare_range , ~medicare_abbr , ~unit_type , ~parent_code , ~rehab_unit_range ,
-  "2000-2099"     , "LTC"          , "T"        , "A"          , "00-99"           ,
-  "2100-2199"     , "LTC"          , "T"        , "B"          , "00-99"           ,
-  "2200-2299"     , "LTC"          , "T"        , "C"          , "00-99"           ,
+  "2000-2099"     , "LTCH"         , "T"        , "A"          , "00-99"           ,
+  "2100-2199"     , "LTCH"         , "T"        , "B"          , "00-99"           ,
+  "2200-2299"     , "LTCH"         , "T"        , "C"          , "00-99"           ,
   "3300-3399"     , "CH"           , "T"        , "E"          , "00-99"           ,
   "4400-4499"     , "PH"           , "T"        , "K"          , "00-99"           ,
   "4000-4099"     , "PH"           , "T"        , "F"          , "00-99"           ,
@@ -111,9 +111,9 @@ rehab_unit_range <- tibble::tribble(
 
 psych_unit_range <- tibble::tribble(
   ~medicare_range , ~medicare_abbr , ~unit_type , ~parent_code , ~psych_unit_range ,
-  "2000-2099"     , "LTC"          , "S"        , "A"          , "00-99"           ,
-  "2100-2199"     , "LTC"          , "S"        , "B"          , "00-99"           ,
-  "2200-2299"     , "LTC"          , "S"        , "C"          , "00-99"           ,
+  "2000-2099"     , "LTCH"         , "S"        , "A"          , "00-99"           ,
+  "2100-2199"     , "LTCH"         , "S"        , "B"          , "00-99"           ,
+  "2200-2299"     , "LTCH"         , "S"        , "C"          , "00-99"           ,
   "3025-3099"     , "PH"           , "S"        , "D"          , "00-99"           ,
   "3300-3399"     , "CH"           , "S"        , "E"          , "00-99"
 )

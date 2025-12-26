@@ -17,7 +17,7 @@ medicare_ranges <- tibble::tribble(
   2900L  , 2999L , "2900-2999" , "ESRD"  , "Independent Special Purpose Renal Dialysis Facility"                       ,
   3000L  , 3024L , "3000-3024" , "TBH"   , "Tuberculosis Hospital (Retired)"                                           ,
   3025L  , 3099L , "3025-3099" , "IRF"   , "Rehabilitation Hospital"                                                   ,
-  3100L  , 3199L , "3100-3199" , "HHA"   , "Home Health Agency Subunit (Nonprofit/Proprietary)"                        , # "Home Health Agency",
+  3100L  , 3199L , "3100-3199" , "HHAu"  , "Home Health Agency Subunit (Nonprofit/Proprietary)"                        , # "Home Health Agency",
   3200L  , 3299L , "3200-3299" , "CORF"  , "Comprehensive Outpatient Rehabilitation Facility"                          ,
   3300L  , 3399L , "3300-3399" , "CH"    , "Children's Hospital"                                                       ,
   3400L  , 3499L , "3400-3499" , "RHC"   , "Rural Health Clinic (Provider-based)"                                      ,
@@ -35,15 +35,15 @@ medicare_ranges <- tibble::tribble(
   6990L  , 6999L , "6990-6999" , "RSVD"  , "Number Reserved (Formerly CSS)"                                            ,
   # 7000L,  8499L,   "7000-8499",    "HHA",           "Home Health Agency",
   7000L  , 7299L , "7000-7299" , "HHA"   , "Home Health Agency"                                                        ,
-  7300L  , 7399L , "7300-7399" , "HHA"   , "HHA Subunit (Nonprofit/Proprietary)"                                       ,
+  7300L  , 7399L , "7300-7399" , "HHAu"  , "Home Health Agency Subunit (Nonprofit/Proprietary)"                        ,
   7400L  , 7799L , "7400-7799" , "HHA"   , "Home Health Agency"                                                        ,
-  7800L  , 7999L , "7800-7999" , "HHA"   , "HHA Subunit (State/Local)"                                                 ,
+  7800L  , 7999L , "7800-7999" , "HHAu"  , "Home Health Agency Subunit (State/Local)"                                  ,
   8000L  , 8499L , "8000-8499" , "HHA"   , "Home Health Agency"                                                        ,
   8500L  , 8899L , "8500-8899" , "RHC"   , "Rural Health Clinic (Provider-based)"                                      ,
   8900L  , 8999L , "8900-8999" , "RHC"   , "Rural Health Clinic (Free-standing)"                                       ,
   9000L  , 9799L , "9000-9799" , "HHA"   , "Home Health Agency"                                                        ,
   9800L  , 9899L , "9800-9899" , "TXC"   , "Transplant Center"                                                         ,
-  9900L  , 9999L , "9900-9999" , "OTP"   , "Freestanding Opioid Treatment Program"
+  9900L  , 9999L , "9900-9999" , "OTP"   , "Opioid Treatment Program"
 )
 
 usethis::use_data(medicare_ranges, overwrite = TRUE)

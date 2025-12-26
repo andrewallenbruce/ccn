@@ -1,11 +1,19 @@
 library(ccn)
 
-list_pins()
+hha <- ccn:::get_pin("hha")$ccn
+
+substring(hha, 3L, 6L) |>
+  ccn:::is_numeric() |>
+  all()
 
 ltch <- get_pin("ltch")
 
+scramble <- sample(hha, 100000, replace = TRUE)
+
 bench::mark(
-  medicare = purrr::map(ltch$ccn, medicare)
+  medicare = purrr::map(scramble, medicare_),
+  medicare2 = purrr::map(scramble, medicare_2),
+  check = FALSE
 )
 
 x <- purrr::map(ltch$ccn, medicare)
@@ -31,3 +39,30 @@ x[1]
 # n_itr, 2
 # n_gc, 2
 # total_time, 635ms
+
+medicare_ <- function(x) {
+  structure(
+    c(
+      ccn = x,
+      substring(x, c(1L, 3L), c(2L, 6L)) |>
+        `names<-`(c("state", "sequence"))
+    ) |>
+      as.list(),
+    class = "medicare"
+  )
+}
+
+medicare_2 <- function(x) {
+  structure(
+    c(
+      ccn = x,
+      substring(x, c(1L, 3L), c(2L, 6L)) |>
+        `names<-`(c("state", "sequence"))
+    ),
+    class = "medicare"
+  )
+}
+
+bench::mark(
+  medicare = purrr::map(ltch$ccn, medicare_)
+)
