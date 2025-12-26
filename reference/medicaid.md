@@ -41,7 +41,7 @@ medicaid("01L008")
 #>  .. @ abbr  : chr "AL"
 #>  .. @ name  : chr "Alabama"
 #>  .. @ region: chr "IV"
-#>  .. @ office: chr "Atlanta"
+#>  .. @ office: chr "ATL"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::TypeMOF>
 #>  .. @ abbr: chr "PRTF"
@@ -53,7 +53,7 @@ medicaid("22B201")
 #>  .. @ abbr  : chr "MA"
 #>  .. @ name  : chr "Massachusetts"
 #>  .. @ region: chr "I"
-#>  .. @ office: chr "Boston"
+#>  .. @ office: chr "BOS"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::TypeMOF>
 #>  .. @ abbr: chr "NF"
@@ -65,7 +65,7 @@ medicaid("23E301")
 #>  .. @ abbr  : chr "MI"
 #>  .. @ name  : chr "Michigan"
 #>  .. @ region: chr "V"
-#>  .. @ office: chr "Chicago"
+#>  .. @ office: chr "CHI"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::TypeMOF>
 #>  .. @ abbr: chr "NF"
@@ -77,7 +77,7 @@ medicaid("34F401")
 #>  .. @ abbr  : chr "NC"
 #>  .. @ name  : chr "North Carolina"
 #>  .. @ region: chr "IV"
-#>  .. @ office: chr "Atlanta"
+#>  .. @ office: chr "ATL"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::TypeMOF>
 #>  .. @ abbr: chr "NF"
@@ -89,7 +89,7 @@ medicaid("01J008")
 #>  .. @ abbr  : chr "AL"
 #>  .. @ name  : chr "Alabama"
 #>  .. @ region: chr "IV"
-#>  .. @ office: chr "Atlanta"
+#>  .. @ office: chr "ATL"
 #>  @ range: <ccn::RangeMOH>
 #>  .. @ series: chr "001-099"
 #>  .. @ abbr  : chr "STC"
@@ -104,7 +104,7 @@ medicaid("A5J508")
 #>  .. @ abbr  : chr "MS"
 #>  .. @ name  : chr "Mississippi"
 #>  .. @ region: chr "IV"
-#>  .. @ office: chr "Atlanta"
+#>  .. @ office: chr "ATL"
 #>  @ range: <ccn::RangeMOH>
 #>  .. @ series: chr "500-599"
 #>  .. @ abbr  : chr "LTCH"

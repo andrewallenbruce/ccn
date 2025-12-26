@@ -28,9 +28,9 @@ subunit("21SA26")
 #>  .. @ abbr  : chr "MD"
 #>  .. @ name  : chr "Maryland"
 #>  .. @ region: chr "III"
-#>  .. @ office: chr "Philadelphia"
+#>  .. @ office: chr "PHL"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "PU"
+#>  .. @ abbr : chr "Pu"
 #>  .. @ desc : chr "Psychiatric Unit"
 #>  .. @ eipps: logi TRUE
 #>  @ parent: chr "212026"
@@ -41,9 +41,9 @@ subunit("21TA26")
 #>  .. @ abbr  : chr "MD"
 #>  .. @ name  : chr "Maryland"
 #>  .. @ region: chr "III"
-#>  .. @ office: chr "Philadelphia"
+#>  .. @ office: chr "PHL"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "IRF"
+#>  .. @ abbr : chr "IRFu"
 #>  .. @ desc : chr "Rehabilitation Unit"
 #>  .. @ eipps: logi TRUE
 #>  @ parent: chr "212026"
@@ -54,9 +54,9 @@ subunit("02TA01")
 #>  .. @ abbr  : chr "AK"
 #>  .. @ name  : chr "Alaska"
 #>  .. @ region: chr "X"
-#>  .. @ office: chr "Seattle"
+#>  .. @ office: chr "SEA"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "IRF"
+#>  .. @ abbr : chr "IRFu"
 #>  .. @ desc : chr "Rehabilitation Unit"
 #>  .. @ eipps: logi TRUE
 #>  @ parent: chr "022001"
@@ -67,9 +67,9 @@ subunit("04SD38")
 #>  .. @ abbr  : chr "AR"
 #>  .. @ name  : chr "Arkansas"
 #>  .. @ region: chr "VI"
-#>  .. @ office: chr "Dallas"
+#>  .. @ office: chr "DAL"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "PU"
+#>  .. @ abbr : chr "Pu"
 #>  .. @ desc : chr "Psychiatric Unit"
 #>  .. @ eipps: logi TRUE
 #>  @ parent: chr "043038"
@@ -80,9 +80,9 @@ subunit("52TA05")
 #>  .. @ abbr  : chr "WI"
 #>  .. @ name  : chr "Wisconsin"
 #>  .. @ region: chr "V"
-#>  .. @ office: chr "Chicago"
+#>  .. @ office: chr "CHI"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "IRF"
+#>  .. @ abbr : chr "IRFu"
 #>  .. @ desc : chr "Rehabilitation Unit"
 #>  .. @ eipps: logi TRUE
 #>  @ parent: chr "522005"

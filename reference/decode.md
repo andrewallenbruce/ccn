@@ -28,7 +28,7 @@ decode("670055")
 #>  .. @ abbr  : chr "TX"
 #>  .. @ name  : chr "Texas"
 #>  .. @ region: chr "VI"
-#>  .. @ office: chr "Dallas"
+#>  .. @ office: chr "DAL"
 #>  @ range    : <ccn::RangeMCR>
 #>  .. @ series: chr "0001-0879"
 #>  .. @ abbr  : chr "STC"
@@ -42,7 +42,7 @@ decode("05P001")
 #>  .. @ abbr  : chr "CA"
 #>  .. @ name  : chr "California"
 #>  .. @ region: chr "IX"
-#>  .. @ office: chr "San Francisco"
+#>  .. @ office: chr "SF"
 #>  @ range: chr "001-099"
 #>  @ type : <ccn::Type>
 #>  .. @ abbr: chr "OPO"
@@ -54,7 +54,7 @@ decode("123456")
 #>  .. @ abbr  : chr "HI"
 #>  .. @ name  : chr "Hawaii"
 #>  .. @ region: chr "IX"
-#>  .. @ office: chr "San Francisco"
+#>  .. @ office: chr "SF"
 #>  @ range    : <ccn::RangeMCR>
 #>  .. @ series: chr "3400-3499"
 #>  .. @ abbr  : chr "RHC"
@@ -68,7 +68,7 @@ decode("21034E")
 #>  .. @ abbr  : chr "MD"
 #>  .. @ name  : chr "Maryland"
 #>  .. @ region: chr "III"
-#>  .. @ office: chr "Philadelphia"
+#>  .. @ office: chr "PHL"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::Type>
 #>  .. @ abbr: chr "NF"
@@ -80,7 +80,7 @@ decode("12345F")
 #>  .. @ abbr  : chr "HI"
 #>  .. @ name  : chr "Hawaii"
 #>  .. @ region: chr "IX"
-#>  .. @ office: chr "San Francisco"
+#>  .. @ office: chr "SF"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::Type>
 #>  .. @ abbr: chr "F"
@@ -92,7 +92,7 @@ decode("210101")
 #>  .. @ abbr  : chr "MD"
 #>  .. @ name  : chr "Maryland"
 #>  .. @ region: chr "III"
-#>  .. @ office: chr "Philadelphia"
+#>  .. @ office: chr "PHL"
 #>  @ range    : <ccn::RangeMCR>
 #>  .. @ series: chr "0001-0879"
 #>  .. @ abbr  : chr "STC"
@@ -106,10 +106,10 @@ decode("21T101")
 #>  .. @ abbr  : chr "MD"
 #>  .. @ name  : chr "Maryland"
 #>  .. @ region: chr "III"
-#>  .. @ office: chr "Philadelphia"
+#>  .. @ office: chr "PHL"
 #>  @ range : chr "001-999"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "IRF"
+#>  .. @ abbr : chr "IRFu"
 #>  .. @ desc : chr "Rehabilitation Unit"
 #>  .. @ eipps: logi TRUE
 #>  @ parent: chr "21_101"
@@ -120,10 +120,10 @@ decode("21S101")
 #>  .. @ abbr  : chr "MD"
 #>  .. @ name  : chr "Maryland"
 #>  .. @ region: chr "III"
-#>  .. @ office: chr "Philadelphia"
+#>  .. @ office: chr "PHL"
 #>  @ range : chr "001-999"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "PU"
+#>  .. @ abbr : chr "Pu"
 #>  .. @ desc : chr "Psychiatric Unit"
 #>  .. @ eipps: logi TRUE
 #>  @ parent: chr "21_101"
@@ -134,7 +134,7 @@ decode("21U101")
 #>  .. @ abbr  : chr "MD"
 #>  .. @ name  : chr "Maryland"
 #>  .. @ region: chr "III"
-#>  .. @ office: chr "Philadelphia"
+#>  .. @ office: chr "PHL"
 #>  @ range : chr "001-999"
 #>  @ type  : <ccn::TypeUnit>
 #>  .. @ abbr : chr "SBA"
@@ -148,7 +148,7 @@ decode("01L008")
 #>  .. @ abbr  : chr "AL"
 #>  .. @ name  : chr "Alabama"
 #>  .. @ region: chr "IV"
-#>  .. @ office: chr "Atlanta"
+#>  .. @ office: chr "ATL"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::TypeMOF>
 #>  .. @ abbr: chr "PRTF"
@@ -160,7 +160,7 @@ decode("22B201")
 #>  .. @ abbr  : chr "MA"
 #>  .. @ name  : chr "Massachusetts"
 #>  .. @ region: chr "I"
-#>  .. @ office: chr "Boston"
+#>  .. @ office: chr "BOS"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::TypeMOF>
 #>  .. @ abbr: chr "NF"
@@ -172,7 +172,7 @@ decode("23E301")
 #>  .. @ abbr  : chr "MI"
 #>  .. @ name  : chr "Michigan"
 #>  .. @ region: chr "V"
-#>  .. @ office: chr "Chicago"
+#>  .. @ office: chr "CHI"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::TypeMOF>
 #>  .. @ abbr: chr "NF"
@@ -184,7 +184,7 @@ decode("34F401")
 #>  .. @ abbr  : chr "NC"
 #>  .. @ name  : chr "North Carolina"
 #>  .. @ region: chr "IV"
-#>  .. @ office: chr "Atlanta"
+#>  .. @ office: chr "ATL"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::TypeMOF>
 #>  .. @ abbr: chr "NF"
@@ -196,7 +196,7 @@ decode("01J008")
 #>  .. @ abbr  : chr "AL"
 #>  .. @ name  : chr "Alabama"
 #>  .. @ region: chr "IV"
-#>  .. @ office: chr "Atlanta"
+#>  .. @ office: chr "ATL"
 #>  @ range: <ccn::RangeMOH>
 #>  .. @ series: chr "001-099"
 #>  .. @ abbr  : chr "STC"
@@ -211,7 +211,7 @@ decode("A5J508")
 #>  .. @ abbr  : chr "MS"
 #>  .. @ name  : chr "Mississippi"
 #>  .. @ region: chr "IV"
-#>  .. @ office: chr "Atlanta"
+#>  .. @ office: chr "ATL"
 #>  @ range: <ccn::RangeMOH>
 #>  .. @ series: chr "500-599"
 #>  .. @ abbr  : chr "LTCH"
@@ -226,9 +226,9 @@ decode("21SA26")
 #>  .. @ abbr  : chr "MD"
 #>  .. @ name  : chr "Maryland"
 #>  .. @ region: chr "III"
-#>  .. @ office: chr "Philadelphia"
+#>  .. @ office: chr "PHL"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "PU"
+#>  .. @ abbr : chr "Pu"
 #>  .. @ desc : chr "Psychiatric Unit"
 #>  .. @ eipps: logi TRUE
 #>  @ parent: chr "212026"
@@ -239,9 +239,9 @@ decode("21TA26")
 #>  .. @ abbr  : chr "MD"
 #>  .. @ name  : chr "Maryland"
 #>  .. @ region: chr "III"
-#>  .. @ office: chr "Philadelphia"
+#>  .. @ office: chr "PHL"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "IRF"
+#>  .. @ abbr : chr "IRFu"
 #>  .. @ desc : chr "Rehabilitation Unit"
 #>  .. @ eipps: logi TRUE
 #>  @ parent: chr "212026"
@@ -252,9 +252,9 @@ decode("02TA01")
 #>  .. @ abbr  : chr "AK"
 #>  .. @ name  : chr "Alaska"
 #>  .. @ region: chr "X"
-#>  .. @ office: chr "Seattle"
+#>  .. @ office: chr "SEA"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "IRF"
+#>  .. @ abbr : chr "IRFu"
 #>  .. @ desc : chr "Rehabilitation Unit"
 #>  .. @ eipps: logi TRUE
 #>  @ parent: chr "022001"
@@ -265,9 +265,9 @@ decode("04SD38")
 #>  .. @ abbr  : chr "AR"
 #>  .. @ name  : chr "Arkansas"
 #>  .. @ region: chr "VI"
-#>  .. @ office: chr "Dallas"
+#>  .. @ office: chr "DAL"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "PU"
+#>  .. @ abbr : chr "Pu"
 #>  .. @ desc : chr "Psychiatric Unit"
 #>  .. @ eipps: logi TRUE
 #>  @ parent: chr "043038"
@@ -278,9 +278,9 @@ decode("52TA05")
 #>  .. @ abbr  : chr "WI"
 #>  .. @ name  : chr "Wisconsin"
 #>  .. @ region: chr "V"
-#>  .. @ office: chr "Chicago"
+#>  .. @ office: chr "CHI"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "IRF"
+#>  .. @ abbr : chr "IRFu"
 #>  .. @ desc : chr "Rehabilitation Unit"
 #>  .. @ eipps: logi TRUE
 #>  @ parent: chr "522005"
@@ -291,7 +291,7 @@ decode("10C0001062")
 #>  .. @ abbr  : chr "FL"
 #>  .. @ name  : chr "Florida"
 #>  .. @ region: chr "IV"
-#>  .. @ office: chr "Atlanta"
+#>  .. @ office: chr "ATL"
 #>  @ range    : chr "0000001-9999999"
 #>  @ type     : <ccn::Type>
 #>  .. @ abbr: chr "ASC"
@@ -304,7 +304,7 @@ decode("45D0634589")
 #>  .. @ abbr  : chr "TX"
 #>  .. @ name  : chr "Texas"
 #>  .. @ region: chr "VI"
-#>  .. @ office: chr "Dallas"
+#>  .. @ office: chr "DAL"
 #>  @ range    : chr "0000001-9999999"
 #>  @ type     : <ccn::Type>
 #>  .. @ abbr: chr "CLIA"
@@ -317,7 +317,7 @@ decode("21X0009807")
 #>  .. @ abbr  : chr "MD"
 #>  .. @ name  : chr "Maryland"
 #>  .. @ region: chr "III"
-#>  .. @ office: chr "Philadelphia"
+#>  .. @ office: chr "PHL"
 #>  @ range    : chr "0000001-9999999"
 #>  @ type     : <ccn::Type>
 #>  .. @ abbr: chr "PXRF"
@@ -330,7 +330,7 @@ decode("12C0001062")
 #>  .. @ abbr  : chr "HI"
 #>  .. @ name  : chr "Hawaii"
 #>  .. @ region: chr "IX"
-#>  .. @ office: chr "San Francisco"
+#>  .. @ office: chr "SF"
 #>  @ range    : chr "0000001-9999999"
 #>  @ type     : <ccn::Type>
 #>  .. @ abbr: chr "ASC"
@@ -343,7 +343,7 @@ decode("240019A")
 #>  .. @ abbr  : chr "MN"
 #>  .. @ name  : chr "Minnesota"
 #>  .. @ region: chr "V"
-#>  .. @ office: chr "Chicago"
+#>  .. @ office: chr "CHI"
 #>  @ range    : <ccn::RangeMCR>
 #>  .. @ series: chr "0001-0879"
 #>  .. @ abbr  : chr "STC"
@@ -357,7 +357,7 @@ decode("330125001")
 #>  .. @ abbr  : chr "NY"
 #>  .. @ name  : chr "New York"
 #>  .. @ region: chr "II"
-#>  .. @ office: chr "New York"
+#>  .. @ office: chr "NYC"
 #>  @ range    : <ccn::RangeMCR>
 #>  .. @ series: chr "0001-0879"
 #>  .. @ abbr  : chr "STC"
@@ -371,7 +371,7 @@ decode("000000000000")
 #>  .. @ abbr  : chr "AZ"
 #>  .. @ name  : chr "Arizona"
 #>  .. @ region: chr "IX"
-#>  .. @ office: chr "San Francisco"
+#>  .. @ office: chr "SF"
 #>  @ range    : chr NA
 #>  @ type     : <ccn::Type>
 #>  .. @ abbr: chr NA

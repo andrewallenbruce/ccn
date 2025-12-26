@@ -37,7 +37,7 @@ medicare("210101")
 #>  .. @ abbr  : chr "MD"
 #>  .. @ name  : chr "Maryland"
 #>  .. @ region: chr "III"
-#>  .. @ office: chr "Philadelphia"
+#>  .. @ office: chr "PHL"
 #>  @ range    : <ccn::RangeMCR>
 #>  .. @ series: chr "0001-0879"
 #>  .. @ abbr  : chr "STC"
@@ -51,10 +51,10 @@ unit("21T101")
 #>  .. @ abbr  : chr "MD"
 #>  .. @ name  : chr "Maryland"
 #>  .. @ region: chr "III"
-#>  .. @ office: chr "Philadelphia"
+#>  .. @ office: chr "PHL"
 #>  @ range : chr "001-999"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "IRF"
+#>  .. @ abbr : chr "IRFu"
 #>  .. @ desc : chr "Rehabilitation Unit"
 #>  .. @ eipps: logi TRUE
 #>  @ parent: chr "21_101"
@@ -65,10 +65,10 @@ unit("21S101")
 #>  .. @ abbr  : chr "MD"
 #>  .. @ name  : chr "Maryland"
 #>  .. @ region: chr "III"
-#>  .. @ office: chr "Philadelphia"
+#>  .. @ office: chr "PHL"
 #>  @ range : chr "001-999"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "PU"
+#>  .. @ abbr : chr "Pu"
 #>  .. @ desc : chr "Psychiatric Unit"
 #>  .. @ eipps: logi TRUE
 #>  @ parent: chr "21_101"
@@ -79,7 +79,7 @@ unit("21U101")
 #>  .. @ abbr  : chr "MD"
 #>  .. @ name  : chr "Maryland"
 #>  .. @ region: chr "III"
-#>  .. @ office: chr "Philadelphia"
+#>  .. @ office: chr "PHL"
 #>  @ range : chr "001-999"
 #>  @ type  : <ccn::TypeUnit>
 #>  .. @ abbr : chr "SBA"
@@ -94,7 +94,7 @@ unit("28Z348")
 #>  .. @ abbr  : chr "NE"
 #>  .. @ name  : chr "Nebraska"
 #>  .. @ region: chr "VII"
-#>  .. @ office: chr "Kansas City"
+#>  .. @ office: chr "KC"
 #>  @ range : chr "001-999"
 #>  @ type  : <ccn::TypeUnit>
 #>  .. @ abbr : chr "SBA"
@@ -108,7 +108,7 @@ medicare("281348")
 #>  .. @ abbr  : chr "NE"
 #>  .. @ name  : chr "Nebraska"
 #>  .. @ region: chr "VII"
-#>  .. @ office: chr "Kansas City"
+#>  .. @ office: chr "KC"
 #>  @ range    : <ccn::RangeMCR>
 #>  .. @ series: chr "1300-1399"
 #>  .. @ abbr  : chr "CAH"

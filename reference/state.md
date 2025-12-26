@@ -26,11 +26,11 @@ state("A5XXX")
 #>  @ abbr  : chr "MS"
 #>  @ name  : chr "Mississippi"
 #>  @ region: chr "IV"
-#>  @ office: chr "Atlanta"
+#>  @ office: chr "ATL"
 state("00")
 #> <ccn::State>
 #>  @ abbr  : chr "AZ"
 #>  @ name  : chr "Arizona"
 #>  @ region: chr "IX"
-#>  @ office: chr "San Francisco"
+#>  @ office: chr "SF"
 ```

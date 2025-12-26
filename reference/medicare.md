@@ -28,7 +28,7 @@ medicare("670055")
 #>  .. @ abbr  : chr "TX"
 #>  .. @ name  : chr "Texas"
 #>  .. @ region: chr "VI"
-#>  .. @ office: chr "Dallas"
+#>  .. @ office: chr "DAL"
 #>  @ range    : <ccn::RangeMCR>
 #>  .. @ series: chr "0001-0879"
 #>  .. @ abbr  : chr "STC"
@@ -42,7 +42,7 @@ medicare("123456")
 #>  .. @ abbr  : chr "HI"
 #>  .. @ name  : chr "Hawaii"
 #>  .. @ region: chr "IX"
-#>  .. @ office: chr "San Francisco"
+#>  .. @ office: chr "SF"
 #>  @ range    : <ccn::RangeMCR>
 #>  .. @ series: chr "3400-3499"
 #>  .. @ abbr  : chr "RHC"
@@ -56,7 +56,7 @@ medicare("119802")
 #>  .. @ abbr  : chr "GA"
 #>  .. @ name  : chr "Georgia"
 #>  .. @ region: chr "IV"
-#>  .. @ office: chr "Atlanta"
+#>  .. @ office: chr "ATL"
 #>  @ range    : <ccn::RangeMCR>
 #>  .. @ series: chr "9800-9899"
 #>  .. @ abbr  : chr "TXC"
@@ -70,7 +70,7 @@ medicare("114036") # Greenleaf
 #>  .. @ abbr  : chr "GA"
 #>  .. @ name  : chr "Georgia"
 #>  .. @ region: chr "IV"
-#>  .. @ office: chr "Atlanta"
+#>  .. @ office: chr "ATL"
 #>  @ range    : <ccn::RangeMCR>
 #>  .. @ series: chr "4000-4499"
 #>  .. @ abbr  : chr "PH"
@@ -84,7 +84,7 @@ medicare("110122") # SGMC
 #>  .. @ abbr  : chr "GA"
 #>  .. @ name  : chr "Georgia"
 #>  .. @ region: chr "IV"
-#>  .. @ office: chr "Atlanta"
+#>  .. @ office: chr "ATL"
 #>  @ range    : <ccn::RangeMCR>
 #>  .. @ series: chr "0001-0879"
 #>  .. @ abbr  : chr "STC"

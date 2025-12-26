@@ -47,7 +47,7 @@ emergency("21034E")
 #>  .. @ abbr  : chr "MD"
 #>  .. @ name  : chr "Maryland"
 #>  .. @ region: chr "III"
-#>  .. @ office: chr "Philadelphia"
+#>  .. @ office: chr "PHL"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::Type>
 #>  .. @ abbr: chr "NF"
@@ -59,7 +59,7 @@ emergency("12345F")
 #>  .. @ abbr  : chr "HI"
 #>  .. @ name  : chr "Hawaii"
 #>  .. @ region: chr "IX"
-#>  .. @ office: chr "San Francisco"
+#>  .. @ office: chr "SF"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::Type>
 #>  .. @ abbr: chr "F"
@@ -71,7 +71,7 @@ emergency("11038F") # USAF Hospital (Moody)
 #>  .. @ abbr  : chr "GA"
 #>  .. @ name  : chr "Georgia"
 #>  .. @ region: chr "IV"
-#>  .. @ office: chr "Atlanta"
+#>  .. @ office: chr "ATL"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::Type>
 #>  .. @ abbr: chr "F"
