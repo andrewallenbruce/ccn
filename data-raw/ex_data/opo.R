@@ -24,10 +24,10 @@ opo_county <- readr::read_csv(
   collapse::mtt(
     county = stringr::str_remove(county, " County") |>
       stringr::str_to_sentence(),
-    state_abbr = vs(
+    state_abbr = ccn:::vs(
       state,
-      ccn::state_codes[["name"]],
-      ccn::state_codes[["abbr"]]
+      ccn::states[["name"]],
+      ccn::states[["abbr"]]
     ),
     state = NULL
   ) |>
@@ -35,7 +35,7 @@ opo_county <- readr::read_csv(
   collapse::funique() |>
   collapse::roworder(code, state)
 
-opo <- readr::read_csv(
+opo_active <- readr::read_csv(
   file = fs::path("C:/Users/Andrew/Downloads/active_opo_accounts.csv"),
   num_threads = 4L,
   col_types = readr::cols(
@@ -76,31 +76,7 @@ opo <- readr::read_csv(
   ) |>
   collapse::roworder(state, ccn)
 
-collapse::fcount(opo, region) |>
-  collapse::roworder(-N) |>
-  print(n = Inf)
-
-opo_current <- collapse::join(opo, opo_county, on = c("state", "county")) |>
-  print(n = Inf)
-
-opo_current |>
-  collapse::sbt(is.na(code))
-
-opo_county |>
-  collapse::sbt(state %in% c("IL", "LA", "PR")) |>
-  print(n = 50)
-
-
-opo_code_state <- opo_code_state |>
-  collapse::mtt(
-    opo = toupper(opo),
-    opo = stringr::str_remove(opo, " INC|, INC|'|  "),
-    opo = stringr::str_replace(opo, "&", "AND")
-  ) |>
-  collapse::roworder(opo) |>
-  print(n = Inf)
-
-opo_current <- opo |>
+opo_active <- opo_active |>
   collapse::mtt(
     opo = stringr::str_remove(opo, " INC|, INC|'|//s+"),
     opo = stringr::str_replace_all(
@@ -129,25 +105,18 @@ opo_current <- opo |>
   collapse::roworder(opo) |>
   print(n = Inf)
 
-state_miss <- collapse::join(
-  opo_current,
-  opo_code_state,
-  on = c("opo", "state")
-) |>
-  collapse::sbt(is.na(code)) |>
-  _$state
+opo <- list(
+  opo_codes = opo_codes, # [56 x 2]
+  opo_county = opo_county, # [3223 x 3]
+  opo_active = opo_active
+) # [55 x 6]
 
-opo_code_state |>
-  collapse::sbt(state %in% state_miss) |>
-  print(n = Inf)
+lobstr::obj_size(opo)
 
-collapse::join(opo_current, opo_code_state, on = c("opo", "state")) |>
-  collapse::sbt(is.na(code))
-
-# aff === 39,130 × 3 [2.8 MB]
+# opo === 39,130 × 3 [232.93 kB]
 pin_update(
-  aff,
-  name = "aff",
-  title = "Facility Affiliations",
-  description = "CCNs Facility Affiliation"
+  opo,
+  name = "opo",
+  title = "Organ Procurement Organizations",
+  description = "Organ Procurement Organizations"
 )
