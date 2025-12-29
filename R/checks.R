@@ -35,3 +35,23 @@ check_state <- function(x) {
     cli::cli_abort(c("x" = "{.strong {x}} is not a valid state code."))
   }
 }
+
+#' @noRd
+check_all_are_ccn <- function(
+  x,
+  arg = rlang::caller_arg(x),
+  call = rlang::caller_env()
+) {
+  if (!all_are_ccn(x)) {
+    not <- which_not_ccn(x)
+    cli::cli_abort(
+      c(
+        '{.strong {length(not)}} Invalid CCN{?s} detected:',
+        "i" = '{.code {paste0("x[", paste(not, collapse = ", "), "]")}}',
+        ">" = "{.pkg {x[not]}}"
+      ),
+      arg = arg,
+      call = call
+    )
+  }
+}

@@ -1,4 +1,23 @@
 #' @noRd
+is_ccn_nchar <- function(x) {
+  collapse::vlengths(x) >= 6L & collapse::vlengths(x) <= 14L
+}
+
+#' @noRd
+which_not_ccn <- function(x) {
+  collapse::whichv(is.character(x) & is_ccn_nchar(x), FALSE)
+}
+
+#' @noRd
+all_are_ccn <- function(x) {
+  collapse::allv(
+    is.character(x) &
+      is_ccn_nchar(x),
+    TRUE
+  )
+}
+
+#' @noRd
 nchar_ccn <- function(x) {
   nchar(x) %between% c(6L, 14L)
 }

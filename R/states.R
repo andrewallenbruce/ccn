@@ -4,7 +4,7 @@
 #' Convert state codes to their abbreviations or full names.
 #'
 #' @param x character vector of state codes to look up.
-#' @name state
+#' @name states
 #' @returns S7 object of class `State`.
 #' @examples
 #' state("A5XXX")
@@ -13,22 +13,22 @@ NULL
 
 #' @noRd
 state_region <- function(x) {
-  vs(x, ccn::regions[["state"]], ccn::regions[["region"]])
+  vs(x, ccn::regions$state, ccn::regions$region)
 }
 
 #' @noRd
 state_office <- function(x) {
-  vs(x, ccn::regions[["state"]], ccn::regions[["office"]])
+  vs(x, ccn::regions$state, ccn::regions$office)
 }
 
 #' @noRd
 state_abbr <- function(x) {
-  vs(x, ccn::states[["code"]], ccn::states[["abbr"]])
+  vs(x, ccn::states$code, ccn::states$abbr)
 }
 
 #' @noRd
 state_name <- function(x) {
-  vs(x, ccn::states[["code"]], ccn::states[["name"]])
+  vs(x, ccn::states$code, ccn::states$name)
 }
 
 #' @noRd
@@ -68,7 +68,7 @@ State <- S7::new_class(
   }
 )
 
-#' @rdname state
+#' @rdname states
 #' @export
 state <- function(x) {
   State(code = substring(x, 1L, 2L))
