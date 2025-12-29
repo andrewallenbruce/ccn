@@ -8,7 +8,7 @@
 #' @returns an S3 vector of class `vctr_state`
 #' @examples
 #' vctr_state(c("00", "01", "02", "72", "78", "99"))
-#' @export
+#' @noRd
 vctr_state <- function(x = character()) {
   x <- vctrs::vec_cast(x, character())
   new_state(x)
@@ -19,21 +19,17 @@ new_state <- function(x = character()) {
   vctrs::new_vctr(x, class = "vctr_state")
 }
 
-#' @export
-#' @rdname vctr_state
+#' @noRd
 validate_state <- function(x) {
   stopifnot(all(is.na(x) | is.character(x) | is_state_code(x)))
   invisible(x)
 }
-
-#' @export
-#' @rdname vctr_state
+#' @noRd
 is_state <- function(x) {
   inherits(x, "vctr_state")
 }
 
-#' @export
-#' @rdname vctr_state
+#' @noRd
 as_state <- function(x) {
   if (inherits(x, "vctr_state")) {
     x <- as.character(x)
@@ -41,20 +37,17 @@ as_state <- function(x) {
   vctrs::vec_cast(x, to = new_state())
 }
 
-#' @export
-#' @rdname vctr_state
+#' @noRd
 vec_ptype_abbr.state <- function(x, ...) {
   "state"
 }
 
-#' @export
-#' @rdname vctr_state
+#' @noRd
 vec_ptype_full.state <- function(x, ...) {
   "state"
 }
 
 #' @export
-#' @rdname vctr_state
 format.state <- function(x, ...) {
   if (length(x) == 0) {
     return(character())
