@@ -381,3 +381,7 @@
 ## ccn 0.0.0.9084 (2025-12-25)
 
 - update internal data
+
+## ccn 0.0.0.9085 (2025-12-28)
+
+- experimenting with S3 vctrs classes
