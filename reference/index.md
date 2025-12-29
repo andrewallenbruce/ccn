@@ -19,14 +19,6 @@ CMS Certification Number classes.
   [`is_ccn()`](https://andrewallenbruce.github.io/ccn/reference/ccn.md)
   [`as_ccn()`](https://andrewallenbruce.github.io/ccn/reference/ccn.md)
   : Create a ccn vector
-- [`vctr_state()`](https://andrewallenbruce.github.io/ccn/reference/vctr_state.md)
-  [`validate_state()`](https://andrewallenbruce.github.io/ccn/reference/vctr_state.md)
-  [`is_state()`](https://andrewallenbruce.github.io/ccn/reference/vctr_state.md)
-  [`as_state()`](https://andrewallenbruce.github.io/ccn/reference/vctr_state.md)
-  [`vec_ptype_abbr(`*`<state>`*`)`](https://andrewallenbruce.github.io/ccn/reference/vctr_state.md)
-  [`vec_ptype_full(`*`<state>`*`)`](https://andrewallenbruce.github.io/ccn/reference/vctr_state.md)
-  [`format(`*`<state>`*`)`](https://andrewallenbruce.github.io/ccn/reference/vctr_state.md)
-  : Create a state vector
 - [`emergency()`](https://andrewallenbruce.github.io/ccn/reference/emergency.md)
   : Emergency Hospitals
 - [`medicaid()`](https://andrewallenbruce.github.io/ccn/reference/medicaid.md)
