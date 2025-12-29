@@ -47,7 +47,7 @@ vec_ptype_full.state <- function(x, ...) {
   "state"
 }
 
-#' @export
+#' @noRd
 format.state <- function(x, ...) {
   if (length(x) == 0) {
     return(character())
