@@ -9,7 +9,7 @@ length between 6 and 14"></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">ccn</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9085</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9086</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,17 +42,13 @@ length between 6 and 14"></head><body>
     </div>
 
     <div class="ref-description section level2">
-    <p>A ccn vector here is one where all entries are character scalars with a
+    <p>A <code>ccn</code> vector here is one where all entries are character scalars with a
 length between 6 and 14</p>
     </div>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ccn</span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">is_ccn</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">as_ccn</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ccn</span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -60,17 +56,17 @@ length between 6 and 14</p>
 
 
 <dl><dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
-<dd><p>A character vector of ccns</p></dd>
+<dd><p>A character vector of ccn codes</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>a <code>ccn</code> vector</p>
+    <p>an S3 vector of class <code>ccn</code></p>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">ccn</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"670055"</span>, <span class="st">"21034E"</span>, <span class="st">"01L008"</span>, <span class="st">"01J008"</span>, <span class="st">"05P001"</span>, <span class="st">"21U101"</span>, <span class="st">"21TA26"</span>, <span class="st">"45D0634589"</span><span class="op">)</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">ccn</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"67-0055"</span>, <span class="st">"21034e"</span>, <span class="st">"01L008"</span>, <span class="st">"01J008"</span>, <span class="st">"05P001"</span>, <span class="st">"21U101"</span>, <span class="st">"21TA26"</span>, <span class="st">"45D0634589"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn[8]&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1]     670055     21034E     01L008     01J008     05P001     21U101     21TA26</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [8] 45D0634589</span>

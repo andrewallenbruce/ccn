@@ -385,3 +385,7 @@
 ## ccn 0.0.0.9085 (2025-12-28)
 
 - experimenting with S3 vctrs classes
+
+## ccn 0.0.0.9086 (2025-12-30)
+
+- `ccn_state` vctr class

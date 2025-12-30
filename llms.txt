@@ -43,10 +43,10 @@ Parse and decode CMS Certification Numbers.
 
 CMS Certification Number classes.
 
-- [`ccn()`](https://andrewallenbruce.github.io/ccn/reference/ccn.md)
-  [`is_ccn()`](https://andrewallenbruce.github.io/ccn/reference/ccn.md)
-  [`as_ccn()`](https://andrewallenbruce.github.io/ccn/reference/ccn.md)
-  : Create a ccn vector
+- [`ccn()`](https://andrewallenbruce.github.io/ccn/reference/ccn.md) :
+  Create a ccn vector
+- [`ccn_state()`](https://andrewallenbruce.github.io/ccn/reference/ccn_state.md)
+  : Create a state vector
 - [`emergency()`](https://andrewallenbruce.github.io/ccn/reference/emergency.md)
   : Emergency Hospitals
 - [`medicaid()`](https://andrewallenbruce.github.io/ccn/reference/medicaid.md)
