@@ -2,26 +2,20 @@
 % Please edit documentation in R/ccn.R
 \name{ccn}
 \alias{ccn}
-\alias{is_ccn}
-\alias{as_ccn}
 \title{Create a ccn vector}
 \usage{
 ccn(x = character())
-
-is_ccn(x)
-
-as_ccn(x)
 }
 \arguments{
-\item{x}{A character vector of ccns}
+\item{x}{A character vector of ccn codes}
 }
 \value{
-a \code{ccn} vector
+an S3 vector of class \code{ccn}
 }
 \description{
-A ccn vector here is one where all entries are character scalars with a
+A \code{ccn} vector here is one where all entries are character scalars with a
 length between 6 and 14
 }
 \examples{
-ccn(c("670055", "21034E", "01L008", "01J008", "05P001", "21U101", "21TA26", "45D0634589"))
+ccn(c("67-0055", "21034e", "01L008", "01J008", "05P001", "21U101", "21TA26", "45D0634589"))
 }

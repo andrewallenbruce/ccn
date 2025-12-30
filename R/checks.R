@@ -30,9 +30,37 @@ check_range <- function(x, bounds, name) {
 }
 
 #' @noRd
-check_state <- function(x) {
-  if (!is_state_code(x)) {
-    cli::cli_abort(c("x" = "{.strong {x}} is not a valid state code."))
+which_not_state <- function(x) {
+  collapse::whichv(
+    is.character(x) & nchar_is_state(x) & is_state_code(x),
+    FALSE
+  )
+}
+
+#' @noRd
+all_are_state <- function(x) {
+  collapse::allv(
+    is.character(x) & nchar_is_state(x) & is_state_code(x),
+    TRUE
+  )
+}
+
+#' @noRd
+check_all_are_state <- function(
+  x,
+  arg = rlang::caller_arg(x),
+  call = rlang::caller_env()
+) {
+  if (!all_are_state(x)) {
+    not <- which_not_state(x)
+    cli::cli_abort(
+      c(
+        '{.strong {length(not)}} Invalid:',
+        ">" = "{.val {x[not]}}"
+      ),
+      arg = arg,
+      call = call
+    )
   }
 }
 

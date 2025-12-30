@@ -1,4 +1,9 @@
 #' @noRd
+nchar_is_state <- function(x) {
+  collapse::vlengths(x) == 2L
+}
+
+#' @noRd
 is_ccn_nchar <- function(x) {
   collapse::vlengths(x) >= 6L & collapse::vlengths(x) <= 14L
 }

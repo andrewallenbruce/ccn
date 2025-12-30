@@ -1,15 +1,13 @@
 #' Create a ccn vector
 #'
-#' A ccn vector here is one where all entries are character scalars with a
+#' A `ccn` vector here is one where all entries are character scalars with a
 #' length between 6 and 14
 #'
-#' @param x A character vector of ccns
-#'
-#' @returns a `ccn` vector
-#'
+#' @param x A character vector of ccn codes
+#' @returns an S3 vector of class `ccn`
 #' @export
 #' @examples
-#' ccn(c("670055", "21034E", "01L008", "01J008", "05P001", "21U101", "21TA26", "45D0634589"))
+#' ccn(c("67-0055", "21034e", "01L008", "01J008", "05P001", "21U101", "21TA26", "45D0634589"))
 ccn <- function(x = character()) {
   x <- vctrs::vec_cast(x, character())
   x <- clean(x)
@@ -25,14 +23,12 @@ new_ccn <- function(
   vctrs::new_vctr(x, class = "ccn")
 }
 
-#' @export
-#' @rdname ccn
+#' @noRd
 is_ccn <- function(x) {
   inherits(x, "ccn")
 }
 
-#' @export
-#' @rdname ccn
+#' @noRd
 as_ccn <- function(x) {
   if (inherits(x, "character")) {
     x <- as.character(x)
@@ -52,7 +48,7 @@ vec_ptype_full.ccn <- function(x, ...) {
 
 #' @export
 format.ccn <- function(x, ...) {
-  if (length(x) == 0) {
+  if (length(x) == 0L) {
     return(character())
   }
 
