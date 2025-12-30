@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9086 (2025-12-30)
+
+* `ccn_state` vctr class
+
+
 # ccn 0.0.0.9085 (2025-12-28)
 
 * experimenting with S3 vctrs classes
