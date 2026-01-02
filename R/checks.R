@@ -50,7 +50,7 @@ check_range <- function(x, bounds, name) {
     cli::cli_abort(
       c(
         "i" = "The {.emph {name}} facility range is {.strong [{(toString(bounds))}]}.",
-        "x" = "Input {.strong {x}} is less than the lower bound."
+        "x" = "Input {.val {x}} is less than the lower bound."
       )
     )
   }
@@ -58,8 +58,35 @@ check_range <- function(x, bounds, name) {
   if (as.integer(x) > bounds[2L]) {
     cli::cli_abort(
       c(
-        "i" = "The {.emph Medicare} facility range is {.strong [{(toString(bounds))}]}.",
+        "i" = "The {.emph {name}} facility range is {.strong [{(toString(bounds))}]}.",
         "x" = "Input {.strong {x}} is greater than the upper bound."
+      )
+    )
+  }
+}
+
+#' Check if x is between min and max (inclusive)
+#'
+#' @param x Integer vector to check
+#' @param min Minimum value (inclusive)
+#' @param max Maximum value (inclusive)
+#' @returns Logical vector indicating if each element of x is between min and max
+#' @examplesIf interactive()
+#' in_between(5L, 10L, 15L)
+#' in_between(1L, 2L, 3L)
+#' in_between(0L, 5L, 10L)
+#' @noRd
+in_between <- function(x, min, max) {
+  (x - min) * (max - x) >= 0L
+}
+
+#' @noRd
+check_range2 <- function(x, min, max = 9999L, name = "Medicare") {
+  x <- as.integer(x)
+  if (!in_between(x, min, max)) {
+    cli::cli_abort(
+      c(
+        "x" = "{.val {x}} outside {.strong {name}} range {.kbd {toString(c(min, max))}}."
       )
     )
   }
