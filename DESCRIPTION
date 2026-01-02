@@ -41,7 +41,6 @@ Collate:
     'subunit.R'
     'as_data_frame.R'
     'ccn-package.R'
-    'ccn.R'
     'checks.R'
     'cli.R'
     'data.R'
@@ -56,5 +55,4 @@ Collate:
     'slice.R'
     'supplier.R'
     'utils.R'
-    'vctr_state.R'
     'zzz.R'

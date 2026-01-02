@@ -34,8 +34,6 @@ reference:
   desc: >
     CMS Certification Number classes.
   contents:
-  - ccn
-  - ccn_state
   - emergency
   - medicaid
   - medicare
