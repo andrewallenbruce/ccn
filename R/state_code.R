@@ -66,7 +66,7 @@ which_not_state_code <- function(x) {
 }
 
 #' @noRd
-check_all_are_state <- function(
+check_states <- function(
   x,
   arg = rlang::caller_arg(x),
   call = rlang::caller_env()
@@ -106,7 +106,7 @@ State <- S7::new_class(
     )
   ),
   constructor = function(code) {
-    check_all_are_state(code)
+    check_states(code)
     S7::new_object(
       S7::S7_object(),
       abbr = state_abbr(code),
