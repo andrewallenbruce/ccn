@@ -19,27 +19,3 @@ news:
 
 deploy:
   install_metadata: true
-
-reference:
-
-- title: Manipulation
-  desc: >
-    Parse and decode CMS Certification Numbers.
-  contents:
-  - decode
-  - parse
-  - data_frame
-
-- title: Classes
-  desc: >
-    CMS Certification Number classes.
-  contents:
-  - emergency
-  - medicaid
-  - medicare
-  - organ
-  - parent
-  - state
-  - subunit
-  - supplier
-  - unit

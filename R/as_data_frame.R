@@ -1,3 +1,58 @@
+#' @noRd
+S3_as_df <- function(x) {
+  `class<-`(list2DF(c(entity = class(x), x)), c("tbl_df", "tbl", "data.frame"))
+}
+
+#' @rdname slice_medicare
+#' @export
+#' @keywords internal
+as.data.frame.medicare <- function(x, ...) {
+  S3_as_df(x)
+}
+
+#' @rdname slice_medicare
+#' @export
+#' @keywords internal
+as.data.frame.organ <- function(x, ...) {
+  S3_as_df(x)
+}
+
+#' @rdname slice_medicare
+#' @export
+#' @keywords internal
+as.data.frame.emergency <- function(x, ...) {
+  S3_as_df(x)
+}
+
+#' @rdname slice_medicare
+#' @export
+#' @keywords internal
+as.data.frame.supplier <- function(x, ...) {
+  S3_as_df(x)
+}
+
+#' @rdname slice_medicare
+#' @export
+#' @keywords internal
+as.data.frame.medicaid <- function(x, ...) {
+  S3_as_df(x)
+}
+
+#' @rdname slice_medicare
+#' @export
+#' @keywords internal
+as.data.frame.unit <- function(x, ...) {
+  S3_as_df(x)
+}
+
+#' @rdname slice_medicare
+#' @export
+#' @keywords internal
+as.data.frame.subunit <- function(x, ...) {
+  S3_as_df(x)
+}
+
+
 #' @include unit.R
 #' @include subunit.R
 NULL
