@@ -1,53 +1,4 @@
 #' @noRd
-nchar_is_state <- function(x) {
-  collapse::vlengths(x) == 2L
-}
-
-#' @noRd
-is_ccn_nchar <- function(x) {
-  collapse::vlengths(x) >= 6L & collapse::vlengths(x) <= 14L
-}
-
-#' @noRd
-which_not_ccn <- function(x) {
-  collapse::whichv(is.character(x) & is_ccn_nchar(x), FALSE)
-}
-
-#' @noRd
-all_are_ccn <- function(x) {
-  collapse::allv(
-    is.character(x) &
-      is_ccn_nchar(x),
-    TRUE
-  )
-}
-
-#' @noRd
-nchar_ccn <- function(x) {
-  nchar(x) %between% c(6L, 14L)
-}
-
-#' @noRd
-nchar_provider <- function(x) {
-  nchar(x) == 6L
-}
-
-#' @noRd
-nchar_provider_ext <- function(x) {
-  nchar(x) %between% c(7L, 9L)
-}
-
-#' @noRd
-nchar_supplier <- function(x) {
-  nchar(x) == 10L
-}
-
-#' @noRd
-nchar_supplier_ext <- function(x) {
-  nchar(x) %between% c(11L, 14L)
-}
-
-#' @noRd
 is_organ_type <- function(x) {
   x == "P"
 }
@@ -64,27 +15,27 @@ is_moh_type <- function(x) {
 
 #' @noRd
 is_medicaid_type <- function(x) {
-  x %chin% ccn::medicaid_types[["code"]]
+  x %chin% ccn::medicaid_types$code
 }
 
 #' @noRd
 is_unit_type <- function(x) {
-  x %chin% ccn::unit_types[["code"]]
+  x %chin% ccn::unit_types$code
 }
 
 #' @noRd
 is_subunit_type <- function(x) {
-  x %chin% ccn::subunit_types[["code"]]
+  x %chin% ccn::subunit_types$code
 }
 
 #' @noRd
 is_eipps_type <- function(x) {
-  x %chin% ccn::eipps_types[["code"]]
+  x %chin% ccn::eipps_types$code
 }
 
 #' @noRd
-series_is_eipps <- function(x) {
-  x %chin% ccn::eipps_ranges[["range"]]
+is_eipps_range <- function(x) {
+  x %chin% ccn::eipps_ranges$range
 }
 
 #' @noRd
@@ -93,12 +44,7 @@ is_supplier_type <- function(x) {
 }
 
 #' @noRd
-is_state_code <- function(x) {
-  x %chin% ccn::states[["code"]]
-}
-
-#' @noRd
-ccn_type <- function(x) {
+ccn_by_nchar <- function(x) {
   kit::nif(
     nchar_provider(x),
     "provider",

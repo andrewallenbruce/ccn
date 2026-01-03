@@ -29,12 +29,12 @@ medicare_range <- function(x) {
 
 #' @noRd
 medicare_range_abbr <- function(x) {
-  vs(x, ccn::medicare_ranges[["range"]], ccn::medicare_ranges[["abbr"]])
+  vs(x, ccn::medicare_ranges$range, ccn::medicare_ranges$abbr)
 }
 
 #' @noRd
 medicare_range_desc <- function(x) {
-  vs(x, ccn::medicare_ranges[["range"]], ccn::medicare_ranges[["desc"]])
+  vs(x, ccn::medicare_ranges$range, ccn::medicare_ranges$desc)
 }
 
 #' @noRd
@@ -57,7 +57,7 @@ RangeMCR <- S7::new_class(
     eipps = S7::new_property(
       S7::class_logical,
       getter = function(self) {
-        series_is_eipps(self@series)
+        is_eipps_range(self@series)
       }
     )
   ),

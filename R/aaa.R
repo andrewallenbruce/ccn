@@ -1,4 +1,4 @@
-#' @include states.R
+#' @include state_code.R
 
 #' @noRd
 Extension <- S7::new_property(S7::class_character, default = NA_character_)

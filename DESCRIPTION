@@ -18,7 +18,6 @@ Imports:
     vctrs (>= 0.6.5),
     data.table (>= 1.18.0),
     fs (>= 1.6.6),
-    glue (>= 1.8.0),
     kit (>= 0.0.20),
     pins (>= 1.4.1),
     qs (>= 0.27.3),
@@ -35,26 +34,26 @@ LazyData: true
 Roxygen: list(markdown = TRUE, roclets = c("collate", "namespace", "rd"))
 RoxygenNote: 7.3.3
 Collate: 
-    'states.R'
+    'state_code.R'
     'aaa.R'
+    'ccn-package.R'
+    'ccn_code.R'
+    'checks.R'
+    'class-emergency.R'
+    'class-medicaid.R'
+    'class-medicare.R'
+    'data.R'
+    'generic-decode.R'
+    'internal-nchar.R'
+    'internal-types.R'
+    'internal-utils.R'
     'unit.R'
     'subunit.R'
-    'as_data_frame.R'
-    'ccn-package.R'
-    'ccn.R'
-    'checks.R'
-    'cli.R'
-    'data.R'
-    'decode.R'
-    'emergency.R'
-    'is_type.R'
-    'medicaid.R'
-    'medicare.R'
+    'methods-as_data_frame.R'
+    'methods-print.R'
     'organ.R'
     'parent.R'
     'parse.R'
     'slice.R'
     'supplier.R'
-    'utils.R'
-    'vctr_state.R'
     'zzz.R'
