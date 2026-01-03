@@ -85,7 +85,6 @@ check_states <- function(
   }
 }
 
-
 #' @noRd
 State <- S7::new_class(
   name = "State",

@@ -1,114 +1,60 @@
 #' @noRd
-print_impl <- function(x) {
-  cli::cli_text(
-    # paste0(rep(cli::symbol$line, 2), collapse = ""),
-    "<{cli::col_red('parsed')}:{cli::col_yellow(class(x))}>"
+fmt_names <- function(x) {
+  paste0(
+    cli::col_silver(format(names(x), justify = "right")),
+    cli::col_grey(": ")
   )
-  glue::glue(
-    '{cli::col_silver(format(names(x), justify = "right"))}',
-    '{cli::col_grey(":")} {unname(x)}'
-  ) |>
-    cat(sep = "\n")
+}
+
+#' @noRd
+fmt_head <- function(x) {
+  paste0(
+    "<",
+    cli::col_red("parse"),
+    cli::col_grey(":"),
+    cli::col_yellow(cli::style_bold((class(x)))),
+    ">"
+  )
+}
+
+#' @noRd
+print_impl <- function(x, ...) {
+  fmt_head(x) |> cat(sep = "\n")
+  paste0(fmt_names(x), unlist_(x)) |> cat(sep = "\n")
   invisible(x)
 }
 
 #' @rdname slice_medicare
 #' @export
 #' @keywords internal
-print.medicare <- function(x, ...) {
-  print_impl(x)
-}
+print.medicare <- print_impl
 
 #' @rdname slice_medicare
 #' @export
 #' @keywords internal
-print.organ <- function(x, ...) {
-  print_impl(x)
-}
+print.organ <- print_impl
 
 #' @rdname slice_medicare
 #' @export
 #' @keywords internal
-print.emergency <- function(x, ...) {
-  print_impl(x)
-}
+print.emergency <- print_impl
 
 #' @rdname slice_medicare
 #' @export
 #' @keywords internal
-print.supplier <- function(x, ...) {
-  print_impl(x)
-}
+print.supplier <- print_impl
 
 #' @rdname slice_medicare
 #' @export
 #' @keywords internal
-print.medicaid <- function(x, ...) {
-  print_impl(x)
-}
+print.medicaid <- print_impl
 
 #' @rdname slice_medicare
 #' @export
 #' @keywords internal
-print.unit <- function(x, ...) {
-  print_impl(x)
-}
+print.unit <- print_impl
 
 #' @rdname slice_medicare
 #' @export
 #' @keywords internal
-print.subunit <- function(x, ...) {
-  print_impl(x)
-}
-
-# local({
-#   S7::method(print, State) <- function(x, ...) {
-#     cli::cli_text("<{cli::col_cyan(class(x)[1])}>")
-#
-#     glue::glue(
-#       '{cli::col_silver(format(S7::prop_names(x), justify = "right"))}',
-#       '{cli::col_grey(":")} {unname(S7::props(x))}'
-#     ) |>
-#       cat(sep = "\n")
-#
-#     invisible(x)
-#   }
-# })
-
-# local({
-#   S7::method(print, Medicare) <- function(x, ...) {
-#     cli::cli_text(
-#       paste0(rep(cli::symbol$line, 4), collapse = ""),
-#       "<{cli::col_cyan(class(x)[1])}>"
-#     )
-#     cli::cli_text(cli::symbol$circle_filled, " CCN: <{cli::col_yellow(x@ccn)}>")
-#     cli::cli_text(
-#       cli::symbol$circle_filled,
-#       " State: {cli::col_yellow(x@state@abbr)} - {cli::col_green(x@state@name)}"
-#     )
-#     cli::cli_text(
-#       cli::symbol$circle_filled,
-#       " Facility Type: {cli::col_yellow(x@range@abbr)} - {cli::col_green(x@range@desc)}"
-#     )
-#     cli::cli_text(
-#       cli::symbol$circle_filled,
-#       " IPPS-Excluded: {if (x@range@eipps) cli::col_red(cli::symbol$tick) else cli::col_yellow(cli::symbol$cross)}"
-#     )
-#     invisible(x)
-#   }
-# })
-
-# TODO Handle NA outputs
-# local({
-#   S7::method(print, Range) <- function(x, ...) {
-#     cli::cli_text("<{cli::col_cyan(class(x)[1])}>")
-#
-#     glue::glue(
-#       '{cli::col_silver(format(S7::prop_names(x), justify = "right"))}',
-#       '{cli::col_grey(":")} {unname(S7::props(x))}'
-#     ) |>
-#       cat(sep = "\n")
-#
-#     invisible(x)
-#   }
-# })
+print.subunit <- print_impl

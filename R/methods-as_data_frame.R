@@ -1,57 +1,42 @@
 #' @noRd
-S3_as_df <- function(x) {
+S3_as_df <- function(x, ...) {
   `class<-`(list2DF(c(entity = class(x), x)), c("tbl_df", "tbl", "data.frame"))
 }
 
 #' @rdname slice_medicare
 #' @export
 #' @keywords internal
-as.data.frame.medicare <- function(x, ...) {
-  S3_as_df(x)
-}
+as.data.frame.medicare <- S3_as_df
 
 #' @rdname slice_medicare
 #' @export
 #' @keywords internal
-as.data.frame.organ <- function(x, ...) {
-  S3_as_df(x)
-}
+as.data.frame.organ <- S3_as_df
 
 #' @rdname slice_medicare
 #' @export
 #' @keywords internal
-as.data.frame.emergency <- function(x, ...) {
-  S3_as_df(x)
-}
+as.data.frame.emergency <- S3_as_df
 
 #' @rdname slice_medicare
 #' @export
 #' @keywords internal
-as.data.frame.supplier <- function(x, ...) {
-  S3_as_df(x)
-}
+as.data.frame.supplier <- S3_as_df
 
 #' @rdname slice_medicare
 #' @export
 #' @keywords internal
-as.data.frame.medicaid <- function(x, ...) {
-  S3_as_df(x)
-}
+as.data.frame.medicaid <- S3_as_df
 
 #' @rdname slice_medicare
 #' @export
 #' @keywords internal
-as.data.frame.unit <- function(x, ...) {
-  S3_as_df(x)
-}
+as.data.frame.unit <- S3_as_df
 
 #' @rdname slice_medicare
 #' @export
 #' @keywords internal
-as.data.frame.subunit <- function(x, ...) {
-  S3_as_df(x)
-}
-
+as.data.frame.subunit <- S3_as_df
 
 #' @include unit.R
 #' @include subunit.R
@@ -65,6 +50,18 @@ NULL
 #' @param x character vector of codes to look up.
 #' @returns data.frame
 #' @examples
+#' list(
+#' parse("670055"),
+#' parse("21034E"),
+#' parse("01L008"),
+#' parse("01J008"),
+#' parse("05P001"),
+#' parse("21U101"),
+#' parse("21TA26"),
+#' parse("45D0634589")
+#' ) |>
+#'   purrr::map(as.data.frame) |>
+#'   purrr::list_rbind()
 #' data_frame("670055")
 #' data_frame("21034E")
 #' data_frame("01L008")
