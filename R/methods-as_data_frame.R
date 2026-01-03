@@ -42,42 +42,6 @@ as.data.frame.subunit <- S3_as_df
 #' @include subunit.R
 NULL
 
-#' Convert to a data.frame
-#'
-#' @description
-#' Convert various codes to their associated names.
-#'
-#' @param x character vector of codes to look up.
-#' @returns data.frame
-#' @examples
-#' list(
-#' parse("670055"),
-#' parse("21034E"),
-#' parse("01L008"),
-#' parse("01J008"),
-#' parse("05P001"),
-#' parse("21U101"),
-#' parse("21TA26"),
-#' parse("45D0634589")
-#' ) |>
-#'   purrr::map(as.data.frame) |>
-#'   purrr::list_rbind()
-#' data_frame("670055")
-#' data_frame("21034E")
-#' data_frame("01L008")
-#' data_frame("01J008")
-#' data_frame("05P001")
-#' data_frame("21U101")
-#' data_frame("21TA26")
-#' data_frame("45D0634589")
-#' @export
-data_frame <- function(x) {
-  if (is_decoded(x)) {
-    return(as_data_frame(x))
-  }
-  as_data_frame(decode(x))
-}
-
 #' @noRd
 is_decoded <- function(x) {
   rlang::inherits_any(
@@ -92,6 +56,27 @@ is_decoded <- function(x) {
       "ccn::Supplier"
     )
   )
+}
+
+#' Convert to a data.frame
+#'
+#' @description
+#' Convert various codes to their associated names.
+#'
+#' @param x character vector of codes to look up.
+#' @returns data.frame
+#' @examples
+#' x = list("670055","21034E","01L008","01J008","05P001","21U101","21TA26","45D0634589")
+#'
+#' purrr::map(x, \(x) as.data.frame(parse(x))) |> purrr::list_rbind()
+#'
+#' purrr::map(x, \(x) as.data.frame(decode(x))) |> purrr::list_rbind()
+#' @export
+data_frame <- function(x) {
+  if (is_decoded(x)) {
+    return(as_data_frame(x))
+  }
+  as_data_frame(decode(x))
 }
 
 #' @noRd
@@ -172,8 +157,11 @@ S7_as_df <- function(
   )
 }
 
-#' @noRd
-as_data_frame <- S7::new_generic("as_data_frame", "x")
+# as_data_frame <- S7::new_generic("as_data_frame", "x")
+
+#' @export
+#' @keywords internal
+as_data_frame <- S7::new_external_generic("base", "as.data.frame", "x")
 
 S7::method(as_data_frame, Emergency) <- function(x) {
   S7_as_df(x, entity = "Emergency Hospital")
