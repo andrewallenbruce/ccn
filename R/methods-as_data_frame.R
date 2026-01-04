@@ -66,11 +66,11 @@ is_decoded <- function(x) {
 #' @param x character vector of codes to look up.
 #' @returns data.frame
 #' @examples
-#' x = list("670055","21034E","01L008","01J008","05P001","21U101","21TA26","45D0634589")
+#' x = list("670055", "21034E", "01L008", "01J008", "05P001", "21U101", "21TA26", "45D0634589")
 #'
 #' purrr::map(x, \(x) as.data.frame(parse(x))) |> purrr::list_rbind()
 #'
-#' purrr::map(x, \(x) as.data.frame(decode(x))) |> purrr::list_rbind()
+#' purrr::map(x, \(x) data_frame(x)) |> purrr::list_rbind()
 #' @export
 data_frame <- function(x) {
   if (is_decoded(x)) {
@@ -157,11 +157,8 @@ S7_as_df <- function(
   )
 }
 
-# as_data_frame <- S7::new_generic("as_data_frame", "x")
-
-#' @export
-#' @keywords internal
-as_data_frame <- S7::new_external_generic("base", "as.data.frame", "x")
+#' @noRd
+as_data_frame <- S7::new_generic("as_data_frame", "x")
 
 S7::method(as_data_frame, Emergency) <- function(x) {
   S7_as_df(x, entity = "Emergency Hospital")

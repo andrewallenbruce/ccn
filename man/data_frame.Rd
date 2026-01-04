@@ -16,9 +16,9 @@ data.frame
 Convert various codes to their associated names.
 }
 \examples{
-x = list("670055","21034E","01L008","01J008","05P001","21U101","21TA26","45D0634589")
+x = list("670055", "21034E", "01L008", "01J008", "05P001", "21U101", "21TA26", "45D0634589")
 
 purrr::map(x, \(x) as.data.frame(parse(x))) |> purrr::list_rbind()
 
-purrr::map(x, \(x) as.data.frame(decode(x))) |> purrr::list_rbind()
+purrr::map(x, \(x) data_frame(x)) |> purrr::list_rbind()
 }

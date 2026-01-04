@@ -47,12 +47,14 @@ nchar_is_state <- function(x) {
 
 #' @noRd
 is_state_code <- function(x) {
+  # vctrs::vec_in(x, ccn::states$code, needles_arg = rlang::caller_arg(x))
+  # collapse::fmatch(x, ccn::states$code) > 0L
   x %chin% ccn::states$code
 }
 
 #' @noRd
 is_valid_state_code <- function(x) {
-  is.character(x) & nchar_is_state(x) & is_state_code(x)
+  nchar_is_state(x) & is_state_code(x)
 }
 
 #' @noRd
@@ -66,7 +68,7 @@ which_not_state_code <- function(x) {
 }
 
 #' @noRd
-check_states <- function(
+check_state_code <- function(
   x,
   arg = rlang::caller_arg(x),
   call = rlang::caller_env()
@@ -105,7 +107,7 @@ State <- S7::new_class(
     )
   ),
   constructor = function(code) {
-    check_states(code)
+    check_state_code(code)
     S7::new_object(
       S7::S7_object(),
       abbr = state_abbr(code),
