@@ -1,30 +1,46 @@
+#' @noRd
+S3_as_df <- function(x, ...) {
+  `class<-`(list2DF(c(entity = class(x), x)), c("tbl_df", "tbl", "data.frame"))
+}
+
+#' @rdname slice_medicare
+#' @export
+#' @keywords internal
+as.data.frame.medicare <- S3_as_df
+
+#' @rdname slice_medicare
+#' @export
+#' @keywords internal
+as.data.frame.organ <- S3_as_df
+
+#' @rdname slice_medicare
+#' @export
+#' @keywords internal
+as.data.frame.emergency <- S3_as_df
+
+#' @rdname slice_medicare
+#' @export
+#' @keywords internal
+as.data.frame.supplier <- S3_as_df
+
+#' @rdname slice_medicare
+#' @export
+#' @keywords internal
+as.data.frame.medicaid <- S3_as_df
+
+#' @rdname slice_medicare
+#' @export
+#' @keywords internal
+as.data.frame.unit <- S3_as_df
+
+#' @rdname slice_medicare
+#' @export
+#' @keywords internal
+as.data.frame.subunit <- S3_as_df
+
 #' @include unit.R
 #' @include subunit.R
 NULL
-
-#' Convert to a data.frame
-#'
-#' @description
-#' Convert various codes to their associated names.
-#'
-#' @param x character vector of codes to look up.
-#' @returns data.frame
-#' @examples
-#' data_frame("670055")
-#' data_frame("21034E")
-#' data_frame("01L008")
-#' data_frame("01J008")
-#' data_frame("05P001")
-#' data_frame("21U101")
-#' data_frame("21TA26")
-#' data_frame("45D0634589")
-#' @export
-data_frame <- function(x) {
-  if (is_decoded(x)) {
-    return(as_data_frame(x))
-  }
-  as_data_frame(decode(x))
-}
 
 #' @noRd
 is_decoded <- function(x) {
@@ -40,6 +56,27 @@ is_decoded <- function(x) {
       "ccn::Supplier"
     )
   )
+}
+
+#' Convert to a data.frame
+#'
+#' @description
+#' Convert various codes to their associated names.
+#'
+#' @param x character vector of codes to look up.
+#' @returns data.frame
+#' @examples
+#' x = list("670055", "21034E", "01L008", "01J008", "05P001", "21U101", "21TA26", "45D0634589")
+#'
+#' purrr::map(x, \(x) as.data.frame(parse(x))) |> purrr::list_rbind()
+#'
+#' purrr::map(x, \(x) data_frame(x)) |> purrr::list_rbind()
+#' @export
+data_frame <- function(x) {
+  if (is_decoded(x)) {
+    return(as_data_frame(x))
+  }
+  as_data_frame(decode(x))
 }
 
 #' @noRd

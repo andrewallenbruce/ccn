@@ -33,16 +33,6 @@ prefix_names <- function(x, prefix, sep = "_") {
 }
 
 #' @noRd
-as_int <- function(x) {
-  if (!rlang::is_integerish(x)) as.integer(x) else x
-}
-
-#' @noRd
-to_string <- function(x) {
-  paste0(x, collapse = "")
-}
-
-#' @noRd
 unlist_ <- function(x, ...) {
   unlist(x, use.names = FALSE, ...)
 }
@@ -60,16 +50,6 @@ has_letter <- function(x) {
 #' @noRd
 is_numeric <- function(x) {
   !has_letter(x)
-}
-
-#' @noRd
-has_hyphen <- function(x) {
-  grepl("-", x, fixed = TRUE)
-}
-
-#' @noRd
-remove_hyphen <- function(x) {
-  gsub("-", "", x, fixed = TRUE)
 }
 
 #' @noRd
