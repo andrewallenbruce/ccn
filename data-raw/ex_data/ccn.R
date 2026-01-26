@@ -151,6 +151,8 @@ ccns <- vctrs::vec_c(
   kit::psort(nThread = 4L) |>
   stringfish::convert_to_sf()
 
+ccns <- ccn:::get_pin("ccn")
+
 pin_update(
   ccns,
   name = "ccn",

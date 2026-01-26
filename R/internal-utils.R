@@ -71,9 +71,6 @@ clean <- function(x) {
 ################## REMOVE EVENTUALLY
 
 #' @noRd
-qs_url <- function(url) qs::qread_url(url)
-
-#' @noRd
 mount_board <- function(source = c("local", "remote")) {
   switch(
     match.arg(source),

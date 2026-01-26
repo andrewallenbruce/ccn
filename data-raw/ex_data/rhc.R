@@ -17,6 +17,8 @@ rhc <- readr::read_csv(
 
 lobstr::obj_size(rhc)
 
+rhc <- ccn:::get_pin("rhc")
+
 # rhc === 5461 × 5 [1.05 MB]
 pin_update(
   rhc,

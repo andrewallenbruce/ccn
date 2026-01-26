@@ -1,0 +1,10 @@
+file: hosp_info.rds
+file_size: 74332
+pin_hash: 29fb93696e49d71e
+type: rds
+title: Hospital Information
+description: Hospital General Information 2025
+tags: ~
+urls: ~
+created: 20260126T202136Z
+api_version: 1

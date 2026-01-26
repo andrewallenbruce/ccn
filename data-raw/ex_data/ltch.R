@@ -33,6 +33,8 @@ ltch <- readr::read_csv(
   ) |>
   collapse::funique()
 
+ltch <- ccn:::get_pin("ltch")
+
 # ltch  ===  324 × 3 [66.5 KB]
 pin_update(
   ltch,
@@ -43,7 +45,7 @@ pin_update(
 
 # All states are correct
 # Every facility type == Long-Term Care Hospital (IPPS-Excluded)
-get_pin("ltch") |>
+ccn:::get_pin("ltch") |>
   collapse::mtt(
     state_check = ccn:::state_abbr(substring(ccn, 1L, 2L)) == state,
     fac_type = substring(ccn, 3L, 6L) |>

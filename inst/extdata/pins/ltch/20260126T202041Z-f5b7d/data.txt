@@ -1,0 +1,10 @@
+file: ltch.rds
+file_size: 5242
+pin_hash: f5b7d9b721ed7a14
+type: rds
+title: Long-Term Care Hospitals
+description: Long-Term Care Hospital - Provider Data
+tags: ~
+urls: ~
+created: 20260126T202041Z
+api_version: 1
