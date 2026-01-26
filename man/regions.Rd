@@ -12,7 +12,8 @@ A data frame with 59 rows and 4 columns:
 \item{ro}{Region number}
 \item{region}{Region roman numeral}
 \item{state}{State abbreviation}
-\item{office}{Regional office city}
+\item{off}{Regional office city abbreviation}
+\item{office}{Regional office city full name}
 ...
 }
 }

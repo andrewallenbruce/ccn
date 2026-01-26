@@ -14,18 +14,18 @@ Depends:
     R (>= 4.1.0)
 Imports: 
     cli (>= 3.6.5),
-    collapse (>= 2.1.5),
-    vctrs (>= 0.6.5),
+    collapse (>= 2.1.6),
+    vctrs (>= 0.7.0),
     data.table (>= 1.18.0),
     fs (>= 1.6.6),
-    kit (>= 0.0.20),
+    kit (>= 0.0.21),
     pins (>= 1.4.1),
-    rlang (>= 1.1.6),
+    rlang (>= 1.1.7),
     S7 (>= 0.2.1)
 Suggests:
-    cheapr (>= 1.4.0),
-    purrr (>= 1.2.0),
-    testthat (>= 3.3.1)
+    cheapr (>= 1.5.0),
+    purrr (>= 1.2.1),
+    testthat (>= 3.3.2)
 Config/testthat/edition: 3
 Config/testthat/parallel: true
 Encoding: UTF-8
