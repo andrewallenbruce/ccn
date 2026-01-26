@@ -33,6 +33,8 @@ irf <- readr::read_csv(
   ) |>
   collapse::funique()
 
+irf <- ccn:::get_pin("irf")
+
 # irf === 1,221 × 3  [213.7 KB]
 pin_update(
   irf,
@@ -40,10 +42,6 @@ pin_update(
   title = "Inpatient Rehabilitation Facility",
   description = "Inpatient Rehabilitation Facility - Provider Data"
 )
-
-x <- get_pin("irf")
-
-x
 
 x_decode <- purrr::map(x$ccn, \(x) ccn::data_frame(x)) |>
   collapse::rowbind(fill = TRUE)

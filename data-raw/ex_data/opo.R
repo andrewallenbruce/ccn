@@ -111,6 +111,14 @@ opo <- list(
   opo_active = opo_active
 ) # [55 x 6]
 
+opo <- list(
+  opo_codes = ccn:::get_pin("opo_codes"), # [56 x 2]
+  opo_county = ccn:::get_pin("opo_county"), # [3223 x 3]
+  opo_active = ccn:::get_pin("opo_active") # [55 x 6]
+)
+
+opo <- ccn:::get_pin("opo")
+
 lobstr::obj_size(opo)
 
 # opo === 39,130 × 3 [232.93 kB]

@@ -66,6 +66,8 @@ hosp_info <- readr::read_csv(
     emergency = emergency_services
   )
 
+hosp_info <- get_pin("hosp_info")
+
 # hosp_info === 5,381 × 6 [990.3 KB]
 pin_update(
   hosp_info,

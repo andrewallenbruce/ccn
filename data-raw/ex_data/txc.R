@@ -19,6 +19,8 @@ txc <- readr::read_csv(
 
 lobstr::obj_size(txc)
 
+txc <- ccn:::get_pin("txc")
+
 # txc === 883 × 13 [70.24 kB]
 pin_update(
   txc,

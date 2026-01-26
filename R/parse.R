@@ -45,7 +45,7 @@ switch_provider <- function(x) {
 #' @noRd
 switch_ccn <- function(x) {
   switch(
-    ccn_type(x),
+    ccn_by_nchar(x),
     provider = switch_provider(x),
     provider_ext = slice_provider_ext(x),
     supplier = slice_supplier(x),

@@ -10,6 +10,8 @@ snf <- readr::read_csv(
 
 lobstr::obj_size(snf)
 
+snf <- ccn:::get_pin("snf")
+
 # snf === 14,437 × 2 [1.05 MB]
 pin_update(
   snf,

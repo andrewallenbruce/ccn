@@ -56,6 +56,8 @@ hha <- readr::read_csv(
 # both enid and ccn are unique
 collapse::fcount(hha, org_type)
 
+hha <- ccn:::get_pin("hha")
+
 # hha ===  11,723 × 5 [1.9 MB]
 pin_update(
   hha,
