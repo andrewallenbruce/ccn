@@ -31,7 +31,7 @@ organ("05P001")
 #>  .. @ abbr  : chr "CA"
 #>  .. @ name  : chr "California"
 #>  .. @ region: chr "IX"
-#>  .. @ office: chr "SF"
+#>  .. @ office: chr "San Francisco"
 #>  @ range: chr "001-099"
 #>  @ type : <ccn::Type>
 #>  .. @ abbr: chr "OPO"

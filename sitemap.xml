@@ -8,8 +8,6 @@
 <url><loc>https://andrewallenbruce.github.io/ccn/news/index.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/ccn/news/news-dev.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/ccn/reference/ccn-package.html</loc></url>
-<url><loc>https://andrewallenbruce.github.io/ccn/reference/ccn.html</loc></url>
-<url><loc>https://andrewallenbruce.github.io/ccn/reference/ccn_state.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/ccn/reference/data_frame.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/ccn/reference/decode.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/ccn/reference/eipps_ranges.html</loc></url>
@@ -26,6 +24,7 @@
 <url><loc>https://andrewallenbruce.github.io/ccn/reference/parse.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/ccn/reference/regions.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/ccn/reference/slice_medicare.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/ccn/reference/state_code.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/ccn/reference/states.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/ccn/reference/subunit.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/ccn/reference/subunit_types.html</loc></url>

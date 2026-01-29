@@ -28,25 +28,12 @@ occasionally assist with some of these duties.
 
 # Package index
 
-## Manipulation
+## All functions
 
-Parse and decode CMS Certification Numbers.
-
-- [`decode()`](https://andrewallenbruce.github.io/ccn/reference/decode.md)
-  : Decode CMS Certification Numbers
-- [`parse()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
-  : Parse CMS Certification Numbers
 - [`data_frame()`](https://andrewallenbruce.github.io/ccn/reference/data_frame.md)
   : Convert to a data.frame
-
-## Classes
-
-CMS Certification Number classes.
-
-- [`ccn()`](https://andrewallenbruce.github.io/ccn/reference/ccn.md) :
-  Create a ccn vector
-- [`ccn_state()`](https://andrewallenbruce.github.io/ccn/reference/ccn_state.md)
-  : Create a state vector
+- [`decode()`](https://andrewallenbruce.github.io/ccn/reference/decode.md)
+  : Decode CMS Certification Numbers
 - [`emergency()`](https://andrewallenbruce.github.io/ccn/reference/emergency.md)
   : Emergency Hospitals
 - [`medicaid()`](https://andrewallenbruce.github.io/ccn/reference/medicaid.md)
@@ -57,9 +44,14 @@ CMS Certification Number classes.
   : Organ Procurement Organizations
 - [`parent()`](https://andrewallenbruce.github.io/ccn/reference/parent.md)
   : Unit Parents
-- [`state()`](https://andrewallenbruce.github.io/ccn/reference/states.md)
-  [`states`](https://andrewallenbruce.github.io/ccn/reference/states.md)
-  : State Codes
+- [`parse()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
+  : Parse CMS Certification Numbers
+- [`state_abbr()`](https://andrewallenbruce.github.io/ccn/reference/state_code.md)
+  [`state_name()`](https://andrewallenbruce.github.io/ccn/reference/state_code.md)
+  [`state_region()`](https://andrewallenbruce.github.io/ccn/reference/state_code.md)
+  [`state_office()`](https://andrewallenbruce.github.io/ccn/reference/state_code.md)
+  [`state()`](https://andrewallenbruce.github.io/ccn/reference/state_code.md)
+  : State Code Conversions
 - [`subunit()`](https://andrewallenbruce.github.io/ccn/reference/subunit.md)
   : IPPS-Excluded Hospital Subunits
 - [`supplier()`](https://andrewallenbruce.github.io/ccn/reference/supplier.md)

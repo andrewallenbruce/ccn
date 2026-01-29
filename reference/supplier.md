@@ -45,7 +45,7 @@ supplier("10C0001062")
 #>  .. @ abbr  : chr "FL"
 #>  .. @ name  : chr "Florida"
 #>  .. @ region: chr "IV"
-#>  .. @ office: chr "ATL"
+#>  .. @ office: chr "Atlanta"
 #>  @ range    : chr "0000001-9999999"
 #>  @ type     : <ccn::Type>
 #>  .. @ abbr: chr "ASC"
@@ -58,7 +58,7 @@ supplier("45D0634589")
 #>  .. @ abbr  : chr "TX"
 #>  .. @ name  : chr "Texas"
 #>  .. @ region: chr "VI"
-#>  .. @ office: chr "DAL"
+#>  .. @ office: chr "Dallas"
 #>  @ range    : chr "0000001-9999999"
 #>  @ type     : <ccn::Type>
 #>  .. @ abbr: chr "CLIA"
@@ -71,7 +71,7 @@ supplier("21X0009807")
 #>  .. @ abbr  : chr "MD"
 #>  .. @ name  : chr "Maryland"
 #>  .. @ region: chr "III"
-#>  .. @ office: chr "PHL"
+#>  .. @ office: chr "Philadelphia"
 #>  @ range    : chr "0000001-9999999"
 #>  @ type     : <ccn::Type>
 #>  .. @ abbr: chr "PXRF"
@@ -84,7 +84,7 @@ supplier("12C0001062")
 #>  .. @ abbr  : chr "HI"
 #>  .. @ name  : chr "Hawaii"
 #>  .. @ region: chr "IX"
-#>  .. @ office: chr "SF"
+#>  .. @ office: chr "San Francisco"
 #>  @ range    : chr "0000001-9999999"
 #>  @ type     : <ccn::Type>
 #>  .. @ abbr: chr "ASC"

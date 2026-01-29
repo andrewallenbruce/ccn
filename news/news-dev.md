@@ -173,9 +173,9 @@
 ## ccn 0.0.0.9037 (2025-12-01)
 
 - trying
-  [`data.table::between`](https://rdatatable.gitlab.io/data.table/reference/between.html)
+  [`data.table::between`](https://rdrr.io/pkg/data.table/man/between.html)
   &
-  [`data.table::inrange`](https://rdatatable.gitlab.io/data.table/reference/between.html)
+  [`data.table::inrange`](https://rdrr.io/pkg/data.table/man/between.html)
   for facility ranges
 
 ## ccn 0.0.0.9038 (2025-12-02)

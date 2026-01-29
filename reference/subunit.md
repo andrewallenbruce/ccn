@@ -28,7 +28,7 @@ subunit("21SA26")
 #>  .. @ abbr  : chr "MD"
 #>  .. @ name  : chr "Maryland"
 #>  .. @ region: chr "III"
-#>  .. @ office: chr "PHL"
+#>  .. @ office: chr "Philadelphia"
 #>  @ type  : <ccn::TypeUnit>
 #>  .. @ abbr : chr "Pu"
 #>  .. @ desc : chr "Psychiatric Unit"
@@ -41,7 +41,7 @@ subunit("21TA26")
 #>  .. @ abbr  : chr "MD"
 #>  .. @ name  : chr "Maryland"
 #>  .. @ region: chr "III"
-#>  .. @ office: chr "PHL"
+#>  .. @ office: chr "Philadelphia"
 #>  @ type  : <ccn::TypeUnit>
 #>  .. @ abbr : chr "IRFu"
 #>  .. @ desc : chr "Rehabilitation Unit"
@@ -54,7 +54,7 @@ subunit("02TA01")
 #>  .. @ abbr  : chr "AK"
 #>  .. @ name  : chr "Alaska"
 #>  .. @ region: chr "X"
-#>  .. @ office: chr "SEA"
+#>  .. @ office: chr "Seattle"
 #>  @ type  : <ccn::TypeUnit>
 #>  .. @ abbr : chr "IRFu"
 #>  .. @ desc : chr "Rehabilitation Unit"
@@ -67,7 +67,7 @@ subunit("04SD38")
 #>  .. @ abbr  : chr "AR"
 #>  .. @ name  : chr "Arkansas"
 #>  .. @ region: chr "VI"
-#>  .. @ office: chr "DAL"
+#>  .. @ office: chr "Dallas"
 #>  @ type  : <ccn::TypeUnit>
 #>  .. @ abbr : chr "Pu"
 #>  .. @ desc : chr "Psychiatric Unit"
@@ -80,7 +80,7 @@ subunit("52TA05")
 #>  .. @ abbr  : chr "WI"
 #>  .. @ name  : chr "Wisconsin"
 #>  .. @ region: chr "V"
-#>  .. @ office: chr "CHI"
+#>  .. @ office: chr "Chicago"
 #>  @ type  : <ccn::TypeUnit>
 #>  .. @ abbr : chr "IRFu"
 #>  .. @ desc : chr "Rehabilitation Unit"

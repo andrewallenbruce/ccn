@@ -9,13 +9,13 @@
 Source:
 [`DESCRIPTION`](https://github.com/andrewallenbruce/ccn/blob/master/DESCRIPTION)
 
-Bruce AA (2025). *ccn: CMS Certification Numbers*. R package version
+Bruce AA (2026). *ccn: CMS Certification Numbers*. R package version
 0.0.0.9086, <https://github.com/andrewallenbruce/ccn>.
 
     @Manual{,
       title = {ccn: CMS Certification Numbers},
       author = {Andrew Allen Bruce},
-      year = {2025},
+      year = {2026},
       note = {R package version 0.0.0.9086},
       url = {https://github.com/andrewallenbruce/ccn},
     }

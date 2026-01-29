@@ -37,7 +37,7 @@ medicare("210101")
 #>  .. @ abbr  : chr "MD"
 #>  .. @ name  : chr "Maryland"
 #>  .. @ region: chr "III"
-#>  .. @ office: chr "PHL"
+#>  .. @ office: chr "Philadelphia"
 #>  @ range    : <ccn::RangeMCR>
 #>  .. @ series: chr "0001-0879"
 #>  .. @ abbr  : chr "STC"
@@ -51,7 +51,7 @@ unit("21T101")
 #>  .. @ abbr  : chr "MD"
 #>  .. @ name  : chr "Maryland"
 #>  .. @ region: chr "III"
-#>  .. @ office: chr "PHL"
+#>  .. @ office: chr "Philadelphia"
 #>  @ range : chr "001-999"
 #>  @ type  : <ccn::TypeUnit>
 #>  .. @ abbr : chr "IRFu"
@@ -65,7 +65,7 @@ unit("21S101")
 #>  .. @ abbr  : chr "MD"
 #>  .. @ name  : chr "Maryland"
 #>  .. @ region: chr "III"
-#>  .. @ office: chr "PHL"
+#>  .. @ office: chr "Philadelphia"
 #>  @ range : chr "001-999"
 #>  @ type  : <ccn::TypeUnit>
 #>  .. @ abbr : chr "Pu"
@@ -79,14 +79,13 @@ unit("21U101")
 #>  .. @ abbr  : chr "MD"
 #>  .. @ name  : chr "Maryland"
 #>  .. @ region: chr "III"
-#>  .. @ office: chr "PHL"
+#>  .. @ office: chr "Philadelphia"
 #>  @ range : chr "001-999"
 #>  @ type  : <ccn::TypeUnit>
 #>  .. @ abbr : chr "SBA"
 #>  .. @ desc : chr "Swing-Bed Approval [STC]"
 #>  .. @ eipps: logi FALSE
 #>  @ parent: chr "210101"
-
 unit("28Z348")
 #> <ccn::Unit>
 #>  @ ccn   : chr "28Z348"
@@ -94,7 +93,7 @@ unit("28Z348")
 #>  .. @ abbr  : chr "NE"
 #>  .. @ name  : chr "Nebraska"
 #>  .. @ region: chr "VII"
-#>  .. @ office: chr "KC"
+#>  .. @ office: chr "Kansas City"
 #>  @ range : chr "001-999"
 #>  @ type  : <ccn::TypeUnit>
 #>  .. @ abbr : chr "SBA"
@@ -108,7 +107,7 @@ medicare("281348")
 #>  .. @ abbr  : chr "NE"
 #>  .. @ name  : chr "Nebraska"
 #>  .. @ region: chr "VII"
-#>  .. @ office: chr "KC"
+#>  .. @ office: chr "Kansas City"
 #>  @ range    : <ccn::RangeMCR>
 #>  .. @ series: chr "1300-1399"
 #>  .. @ abbr  : chr "CAH"

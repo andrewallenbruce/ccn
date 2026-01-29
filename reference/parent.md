@@ -34,7 +34,7 @@ parent("21SE26")
 #>  .. @ abbr  : chr "MD"
 #>  .. @ name  : chr "Maryland"
 #>  .. @ region: chr "III"
-#>  .. @ office: chr "PHL"
+#>  .. @ office: chr "Philadelphia"
 #>  @ range    : <ccn::RangeMCR>
 #>  .. @ series: chr "3300-3399"
 #>  .. @ abbr  : chr "CH"
@@ -48,7 +48,7 @@ parent("21SB26")
 #>  .. @ abbr  : chr "MD"
 #>  .. @ name  : chr "Maryland"
 #>  .. @ region: chr "III"
-#>  .. @ office: chr "PHL"
+#>  .. @ office: chr "Philadelphia"
 #>  @ range    : <ccn::RangeMCR>
 #>  .. @ series: chr "2000-2299"
 #>  .. @ abbr  : chr "LTCH"
@@ -62,7 +62,7 @@ parent("21SD26")
 #>  .. @ abbr  : chr "MD"
 #>  .. @ name  : chr "Maryland"
 #>  .. @ region: chr "III"
-#>  .. @ office: chr "PHL"
+#>  .. @ office: chr "Philadelphia"
 #>  @ range    : <ccn::RangeMCR>
 #>  .. @ series: chr "3025-3099"
 #>  .. @ abbr  : chr "IRF"
