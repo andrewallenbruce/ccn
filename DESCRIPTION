@@ -15,7 +15,7 @@ Depends:
 Imports: 
     cli (>= 3.6.5),
     collapse (>= 2.1.6),
-    vctrs (>= 0.7.0),
+    vctrs (>= 0.7.1),
     data.table (>= 1.18.0),
     fs (>= 1.6.6),
     kit (>= 0.0.21),
