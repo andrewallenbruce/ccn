@@ -21,6 +21,9 @@
 #' @name as_data_frame
 NULL
 
+S7::method(as_data_frame, MedicareProvider) <- function(x) {
+  list2DF(as_list(x))
+
 #' @rdname as_data_frame
 #' @export
 as_data_frame <- S7::new_generic("as_data_frame", "x")

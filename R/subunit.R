@@ -19,7 +19,7 @@ NULL
 
 #' @noRd
 subunit_prefix <- function(x) {
-  vs(x, ccn::subunit_types[["code"]], ccn::subunit_types[["prefix"]])
+  vs(x, ccn::subunit_types$code, ccn::subunit_types$prefix)
 }
 
 #' @noRd

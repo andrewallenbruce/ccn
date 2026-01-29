@@ -19,24 +19,23 @@
 #' unit("21T101")
 #' unit("21S101")
 #' unit("21U101")
-#'
 #' unit("28Z348")
 #' medicare("281348")
 NULL
 
 #' @noRd
 unit_type_infix <- function(x) {
-  vs(x, ccn::unit_types[["code"]], ccn::unit_types[["infix"]])
+  vs(x, ccn::unit_types$code, ccn::unit_types$infix)
 }
 
 #' @noRd
 unit_type_abbr <- function(x) {
-  vs(x, ccn::unit_types[["code"]], ccn::unit_types[["abbr"]])
+  vs(x, ccn::unit_types$code, ccn::unit_types$abbr)
 }
 
 #' @noRd
 unit_type_desc <- function(x) {
-  vs(x, ccn::unit_types[["code"]], ccn::unit_types[["desc"]])
+  vs(x, ccn::unit_types$code, ccn::unit_types$desc)
 }
 
 #' @noRd

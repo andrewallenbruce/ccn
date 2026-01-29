@@ -164,6 +164,8 @@ hosp <- hosp |>
     reh_ccns = NULL
   )
 
+hosp <- ccn:::get_pin("hosp")
+
 # hosp === 9,217 × 7 [1.5 MB]
 pin_update(
   hosp,

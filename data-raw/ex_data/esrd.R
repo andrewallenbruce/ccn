@@ -76,6 +76,8 @@ esrd <- readr::read_csv(
     home = offers_home_hemodialysis_training
   )
 
+esrd <- ccn:::get_pin("esrd")
+
 # esrd === 7,561 × 8 [1.500 MB]
 pin_update(
   esrd,

@@ -2,6 +2,7 @@
 % Please edit documentation in R/ccn-package.R
 \docType{package}
 \name{ccn-package}
+\alias{ccn}
 \alias{ccn-package}
 \title{ccn: CMS Certification Numbers}
 \description{
