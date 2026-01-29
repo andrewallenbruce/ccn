@@ -389,3 +389,7 @@
 ## ccn 0.0.0.9086 (2025-12-30)
 
 - `ccn_state` vctr class
+
+## ccn 0.0.0.9087 (2026-01-29)
+
+- bump vctrs version
