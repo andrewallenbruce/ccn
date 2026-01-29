@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9087 (2026-01-29)
+
+* bump vctrs version
+
+
 # ccn 0.0.0.9086 (2025-12-30)
 
 * `ccn_state` vctr class
