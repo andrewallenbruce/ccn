@@ -2,7 +2,7 @@
 
 ## All functions
 
-- [`data_frame()`](https://andrewallenbruce.github.io/ccn/reference/data_frame.md)
+- [`as_data_frame()`](https://andrewallenbruce.github.io/ccn/reference/as_data_frame.md)
   : Convert to a data.frame
 - [`decode()`](https://andrewallenbruce.github.io/ccn/reference/decode.md)
   : Decode CMS Certification Numbers

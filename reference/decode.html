@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ccn</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9087</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9088</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +35,7 @@
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Decode CMS Certification Numbers</h1>
-      <small class="dont-index">Source: <a href="https://github.com/andrewallenbruce/ccn/blob/master/R/generic-decode.R" class="external-link"><code>R/generic-decode.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/andrewallenbruce/ccn/blob/master/R/decode-generic.R" class="external-link"><code>R/decode-generic.R</code></a></small>
       <div class="d-none name"><code>decode.Rd</code></div>
     </div>
 
@@ -63,7 +63,9 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">"670055"</span>, <span class="st">"21034E"</span>, <span class="st">"01L008"</span>, <span class="st">"01J008"</span>, <span class="st">"05P001"</span>, <span class="st">"21U101"</span>, <span class="st">"21TA26"</span>, <span class="st">"45D0634589"</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"670055"</span>, <span class="st">"21034E"</span>, <span class="st">"01L008"</span>, <span class="st">"01J008"</span>,</span></span>
+<span class="r-in"><span>      <span class="st">"05P001"</span>, <span class="st">"21U101"</span>, <span class="st">"21TA26"</span>, <span class="st">"45D0634589"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">decode</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn::Medicare&gt;</span>

@@ -21,7 +21,9 @@ S7 object of class `Medicare`.
 ## Examples
 
 ``` r
-x = list("670055", "21034E", "01L008", "01J008", "05P001", "21U101", "21TA26", "45D0634589")
+x = c("670055", "21034E", "01L008", "01J008",
+      "05P001", "21U101", "21TA26", "45D0634589")
+
 purrr::map(x, decode)
 #> [[1]]
 #> <ccn::Medicare>
