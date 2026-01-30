@@ -27,36 +27,39 @@ NULL
 
 #' @noRd
 mof_type_abbr <- function(x) {
-  vs(x, ccn::medicaid_types[["code"]], ccn::medicaid_types[["abbr"]])
+  vs(x, ccn::medicaid_types$code, ccn::medicaid_types$abbr)
 }
 
 #' @noRd
 mof_type_desc <- function(x) {
-  vs(x, ccn::medicaid_types[["code"]], ccn::medicaid_types[["desc"]])
+  vs(x, ccn::medicaid_types$code, ccn::medicaid_types$desc)
 }
 
-# purrr::map_chr(1:10, moh_range)
+#' @param x `<character>` Medicaid range number.
+#' @rdname medicaid
+#' @examplesIf rlang::is_interactive()
+#' purrr::map_chr(1:10, moh_range_series)
 #' @noRd
 moh_range_series <- function(x) {
   check_range(x, c(1L, 999L), "Medicaid")
 
-  ccn::medicaid_ranges[["range"]][
+  ccn::medicaid_ranges$range[
     data.table::between(
       as.integer(x),
-      ccn::medicaid_ranges[["start"]],
-      ccn::medicaid_ranges[["end"]]
+      ccn::medicaid_ranges$start,
+      ccn::medicaid_ranges$end
     )
   ]
 }
 
 #' @noRd
 moh_range_abbr <- function(x) {
-  vs(x, ccn::medicaid_ranges[["range"]], ccn::medicaid_ranges[["abbr"]])
+  vs(x, ccn::medicaid_ranges$range, ccn::medicaid_ranges$abbr)
 }
 
 #' @noRd
 moh_range_desc <- function(x) {
-  vs(x, ccn::medicaid_ranges[["range"]], ccn::medicaid_ranges[["desc"]])
+  vs(x, ccn::medicaid_ranges$range, ccn::medicaid_ranges$desc)
 }
 
 #' @noRd

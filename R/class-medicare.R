@@ -18,11 +18,11 @@ NULL
 medicare_range <- function(x) {
   check_range(x, c(1L, 9999L), "Medicare")
 
-  ccn::medicare_ranges[["range"]][
+  ccn::medicare_ranges$range[
     data.table::between(
       as.integer(x),
-      ccn::medicare_ranges[["start"]],
-      ccn::medicare_ranges[["end"]]
+      ccn::medicare_ranges$start,
+      ccn::medicare_ranges$end
     )
   ]
 }

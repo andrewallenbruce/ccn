@@ -1,43 +1,3 @@
-#' @noRd
-S3_as_df <- function(x, ...) {
-  `class<-`(list2DF(c(entity = class(x), x)), c("tbl_df", "tbl", "data.frame"))
-}
-
-#' @rdname slice_medicare
-#' @export
-#' @keywords internal
-as.data.frame.medicare <- S3_as_df
-
-#' @rdname slice_medicare
-#' @export
-#' @keywords internal
-as.data.frame.organ <- S3_as_df
-
-#' @rdname slice_medicare
-#' @export
-#' @keywords internal
-as.data.frame.emergency <- S3_as_df
-
-#' @rdname slice_medicare
-#' @export
-#' @keywords internal
-as.data.frame.supplier <- S3_as_df
-
-#' @rdname slice_medicare
-#' @export
-#' @keywords internal
-as.data.frame.medicaid <- S3_as_df
-
-#' @rdname slice_medicare
-#' @export
-#' @keywords internal
-as.data.frame.unit <- S3_as_df
-
-#' @rdname slice_medicare
-#' @export
-#' @keywords internal
-as.data.frame.subunit <- S3_as_df
-
 #' @include unit.R
 #' @include subunit.R
 NULL
@@ -70,13 +30,21 @@ is_decoded <- function(x) {
 #'
 #' purrr::map(x, \(x) as.data.frame(parse(x))) |> purrr::list_rbind()
 #'
-#' purrr::map(x, \(x) data_frame(x)) |> purrr::list_rbind()
+#' purrr::map(x, \(x) as_data_frame(x)) |> purrr::list_rbind()
+#'
+#' collapse::join(
+#'   purrr::map(x, \(x) as.data.frame(parse(x))) |>
+#'   purrr::list_rbind() |>
+#'   rlang::set_names(c("class", "ccn", "cd_ste", "cd_seq", "cd_typ", "cd_par")),
+#'   purrr::map(x, \(x) as_data_frame(x)) |>
+#'   purrr::list_rbind(),
+#'   verbose = 0L)
 #' @export
-data_frame <- function(x) {
+as_data_frame <- function(x) {
   if (is_decoded(x)) {
-    return(as_data_frame(x))
+    return(data_frame(x))
   }
-  as_data_frame(decode(x))
+  data_frame(decode(x))
 }
 
 #' @noRd
@@ -158,13 +126,13 @@ S7_as_df <- function(
 }
 
 #' @noRd
-as_data_frame <- S7::new_generic("as_data_frame", "x")
+data_frame <- S7::new_generic("data_frame", "x")
 
-S7::method(as_data_frame, Emergency) <- function(x) {
+S7::method(data_frame, Emergency) <- function(x) {
   S7_as_df(x, entity = "Emergency Hospital")
 }
 
-S7::method(as_data_frame, Medicaid) <- function(x) {
+S7::method(data_frame, Medicaid) <- function(x) {
   S7_as_df(
     x,
     entity = "Medicaid-Only",
@@ -173,7 +141,7 @@ S7::method(as_data_frame, Medicaid) <- function(x) {
   )
 }
 
-S7::method(as_data_frame, Medicare) <- function(x) {
+S7::method(data_frame, Medicare) <- function(x) {
   S7_as_df(
     x,
     entity = "Medicare",
@@ -184,11 +152,11 @@ S7::method(as_data_frame, Medicare) <- function(x) {
   )
 }
 
-S7::method(as_data_frame, Organ) <- function(x) {
+S7::method(data_frame, Organ) <- function(x) {
   S7_as_df(x, entity = "Medicare")
 }
 
-S7::method(as_data_frame, Subunit) <- function(x) {
+S7::method(data_frame, Subunit) <- function(x) {
   S7_as_df(
     x,
     entity = "Subunit",
@@ -199,7 +167,7 @@ S7::method(as_data_frame, Subunit) <- function(x) {
   )
 }
 
-S7::method(as_data_frame, Unit) <- function(x) {
+S7::method(data_frame, Unit) <- function(x) {
   S7_as_df(
     x,
     entity = "Unit",
@@ -209,7 +177,7 @@ S7::method(as_data_frame, Unit) <- function(x) {
   )
 }
 
-S7::method(as_data_frame, Supplier) <- function(x) {
+S7::method(data_frame, Supplier) <- function(x) {
   S7_as_df(
     x,
     entity = "Supplier",

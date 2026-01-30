@@ -6,7 +6,9 @@
 #' @param x character vector of codes to look up.
 #' @returns S7 object of class `Medicare`.
 #' @examples
-#' x = list("670055", "21034E", "01L008", "01J008", "05P001", "21U101", "21TA26", "45D0634589")
+#' x = c("670055", "21034E", "01L008", "01J008",
+#'       "05P001", "21U101", "21TA26", "45D0634589")
+#'
 #' purrr::map(x, decode)
 #' @export
 decode <- function(x) {
