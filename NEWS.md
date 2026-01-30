@@ -1,5 +1,11 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9088 (2026-01-30)
+
+* `as_data_frame` rename
+* `check_range` refinement (#11)
+
+
 # ccn 0.0.0.9087 (2026-01-29)
 
 * bump vctrs version
