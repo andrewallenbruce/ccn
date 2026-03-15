@@ -1,9 +1,8 @@
 
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
 <h1 align="left">
-
-<b>c</b>:<b>c</b>:<b>n</b>
+<b>ccn</b>
 </h1>
 
 <br>
@@ -11,7 +10,7 @@
 <!-- badges: start -->
 
 ![GitHub R package
-version](https://img.shields.io/github/r-package/v/andrewallenbruce/ccn?style=flat-square&logo=R&label=Package&color=%23192a38)
+version](https://img.shields.io/github/r-package/v/andrewallenbruce/ccn?style=flat-square&logo=R&label=Package&color=%23192a38.png)
 [![minimal R
 version](https://img.shields.io/badge/R%20%3E%3D-4.1.0-red.svg)](https://cran.r-project.org/)
 [![Code
