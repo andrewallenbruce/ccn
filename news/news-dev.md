@@ -399,3 +399,7 @@
 - `as_data_frame` rename
 - `check_range` refinement
   ([\#11](https://github.com/andrewallenbruce/ccn/issues/11))
+
+## ccn 0.0.0.9089 (2026-03-15)
+
+- Same as previous version.
