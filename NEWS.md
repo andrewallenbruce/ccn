@@ -1,5 +1,11 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9091 (2026-03-23)
+
+* Updated dep versions
+* Fixed exported S3 methods
+
+
 # ccn 0.0.0.9090 (2026-03-23)
 
 * HRSA test data
