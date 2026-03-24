@@ -19,42 +19,35 @@ fmt_head <- function(x) {
 
 #' @noRd
 print_impl <- function(x, ...) {
-  fmt_head(x) |> cat(sep = "\n")
-  paste0(fmt_names(x), unlist_(x)) |> cat(sep = "\n")
+  cat(fmt_head(x), sep = "\n")
+  cat(paste0(fmt_names(x), unlist_(x)), sep = "\n")
   invisible(x)
 }
 
-#' @rdname slice_medicare
 #' @export
-#' @keywords internal
+#' @exportS3Method base::print
 print.medicare <- print_impl
 
-#' @rdname slice_medicare
 #' @export
-#' @keywords internal
+#' @exportS3Method base::print
 print.organ <- print_impl
 
-#' @rdname slice_medicare
 #' @export
-#' @keywords internal
+#' @exportS3Method base::print
 print.emergency <- print_impl
 
-#' @rdname slice_medicare
 #' @export
-#' @keywords internal
+#' @exportS3Method base::print
 print.supplier <- print_impl
 
-#' @rdname slice_medicare
 #' @export
-#' @keywords internal
+#' @exportS3Method base::print
 print.medicaid <- print_impl
 
-#' @rdname slice_medicare
 #' @export
-#' @keywords internal
+#' @exportS3Method base::print
 print.unit <- print_impl
 
-#' @rdname slice_medicare
 #' @export
-#' @keywords internal
+#' @exportS3Method base::print
 print.subunit <- print_impl

@@ -1,6 +1,5 @@
 #' Medicare Provider: 670055 -> 67 0055
 #' @param x character vector of codes to look up.
-#' @param ... additional arguments (not used).
 #' @name slice_medicare
 #' @export
 #' @keywords internal
