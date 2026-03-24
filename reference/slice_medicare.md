@@ -19,48 +19,6 @@ IPPS-Excluded Unit: 02TA01 -\> 02 T A 01
 ## Usage
 
 ``` r
-# S3 method for class 'medicare'
-as.data.frame(x, ...)
-
-# S3 method for class 'organ'
-as.data.frame(x, ...)
-
-# S3 method for class 'emergency'
-as.data.frame(x, ...)
-
-# S3 method for class 'supplier'
-as.data.frame(x, ...)
-
-# S3 method for class 'medicaid'
-as.data.frame(x, ...)
-
-# S3 method for class 'unit'
-as.data.frame(x, ...)
-
-# S3 method for class 'subunit'
-as.data.frame(x, ...)
-
-# S3 method for class 'medicare'
-print(x, ...)
-
-# S3 method for class 'organ'
-print(x, ...)
-
-# S3 method for class 'emergency'
-print(x, ...)
-
-# S3 method for class 'supplier'
-print(x, ...)
-
-# S3 method for class 'medicaid'
-print(x, ...)
-
-# S3 method for class 'unit'
-print(x, ...)
-
-# S3 method for class 'subunit'
-print(x, ...)
-
 slice_medicare(x)
 
 slice_provider_ext(x)
@@ -85,7 +43,3 @@ slice_subunit(x)
 - x:
 
   character vector of codes to look up.
-
-- ...:
-
-  additional arguments (not used).

@@ -407,3 +407,8 @@
 ## ccn 0.0.0.9090 (2026-03-23)
 
 - HRSA test data
+
+## ccn 0.0.0.9091 (2026-03-23)
+
+- Updated dep versions
+- Fixed exported S3 methods
