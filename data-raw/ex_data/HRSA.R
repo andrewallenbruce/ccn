@@ -1,8 +1,7 @@
-"C:/Users/Andrew/Desktop/HRSA/asc.csv"
+# "C:/Users/Andrew/Desktop/HRSA/asc.csv"
 path <- fs::path_home("Desktop/HRSA")
 files <- fs::dir_ls(path)
 files <- rlang::set_names(files, tools::file_path_sans_ext(basename(files)))
-
 names(files)
 
 asc |>
