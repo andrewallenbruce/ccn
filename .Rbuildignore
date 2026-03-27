@@ -10,3 +10,5 @@
 ^data-raw$
 ^[.]?air[.]toml$
 ^\.vscode$
+^\.positai$
+^\.claude$

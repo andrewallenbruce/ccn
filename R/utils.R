@@ -7,6 +7,7 @@ vs <- function(x, v, o, ...) {
     outputs = o,
     default = NA_character_,
     nThread = 4L,
+    checkEnc = FALSE,
     ...
   )
 }
@@ -88,11 +89,6 @@ clean <- function(x) {
   remove_any_spaces(remove_non_alnums(toupper(x)))
 }
 
-################## REMOVE EVENTUALLY
-
-#' @noRd
-qs_url <- function(url) qs::qread_url(url)
-
 #' @noRd
 mount_board <- function(source = c("local", "remote")) {
   switch(
@@ -109,14 +105,14 @@ mount_board <- function(source = c("local", "remote")) {
 }
 
 #' @noRd
+list_pins <- function(...) {
+  board <- mount_board(...)
+  pins::pin_list(board)
+}
+
+#' @noRd
 get_pin <- function(pin, ...) {
   board <- mount_board(...)
   pin <- rlang::arg_match0(pin, list_pins())
   pins::pin_read(board, pin)
-}
-
-#' @noRd
-list_pins <- function(...) {
-  board <- mount_board(...)
-  pins::pin_list(board)
 }
