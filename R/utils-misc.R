@@ -68,8 +68,6 @@ clean <- function(x) {
   remove_any_spaces(remove_non_alnums(toupper(x)))
 }
 
-################## REMOVE EVENTUALLY
-
 #' @noRd
 mount_board <- function(source = c("local", "remote")) {
   switch(
