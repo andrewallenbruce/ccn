@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9092 (2026-03-27)
+
+* Added HRSA SNF dataset
+
+
 # ccn 0.0.0.9091 (2026-03-23)
 
 * Updated dep versions
