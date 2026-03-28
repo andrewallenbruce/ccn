@@ -23,5 +23,5 @@ A ccn vector here is one where all entries are character scalars with a
 length between 6 and 14
 }
 \examples{
-ccn(c("670055", "21034E", "01L008", "01J008", "05P001", "21U101", "21TA26", "45D0634589"))
+ccn(c(670055L, "21034E", "01L008", "01J008", "05P001", "21U101", "21TA26", "45D0634589"))
 }

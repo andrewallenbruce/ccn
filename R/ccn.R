@@ -9,7 +9,7 @@
 #'
 #' @export
 #' @examples
-#' ccn(c("670055", "21034E", "01L008", "01J008", "05P001", "21U101", "21TA26", "45D0634589"))
+#' ccn(c(670055L, "21034E", "01L008", "01J008", "05P001", "21U101", "21TA26", "45D0634589"))
 ccn <- function(x = character()) {
   x <- vctrs::vec_cast(x, character())
   x <- clean(x)
