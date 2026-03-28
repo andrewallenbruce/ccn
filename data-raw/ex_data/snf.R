@@ -8,8 +8,6 @@ snf <- readr::read_csv(
   janitor::clean_names() |>
   collapse::roworder(ccn, state)
 
-lobstr::obj_size(snf)
-
 snf <- ccn:::get_pin("snf")
 
 # snf === 14,437 × 2 [1.05 MB]
@@ -25,12 +23,19 @@ pin_update(
 # 01 - Title 18 Only
 # No Medicaid Beds
 # ================================================
+path <- fs::path_home("Desktop/Repositories/HRSA/")
+files <- fs::dir_ls(path)
+files <- rlang::set_names(files, tools::file_path_sans_ext(basename(files)))
+names(files)
+
 snf_all_cols <- c(
   name = "FACILITY_NM",
   ccn = "CMS_PROVIDER_NUM",
   city = "CMS_PROVIDER_CITY",
   state = "CMS_PROVIDER_STATE_ABBR",
-  # beds_mcd = "MEDICAID_SNF_BED_CT", # ALL NA
+  cat = "CMS_PROVIDER_CAT_DESC",
+  sub = "CMS_PROVIDER_CAT_SUB_TYP_DESC",
+  beds_mcd = "MEDICAID_SNF_BED_CT", # ALL NA
   beds_mcr = "MEDICARE_SNF_BED_CT",
   beds_dual = "MEDICARE_MEDICAID_SNF_BED_CT",
   beds_cert = "CERTIFIED_BED_CT",
@@ -47,11 +52,13 @@ snf_all <- vroom::vroom(
   collapse::gv(names(snf_all_cols)) |>
   collapse::mtt(
     beds_cert = as.integer(beds_cert),
-    # beds_mcd = as.integer(beds_mcd),
+    beds_mcd = as.integer(beds_mcd),
     beds_dual = as.integer(beds_dual),
     beds_mcr = as.integer(beds_mcr),
-    beds_tot = as.integer(beds_tot)
-  )
+    beds_tot = as.integer(beds_tot),
+    .id = "SNF All"
+  ) |>
+  collapse::colorder(.id)
 
 snf_all
 # ================================================
@@ -69,11 +76,13 @@ snf_dual <- vroom::vroom(
   collapse::gv(names(snf_all_cols)) |>
   collapse::mtt(
     beds_cert = as.integer(beds_cert),
-    # beds_mcd = as.integer(beds_mcd),
+    beds_mcd = as.integer(beds_mcd),
     beds_dual = as.integer(beds_dual),
     beds_mcr = as.integer(beds_mcr),
-    beds_tot = as.integer(beds_tot)
-  )
+    beds_tot = as.integer(beds_tot),
+    .id = "SNF Dual"
+  ) |>
+  collapse::colorder(.id)
 
 snf_dual
 # ================================================
@@ -91,10 +100,37 @@ snf_dist <- vroom::vroom(
   collapse::gv(names(snf_all_cols)) |>
   collapse::mtt(
     beds_cert = as.integer(beds_cert),
-    # beds_mcd = as.integer(beds_mcd),
+    beds_mcd = as.integer(beds_mcd),
     beds_dual = as.integer(beds_dual),
     beds_mcr = as.integer(beds_mcr),
-    beds_tot = as.integer(beds_tot)
-  )
+    beds_tot = as.integer(beds_tot),
+    .id = "SNF Dist"
+  ) |>
+  collapse::colorder(.id)
 
-snf_dist |> collapse::fcount(beds_mcd)
+snf_dist
+
+snf_hrsa <- collapse::rowbind(
+  snf_all,
+  snf_dual,
+  snf_dist
+)
+
+# snf === 14,437 × 2 [1.05 MB]
+pin_update(
+  snf_hrsa,
+  name = "snf_hrsa",
+  title = "SNF HRSA",
+  description = "SNF HRSA"
+)
+
+snf_hrsa |>
+  collapse::fcount(name, add = TRUE) |>
+  collapse::roworder(-N) |>
+  collapse::sbt(N > 1)
+
+
+snf_orig <- ccn:::get_pin("snf")
+library(collapse)
+collapse::sbt(snf_hrsa, ccn %iin% snf_orig$ccn)
+snf_orig$ccn[cheapr::which_(snf_orig$ccn %in% snf_hrsa$ccn, invert = TRUE)]
