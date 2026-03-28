@@ -412,3 +412,7 @@
 
 - Updated dep versions
 - Fixed exported S3 methods
+
+## ccn 0.0.0.9092 (2026-03-27)
+
+- Added HRSA SNF dataset
