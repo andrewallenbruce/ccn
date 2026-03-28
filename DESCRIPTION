@@ -29,11 +29,12 @@ Suggests:
 Config/testthat/edition: 3
 Config/testthat/parallel: true
 Encoding: UTF-8
-LazyData: true
+LazyData: false
 Roxygen: list(markdown = TRUE, roclets = c("collate", "namespace", "rd"))
 RoxygenNote: 7.3.3
 Collate: 
     'state_code.R'
+    'constants.R'
     'aaa.R'
     'as.data.frame.R'
     'unit.R'

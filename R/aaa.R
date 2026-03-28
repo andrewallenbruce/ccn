@@ -1,3 +1,4 @@
+#' @include constants.R
 #' @include state_code.R
 
 #' @noRd
