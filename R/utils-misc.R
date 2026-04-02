@@ -1,3 +1,27 @@
+#' Check if x is between min and max (inclusive)
+#'
+#' @param x Integer vector to check
+#' @param min Minimum value (inclusive)
+#' @param max Maximum value (inclusive)
+#' @returns Logical vector indicating if each element of x is between min and max
+#' @examplesIf rlang::is_interactive()
+#' in_between(5L, 10L, 15L)
+#' in_between(1L, 2L, 3L)
+#' in_between(0L, 5L, 10L)
+#'
+#' in_between(5:25, 10L, 15L)
+#' in_between(-10:5, 2L, 3L)
+#' in_between(0L, 5L, 10L)
+#'
+#' x = 5:25
+#' low = 10L
+#' high = 15L
+#' x[cheapr::which_((x - low) * (high - x) >= 0L)]
+#' @noRd
+in_between <- function(x, min, max) {
+  (x - min) * (max - x) >= 0L
+}
+
 # vs(x, c("C", "D", "X"), c("ASC", "CLIA", "PXRF"), checkEnc = FALSE)
 #' @noRd
 vs <- function(x, v, o, ...) {
