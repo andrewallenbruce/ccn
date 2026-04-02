@@ -22,3 +22,18 @@ nchar_supplier <- function(x) {
 nchar_supplier_ext <- function(x) {
   nchar(x) %between% c(11L, 14L)
 }
+
+#' @noRd
+ccn_by_nchar <- function(x) {
+  kit::nif(
+    nchar_provider(x),
+    "provider",
+    nchar_provider_ext(x),
+    "provider_ext",
+    nchar_supplier(x),
+    "supplier",
+    nchar_supplier_ext(x),
+    "supplier_ext",
+    default = NA_character_
+  )
+}

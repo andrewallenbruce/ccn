@@ -44,21 +44,6 @@ is_supplier_type <- function(x) {
 }
 
 #' @noRd
-ccn_by_nchar <- function(x) {
-  kit::nif(
-    nchar_provider(x),
-    "provider",
-    nchar_provider_ext(x),
-    "provider_ext",
-    nchar_supplier(x),
-    "supplier",
-    nchar_supplier_ext(x),
-    "supplier_ext",
-    default = NA_character_
-  )
-}
-
-#' @noRd
 provider_type <- function(x) {
   kit::nif(
     is_numeric(substring(x, 3L, 6L)),

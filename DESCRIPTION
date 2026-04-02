@@ -21,7 +21,8 @@ Imports:
     kit (>= 0.0.21),
     pins (>= 1.4.1),
     rlang (>= 1.1.7),
-    S7 (>= 0.2.1)
+    S7 (>= 0.2.1),
+    methods
 Suggests:
     cheapr (>= 1.5.0),
     purrr (>= 1.2.1),
@@ -55,4 +56,9 @@ Collate:
     'parse.R'
     'slice.R'
     'supplier.R'
+    'vctrs-cast.R'
+    'vctrs-ccn.R'
+    'vctrs-coerce.R'
+    'vctrs-format.R'
+    'vctrs-parse.R'
     'zzz.R'
