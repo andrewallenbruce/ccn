@@ -19,37 +19,37 @@ NULL
 #' @rdname state_code
 #' @export
 state_abbr <- function(code) {
-  vs(code, ccn::states$code, ccn::states$abbr)
+  vs(code, states$code, states$abbr)
 }
 
 #' @rdname state_code
 #' @export
 state_name <- function(code) {
-  vs(code, ccn::states$code, ccn::states$name)
+  vs(code, states$code, states$name)
 }
 
 #' @rdname state_code
 #' @export
 state_region <- function(abbr) {
-  vs(abbr, ccn::regions$state, ccn::regions$region)
+  vs(abbr, regions$state, regions$region)
 }
 
 #' @rdname state_code
 #' @export
 state_office <- function(abbr) {
-  vs(abbr, ccn::regions$state, ccn::regions$office)
+  vs(abbr, regions$state, regions$office)
 }
 
 #' @noRd
 nchar_is_state <- function(x) {
-  collapse::vlengths(x) == 2L
+  collapsevlengths(x) == 2L
 }
 
 #' @noRd
 is_state_code <- function(x) {
-  # vctrs::vec_in(x, ccn::states$code, needles_arg = rlang::caller_arg(x))
-  # collapse::fmatch(x, ccn::states$code) > 0L
-  x %chin% ccn::states$code
+  # vctrsvec_in(x, states$code, needles_arg = rlangcaller_arg(x))
+  # collapsefmatch(x, states$code) > 0L
+  x %in% states$code
 }
 
 #' @noRd
@@ -78,7 +78,7 @@ check_state_code <- function(
     n <- length(i)
     cli::cli_abort(
       c(
-        "{.strong {n}} Invalid State {cli::qty(n)} Code{?s}:",
+        "{.strong {n}} Invalid State {cli::qty(n)} Code{?s}",
         "x" = "{.val {x[i]}}"
       ),
       arg = arg,
