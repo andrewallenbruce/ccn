@@ -9,10 +9,12 @@
 <url><loc>https://andrewallenbruce.github.io/ccn/news/news-dev.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/ccn/reference/as_data_frame.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/ccn/reference/ccn-package.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/ccn/reference/ccn.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/ccn/reference/decode.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/ccn/reference/eipps_ranges.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/ccn/reference/eipps_types.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/ccn/reference/emergency.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/ccn/reference/get_pin.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/ccn/reference/index.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/ccn/reference/medicaid.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/ccn/reference/medicaid_ranges.html</loc></url>
@@ -31,5 +33,7 @@
 <url><loc>https://andrewallenbruce.github.io/ccn/reference/supplier.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/ccn/reference/unit.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/ccn/reference/unit_types.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/ccn/reference/vec_cast.ccn.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/ccn/reference/vec_ptype2.ccn.html</loc></url>
 </urlset>
 

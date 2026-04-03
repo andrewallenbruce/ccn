@@ -416,3 +416,7 @@
 ## ccn 0.0.0.9092 (2026-03-27)
 
 - Added HRSA SNF dataset
+
+## ccn 0.0.0.9093 (2026-04-03)
+
+- added init vctrs ccn class
