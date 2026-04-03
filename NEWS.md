@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9093 (2026-04-03)
+
+* added init vctrs ccn class
+
+
 # ccn 0.0.0.9092 (2026-03-27)
 
 * Added HRSA SNF dataset
