@@ -68,8 +68,6 @@ clean <- function(x) {
   remove_any_spaces(remove_non_alnums(toupper(x)))
 }
 
-################## REMOVE EVENTUALLY
-
 #' @noRd
 mount_board <- function(source = c("local", "remote")) {
   switch(
@@ -85,7 +83,12 @@ mount_board <- function(source = c("local", "remote")) {
   )
 }
 
-#' @noRd
+#' Load a pin
+#'
+#' @param pin description
+#' @param ... description
+#' @export
+#' @keywords internal
 get_pin <- function(pin, ...) {
   board <- mount_board(...)
   pin <- rlang::arg_match0(pin, list_pins())

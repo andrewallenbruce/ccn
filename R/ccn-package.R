@@ -13,6 +13,7 @@
 ## usethis namespace: start
 #' @import S7
 #' @import vctrs
+#' @importFrom methods setOldClass
 #' @importFrom data.table %chin% %inrange% %between% %notin%
 #' @rawNamespace if (getRversion() < "4.3.0") importFrom("S7", "@")
 ## usethis namespace: end
