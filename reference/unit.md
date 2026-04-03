@@ -40,7 +40,7 @@ medicare("210101")
 #>  .. @ office: chr "Philadelphia"
 #>  @ range    : <ccn::RangeMCR>
 #>  .. @ series: chr "0001-0879"
-#>  .. @ abbr  : chr "STC"
+#>  .. @ abbr  : chr "ACUTE"
 #>  .. @ desc  : chr "Short-Term Hospital (General & Specialty)"
 #>  .. @ eipps : logi FALSE
 #>  @ extension: chr NA
@@ -54,10 +54,10 @@ unit("21T101")
 #>  .. @ office: chr "Philadelphia"
 #>  @ range : chr "001-999"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "IRFu"
+#>  .. @ abbr : chr "IRU"
 #>  .. @ desc : chr "Rehabilitation Unit"
 #>  .. @ eipps: logi TRUE
-#>  @ parent: chr "21_101"
+#>  @ parent: chr "21?101"
 unit("21S101")
 #> <ccn::Unit>
 #>  @ ccn   : chr "21S101"
@@ -68,10 +68,10 @@ unit("21S101")
 #>  .. @ office: chr "Philadelphia"
 #>  @ range : chr "001-999"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "Pu"
+#>  .. @ abbr : chr "PSY"
 #>  .. @ desc : chr "Psychiatric Unit"
 #>  .. @ eipps: logi TRUE
-#>  @ parent: chr "21_101"
+#>  @ parent: chr "21?101"
 unit("21U101")
 #> <ccn::Unit>
 #>  @ ccn   : chr "21U101"
@@ -82,8 +82,8 @@ unit("21U101")
 #>  .. @ office: chr "Philadelphia"
 #>  @ range : chr "001-999"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "SBA"
-#>  .. @ desc : chr "Swing-Bed Approval [STC]"
+#>  .. @ abbr : chr "SBA-ACUTE"
+#>  .. @ desc : chr "Swing-Bed Approval [ACUTE]"
 #>  .. @ eipps: logi FALSE
 #>  @ parent: chr "210101"
 unit("28Z348")
@@ -96,7 +96,7 @@ unit("28Z348")
 #>  .. @ office: chr "Kansas City"
 #>  @ range : chr "001-999"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "SBA"
+#>  .. @ abbr : chr "SBA-CAH"
 #>  .. @ desc : chr "Swing-Bed Approval [CAH]"
 #>  .. @ eipps: logi FALSE
 #>  @ parent: chr "281348"

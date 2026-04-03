@@ -37,7 +37,7 @@ parent("21SE26")
 #>  .. @ office: chr "Philadelphia"
 #>  @ range    : <ccn::RangeMCR>
 #>  .. @ series: chr "3300-3399"
-#>  .. @ abbr  : chr "CH"
+#>  .. @ abbr  : chr "CHILD"
 #>  .. @ desc  : chr "Children's Hospital"
 #>  .. @ eipps : logi TRUE
 #>  @ extension: chr NA

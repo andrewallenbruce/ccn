@@ -35,7 +35,7 @@ purrr::map(x, decode)
 #>  .. @ office: chr "Dallas"
 #>  @ range    : <ccn::RangeMCR>
 #>  .. @ series: chr "0001-0879"
-#>  .. @ abbr  : chr "STC"
+#>  .. @ abbr  : chr "ACUTE"
 #>  .. @ desc  : chr "Short-Term Hospital (General & Specialty)"
 #>  .. @ eipps : logi FALSE
 #>  @ extension: chr NA
@@ -76,7 +76,7 @@ purrr::map(x, decode)
 #>  .. @ office: chr "Atlanta"
 #>  @ range: <ccn::RangeMOH>
 #>  .. @ series: chr "001-099"
-#>  .. @ abbr  : chr "STC"
+#>  .. @ abbr  : chr "ACUTE"
 #>  .. @ desc  : chr "Short-Term Acute Care Hospital"
 #>  @ type : <ccn::TypeMOF>
 #>  .. @ abbr: chr "MOH"
@@ -105,8 +105,8 @@ purrr::map(x, decode)
 #>  .. @ office: chr "Philadelphia"
 #>  @ range : chr "001-999"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "SBA"
-#>  .. @ desc : chr "Swing-Bed Approval [STC]"
+#>  .. @ abbr : chr "SBA-ACUTE"
+#>  .. @ desc : chr "Swing-Bed Approval [ACUTE]"
 #>  .. @ eipps: logi FALSE
 #>  @ parent: chr "210101"
 #> 
@@ -119,7 +119,7 @@ purrr::map(x, decode)
 #>  .. @ region: chr "III"
 #>  .. @ office: chr "Philadelphia"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "IRFu"
+#>  .. @ abbr : chr "IRU"
 #>  .. @ desc : chr "Rehabilitation Unit"
 #>  .. @ eipps: logi TRUE
 #>  @ parent: chr "212026"

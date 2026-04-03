@@ -30,7 +30,7 @@ subunit("21SA26")
 #>  .. @ region: chr "III"
 #>  .. @ office: chr "Philadelphia"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "Pu"
+#>  .. @ abbr : chr "PSY"
 #>  .. @ desc : chr "Psychiatric Unit"
 #>  .. @ eipps: logi TRUE
 #>  @ parent: chr "212026"
@@ -43,7 +43,7 @@ subunit("21TA26")
 #>  .. @ region: chr "III"
 #>  .. @ office: chr "Philadelphia"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "IRFu"
+#>  .. @ abbr : chr "IRU"
 #>  .. @ desc : chr "Rehabilitation Unit"
 #>  .. @ eipps: logi TRUE
 #>  @ parent: chr "212026"
@@ -56,7 +56,7 @@ subunit("02TA01")
 #>  .. @ region: chr "X"
 #>  .. @ office: chr "Seattle"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "IRFu"
+#>  .. @ abbr : chr "IRU"
 #>  .. @ desc : chr "Rehabilitation Unit"
 #>  .. @ eipps: logi TRUE
 #>  @ parent: chr "022001"
@@ -69,7 +69,7 @@ subunit("04SD38")
 #>  .. @ region: chr "VI"
 #>  .. @ office: chr "Dallas"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "Pu"
+#>  .. @ abbr : chr "PSY"
 #>  .. @ desc : chr "Psychiatric Unit"
 #>  .. @ eipps: logi TRUE
 #>  @ parent: chr "043038"
@@ -82,7 +82,7 @@ subunit("52TA05")
 #>  .. @ region: chr "V"
 #>  .. @ office: chr "Chicago"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "IRFu"
+#>  .. @ abbr : chr "IRU"
 #>  .. @ desc : chr "Rehabilitation Unit"
 #>  .. @ eipps: logi TRUE
 #>  @ parent: chr "522005"

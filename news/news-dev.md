@@ -420,3 +420,7 @@
 ## ccn 0.0.0.9093 (2026-04-03)
 
 - added init vctrs ccn class
+
+## ccn 0.0.0.9094 (2026-04-03)
+
+- updated internal datasets

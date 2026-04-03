@@ -56,7 +56,7 @@ medicaid("22B201")
 #>  .. @ office: chr "Boston"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::TypeMOF>
-#>  .. @ abbr: chr "NF"
+#>  .. @ abbr: chr "SNF-NF"
 #>  .. @ desc: chr "Nursing Facility"
 medicaid("23E301")
 #> <ccn::Medicaid>
@@ -68,7 +68,7 @@ medicaid("23E301")
 #>  .. @ office: chr "Chicago"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::TypeMOF>
-#>  .. @ abbr: chr "NF"
+#>  .. @ abbr: chr "SNF-NF"
 #>  .. @ desc: chr "Nursing Facility"
 medicaid("34F401")
 #> <ccn::Medicaid>
@@ -80,7 +80,7 @@ medicaid("34F401")
 #>  .. @ office: chr "Atlanta"
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::TypeMOF>
-#>  .. @ abbr: chr "NF"
+#>  .. @ abbr: chr "SNF-NF"
 #>  .. @ desc: chr "Nursing Facility"
 medicaid("01J008")
 #> <ccn::Medicaid>
@@ -92,7 +92,7 @@ medicaid("01J008")
 #>  .. @ office: chr "Atlanta"
 #>  @ range: <ccn::RangeMOH>
 #>  .. @ series: chr "001-099"
-#>  .. @ abbr  : chr "STC"
+#>  .. @ abbr  : chr "ACUTE"
 #>  .. @ desc  : chr "Short-Term Acute Care Hospital"
 #>  @ type : <ccn::TypeMOF>
 #>  .. @ abbr: chr "MOH"
