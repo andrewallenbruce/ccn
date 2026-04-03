@@ -145,7 +145,7 @@ infer_form <- function(x) {
     x[I] <- substring(x[I], 1L, 6L)
 
     # replace 'provider_ext' with 'provider'
-    form[I] <- substring(form[I], 1L, 8L)
+    form[I] <- "provider"
   }
 
   if (collapse::anyv(form, "supplier_ext")) {
@@ -156,7 +156,7 @@ infer_form <- function(x) {
     x[I] <- substring(x[I], 1L, 10L)
 
     # replace 'supplier_ext' with 'supplier'
-    form[I] <- substring(form[I], 1L, 8L)
+    form[I] <- "supplier"
   }
 
   I <- collapse::whichv(form, "provider")

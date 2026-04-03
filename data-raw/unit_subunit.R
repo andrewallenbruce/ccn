@@ -34,16 +34,16 @@
 #' CAH could have swing-bed approval, an IPPS-excluded rehabilitation unit,
 #' and/or an IPPS-excluded psychiatric unit.
 unit_types <- tibble::tribble(
-  ~code , ~abbr  , ~desc                         , ~infix ,
-  "M"   , "Pu"   , "Psychiatric Unit [CAH]"      , "1"    ,
-  "R"   , "IRFu" , "Rehabilitation Unit [CAH]"   , "1"    ,
-  "S"   , "Pu"   , "Psychiatric Unit"            , "_"    ,
-  "T"   , "IRFu" , "Rehabilitation Unit"         , "_"    ,
-  "U"   , "SBA"  , "Swing-Bed Approval [STC]"    , "0"    ,
-  "V"   , "ADu"  , "Alcohol-Drug Unit (Retired)" , "_"    ,
-  "W"   , "SBA"  , "Swing-Bed Approval [LTCH]"   , "2"    ,
-  "Y"   , "SBA"  , "Swing-Bed Approval [IRF]"    , "3"    ,
-  "Z"   , "SBA"  , "Swing-Bed Approval [CAH]"    , "1"    ,
+  ~code , ~abbr       , ~desc                         , ~infix ,
+  "M"   , "PSY-CAH"   , "Psychiatric Unit [CAH]"      , "1"    ,
+  "R"   , "IRU-CAH"   , "Rehabilitation Unit [CAH]"   , "1"    ,
+  "S"   , "PSY"       , "Psychiatric Unit"            , "?"    ,
+  "T"   , "IRU"       , "Rehabilitation Unit"         , "?"    ,
+  "U"   , "SBA-ACUTE" , "Swing-Bed Approval [ACUTE]"  , "0"    ,
+  "V"   , "ADU"       , "Alcohol-Drug Unit (Retired)" , "?"    ,
+  "W"   , "SBA-LTCH"  , "Swing-Bed Approval [LTCH]"   , "2"    ,
+  "Y"   , "SBA-IRF"   , "Swing-Bed Approval [IRF]"    , "3"    ,
+  "Z"   , "SBA-CAH"   , "Swing-Bed Approval [CAH]"    , "1"    ,
 )
 
 usethis::use_data(unit_types, overwrite = TRUE)
@@ -62,17 +62,17 @@ usethis::use_data(unit_types, overwrite = TRUE)
 # )
 
 subunit_types <- tibble::tribble(
-  ~code , ~prefix , ~abbr  ,
-  "A"   , "20"    , "LTCH" ,
-  "B"   , "21"    , "LTCH" ,
-  "C"   , "22"    , "LTCH" ,
-  "D"   , "30"    , "IRF"  ,
-  "E"   , "33"    , "CH"   ,
-  "F"   , "40"    , "PH"   ,
-  "G"   , "41"    , "PH"   ,
-  "H"   , "42"    , "PH"   ,
-  "J"   , "43"    , "PH"   ,
-  "K"   , "44"    , "PH"   ,
+  ~code , ~prefix , ~abbr   ,
+  "A"   , "20"    , "LTCH"  ,
+  "B"   , "21"    , "LTCH"  ,
+  "C"   , "22"    , "LTCH"  ,
+  "D"   , "30"    , "IRF"   ,
+  "E"   , "33"    , "CHILD" ,
+  "F"   , "40"    , "PSYCH" ,
+  "G"   , "41"    , "PSYCH" ,
+  "H"   , "42"    , "PSYCH" ,
+  "J"   , "43"    , "PSYCH" ,
+  "K"   , "44"    , "PSYCH" ,
 )
 
 usethis::use_data(subunit_types, overwrite = TRUE)
@@ -101,12 +101,12 @@ rehab_unit_range <- tibble::tribble(
   "2000-2099"     , "LTCH"         , "T"        , "A"          , "00-99"           ,
   "2100-2199"     , "LTCH"         , "T"        , "B"          , "00-99"           ,
   "2200-2299"     , "LTCH"         , "T"        , "C"          , "00-99"           ,
-  "3300-3399"     , "CH"           , "T"        , "E"          , "00-99"           ,
-  "4400-4499"     , "PH"           , "T"        , "K"          , "00-99"           ,
-  "4000-4099"     , "PH"           , "T"        , "F"          , "00-99"           ,
-  "4100-4199"     , "PH"           , "T"        , "G"          , "00-99"           ,
-  "4200-4299"     , "PH"           , "T"        , "H"          , "00-99"           ,
-  "4300-4399"     , "PH"           , "T"        , "J"          , "00-99"
+  "3300-3399"     , "CHILD"        , "T"        , "E"          , "00-99"           ,
+  "4400-4499"     , "PSYCH"        , "T"        , "K"          , "00-99"           ,
+  "4000-4099"     , "PSYCH"        , "T"        , "F"          , "00-99"           ,
+  "4100-4199"     , "PSYCH"        , "T"        , "G"          , "00-99"           ,
+  "4200-4299"     , "PSYCH"        , "T"        , "H"          , "00-99"           ,
+  "4300-4399"     , "PSYCH"        , "T"        , "J"          , "00-99"
 )
 
 psych_unit_range <- tibble::tribble(
@@ -114,8 +114,8 @@ psych_unit_range <- tibble::tribble(
   "2000-2099"     , "LTCH"         , "S"        , "A"          , "00-99"           ,
   "2100-2199"     , "LTCH"         , "S"        , "B"          , "00-99"           ,
   "2200-2299"     , "LTCH"         , "S"        , "C"          , "00-99"           ,
-  "3025-3099"     , "PH"           , "S"        , "D"          , "00-99"           ,
-  "3300-3399"     , "CH"           , "S"        , "E"          , "00-99"
+  "3025-3099"     , "PSYCH"        , "S"        , "D"          , "00-99"           ,
+  "3300-3399"     , "CHILD"        , "S"        , "E"          , "00-99"
 )
 
 #' NOTE: An IPPS-excluded hospital may not have an IPPS-excluded unit of the
