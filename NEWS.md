@@ -1,5 +1,11 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9095 (2026-04-04)
+
+* fixed bug in `infer_form()`
+* initial sketch of `rcrd vctr`
+
+
 # ccn 0.0.0.9094 (2026-04-03)
 
 * updated internal datasets
