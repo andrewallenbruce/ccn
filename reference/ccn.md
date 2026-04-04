@@ -62,6 +62,11 @@ x
 #> [19]     001536     001541
 str(x)
 #>  ccn [1:20]     001500,     001502,     001503,     001509,     001510,    ...
+infer_form(x)
+#>  [1] "medicare" "medicare" "medicare" "medicare" "medicare" "medicare"
+#>  [7] "medicare" "medicare" "medicare" "medicare" "medicare" "medicare"
+#> [13] "medicare" "medicare" "medicare" "medicare" "medicare" "medicare"
+#> [19] "medicare" "medicare"
 data.frame(x)
 #>             x
 #> 1      001500
