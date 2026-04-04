@@ -47,6 +47,7 @@ x <- get_pin("ccn")[1:20]
 x <- ccn(x)
 x
 str(x)
+infer_form(x)
 data.frame(x)
 tibble::tibble(x)
 }

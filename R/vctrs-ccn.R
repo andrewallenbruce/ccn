@@ -17,6 +17,7 @@ methods::setOldClass(c("ccn", "vctrs_vctr"))
 #' x <- ccn(x)
 #' x
 #' str(x)
+#' infer_form(x)
 #' data.frame(x)
 #' tibble::tibble(x)
 #' @export

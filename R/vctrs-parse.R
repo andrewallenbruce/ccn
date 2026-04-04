@@ -134,34 +134,40 @@ infer_provider_type <- function(x) {
 #' @export
 #' @rdname ccn
 infer_form <- function(x) {
-  # initial type
+  # get internal vector
+  x <- vec_data(x)
+  # infer provider or supplier
   form <- infer_ccn_type(x)
 
   if (collapse::anyv(form, "provider_ext")) {
     # index of provider extensions
-    I <- collapse::whichv(form, "provider_ext")
+    i <- collapse::whichv(form, "provider_ext")
 
     # replace originals with shortened versions
-    x[I] <- substring(x[I], 1L, 6L)
+    x[i] <- substring(x[i], 1L, 6L)
 
     # replace 'provider_ext' with 'provider'
-    form[I] <- "provider"
+    form[i] <- "provider"
   }
 
   if (collapse::anyv(form, "supplier_ext")) {
     # index of supplier extensions
-    I <- collapse::whichv(form, "supplier_ext")
+    i <- collapse::whichv(form, "supplier_ext")
 
     # replace originals with shortened versions
-    x[I] <- substring(x[I], 1L, 10L)
+    x[i] <- substring(x[i], 1L, 10L)
 
     # replace 'supplier_ext' with 'supplier'
-    form[I] <- "supplier"
+    form[i] <- "supplier"
   }
 
-  I <- collapse::whichv(form, "provider")
+  if (collapse::anyv(form, "provider")) {
+    # index of provider
+    i <- collapse::whichv(form, "provider")
 
-  form[I] <- infer_provider_type(x[I])
+    # replace 'provider' with provider types
+    form[i] <- infer_provider_type(x[i])
+  }
 
   return(form)
 }
