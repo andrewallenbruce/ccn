@@ -64,4 +64,6 @@ Collate:
     'vctrs-coerce.R'
     'vctrs-format.R'
     'vctrs-parse.R'
+    'vctrs-rcrd-parse.R'
+    'vctrs-rcrd.R'
     'zzz.R'

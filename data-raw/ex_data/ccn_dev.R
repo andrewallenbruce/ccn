@@ -10,6 +10,39 @@ x <- collapse::rsplit(x, collapse::vlengths(x)) |>
   rlang::set_names("six", "seven", "eight", "nine", "ten")
 
 # Medicare 43,198
+CARE <- x$six[is_numeric(substring(x$six, 3L, 6L))]
+ELSE <- x$six[!is_numeric(substring(x$six, 3L, 6L))]
+
+# No OPOs
+# ELSE[substr(ELSE, 3, 3)  == "P"]
+
+# Emergency Hospitals
+ERHS <- ELSE[substr(ELSE, 6, 6) %in% c("E", "F")]
+ELSE <- ELSE[!ELSE %in% ERHS]
+
+# No Medicaid
+# ELSE[substring(ELSE, 3L, 3L) %in% c("A", "B", "E", "F", "G", "H", "J", "K", "L")]
+
+# Hospital Units
+UNIT <- ELSE[
+  substr(ELSE, 3, 3) %in%
+    c("M", "R", "S", "T", "U", "V", "W", "Y", "Z") &
+    is_numeric(substring(ELSE, 4L, 4L))
+]
+ELSE <- ELSE[!ELSE %in% UNIT]
+
+# Hospital Subunits
+SUB <- ELSE[
+  substr(ELSE, 3, 3) %in%
+    c("M", "R", "S", "T", "U", "V", "W", "Y", "Z") &
+    substr(ELSE, 4L, 4L) %in%
+      c("A", "B", "C", "D", "E", "F", "G", "H", "J", "K")
+]
+ELSE <- ELSE[!ELSE %in% SUB]
+
+list(CARE, ERHS, UNIT, SUB)
+
+
 x_medicare <- x$six[is_numeric(substring(x$six, 3L, 6L))]
 
 # Units 3199
