@@ -14,6 +14,12 @@
 
   Construct a `ccn` object
 
+- [`ccnr()`](https://andrewallenbruce.github.io/ccn/reference/ccnr.md)
+  [`new_ccnr()`](https://andrewallenbruce.github.io/ccn/reference/ccnr.md)
+  :
+
+  Construct a `ccnr` object
+
 - [`decode()`](https://andrewallenbruce.github.io/ccn/reference/decode.md)
   : Decode CMS Certification Numbers
 

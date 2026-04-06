@@ -434,3 +434,7 @@
 ## ccn 0.0.0.9096 (2026-04-05)
 
 - work on parser
+
+## ccn 0.0.0.9097 (2026-04-06)
+
+- fleshed out rcrd class
