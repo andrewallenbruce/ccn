@@ -430,3 +430,7 @@
 - fixed bug in
   [`infer_form()`](https://andrewallenbruce.github.io/ccn/reference/ccn.md)
 - initial sketch of `rcrd vctr`
+
+## ccn 0.0.0.9096 (2026-04-05)
+
+- work on parser
