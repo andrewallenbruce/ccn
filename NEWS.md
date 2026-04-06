@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9096 (2026-04-05)
+
+* work on parser
+
+
 # ccn 0.0.0.9095 (2026-04-04)
 
 * fixed bug in `infer_form()`
