@@ -57,5 +57,8 @@
 - [`unit()`](https://andrewallenbruce.github.io/ccn/reference/unit.md) :
   Hospital Units
 
+- [`vec_proxy_equal(`*`<ccnr>`*`)`](https://andrewallenbruce.github.io/ccn/reference/vec_proxy_equal.ccnr.md)
+  : Comparison
+
 - [`vec_ptype2(`*`<ccn>`*`)`](https://andrewallenbruce.github.io/ccn/reference/vec_ptype2.ccn.md)
   : Coercion

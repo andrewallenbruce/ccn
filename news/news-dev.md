@@ -447,3 +447,8 @@
 
 - refactored
   [`infer_form()`](https://andrewallenbruce.github.io/ccn/reference/ccn.md)
+
+## ccn 0.0.0.9100 (2026-04-07)
+
+- `rlang` 1.1.7 =\> 1.2.0
+- added `vec_proxy_equal` method for `ccnr` class

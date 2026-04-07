@@ -63,7 +63,7 @@ str(x)
 infer_form(x)
 #> <infer_index>
 #> medicare : 20
-#>    total : 20
+#>    TOTAL : 20
 data.frame(x)
 #>         x
 #> 1  001500
