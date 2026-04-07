@@ -61,10 +61,9 @@ x
 str(x)
 #>  ccn [1:20] 001500, 001502, 001503, 001509, 001510, 001511, 001513, 001514,...
 infer_form(x)
-#>  [1] "medicare" "medicare" "medicare" "medicare" "medicare" "medicare"
-#>  [7] "medicare" "medicare" "medicare" "medicare" "medicare" "medicare"
-#> [13] "medicare" "medicare" "medicare" "medicare" "medicare" "medicare"
-#> [19] "medicare" "medicare"
+#> $medicare
+#>  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20
+#> 
 data.frame(x)
 #>         x
 #> 1  001500
