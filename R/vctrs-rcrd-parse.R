@@ -16,7 +16,7 @@ TYPES_CCN <- c(
 #' @noRd
 SS_NNNN <- function(x) {
   vctrs::vec_c(
-    "M",
+    "medicare",
     substring(
       x,
       vctrs::vec_c(1L, 3L),
@@ -31,7 +31,7 @@ SS_NNNN <- function(x) {
 #' @noRd
 SS_NNNT <- function(x) {
   vctrs::vec_c(
-    "E",
+    "emergency",
     substring(
       x,
       vctrs::vec_c(1L, 3L, 6L),
@@ -48,7 +48,7 @@ SS_NNNT <- function(x) {
 #' @noRd
 SS_TNNN <- function(x, form) {
   vctrs::vec_c(
-    match.arg(form, c("O", "A", "U")),
+    match.arg(form, c("organ", "medicaid", "unit")),
     substring(
       x,
       vctrs::vec_c(1L, 4L, 3L),
@@ -63,7 +63,7 @@ SS_TNNN <- function(x, form) {
 #' @noRd
 SS_TPNN <- function(x) {
   vctrs::vec_c(
-    "S",
+    "subunit",
     substring(
       x,
       vctrs::vec_c(1L, 5L, 3L, 4L),
@@ -78,7 +78,7 @@ SS_TPNN <- function(x) {
 #' @noRd
 SS_TN10 <- function(x) {
   vctrs::vec_c(
-    "P",
+    "supplier",
     substring(
       x,
       vctrs::vec_c(1L, 6L, 3L),

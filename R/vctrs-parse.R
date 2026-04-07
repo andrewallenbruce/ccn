@@ -134,40 +134,21 @@ infer_provider_type <- function(x) {
 #' @export
 #' @rdname ccn
 infer_form <- function(x) {
-  # get internal vector
   x <- vec_data(x)
   # infer provider or supplier
-  form <- infer_ccn_type(x)
+  g <- collapse::GRP(infer_ccn_type(x), call = FALSE)
+  g <- collapse::gsplit(NULL, g, use.g.names = TRUE)
 
-  if (collapse::anyv(form, "provider_ext")) {
-    # index of provider extensions
-    i <- collapse::whichv(form, "provider_ext")
-
+  if (rlang::has_name(g, "provider_ext")) {
     # replace originals with shortened versions
-    x[i] <- substring(x[i], 1L, 6L)
-
-    # replace 'provider_ext' with 'provider'
-    form[i] <- "provider"
+    x[g$provider_ext] <- substring(x[g$provider_ext], 1L, 6L)
   }
 
-  if (collapse::anyv(form, "supplier_ext")) {
-    # index of supplier extensions
-    i <- collapse::whichv(form, "supplier_ext")
-
-    # replace originals with shortened versions
-    x[i] <- substring(x[i], 1L, 10L)
-
-    # replace 'supplier_ext' with 'supplier'
-    form[i] <- "supplier"
+  if (rlang::has_name(g, "provider")) {
+    p <- collapse::GRP(infer_provider_type(x[g$provider]), call = FALSE)
+    p <- collapse::gsplit(NULL, p, use.g.names = TRUE)
+    g$provider <- NULL
   }
 
-  if (collapse::anyv(form, "provider")) {
-    # index of provider
-    i <- collapse::whichv(form, "provider")
-
-    # replace 'provider' with provider types
-    form[i] <- infer_provider_type(x[i])
-  }
-
-  return(form)
+  c(g, p)
 }
