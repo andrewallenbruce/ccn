@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9098 (2026-04-07)
+
+* refactoring parsing implementation
+
+
 # ccn 0.0.0.9097 (2026-04-06)
 
 * fleshed out rcrd class
