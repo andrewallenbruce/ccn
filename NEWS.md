@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9099 (2026-04-07)
+
+* refactored `infer_form()`
+
+
 # ccn 0.0.0.9098 (2026-04-07)
 
 * refactoring parsing implementation
