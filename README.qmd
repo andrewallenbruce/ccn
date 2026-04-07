@@ -22,8 +22,6 @@ knitr::opts_chunk$set(
 
 <h1 align="left"><b>ccn</b></h1>
 
-<br>
-
 <!-- badges: start -->
 
 ![GitHub R package version](https://img.shields.io/github/r-package/v/andrewallenbruce/ccn?style=flat-square&logo=R&label=Package&color=%23192a38)

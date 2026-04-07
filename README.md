@@ -4,9 +4,6 @@
 <h1 align="left">
 <b>ccn</b>
 </h1>
-
-<br>
-
 <!-- badges: start -->
 
 ![GitHub R package

@@ -159,10 +159,39 @@ infer_provider_ext <- function(x) {
   )
 }
 
+#' @noRd
+print_form <- function(x, ...) {
+
+  x <- collapse::vlengths(x)
+  x <- c(x, TOTAL = collapse::fsum(unname(x)))
+
+  if (x["TOTAL"] == 0L) {
+
+    cat("<infer_index>", sep = "\n")
+    cat("<EMPTY>", sep = "\n")
+
+    return(invisible(NULL))
+  }
+
+  x <- paste(
+    format(
+      names(x),
+      justify = "right"),
+    ":",
+    format(
+      unname(x),
+      justify = "left")
+    )
+
+  cat("<infer_index>", sep = "\n")
+  cat(x, sep = "\n")
+
+}
+
 #' @export
 #' @rdname ccn
 infer_form <- function(x) {
-  x <- vec_data(x)
+  x <- vctrs::vec_data(x)
   g <- e <- p <- NULL
 
   g <- collapse::GRP(infer_ccn_type(x), call = FALSE)
@@ -181,13 +210,6 @@ infer_form <- function(x) {
   }
 
   res <- c(g %||% list(), e %||% list(), p %||% list())
-
-  len <- collapse::vlengths(res)
-  len <- c(len, total = collapse::fsum(unname(len)))
-
-  info <- paste(format(names(len), justify = "right"), ":", format(unname(len), justify = "left"))
-
-  cat("<infer_index>", sep = "\n")
-  cat(info, sep = "\n")
+  print_form(res)
   invisible(res)
 }

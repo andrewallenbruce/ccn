@@ -20,7 +20,7 @@ Imports:
     kit (>= 0.0.21),
     methods,
     pins (>= 1.4.2),
-    rlang (>= 1.1.7),
+    rlang (>= 1.2.0),
     S7 (>= 0.2.1),
     vctrs (>= 0.7.2)
 Suggests:
