@@ -442,3 +442,8 @@
 ## ccn 0.0.0.9098 (2026-04-07)
 
 - refactoring parsing implementation
+
+## ccn 0.0.0.9099 (2026-04-07)
+
+- refactored
+  [`infer_form()`](https://andrewallenbruce.github.io/ccn/reference/ccn.md)
