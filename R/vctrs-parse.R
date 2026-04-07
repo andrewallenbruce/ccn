@@ -103,7 +103,8 @@ infer_ccn_type <- function(x) {
       "supplier",
       "supplier_ext",
       NA_character_
-    )
+    ),
+    default = "unknown_ccn"
   )
 }
 
@@ -127,7 +128,34 @@ infer_provider_type <- function(x) {
       "unit",
       "subunit",
       NA_character_
-    )
+    ),
+    default = "unknown_provider"
+  )
+}
+
+#' @noRd
+infer_provider_ext <- function(x) {
+  x <- substring(x, 1L, 6L)
+  vctrs::vec_case_when(
+    conditions = list(
+      medicare_(x),
+      organ_(x),
+      emergency_(x),
+      medicaid_(x),
+      unit_(x),
+      subunit_(x),
+      is.na(x)
+    ),
+    values = list(
+      "medicare_ext",
+      "organ_ext",
+      "emergency_ext",
+      "medicaid_ext",
+      "unit_ext",
+      "subunit_ext",
+      NA_character_
+    ),
+    default = "unknown_provider_ext"
   )
 }
 
@@ -135,20 +163,31 @@ infer_provider_type <- function(x) {
 #' @rdname ccn
 infer_form <- function(x) {
   x <- vec_data(x)
-  # infer provider or supplier
+  g <- e <- p <- NULL
+
   g <- collapse::GRP(infer_ccn_type(x), call = FALSE)
   g <- collapse::gsplit(NULL, g, use.g.names = TRUE)
 
   if (rlang::has_name(g, "provider_ext")) {
-    # replace originals with shortened versions
-    x[g$provider_ext] <- substring(x[g$provider_ext], 1L, 6L)
+    e <- collapse::GRP(infer_provider_ext(x[g$provider_ext]), call = FALSE)
+    e <- collapse::gsplit(g$provider_ext, e, use.g.names = TRUE)
+    g$provider_ext <- NULL
   }
 
   if (rlang::has_name(g, "provider")) {
     p <- collapse::GRP(infer_provider_type(x[g$provider]), call = FALSE)
-    p <- collapse::gsplit(NULL, p, use.g.names = TRUE)
+    p <- collapse::gsplit(g$provider, p, use.g.names = TRUE)
     g$provider <- NULL
   }
 
-  c(g, p)
+  res <- c(g %||% list(), e %||% list(), p %||% list())
+
+  len <- collapse::vlengths(res)
+  len <- c(len, total = collapse::fsum(unname(len)))
+
+  info <- paste(format(names(len), justify = "right"), ":", format(unname(len), justify = "left"))
+
+  cat("<infer_index>", sep = "\n")
+  cat(info, sep = "\n")
+  invisible(res)
 }
