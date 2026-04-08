@@ -462,3 +462,8 @@
 ## ccn 0.0.0.9103 (2026-04-08)
 
 - reorganization of files
+
+## ccn 0.0.0.9104 (2026-04-08)
+
+- [`as_ccnr()`](https://andrewallenbruce.github.io/ccn/reference/ccnr.md)
+  method

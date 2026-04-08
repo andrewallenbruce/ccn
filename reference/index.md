@@ -17,6 +17,7 @@
 - [`ccnr()`](https://andrewallenbruce.github.io/ccn/reference/ccnr.md)
   [`new_ccnr()`](https://andrewallenbruce.github.io/ccn/reference/ccnr.md)
   [`is_ccnr()`](https://andrewallenbruce.github.io/ccn/reference/ccnr.md)
+  [`as_ccnr()`](https://andrewallenbruce.github.io/ccn/reference/ccnr.md)
   :
 
   Construct a `ccnr` object
