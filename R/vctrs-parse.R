@@ -1,222 +1,136 @@
+# Provider: 670055 => 67 0055
 #' @noRd
-clean_ccn <- function(x) {
-  remove_any_spaces(remove_non_alnums(toupper(x)))
-}
-
-#' @noRd
-ccn_nchar <- function(x) {
-  (nchar(x) - 6L) * (14L - nchar(x)) >= 0L
-}
-
-#' @noRd
-provider_nchar <- function(x) {
-  nchar(x) == 6L
-}
-
-#' @noRd
-provext_nchar <- function(x) {
-  (nchar(x) - 7L) * (9L - nchar(x)) >= 0L
-}
-
-#' @noRd
-supplier_nchar <- function(x) {
-  nchar(x) == 10L
-}
-
-#' @noRd
-suppext_nchar <- function(x) {
-  (nchar(x) - 11L) * (14L - nchar(x)) >= 0L
-}
-
-# TYPES
-#' @noRd
-medicare_ <- function(x) {
-  is_numeric(substring(x, 3L, 6L))
-}
-
-#' @noRd
-organ_ <- function(x) {
-  substring(x, 3L, 3L) == "P"
-}
-
-#' @noRd
-emergency_ <- function(x) {
-  substring(x, 6L, 6L) %in% c("E", "F")
-}
-
-#' @noRd
-medicaid_ <- function(x) {
-  substring(x, 3L, 3L) %in% c("A", "B", "E", "F", "G", "H", "J", "K", "L")
-}
-
-#' @noRd
-unit__ <- function(x) {
-  substring(x, 3L, 3L) %in% c("M", "R", "S", "T", "U", "V", "W", "Y", "Z")
-}
-
-
-#' @noRd
-unit_ <- function(x) {
-  unit__(x) & is_numeric(substring(x, 4L, 4L))
-}
-
-#' @noRd
-subunit_ <- function(x) {
-  unit__(x) &
-    substring(x, 4L, 4L) %in%
-      c("A", "B", "C", "D", "E", "F", "G", "H", "J", "K")
-}
-
-#' @noRd
-supplier_ <- function(x) {
-  x %in% c("C", "D", "X")
-}
-
-#' @noRd
-moh_ <- function(x) {
-  substring(x, 3L, 3L) == "J"
-}
-
-#' @noRd
-eipps_type_ <- function(x) {
-  x %in% c("M", "R", "S", "T", "V")
-}
-
-#' @noRd
-eipps_range_ <- function(x) {
-  x %in% ccn::eipps_ranges$range
-}
-
-#' @noRd
-infer_ccn_type <- function(x) {
-  vctrs::vec_case_when(
-    conditions = list(
-      provider_nchar(x),
-      provext_nchar(x),
-      supplier_nchar(x),
-      suppext_nchar(x),
-      vec_detect_missing(x)
-    ),
-    values = list(
-      "provider",
-      "provider_ext",
-      "supplier",
-      "supplier_ext",
-      NA_character_
-    ),
-    default = "ccn"
+ccnr_care <- function(x) {
+  ccnr(
+    form = "care",
+    ccn = x,
+    state = substring(x, 1L, 2L),
+    number = substring(x, 3L, 6L),
+    type = NA_character_,
+    parent = NA_character_,
+    ext = NA_character_
   )
 }
 
 #' @noRd
-infer_provider_type <- function(x) {
-  vctrs::vec_case_when(
-    conditions = list(
-      medicare_(x),
-      organ_(x),
-      emergency_(x),
-      medicaid_(x),
-      unit_(x),
-      subunit_(x),
-      vec_detect_missing(x)
-    ),
-    values = list(
-      "medicare",
-      "organ",
-      "emergency",
-      "medicaid",
-      "unit",
-      "subunit",
-      NA_character_
-    ),
-    default = "provider"
+ccnr_care_ext <- function(x) {
+  ccnr(
+    form = "care",
+    ccn = substring(x, 1L, 6L),
+    state = substring(x, 1L, 2L),
+    number = substring(x, 3L, 6L),
+    type = NA_character_,
+    parent = NA_character_,
+    ext = substring(x, first = 7L)
+  )
+}
+
+# Emergency: 12345E => 12 345 E
+#' @noRd
+ccnr_erh <- function(x) {
+  ccnr(
+    form = "erh",
+    ccn = x,
+    state = substring(x, 1L, 2L),
+    number = substring(x, 3L, 5L),
+    type = substring(x, 6L, 6L),
+    parent = NA_character_,
+    ext = NA_character_
+  )
+}
+
+# Organ: 05P001 => 05 P 001
+#' @noRd
+ccnr_opo <- function(x) {
+  ccnr(
+    form = "opo",
+    ccn = x,
+    state = substring(x, 1L, 2L),
+    number = substring(x, 4L, 6L),
+    type = substring(x, 3L, 3L),
+    parent = NA_character_,
+    ext = NA_character_
+  )
+}
+
+# Medicaid: 01L008 => 01 L 008
+#' @noRd
+ccnr_caid <- function(x) {
+  ccnr(
+    form = "caid",
+    ccn = x,
+    state = substring(x, 1L, 2L),
+    number = substring(x, 4L, 6L),
+    type = substring(x, 3L, 3L),
+    parent = NA_character_,
+    ext = NA_character_
   )
 }
 
 #' @noRd
-infer_provider_ext <- function(x) {
-  x <- substring(x, 1L, 6L)
-  vctrs::vec_case_when(
-    conditions = list(
-      medicare_(x),
-      organ_(x),
-      emergency_(x),
-      medicaid_(x),
-      unit_(x),
-      subunit_(x),
-      vec_detect_missing(x)
-    ),
-    values = list(
-      "medicare_ext",
-      "organ_ext",
-      "emergency_ext",
-      "medicaid_ext",
-      "unit_ext",
-      "subunit_ext",
-      NA_character_
-    ),
-    default = "provider_ext"
+ccnr_caid_ext <- function(x) {
+  ccnr(
+    form = "caid",
+    ccn = substring(x, 1L, 6L),
+    state = substring(x, 1L, 2L),
+    number = substring(x, 4L, 6L),
+    type = substring(x, 3L, 3L),
+    parent = NA_character_,
+    ext = substring(x, first = 7L)
   )
 }
 
-#' @export
-#' @rdname ccn
-index_types <- function(x) {
-
-  x <- if (is_ccn(x)) vctrs::vec_data(x) else x
-  g <- e <- p <- NULL
-
-  g <- collapse::GRP(infer_ccn_type(x), call = FALSE)
-  g <- collapse::gsplit(NULL, g, use.g.names = TRUE)
-
-  if (rlang::has_name(g, "provider_ext")) {
-    e <- collapse::GRP(infer_provider_ext(x[g$provider_ext]), call = FALSE)
-    e <- collapse::gsplit(g$provider_ext, e, use.g.names = TRUE)
-    g$provider_ext <- NULL
-  }
-
-  if (rlang::has_name(g, "provider")) {
-    p <- collapse::GRP(infer_provider_type(x[g$provider]), call = FALSE)
-    p <- collapse::gsplit(g$provider, p, use.g.names = TRUE)
-    g$provider <- NULL
-  }
-
-  res <- c(g %||% list(), e %||% list(), p %||% list())
-  structure(res, class = "type_index")
-}
-
-#' @method format type_index
-#' @export
-format.type_index <- function(x, ...) {
-  res <- x
-
-  x <- collapse::vlengths(x)
-  x <- c(x, TOTAL = collapse::fsum(unname(x)))
-
-  cat("<type_index>", sep = "\n")
-
-  if (x["TOTAL"] == 0L) {
-    return(invisible(NULL))
-  }
-
-  x <- paste(
-    format(
-      names(x),
-      justify = "right"
-    ),
-    ":",
-    format(
-      unname(x),
-      justify = "left"
-    )
+# Unit: 21T101 => 21 T 101
+#' @noRd
+ccnr_unit <- function(x) {
+  ccnr(
+    form = "unit",
+    ccn = x,
+    state = substring(x, 1L, 2L),
+    number = substring(x, 4L, 6L),
+    type = substring(x, 3L, 3L),
+    parent = NA_character_,
+    ext = NA_character_
   )
-
-  cat(x, sep = "\n")
-  invisible(res)
 }
 
-#' @method print type_index
-#' @export
-print.type_index <- function(x, ...) {
-  format(x)
+#' @noRd
+ccnr_unit_ext <- function(x) {
+  ccnr(
+    form = "unit",
+    ccn = substring(x, 1L, 6L),
+    state = substring(x, 1L, 2L),
+    number = substring(x, 4L, 6L),
+    type = substring(x, 3L, 3L),
+    parent = NA_character_,
+    ext = substring(x, first = 7L)
+  )
+}
+
+# Subunit: 02TA01 => 02 T A 01
+#' @noRd
+ccnr_sub <- function(x) {
+  ccnr(
+    form = "sub",
+    ccn = x,
+    state = substring(x, 1L, 2L),
+    number = substring(x, 5L, 6L),
+    type = substring(x, 3L, 3L),
+    parent = substring(x, 4L, 4L),
+    ext = NA_character_
+  )
+}
+
+# Supplier: 10C0001062 => 10 C 0001062
+#' @noRd
+ccnr_supp <- function(x) {
+  ccnr(
+    form = "supp",
+    ccn = x,
+    state = substring(x, 1L, 2L),
+    number = substring(x, 4L, 10L),
+    type = substring(x, 3L, 3L),
+    parent = NA_character_,
+    ext = NA_character_
+  )
 }

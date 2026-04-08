@@ -100,3 +100,22 @@ is_ccnr <- function(x) {
 vec_proxy_equal.ccnr <- function(x, ...) {
   field(x, "ccn")
 }
+
+#' @method format ccnr
+#' @export
+format.ccnr <- function(x, ...) {
+  x <- field(x, "ccn")
+  out <- formatC(x, format = "s")
+  out[collapse::whichNA(x)] <- NA
+  out
+}
+
+#' @export
+vec_ptype_abbr.ccnr <- function(x, ...) {
+  "ccnr"
+}
+
+#' @export
+vec_ptype_full.ccnr <- function(x, ...) {
+  "ccn_rcrd"
+}
