@@ -23,6 +23,7 @@ methods::setOldClass(c("ccnr", "vctrs_vctr"))
 #' x
 #' tibble::tibble(x, ccn = as_ccn(x))
 #' tibble::as_tibble(vctrs::vec_data(x))
+#' as_ccnr(get_pin("ccn"))
 #' @export
 ccnr <- function(
   ccn = character(),
@@ -118,4 +119,27 @@ vec_ptype_abbr.ccnr <- function(x, ...) {
 #' @export
 vec_ptype_full.ccnr <- function(x, ...) {
   "ccn_rcrd"
+}
+
+#' @export
+#' @rdname ccnr
+as_ccnr <- function(x) {
+  i <- index_types(x)
+
+  vctrs::vec_c(
+    if (rlang::has_name(i, "medicare_ext")) {
+      ccnr_care(x[i$medicare_ext], ext = TRUE)
+    },
+    if (rlang::has_name(i, "medicare")) ccnr_care(x[i$medicare]),
+    if (rlang::has_name(i, "medicaid_ext")) {
+      ccnr_caid(x[i$medicaid_ext], ext = TRUE)
+    },
+    if (rlang::has_name(i, "medicaid")) ccnr_caid(x[i$medicaid]),
+    if (rlang::has_name(i, "unit_ext")) ccnr_unit(x[i$unit_ext], ext = TRUE),
+    if (rlang::has_name(i, "unit")) ccnr_unit(x[i$unit]),
+    if (rlang::has_name(i, "subunit")) ccnr_sub(x[i$subunit]),
+    if (rlang::has_name(i, "organ")) ccnr_opo(x[i$organ]),
+    if (rlang::has_name(i, "emergency")) ccnr_erh(x[i$emergency]),
+    if (rlang::has_name(i, "supplier")) ccnr_supp(x[i$supplier])
+  )
 }

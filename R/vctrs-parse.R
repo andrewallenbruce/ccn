@@ -1,27 +1,28 @@
 # Provider: 670055 => 67 0055
 #' @noRd
-ccnr_care <- function(x) {
+ccnr_care <- function(x, ext = FALSE) {
   ccnr(
     form = "care",
-    ccn = x,
+    ccn = if (ext) substring(x, 1L, 6L) else x,
     state = substring(x, 1L, 2L),
     number = substring(x, 3L, 6L),
     type = NA_character_,
     parent = NA_character_,
-    ext = NA_character_
+    ext = if (ext) substring(x, first = 7L) else NA_character_
   )
 }
 
+# Medicaid: 01L008 => 01 L 008
 #' @noRd
-ccnr_care_ext <- function(x) {
+ccnr_caid <- function(x, ext = FALSE) {
   ccnr(
-    form = "care",
-    ccn = substring(x, 1L, 6L),
+    form = "caid",
+    ccn = if (ext) substring(x, 1L, 6L) else x,
     state = substring(x, 1L, 2L),
-    number = substring(x, 3L, 6L),
-    type = NA_character_,
+    number = substring(x, 4L, 6L),
+    type = substring(x, 3L, 3L),
     parent = NA_character_,
-    ext = substring(x, first = 7L)
+    ext = if (ext) substring(x, first = 7L) else NA_character_
   )
 }
 
@@ -53,57 +54,17 @@ ccnr_opo <- function(x) {
   )
 }
 
-# Medicaid: 01L008 => 01 L 008
-#' @noRd
-ccnr_caid <- function(x) {
-  ccnr(
-    form = "caid",
-    ccn = x,
-    state = substring(x, 1L, 2L),
-    number = substring(x, 4L, 6L),
-    type = substring(x, 3L, 3L),
-    parent = NA_character_,
-    ext = NA_character_
-  )
-}
-
-#' @noRd
-ccnr_caid_ext <- function(x) {
-  ccnr(
-    form = "caid",
-    ccn = substring(x, 1L, 6L),
-    state = substring(x, 1L, 2L),
-    number = substring(x, 4L, 6L),
-    type = substring(x, 3L, 3L),
-    parent = NA_character_,
-    ext = substring(x, first = 7L)
-  )
-}
-
 # Unit: 21T101 => 21 T 101
 #' @noRd
-ccnr_unit <- function(x) {
+ccnr_unit <- function(x, ext = FALSE) {
   ccnr(
     form = "unit",
-    ccn = x,
+    ccn = if (ext) substring(x, 1L, 6L) else x,
     state = substring(x, 1L, 2L),
     number = substring(x, 4L, 6L),
     type = substring(x, 3L, 3L),
     parent = NA_character_,
-    ext = NA_character_
-  )
-}
-
-#' @noRd
-ccnr_unit_ext <- function(x) {
-  ccnr(
-    form = "unit",
-    ccn = substring(x, 1L, 6L),
-    state = substring(x, 1L, 2L),
-    number = substring(x, 4L, 6L),
-    type = substring(x, 3L, 3L),
-    parent = NA_character_,
-    ext = substring(x, first = 7L)
+    ext = if (ext) substring(x, first = 7L) else NA_character_
   )
 }
 
