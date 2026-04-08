@@ -22,14 +22,15 @@ vec_ptype2.ccn.ccn <- function(x, y, ...) {
   new_ccn()
 }
 
-#' @method vec_ptype2.character ccn
-#' @export
-vec_ptype2.character.ccn <- function(x, y, ...) {
-  vec_data(x)
-}
-
 #' @method vec_ptype2.ccn character
 #' @export
 vec_ptype2.ccn.character <- function(x, y, ...) {
-  ccn(x)
+  x
 }
+
+#' @method vec_ptype2.character ccn
+#' @export
+vec_ptype2.character.ccn <- function(x, y, ...) {
+  y
+}
+

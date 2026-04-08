@@ -95,7 +95,7 @@ infer_ccn_type <- function(x) {
       provext_nchar(x),
       supplier_nchar(x),
       suppext_nchar(x),
-      is.na(x)
+      vec_detect_missing(x)
     ),
     values = list(
       "provider",
@@ -104,7 +104,7 @@ infer_ccn_type <- function(x) {
       "supplier_ext",
       NA_character_
     ),
-    default = "unknown_ccn"
+    default = "ccn"
   )
 }
 
@@ -118,7 +118,7 @@ infer_provider_type <- function(x) {
       medicaid_(x),
       unit_(x),
       subunit_(x),
-      is.na(x)
+      vec_detect_missing(x)
     ),
     values = list(
       "medicare",
@@ -129,7 +129,7 @@ infer_provider_type <- function(x) {
       "subunit",
       NA_character_
     ),
-    default = "unknown_provider"
+    default = "provider"
   )
 }
 
@@ -144,7 +144,7 @@ infer_provider_ext <- function(x) {
       medicaid_(x),
       unit_(x),
       subunit_(x),
-      is.na(x)
+      vec_detect_missing(x)
     ),
     values = list(
       "medicare_ext",
@@ -155,14 +155,15 @@ infer_provider_ext <- function(x) {
       "subunit_ext",
       NA_character_
     ),
-    default = "unknown_provider_ext"
+    default = "provider_ext"
   )
 }
 
 #' @export
 #' @rdname ccn
 index_types <- function(x) {
-  x <- vctrs::vec_data(x)
+
+  x <- if (is_ccn(x)) vctrs::vec_data(x) else x
   g <- e <- p <- NULL
 
   g <- collapse::GRP(infer_ccn_type(x), call = FALSE)

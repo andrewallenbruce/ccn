@@ -7,6 +7,7 @@
 \alias{as_ccn}
 \alias{as_ccn.default}
 \alias{as_ccn.character}
+\alias{as_ccn.ccnr}
 \alias{index_types}
 \title{Construct a \code{ccn} object}
 \usage{
@@ -21,6 +22,8 @@ as_ccn(x, ...)
 \method{as_ccn}{default}(x, ...)
 
 \method{as_ccn}{character}(x, ...)
+
+\method{as_ccn}{ccnr}(x, ...)
 
 index_types(x)
 }
@@ -40,9 +43,9 @@ An S3 vector of class \verb{<ccn>}
 }
 }
 \examples{
-ccn("030113")
-x <- ccn(get_pin("ccn")[20:50])
+x <- get_pin("ccn")
+y <- ccn(x)
+vctrs::vec_c(x[1:5], y[100:150], x[1:50])
+tibble::tibble(x = x, ccn = as_ccn(x))
 index_types(x)
-data.frame(x)
-tibble::tibble(x)
 }

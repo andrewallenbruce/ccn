@@ -20,11 +20,11 @@ vec_cast.ccn.ccn <- function(x, to, ...) {
 #' @method vec_cast.ccn character
 #' @export
 vec_cast.ccn.character <- function(x, to, ...) {
-  ccn(x)
+  new_ccn(x)
 }
 
 #' @method vec_cast.character ccn
 #' @export
 vec_cast.character.ccn <- function(x, to, ...) {
-  ccn(x)
+  vec_data(x)
 }

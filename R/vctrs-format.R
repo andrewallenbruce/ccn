@@ -1,7 +1,8 @@
 #' @method format ccn
 #' @export
 format.ccn <- function(x, ...) {
-  out <- formatC(vec_data(x), format = "s")
+  x <- vec_data(x)
+  out <- formatC(x, format = "s")
   out[collapse::whichNA(x)] <- NA
   out
 }

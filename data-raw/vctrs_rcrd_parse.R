@@ -5,117 +5,144 @@ x <- as_ccn(x)
 i <- index_types(x)
 x <- vec_data(x)
 
-ccnr_medicare <- function(x) {
-  size <- vec_size(x)
-  vna <- vec_rep(NA_character_, size)
-
+ccnr_care <- function(x) {
   ccnr(
+    form = "care",
     ccn = x,
-    form = vec_rep("medicare", size),
     state = substring(x, 1L, 2L),
     number = substring(x, 3L, 6L),
-    type = vna,
-    parent = vna,
-    ext = vna
+    type = NA_character_,
+    parent = NA_character_,
+    ext = NA_character_
   )
 }
 
-df <- ccnr_medicare(x[i$medicare])
+df <- ccnr_care(x[i$medicare])
 
+ccnr_supp <- function(x) {
+  ccnr(
+    form = "supp",
+    ccn = x,
+    state = substring(x, 1L, 2L),
+    number = substring(x, 4L, 10L),
+    type = substring(x, 3L, 3L),
+    parent = NA_character_,
+    ext = NA_character_
+  )
+}
+
+df <- ccnr_supp(x[i$supplier])
+
+ccnr_unit <- function(x) {
+  ccnr(
+    form = "unit",
+    ccn = x,
+    state = substring(x, 1L, 2L),
+    number = substring(x, 4L, 6L),
+    type = substring(x, 3L, 3L),
+    parent = NA_character_,
+    ext = NA_character_
+  )
+}
+
+df <- ccnr_unit(x[i$unit])
+
+ccnr_sub <- function(x) {
+  ccnr(
+    form = "sub",
+    ccn = x,
+    state = substring(x, 1L, 2L),
+    number = substring(x, 5L, 6L),
+    type = substring(x, 3L, 3L),
+    parent = substring(x, 4L, 4L),
+    ext = NA_character_
+  )
+}
+
+df <- ccnr_sub(x[i$subunit])
+
+ccnr_erh <- function(x) {
+  ccnr(
+    form = "erh",
+    ccn = x,
+    state = substring(x, 1L, 2L),
+    number = substring(x, 3L, 5L),
+    type = substring(x, 6L, 6L),
+    parent = NA_character_,
+    ext = NA_character_
+  )
+}
+
+df <- ccnr_erh(x[i$emergency])
+
+ccnr_unit_ext <- function(x) {
+  ccnr(
+    form = "unit",
+    ccn = substring(x, 1L, 6L),
+    state = substring(x, 1L, 2L),
+    number = substring(x, 4L, 6L),
+    type = substring(x, 3L, 3L),
+    parent = NA_character_,
+    ext = substring(x, first = 7L)
+  )
+}
+
+df <- ccnr_unit_ext(x[i$unit_ext])
+
+ccnr_caid <- function(x) {
+  ccnr(
+    form = "caid",
+    ccn = x,
+    state = substring(x, 1L, 2L),
+    number = substring(x, 4L, 6L),
+    type = substring(x, 3L, 3L),
+    parent = NA_character_,
+    ext = NA_character_
+  )
+}
+
+df <- ccnr_caid(x[i$medicaid])
+
+ccnr_caid_ext <- function(x) {
+  ccnr(
+    form = "caid",
+    ccn = substring(x, 1L, 6L),
+    state = substring(x, 1L, 2L),
+    number = substring(x, 4L, 6L),
+    type = substring(x, 3L, 3L),
+    parent = NA_character_,
+    ext = substring(x, first = 7L)
+  )
+}
+
+df <- ccnr_caid_ext(x[i$medicaid])
+
+ccnr_care_ext <- function(x) {
+  ccnr(
+    form = "care",
+    ccn = substring(x, 1L, 6L),
+    state = substring(x, 1L, 2L),
+    number = substring(x, 3L, 6L),
+    type = NA_character_,
+    parent = NA_character_,
+    ext = substring(x, first = 7L)
+  )
+}
+
+df <- ccnr_care_ext(x[i$medicare_ext])
+
+ccnr_opo <- function(x) {
+  ccnr(
+    form = "opo",
+    ccn = x,
+    state = substring(x, 1L, 2L),
+    number = substring(x, 4L, 6L),
+    type = substring(x, 3L, 3L),
+    parent = NA_character_,
+    ext = NA_character_
+  )
+}
+
+df <- ccnr_opo(x[i$organ])
 tibble::tibble(ccn = df)
-
-df <- ccnr(
-  ccn = x[i$supplier],
-  form = vec_rep("supplier", vec_size(x[i$supplier])),
-  state = substring(x[i$supplier], 1L, 2L),
-  number = substring(x[i$supplier], 4L, 10L),
-  type = substring(x[i$supplier], 3L, 3L),
-  parent = vec_rep(NA_character_, vec_size(x[i$supplier])),
-  ext = vec_rep(NA_character_, vec_size(x[i$supplier]))
-)
-
-tibble::tibble(ccn = df)
-
-df <- ccnr(
-  ccn = x[i$unit],
-  form = vec_rep("unit", vec_size(x[i$unit])),
-  state = substring(x[i$unit], 1L, 2L),
-  number = substring(x[i$unit], 4L, 6L),
-  type = substring(x[i$unit], 3L, 3L),
-  parent = vec_rep(NA_character_, vec_size(x[i$unit])),
-  ext = vec_rep(NA_character_, vec_size(x[i$unit]))
-)
-
-tibble::tibble(ccn = df)
-
-df <- ccnr(
-  ccn = x[i$subunit],
-  form = vec_rep("subunit", vec_size(x[i$subunit])),
-  state = substring(x[i$subunit], 1L, 2L),
-  number = substring(x[i$subunit], 5L, 6L),
-  type = substring(x[i$subunit], 3L, 3L),
-  parent = substring(x[i$subunit], 4L, 4L),
-  ext = vec_rep(NA_character_, vec_size(x[i$subunit]))
-)
-
-vec_proxy(df)
-
-tibble::tibble(ccn = df)
-
-df <- ccnr(
-  ccn = x[i$emergency],
-  form = vec_rep("emergency", vec_size(x[i$emergency])),
-  state = substring(x[i$emergency], 1L, 2L),
-  number = substring(x[i$emergency], 3L, 5L),
-  type = substring(x[i$emergency], 6L, 6L),
-  parent = vec_rep(NA_character_, vec_size(x[i$emergency])),
-  ext = vec_rep(NA_character_, vec_size(x[i$emergency]))
-)
-
-tibble::tibble(ccn = df)
-
-df <- ccnr(
-  ccn = substring(x[i$unit_ext], 1L, 6L),
-  form = vec_rep("unit", vec_size(x[i$unit_ext])),
-  state = substring(x[i$unit_ext], 1L, 2L),
-  number = substring(x[i$unit_ext], 4L, 6L),
-  type = substring(x[i$unit_ext], 3L, 3L),
-  parent = vec_rep(NA_character_, vec_size(x[i$unit_ext])),
-  ext = substring(text = x[i$unit_ext], first = 7L)
-)
-
-tibble::tibble(ccn = df)
-
-x[i$medicaid_ext]
-
-x <- collapse::gsplit(
-  x,
-  nchar(x[i$medicare_ext]),
-  use.g.names = TRUE
-)
-
-x$`7` <- substr(
-  x$`7`,
-  vctrs::vec_c(1L, 3L, 7L),
-  vctrs::vec_c(2L, 6L, 7L)
-)
-
-mx$`8` <- substring(
-  mx$`8`,
-  vctrs::vec_c(1L, 3L, 7L),
-  vctrs::vec_c(2L, 6L, 8L)
-)
-
-mx$`9` <- substring(
-  mx$`9`,
-  c(1L, 3L, 7L),
-  c(2L, 6L, 9L)
-)
-
-ix <- seq_along(mx$`7`) %% 3L
-mx$`7`[ix == 1L]
-mx$`7`[ix == 2L]
-mx <- collapse::gsplit(mx$`7`, seq_along(mx$`7`) %% 3L) |>
-  rlang::set_names(c("ext", "state", "number"))
-
-vctrs::list_sizes(i)
+vec_data(df)

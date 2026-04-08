@@ -10,20 +10,21 @@ methods::setOldClass(c("ccn", "vctrs_vctr"))
 #' @param ... Passed on to methods.
 #' @returns An S3 vector of class `<ccn>`
 #' @examples
-#' ccn("030113")
-#' x <- ccn(get_pin("ccn")[20:50])
+#' x <- get_pin("ccn")
+#' y <- ccn(x)
+#' vctrs::vec_c(x[1:5], y[100:150], x[1:50])
+#' tibble::tibble(x = x, ccn = as_ccn(x))
 #' index_types(x)
-#' data.frame(x)
-#' tibble::tibble(x)
 #' @export
 ccn <- function(x = character()) {
-  x <- vec_cast(clean_ccn(x), character())
+  x <- vec_cast(x, character())
   new_ccn(x)
 }
 
 #' @export
 #' @rdname ccn
 new_ccn <- function(x = character()) {
+  x <- clean_ccn(x)
   vec_assert(x, character())
   new_vctr(x, class = "ccn")
 }
@@ -50,4 +51,10 @@ as_ccn.default <- function(x, ...) {
 #' @rdname ccn
 as_ccn.character <- function(x, ...) {
   new_ccn(x)
+}
+
+#' @export
+#' @rdname ccn
+as_ccn.ccnr <- function(x, ...) {
+  new_ccn(field(x, "ccn"))
 }
