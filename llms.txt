@@ -35,13 +35,14 @@ occasionally assist with some of these duties.
   [`new_ccn()`](https://andrewallenbruce.github.io/ccn/reference/ccn.md)
   [`is_ccn()`](https://andrewallenbruce.github.io/ccn/reference/ccn.md)
   [`as_ccn()`](https://andrewallenbruce.github.io/ccn/reference/ccn.md)
-  [`infer_form()`](https://andrewallenbruce.github.io/ccn/reference/ccn.md)
+  [`index_types()`](https://andrewallenbruce.github.io/ccn/reference/ccn.md)
   :
 
   Construct a `ccn` object
 
 - [`ccnr()`](https://andrewallenbruce.github.io/ccn/reference/ccnr.md)
   [`new_ccnr()`](https://andrewallenbruce.github.io/ccn/reference/ccnr.md)
+  [`is_ccnr()`](https://andrewallenbruce.github.io/ccn/reference/ccnr.md)
   :
 
   Construct a `ccnr` object

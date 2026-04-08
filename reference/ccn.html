@@ -19,7 +19,7 @@ as_ccn() and is_ccn() forward to vctrs::vec_cast() and inherits(), respectively.
 
     <a class="navbar-brand me-2" href="../index.html">ccn</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9100</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9101</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -74,7 +74,7 @@ as_ccn() and is_ccn() forward to vctrs::vec_cast() and inherits(), respectively.
 <span><span class="co"># S3 method for class 'character'</span></span>
 <span><span class="fu">as_ccn</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">infer_form</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">index_types</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -96,71 +96,62 @@ as_ccn() and is_ccn() forward to vctrs::vec_cast() and inherits(), respectively.
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">new_ccn</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn[0]&gt;</span>
-<span class="r-in"><span><span class="fu">ccn</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn[0]&gt;</span>
-<span class="r-in"><span><span class="fu">ccn</span><span class="op">(</span><span class="st">"030113"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn[1]&gt;</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">ccn</span><span class="op">(</span><span class="st">"030113"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn_vctr[1]&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 030113</span>
-<span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="get_pin.html">get_pin</a></span><span class="op">(</span><span class="st">"ccn"</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">20</span><span class="op">]</span></span></span>
-<span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">ccn</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">x</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn[20]&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 001500 001502 001503 001509 001510 001511 001513 001514 001515 001517</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [11] 001518 001524 001527 001528 001529 001530 001534 001535 001536 001541</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  ccn [1:20] 001500, 001502, 001503, 001509, 001510, 001511, 001513, 001514,...</span>
-<span class="r-in"><span><span class="fu">infer_form</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;infer_index&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> medicare : 20</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    TOTAL : 20</span>
+<span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">ccn</span><span class="op">(</span><span class="fu"><a href="get_pin.html">get_pin</a></span><span class="op">(</span><span class="st">"ccn"</span><span class="op">)</span><span class="op">[</span><span class="fl">20</span><span class="op">:</span><span class="fl">50</span><span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">index_types</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;type_index&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> medicare : 31</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    TOTAL : 31</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         x</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  001500</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  001502</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  001503</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  001509</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  001510</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  001511</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  001513</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  001514</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  001515</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 001517</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 001518</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 001524</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13 001527</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 001528</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 001529</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16 001530</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17 001534</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18 001535</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19 001536</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20 001541</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  001541</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  001545</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  001550</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  001552</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  001556</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  001557</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  001561</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  001562</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  001563</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 001568</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 001570</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 001571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 001572</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 001574</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 001575</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 010001</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 010005</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18 010006</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19 010007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20 010008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21 010011</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22 010012</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23 010016</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24 010018</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25 010019</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26 010021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27 010022</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28 010023</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29 010024</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30 010029</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31 010033</span>
 <span class="r-in"><span><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 20 × 1</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 31 × 1</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    x     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;ccn&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 001500</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 001502</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 001503</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 001509</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 001510</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 001511</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 001513</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 001514</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 001515</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 001517</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> 001518</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> 001524</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span> 001527</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span> 001528</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span> 001529</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">16</span> 001530</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">17</span> 001534</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">18</span> 001535</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">19</span> 001536</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">20</span> 001541</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 001541</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 001545</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 001550</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 001552</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 001556</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 001557</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 001561</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 001562</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 001563</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 001568</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 21 more rows</span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

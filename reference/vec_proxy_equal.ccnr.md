@@ -1,6 +1,6 @@
 # Comparison
 
-Double dispatch methods to support
+Dispatch methods to support
 [`vctrs::vec_proxy_equal()`](https://vctrs.r-lib.org/reference/vec_proxy_equal.html).
 
 ## Usage

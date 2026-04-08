@@ -427,8 +427,7 @@
 
 ## ccn 0.0.0.9095 (2026-04-04)
 
-- fixed bug in
-  [`infer_form()`](https://andrewallenbruce.github.io/ccn/reference/ccn.md)
+- fixed bug in `infer_form()`
 - initial sketch of `rcrd vctr`
 
 ## ccn 0.0.0.9096 (2026-04-05)
@@ -445,10 +444,13 @@
 
 ## ccn 0.0.0.9099 (2026-04-07)
 
-- refactored
-  [`infer_form()`](https://andrewallenbruce.github.io/ccn/reference/ccn.md)
+- refactored `infer_form()`
 
 ## ccn 0.0.0.9100 (2026-04-07)
 
 - `rlang` 1.1.7 =\> 1.2.0
 - added `vec_proxy_equal` method for `ccnr` class
+
+## ccn 0.0.0.9101 (2026-04-07)
+
+- clean up, formatting
