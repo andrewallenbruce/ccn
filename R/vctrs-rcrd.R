@@ -9,17 +9,9 @@ methods::setOldClass(c("ccnr", "vctrs_vctr"))
 #' @param type a vector
 #' @param parent a vector
 #' @param ext a vector
+#' @param x object
 #' @returns An S3 vector of class `<ccnr>`
 #' @examples
-#' new_ccnr(
-#'   ccn = c("670005", "12345E", NA, "05P001", "21T101", "02TA01", "10C0001062", "000001A001"),
-#'   form = c("medicare", "emergency", NA, "organ", "unit", "subunit", "supplier", "medicare"),
-#'   state = c("67", "12", NA, "05", "21", "02", "10", "00"),
-#'   number = c("0005", "345", NA, "001", "101", "01", "0001062", "0001"),
-#'   type = c(NA, "E", NA, "P", "T", "T", "C", NA),
-#'   parent = c(NA, NA, NA, NA, NA, "A", NA, NA),
-#'   ext = c(NA, NA, NA, NA, NA, NA, NA, "A001"))
-#'
 #' x <- ccnr(
 #'   ccn = c("670005", "12345E", NA, "05P001", "21T101", "02TA01", "10C0001062", "000001A001"),
 #'   form = c("medicare", "emergency", NA, "organ", "unit", "subunit", "supplier", "medicare"),
@@ -28,6 +20,8 @@ methods::setOldClass(c("ccnr", "vctrs_vctr"))
 #'   type = c(NA, "E", NA, "P", "T", "T", "C", NA),
 #'   parent = c(NA, NA, NA, NA, NA, "A", NA, NA),
 #'   ext = c(NA, NA, NA, NA, NA, NA, NA, "A001"))
+#'
+#' x
 #'
 #' tibble::tibble(x)
 #' @export
@@ -79,6 +73,7 @@ new_ccnr <- function(
   new_rcrd(
     list(
       ccn = ccn,
+      form = form,
       state = state,
       number = number,
       type = type,
@@ -87,4 +82,22 @@ new_ccnr <- function(
     ),
     class = "ccnr"
   )
+}
+
+#' @export
+#' @rdname ccnr
+is_ccnr <- function(x) {
+  inherits(x, "ccnr")
+}
+
+#' Comparison
+#'
+#' Dispatch methods to support [vctrs::vec_proxy_equal()].
+#'
+#' @inheritParams vctrs::vec_proxy_equal
+#' @method vec_proxy_equal ccnr
+#' @export
+#' @export vec_proxy_equal.ccnr
+vec_proxy_equal.ccnr <- function(x, ...) {
+  field(x, "ccn")
 }

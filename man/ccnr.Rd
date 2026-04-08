@@ -3,6 +3,7 @@
 \name{ccnr}
 \alias{ccnr}
 \alias{new_ccnr}
+\alias{is_ccnr}
 \title{Construct a \code{ccnr} object}
 \usage{
 ccnr(
@@ -24,6 +25,8 @@ new_ccnr(
   parent = character(),
   ext = character()
 )
+
+is_ccnr(x)
 }
 \arguments{
 \item{ccn}{a vector}
@@ -39,6 +42,8 @@ new_ccnr(
 \item{parent}{a vector}
 
 \item{ext}{a vector}
+
+\item{x}{object}
 }
 \value{
 An S3 vector of class \verb{<ccnr>}
@@ -47,15 +52,6 @@ An S3 vector of class \verb{<ccnr>}
 Construct a \code{ccnr} object
 }
 \examples{
-new_ccnr(
-  ccn = c("670005", "12345E", NA, "05P001", "21T101", "02TA01", "10C0001062", "000001A001"),
-  form = c("medicare", "emergency", NA, "organ", "unit", "subunit", "supplier", "medicare"),
-  state = c("67", "12", NA, "05", "21", "02", "10", "00"),
-  number = c("0005", "345", NA, "001", "101", "01", "0001062", "0001"),
-  type = c(NA, "E", NA, "P", "T", "T", "C", NA),
-  parent = c(NA, NA, NA, NA, NA, "A", NA, NA),
-  ext = c(NA, NA, NA, NA, NA, NA, NA, "A001"))
-
 x <- ccnr(
   ccn = c("670005", "12345E", NA, "05P001", "21T101", "02TA01", "10C0001062", "000001A001"),
   form = c("medicare", "emergency", NA, "organ", "unit", "subunit", "supplier", "medicare"),
@@ -64,6 +60,8 @@ x <- ccnr(
   type = c(NA, "E", NA, "P", "T", "T", "C", NA),
   parent = c(NA, NA, NA, NA, NA, "A", NA, NA),
   ext = c(NA, NA, NA, NA, NA, NA, NA, "A001"))
+
+x
 
 tibble::tibble(x)
 }

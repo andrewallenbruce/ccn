@@ -2,19 +2,25 @@
 library(ccn)
 x <- ccn:::get_pin("ccn")
 x <- as_ccn(x)
-i <- infer_form(x)
+i <- index_types(x)
 x <- vec_data(x)
 
+ccnr_medicare <- function(x) {
+  size <- vec_size(x)
+  vna <- vec_rep(NA_character_, size)
 
-df <- ccnr(
-  ccn = x[i$medicare],
-  form = vec_rep("medicare", vec_size(x[i$medicare])),
-  state = substring(x[i$medicare], 1L, 2L),
-  number = substring(x[i$medicare], 3L, 6L),
-  type = vec_rep(NA_character_, vec_size(x[i$medicare])),
-  parent = vec_rep(NA_character_, vec_size(x[i$medicare])),
-  ext = vec_rep(NA_character_, vec_size(x[i$medicare]))
+  ccnr(
+    ccn = x,
+    form = vec_rep("medicare", size),
+    state = substring(x, 1L, 2L),
+    number = substring(x, 3L, 6L),
+    type = vna,
+    parent = vna,
+    ext = vna
   )
+}
+
+df <- ccnr_medicare(x[i$medicare])
 
 tibble::tibble(ccn = df)
 
@@ -86,7 +92,7 @@ x <- collapse::gsplit(
   x,
   nchar(x[i$medicare_ext]),
   use.g.names = TRUE
-  )
+)
 
 x$`7` <- substr(
   x$`7`,

@@ -13,7 +13,7 @@ vec_ptype_abbr.ccn <- function(x, ...) {
 
 #' @export
 vec_ptype_full.ccn <- function(x, ...) {
-  "ccn"
+  "ccn_vctr"
 }
 
 #' @method format ccnr

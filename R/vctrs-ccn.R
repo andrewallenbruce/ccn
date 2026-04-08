@@ -10,14 +10,9 @@ methods::setOldClass(c("ccn", "vctrs_vctr"))
 #' @param ... Passed on to methods.
 #' @returns An S3 vector of class `<ccn>`
 #' @examples
-#' new_ccn()
-#' ccn()
 #' ccn("030113")
-#' x <- get_pin("ccn")[1:20]
-#' x <- ccn(x)
-#' x
-#' str(x)
-#' infer_form(x)
+#' x <- ccn(get_pin("ccn")[20:50])
+#' index_types(x)
 #' data.frame(x)
 #' tibble::tibble(x)
 #' @export

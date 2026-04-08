@@ -159,38 +159,9 @@ infer_provider_ext <- function(x) {
   )
 }
 
-#' @noRd
-print_form <- function(x, ...) {
-
-  x <- collapse::vlengths(x)
-  x <- c(x, TOTAL = collapse::fsum(unname(x)))
-
-  if (x["TOTAL"] == 0L) {
-
-    cat("<infer_index>", sep = "\n")
-    cat("<EMPTY>", sep = "\n")
-
-    return(invisible(NULL))
-  }
-
-  x <- paste(
-    format(
-      names(x),
-      justify = "right"),
-    ":",
-    format(
-      unname(x),
-      justify = "left")
-    )
-
-  cat("<infer_index>", sep = "\n")
-  cat(x, sep = "\n")
-
-}
-
 #' @export
 #' @rdname ccn
-infer_form <- function(x) {
+index_types <- function(x) {
   x <- vctrs::vec_data(x)
   g <- e <- p <- NULL
 
@@ -210,6 +181,41 @@ infer_form <- function(x) {
   }
 
   res <- c(g %||% list(), e %||% list(), p %||% list())
-  print_form(res)
+  structure(res, class = "type_index")
+}
+
+#' @method format type_index
+#' @export
+format.type_index <- function(x, ...) {
+  res <- x
+
+  x <- collapse::vlengths(x)
+  x <- c(x, TOTAL = collapse::fsum(unname(x)))
+
+  cat("<type_index>", sep = "\n")
+
+  if (x["TOTAL"] == 0L) {
+    return(invisible(NULL))
+  }
+
+  x <- paste(
+    format(
+      names(x),
+      justify = "right"
+    ),
+    ":",
+    format(
+      unname(x),
+      justify = "left"
+    )
+  )
+
+  cat(x, sep = "\n")
   invisible(res)
+}
+
+#' @method print type_index
+#' @export
+print.type_index <- function(x, ...) {
+  format(x)
 }

@@ -33,15 +33,3 @@ vec_ptype2.character.ccn <- function(x, y, ...) {
 vec_ptype2.ccn.character <- function(x, y, ...) {
   ccn(x)
 }
-
-#' Comparison
-#'
-#' Double dispatch methods to support [vctrs::vec_proxy_equal()].
-#'
-#' @inheritParams vctrs::vec_proxy_equal
-#' @method vec_proxy_equal ccnr
-#' @export
-#' @export vec_proxy_equal.ccnr
-vec_proxy_equal.ccnr <- function(x, ...) {
-  field(x, "ccn")
-}

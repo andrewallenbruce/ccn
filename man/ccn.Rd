@@ -7,7 +7,7 @@
 \alias{as_ccn}
 \alias{as_ccn.default}
 \alias{as_ccn.character}
-\alias{infer_form}
+\alias{index_types}
 \title{Construct a \code{ccn} object}
 \usage{
 ccn(x = character())
@@ -22,7 +22,7 @@ as_ccn(x, ...)
 
 \method{as_ccn}{character}(x, ...)
 
-infer_form(x)
+index_types(x)
 }
 \arguments{
 \item{x}{a vector}
@@ -40,14 +40,9 @@ An S3 vector of class \verb{<ccn>}
 }
 }
 \examples{
-new_ccn()
-ccn()
 ccn("030113")
-x <- get_pin("ccn")[1:20]
-x <- ccn(x)
-x
-str(x)
-infer_form(x)
+x <- ccn(get_pin("ccn")[20:50])
+index_types(x)
 data.frame(x)
 tibble::tibble(x)
 }
