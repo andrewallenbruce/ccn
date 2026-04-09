@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9105 (2026-04-09)
+
+* refactored reused code into helpers
+
+
 # ccn 0.0.0.9104 (2026-04-08)
 
 * `as_ccnr()` method
