@@ -1,18 +1,50 @@
 #' @noRd
+grp_split <- function(.fn, x, i) {
+  if (is.null(i)) {
+    E <- collapse::GRP(.fn(x), call = FALSE)
+  } else {
+    E <- collapse::GRP(.fn(x[i]), call = FALSE)
+  }
+  collapse::gsplit(i, E, use.g.names = TRUE)
+}
+
+#' @export
+#' @rdname ccn
+index_types <- function(x) {
+  x <- if (is_ccn(x)) vec_data(x) else x
+  g <- e <- p <- NULL
+
+  g <- grp_split(infer_ccn_type, x, NULL)
+
+  if (has_name(g, "ext_prov")) {
+    e <- grp_split(infer_provider_ext, x, g$ext_prov)
+    g$ext_prov <- NULL
+  }
+
+  if (has_name(g, "prov")) {
+    p <- grp_split(infer_provider_type, x, g$prov)
+    g$prov <- NULL
+  }
+
+  res <- c(g %||% list(), e %||% list(), p %||% list())
+  structure(res, class = "type_index")
+}
+
+#' @noRd
 infer_ccn_type <- function(x) {
-  vctrs::vec_case_when(
+  vec_case_when(
     conditions = list(
-      provider_nchar(x),
-      provext_nchar(x),
-      supplier_nchar(x),
-      suppext_nchar(x),
+      nchar_provider(x),
+      nchar_provext(x),
+      nchar_supplier(x),
+      nchar_suppext(x),
       vec_detect_missing(x)
     ),
     values = list(
-      "provider",
-      "provider_ext",
-      "supplier",
-      "supplier_ext",
+      "prov",
+      "ext_prov",
+      "supp",
+      "ext_supp",
       NA_character_
     ),
     default = "ccn"
@@ -21,95 +53,58 @@ infer_ccn_type <- function(x) {
 
 #' @noRd
 infer_provider_type <- function(x) {
-  vctrs::vec_case_when(
+  vec_case_when(
     conditions = list(
-      medicare_(x),
-      organ_(x),
-      emergency_(x),
-      medicaid_(x),
-      unit_(x),
-      subunit_(x),
+      type_care(x),
+      type_opo(x),
+      type_erh(x),
+      type_caid(x),
+      type_unit(x),
+      type_sub(x),
       vec_detect_missing(x)
     ),
     values = list(
-      "medicare",
-      "organ",
-      "emergency",
-      "medicaid",
+      "care",
+      "opo",
+      "erh",
+      "caid",
       "unit",
-      "subunit",
+      "sub",
       NA_character_
     ),
-    default = "provider"
+    default = "prov"
   )
 }
 
 #' @noRd
 infer_provider_ext <- function(x) {
   x <- substring(x, 1L, 6L)
-  vctrs::vec_case_when(
+  vec_case_when(
     conditions = list(
-      medicare_(x),
-      organ_(x),
-      emergency_(x),
-      medicaid_(x),
-      unit_(x),
-      subunit_(x),
+      type_care(x),
+      type_opo(x),
+      type_erh(x),
+      type_caid(x),
+      type_unit(x),
+      type_sub(x),
       vec_detect_missing(x)
     ),
     values = list(
-      "medicare_ext",
-      "organ_ext",
-      "emergency_ext",
-      "medicaid_ext",
-      "unit_ext",
-      "subunit_ext",
+      "ext_care",
+      "ext_opo",
+      "ext_erh",
+      "ext_caid",
+      "ext_unit",
+      "ext_sub",
       NA_character_
     ),
-    default = "provider_ext"
+    default = "ext_prov"
   )
 }
 
-#' @export
-#' @rdname ccn
-index_types <- function(x) {
-  x <- if (is_ccn(x)) vctrs::vec_data(x) else x
-  g <- e <- p <- NULL
-
-  g <- collapse::GRP(infer_ccn_type(x), call = FALSE)
-  g <- collapse::gsplit(NULL, g, use.g.names = TRUE)
-
-  if (rlang::has_name(g, "provider_ext")) {
-    e <- collapse::GRP(infer_provider_ext(x[g$provider_ext]), call = FALSE)
-    e <- collapse::gsplit(g$provider_ext, e, use.g.names = TRUE)
-    g$provider_ext <- NULL
-  }
-
-  if (rlang::has_name(g, "provider")) {
-    p <- collapse::GRP(infer_provider_type(x[g$provider]), call = FALSE)
-    p <- collapse::gsplit(g$provider, p, use.g.names = TRUE)
-    g$provider <- NULL
-  }
-
-  res <- c(g %||% list(), e %||% list(), p %||% list())
-  structure(res, class = "type_index")
-}
-
-#' @method format type_index
-#' @export
-format.type_index <- function(x, ...) {
-  res <- x
-
-  x <- collapse::vlengths(x)
-  x <- c(x, TOTAL = collapse::fsum(unname(x)))
-
-  cat("<type_index>", sep = "\n")
-
-  if (x["TOTAL"] == 0L) {
-    return(invisible(NULL))
-  }
-
-  x <- paste(
+#' @noRd
+fmt_idx <- function(x) {
+  paste(
     format(
       names(x),
       justify = "right"
@@ -120,13 +115,26 @@ format.type_index <- function(x, ...) {
       justify = "left"
     )
   )
+}
 
-  cat(x, sep = "\n")
-  invisible(res)
+#' @method format type_index
+#' @export
+format.type_index <- function(x, ...) {
+  z <- collapse::vlengths(x)
+  z <- c(z, TOTAL = collapse::fsum(unname(z)))
+
+  cat("<type_index>", sep = "\n")
+
+  if (z["TOTAL"] == 0L) {
+    return(invisible(NULL))
+  }
+
+  cat(fmt_idx(z), sep = "\n")
+  invisible(x)
 }
 
 #' @method print type_index
 #' @export
 print.type_index <- function(x, ...) {
-  format(x)
+  format(x, ...)
 }

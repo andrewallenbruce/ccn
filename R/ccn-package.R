@@ -7,14 +7,15 @@
 #' encodes a Provider/Supplier's State and Facility type, as defined by
 #' [CMS Manual System Pub. 100-07](https://www.cms.gov/Regulations-and-Guidance/Guidance/Transmittals/downloads/R3SOM.pdf)
 #' _Medicare State Operations: Provider Certification_.
-#' @keywords internal
+#' @export
 "_PACKAGE"
 
 ## usethis namespace: start
-#' @import S7
-#' @import vctrs
-#' @importFrom collapse %=% .c
 #' @importFrom methods setOldClass
+#' @import vctrs
+#' @import rlang
+#' @importFrom collapse %=% .c
+#' @import S7
 #' @importFrom data.table %chin% %inrange% %between% %notin%
 #' @rawNamespace if (getRversion() < "4.3.0") importFrom("S7", "@")
 ## usethis namespace: end

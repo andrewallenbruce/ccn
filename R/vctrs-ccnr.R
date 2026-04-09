@@ -12,18 +12,10 @@ methods::setOldClass(c("ccnr", "vctrs_vctr"))
 #' @param x object
 #' @returns An S3 vector of class `<ccnr>`
 #' @examples
-#' x <- ccnr(
-#'   c("670005", "12345E", NA, "05P001", "21T101", "02TA01", "10C0001062", "000001A001"),
-#'   c("care", "erh", NA, "opo", "unit", "sub", "supp", "care"),
-#'   c("67", "12", NA, "05", "21", "02", "10", "00"),
-#'   c("0005", "345", NA, "001", "101", "01", "0001062", "0001"),
-#'   c(NA, "E", NA, "P", "T", "T", "C", NA),
-#'   c(NA, NA, NA, NA, NA, "A", NA, NA),
-#'   c(NA, NA, NA, NA, NA, NA, NA, "A001"))
-#' x
-#' tibble::tibble(x, ccn = as_ccn(x))
-#' tibble::as_tibble(vctrs::vec_data(x))
-#' as_ccnr(get_pin("ccn"))
+#' get_pin("ccn") |>
+#'   as_ccnr() |>
+#'   vctrs::vec_data() |>
+#'   tibble::tibble()
 #' @export
 ccnr <- function(
   ccn = character(),
@@ -126,20 +118,16 @@ vec_ptype_full.ccnr <- function(x, ...) {
 as_ccnr <- function(x) {
   i <- index_types(x)
 
-  vctrs::vec_c(
-    if (rlang::has_name(i, "medicare_ext")) {
-      ccnr_care(x[i$medicare_ext], ext = TRUE)
-    },
-    if (rlang::has_name(i, "medicare")) ccnr_care(x[i$medicare]),
-    if (rlang::has_name(i, "medicaid_ext")) {
-      ccnr_caid(x[i$medicaid_ext], ext = TRUE)
-    },
-    if (rlang::has_name(i, "medicaid")) ccnr_caid(x[i$medicaid]),
-    if (rlang::has_name(i, "unit_ext")) ccnr_unit(x[i$unit_ext], ext = TRUE),
-    if (rlang::has_name(i, "unit")) ccnr_unit(x[i$unit]),
-    if (rlang::has_name(i, "subunit")) ccnr_sub(x[i$subunit]),
-    if (rlang::has_name(i, "organ")) ccnr_opo(x[i$organ]),
-    if (rlang::has_name(i, "emergency")) ccnr_erh(x[i$emergency]),
-    if (rlang::has_name(i, "supplier")) ccnr_supp(x[i$supplier])
+  vec_c(
+    if (has_name(i, "care")) ccnr_care(x[i$care]),
+    if (has_name(i, "caid")) ccnr_caid(x[i$caid]),
+    if (has_name(i, "unit")) ccnr_unit(x[i$unit]),
+    if (has_name(i, "sub")) ccnr_sub(x[i$sub]),
+    if (has_name(i, "opo")) ccnr_opo(x[i$opo]),
+    if (has_name(i, "erh")) ccnr_erh(x[i$erh]),
+    if (has_name(i, "supp")) ccnr_supp(x[i$supp]),
+    if (has_name(i, "ext_care")) ccnr_care(x[i$ext_care], TRUE),
+    if (has_name(i, "ext_caid")) ccnr_caid(x[i$ext_caid], TRUE),
+    if (has_name(i, "ext_unit")) ccnr_unit(x[i$ext_unit], TRUE)
   )
 }

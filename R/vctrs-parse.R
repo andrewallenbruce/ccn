@@ -20,7 +20,7 @@ ccnr_caid <- function(x, ext = FALSE) {
     ccn = if (ext) substring(x, 1L, 6L) else x,
     state = substring(x, 1L, 2L),
     number = substring(x, 4L, 6L),
-    type = substring(x, 3L, 3L),
+    type = substr_(x, 3L),
     parent = NA_character_,
     ext = if (ext) substring(x, first = 7L) else NA_character_
   )
@@ -34,7 +34,7 @@ ccnr_erh <- function(x) {
     ccn = x,
     state = substring(x, 1L, 2L),
     number = substring(x, 3L, 5L),
-    type = substring(x, 6L, 6L),
+    type = substr_(x, 6L),
     parent = NA_character_,
     ext = NA_character_
   )
@@ -48,7 +48,7 @@ ccnr_opo <- function(x) {
     ccn = x,
     state = substring(x, 1L, 2L),
     number = substring(x, 4L, 6L),
-    type = substring(x, 3L, 3L),
+    type = substr_(x, 3L),
     parent = NA_character_,
     ext = NA_character_
   )
@@ -62,7 +62,7 @@ ccnr_unit <- function(x, ext = FALSE) {
     ccn = if (ext) substring(x, 1L, 6L) else x,
     state = substring(x, 1L, 2L),
     number = substring(x, 4L, 6L),
-    type = substring(x, 3L, 3L),
+    type = substr_(x, 3L),
     parent = NA_character_,
     ext = if (ext) substring(x, first = 7L) else NA_character_
   )
@@ -76,8 +76,8 @@ ccnr_sub <- function(x) {
     ccn = x,
     state = substring(x, 1L, 2L),
     number = substring(x, 5L, 6L),
-    type = substring(x, 3L, 3L),
-    parent = substring(x, 4L, 4L),
+    type = substr_(x, 3L),
+    parent = substr_(x, 4L),
     ext = NA_character_
   )
 }
@@ -90,7 +90,7 @@ ccnr_supp <- function(x) {
     ccn = x,
     state = substring(x, 1L, 2L),
     number = substring(x, 4L, 10L),
-    type = substring(x, 3L, 3L),
+    type = substr_(x, 3L),
     parent = NA_character_,
     ext = NA_character_
   )

@@ -27,4 +27,3 @@ Useful links:
 \strong{Maintainer}: Andrew Allen Bruce \email{andrewallenbruce@gmail.com} [copyright holder]
 
 }
-\keyword{internal}
