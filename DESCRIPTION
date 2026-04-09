@@ -13,7 +13,7 @@ BugReports: https://github.com/andrewallenbruce/ccn/issues
 Depends: 
     R (>= 4.1.0)
 Imports: 
-    cli (>= 3.6.5),
+    cli (>= 3.6.6),
     collapse (>= 2.1.6),
     data.table (>= 1.18.2.1),
     fs (>= 2.0.0),
@@ -28,7 +28,7 @@ Suggests:
     purrr (>= 1.2.1),
     testthat (>= 3.3.2),
     tibble(>= 3.3.1)
-Config/Needs/website: tibble
+Config/Needs/website: tibble, vctrs, collapse
 Config/testthat/edition: 3
 Config/testthat/parallel: true
 Encoding: UTF-8

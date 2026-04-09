@@ -1,3 +1,9 @@
+#' @noRd
+data_frame0 <- function(x, call = caller_call()) {
+  check_data_frame(x, call = call)
+  structure(x, class = c("tbl_df", "tbl", "data.frame"))
+}
+
 # vs(x, c("C", "D", "X"), c("ASC", "CLIA", "PXRF"), checkEnc = FALSE)
 #' @noRd
 vs <- function(x, v, o, ...) {
