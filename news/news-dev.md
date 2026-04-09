@@ -467,3 +467,7 @@
 
 - [`as_ccnr()`](https://andrewallenbruce.github.io/ccn/reference/ccnr.md)
   method
+
+## ccn 0.0.0.9105 (2026-04-09)
+
+- refactored reused code into helpers
