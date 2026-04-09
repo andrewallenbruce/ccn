@@ -471,3 +471,7 @@
 ## ccn 0.0.0.9105 (2026-04-09)
 
 - refactored reused code into helpers
+
+## ccn 0.0.0.9106 (2026-04-09)
+
+- `cli` =\> 3.6.6
