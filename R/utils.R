@@ -74,21 +74,6 @@ clean <- function(x) {
   remove_any_spaces(remove_non_alnums(toupper(x)))
 }
 
-#' @noRd
-mount_board <- function(source = c("local", "remote")) {
-  switch(
-    match.arg(source),
-    local = pins::board_folder(fs::path_package(
-      "extdata/pins",
-      package = "ccn"
-    )),
-    remote = pins::board_url(paste0(
-      "https://raw.githubusercontent.com/",
-      "andrewallenbruce/ccn/master/inst/extdata/pins/"
-    ))
-  )
-}
-
 #' Load a pin
 #'
 #' @param pin description
@@ -105,4 +90,19 @@ get_pin <- function(pin, ...) {
 list_pins <- function(...) {
   board <- mount_board(...)
   pins::pin_list(board)
+}
+
+#' @noRd
+mount_board <- function(source = c("local", "remote")) {
+  switch(
+    match.arg(source),
+    local = pins::board_folder(fs::path_package(
+      "extdata/pins",
+      package = "ccn"
+    )),
+    remote = pins::board_url(paste0(
+      "https://raw.githubusercontent.com/",
+      "andrewallenbruce/ccn/master/inst/extdata/pins/"
+    ))
+  )
 }

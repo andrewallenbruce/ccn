@@ -34,16 +34,16 @@
 #' CAH could have swing-bed approval, an IPPS-excluded rehabilitation unit,
 #' and/or an IPPS-excluded psychiatric unit.
 unit_types <- tibble::tribble(
-  ~code , ~abbr       , ~desc                         , ~infix ,
-  "M"   , "PSY-CAH"   , "Psychiatric Unit [CAH]"      , "1"    ,
-  "R"   , "IRU-CAH"   , "Rehabilitation Unit [CAH]"   , "1"    ,
-  "S"   , "PSY"       , "Psychiatric Unit"            , "?"    ,
-  "T"   , "IRU"       , "Rehabilitation Unit"         , "?"    ,
-  "U"   , "SBA-ACUTE" , "Swing-Bed Approval [ACUTE]"  , "0"    ,
-  "V"   , "ADU"       , "Alcohol-Drug Unit (Retired)" , "?"    ,
-  "W"   , "SBA-LTCH"  , "Swing-Bed Approval [LTCH]"   , "2"    ,
-  "Y"   , "SBA-IRF"   , "Swing-Bed Approval [IRF]"    , "3"    ,
-  "Z"   , "SBA-CAH"   , "Swing-Bed Approval [CAH]"    , "1"    ,
+  ~code , ~abbr               , ~desc                                         , ~infix ,
+  "M"   , "PSYCH-CAH [EIPPS]" , "Psychiatric Unit [IPPS-Excluded] [CAH]"      , "1"    ,
+  "R"   , "IRU-CAH [EIPPS]"   , "Rehabilitation Unit [IPPS-Excluded] [CAH]"   , "1"    ,
+  "S"   , "PSYCH [EIPPS]"     , "Psychiatric Unit [IPPS-Excluded]"            , "?"    ,
+  "T"   , "IRU [EIPPS]"       , "Rehabilitation Unit [IPPS-Excluded]"         , "?"    ,
+  "U"   , "SBA-ACUTE"         , "Swing-Bed Approval [ACUTE]"                  , "0"    ,
+  "V"   , "ADU [EIPPS]"       , "Alcohol-Drug Unit [IPPS-Excluded] (Retired)" , "?"    ,
+  "W"   , "SBA-LTCH"          , "Swing-Bed Approval [LTCH]"                   , "2"    ,
+  "Y"   , "SBA-IRF"           , "Swing-Bed Approval [IRF]"                    , "3"    ,
+  "Z"   , "SBA-CAH"           , "Swing-Bed Approval [CAH]"                    , "1"    ,
 )
 
 usethis::use_data(unit_types, overwrite = TRUE)

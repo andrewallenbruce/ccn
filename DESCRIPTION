@@ -17,6 +17,7 @@ Imports:
     collapse (>= 2.1.6),
     data.table (>= 1.18.2.1),
     fs (>= 2.0.0),
+    ivs (>= 0.2.0),
     kit (>= 0.0.21),
     methods,
     pins (>= 1.4.2),
