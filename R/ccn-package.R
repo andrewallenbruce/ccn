@@ -14,7 +14,7 @@
 #' @importFrom methods setOldClass
 #' @import vctrs
 #' @import rlang
-#' @importFrom collapse %=% .c
+#' @importFrom collapse %!iin% %iin% %==% %=% .c
 #' @import S7
 #' @importFrom data.table %chin% %inrange% %between% %notin%
 #' @rawNamespace if (getRversion() < "4.3.0") importFrom("S7", "@")

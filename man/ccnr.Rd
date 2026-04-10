@@ -58,5 +58,5 @@ An S3 vector of class \verb{<ccnr>}
 Construct a \code{ccnr} object
 }
 \examples{
-collapse::rsplit(decode_ccnr(get_pin("ccn")), ~ form)
+decode_ccnr(c(get_pin("ccn"), "01J008"))
 }

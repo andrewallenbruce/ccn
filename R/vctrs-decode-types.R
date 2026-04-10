@@ -4,7 +4,7 @@ decode_medicaid_type <- function(x) {
   vec_recode_values(
     x,
     from = vec_c("A", "B", "E", "F", "G", "H", "J", "K", "L", NA_character_),
-    to = vec_c("SNF-NF", "ICF-IID", "MOH", "HHA", "PRTF", NA_character_)
+    to = vec_c(vec_rep("SNF-NF", 4L), vec_rep("ICF-IID", 2L), "MOH", "HHA", "PRTF", NA_character_)
   )
 }
 

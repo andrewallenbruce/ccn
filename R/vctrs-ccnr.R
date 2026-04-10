@@ -12,7 +12,7 @@ methods::setOldClass(c("ccnr", "vctrs_vctr"))
 #' @param x object
 #' @returns An S3 vector of class `<ccnr>`
 #' @examples
-#' collapse::rsplit(decode_ccnr(get_pin("ccn")), ~ form)
+#' decode_ccnr(c(get_pin("ccn"), "01J008"))
 #' @export
 ccnr <- function(
   ccn = character(),
@@ -138,8 +138,49 @@ decode_ccnr <- function(x) {
     tibble::tibble(vec_data(as_ccnr(x)))
   }
   collapse::settfmv(x, collapse::gv(x, "number", return = 3), as.integer)
+  collapse::settfmv(x, collapse::gv(x, "state", return = 3), decode_state)
 
-  x$state <- decode_state(x$state)
+  x$facility <- vctrs::vec_init(character(), vctrs::vec_size(x))
 
-  x
+  i <- purrr::imap(
+    rlang::set_names(collapse::funique(x$form)),
+    \(n, i) {
+      purrr::pluck(x, "form") %==% n
+    }
+  )
+
+  x[i$erh, ]$facility <- decode_emergency_type(x[i$erh, ]$type)
+  x[i$supp, ]$facility <- decode_supplier_type(x[i$supp, ]$type)
+
+  x[i$caid, ]$facility <- decode_medicaid_type(x[i$caid, ]$type)
+  x[i$caid, ]$facility <- vctrs::vec_if_else(
+    x[i$caid, ]$facility == "MOH",
+    decode_medicaid_range(x[i$caid, ]$number),
+    x[i$caid, ]$facility
+  )
+
+  x[i$care, ]$facility <- decode_medicare_range(x[i$care, ]$number)
+  x[i$sub, ]$facility <- decode_unit_type(x[i$sub, ]$type)
+
+  x[i$sub, ]$parent <- paste0(
+    str_state(x[i$sub, ]$ccn),
+    subunit_type_prefix(x[i$sub, ]$parent),
+    substring(x[i$sub, ]$ccn, 5L, 6L)
+  )
+
+  x[i$unit, ]$parent <- vctrs::vec_if_else(
+    vctrs::vec_detect_missing(
+      unit_type_infix(x[i$unit, ]$type)
+    ),
+    NA_character_,
+    paste0(
+      str_state(x[i$unit, ]$ccn),
+      unit_type_infix(x[i$unit, ]$type),
+      substring(x[i$unit, ]$ccn, 5L, 6L)
+    )
+  )
+
+  x[i$unit, ]$facility <- decode_unit_type(x[i$unit, ]$type)
+
+  collapse::slt(x, c("ccn", "form", "state", "facility", "parent", "ext"))
 }
