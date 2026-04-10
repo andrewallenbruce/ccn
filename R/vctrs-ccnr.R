@@ -12,10 +12,7 @@ methods::setOldClass(c("ccnr", "vctrs_vctr"))
 #' @param x object
 #' @returns An S3 vector of class `<ccnr>`
 #' @examples
-#' get_pin("ccn") |>
-#'   as_ccnr() |>
-#'   vctrs::vec_data() |>
-#'   tibble::tibble()
+#' collapse::rsplit(decode_ccnr(get_pin("ccn")), ~ form)
 #' @export
 ccnr <- function(
   ccn = character(),
@@ -130,4 +127,19 @@ as_ccnr <- function(x) {
     if (has_name(i, "ext_caid")) ccnr_caid(x[i$ext_caid], TRUE),
     if (has_name(i, "ext_unit")) ccnr_unit(x[i$ext_unit], TRUE)
   )
+}
+
+#' @export
+#' @rdname ccnr
+decode_ccnr <- function(x) {
+  x <- if (is_ccnr(x)) {
+    tibble::tibble(vec_data(x))
+  } else {
+    tibble::tibble(vec_data(as_ccnr(x)))
+  }
+  collapse::settfmv(x, collapse::gv(x, "number", return = 3), as.integer)
+
+  x$state <- decode_state(x$state)
+
+  x
 }

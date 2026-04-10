@@ -5,6 +5,7 @@
 \alias{new_ccnr}
 \alias{is_ccnr}
 \alias{as_ccnr}
+\alias{decode_ccnr}
 \title{Construct a \code{ccnr} object}
 \usage{
 ccnr(
@@ -30,6 +31,8 @@ new_ccnr(
 is_ccnr(x)
 
 as_ccnr(x)
+
+decode_ccnr(x)
 }
 \arguments{
 \item{ccn}{a vector}
@@ -55,8 +58,5 @@ An S3 vector of class \verb{<ccnr>}
 Construct a \code{ccnr} object
 }
 \examples{
-get_pin("ccn") |>
-  as_ccnr() |>
-  vctrs::vec_data() |>
-  tibble::tibble()
+collapse::rsplit(decode_ccnr(get_pin("ccn")), ~ form)
 }

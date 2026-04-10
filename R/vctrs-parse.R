@@ -1,14 +1,29 @@
+#' @noRd
+str_state <- function(x) {
+  substring(x, 1L, 2L)
+}
+
+#' @noRd
+str_ext <- function(x, ext) {
+  if (ext) substring(x, first = 7L) else NA_character_
+}
+
+#' @noRd
+str_ccn <- function(x, ext) {
+  if (ext) substring(x, 1L, 6L) else x
+}
+
 # Provider: 670055 => 67 0055
 #' @noRd
 ccnr_care <- function(x, ext = FALSE) {
   ccnr(
     form = "care",
-    ccn = if (ext) substring(x, 1L, 6L) else x,
-    state = substring(x, 1L, 2L),
+    ccn = str_ccn(x, ext),
+    state = str_state(x),
     number = substring(x, 3L, 6L),
     type = NA_character_,
     parent = NA_character_,
-    ext = if (ext) substring(x, first = 7L) else NA_character_
+    ext = str_ext(x, ext)
   )
 }
 
@@ -17,12 +32,12 @@ ccnr_care <- function(x, ext = FALSE) {
 ccnr_caid <- function(x, ext = FALSE) {
   ccnr(
     form = "caid",
-    ccn = if (ext) substring(x, 1L, 6L) else x,
-    state = substring(x, 1L, 2L),
+    ccn = str_ccn(x, ext),
+    state = str_state(x),
     number = substring(x, 4L, 6L),
     type = substr_(x, 3L),
     parent = NA_character_,
-    ext = if (ext) substring(x, first = 7L) else NA_character_
+    ext = str_ext(x, ext)
   )
 }
 
@@ -32,7 +47,7 @@ ccnr_erh <- function(x) {
   ccnr(
     form = "erh",
     ccn = x,
-    state = substring(x, 1L, 2L),
+    state = str_state(x),
     number = substring(x, 3L, 5L),
     type = substr_(x, 6L),
     parent = NA_character_,
@@ -46,7 +61,7 @@ ccnr_opo <- function(x) {
   ccnr(
     form = "opo",
     ccn = x,
-    state = substring(x, 1L, 2L),
+    state = str_state(x),
     number = substring(x, 4L, 6L),
     type = substr_(x, 3L),
     parent = NA_character_,
@@ -59,12 +74,12 @@ ccnr_opo <- function(x) {
 ccnr_unit <- function(x, ext = FALSE) {
   ccnr(
     form = "unit",
-    ccn = if (ext) substring(x, 1L, 6L) else x,
-    state = substring(x, 1L, 2L),
+    ccn = str_ccn(x, ext),
+    state = str_state(x),
     number = substring(x, 4L, 6L),
     type = substr_(x, 3L),
     parent = NA_character_,
-    ext = if (ext) substring(x, first = 7L) else NA_character_
+    ext = str_ext(x, ext)
   )
 }
 
@@ -74,7 +89,7 @@ ccnr_sub <- function(x) {
   ccnr(
     form = "sub",
     ccn = x,
-    state = substring(x, 1L, 2L),
+    state = str_state(x),
     number = substring(x, 5L, 6L),
     type = substr_(x, 3L),
     parent = substr_(x, 4L),
@@ -88,7 +103,7 @@ ccnr_supp <- function(x) {
   ccnr(
     form = "supp",
     ccn = x,
-    state = substring(x, 1L, 2L),
+    state = str_state(x),
     number = substring(x, 4L, 10L),
     type = substr_(x, 3L),
     parent = NA_character_,

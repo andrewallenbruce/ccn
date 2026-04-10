@@ -8,42 +8,6 @@ decode_state <- function(x) {
   )
 }
 
-# decode_medicaid_type(c("A", "K", NA))
-#' @noRd
-decode_medicaid_type <- function(x) {
-  vec_recode_values(
-    x,
-    from = vec_c(ccn::medicaid_types$code, NA_character_),
-    to = vec_c(ccn::medicaid_types$abbr, NA_character_)
-  )
-}
-
-# decode_unit_type(c("M", "T", "Z", NA))
-#' @noRd
-decode_unit_type <- function(x) {
-  vec_recode_values(
-    x,
-    from = vec_c(ccn::unit_types$code, NA_character_),
-    to = vec_c(ccn::unit_types$abbr, NA_character_)
-  )
-}
-
-# decode_subunit_prefix(c("A", "K", NA))
-#' @noRd
-decode_subunit_prefix <- function(x) {
-  vec_recode_values(
-    x,
-    from = vec_c(ccn::subunit_types$code, NA_character_),
-    to = vec_c(ccn::subunit_types$prefix, NA_character_)
-  )
-}
-
-#' @noRd
-iv_medicaid <- ivs::iv(
-  c(1L, 100L, 200L, 300L, 400L, 500L, 600L),
-  c(99L, 199L, 299L, 399L, 499L, 599L, 999L) + 1L
-)
-
 # decode_medicare_range(c(1L, 2099L, NA))
 #' @noRd
 decode_medicare_range <- function(x) {
@@ -67,6 +31,12 @@ decode_medicaid_range <- function(x) {
     )$haystack
   )
 }
+
+#' @noRd
+iv_medicaid <- ivs::iv(
+  c(1L, 100L, 200L, 300L, 400L, 500L, 600L),
+  c(99L, 199L, 299L, 399L, 499L, 599L, 999L) + 1L
+)
 
 #' @noRd
 iv_medicare <- ivs::iv(

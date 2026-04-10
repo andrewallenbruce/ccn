@@ -57,6 +57,7 @@ Collate:
     'utils.R'
     'vctrs-ccn.R'
     'vctrs-ccnr.R'
+    'vctrs-decode-types.R'
     'vctrs-decode.R'
     'vctrs-infer.R'
     'vctrs-parse.R'
