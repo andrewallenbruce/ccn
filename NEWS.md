@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9107 (2026-04-10)
+
+* added `decode_*` functions
+
+
 # ccn 0.0.0.9106 (2026-04-09)
 
 * `cli` => 3.6.6
