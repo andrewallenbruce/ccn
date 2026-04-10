@@ -483,3 +483,7 @@
 ## ccn 0.0.0.9108 (2026-04-10)
 
 - decoding implementations
+
+## ccn 0.0.0.9109 (2026-04-10)
+
+- more decoding
