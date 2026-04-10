@@ -37,8 +37,8 @@ parent("21SE26")
 #>  .. @ office: chr "Philadelphia"
 #>  @ range    : <ccn::RangeMCR>
 #>  .. @ series: chr "3300-3399"
-#>  .. @ abbr  : chr "CHILD"
-#>  .. @ desc  : chr "Children's Hospital"
+#>  .. @ abbr  : chr "CHILD [EIPPS]"
+#>  .. @ desc  : chr "Children's Hospital [IPPS-Excluded]"
 #>  .. @ eipps : logi TRUE
 #>  @ extension: chr NA
 parent("21SB26")
@@ -51,8 +51,8 @@ parent("21SB26")
 #>  .. @ office: chr "Philadelphia"
 #>  @ range    : <ccn::RangeMCR>
 #>  .. @ series: chr "2000-2299"
-#>  .. @ abbr  : chr "LTCH"
-#>  .. @ desc  : chr "Long-Term Care Hospital"
+#>  .. @ abbr  : chr "LTCH [EIPPS]"
+#>  .. @ desc  : chr "Long-Term Care Hospital [IPPS-Excluded]"
 #>  .. @ eipps : logi TRUE
 #>  @ extension: chr NA
 parent("21SD26")
@@ -65,8 +65,8 @@ parent("21SD26")
 #>  .. @ office: chr "Philadelphia"
 #>  @ range    : <ccn::RangeMCR>
 #>  .. @ series: chr "3025-3099"
-#>  .. @ abbr  : chr "IRF"
-#>  .. @ desc  : chr "Rehabilitation Hospital"
+#>  .. @ abbr  : chr "IRF [EIPPS]"
+#>  .. @ desc  : chr "Rehabilitation Hospital [IPPS-Excluded]"
 #>  .. @ eipps : logi TRUE
 #>  @ extension: chr NA
 ```

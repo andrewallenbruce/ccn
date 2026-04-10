@@ -73,8 +73,8 @@ medicare("114036") # Greenleaf
 #>  .. @ office: chr "Atlanta"
 #>  @ range    : <ccn::RangeMCR>
 #>  .. @ series: chr "4000-4499"
-#>  .. @ abbr  : chr "PSYCH"
-#>  .. @ desc  : chr "Psychiatric Hospital"
+#>  .. @ abbr  : chr "PSYCH [EIPPS]"
+#>  .. @ desc  : chr "Psychiatric Hospital [IPPS-Excluded]"
 #>  .. @ eipps : logi TRUE
 #>  @ extension: chr NA
 medicare("110122") # SGMC

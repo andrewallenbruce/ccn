@@ -119,8 +119,8 @@ purrr::map(x, decode)
 #>  .. @ region: chr "III"
 #>  .. @ office: chr "Philadelphia"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "IRU"
-#>  .. @ desc : chr "Rehabilitation Unit"
+#>  .. @ abbr : chr "IRU [EIPPS]"
+#>  .. @ desc : chr "Rehabilitation Unit [IPPS-Excluded]"
 #>  .. @ eipps: logi TRUE
 #>  @ parent: chr "212026"
 #> 

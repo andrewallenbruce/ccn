@@ -54,8 +54,8 @@ unit("21T101")
 #>  .. @ office: chr "Philadelphia"
 #>  @ range : chr "001-999"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "IRU"
-#>  .. @ desc : chr "Rehabilitation Unit"
+#>  .. @ abbr : chr "IRU [EIPPS]"
+#>  .. @ desc : chr "Rehabilitation Unit [IPPS-Excluded]"
 #>  .. @ eipps: logi TRUE
 #>  @ parent: chr "21?101"
 unit("21S101")
@@ -68,8 +68,8 @@ unit("21S101")
 #>  .. @ office: chr "Philadelphia"
 #>  @ range : chr "001-999"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "PSY"
-#>  .. @ desc : chr "Psychiatric Unit"
+#>  .. @ abbr : chr "PSYCH [EIPPS]"
+#>  .. @ desc : chr "Psychiatric Unit [IPPS-Excluded]"
 #>  .. @ eipps: logi TRUE
 #>  @ parent: chr "21?101"
 unit("21U101")
