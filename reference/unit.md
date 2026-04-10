@@ -57,7 +57,7 @@ unit("21T101")
 #>  .. @ abbr : chr "IRU [EIPPS]"
 #>  .. @ desc : chr "Rehabilitation Unit [IPPS-Excluded]"
 #>  .. @ eipps: logi TRUE
-#>  @ parent: chr "21?101"
+#>  @ parent: chr "21NA101"
 unit("21S101")
 #> <ccn::Unit>
 #>  @ ccn   : chr "21S101"
@@ -71,7 +71,7 @@ unit("21S101")
 #>  .. @ abbr : chr "PSYCH [EIPPS]"
 #>  .. @ desc : chr "Psychiatric Unit [IPPS-Excluded]"
 #>  .. @ eipps: logi TRUE
-#>  @ parent: chr "21?101"
+#>  @ parent: chr "21NA101"
 unit("21U101")
 #> <ccn::Unit>
 #>  @ ccn   : chr "21U101"

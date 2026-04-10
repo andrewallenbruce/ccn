@@ -479,3 +479,7 @@
 ## ccn 0.0.0.9107 (2026-04-10)
 
 - added `decode_*` functions
+
+## ccn 0.0.0.9108 (2026-04-10)
+
+- decoding implementations
