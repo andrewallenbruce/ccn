@@ -491,3 +491,7 @@
 ## ccn 0.0.0.9110 (2026-07-06)
 
 - updated github actions pkgdown workflow
+
+## ccn 0.0.0.9111 (2026-07-06)
+
+- updated dependencies
