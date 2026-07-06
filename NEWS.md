@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9110 (2026-07-06)
+
+* updated github actions pkgdown workflow
+
+
 # ccn 0.0.0.9109 (2026-04-10)
 
 * more decoding
