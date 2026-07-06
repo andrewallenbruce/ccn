@@ -5,6 +5,7 @@
 You can install `ccn` from [GitHub](https://github.com/) with:
 
 ``` r
+
 # install.packages("pak")
 pak::pak("andrewallenbruce/ccn")
 ```
