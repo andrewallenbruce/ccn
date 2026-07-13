@@ -24,7 +24,7 @@ ccnr <- function(
   ext = character()
 ) {
   .c(ccn, form, state, number, type, parent, ext) %=%
-    vec_cast_common(
+    vctrs::vec_cast_common(
       ccn,
       form,
       state,
@@ -35,7 +35,7 @@ ccnr <- function(
       .to = character()
     )
   .c(ccn, form, state, number, type, parent, ext) %=%
-    vec_recycle_common(ccn, form, state, number, type, parent, ext)
+    vctrs::vec_recycle_common(ccn, form, state, number, type, parent, ext)
 
   new_ccnr(ccn, form, state, number, type, parent, ext)
 }
@@ -51,15 +51,15 @@ new_ccnr <- function(
   parent = character(),
   ext = character()
 ) {
-  vec_assert(ccn, character())
-  vec_assert(form, character())
-  vec_assert(number, character())
-  vec_assert(state, character())
-  vec_assert(type, character())
-  vec_assert(parent, character())
-  vec_assert(ext, character())
+  vctrs::vec_assert(ccn, character())
+  vctrs::vec_assert(form, character())
+  vctrs::vec_assert(number, character())
+  vctrs::vec_assert(state, character())
+  vctrs::vec_assert(type, character())
+  vctrs::vec_assert(parent, character())
+  vctrs::vec_assert(ext, character())
 
-  new_rcrd(
+  vctrs::new_rcrd(
     list(
       ccn = ccn,
       form = form,
@@ -88,13 +88,13 @@ is_ccnr <- function(x) {
 #' @export
 #' @export vec_proxy_equal.ccnr
 vec_proxy_equal.ccnr <- function(x, ...) {
-  field(x, "ccn")
+  vctrs::field(x, "ccn")
 }
 
 #' @method format ccnr
 #' @export
 format.ccnr <- function(x, ...) {
-  x <- field(x, "ccn")
+  x <- vctrs::field(x, "ccn")
   out <- formatC(x, format = "s")
   out[collapse::whichNA(x)] <- NA
   out
@@ -115,17 +115,17 @@ vec_ptype_full.ccnr <- function(x, ...) {
 as_ccnr <- function(x) {
   i <- index_types(x)
 
-  vec_c(
-    if (has_name(i, "care")) ccnr_care(x[i$care]),
-    if (has_name(i, "caid")) ccnr_caid(x[i$caid]),
-    if (has_name(i, "unit")) ccnr_unit(x[i$unit]),
-    if (has_name(i, "sub")) ccnr_sub(x[i$sub]),
-    if (has_name(i, "opo")) ccnr_opo(x[i$opo]),
-    if (has_name(i, "erh")) ccnr_erh(x[i$erh]),
-    if (has_name(i, "supp")) ccnr_supp(x[i$supp]),
-    if (has_name(i, "ext_care")) ccnr_care(x[i$ext_care], TRUE),
-    if (has_name(i, "ext_caid")) ccnr_caid(x[i$ext_caid], TRUE),
-    if (has_name(i, "ext_unit")) ccnr_unit(x[i$ext_unit], TRUE)
+  vctrs::vec_c(
+    if (rlang::has_name(i, "care")) ccnr_care(x[i$care]),
+    if (rlang::has_name(i, "caid")) ccnr_caid(x[i$caid]),
+    if (rlang::has_name(i, "unit")) ccnr_unit(x[i$unit]),
+    if (rlang::has_name(i, "sub")) ccnr_sub(x[i$sub]),
+    if (rlang::has_name(i, "opo")) ccnr_opo(x[i$opo]),
+    if (rlang::has_name(i, "erh")) ccnr_erh(x[i$erh]),
+    if (rlang::has_name(i, "supp")) ccnr_supp(x[i$supp]),
+    if (rlang::has_name(i, "ext_care")) ccnr_care(x[i$ext_care], TRUE),
+    if (rlang::has_name(i, "ext_caid")) ccnr_caid(x[i$ext_caid], TRUE),
+    if (rlang::has_name(i, "ext_unit")) ccnr_unit(x[i$ext_unit], TRUE)
   )
 }
 
@@ -133,12 +133,12 @@ as_ccnr <- function(x) {
 #' @rdname ccnr
 decode_ccnr <- function(x) {
   x <- if (is_ccnr(x)) {
-    tibble::tibble(vec_data(x))
+    tibble::tibble(vctrs::vec_data(x))
   } else {
-    tibble::tibble(vec_data(as_ccnr(x)))
+    tibble::tibble(vctrs::vec_data(as_ccnr(x)))
   }
-  collapse::settfmv(x, collapse::gv(x, "number", return = 3), as.integer)
-  collapse::settfmv(x, collapse::gv(x, "state", return = 3), decode_state)
+  collapse::settfmv(x, collapse::gv(x, "number", return = 3L), as.integer)
+  collapse::settfmv(x, collapse::gv(x, "state", return = 3L), decode_state)
 
   x$facility <- vctrs::vec_init(character(), vctrs::vec_size(x))
 

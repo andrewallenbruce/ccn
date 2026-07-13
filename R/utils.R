@@ -1,4 +1,21 @@
 #' @noRd
+new_ccn_df <- function(x = list(), n = NULL, ..., class = NULL) {
+  vctrs::new_data_frame(x, n = n, ..., class = c(class, "tbl_df", "tbl"))
+}
+
+#' @noRd
+ccn_tbl <- function(...) {
+  data <- vctrs::df_list(...)
+  new_ccn_df(data, class = "ccn_tbl")
+}
+
+#' @noRd
+ccnr_tbl <- function(...) {
+  data <- vctrs::df_list(...)
+  new_ccn_df(data, class = "ccnr_tbl")
+}
+
+#' @noRd
 data_frame0 <- function(x, call = caller_call()) {
   check_data_frame(x, call = call)
   structure(x, class = c("tbl_df", "tbl", "data.frame"))

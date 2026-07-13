@@ -1,17 +1,17 @@
 # decode_state(c("00", "01", "A5", NA))
 #' @noRd
 decode_state <- function(x) {
-  vec_recode_values(
+  vctrs::vec_recode_values(
     x,
-    from = vec_c(ccn::states$code, NA_character_),
-    to = vec_c(ccn::states$abbr, NA_character_)
+    from = vctrs::vec_c(ccn::states$code, NA_character_),
+    to = vctrs::vec_c(ccn::states$abbr, NA_character_)
   )
 }
 
 # decode_medicare_range(c(1L, 2099L, NA))
 #' @noRd
 decode_medicare_range <- function(x) {
-  vec_slice(
+  vctrs::vec_slice(
     ccn::medicare_ranges$abbr,
     ivs::iv_locate_between(
       x,
@@ -23,7 +23,7 @@ decode_medicare_range <- function(x) {
 # decode_medicaid_range(c(1L, 209L, NA))
 #' @noRd
 decode_medicaid_range <- function(x) {
-  vec_slice(
+  vctrs::vec_slice(
     ccn::medicaid_ranges$abbr,
     ivs::iv_locate_between(
       x,

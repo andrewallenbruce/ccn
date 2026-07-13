@@ -11,17 +11,17 @@ grp_split <- function(.fn, x, i) {
 #' @export
 #' @rdname ccn
 index_types <- function(x) {
-  x <- if (is_ccn(x)) vec_data(x) else x
+  x <- if (is_ccn(x)) vctrs::vec_data(x) else x
   g <- e <- p <- NULL
 
   g <- grp_split(infer_ccn_type, x, NULL)
 
-  if (has_name(g, "ext_prov")) {
+  if (rlang::has_name(g, "ext_prov")) {
     e <- grp_split(infer_provider_ext, x, g$ext_prov)
     g$ext_prov <- NULL
   }
 
-  if (has_name(g, "prov")) {
+  if (rlang::has_name(g, "prov")) {
     p <- grp_split(infer_provider_type, x, g$prov)
     g$prov <- NULL
   }
@@ -32,13 +32,13 @@ index_types <- function(x) {
 
 #' @noRd
 infer_ccn_type <- function(x) {
-  vec_case_when(
+  vctrs::vec_case_when(
     conditions = list(
       nchar_provider(x),
       nchar_provext(x),
       nchar_supplier(x),
       nchar_suppext(x),
-      vec_detect_missing(x)
+      vctrs::vec_detect_missing(x)
     ),
     values = list(
       "prov",
@@ -53,7 +53,7 @@ infer_ccn_type <- function(x) {
 
 #' @noRd
 infer_provider_type <- function(x) {
-  vec_case_when(
+  vctrs::vec_case_when(
     conditions = list(
       type_care(x),
       type_opo(x),
@@ -61,7 +61,7 @@ infer_provider_type <- function(x) {
       type_caid(x),
       type_unit(x),
       type_sub(x),
-      vec_detect_missing(x)
+      vctrs::vec_detect_missing(x)
     ),
     values = list(
       "care",
@@ -79,7 +79,7 @@ infer_provider_type <- function(x) {
 #' @noRd
 infer_provider_ext <- function(x) {
   x <- substring(x, 1L, 6L)
-  vec_case_when(
+  vctrs::vec_case_when(
     conditions = list(
       type_care(x),
       type_opo(x),
@@ -87,7 +87,7 @@ infer_provider_ext <- function(x) {
       type_caid(x),
       type_unit(x),
       type_sub(x),
-      vec_detect_missing(x)
+      vctrs::vec_detect_missing(x)
     ),
     values = list(
       "ext_care",

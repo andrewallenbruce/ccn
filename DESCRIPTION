@@ -26,6 +26,7 @@ Imports:
     vctrs (>= 0.7.3)
 Suggests:
     cheapr (>= 1.5.2),
+    pillar (>= 1.11.1),
     purrr (>= 1.2.2),
     testthat (>= 3.3.2),
     tibble (>= 3.3.1)
