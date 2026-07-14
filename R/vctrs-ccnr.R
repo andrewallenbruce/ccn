@@ -110,22 +110,32 @@ vec_ptype_full.ccnr <- function(x, ...) {
   "ccn_rcrd"
 }
 
+#' @noRd
+has_ccnr <- function(x, index, key, .fn, ext = FALSE) {
+  if (rlang::has_name(index, key)) {
+    i <- index[[key]]
+    .fn(x[i], ext = ext)
+  } else {
+    NULL
+  }
+}
+
 #' @export
 #' @rdname ccnr
 as_ccnr <- function(x) {
   i <- index_types(x)
 
   vctrs::vec_c(
-    if (rlang::has_name(i, "care")) ccnr_care(x[i$care]),
-    if (rlang::has_name(i, "caid")) ccnr_caid(x[i$caid]),
-    if (rlang::has_name(i, "unit")) ccnr_unit(x[i$unit]),
-    if (rlang::has_name(i, "sub")) ccnr_sub(x[i$sub]),
-    if (rlang::has_name(i, "opo")) ccnr_opo(x[i$opo]),
-    if (rlang::has_name(i, "erh")) ccnr_erh(x[i$erh]),
-    if (rlang::has_name(i, "supp")) ccnr_supp(x[i$supp]),
-    if (rlang::has_name(i, "ext_care")) ccnr_care(x[i$ext_care], TRUE),
-    if (rlang::has_name(i, "ext_caid")) ccnr_caid(x[i$ext_caid], TRUE),
-    if (rlang::has_name(i, "ext_unit")) ccnr_unit(x[i$ext_unit], TRUE)
+    has_ccnr(x, i, "care", ccnr_care),
+    has_ccnr(x, i, "caid", ccnr_caid),
+    has_ccnr(x, i, "unit", ccnr_unit),
+    has_ccnr(x, i, "sub", ccnr_sub),
+    has_ccnr(x, i, "opo", ccnr_opo),
+    has_ccnr(x, i, "erh", ccnr_erh),
+    has_ccnr(x, i, "supp", ccnr_supp),
+    has_ccnr(x, i, "ext_care", ccnr_care, TRUE),
+    has_ccnr(x, i, "ext_caid", ccnr_caid, TRUE),
+    has_ccnr(x, i, "ext_unit", ccnr_unit, TRUE),
   )
 }
 
@@ -140,47 +150,63 @@ decode_ccnr <- function(x) {
   collapse::settfmv(x, collapse::gv(x, "number", return = 3L), as.integer)
   collapse::settfmv(x, collapse::gv(x, "state", return = 3L), decode_state)
 
-  x$facility <- vctrs::vec_init(character(), vctrs::vec_size(x))
+  x[["facility"]] <- vctrs::vec_init(character(), vctrs::vec_size(x))
 
   i <- purrr::imap(
     rlang::set_names(collapse::funique(x$form)),
-    \(n, i) {
+    function(n, i) {
       purrr::pluck(x, "form") %==% n
     }
   )
 
-  x[i$erh, ]$facility <- decode_emergency_type(x[i$erh, ]$type)
-  x[i$supp, ]$facility <- decode_supplier_type(x[i$supp, ]$type)
+  if (rlang::has_name(i, "erh")) {
+    x[i$erh, ]$facility <- decode_emergency_type(x[i$erh, ]$type)
+  }
 
-  x[i$caid, ]$facility <- decode_medicaid_type(x[i$caid, ]$type)
-  x[i$caid, ]$facility <- vctrs::vec_if_else(
-    x[i$caid, ]$facility == "MOH",
-    decode_medicaid_range(x[i$caid, ]$number),
-    x[i$caid, ]$facility
-  )
+  if (rlang::has_name(i, "supp")) {
+    x[i$supp, ]$facility <- decode_supplier_type(x[i$supp, ]$type)
+  }
 
-  x[i$care, ]$facility <- decode_medicare_range(x[i$care, ]$number)
-  x[i$sub, ]$facility <- decode_unit_type(x[i$sub, ]$type)
+  if (rlang::has_name(i, "caid")) {
+    x[i$caid, ]$facility <- decode_medicaid_type(x[i$caid, ]$type)
 
-  x[i$sub, ]$parent <- paste0(
-    str_state(x[i$sub, ]$ccn),
-    subunit_type_prefix(x[i$sub, ]$parent),
-    substring(x[i$sub, ]$ccn, 5L, 6L)
-  )
-
-  x[i$unit, ]$parent <- vctrs::vec_if_else(
-    vctrs::vec_detect_missing(
-      unit_type_infix(x[i$unit, ]$type)
-    ),
-    NA_character_,
-    paste0(
-      str_state(x[i$unit, ]$ccn),
-      unit_type_infix(x[i$unit, ]$type),
-      substring(x[i$unit, ]$ccn, 5L, 6L)
+    x[i$caid, ]$facility <- vctrs::vec_if_else(
+      x[i$caid, ]$facility == "MOH",
+      decode_medicaid_range(x[i$caid, ]$number),
+      x[i$caid, ]$facility
     )
+  }
+
+  if (rlang::has_name(i, "care")) {
+    x[i$care, ]$facility <- decode_medicare_range(x[i$care, ]$number)
+  }
+
+  if (rlang::has_name(i, "sub")) {
+    x[i$sub, ]$facility <- decode_unit_type(x[i$sub, ]$type)
+
+    x[i$sub, ]$parent <- paste0(
+      str_state(x[i$sub, ]$ccn),
+      subunit_type_prefix(x[i$sub, ]$parent),
+      substring(x[i$sub, ]$ccn, 5L, 6L)
+    )
+  }
+
+  if (rlang::has_name(i, "unit")) {
+    x[i$unit, ]$facility <- decode_unit_type(x[i$unit, ]$type)
+
+    infix <- unit_type_infix(x[i$unit, ]$type)
+
+    infix[cheapr::which_na(infix)] <- "!"
+
+    x[i$unit, ]$parent <- paste0(
+      str_state(x[i$unit, ]$ccn),
+      infix,
+      substring(x[i$unit, ]$ccn, 4L, 6L)
+    )
+  }
+
+  collapse::gv(
+    x,
+    c("ccn", "form", "state", "facility", "parent", "ext", "number", "type")
   )
-
-  x[i$unit, ]$facility <- decode_unit_type(x[i$unit, ]$type)
-
-  collapse::slt(x, c("ccn", "form", "state", "facility", "parent", "ext"))
 }
