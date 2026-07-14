@@ -131,9 +131,9 @@ extras <- list(
   )
 )
 
-# initial    == 82095
-# unique     == 52270
-# duplicates == 29825
+# initial    == 83278
+# unique     == 52287
+# duplicates == 30991
 ccns <- vctrs::vec_c(
   ccn:::unlist_(extras),
   get_pin("asc")$ccn,
@@ -145,7 +145,9 @@ ccns <- vctrs::vec_c(
   get_pin("hosp")$ccn,
   get_pin("hosp_info")$ccn,
   get_pin("irf")$ccn,
-  get_pin("ltch")$ccn
+  get_pin("ltch")$ccn,
+  get_pin("subgroups")$location$ccn,
+  get_pin("subgroups")$subgroup$ccn
 ) |>
   collapse::funique() |>
   kit::psort(nThread = 4L) |>
