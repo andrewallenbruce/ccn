@@ -74,18 +74,5 @@ An S3 vector of class `<ccnr>`
 
 ``` r
 decode_ccnr(c(get_pin("ccn"), "01J008"))
-#> # A tibble: 52,271 × 6
-#>    ccn    form  state facility parent ext  
-#>    <chr>  <chr> <chr> <chr>    <chr>  <chr>
-#>  1 001500 care  AZ    HOSPICE  NA     NA   
-#>  2 001502 care  AZ    HOSPICE  NA     NA   
-#>  3 001503 care  AZ    HOSPICE  NA     NA   
-#>  4 001509 care  AZ    HOSPICE  NA     NA   
-#>  5 001510 care  AZ    HOSPICE  NA     NA   
-#>  6 001511 care  AZ    HOSPICE  NA     NA   
-#>  7 001513 care  AZ    HOSPICE  NA     NA   
-#>  8 001514 care  AZ    HOSPICE  NA     NA   
-#>  9 001515 care  AZ    HOSPICE  NA     NA   
-#> 10 001517 care  AZ    HOSPICE  NA     NA   
-#> # ℹ 52,261 more rows
+#> Error in .fn(x[i], ext = ext): unused argument (ext = ext)
 ```
