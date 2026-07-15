@@ -14,6 +14,8 @@ x <- list(
 
 x
 
+x <- ccn:::get_pin("subgroups")
+
 vctrs::vec_size(x$ccn)
 vctrs::vec_unique_count(x$ccn)
 

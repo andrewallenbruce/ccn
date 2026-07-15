@@ -43,7 +43,7 @@ ccnr_caid <- function(x, ext = FALSE) {
 
 # Emergency: 12345E => 12 345 E
 #' @noRd
-ccnr_erh <- function(x) {
+ccnr_erh <- function(x, ext = FALSE) {
   ccnr(
     form = "erh",
     ccn = x,
@@ -57,7 +57,7 @@ ccnr_erh <- function(x) {
 
 # Organ: 05P001 => 05 P 001
 #' @noRd
-ccnr_opo <- function(x) {
+ccnr_opo <- function(x, ext = FALSE) {
   ccnr(
     form = "opo",
     ccn = x,
@@ -85,7 +85,7 @@ ccnr_unit <- function(x, ext = FALSE) {
 
 # Subunit: 02TA01 => 02 T A 01
 #' @noRd
-ccnr_sub <- function(x) {
+ccnr_sub <- function(x, ext = FALSE) {
   ccnr(
     form = "sub",
     ccn = x,
@@ -99,7 +99,7 @@ ccnr_sub <- function(x) {
 
 # Supplier: 10C0001062 => 10 C 0001062
 #' @noRd
-ccnr_supp <- function(x) {
+ccnr_supp <- function(x, ext = FALSE) {
   ccnr(
     form = "supp",
     ccn = x,
