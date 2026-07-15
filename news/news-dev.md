@@ -503,3 +503,8 @@
 ## ccn 0.0.0.9113 (2026-07-14)
 
 - refactoring ccnr decoding
+
+## ccn 0.0.0.9114 (2026-07-14)
+
+- fixed bug in ccnr\_\*
+- added subgroups swing-bed example data
