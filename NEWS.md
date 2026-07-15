@@ -1,5 +1,11 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9114 (2026-07-14)
+
+* fixed bug in ccnr_*
+* added subgroups swing-bed example data
+
+
 # ccn 0.0.0.9113 (2026-07-14)
 
 * refactoring ccnr decoding
