@@ -46,4 +46,8 @@ medicare_ranges <- tibble::tribble(
   9900L  , 9999L , "9900-9999" , "OTP"           , "Opioid Treatment Program"
 )
 
+medicare_ranges = ccn::medicare_ranges
+medicare_ranges$iv <- ivs::iv(medicare_ranges$start, medicare_ranges$end + 1L)
+medicare_ranges
+
 usethis::use_data(medicare_ranges, overwrite = TRUE)

@@ -17,7 +17,7 @@ str_ccn <- function(x, ext) {
 #' @noRd
 ccnr_care <- function(x, ext = FALSE) {
   ccnr(
-    form = "care",
+    form = "Medicare",
     ccn = str_ccn(x, ext),
     state = str_state(x),
     number = substring(x, 3L, 6L),
@@ -31,7 +31,7 @@ ccnr_care <- function(x, ext = FALSE) {
 #' @noRd
 ccnr_caid <- function(x, ext = FALSE) {
   ccnr(
-    form = "caid",
+    form = "Medicaid",
     ccn = str_ccn(x, ext),
     state = str_state(x),
     number = substring(x, 4L, 6L),
@@ -45,7 +45,7 @@ ccnr_caid <- function(x, ext = FALSE) {
 #' @noRd
 ccnr_erh <- function(x, ext = FALSE) {
   ccnr(
-    form = "erh",
+    form = "Emergency",
     ccn = x,
     state = str_state(x),
     number = substring(x, 3L, 5L),
@@ -59,7 +59,7 @@ ccnr_erh <- function(x, ext = FALSE) {
 #' @noRd
 ccnr_opo <- function(x, ext = FALSE) {
   ccnr(
-    form = "opo",
+    form = "Organ",
     ccn = x,
     state = str_state(x),
     number = substring(x, 4L, 6L),
@@ -73,7 +73,7 @@ ccnr_opo <- function(x, ext = FALSE) {
 #' @noRd
 ccnr_unit <- function(x, ext = FALSE) {
   ccnr(
-    form = "unit",
+    form = "Unit",
     ccn = str_ccn(x, ext),
     state = str_state(x),
     number = substring(x, 4L, 6L),
@@ -87,7 +87,7 @@ ccnr_unit <- function(x, ext = FALSE) {
 #' @noRd
 ccnr_sub <- function(x, ext = FALSE) {
   ccnr(
-    form = "sub",
+    form = "Subunit",
     ccn = x,
     state = str_state(x),
     number = substring(x, 5L, 6L),
@@ -101,7 +101,7 @@ ccnr_sub <- function(x, ext = FALSE) {
 #' @noRd
 ccnr_supp <- function(x, ext = FALSE) {
   ccnr(
-    form = "supp",
+    form = "Supplier",
     ccn = x,
     state = str_state(x),
     number = substring(x, 4L, 10L),

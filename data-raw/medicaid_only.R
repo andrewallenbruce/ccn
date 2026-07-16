@@ -22,6 +22,11 @@ medicaid_ranges <- tibble::tribble(
   500L   , 599L , "500-599" , "LTCH"        , "Long-Term Hospital"              ,
   600L   , 999L , "600-999" , "RSVD"        , "Reserved for Future Use"
 )
+
+medicaid_ranges = ccn::medicaid_ranges
+medicaid_ranges$iv <- ivs::iv(medicaid_ranges$start, medicaid_ranges$end + 1L)
+medicaid_ranges
+
 usethis::use_data(medicaid_ranges, overwrite = TRUE)
 
 # All other Medicaid-only ranges are 001-999

@@ -34,16 +34,16 @@
 #' CAH could have swing-bed approval, an IPPS-excluded rehabilitation unit,
 #' and/or an IPPS-excluded psychiatric unit.
 unit_types <- tibble::tribble(
-  ~code , ~abbr               , ~desc                                         , ~infix ,
-  "M"   , "PSYCH-CAH [EIPPS]" , "Psychiatric Unit [IPPS-Excluded] [CAH]"      , "1"    ,
-  "R"   , "IRU-CAH [EIPPS]"   , "Rehabilitation Unit [IPPS-Excluded] [CAH]"   , "1"    ,
-  "S"   , "PSYCH [EIPPS]"     , "Psychiatric Unit [IPPS-Excluded]"            , "?"    ,
-  "T"   , "IRU [EIPPS]"       , "Rehabilitation Unit [IPPS-Excluded]"         , "?"    ,
-  "U"   , "SBA-ACUTE"         , "Swing-Bed Approval [ACUTE]"                  , "0"    ,
-  "V"   , "ADU [EIPPS]"       , "Alcohol-Drug Unit [IPPS-Excluded] (Retired)" , "?"    ,
-  "W"   , "SBA-LTCH"          , "Swing-Bed Approval [LTCH]"                   , "2"    ,
-  "Y"   , "SBA-IRF"           , "Swing-Bed Approval [IRF]"                    , "3"    ,
-  "Z"   , "SBA-CAH"           , "Swing-Bed Approval [CAH]"                    , "1"    ,
+  ~code , ~abbr           , ~desc                        , ~infix , ~eipps ,
+  "M"   , "Psych (CAH)"   , "Psychiatric Unit (CAH)"     , "1"    , TRUE   ,
+  "R"   , "Rehab (CAH)"   , "Rehabilitation Unit (CAH)"  , "1"    , TRUE   ,
+  "S"   , "Psych"         , "Psychiatric Unit"           , " "    , TRUE   ,
+  "T"   , "Rehab"         , "Rehabilitation Unit"        , " "    , TRUE   ,
+  "U"   , "Swing (Acute)" , "Swing-Bed Approval (Acute)" , "0"    , FALSE  ,
+  "V"   , "ADU"           , "Alcohol-Drug Unit"          , " "    , TRUE   ,
+  "W"   , "Swing (LTC)"   , "Swing-Bed Approval (LTC)"   , "2"    , FALSE  ,
+  "Y"   , "Swing (IRF)"   , "Swing-Bed Approval (IRF)"   , "3"    , FALSE  ,
+  "Z"   , "Swing (CAH)"   , "Swing-Bed Approval (CAH)"   , "1"    , FALSE  ,
 )
 
 usethis::use_data(unit_types, overwrite = TRUE)
@@ -67,12 +67,12 @@ subunit_types <- tibble::tribble(
   "B"   , "21"    , "LTCH"  ,
   "C"   , "22"    , "LTCH"  ,
   "D"   , "30"    , "IRF"   ,
-  "E"   , "33"    , "CHILD" ,
-  "F"   , "40"    , "PSYCH" ,
-  "G"   , "41"    , "PSYCH" ,
-  "H"   , "42"    , "PSYCH" ,
-  "J"   , "43"    , "PSYCH" ,
-  "K"   , "44"    , "PSYCH" ,
+  "E"   , "33"    , "Child" ,
+  "F"   , "40"    , "Psych" ,
+  "G"   , "41"    , "Psych" ,
+  "H"   , "42"    , "Psych" ,
+  "J"   , "43"    , "Psych" ,
+  "K"   , "44"    , "Psych" ,
 )
 
 usethis::use_data(subunit_types, overwrite = TRUE)
