@@ -105,8 +105,8 @@ purrr::map(x, decode)
 #>  .. @ office: chr "Philadelphia"
 #>  @ range : chr "001-999"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "SBA-ACUTE"
-#>  .. @ desc : chr "Swing-Bed Approval [ACUTE]"
+#>  .. @ abbr : chr "Swing (Acute)"
+#>  .. @ desc : chr "Swing-Bed Approval (Acute)"
 #>  .. @ eipps: logi FALSE
 #>  @ parent: chr "210101"
 #> 
@@ -119,8 +119,8 @@ purrr::map(x, decode)
 #>  .. @ region: chr "III"
 #>  .. @ office: chr "Philadelphia"
 #>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "IRU [EIPPS]"
-#>  .. @ desc : chr "Rehabilitation Unit [IPPS-Excluded]"
+#>  .. @ abbr : chr "Rehab"
+#>  .. @ desc : chr "Rehabilitation Unit"
 #>  .. @ eipps: logi TRUE
 #>  @ parent: chr "212026"
 #> 
