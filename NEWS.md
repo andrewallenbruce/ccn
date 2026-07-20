@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9116 (2026-07-19)
+
+* vctrs_decode work
+
+
 # ccn 0.0.0.9115 (2026-07-15)
 
 * refactored decode methods
