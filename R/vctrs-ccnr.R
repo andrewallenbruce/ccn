@@ -145,22 +145,28 @@ decode_ccnr <- function(x) {
   x[["facility"]] <- vctrs::vec_init(character(), vctrs::vec_size(x))
 
   i <- purrr::imap(
-    rlang::set_names(collapse::funique(x$form)),
+    rlang::set_names(collapse::funique(x[["form"]])),
     function(n, i) {
       purrr::pluck(x, "form") %==% n
     }
   )
 
   if (rlang::has_name(i, "Emergency")) {
-    x[i$Emergency, ]$facility <- decode_other_type(x[i$Emergency, ]$type)
+    xi <- vctrs::vec_slice(x, i[["Emergency"]])
+    xii <- decode_other_type(xi[["type"]])
+    vctrs::vec_slice(x, i[["Emergency"]])$facility <- xii
   }
 
   if (rlang::has_name(i, "Supplier")) {
-    x[i$Supplier, ]$facility <- decode_other_type(x[i$Supplier, ]$type)
+    xi <- vctrs::vec_slice(x, i[["Supplier"]])
+    xii <- decode_other_type(xi[["type"]])
+    vctrs::vec_slice(x, i[["Supplier"]])$facility <- xii
   }
 
   if (rlang::has_name(i, "Organ")) {
-    x[i$Organ, ]$facility <- decode_other_type(x[i$Organ, ]$type)
+    xi <- vctrs::vec_slice(x, i[["Organ"]])
+    xii <- decode_other_type(xi[["type"]])
+    vctrs::vec_slice(x, i[["Organ"]])$facility <- xii
   }
 
   if (rlang::has_name(i, "Medicaid")) {
@@ -175,13 +181,14 @@ decode_ccnr <- function(x) {
 
   if (rlang::has_name(i, "Medicare")) {
     xi <- vctrs::vec_slice(x, i[["Medicare"]])
-    vctrs::vec_slice(x, i[["Medicare"]])$facility <- decode_medicare_range(
-      xi[["number"]]
-    )
+    xii <- decode_medicare_range(xi[["number"]])
+    vctrs::vec_slice(x, i[["Medicare"]])$facility <- xii
   }
 
   if (rlang::has_name(i, "Subunit")) {
-    x[i$Subunit, ]$facility <- decode_unit_type(x[i$Subunit, ]$type)
+    xi <- vctrs::vec_slice(x, i[["Subunit"]])
+    xii <- decode_unit_type(xi[["type"]])
+    vctrs::vec_slice(x, i[["Subunit"]])$facility <- xii
 
     x[i$Subunit, ]$parent <- paste0(
       str_state(x[i$Subunit, ]$ccn),
