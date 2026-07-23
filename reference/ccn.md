@@ -78,6 +78,14 @@ tibble::tibble(x = x, ccn = as_ccn(x))
 #>  9 001515 001515
 #> 10 001517 001517
 #> # ℹ 52,277 more rows
-index_types(x)
-#> Error in index_types(x): could not find function "index_types"
+index_ccn_types(x)
+#> <ccn_type_index[52287]>
+#>     supp :  5488
+#> ext_caid :     1
+#> ext_care :   158
+#> ext_unit :    14
+#>     care : 43195
+#>      erh :   166
+#>      sub :    49
+#>     unit :  3216
 ```
