@@ -4,9 +4,9 @@ decode_medicare_range <- function(x, as = c("abbr", "range", "full")) {
   vctrs::vec_slice(
     switch(
       rlang::arg_match(as),
-      abbr = vctrs::vec_c(ccn::medicare_ranges$abbr, NA_character_),
-      full = vctrs::vec_c(ccn::medicare_ranges$desc, NA_character_),
-      range = vctrs::vec_c(ccn::medicare_ranges$range, NA_character_)
+      abbr = ccn::medicare_ranges$abbr,
+      full = ccn::medicare_ranges$desc,
+      range = ccn::medicare_ranges$range
     ),
     ivs::iv_locate_between(x, ccn::medicare_ranges$iv)$haystack
   )
@@ -18,9 +18,9 @@ decode_medicaid_range <- function(x, as = c("abbr", "range", "full")) {
   vctrs::vec_slice(
     switch(
       rlang::arg_match(as),
-      abbr = vctrs::vec_c(ccn::medicaid_ranges$abbr, NA_character_),
-      full = vctrs::vec_c(ccn::medicaid_ranges$desc, NA_character_),
-      range = vctrs::vec_c(ccn::medicaid_ranges$range, NA_character_)
+      abbr = ccn::medicaid_ranges$abbr,
+      full = ccn::medicaid_ranges$desc,
+      range = ccn::medicaid_ranges$range
     ),
     ivs::iv_locate_between(x, ccn::medicaid_ranges$iv)$haystack
   )

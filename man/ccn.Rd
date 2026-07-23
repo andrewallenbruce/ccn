@@ -47,5 +47,5 @@ x <- get_pin("ccn")
 y <- ccn(x)
 vctrs::vec_c(x[1:5], y[100:150], x[1:50])
 tibble::tibble(x = x, ccn = as_ccn(x))
-index_types(x)
+index_ccn_types(x)
 }

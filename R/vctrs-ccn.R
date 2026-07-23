@@ -14,10 +14,10 @@ methods::setOldClass(c("ccn", "vctrs_vctr"))
 #' y <- ccn(x)
 #' vctrs::vec_c(x[1:5], y[100:150], x[1:50])
 #' tibble::tibble(x = x, ccn = as_ccn(x))
-#' index_types(x)
+#' index_ccn_types(x)
 #' @export
 ccn <- function(x = character()) {
-  x <- vec_cast(x, character())
+  x <- vctrs::vec_cast(x, character())
   new_ccn(x)
 }
 
@@ -25,7 +25,7 @@ ccn <- function(x = character()) {
 #' @rdname ccn
 new_ccn <- function(x = character()) {
   x <- clean_ccn(x)
-  vec_assert(x, character())
+  vctrs::vec_assert(x, character())
   new_vctr(x, class = "ccn")
 }
 
@@ -44,7 +44,7 @@ as_ccn <- function(x, ...) {
 #' @export
 #' @rdname ccn
 as_ccn.default <- function(x, ...) {
-  vec_cast(x, new_ccn())
+  vctrs::vec_cast(x, new_ccn())
 }
 
 #' @export
@@ -56,7 +56,7 @@ as_ccn.character <- function(x, ...) {
 #' @export
 #' @rdname ccn
 as_ccn.ccnr <- function(x, ...) {
-  new_ccn(field(x, "ccn"))
+  new_ccn(vctrs::field(x, "ccn"))
 }
 
 #' Coercion
@@ -74,7 +74,7 @@ vec_ptype2.ccn <- function(x, y, ..., x_arg = "", y_arg = "") {
 #' @method vec_ptype2.ccn default
 #' @export
 vec_ptype2.ccn.default <- function(x, y, ..., x_arg = "", y_arg = "") {
-  vec_default_ptype2(x, y, x_arg = x_arg, y_arg = y_arg)
+  vctrs::vec_default_ptype2(x, y, x_arg = x_arg, y_arg = y_arg)
 }
 
 #' @method vec_ptype2.ccn ccn
@@ -123,13 +123,13 @@ vec_cast.ccn.character <- function(x, to, ...) {
 #' @method vec_cast.character ccn
 #' @export
 vec_cast.character.ccn <- function(x, to, ...) {
-  vec_data(x)
+  vctrs::vec_data(x)
 }
 
 #' @method format ccn
 #' @export
 format.ccn <- function(x, ...) {
-  x <- vec_data(x)
+  x <- vctrs::vec_data(x)
   out <- formatC(x, format = "s")
   out[collapse::whichNA(x)] <- NA
   out
