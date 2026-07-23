@@ -28,7 +28,7 @@ as_ccn(x, ...)
 # S3 method for class 'ccnr'
 as_ccn(x, ...)
 
-index_types(x)
+index_ccn_types(x)
 ```
 
 ## Arguments
@@ -79,14 +79,5 @@ tibble::tibble(x = x, ccn = as_ccn(x))
 #> 10 001517 001517
 #> # ℹ 52,277 more rows
 index_types(x)
-#> <type_index>
-#>     supp :  5488
-#> ext_caid :     1
-#> ext_care :   158
-#> ext_unit :    14
-#>     care : 43195
-#>      erh :   166
-#>      sub :    49
-#>     unit :  3216
-#>    TOTAL : 52287
+#> Error in index_types(x): could not find function "index_types"
 ```

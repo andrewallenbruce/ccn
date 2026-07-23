@@ -12,7 +12,7 @@
   [`new_ccn()`](https://andrewallenbruce.github.io/ccn/reference/ccn.md)
   [`is_ccn()`](https://andrewallenbruce.github.io/ccn/reference/ccn.md)
   [`as_ccn()`](https://andrewallenbruce.github.io/ccn/reference/ccn.md)
-  [`index_types()`](https://andrewallenbruce.github.io/ccn/reference/ccn.md)
+  [`index_ccn_types()`](https://andrewallenbruce.github.io/ccn/reference/ccn.md)
   :
 
   Construct a `ccn` object
