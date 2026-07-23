@@ -1,6 +1,6 @@
 medicare_ranges <- tibble::tribble(
   ~start , ~end  , ~range      , ~abbr           , ~desc                                                                       ,
-     1L  ,  879L , "0001-0879" , "ACUTE"         , "Short-Term Hospital (General & Specialty)"                                 ,
+     1L  ,  879L , "0001-0879" , "Acute"         , "Short-Term Hospital (General & Specialty)"                                 ,
    880L  ,  899L , "0880-0899" , "OCM"           , "Hospital Participating in ORD (Oncology Care Model) Demonstration Project" ,
    900L  ,  999L , "0900-0999" , "MHCMC"         , "Multiple Hospital Component in a Medical Complex (Retired)"                ,
   1000L  , 1199L , "1000-1199" , "FQHC"          , "Federally Qualified Health Center"                                         ,
@@ -8,7 +8,7 @@ medicare_ranges <- tibble::tribble(
   1225L  , 1299L , "1225-1299" , "MAF"           , "Medical Assistance Facility"                                               ,
   1300L  , 1399L , "1300-1399" , "CAH"           , "Critical Access Hospital"                                                  ,
   1400L  , 1499L , "1400-1499" , "CMHC"          , "Community Mental Health Center"                                            ,
-  1500L  , 1799L , "1500-1799" , "HOSPICE"       , "Hospice"                                                                   ,
+  1500L  , 1799L , "1500-1799" , "Hospice"       , "Hospice"                                                                   ,
   1800L  , 1989L , "1800-1989" , "FQHC"          , "Federally Qualified Health Center"                                         ,
   1990L  , 1999L , "1990-1999" , "RNHCI"         , "Religious Non-medical Health Care Institution"                             ,
   2000L  , 2299L , "2000-2299" , "LTCH [EIPPS]"  , "Long-Term Care Hospital [IPPS-Excluded]"                                   ,
@@ -19,13 +19,13 @@ medicare_ranges <- tibble::tribble(
   3025L  , 3099L , "3025-3099" , "IRF [EIPPS]"   , "Rehabilitation Hospital [IPPS-Excluded]"                                   ,
   3100L  , 3199L , "3100-3199" , "HHA-NP"        , "Home Health Agency Subunit (Nonprofit/Proprietary)"                        , # "Home Health Agency",
   3200L  , 3299L , "3200-3299" , "CORF"          , "Comprehensive Outpatient Rehabilitation Facility"                          ,
-  3300L  , 3399L , "3300-3399" , "CHILD [EIPPS]" , "Children's Hospital [IPPS-Excluded]"                                       ,
+  3300L  , 3399L , "3300-3399" , "Child [EIPPS]" , "Children's Hospital [IPPS-Excluded]"                                       ,
   3400L  , 3499L , "3400-3499" , "RHC-P"         , "Rural Health Clinic (Provider-based)"                                      ,
   3500L  , 3699L , "3500-3699" , "ESRD-HS"       , "Hospital-based Satellite Renal Dialysis Facility"                          ,
   3700L  , 3799L , "3700-3799" , "ESRD-HP"       , "Hospital-based Special Purpose Renal Dialysis Facility"                    ,
   3800L  , 3974L , "3800-3974" , "RHC-I"         , "Rural Health Clinic (Free-standing)"                                       ,
   3975L  , 3999L , "3975-3999" , "RHC-P"         , "Rural Health Clinic (Provider-based)"                                      ,
-  4000L  , 4499L , "4000-4499" , "PSYCH [EIPPS]" , "Psychiatric Hospital [IPPS-Excluded]"                                      ,
+  4000L  , 4499L , "4000-4499" , "Psych [EIPPS]" , "Psychiatric Hospital [IPPS-Excluded]"                                      ,
   4500L  , 4599L , "4500-4599" , "CORF"          , "Comprehensive Outpatient Rehabilitation Facility"                          ,
   4600L  , 4799L , "4600-4799" , "CMHC"          , "Community Mental Health Center"                                            ,
   4800L  , 4899L , "4800-4899" , "CORF"          , "Comprehensive Outpatient Rehabilitation Facility"                          ,
@@ -46,7 +46,6 @@ medicare_ranges <- tibble::tribble(
   9900L  , 9999L , "9900-9999" , "OTP"           , "Opioid Treatment Program"
 )
 
-medicare_ranges = ccn::medicare_ranges
 medicare_ranges$iv <- ivs::iv(medicare_ranges$start, medicare_ranges$end + 1L)
 medicare_ranges
 

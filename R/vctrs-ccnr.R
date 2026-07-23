@@ -141,7 +141,7 @@ decode_ccnr <- function(x) {
   }
 
   collapse::settfmv(x, collapse::gv(x, "number", return = 3L), as.integer)
-  collapse::settfmv(x, collapse::gv(x, "state", return = 3L), decode_state)
+  collapse::settfmv(x, collapse::gv(x, "state", return = 3L), recode_state)
   x[["facility"]] <- vctrs::vec_init(character(), vctrs::vec_size(x))
 
   i <- purrr::imap(
@@ -153,24 +153,24 @@ decode_ccnr <- function(x) {
 
   if (rlang::has_name(i, "Emergency")) {
     xi <- vctrs::vec_slice(x, i[["Emergency"]])
-    xii <- decode_other_type(xi[["type"]])
+    xii <- recode_other_type(xi[["type"]])
     vctrs::vec_slice(x, i[["Emergency"]])$facility <- xii
   }
 
   if (rlang::has_name(i, "Supplier")) {
     xi <- vctrs::vec_slice(x, i[["Supplier"]])
-    xii <- decode_other_type(xi[["type"]])
+    xii <- recode_other_type(xi[["type"]])
     vctrs::vec_slice(x, i[["Supplier"]])$facility <- xii
   }
 
   if (rlang::has_name(i, "Organ")) {
     xi <- vctrs::vec_slice(x, i[["Organ"]])
-    xii <- decode_other_type(xi[["type"]])
+    xii <- recode_other_type(xi[["type"]])
     vctrs::vec_slice(x, i[["Organ"]])$facility <- xii
   }
 
   if (rlang::has_name(i, "Medicaid")) {
-    x[i$Medicaid, ]$facility <- decode_medicaid_type(x[i$Medicaid, ]$type)
+    x[i$Medicaid, ]$facility <- recode_medicaid_type(x[i$Medicaid, ]$type)
 
     x[i$Medicaid, ]$facility <- vctrs::vec_if_else(
       x[i$Medicaid, ]$facility == "MOH",
@@ -187,19 +187,19 @@ decode_ccnr <- function(x) {
 
   if (rlang::has_name(i, "Subunit")) {
     xi <- vctrs::vec_slice(x, i[["Subunit"]])
-    xii <- decode_unit_type(xi[["type"]])
+    xii <- recode_unit_type(xi[["type"]])
     vctrs::vec_slice(x, i[["Subunit"]])$facility <- xii
 
     x[i$Subunit, ]$parent <- paste0(
       str_state(x[i$Subunit, ]$ccn),
-      decode_subunit_type(x[i$Subunit, ]$parent),
+      recode_subunit_type(x[i$Subunit, ]$parent),
       substring(x[i$Subunit, ]$ccn, 5L, 6L)
     )
   }
 
   if (rlang::has_name(i, "Unit")) {
     xi <- vctrs::vec_slice(x, i[["Unit"]])
-    vctrs::vec_slice(x, i[["Unit"]])$facility <- decode_unit_type(xi[["type"]])
+    vctrs::vec_slice(x, i[["Unit"]])$facility <- recode_unit_type(xi[["type"]])
 
     infix <- unit_type_infix(xi[["type"]])
 

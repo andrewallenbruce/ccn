@@ -3,17 +3,17 @@ eipps_ranges <- tibble::tribble(
   1200L  , 1224L , "1200-1224" , "ADH"   , "Alcohol-Drug Hospital (Retired)" ,
   2000L  , 2299L , "2000-2299" , "LTCH"  , "Long-Term Care Hospital"         ,
   3025L  , 3099L , "3025-3099" , "IRF"   , "Rehabilitation Hospital"         ,
-  3300L  , 3399L , "3300-3399" , "CHILD" , "Children's Hospital"             ,
-  4000L  , 4499L , "4000-4499" , "PSYCH" , "Psychiatric Hospital"
+  3300L  , 3399L , "3300-3399" , "Child" , "Children's Hospital"             ,
+  4000L  , 4499L , "4000-4499" , "Psych" , "Psychiatric Hospital"
 )
 
 usethis::use_data(eipps_ranges, overwrite = TRUE)
 
 eipps_types <- tibble::tribble(
   ~code , ~abbr       , ~desc                         ,
-  "M"   , "PSYCH-CAH" , "Psychiatric Unit [CAH]"      ,
+  "M"   , "Psych-CAH" , "Psychiatric Unit [CAH]"      ,
   "R"   , "IRU-CAH"   , "Rehabilitation Unit [CAH]"   ,
-  "S"   , "PSYCH"     , "Psychiatric Unit"            ,
+  "S"   , "Psych"     , "Psychiatric Unit"            ,
   "T"   , "IRU"       , "Rehabilitation Unit"         ,
   "V"   , "ADU"       , "Alcohol-Drug Unit (Retired)"
 )
