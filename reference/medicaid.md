@@ -57,7 +57,7 @@ medicaid("22B201")
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::TypeMOF>
 #>  .. @ abbr: chr "SNF-NF"
-#>  .. @ desc: chr "Nursing Facility"
+#>  .. @ desc: chr "Skilled Nursing Facility"
 medicaid("23E301")
 #> <ccn::Medicaid>
 #>  @ ccn  : chr "23E301"
@@ -69,7 +69,7 @@ medicaid("23E301")
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::TypeMOF>
 #>  .. @ abbr: chr "SNF-NF"
-#>  .. @ desc: chr "Nursing Facility"
+#>  .. @ desc: chr "Skilled Nursing Facility"
 medicaid("34F401")
 #> <ccn::Medicaid>
 #>  @ ccn  : chr "34F401"
@@ -81,7 +81,7 @@ medicaid("34F401")
 #>  @ range: chr "001-999"
 #>  @ type : <ccn::TypeMOF>
 #>  .. @ abbr: chr "SNF-NF"
-#>  .. @ desc: chr "Nursing Facility"
+#>  .. @ desc: chr "Skilled Nursing Facility"
 medicaid("01J008")
 #> <ccn::Medicaid>
 #>  @ ccn  : chr "01J008"
