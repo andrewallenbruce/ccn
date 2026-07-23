@@ -8,7 +8,7 @@
 \alias{as_ccn.default}
 \alias{as_ccn.character}
 \alias{as_ccn.ccnr}
-\alias{index_types}
+\alias{index_ccn_types}
 \title{Construct a \code{ccn} object}
 \usage{
 ccn(x = character())
@@ -25,7 +25,7 @@ as_ccn(x, ...)
 
 \method{as_ccn}{ccnr}(x, ...)
 
-index_types(x)
+index_ccn_types(x)
 }
 \arguments{
 \item{x}{a vector}

@@ -1,36 +1,4 @@
 #' @noRd
-grp_split <- function(.fn, x, i) {
-  if (is.null(i)) {
-    E <- collapse::GRP(.fn(x), call = FALSE)
-  } else {
-    E <- collapse::GRP(.fn(x[i]), call = FALSE)
-  }
-  collapse::gsplit(i, E, use.g.names = TRUE)
-}
-
-#' @export
-#' @rdname ccn
-index_types <- function(x) {
-  x <- if (is_ccn(x)) vctrs::vec_data(x) else x
-  g <- e <- p <- NULL
-
-  g <- grp_split(infer_ccn_type, x, NULL)
-
-  if (rlang::has_name(g, "ext_prov")) {
-    e <- grp_split(infer_provider_ext, x, g$ext_prov)
-    g$ext_prov <- NULL
-  }
-
-  if (rlang::has_name(g, "prov")) {
-    p <- grp_split(infer_provider_type, x, g$prov)
-    g$prov <- NULL
-  }
-
-  res <- c(g %||% list(), e %||% list(), p %||% list())
-  structure(res, class = "type_index")
-}
-
-#' @noRd
 infer_ccn_type <- function(x) {
   vctrs::vec_case_when(
     conditions = list(
@@ -117,15 +85,47 @@ fmt_idx <- function(x) {
   )
 }
 
-#' @method format type_index
+#' @noRd
+grp_split <- function(.fn, x, i) {
+  if (is.null(i)) {
+    E <- collapse::GRP(.fn(x), call = FALSE)
+  } else {
+    E <- collapse::GRP(.fn(x[i]), call = FALSE)
+  }
+  collapse::gsplit(i, E, use.g.names = TRUE)
+}
+
 #' @export
-format.type_index <- function(x, ...) {
+#' @rdname ccn
+index_ccn_types <- function(x) {
+  x <- if (is_ccn(x)) vctrs::vec_data(x) else x
+  g <- e <- p <- NULL
+
+  g <- grp_split(infer_ccn_type, x, NULL)
+
+  if (rlang::has_name(g, "ext_prov")) {
+    e <- grp_split(infer_provider_ext, x, g[["ext_prov"]])
+    g[["ext_prov"]] <- NULL
+  }
+
+  if (rlang::has_name(g, "prov")) {
+    p <- grp_split(infer_provider_type, x, g[["prov"]])
+    g[["prov"]] <- NULL
+  }
+
+  res <- c(g %||% list(), e %||% list(), p %||% list())
+
+  structure(res, class = "ccn_type_index")
+}
+
+#' @method format ccn_type_index
+#' @export
+format.ccn_type_index <- function(x, ...) {
   z <- collapse::vlengths(x)
-  z <- c(z, TOTAL = collapse::fsum(unname(z)))
+  n <- paste0("<ccn_type_index[", collapse::fsum(unname(z)), "]>")
+  cat(n, sep = "\n")
 
-  cat("<type_index>", sep = "\n")
-
-  if (z["TOTAL"] == 0L) {
+  if (n == 0L) {
     return(invisible(NULL))
   }
 
@@ -133,8 +133,8 @@ format.type_index <- function(x, ...) {
   invisible(x)
 }
 
-#' @method print type_index
+#' @method print ccn_type_index
 #' @export
-print.type_index <- function(x, ...) {
+print.ccn_type_index <- function(x, ...) {
   format(x, ...)
 }

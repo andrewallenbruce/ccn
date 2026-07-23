@@ -132,7 +132,7 @@ has_ccnr <- function(x, index, key, .fn, ext = FALSE) {
 #' @export
 #' @rdname ccnr
 as_ccnr <- function(x) {
-  i <- index_types(x)
+  i <- index_ccn_types(x)
 
   vctrs::vec_c(
     has_ccnr(x, i, "care", ccnr_care),
