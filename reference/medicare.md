@@ -31,7 +31,7 @@ medicare("670055")
 #>  .. @ office: chr "Dallas"
 #>  @ range    : <ccn::RangeMCR>
 #>  .. @ series: chr "0001-0879"
-#>  .. @ abbr  : chr "ACUTE"
+#>  .. @ abbr  : chr "Acute"
 #>  .. @ desc  : chr "Short-Term Hospital (General & Specialty)"
 #>  .. @ eipps : logi FALSE
 #>  @ extension: chr NA
@@ -73,7 +73,7 @@ medicare("114036") # Greenleaf
 #>  .. @ office: chr "Atlanta"
 #>  @ range    : <ccn::RangeMCR>
 #>  .. @ series: chr "4000-4499"
-#>  .. @ abbr  : chr "PSYCH [EIPPS]"
+#>  .. @ abbr  : chr "Psych [EIPPS]"
 #>  .. @ desc  : chr "Psychiatric Hospital [IPPS-Excluded]"
 #>  .. @ eipps : logi TRUE
 #>  @ extension: chr NA
@@ -87,7 +87,7 @@ medicare("110122") # SGMC
 #>  .. @ office: chr "Atlanta"
 #>  @ range    : <ccn::RangeMCR>
 #>  .. @ series: chr "0001-0879"
-#>  .. @ abbr  : chr "ACUTE"
+#>  .. @ abbr  : chr "Acute"
 #>  .. @ desc  : chr "Short-Term Hospital (General & Specialty)"
 #>  .. @ eipps : logi FALSE
 #>  @ extension: chr NA

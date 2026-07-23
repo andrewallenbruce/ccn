@@ -40,7 +40,7 @@ medicare("210101")
 #>  .. @ office: chr "Philadelphia"
 #>  @ range    : <ccn::RangeMCR>
 #>  .. @ series: chr "0001-0879"
-#>  .. @ abbr  : chr "ACUTE"
+#>  .. @ abbr  : chr "Acute"
 #>  .. @ desc  : chr "Short-Term Hospital (General & Specialty)"
 #>  .. @ eipps : logi FALSE
 #>  @ extension: chr NA

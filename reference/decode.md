@@ -35,7 +35,7 @@ purrr::map(x, decode)
 #>  .. @ office: chr "Dallas"
 #>  @ range    : <ccn::RangeMCR>
 #>  .. @ series: chr "0001-0879"
-#>  .. @ abbr  : chr "ACUTE"
+#>  .. @ abbr  : chr "Acute"
 #>  .. @ desc  : chr "Short-Term Hospital (General & Specialty)"
 #>  .. @ eipps : logi FALSE
 #>  @ extension: chr NA
@@ -76,7 +76,7 @@ purrr::map(x, decode)
 #>  .. @ office: chr "Atlanta"
 #>  @ range: <ccn::RangeMOH>
 #>  .. @ series: chr "001-099"
-#>  .. @ abbr  : chr "ACUTE"
+#>  .. @ abbr  : chr "Acute"
 #>  .. @ desc  : chr "Short-Term Acute Care Hospital"
 #>  @ type : <ccn::TypeMOF>
 #>  .. @ abbr: chr "MOH"

@@ -520,3 +520,8 @@
 ## ccn 0.0.0.9117 (2026-07-23)
 
 - recode/decode naming scheme
+
+## ccn 0.0.0.9118 (2026-07-23)
+
+- “form” -\> “entity”
+- corrected abbreviations lettercase
