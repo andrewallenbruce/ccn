@@ -13,12 +13,12 @@ str_ccn <- function(x, ext) {
   if (ext) substring(x, 1L, 6L) else x
 }
 
-# Provider: 670055 => 67 0055
+# Medicare: 670055 => 67 0055
 #' @noRd
 ccnr_care <- function(x, ext = FALSE) {
   ccnr(
-    form = "Medicare",
     ccn = str_ccn(x, ext),
+    entity = "Medicare",
     state = str_state(x),
     number = substring(x, 3L, 6L),
     type = NA_character_,
@@ -28,11 +28,12 @@ ccnr_care <- function(x, ext = FALSE) {
 }
 
 # Medicaid: 01L008 => 01 L 008
+# Hospital: 01J008 => 01 J 008
 #' @noRd
 ccnr_caid <- function(x, ext = FALSE) {
   ccnr(
-    form = "Medicaid",
     ccn = str_ccn(x, ext),
+    entity = "Medicaid",
     state = str_state(x),
     number = substring(x, 4L, 6L),
     type = substr_(x, 3L),
@@ -45,8 +46,8 @@ ccnr_caid <- function(x, ext = FALSE) {
 #' @noRd
 ccnr_erh <- function(x, ext = FALSE) {
   ccnr(
-    form = "Emergency",
     ccn = x,
+    entity = "Emergency",
     state = str_state(x),
     number = substring(x, 3L, 5L),
     type = substr_(x, 6L),
@@ -59,8 +60,8 @@ ccnr_erh <- function(x, ext = FALSE) {
 #' @noRd
 ccnr_opo <- function(x, ext = FALSE) {
   ccnr(
-    form = "Organ",
     ccn = x,
+    entity = "Organ",
     state = str_state(x),
     number = substring(x, 4L, 6L),
     type = substr_(x, 3L),
@@ -69,12 +70,12 @@ ccnr_opo <- function(x, ext = FALSE) {
   )
 }
 
-# Unit: 21T101 => 21 T 101
+# Hospital Unit: 21T101 => 21 T 101
 #' @noRd
 ccnr_unit <- function(x, ext = FALSE) {
   ccnr(
-    form = "Unit",
     ccn = str_ccn(x, ext),
+    entity = "Unit",
     state = str_state(x),
     number = substring(x, 4L, 6L),
     type = substr_(x, 3L),
@@ -83,12 +84,12 @@ ccnr_unit <- function(x, ext = FALSE) {
   )
 }
 
-# Subunit: 02TA01 => 02 T A 01
+# Hospital Subunit: 02TA01 => 02 T A 01
 #' @noRd
 ccnr_sub <- function(x, ext = FALSE) {
   ccnr(
-    form = "Subunit",
     ccn = x,
+    entity = "Subunit",
     state = str_state(x),
     number = substring(x, 5L, 6L),
     type = substr_(x, 3L),
@@ -101,8 +102,8 @@ ccnr_sub <- function(x, ext = FALSE) {
 #' @noRd
 ccnr_supp <- function(x, ext = FALSE) {
   ccnr(
-    form = "Supplier",
     ccn = x,
+    entity = "Supplier",
     state = str_state(x),
     number = substring(x, 4L, 10L),
     type = substr_(x, 3L),

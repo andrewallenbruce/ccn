@@ -3,7 +3,7 @@ methods::setOldClass(c("ccnr", "vctrs_vctr"))
 #' Construct a `ccnr` object
 #'
 #' @param ccn a vector
-#' @param form a vector
+#' @param entity a vector
 #' @param state Passed on to methods
 #' @param number a vector
 #' @param type a vector
@@ -12,21 +12,38 @@ methods::setOldClass(c("ccnr", "vctrs_vctr"))
 #' @param x object
 #' @returns An S3 vector of class `<ccnr>`
 #' @examples
-#' decode_ccnr(c(get_pin("ccn"), "01J008"))
+#' x <- get_pin("ccn")
+#'
+#' tibble::tibble(
+#'   x = x,
+#'   ccn = as_ccn(x),
+#'   ccnr = as_ccnr(ccn))
+#'
+#' y <- decode_ccnr(x) |>
+#'   collapse::roworderv(c("entity", "state", "facility", "number")) |>
+#'   collapse::rsplit(~entity)
+#'
+#' tibble::tibble(
+#'   parent0 = y$Unit$parent,
+#'   parent1 = as_ccn(parent0),
+#'   parent2 = as_ccnr(parent0)
+#' )
+#'
+#' y
 #' @export
 ccnr <- function(
   ccn = character(),
-  form = character(),
+  entity = character(),
   state = character(),
   number = character(),
   type = character(),
   parent = character(),
   ext = character()
 ) {
-  .c(ccn, form, state, number, type, parent, ext) %=%
+  .c(ccn, entity, state, number, type, parent, ext) %=%
     vctrs::vec_cast_common(
       ccn,
-      form,
+      entity,
       state,
       number,
       type,
@@ -34,17 +51,17 @@ ccnr <- function(
       ext,
       .to = character()
     )
-  .c(ccn, form, state, number, type, parent, ext) %=%
-    vctrs::vec_recycle_common(ccn, form, state, number, type, parent, ext)
+  .c(ccn, entity, state, number, type, parent, ext) %=%
+    vctrs::vec_recycle_common(ccn, entity, state, number, type, parent, ext)
 
-  new_ccnr(ccn, form, state, number, type, parent, ext)
+  new_ccnr(ccn, entity, state, number, type, parent, ext)
 }
 
 #' @export
 #' @rdname ccnr
 new_ccnr <- function(
   ccn = character(),
-  form = character(),
+  entity = character(),
   state = character(),
   number = character(),
   type = character(),
@@ -54,7 +71,7 @@ new_ccnr <- function(
   vctrs::new_rcrd(
     list(
       ccn = ccn,
-      form = form,
+      entity = entity,
       state = state,
       number = number,
       type = type,
@@ -136,8 +153,10 @@ as_ccnr <- function(x) {
 decode_ccnr <- function(x) {
   x <- if (is_ccnr(x)) {
     tibble::tibble(vctrs::vec_data(x))
-  } else {
+  } else if (is_ccn(x)) {
     tibble::tibble(vctrs::vec_data(as_ccnr(x)))
+  } else {
+    tibble::tibble(vctrs::vec_data(as_ccnr(as_ccn(x))))
   }
 
   collapse::settfmv(x, collapse::gv(x, "number", return = 3L), as.integer)
@@ -145,9 +164,9 @@ decode_ccnr <- function(x) {
   x[["facility"]] <- vctrs::vec_init(character(), vctrs::vec_size(x))
 
   i <- purrr::imap(
-    rlang::set_names(collapse::funique(x[["form"]])),
+    rlang::set_names(collapse::funique(x[["entity"]])),
     function(n, i) {
-      purrr::pluck(x, "form") %==% n
+      purrr::pluck(x, "entity") %==% n
     }
   )
 
@@ -212,6 +231,6 @@ decode_ccnr <- function(x) {
 
   collapse::gv(
     x,
-    c("ccn", "form", "state", "facility", "parent", "ext", "number", "type")
+    c("ccn", "entity", "state", "facility", "parent", "ext", "number", "type")
   )
 }

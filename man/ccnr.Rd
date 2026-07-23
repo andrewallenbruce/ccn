@@ -10,7 +10,7 @@
 \usage{
 ccnr(
   ccn = character(),
-  form = character(),
+  entity = character(),
   state = character(),
   number = character(),
   type = character(),
@@ -20,7 +20,7 @@ ccnr(
 
 new_ccnr(
   ccn = character(),
-  form = character(),
+  entity = character(),
   state = character(),
   number = character(),
   type = character(),
@@ -37,7 +37,7 @@ decode_ccnr(x)
 \arguments{
 \item{ccn}{a vector}
 
-\item{form}{a vector}
+\item{entity}{a vector}
 
 \item{state}{Passed on to methods}
 
@@ -58,5 +58,22 @@ An S3 vector of class \verb{<ccnr>}
 Construct a \code{ccnr} object
 }
 \examples{
-decode_ccnr(c(get_pin("ccn"), "01J008"))
+x <- get_pin("ccn")
+
+tibble::tibble(
+  x = x,
+  ccn = as_ccn(x),
+  ccnr = as_ccnr(ccn))
+
+y <- decode_ccnr(x) |>
+  collapse::roworderv(c("entity", "state", "facility", "number")) |>
+  collapse::rsplit(~entity)
+
+tibble::tibble(
+  parent0 = y$Unit$parent,
+  parent1 = as_ccn(parent0),
+  parent2 = as_ccnr(parent0)
+)
+
+y
 }
