@@ -22,3 +22,7 @@ delete_pins <- function(pin_names) {
 
   pins::pin_delete(board, names = pin_names)
 }
+
+
+delete_pins(c("avg_mpg", "my_conn"))
+ccn:::list_pins()
