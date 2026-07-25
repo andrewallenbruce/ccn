@@ -1,5 +1,5 @@
 #' @description
-#' An [S7 class](https://github.com/RConsortium/S7/) representing a
+#' A [vctrs](https://github.com/r-lib/vctrs) class representing a
 #' __CMS Certification Number__, a uniform way of identifying Providers or
 #' Suppliers who have participated in the Medicare or Medicaid programs.
 #'
@@ -15,8 +15,5 @@
 #' @import vctrs
 #' @import rlang
 #' @importFrom collapse %!iin% %iin% %==% %=% .c
-#' @import S7
-#' @importFrom data.table %chin% %inrange% %between% %notin%
-#' @rawNamespace if (getRversion() < "4.3.0") importFrom("S7", "@")
 ## usethis namespace: end
 NULL

@@ -1,35 +1,4 @@
 #' @noRd
-clean_ccn <- function(x) {
-  remove_any_spaces(remove_non_alnums(toupper(x)))
-}
-
-#' @noRd
-nchar_ccn <- function(x) {
-  (nchar(x) - 6L) * (14L - nchar(x)) >= 0L
-}
-
-#' @noRd
-nchar_provider <- function(x) {
-  nchar(x) == 6L
-}
-
-#' @noRd
-nchar_provext <- function(x) {
-  (nchar(x) - 7L) * (9L - nchar(x)) >= 0L
-}
-
-#' @noRd
-nchar_supplier <- function(x) {
-  nchar(x) == 10L
-}
-
-#' @noRd
-nchar_suppext <- function(x) {
-  (nchar(x) - 11L) * (14L - nchar(x)) >= 0L
-}
-
-# TYPES
-#' @noRd
 type_care <- function(x) {
   is_numeric(substring(x, 3L, 6L))
 }

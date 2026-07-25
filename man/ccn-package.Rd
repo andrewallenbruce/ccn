@@ -5,7 +5,7 @@
 \alias{ccn-package}
 \title{ccn: CMS Certification Numbers}
 \description{
-An \href{https://github.com/RConsortium/S7/}{S7 class} representing a
+A \href{https://github.com/r-lib/vctrs}{vctrs} class representing a
 \strong{CMS Certification Number}, a uniform way of identifying Providers or
 Suppliers who have participated in the Medicare or Medicaid programs.
 
