@@ -31,87 +31,21 @@ S7 object of class `<Unit>`.
 
 ``` r
 medicare("210101")
-#> <ccn::Medicare>
-#>  @ ccn      : chr "210101"
-#>  @ state    : <ccn::State>
-#>  .. @ abbr  : chr "MD"
-#>  .. @ name  : chr "Maryland"
-#>  .. @ region: chr "III"
-#>  .. @ office: chr "Philadelphia"
-#>  @ range    : <ccn::RangeMCR>
-#>  .. @ series: chr "0001-0879"
-#>  .. @ abbr  : chr "Acute"
-#>  .. @ desc  : chr "Short-Term Hospital (General & Specialty)"
-#>  .. @ eipps : logi FALSE
-#>  @ extension: chr NA
+#> Warning: Unknown or uninitialised column: `name`.
+#> Error in kit::vswitch(x = x, values = v, outputs = o, default = NA_character_,     nThread = 4L, ...): Length of 'values' and 'outputs' are different. Please make sure they are the same.
 unit("21T101")
-#> <ccn::Unit>
-#>  @ ccn   : chr "21T101"
-#>  @ state : <ccn::State>
-#>  .. @ abbr  : chr "MD"
-#>  .. @ name  : chr "Maryland"
-#>  .. @ region: chr "III"
-#>  .. @ office: chr "Philadelphia"
-#>  @ range : chr "001-999"
-#>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "Rehab"
-#>  .. @ desc : chr "Rehabilitation Unit"
-#>  .. @ eipps: logi TRUE
-#>  @ parent: chr "21 101"
+#> Warning: Unknown or uninitialised column: `name`.
+#> Error in kit::vswitch(x = x, values = v, outputs = o, default = NA_character_,     nThread = 4L, ...): Length of 'values' and 'outputs' are different. Please make sure they are the same.
 unit("21S101")
-#> <ccn::Unit>
-#>  @ ccn   : chr "21S101"
-#>  @ state : <ccn::State>
-#>  .. @ abbr  : chr "MD"
-#>  .. @ name  : chr "Maryland"
-#>  .. @ region: chr "III"
-#>  .. @ office: chr "Philadelphia"
-#>  @ range : chr "001-999"
-#>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "Psych"
-#>  .. @ desc : chr "Psychiatric Unit"
-#>  .. @ eipps: logi TRUE
-#>  @ parent: chr "21 101"
+#> Warning: Unknown or uninitialised column: `name`.
+#> Error in kit::vswitch(x = x, values = v, outputs = o, default = NA_character_,     nThread = 4L, ...): Length of 'values' and 'outputs' are different. Please make sure they are the same.
 unit("21U101")
-#> <ccn::Unit>
-#>  @ ccn   : chr "21U101"
-#>  @ state : <ccn::State>
-#>  .. @ abbr  : chr "MD"
-#>  .. @ name  : chr "Maryland"
-#>  .. @ region: chr "III"
-#>  .. @ office: chr "Philadelphia"
-#>  @ range : chr "001-999"
-#>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "Swing (Acute)"
-#>  .. @ desc : chr "Swing-Bed Approval (Acute)"
-#>  .. @ eipps: logi FALSE
-#>  @ parent: chr "210101"
+#> Warning: Unknown or uninitialised column: `name`.
+#> Error in kit::vswitch(x = x, values = v, outputs = o, default = NA_character_,     nThread = 4L, ...): Length of 'values' and 'outputs' are different. Please make sure they are the same.
 unit("28Z348")
-#> <ccn::Unit>
-#>  @ ccn   : chr "28Z348"
-#>  @ state : <ccn::State>
-#>  .. @ abbr  : chr "NE"
-#>  .. @ name  : chr "Nebraska"
-#>  .. @ region: chr "VII"
-#>  .. @ office: chr "Kansas City"
-#>  @ range : chr "001-999"
-#>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "Swing (CAH)"
-#>  .. @ desc : chr "Swing-Bed Approval (CAH)"
-#>  .. @ eipps: logi FALSE
-#>  @ parent: chr "281348"
+#> Warning: Unknown or uninitialised column: `name`.
+#> Error in kit::vswitch(x = x, values = v, outputs = o, default = NA_character_,     nThread = 4L, ...): Length of 'values' and 'outputs' are different. Please make sure they are the same.
 medicare("281348")
-#> <ccn::Medicare>
-#>  @ ccn      : chr "281348"
-#>  @ state    : <ccn::State>
-#>  .. @ abbr  : chr "NE"
-#>  .. @ name  : chr "Nebraska"
-#>  .. @ region: chr "VII"
-#>  .. @ office: chr "Kansas City"
-#>  @ range    : <ccn::RangeMCR>
-#>  .. @ series: chr "1300-1399"
-#>  .. @ abbr  : chr "CAH"
-#>  .. @ desc  : chr "Critical Access Hospital"
-#>  .. @ eipps : logi FALSE
-#>  @ extension: chr NA
+#> Warning: Unknown or uninitialised column: `name`.
+#> Error in kit::vswitch(x = x, values = v, outputs = o, default = NA_character_,     nThread = 4L, ...): Length of 'values' and 'outputs' are different. Please make sure they are the same.
 ```

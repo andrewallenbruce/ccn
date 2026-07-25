@@ -41,39 +41,12 @@ sequence without regard to the Federal or non-Federal status.
 
 ``` r
 emergency("21034E")
-#> <ccn::Emergency>
-#>  @ ccn  : chr "21034E"
-#>  @ state: <ccn::State>
-#>  .. @ abbr  : chr "MD"
-#>  .. @ name  : chr "Maryland"
-#>  .. @ region: chr "III"
-#>  .. @ office: chr "Philadelphia"
-#>  @ range: chr "001-999"
-#>  @ type : <ccn::Type>
-#>  .. @ abbr: chr "NF"
-#>  .. @ desc: chr "Non-Federal"
+#> Warning: Unknown or uninitialised column: `name`.
+#> Error in kit::vswitch(x = x, values = v, outputs = o, default = NA_character_,     nThread = 4L, ...): Length of 'values' and 'outputs' are different. Please make sure they are the same.
 emergency("12345F")
-#> <ccn::Emergency>
-#>  @ ccn  : chr "12345F"
-#>  @ state: <ccn::State>
-#>  .. @ abbr  : chr "HI"
-#>  .. @ name  : chr "Hawaii"
-#>  .. @ region: chr "IX"
-#>  .. @ office: chr "San Francisco"
-#>  @ range: chr "001-999"
-#>  @ type : <ccn::Type>
-#>  .. @ abbr: chr "F"
-#>  .. @ desc: chr "Federal"
+#> Warning: Unknown or uninitialised column: `name`.
+#> Error in kit::vswitch(x = x, values = v, outputs = o, default = NA_character_,     nThread = 4L, ...): Length of 'values' and 'outputs' are different. Please make sure they are the same.
 emergency("11038F") # USAF Hospital (Moody)
-#> <ccn::Emergency>
-#>  @ ccn  : chr "11038F"
-#>  @ state: <ccn::State>
-#>  .. @ abbr  : chr "GA"
-#>  .. @ name  : chr "Georgia"
-#>  .. @ region: chr "IV"
-#>  .. @ office: chr "Atlanta"
-#>  @ range: chr "001-999"
-#>  @ type : <ccn::Type>
-#>  .. @ abbr: chr "F"
-#>  .. @ desc: chr "Federal"
+#> Warning: Unknown or uninitialised column: `name`.
+#> Error in kit::vswitch(x = x, values = v, outputs = o, default = NA_character_,     nThread = 4L, ...): Length of 'values' and 'outputs' are different. Please make sure they are the same.
 ```

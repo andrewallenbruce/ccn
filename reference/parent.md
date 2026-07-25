@@ -28,45 +28,12 @@ S7 object of class `Medicare`.
 parent("21AE26")
 #> ✖ 21AE26 (a <medicaid> object) has no <parent> unit.
 parent("21SE26")
-#> <ccn::Medicare>
-#>  @ ccn      : chr "213326"
-#>  @ state    : <ccn::State>
-#>  .. @ abbr  : chr "MD"
-#>  .. @ name  : chr "Maryland"
-#>  .. @ region: chr "III"
-#>  .. @ office: chr "Philadelphia"
-#>  @ range    : <ccn::RangeMCR>
-#>  .. @ series: chr "3300-3399"
-#>  .. @ abbr  : chr "Child [EIPPS]"
-#>  .. @ desc  : chr "Children's Hospital [IPPS-Excluded]"
-#>  .. @ eipps : logi TRUE
-#>  @ extension: chr NA
+#> Warning: Unknown or uninitialised column: `name`.
+#> Error in kit::vswitch(x = x, values = v, outputs = o, default = NA_character_,     nThread = 4L, ...): Length of 'values' and 'outputs' are different. Please make sure they are the same.
 parent("21SB26")
-#> <ccn::Medicare>
-#>  @ ccn      : chr "212126"
-#>  @ state    : <ccn::State>
-#>  .. @ abbr  : chr "MD"
-#>  .. @ name  : chr "Maryland"
-#>  .. @ region: chr "III"
-#>  .. @ office: chr "Philadelphia"
-#>  @ range    : <ccn::RangeMCR>
-#>  .. @ series: chr "2000-2299"
-#>  .. @ abbr  : chr "LTCH [EIPPS]"
-#>  .. @ desc  : chr "Long-Term Care Hospital [IPPS-Excluded]"
-#>  .. @ eipps : logi TRUE
-#>  @ extension: chr NA
+#> Warning: Unknown or uninitialised column: `name`.
+#> Error in kit::vswitch(x = x, values = v, outputs = o, default = NA_character_,     nThread = 4L, ...): Length of 'values' and 'outputs' are different. Please make sure they are the same.
 parent("21SD26")
-#> <ccn::Medicare>
-#>  @ ccn      : chr "213026"
-#>  @ state    : <ccn::State>
-#>  .. @ abbr  : chr "MD"
-#>  .. @ name  : chr "Maryland"
-#>  .. @ region: chr "III"
-#>  .. @ office: chr "Philadelphia"
-#>  @ range    : <ccn::RangeMCR>
-#>  .. @ series: chr "3025-3099"
-#>  .. @ abbr  : chr "IRF [EIPPS]"
-#>  .. @ desc  : chr "Rehabilitation Hospital [IPPS-Excluded]"
-#>  .. @ eipps : logi TRUE
-#>  @ extension: chr NA
+#> Warning: Unknown or uninitialised column: `name`.
+#> Error in kit::vswitch(x = x, values = v, outputs = o, default = NA_character_,     nThread = 4L, ...): Length of 'values' and 'outputs' are different. Please make sure they are the same.
 ```

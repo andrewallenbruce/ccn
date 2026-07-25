@@ -22,68 +22,18 @@ S7 object of class `<Subunit>`.
 
 ``` r
 subunit("21SA26")
-#> <ccn::Subunit>
-#>  @ ccn   : chr "21SA26"
-#>  @ state : <ccn::State>
-#>  .. @ abbr  : chr "MD"
-#>  .. @ name  : chr "Maryland"
-#>  .. @ region: chr "III"
-#>  .. @ office: chr "Philadelphia"
-#>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "Psych"
-#>  .. @ desc : chr "Psychiatric Unit"
-#>  .. @ eipps: logi TRUE
-#>  @ parent: chr "212026"
+#> Warning: Unknown or uninitialised column: `name`.
+#> Error in kit::vswitch(x = x, values = v, outputs = o, default = NA_character_,     nThread = 4L, ...): Length of 'values' and 'outputs' are different. Please make sure they are the same.
 subunit("21TA26")
-#> <ccn::Subunit>
-#>  @ ccn   : chr "21TA26"
-#>  @ state : <ccn::State>
-#>  .. @ abbr  : chr "MD"
-#>  .. @ name  : chr "Maryland"
-#>  .. @ region: chr "III"
-#>  .. @ office: chr "Philadelphia"
-#>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "Rehab"
-#>  .. @ desc : chr "Rehabilitation Unit"
-#>  .. @ eipps: logi TRUE
-#>  @ parent: chr "212026"
+#> Warning: Unknown or uninitialised column: `name`.
+#> Error in kit::vswitch(x = x, values = v, outputs = o, default = NA_character_,     nThread = 4L, ...): Length of 'values' and 'outputs' are different. Please make sure they are the same.
 subunit("02TA01")
-#> <ccn::Subunit>
-#>  @ ccn   : chr "02TA01"
-#>  @ state : <ccn::State>
-#>  .. @ abbr  : chr "AK"
-#>  .. @ name  : chr "Alaska"
-#>  .. @ region: chr "X"
-#>  .. @ office: chr "Seattle"
-#>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "Rehab"
-#>  .. @ desc : chr "Rehabilitation Unit"
-#>  .. @ eipps: logi TRUE
-#>  @ parent: chr "022001"
+#> Warning: Unknown or uninitialised column: `name`.
+#> Error in kit::vswitch(x = x, values = v, outputs = o, default = NA_character_,     nThread = 4L, ...): Length of 'values' and 'outputs' are different. Please make sure they are the same.
 subunit("04SD38")
-#> <ccn::Subunit>
-#>  @ ccn   : chr "04SD38"
-#>  @ state : <ccn::State>
-#>  .. @ abbr  : chr "AR"
-#>  .. @ name  : chr "Arkansas"
-#>  .. @ region: chr "VI"
-#>  .. @ office: chr "Dallas"
-#>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "Psych"
-#>  .. @ desc : chr "Psychiatric Unit"
-#>  .. @ eipps: logi TRUE
-#>  @ parent: chr "043038"
+#> Warning: Unknown or uninitialised column: `name`.
+#> Error in kit::vswitch(x = x, values = v, outputs = o, default = NA_character_,     nThread = 4L, ...): Length of 'values' and 'outputs' are different. Please make sure they are the same.
 subunit("52TA05")
-#> <ccn::Subunit>
-#>  @ ccn   : chr "52TA05"
-#>  @ state : <ccn::State>
-#>  .. @ abbr  : chr "WI"
-#>  .. @ name  : chr "Wisconsin"
-#>  .. @ region: chr "V"
-#>  .. @ office: chr "Chicago"
-#>  @ type  : <ccn::TypeUnit>
-#>  .. @ abbr : chr "Rehab"
-#>  .. @ desc : chr "Rehabilitation Unit"
-#>  .. @ eipps: logi TRUE
-#>  @ parent: chr "522005"
+#> Warning: Unknown or uninitialised column: `name`.
+#> Error in kit::vswitch(x = x, values = v, outputs = o, default = NA_character_,     nThread = 4L, ...): Length of 'values' and 'outputs' are different. Please make sure they are the same.
 ```

@@ -525,3 +525,8 @@
 
 - “form” -\> “entity”
 - corrected abbreviations lettercase
+
+## ccn 0.0.0.9119 (2026-07-25)
+
+- clean up
+- `index_types` -\> `index_ccn_types`

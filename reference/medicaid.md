@@ -35,81 +35,21 @@ Positions four, five and six represent a sequence beginning with `001`.
 
 ``` r
 medicaid("01L008")
-#> <ccn::Medicaid>
-#>  @ ccn  : chr "01L008"
-#>  @ state: <ccn::State>
-#>  .. @ abbr  : chr "AL"
-#>  .. @ name  : chr "Alabama"
-#>  .. @ region: chr "IV"
-#>  .. @ office: chr "Atlanta"
-#>  @ range: chr "001-999"
-#>  @ type : <ccn::TypeMOF>
-#>  .. @ abbr: chr "PRTF"
-#>  .. @ desc: chr "Psychiatric Residential Treatment Facility"
+#> Warning: Unknown or uninitialised column: `name`.
+#> Error in kit::vswitch(x = x, values = v, outputs = o, default = NA_character_,     nThread = 4L, ...): Length of 'values' and 'outputs' are different. Please make sure they are the same.
 medicaid("22B201")
-#> <ccn::Medicaid>
-#>  @ ccn  : chr "22B201"
-#>  @ state: <ccn::State>
-#>  .. @ abbr  : chr "MA"
-#>  .. @ name  : chr "Massachusetts"
-#>  .. @ region: chr "I"
-#>  .. @ office: chr "Boston"
-#>  @ range: chr "001-999"
-#>  @ type : <ccn::TypeMOF>
-#>  .. @ abbr: chr "SNF-NF"
-#>  .. @ desc: chr "Skilled Nursing Facility"
+#> Warning: Unknown or uninitialised column: `name`.
+#> Error in kit::vswitch(x = x, values = v, outputs = o, default = NA_character_,     nThread = 4L, ...): Length of 'values' and 'outputs' are different. Please make sure they are the same.
 medicaid("23E301")
-#> <ccn::Medicaid>
-#>  @ ccn  : chr "23E301"
-#>  @ state: <ccn::State>
-#>  .. @ abbr  : chr "MI"
-#>  .. @ name  : chr "Michigan"
-#>  .. @ region: chr "V"
-#>  .. @ office: chr "Chicago"
-#>  @ range: chr "001-999"
-#>  @ type : <ccn::TypeMOF>
-#>  .. @ abbr: chr "SNF-NF"
-#>  .. @ desc: chr "Skilled Nursing Facility"
+#> Warning: Unknown or uninitialised column: `name`.
+#> Error in kit::vswitch(x = x, values = v, outputs = o, default = NA_character_,     nThread = 4L, ...): Length of 'values' and 'outputs' are different. Please make sure they are the same.
 medicaid("34F401")
-#> <ccn::Medicaid>
-#>  @ ccn  : chr "34F401"
-#>  @ state: <ccn::State>
-#>  .. @ abbr  : chr "NC"
-#>  .. @ name  : chr "North Carolina"
-#>  .. @ region: chr "IV"
-#>  .. @ office: chr "Atlanta"
-#>  @ range: chr "001-999"
-#>  @ type : <ccn::TypeMOF>
-#>  .. @ abbr: chr "SNF-NF"
-#>  .. @ desc: chr "Skilled Nursing Facility"
+#> Warning: Unknown or uninitialised column: `name`.
+#> Error in kit::vswitch(x = x, values = v, outputs = o, default = NA_character_,     nThread = 4L, ...): Length of 'values' and 'outputs' are different. Please make sure they are the same.
 medicaid("01J008")
-#> <ccn::Medicaid>
-#>  @ ccn  : chr "01J008"
-#>  @ state: <ccn::State>
-#>  .. @ abbr  : chr "AL"
-#>  .. @ name  : chr "Alabama"
-#>  .. @ region: chr "IV"
-#>  .. @ office: chr "Atlanta"
-#>  @ range: <ccn::RangeMOH>
-#>  .. @ series: chr "001-099"
-#>  .. @ abbr  : chr "Acute"
-#>  .. @ desc  : chr "Short-Term Acute Care Hospital"
-#>  @ type : <ccn::TypeMOF>
-#>  .. @ abbr: chr "MOH"
-#>  .. @ desc: chr "Medicaid-Only Hospital"
+#> Warning: Unknown or uninitialised column: `name`.
+#> Error in kit::vswitch(x = x, values = v, outputs = o, default = NA_character_,     nThread = 4L, ...): Length of 'values' and 'outputs' are different. Please make sure they are the same.
 medicaid("A5J508")
-#> <ccn::Medicaid>
-#>  @ ccn  : chr "A5J508"
-#>  @ state: <ccn::State>
-#>  .. @ abbr  : chr "MS"
-#>  .. @ name  : chr "Mississippi"
-#>  .. @ region: chr "IV"
-#>  .. @ office: chr "Atlanta"
-#>  @ range: <ccn::RangeMOH>
-#>  .. @ series: chr "500-599"
-#>  .. @ abbr  : chr "LTCH"
-#>  .. @ desc  : chr "Long-Term Hospital"
-#>  @ type : <ccn::TypeMOF>
-#>  .. @ abbr: chr "MOH"
-#>  .. @ desc: chr "Medicaid-Only Hospital"
+#> Warning: Unknown or uninitialised column: `name`.
+#> Error in kit::vswitch(x = x, values = v, outputs = o, default = NA_character_,     nThread = 4L, ...): Length of 'values' and 'outputs' are different. Please make sure they are the same.
 ```

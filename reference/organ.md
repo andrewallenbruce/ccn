@@ -25,15 +25,6 @@ S7 object of class `<Organ>`.
 
 ``` r
 organ("05P001")
-#> <ccn::Organ>
-#>  @ ccn  : chr "05P001"
-#>  @ state: <ccn::State>
-#>  .. @ abbr  : chr "CA"
-#>  .. @ name  : chr "California"
-#>  .. @ region: chr "IX"
-#>  .. @ office: chr "San Francisco"
-#>  @ range: chr "001-099"
-#>  @ type : <ccn::Type>
-#>  .. @ abbr: chr "OPO"
-#>  .. @ desc: chr "Organ Procurement Organization"
+#> Warning: Unknown or uninitialised column: `name`.
+#> Error in kit::vswitch(x = x, values = v, outputs = o, default = NA_character_,     nThread = 4L, ...): Length of 'values' and 'outputs' are different. Please make sure they are the same.
 ```

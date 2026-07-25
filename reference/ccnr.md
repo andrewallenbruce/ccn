@@ -123,16 +123,16 @@ y
 #> # A tibble: 166 × 7
 #>    ccn    state facility parent ext   number type 
 #>    <chr>  <chr> <chr>    <chr>  <chr>  <int> <chr>
-#>  1 02013F AK    FED      NA     NA        13 F    
-#>  2 02014F AK    FED      NA     NA        14 F    
-#>  3 01014F AL    FED      NA     NA        14 F    
-#>  4 01019F AL    FED      NA     NA        19 F    
-#>  5 01021F AL    FED      NA     NA        21 F    
-#>  6 04009F AR    FED      NA     NA         9 F    
-#>  7 04010F AR    FED      NA     NA        10 F    
-#>  8 03012F AZ    FED      NA     NA        12 F    
-#>  9 03013F AZ    FED      NA     NA        13 F    
-#> 10 03033F AZ    FED      NA     NA        33 F    
+#>  1 02013F AK    ERH-F    NA     NA        13 F    
+#>  2 02014F AK    ERH-F    NA     NA        14 F    
+#>  3 01014F AL    ERH-F    NA     NA        14 F    
+#>  4 01019F AL    ERH-F    NA     NA        19 F    
+#>  5 01021F AL    ERH-F    NA     NA        21 F    
+#>  6 04009F AR    ERH-F    NA     NA         9 F    
+#>  7 04010F AR    ERH-F    NA     NA        10 F    
+#>  8 03012F AZ    ERH-F    NA     NA        12 F    
+#>  9 03013F AZ    ERH-F    NA     NA        13 F    
+#> 10 03033F AZ    ERH-F    NA     NA        33 F    
 #> # ℹ 156 more rows
 #> 
 #> $Medicaid
