@@ -91,9 +91,7 @@
 - standard `is_*` prefix added to logical predicates
 - `OPOSequence` -\> `OpoSequence` & `OPOType` -\> `OpoType`, standard
   CamelCase convention for class names
-- initial base
-  [`parse()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
-  sketch
+- initial base [`parse()`](https://rdrr.io/r/base/parse.html) sketch
 
 ## ccn 0.0.0.9021 (2025-11-20)
 
@@ -161,14 +159,13 @@
 
 ## ccn 0.0.0.9035 (2025-11-30)
 
-- work on
-  [`parse()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
+- work on [`parse()`](https://rdrr.io/r/base/parse.html)
   ([\#3](https://github.com/andrewallenbruce/ccn/issues/3))
 
 ## ccn 0.0.0.9036 (2025-11-30)
 
-- [`parse()`](https://andrewallenbruce.github.io/ccn/reference/parse.md)
-  development ([\#3](https://github.com/andrewallenbruce/ccn/issues/3))
+- [`parse()`](https://rdrr.io/r/base/parse.html) development
+  ([\#3](https://github.com/andrewallenbruce/ccn/issues/3))
 
 ## ccn 0.0.0.9037 (2025-12-01)
 
@@ -212,14 +209,11 @@
 
 ## ccn 0.0.0.9046 (2025-12-06)
 
-- fixed bug in
-  [`medicaid()`](https://andrewallenbruce.github.io/ccn/reference/medicaid.md)
+- fixed bug in `medicaid()`
 
 ## ccn 0.0.0.9047 (2025-12-07)
 
-- fix: another
-  [`medicaid()`](https://andrewallenbruce.github.io/ccn/reference/medicaid.md)
-  bug
+- fix: another `medicaid()` bug
 
 ## ccn 0.0.0.9048 (2025-12-07)
 
@@ -322,9 +316,7 @@
 
 ## ccn 0.0.0.9072 (2025-12-15)
 
-- fix:
-  [`decode()`](https://andrewallenbruce.github.io/ccn/reference/decode.md)
-  handles parsed or unparsed input now
+- fix: `decode()` handles parsed or unparsed input now
 
 ## ccn 0.0.0.9073 (2025-12-15)
 
@@ -530,3 +522,7 @@
 
 - clean up
 - `index_types` -\> `index_ccn_types`
+
+## ccn 0.0.0.9120 (2026-07-25)
+
+- vctrs only implementation

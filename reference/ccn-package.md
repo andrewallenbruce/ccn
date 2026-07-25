@@ -1,6 +1,6 @@
 # ccn: CMS Certification Numbers
 
-An [S7 class](https://github.com/RConsortium/S7/) representing a **CMS
+A [vctrs](https://github.com/r-lib/vctrs) class representing a **CMS
 Certification Number**, a uniform way of identifying Providers or
 Suppliers who have participated in the Medicare or Medicaid programs.
 
