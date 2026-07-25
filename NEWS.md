@@ -1,5 +1,11 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9119 (2026-07-25)
+
+* clean up
+* `index_types` -> `index_ccn_types`
+
+
 # ccn 0.0.0.9118 (2026-07-23)
 
 * "form" -> "entity"
