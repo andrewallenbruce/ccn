@@ -1,5 +1,5 @@
 states <- tibble::tribble(
-  ~code , ~abbr , ~name                  ,
+  ~code , ~abbr , ~full                  ,
   "00"  , "AZ"  , "Arizona"              ,
   "01"  , "AL"  , "Alabama"              ,
   "02"  , "AK"  , "Alaska"               ,

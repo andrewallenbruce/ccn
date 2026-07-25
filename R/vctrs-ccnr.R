@@ -135,16 +135,16 @@ as_ccnr <- function(x) {
   i <- index_ccn_types(x)
 
   vctrs::vec_c(
-    has_ccnr(x, i, "care", ccnr_care),
-    has_ccnr(x, i, "caid", ccnr_caid),
-    has_ccnr(x, i, "unit", ccnr_unit),
-    has_ccnr(x, i, "sub", ccnr_sub),
-    has_ccnr(x, i, "opo", ccnr_opo),
-    has_ccnr(x, i, "erh", ccnr_erh),
-    has_ccnr(x, i, "supp", ccnr_supp),
-    has_ccnr(x, i, "ext_care", ccnr_care, TRUE),
-    has_ccnr(x, i, "ext_caid", ccnr_caid, TRUE),
-    has_ccnr(x, i, "ext_unit", ccnr_unit, TRUE),
+    has_ccnr(x, i, "care", ccnr_Medicare),
+    has_ccnr(x, i, "caid", ccnr_Medicaid),
+    has_ccnr(x, i, "unit", ccnr_Unit),
+    has_ccnr(x, i, "sub", ccnr_Subunit),
+    has_ccnr(x, i, "opo", ccnr_Organ),
+    has_ccnr(x, i, "erh", ccnr_Emergency),
+    has_ccnr(x, i, "supp", ccnr_Supplier),
+    has_ccnr(x, i, "ext_care", ccnr_Medicare, TRUE),
+    has_ccnr(x, i, "ext_caid", ccnr_Medicaid, TRUE),
+    has_ccnr(x, i, "ext_unit", ccnr_Unit, TRUE),
   )
 }
 

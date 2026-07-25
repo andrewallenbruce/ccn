@@ -15,7 +15,7 @@ str_ccn <- function(x, ext) {
 
 # Medicare: 670055 => 67 0055
 #' @noRd
-ccnr_care <- function(x, ext = FALSE) {
+ccnr_Medicare <- function(x, ext = FALSE) {
   ccnr(
     ccn = str_ccn(x, ext),
     entity = "Medicare",
@@ -30,7 +30,7 @@ ccnr_care <- function(x, ext = FALSE) {
 # Medicaid: 01L008 => 01 L 008
 # Hospital: 01J008 => 01 J 008
 #' @noRd
-ccnr_caid <- function(x, ext = FALSE) {
+ccnr_Medicaid <- function(x, ext = FALSE) {
   ccnr(
     ccn = str_ccn(x, ext),
     entity = "Medicaid",
@@ -44,7 +44,7 @@ ccnr_caid <- function(x, ext = FALSE) {
 
 # Emergency: 12345E => 12 345 E
 #' @noRd
-ccnr_erh <- function(x, ext = FALSE) {
+ccnr_Emergency <- function(x, ext = FALSE) {
   ccnr(
     ccn = x,
     entity = "Emergency",
@@ -58,7 +58,7 @@ ccnr_erh <- function(x, ext = FALSE) {
 
 # Organ: 05P001 => 05 P 001
 #' @noRd
-ccnr_opo <- function(x, ext = FALSE) {
+ccnr_Organ <- function(x, ext = FALSE) {
   ccnr(
     ccn = x,
     entity = "Organ",
@@ -72,7 +72,7 @@ ccnr_opo <- function(x, ext = FALSE) {
 
 # Hospital Unit: 21T101 => 21 T 101
 #' @noRd
-ccnr_unit <- function(x, ext = FALSE) {
+ccnr_Unit <- function(x, ext = FALSE) {
   ccnr(
     ccn = str_ccn(x, ext),
     entity = "Unit",
@@ -86,7 +86,7 @@ ccnr_unit <- function(x, ext = FALSE) {
 
 # Hospital Subunit: 02TA01 => 02 T A 01
 #' @noRd
-ccnr_sub <- function(x, ext = FALSE) {
+ccnr_Subunit <- function(x, ext = FALSE) {
   ccnr(
     ccn = x,
     entity = "Subunit",
@@ -100,7 +100,7 @@ ccnr_sub <- function(x, ext = FALSE) {
 
 # Supplier: 10C0001062 => 10 C 0001062
 #' @noRd
-ccnr_supp <- function(x, ext = FALSE) {
+ccnr_Supplier <- function(x, ext = FALSE) {
   ccnr(
     ccn = x,
     entity = "Supplier",

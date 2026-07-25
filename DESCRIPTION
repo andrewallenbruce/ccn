@@ -61,5 +61,6 @@ Collate:
     'vctrs-decode.R'
     'vctrs-infer.R'
     'vctrs-parse.R'
+    'vctrs-recode.R'
     'vctrs-types.R'
     'zzz.R'
