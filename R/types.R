@@ -39,18 +39,18 @@ type_supplier <- function(x) {
 }
 
 #' @noRd
-type_moh__ <- function(x) {
+is_type_moh <- function(x) {
   substr_(x, 3L) == "J"
 }
 
 #' @noRd
-eipps_type__ <- function(x) {
-  x %in% c("M", "R", "S", "T", "V")
+is_eipps_type <- function(x) {
+  vctrs::vec_in(x, ccn::eipps_types$code)
 }
 
 #' @noRd
-eipps_range__ <- function(x) {
-  x %in% ccn::eipps_ranges$range
+is_eipps_range <- function(x) {
+  ivs::iv_between(x, ccn::eipps_ranges$iv)
 }
 
 #' @noRd

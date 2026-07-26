@@ -9,7 +9,7 @@ nchar_provider <- function(x) {
 }
 
 #' @noRd
-nchar_provext <- function(x) {
+nchar_provider_ext <- function(x) {
   (nchar(x) - 7L) * (9L - nchar(x)) >= 0L
 }
 
@@ -19,6 +19,6 @@ nchar_supplier <- function(x) {
 }
 
 #' @noRd
-nchar_suppext <- function(x) {
+nchar_supplier_ext <- function(x) {
   (nchar(x) - 11L) * (14L - nchar(x)) >= 0L
 }

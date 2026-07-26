@@ -7,15 +7,17 @@ eipps_ranges <- tibble::tribble(
   4000L  , 4499L , "4000-4499" , "Psych" , "Psychiatric Hospital"
 )
 
+eipps_ranges$iv <- ivs::iv(eipps_ranges$start, eipps_ranges$end + 1L)
+
 usethis::use_data(eipps_ranges, overwrite = TRUE)
 
 eipps_types <- tibble::tribble(
-  ~code , ~abbr       , ~desc                         ,
-  "M"   , "Psych-CAH" , "Psychiatric Unit [CAH]"      ,
-  "R"   , "IRU-CAH"   , "Rehabilitation Unit [CAH]"   ,
-  "S"   , "Psych"     , "Psychiatric Unit"            ,
-  "T"   , "IRU"       , "Rehabilitation Unit"         ,
-  "V"   , "ADU"       , "Alcohol-Drug Unit (Retired)"
+  ~code , ~abbr   , ~desc                         ,
+  "M"   , "Psych" , "Psychiatric Unit"            ,
+  "R"   , "Rehab" , "Rehabilitation Unit"         ,
+  "S"   , "Psych" , "Psychiatric Unit"            ,
+  "T"   , "Rehab" , "Rehabilitation Unit"         ,
+  "V"   , "ADH"   , "Alcohol-Drug Unit (Retired)"
 )
 
 usethis::use_data(eipps_types, overwrite = TRUE)

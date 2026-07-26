@@ -1,29 +1,39 @@
-# recode_state(c("00", "01", "A5", NA))
+#' Recode State Codes
+#' @param x `<chr>` vector
+#' @param as `<chr>` "abbr", "full"
+#' @examples
+#' recode_state(c("00", "01", "A5", NA))
+#' recode_state(c("00", "01", "A5", NA), "full")
 #' @noRd
 recode_state <- function(x, as = c("abbr", "full")) {
   vctrs::vec_recode_values(
     x,
-    from = vctrs::vec_c(ccn::states$code, NA_character_),
+    from = ccn::states$code,
     to = switch(
       rlang::arg_match(as),
-      abbr = vctrs::vec_c(ccn::states$abbr, NA_character_),
-      full = vctrs::vec_c(ccn::states$full, NA_character_)
+      abbr = ccn::states$abbr,
+      full = ccn::states$full
     )
   )
 }
 
-# recode_region(c("00", "01", "A5", NA))
+#' Recode Region Codes
+#' @param x `<chr>` vector
+#' @param as `<chr>` "number", "roman", "abbr", "full"
+#' @examples
+#' recode_region(c("00", "01", "A5", NA))
+#' recode_region(c("00", "01", "A5", NA), "full")
 #' @noRd
 recode_region <- function(x, as = c("number", "roman", "abbr", "full")) {
   vctrs::vec_recode_values(
     x,
-    from = vctrs::vec_c(ccn::regions$state, NA_character_),
+    from = ccn::regions$state,
     to = switch(
       rlang::arg_match(as),
-      number = vctrs::vec_c(ccn::regions$code, NA_character_),
-      roman = vctrs::vec_c(ccn::regions$roman, NA_character_),
-      abbr = vctrs::vec_c(ccn::regions$office_abbr, NA_character_),
-      full = vctrs::vec_c(ccn::regions$office_full, NA_character_)
+      number = ccn::regions$code,
+      roman = ccn::regions$roman,
+      abbr = ccn::regions$office_abbr,
+      full = ccn::regions$office_full
     )
   )
 }

@@ -204,28 +204,26 @@ decode_ccnr <- function(x) {
     vctrs::vec_slice(x, i[["Medicare"]])$facility <- xii
   }
 
+  if (rlang::has_name(i, "Unit")) {
+    xi <- vctrs::vec_slice(x, i[["Unit"]])
+    vctrs::vec_slice(x, i[["Unit"]])$facility <- recode_unit_type(xi[["type"]])
+
+    vctrs::vec_slice(x, i[["Unit"]])$parent <- paste0(
+      str_state(xi[["ccn"]]),
+      recode_unit_type(xi[["type"]], "infix"),
+      substring(xi[["ccn"]], 4L, 6L)
+    )
+  }
+
   if (rlang::has_name(i, "Subunit")) {
     xi <- vctrs::vec_slice(x, i[["Subunit"]])
-    xii <- recode_unit_type(xi[["type"]])
+    xii <- recode_unit_type(xi[["type"]]) # TODO
     vctrs::vec_slice(x, i[["Subunit"]])$facility <- xii
 
     x[i$Subunit, ]$parent <- paste0(
       str_state(x[i$Subunit, ]$ccn),
       recode_subunit_type(x[i$Subunit, ]$parent),
       substring(x[i$Subunit, ]$ccn, 5L, 6L)
-    )
-  }
-
-  if (rlang::has_name(i, "Unit")) {
-    xi <- vctrs::vec_slice(x, i[["Unit"]])
-    vctrs::vec_slice(x, i[["Unit"]])$facility <- recode_unit_type(xi[["type"]])
-
-    infix <- unit_type_infix(xi[["type"]])
-
-    vctrs::vec_slice(x, i[["Unit"]])$parent <- paste0(
-      str_state(xi[["ccn"]]),
-      infix,
-      substring(xi[["ccn"]], 4L, 6L)
     )
   }
 
