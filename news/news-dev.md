@@ -526,3 +526,7 @@
 ## ccn 0.0.0.9120 (2026-07-25)
 
 - vctrs only implementation
+
+## ccn 0.0.0.9121 (2026-07-26)
+
+- reorganizing, internal data changes
