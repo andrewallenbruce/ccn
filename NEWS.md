@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9121 (2026-07-26)
+
+* reorganizing, internal data changes
+
+
 # ccn 0.0.0.9120 (2026-07-25)
 
 * vctrs only implementation
