@@ -80,12 +80,12 @@ tibble::tibble(x = x, ccn = as_ccn(x))
 #> # ℹ 52,277 more rows
 index_ccn_types(x)
 #> <ccn_type_index[52287]>
-#>     supp :  5488
-#> ext_caid :     1
-#> ext_care :   158
-#> ext_unit :    14
-#>     care : 43195
-#>      erh :   166
-#>      sub :    49
-#>     unit :  3216
+#>     Supplier :  5488
+#> Medicaid_Ext :     1
+#> Medicare_Ext :   158
+#>     Unit_Ext :    14
+#>    Emergency :   166
+#>     Medicare : 43195
+#>      Subunit :    49
+#>         Unit :  3216
 ```
