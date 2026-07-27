@@ -117,16 +117,6 @@ has_ccnr <- function(x, index, key, .fn, ext = FALSE) {
   }
 }
 
-# has_idx(x, i, "Emergency", "type", "facility", recode_other_type)
-#' @noRd
-has_idx <- function(x, index, key, from, to, .fn) {
-  if (rlang::has_name(index, key)) {
-    i <- index[[key]]
-    x[[to]][i] <- .fn(x[[from]][i])
-  }
-  return(x)
-}
-
 #' @export
 #' @rdname ccnr
 as_ccnr <- function(x) {
@@ -158,6 +148,16 @@ as_ccnr <- function(x) {
 # if (rlang::has_name(i, "Organ")) {
 #   x[["facility"]][i[["Organ"]]] <- recode_other_type(x[["type"]][i[["Organ"]]])
 # }
+
+# has_idx(x, i, "Emergency", "type", "facility", recode_other_type)
+#' @noRd
+has_idx <- function(x, index, key, from, to, .fn) {
+  if (rlang::has_name(index, key)) {
+    i <- index[[key]]
+    x[[to]][i] <- .fn(x[[from]][i])
+  }
+  return(x)
+}
 
 # `x` must be a vector, not `NULL`.
 # decode_ccnr("")
@@ -195,24 +195,6 @@ decode_ccnr <- function(x) {
   x <- has_idx(x, i, "Emergency", "type", "facility", recode_other_type)
   x <- has_idx(x, i, "Supplier", "type", "facility", recode_other_type)
   x <- has_idx(x, i, "Organ", "type", "facility", recode_other_type)
-
-  # if (rlang::has_name(i, "Emergency")) {
-  #   x[["facility"]][i[["Emergency"]]] <- recode_other_type(x[["type"]][i[[
-  #     "Emergency"
-  #   ]]])
-  # }
-  #
-  # if (rlang::has_name(i, "Supplier")) {
-  #   x[["facility"]][i[["Supplier"]]] <- recode_other_type(x[["type"]][i[[
-  #     "Supplier"
-  #   ]]])
-  # }
-  #
-  # if (rlang::has_name(i, "Organ")) {
-  #   x[["facility"]][i[["Organ"]]] <- recode_other_type(x[["type"]][i[[
-  #     "Organ"
-  #   ]]])
-  # }
 
   if (rlang::has_name(i, "Medicaid")) {
     x[["facility"]][i[["Medicaid"]]] <- recode_medicaid_type(x[["type"]][i[[
