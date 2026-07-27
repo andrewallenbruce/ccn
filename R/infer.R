@@ -9,13 +9,13 @@ infer_ccn_type <- function(x) {
       vctrs::vec_detect_missing(x)
     ),
     values = list(
-      "prov",
-      "ext_prov",
-      "supp",
-      "ext_supp",
+      "Provider",
+      "Provider_Ext",
+      "Supplier",
+      "Supplier_Ext",
       NA_character_
     ),
-    default = "ccn"
+    default = "<UNKNOWN> Type"
   )
 }
 
@@ -23,24 +23,24 @@ infer_ccn_type <- function(x) {
 infer_provider_type <- function(x) {
   vctrs::vec_case_when(
     conditions = list(
-      type_care(x),
-      type_opo(x),
-      type_erh(x),
-      type_caid(x),
-      type_unit(x),
-      type_sub(x),
+      is_type_medicare(x),
+      is_type_organ(x),
+      is_type_emergency(x),
+      is_type_medicaid(x),
+      is_type_unit(x),
+      is_type_subunit(x),
       vctrs::vec_detect_missing(x)
     ),
     values = list(
-      "care",
-      "opo",
-      "erh",
-      "caid",
-      "unit",
-      "sub",
+      "Medicare",
+      "Organ",
+      "Emergency",
+      "Medicaid",
+      "Unit",
+      "Subunit",
       NA_character_
     ),
-    default = "prov"
+    default = "<UNKNOWN> Provider"
   )
 }
 
@@ -49,23 +49,23 @@ infer_provider_ext <- function(x) {
   x <- substring(x, 1L, 6L)
   vctrs::vec_case_when(
     conditions = list(
-      type_care(x),
-      type_opo(x),
-      type_erh(x),
-      type_caid(x),
-      type_unit(x),
-      type_sub(x),
+      is_type_medicare(x),
+      is_type_organ(x),
+      is_type_emergency(x),
+      is_type_medicaid(x),
+      is_type_unit(x),
+      is_type_subunit(x),
       vctrs::vec_detect_missing(x)
     ),
     values = list(
-      "ext_care",
-      "ext_opo",
-      "ext_erh",
-      "ext_caid",
-      "ext_unit",
-      "ext_sub",
+      "Medicare_Ext",
+      "Organ_Ext",
+      "Emergency_Ext",
+      "Medicaid_Ext",
+      "Unit_Ext",
+      "Subunit_Ext",
       NA_character_
     ),
-    default = "ext_prov"
+    default = "<UNKNOWN> Provider Ext>"
   )
 }

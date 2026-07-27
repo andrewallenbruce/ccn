@@ -1,59 +1,54 @@
 #' @noRd
-type_care <- function(x) {
+is_type_medicare <- function(x) {
   is_numeric(substring(x, 3L, 6L))
 }
 
 #' @noRd
-type_opo <- function(x) {
-  substr_(x, 3L) == "P"
+is_type_medicaid <- function(x) {
+  vctrs::vec_in(substr_(x, 3L), ccn::medicaid_types$code)
 }
 
 #' @noRd
-type_erh <- function(x) {
-  grepl("[EF]", substr_(x, 6L), perl = TRUE)
+is_type_medicaid_hospital <- function(x) {
+  vctrs::vec_equal(substr_(x, 3L), "J")
 }
 
 #' @noRd
-type_caid <- function(x) {
-  grepl("[ABEFGHJKL]", substr_(x, 3L), perl = TRUE)
+is_type_emergency <- function(x) {
+  vctrs::vec_in(substr_(x, 6L), c("E", "F"))
 }
 
 #' @noRd
-unit__ <- function(x) {
-  grepl("[MRSTUVWYZ]", substr_(x, 3L), perl = TRUE)
+is_type_organ <- function(x) {
+  vctrs::vec_equal(substr_(x, 3L), "P")
 }
 
 #' @noRd
-type_unit <- function(x) {
-  unit__(x) & is_numeric(substr_(x, 4L))
+is_type_supplier <- function(x) {
+  vctrs::vec_in(substr_(x, 3L), c("C", "D", "X"))
 }
 
 #' @noRd
-type_sub <- function(x) {
-  unit__(x) & grepl("[ABCDEFGHJK]", substr_(x, 4L), perl = TRUE)
+.is_unit <- function(x) {
+  vctrs::vec_in(substr_(x, 3L), ccn::unit_types$code)
 }
 
 #' @noRd
-type_supplier <- function(x) {
-  grepl("[CDX]", substr_(x, 3L), perl = TRUE)
+is_type_unit <- function(x) {
+  .is_unit(x) & is_numeric(substr_(x, 4L))
 }
 
 #' @noRd
-is_type_moh <- function(x) {
-  substr_(x, 3L) == "J"
+is_type_subunit <- function(x) {
+  .is_unit(x) & vctrs::vec_in(substr_(x, 4L), ccn::subunit_types$code)
 }
 
 #' @noRd
-is_eipps_type <- function(x) {
+is_type_eipps <- function(x) {
   vctrs::vec_in(x, ccn::eipps_types$code)
 }
 
 #' @noRd
 is_eipps_range <- function(x) {
   ivs::iv_between(x, ccn::eipps_ranges$iv)
-}
-
-#' @noRd
-is_erh <- function(x) {
-  is_numeric(substring(x, 3L, 5L)) & type_erh(x)
 }

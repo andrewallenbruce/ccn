@@ -64,16 +64,4 @@ tibble::tibble(
   x = x,
   ccn = as_ccn(x),
   ccnr = as_ccnr(ccn))
-
-y <- decode_ccnr(x) |>
-  collapse::roworderv(c("entity", "state", "facility", "number")) |>
-  collapse::rsplit(~entity)
-
-tibble::tibble(
-  parent0 = y$Unit$parent,
-  parent1 = as_ccn(parent0),
-  parent2 = as_ccnr(parent0)
-)
-
-y
 }

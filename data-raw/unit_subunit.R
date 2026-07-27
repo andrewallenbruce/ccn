@@ -34,16 +34,17 @@
 #' CAH could have swing-bed approval, an IPPS-excluded rehabilitation unit,
 #' and/or an IPPS-excluded psychiatric unit.
 unit_types <- tibble::tribble(
-  ~code , ~abbr           , ~desc                        , ~infix , ~eipps ,
-  "M"   , "Psych (CAH)"   , "Psychiatric Unit (CAH)"     , "1"    , TRUE   ,
-  "R"   , "Rehab (CAH)"   , "Rehabilitation Unit (CAH)"  , "1"    , TRUE   ,
-  "S"   , "Psych"         , "Psychiatric Unit"           , " "    , TRUE   ,
-  "T"   , "Rehab"         , "Rehabilitation Unit"        , " "    , TRUE   ,
-  "U"   , "Swing (Acute)" , "Swing-Bed Approval (Acute)" , "0"    , FALSE  ,
-  "V"   , "ADU"           , "Alcohol-Drug Unit"          , " "    , TRUE   ,
-  "W"   , "Swing (LTC)"   , "Swing-Bed Approval (LTC)"   , "2"    , FALSE  ,
-  "Y"   , "Swing (IRF)"   , "Swing-Bed Approval (IRF)"   , "3"    , FALSE  ,
-  "Z"   , "Swing (CAH)"   , "Swing-Bed Approval (CAH)"   , "1"    , FALSE  ,
+  ~code         , ~abbr           , ~desc                        , ~infix        , ~eipps ,
+  "M"           , "Psych (CAH)"   , "Psychiatric Unit (CAH)"     , "1"           , TRUE   ,
+  "R"           , "Rehab (CAH)"   , "Rehabilitation Unit (CAH)"  , "1"           , TRUE   ,
+  "S"           , "Psych"         , "Psychiatric Unit"           , ""            , TRUE   ,
+  "T"           , "Rehab"         , "Rehabilitation Unit"        , ""            , TRUE   ,
+  "U"           , "Swing (Acute)" , "Swing-Bed Approval (Acute)" , "0"           , FALSE  ,
+  "V"           , "ADU"           , "Alcohol-Drug Unit"          , ""            , TRUE   ,
+  "W"           , "Swing (LTC)"   , "Swing-Bed Approval (LTC)"   , "2"           , FALSE  ,
+  "Y"           , "Swing (IRF)"   , "Swing-Bed Approval (IRF)"   , "3"           , FALSE  ,
+  "Z"           , "Swing (CAH)"   , "Swing-Bed Approval (CAH)"   , "1"           , FALSE  ,
+  NA_character_ , NA_character_   , NA_character_                , NA_character_ , NA
 )
 
 usethis::use_data(unit_types, overwrite = TRUE)
@@ -62,17 +63,18 @@ usethis::use_data(unit_types, overwrite = TRUE)
 # )
 
 subunit_types <- tibble::tribble(
-  ~code , ~prefix , ~abbr   ,
-  "A"   , "20"    , "LTCH"  ,
-  "B"   , "21"    , "LTCH"  ,
-  "C"   , "22"    , "LTCH"  ,
-  "D"   , "30"    , "IRF"   ,
-  "E"   , "33"    , "Child" ,
-  "F"   , "40"    , "Psych" ,
-  "G"   , "41"    , "Psych" ,
-  "H"   , "42"    , "Psych" ,
-  "J"   , "43"    , "Psych" ,
-  "K"   , "44"    , "Psych" ,
+  ~code         , ~prefix       , ~abbr         ,
+  "A"           , "20"          , "LTCH"        ,
+  "B"           , "21"          , "LTCH"        ,
+  "C"           , "22"          , "LTCH"        ,
+  "D"           , "30"          , "IRF"         ,
+  "E"           , "33"          , "Child"       ,
+  "F"           , "40"          , "Psych"       ,
+  "G"           , "41"          , "Psych"       ,
+  "H"           , "42"          , "Psych"       ,
+  "J"           , "43"          , "Psych"       ,
+  "K"           , "44"          , "Psych"       ,
+  NA_character_ , NA_character_ , NA_character_
 )
 
 usethis::use_data(subunit_types, overwrite = TRUE)

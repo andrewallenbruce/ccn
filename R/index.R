@@ -16,17 +16,21 @@ index_ccn_types <- function(x) {
 
   g <- grp_split(infer_ccn_type, x, NULL)
 
-  if (rlang::has_name(g, "ext_prov")) {
-    e <- grp_split(infer_provider_ext, x, g[["ext_prov"]])
-    g[["ext_prov"]] <- NULL
+  if (rlang::has_name(g, "Provider_Ext")) {
+    e <- grp_split(infer_provider_ext, x, g[["Provider_Ext"]])
+    g[["Provider_Ext"]] <- NULL
   }
 
-  if (rlang::has_name(g, "prov")) {
-    p <- grp_split(infer_provider_type, x, g[["prov"]])
-    g[["prov"]] <- NULL
+  if (rlang::has_name(g, "Provider")) {
+    p <- grp_split(infer_provider_type, x, g[["Provider"]])
+    g[["Provider"]] <- NULL
   }
 
-  res <- c(g %||% list(), e %||% list(), p %||% list())
+  res <- vctrs::vec_c(g, e, p)
+
+  # if (all(c("Medicare", "Medicare_Ext") %in% names(res))) {
+  #   vctrs::vec_sort(vctrs::vec_c(res$Medicare_Ext, res$Medicare))
+  # }
 
   structure(res, class = "ccn_type_index")
 }

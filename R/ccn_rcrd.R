@@ -18,18 +18,6 @@ methods::setOldClass(c("ccnr", "vctrs_vctr"))
 #'   x = x,
 #'   ccn = as_ccn(x),
 #'   ccnr = as_ccnr(ccn))
-#'
-#' y <- decode_ccnr(x) |>
-#'   collapse::roworderv(c("entity", "state", "facility", "number")) |>
-#'   collapse::rsplit(~entity)
-#'
-#' tibble::tibble(
-#'   parent0 = y$Unit$parent,
-#'   parent1 = as_ccn(parent0),
-#'   parent2 = as_ccnr(parent0)
-#' )
-#'
-#' y
 #' @export
 ccnr <- function(
   ccn = character(),
@@ -135,19 +123,26 @@ as_ccnr <- function(x) {
   i <- index_ccn_types(x)
 
   vctrs::vec_c(
-    has_ccnr(x, i, "care", ccnr_Medicare),
-    has_ccnr(x, i, "caid", ccnr_Medicaid),
-    has_ccnr(x, i, "unit", ccnr_Unit),
-    has_ccnr(x, i, "sub", ccnr_Subunit),
-    has_ccnr(x, i, "opo", ccnr_Organ),
-    has_ccnr(x, i, "erh", ccnr_Emergency),
-    has_ccnr(x, i, "supp", ccnr_Supplier),
-    has_ccnr(x, i, "ext_care", ccnr_Medicare, TRUE),
-    has_ccnr(x, i, "ext_caid", ccnr_Medicaid, TRUE),
-    has_ccnr(x, i, "ext_unit", ccnr_Unit, TRUE),
+    has_ccnr(x, i, "Medicare", ccnr_Medicare),
+    has_ccnr(x, i, "Medicaid", ccnr_Medicaid),
+    has_ccnr(x, i, "Unit", ccnr_Unit),
+    has_ccnr(x, i, "Subunit", ccnr_Subunit),
+    has_ccnr(x, i, "Organ", ccnr_Organ),
+    has_ccnr(x, i, "Emergency", ccnr_Emergency),
+    has_ccnr(x, i, "Supplier", ccnr_Supplier),
+    has_ccnr(x, i, "Medicare_Ext", ccnr_Medicare, TRUE),
+    has_ccnr(x, i, "Medicaid_Ext", ccnr_Medicaid, TRUE),
+    has_ccnr(x, i, "Unit_Ext", ccnr_Unit, TRUE),
   )
 }
 
+# `x` must be a vector, not `NULL`.
+# decode_ccnr("")
+# decode_ccnr(c("", " "))
+# decode_ccnr(NULL)
+# decode_ccnr(as_ccn(NA))
+#
+# as_ccnr(as_ccn("")) == NULL
 #' @export
 #' @rdname ccnr
 decode_ccnr <- function(x) {
@@ -156,7 +151,11 @@ decode_ccnr <- function(x) {
   } else if (is_ccn(x)) {
     tibble::tibble(vctrs::vec_data(as_ccnr(x)))
   } else {
-    tibble::tibble(vctrs::vec_data(as_ccnr(as_ccn(x))))
+    ix <- as_ccnr(as_ccn(x))
+    if (is.null(ix)) {
+      rlang::abort("`x` cannot be an empty character vector or `NULL`")
+    }
+    tibble::tibble(vctrs::vec_data(ix))
   }
 
   collapse::settfmv(x, collapse::gv(x, "number", return = 3L), as.integer)
@@ -208,11 +207,13 @@ decode_ccnr <- function(x) {
     xi <- vctrs::vec_slice(x, i[["Unit"]])
     vctrs::vec_slice(x, i[["Unit"]])$facility <- recode_unit_type(xi[["type"]])
 
-    vctrs::vec_slice(x, i[["Unit"]])$parent <- paste0(
+    p <- paste0(
       str_state(xi[["ccn"]]),
       recode_unit_type(xi[["type"]], "infix"),
       substring(xi[["ccn"]], 4L, 6L)
     )
+
+    vctrs::vec_slice(x, i[["Unit"]])$parent <- p
   }
 
   if (rlang::has_name(i, "Subunit")) {
@@ -220,15 +221,17 @@ decode_ccnr <- function(x) {
     xii <- recode_unit_type(xi[["type"]]) # TODO
     vctrs::vec_slice(x, i[["Subunit"]])$facility <- xii
 
-    x[i$Subunit, ]$parent <- paste0(
+    p <- paste0(
       str_state(x[i$Subunit, ]$ccn),
       recode_subunit_type(x[i$Subunit, ]$parent),
       substring(x[i$Subunit, ]$ccn, 5L, 6L)
     )
+
+    x[i$Subunit, ]$parent <- p
   }
 
   collapse::gv(
     x,
-    c("ccn", "entity", "state", "facility", "parent", "ext", "number", "type")
+    c("ccn", "entity", "state", "facility", "parent", "number", "type")
   )
 }

@@ -1,4 +1,5 @@
 #' Recode State Codes
+#'
 #' @param x `<chr>` vector
 #' @param as `<chr>` "abbr", "full"
 #' @examples
@@ -18,6 +19,7 @@ recode_state <- function(x, as = c("abbr", "full")) {
 }
 
 #' Recode Region Codes
+#'
 #' @param x `<chr>` vector
 #' @param as `<chr>` "number", "roman", "abbr", "full"
 #' @examples
@@ -43,11 +45,11 @@ recode_region <- function(x, as = c("number", "roman", "abbr", "full")) {
 recode_medicaid_type <- function(x, as = c("abbr", "full")) {
   vctrs::vec_recode_values(
     x,
-    from = vctrs::vec_c(ccn::medicaid_types$code, NA_character_),
+    from = ccn::medicaid_types$code,
     to = switch(
       rlang::arg_match(as),
-      abbr = vctrs::vec_c(ccn::medicaid_types$abbr, NA_character_),
-      full = vctrs::vec_c(ccn::medicaid_types$desc, NA_character_)
+      abbr = ccn::medicaid_types$abbr,
+      full = ccn::medicaid_types$desc
     )
   )
 }
@@ -57,13 +59,13 @@ recode_medicaid_type <- function(x, as = c("abbr", "full")) {
 recode_unit_type <- function(x, as = c("abbr", "full", "infix", "eipps")) {
   vctrs::vec_recode_values(
     x,
-    from = vctrs::vec_c(ccn::unit_types$code, NA_character_),
+    from = ccn::unit_types$code,
     to = switch(
       rlang::arg_match(as),
-      abbr = vctrs::vec_c(ccn::unit_types$abbr, NA_character_),
-      full = vctrs::vec_c(ccn::unit_types$desc, NA_character_),
-      infix = vctrs::vec_c(ccn::unit_types$infix, NA_character_),
-      eipps = vctrs::vec_c(ccn::unit_types$eipps, NA)
+      abbr = ccn::unit_types$abbr,
+      full = ccn::unit_types$desc,
+      infix = ccn::unit_types$infix,
+      eipps = ccn::unit_types$eipps
     )
   )
 }
@@ -73,11 +75,11 @@ recode_unit_type <- function(x, as = c("abbr", "full", "infix", "eipps")) {
 recode_subunit_type <- function(x, as = c("prefix", "abbr")) {
   vctrs::vec_recode_values(
     x,
-    from = vctrs::vec_c(ccn::subunit_types$code, NA_character_),
+    from = ccn::subunit_types$code,
     to = switch(
       rlang::arg_match(as),
-      abbr = vctrs::vec_c(ccn::subunit_types$abbr, NA_character_),
-      prefix = vctrs::vec_c(ccn::subunit_types$prefix, NA_character_)
+      abbr = ccn::subunit_types$abbr,
+      prefix = ccn::subunit_types$prefix
     )
   )
 }
@@ -93,8 +95,8 @@ recode_other_type <- function(x, as = c("abbr", "full")) {
       abbr = vctrs::vec_c(
         "ASC",
         "CLIA",
-        "ERH-N",
-        "ERH-F",
+        "ERN",
+        "ERF",
         "OPO",
         "PXRF",
         NA_character_
