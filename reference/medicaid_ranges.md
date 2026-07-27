@@ -12,7 +12,7 @@ medicaid_ranges
 
 ### `medicaid_ranges`
 
-A data frame with 7 rows and 5 columns:
+A data frame with 7 rows and 6 columns:
 
 - start:
 
@@ -33,3 +33,8 @@ A data frame with 7 rows and 5 columns:
 - desc:
 
   Medicaid-only hospital description
+
+- iv:
+
+  Medicaid-only hospital range
+  [ivs::iv](https://github.com/DavisVaughan/ivs) vector

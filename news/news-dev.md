@@ -534,3 +534,8 @@
 ## ccn 0.0.0.9122 (2026-07-27)
 
 - consistent naming of indices
+
+## ccn 0.0.0.9123 (2026-07-27)
+
+- updated data documentation
+- has_idx helper

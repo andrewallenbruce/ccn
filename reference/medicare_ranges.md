@@ -12,7 +12,7 @@ medicare_ranges
 
 ### `medicare_ranges`
 
-A data frame with 43 rows and 5 columns:
+A data frame with 43 rows and 6 columns:
 
 - start:
 
@@ -33,3 +33,8 @@ A data frame with 43 rows and 5 columns:
 - desc:
 
   Medicare facility description
+
+- iv:
+
+  Medicare facility range [ivs::iv](https://github.com/DavisVaughan/ivs)
+  vector

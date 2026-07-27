@@ -29,3 +29,7 @@ A data frame with 9 rows and 4 columns:
 - infix:
 
   IPPS-Excluded range infix
+
+- eipps:
+
+  IPPS-Excluded type description

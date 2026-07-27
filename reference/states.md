@@ -12,7 +12,7 @@ states
 
 ### `states`
 
-A data frame with 108 rows and 3 columns:
+A data frame with 109 rows and 3 columns:
 
 - code:
 
@@ -22,6 +22,6 @@ A data frame with 108 rows and 3 columns:
 
   State abbreviation
 
-- name:
+- full:
 
   State full name
