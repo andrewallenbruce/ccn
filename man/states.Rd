@@ -7,11 +7,11 @@
 \format{
 \subsection{\code{states}}{
 
-A data frame with 108 rows and 3 columns:
+A data frame with 109 rows and 3 columns:
 \describe{
 \item{code}{State code}
 \item{abbr}{State abbreviation}
-\item{name}{State full name}
+\item{full}{State full name}
 ...
 }
 }

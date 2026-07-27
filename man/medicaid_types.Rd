@@ -7,7 +7,7 @@
 \format{
 \subsection{\code{medicaid_types}}{
 
-A data frame with 9 rows and 3 columns:
+A data frame with 10 rows and 3 columns:
 \describe{
 \item{code}{Medicaid-only facility type code}
 \item{abbr}{Medicaid-only facility type abbreviation}

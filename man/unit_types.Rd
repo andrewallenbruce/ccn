@@ -13,6 +13,7 @@ A data frame with 9 rows and 4 columns:
 \item{abbr}{IPPS-Excluded type abbreviation}
 \item{desc}{IPPS-Excluded type description}
 \item{infix}{IPPS-Excluded range infix}
+\item{eipps}{IPPS-Excluded type description}
 ...
 }
 }

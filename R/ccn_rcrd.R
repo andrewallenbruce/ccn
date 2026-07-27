@@ -117,6 +117,16 @@ has_ccnr <- function(x, index, key, .fn, ext = FALSE) {
   }
 }
 
+# has_idx(x, i, "Emergency", "type", "facility", recode_other_type)
+#' @noRd
+has_idx <- function(x, index, key, from, to, .fn) {
+  if (rlang::has_name(index, key)) {
+    i <- index[[key]]
+    x[[to]][i] <- .fn(x[[from]][i])
+  }
+  return(x)
+}
+
 #' @export
 #' @rdname ccnr
 as_ccnr <- function(x) {
@@ -135,6 +145,19 @@ as_ccnr <- function(x) {
     has_ccnr(x, i, "Unit_Ext", ccnr_Unit, TRUE),
   )
 }
+
+
+# if (rlang::has_name(i, "Emergency")) {
+#   x[["facility"]][i[["Emergency"]]] <- recode_other_type(x[["type"]][i[["Emergency"]]])
+# }
+#
+# if (rlang::has_name(i, "Supplier")) {
+#   x[["facility"]][i[["Supplier"]]] <- recode_other_type(x[["type"]][i[["Supplier"]]])
+# }
+#
+# if (rlang::has_name(i, "Organ")) {
+#   x[["facility"]][i[["Organ"]]] <- recode_other_type(x[["type"]][i[["Organ"]]])
+# }
 
 # `x` must be a vector, not `NULL`.
 # decode_ccnr("")
@@ -169,32 +192,38 @@ decode_ccnr <- function(x) {
     }
   )
 
-  if (rlang::has_name(i, "Emergency")) {
-    xi <- vctrs::vec_slice(x, i[["Emergency"]])
-    xii <- recode_other_type(xi[["type"]])
-    vctrs::vec_slice(x, i[["Emergency"]])$facility <- xii
-  }
+  x <- has_idx(x, i, "Emergency", "type", "facility", recode_other_type)
+  x <- has_idx(x, i, "Supplier", "type", "facility", recode_other_type)
+  x <- has_idx(x, i, "Organ", "type", "facility", recode_other_type)
 
-  if (rlang::has_name(i, "Supplier")) {
-    xi <- vctrs::vec_slice(x, i[["Supplier"]])
-    xii <- recode_other_type(xi[["type"]])
-    vctrs::vec_slice(x, i[["Supplier"]])$facility <- xii
-  }
-
-  if (rlang::has_name(i, "Organ")) {
-    xi <- vctrs::vec_slice(x, i[["Organ"]])
-    xii <- recode_other_type(xi[["type"]])
-    vctrs::vec_slice(x, i[["Organ"]])$facility <- xii
-  }
+  # if (rlang::has_name(i, "Emergency")) {
+  #   x[["facility"]][i[["Emergency"]]] <- recode_other_type(x[["type"]][i[[
+  #     "Emergency"
+  #   ]]])
+  # }
+  #
+  # if (rlang::has_name(i, "Supplier")) {
+  #   x[["facility"]][i[["Supplier"]]] <- recode_other_type(x[["type"]][i[[
+  #     "Supplier"
+  #   ]]])
+  # }
+  #
+  # if (rlang::has_name(i, "Organ")) {
+  #   x[["facility"]][i[["Organ"]]] <- recode_other_type(x[["type"]][i[[
+  #     "Organ"
+  #   ]]])
+  # }
 
   if (rlang::has_name(i, "Medicaid")) {
-    x[i$Medicaid, ]$facility <- recode_medicaid_type(x[i$Medicaid, ]$type)
+    x[["facility"]][i[["Medicaid"]]] <- recode_medicaid_type(x[["type"]][i[[
+      "Medicaid"
+    ]]])
 
-    x[i$Medicaid, ]$facility <- vctrs::vec_if_else(
-      x[i$Medicaid, ]$facility == "MOH",
-      decode_medicaid_range(x[i$Medicaid, ]$number),
-      x[i$Medicaid, ]$facility
-    )
+    if (collapse::anyv(x[["facility"]], "MOH")) {
+      idx <- x[["facility"]] %==% "MOH"
+
+      x[["facility"]][idx] <- decode_medicaid_range(x[["number"]][idx])
+    }
   }
 
   if (rlang::has_name(i, "Medicare")) {

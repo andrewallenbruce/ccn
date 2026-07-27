@@ -7,13 +7,14 @@
 \format{
 \subsection{\code{medicare_ranges}}{
 
-A data frame with 43 rows and 5 columns:
+A data frame with 43 rows and 6 columns:
 \describe{
 \item{start}{Medicare facility range start}
 \item{end}{Medicare facility range end}
 \item{range}{Medicare facility range label}
 \item{abbr}{Medicare facility abbreviation}
 \item{desc}{Medicare facility description}
+\item{iv}{Medicare facility range \href{https://github.com/DavisVaughan/ivs}{{ivs::iv}} vector}
 ...
 }
 }

@@ -1,11 +1,11 @@
 #' CCN State Codes
 #'
 #' @format ## `states`
-#' A data frame with 108 rows and 3 columns:
+#' A data frame with 109 rows and 3 columns:
 #' \describe{
 #'   \item{code}{State code}
 #'   \item{abbr}{State abbreviation}
-#'   \item{name}{State full name}
+#'   \item{full}{State full name}
 #'   ...
 #' }
 #' @keywords internal
@@ -14,13 +14,13 @@
 #' CMS Regional Office Codes
 #'
 #' @format ## `regions`
-#' A data frame with 59 rows and 4 columns:
+#' A data frame with 109 rows and 5 columns:
 #' \describe{
-#'   \item{ro}{Region number}
-#'   \item{region}{Region roman numeral}
+#'   \item{code}{Region number}
+#'   \item{roman}{Region roman numeral}
 #'   \item{state}{State abbreviation}
-#'   \item{off}{Regional office city abbreviation}
-#'   \item{office}{Regional office city full name}
+#'   \item{office_abbr}{Regional office city abbreviation}
+#'   \item{office_full}{Regional office city full name}
 #'   ...
 #' }
 #' @keywords internal
@@ -29,13 +29,14 @@
 #' CCN Medicare Facility Ranges
 #'
 #' @format ## `medicare_ranges`
-#' A data frame with 43 rows and 5 columns:
+#' A data frame with 43 rows and 6 columns:
 #' \describe{
 #'   \item{start}{Medicare facility range start}
 #'   \item{end}{Medicare facility range end}
 #'   \item{range}{Medicare facility range label}
 #'   \item{abbr}{Medicare facility abbreviation}
 #'   \item{desc}{Medicare facility description}
+#'   \item{iv}{Medicare facility range [{ivs::iv}](https://github.com/DavisVaughan/ivs) vector}
 #'   ...
 #' }
 #' @keywords internal
@@ -44,13 +45,14 @@
 #' CCN Medicaid-Only Hospital Ranges
 #'
 #' @format ## `medicaid_ranges`
-#' A data frame with 7 rows and 5 columns:
+#' A data frame with 7 rows and 6 columns:
 #' \describe{
 #'   \item{start}{Medicaid-only hospital range start}
 #'   \item{end}{Medicaid-only hospital range end}
 #'   \item{range}{Medicaid-only hospital range}
 #'   \item{abbr}{Medicaid-only hospital abbreviation}
 #'   \item{desc}{Medicaid-only hospital description}
+#'   \item{iv}{Medicaid-only hospital range [{ivs::iv}](https://github.com/DavisVaughan/ivs) vector}
 #'   ...
 #' }
 #' @keywords internal
@@ -59,7 +61,7 @@
 #' CCN Medicaid-Only Facility Types
 #'
 #' @format ## `medicaid_types`
-#' A data frame with 9 rows and 3 columns:
+#' A data frame with 10 rows and 3 columns:
 #' \describe{
 #'   \item{code}{Medicaid-only facility type code}
 #'   \item{abbr}{Medicaid-only facility type abbreviation}
@@ -78,6 +80,7 @@
 #'   \item{abbr}{IPPS-Excluded type abbreviation}
 #'   \item{desc}{IPPS-Excluded type description}
 #'   \item{infix}{IPPS-Excluded range infix}
+#'   \item{eipps}{IPPS-Excluded type description}
 #'   ...
 #' }
 #' @keywords internal

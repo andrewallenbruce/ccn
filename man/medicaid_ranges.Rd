@@ -7,13 +7,14 @@
 \format{
 \subsection{\code{medicaid_ranges}}{
 
-A data frame with 7 rows and 5 columns:
+A data frame with 7 rows and 6 columns:
 \describe{
 \item{start}{Medicaid-only hospital range start}
 \item{end}{Medicaid-only hospital range end}
 \item{range}{Medicaid-only hospital range}
 \item{abbr}{Medicaid-only hospital abbreviation}
 \item{desc}{Medicaid-only hospital description}
+\item{iv}{Medicaid-only hospital range \href{https://github.com/DavisVaughan/ivs}{{ivs::iv}} vector}
 ...
 }
 }
