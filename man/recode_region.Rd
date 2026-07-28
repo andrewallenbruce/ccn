@@ -11,24 +11,24 @@ recode_region(x, as = c("number", "roman", "abbr", "full"))
 
 \item{as}{\verb{<chr>} format to return; one of:
 \itemize{
-\item "number": CMS region number (default)
-\item "roman": CMS region number as a roman numeral
-\item "abbr": CMS region's office location abbreviation
-\item "full": CMS region's office location name
+\item \code{"number"}: CMS region number (default)
+\item \code{"roman"}: CMS region number as a roman numeral
+\item \code{"abbr"}: CMS region's office location abbreviation
+\item \code{"full"}: CMS region's office location name
 }}
 }
 \value{
-\verb{<chr>} vector of CMS region names/abbreviations
+\verb{<chr>} vector of CMS region/region office names/abbreviations
 }
 \description{
 Recode CMS Region Codes
 }
 \examples{
 tibble::tibble(
-  state = c("00", "01", "A5", NA),
-  number = recode_region(state, "number"),
-  roman = recode_region(state, "roman"),
-  abbr = recode_region(state, "abbr"),
-  full = recode_region(state, "full")
+  x = c("00", "01", "A5"),
+  number = recode_region(x, "number"),
+  roman = recode_region(x, "roman"),
+  abbr = recode_region(x, "abbr"),
+  full = recode_region(x, "full")
 )
 }

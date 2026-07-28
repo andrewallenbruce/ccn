@@ -131,9 +131,7 @@ extras <- list(
   )
 )
 
-# initial    == 83278
-# unique     == 52287
-# duplicates == 30991
+# unique     == 54567
 ccns <- vctrs::vec_c(
   ccn:::unlist_(extras),
   get_pin("asc")$ccn,
@@ -146,18 +144,19 @@ ccns <- vctrs::vec_c(
   get_pin("hosp_info")$ccn,
   get_pin("irf")$ccn,
   get_pin("ltch")$ccn,
+  get_pin("opo")$opo_active$ccn,
+  get_pin("txc")$ccn,
   get_pin("subgroups")$location$ccn,
-  get_pin("subgroups")$subgroup$ccn
+  get_pin("subgroups")$subgroup$ccn,
+  get_pin("snf")$ccn,
+  get_pin("snf_hrsa")$ccn
 ) |>
   collapse::funique() |>
-  kit::psort(nThread = 4L) |>
-  stringfish::convert_to_sf()
-
-ccns <- ccn:::get_pin("ccn")
+  kit::psort(nThread = 4L)
 
 pin_update(
   ccns,
   name = "ccn",
-  title = "52k ccns",
-  description = "A character vector of 52k unique CCNs"
+  title = "54k ccns",
+  description = "A character vector of 54k unique CCNs"
 )

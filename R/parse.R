@@ -61,7 +61,7 @@ ccnr_Unit <- function(x) {
 
 # Hospital Subunit: 02TA01 => 02 T A 01
 #' @noRd
-ccnr_Subunit <- function(x, ext = FALSE) {
+ccnr_Subunit <- function(x) {
   ccnr(
     entity = "Subunit",
     ccn = substring(x, 1L, 6L),
@@ -73,7 +73,7 @@ ccnr_Subunit <- function(x, ext = FALSE) {
 
 # Supplier: 10C0001062 => 10 C 0001062
 #' @noRd
-ccnr_Supplier <- function(x, ext = FALSE) {
+ccnr_Supplier <- function(x) {
   ccnr(
     entity = "Supplier",
     ccn = substring(x, 1L, 10L),

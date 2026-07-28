@@ -1,0 +1,10 @@
+file: ccn.rds
+file_size: 140050
+pin_hash: 0a260bc79a048db4
+type: rds
+title: 54k ccns
+description: A character vector of 54k unique CCNs
+tags: ~
+urls: ~
+created: 20260728T155049Z
+api_version: 1

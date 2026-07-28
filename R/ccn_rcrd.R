@@ -2,11 +2,11 @@ methods::setOldClass(c("ccnr", "vctrs_vctr"))
 
 #' Construct a `ccnr` object
 #'
-#' @param entity `<chr>` a vector of CCN Entity types
-#' @param ccn `<chr>` A vector of CCNs
-#' @param state `<chr>` Passed on to methods
-#' @param number `<chr>` a vector
-#' @param type `<chr>` a vector
+#' @param entity `<chr>` vector of ccn entity types
+#' @param ccn `<chr>` vector of ccns
+#' @param state `<chr>` vector of ccn state codes
+#' @param number `<chr>` vector of ccn code sequence numbers
+#' @param type `<chr>` vector of ccn code facility types
 #' @returns An S3 vector of class `<ccnr>`
 #' @examples
 #' tibble::tibble(
@@ -48,7 +48,7 @@ new_ccnr <- function(
   )
 }
 
-#' Is x a ccnr?
+#' Is `x` a ccnr?
 #'
 #' @param x description
 #' @returns logical

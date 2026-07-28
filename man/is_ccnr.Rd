@@ -2,7 +2,7 @@
 % Please edit documentation in R/ccn_rcrd.R
 \name{is_ccnr}
 \alias{is_ccnr}
-\title{Is x a ccnr?}
+\title{Is \code{x} a ccnr?}
 \usage{
 is_ccnr(x)
 }
@@ -13,6 +13,6 @@ is_ccnr(x)
 logical
 }
 \description{
-Is x a ccnr?
+Is \code{x} a ccnr?
 }
 \keyword{internal}

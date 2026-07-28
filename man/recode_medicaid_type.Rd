@@ -11,8 +11,8 @@ recode_medicaid_type(x, as = c("abbr", "full"))
 
 \item{as}{\verb{<chr>} format to return; one of:
 \itemize{
-\item "abbr": state abbreviation (default)
-\item "full": state name
+\item \code{"abbr"}: facility type abbreviation (default)
+\item \code{"full"}: facility type name
 }}
 }
 \value{
@@ -23,8 +23,8 @@ Recode Medicaid Facility Types
 }
 \examples{
 tibble::tibble(
-  code = c("A", "K", NA),
-  abbr = recode_medicaid_type(code, "abbr"),
-  full = recode_medicaid_type(code, "full")
+  x = c("A", "K"),
+  abbr = recode_medicaid_type(x, "abbr"),
+  full = recode_medicaid_type(x, "full")
 )
 }

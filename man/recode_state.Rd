@@ -11,8 +11,8 @@ recode_state(x, as = c("abbr", "full"))
 
 \item{as}{\verb{<chr>} format to return; one of:
 \itemize{
-\item "abbr": state abbreviation (default)
-\item "full": state name
+\item \code{"abbr"}: state abbreviation (default)
+\item \code{"full"}: state name
 }}
 }
 \value{
@@ -23,8 +23,8 @@ Recode State Codes
 }
 \examples{
 tibble::tibble(
-  code = c("00", "01", "A5", NA),
-  abbr = recode_state(code, "abbr"),
-  full = recode_state(code, "full")
+  x = c("00", "01", "A5"),
+  abbr = recode_state(x, "abbr"),
+  full = recode_state(x, "full")
 )
 }

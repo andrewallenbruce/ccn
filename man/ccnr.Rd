@@ -13,15 +13,15 @@ ccnr(
 )
 }
 \arguments{
-\item{entity}{\verb{<chr>} a vector of CCN Entity types}
+\item{entity}{\verb{<chr>} vector of ccn entity types}
 
-\item{ccn}{\verb{<chr>} A vector of CCNs}
+\item{ccn}{\verb{<chr>} vector of ccns}
 
-\item{state}{\verb{<chr>} Passed on to methods}
+\item{state}{\verb{<chr>} vector of ccn state codes}
 
-\item{number}{\verb{<chr>} a vector}
+\item{number}{\verb{<chr>} vector of ccn code sequence numbers}
 
-\item{type}{\verb{<chr>} a vector}
+\item{type}{\verb{<chr>} vector of ccn code facility types}
 }
 \value{
 An S3 vector of class \verb{<ccnr>}
