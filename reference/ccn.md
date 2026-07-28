@@ -14,8 +14,6 @@
 ``` r
 ccn(x = character())
 
-new_ccn(x = character())
-
 is_ccn(x)
 
 index_ccn_types(x)
