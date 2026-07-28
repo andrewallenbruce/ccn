@@ -18,9 +18,9 @@ recode_state(x, as = c("abbr", "full"))
 
   `<chr>` format to return; one of:
 
-  - "abbr": state abbreviation (default)
+  - `"abbr"`: state abbreviation (default)
 
-  - "full": state name
+  - `"full"`: state name
 
 ## Value
 
@@ -30,15 +30,14 @@ recode_state(x, as = c("abbr", "full"))
 
 ``` r
 tibble::tibble(
-  code = c("00", "01", "A5", NA),
-  abbr = recode_state(code, "abbr"),
-  full = recode_state(code, "full")
+  x = c("00", "01", "A5"),
+  abbr = recode_state(x, "abbr"),
+  full = recode_state(x, "full")
 )
-#> # A tibble: 4 × 3
-#>   code  abbr  full       
+#> # A tibble: 3 × 3
+#>   x     abbr  full       
 #>   <chr> <chr> <chr>      
 #> 1 00    AZ    Arizona    
 #> 2 01    AL    Alabama    
 #> 3 A5    MS    Mississippi
-#> 4 NA    NA    NA         
 ```

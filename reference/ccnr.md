@@ -18,23 +18,23 @@ ccnr(
 
 - entity:
 
-  `<chr>` a vector of CCN Entity types
+  `<chr>` vector of ccn entity types
 
 - ccn:
 
-  `<chr>` A vector of CCNs
+  `<chr>` vector of ccns
 
 - state:
 
-  `<chr>` Passed on to methods
+  `<chr>` vector of ccn state codes
 
 - number:
 
-  `<chr>` a vector
+  `<chr>` vector of ccn code sequence numbers
 
 - type:
 
-  `<chr>` a vector
+  `<chr>` vector of ccn code facility types
 
 ## Value
 
@@ -47,7 +47,7 @@ tibble::tibble(
   x = get_pin("ccn"),
   ccn = as_ccn(x),
   ccnr = as_ccnr(ccn))
-#> # A tibble: 52,287 × 3
+#> # A tibble: 54,567 × 3
 #>    x      ccn      ccnr
 #>    <chr>  <ccn>  <ccnr>
 #>  1 001500 001500 001500
@@ -60,5 +60,5 @@ tibble::tibble(
 #>  8 001514 001514 001514
 #>  9 001515 001515 001515
 #> 10 001517 001517 001517
-#> # ℹ 52,277 more rows
+#> # ℹ 54,557 more rows
 ```

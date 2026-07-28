@@ -56,7 +56,7 @@ vctrs::vec_c(x[1:5], y[100:150], x[1:50])
 #> [101] 010021 010022 010023 010024 010029 010033
 
 tibble::tibble(x = x, ccn = y)
-#> # A tibble: 52,287 × 2
+#> # A tibble: 54,567 × 2
 #>    x      ccn   
 #>    <chr>  <ccn> 
 #>  1 001500 001500
@@ -69,16 +69,17 @@ tibble::tibble(x = x, ccn = y)
 #>  8 001514 001514
 #>  9 001515 001515
 #> 10 001517 001517
-#> # ℹ 52,277 more rows
+#> # ℹ 54,557 more rows
 
 index_ccn_types(y)
-#> <ccn_type_index[52287]>
+#> <ccn_type_index[54567]>
 #>     Supplier :  5488
 #> Medicaid_Ext :     1
-#> Medicare_Ext :   158
+#> Medicare_Ext :   327
 #>     Unit_Ext :    14
 #>    Emergency :   166
-#>     Medicare : 43195
+#>     Medicare : 45249
+#>        Organ :    55
 #>      Subunit :    49
-#>         Unit :  3216
+#>         Unit :  3218
 ```

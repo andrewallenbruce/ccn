@@ -22,7 +22,7 @@ An S3 vector of class `<ccnr>`
 
 ``` r
 decode_ccnr(get_pin("ccn"))
-#> # A tibble: 52,287 × 6
+#> # A tibble: 54,567 × 6
 #>    ccn    entity   state facility number type 
 #>    <chr>  <chr>    <chr> <chr>     <int> <chr>
 #>  1 001500 Medicare AZ    Hospice    1500 NA   
@@ -35,5 +35,5 @@ decode_ccnr(get_pin("ccn"))
 #>  8 001514 Medicare AZ    Hospice    1514 NA   
 #>  9 001515 Medicare AZ    Hospice    1515 NA   
 #> 10 001517 Medicare AZ    Hospice    1517 NA   
-#> # ℹ 52,277 more rows
+#> # ℹ 54,557 more rows
 ```

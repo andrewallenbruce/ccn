@@ -40,7 +40,7 @@ tibble::tibble(
   ccn = as_ccn(ccnr),
   ccnr2 = as_ccnr(ccnr)
 )
-#> # A tibble: 52,287 × 4
+#> # A tibble: 54,567 × 4
 #>    x        ccnr ccn     ccnr2
 #>    <chr>  <ccnr> <ccn>  <ccnr>
 #>  1 001500 001500 001500 001500
@@ -53,5 +53,5 @@ tibble::tibble(
 #>  8 001514 001514 001514 001514
 #>  9 001515 001515 001515 001515
 #> 10 001517 001517 001517 001517
-#> # ℹ 52,277 more rows
+#> # ℹ 54,557 more rows
 ```

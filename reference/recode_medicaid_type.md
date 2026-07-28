@@ -18,9 +18,9 @@ recode_medicaid_type(x, as = c("abbr", "full"))
 
   `<chr>` format to return; one of:
 
-  - "abbr": state abbreviation (default)
+  - `"abbr"`: facility type abbreviation (default)
 
-  - "full": state name
+  - `"full"`: facility type name
 
 ## Value
 
@@ -30,14 +30,13 @@ recode_medicaid_type(x, as = c("abbr", "full"))
 
 ``` r
 tibble::tibble(
-  code = c("A", "K", NA),
-  abbr = recode_medicaid_type(code, "abbr"),
-  full = recode_medicaid_type(code, "full")
+  x = c("A", "K"),
+  abbr = recode_medicaid_type(x, "abbr"),
+  full = recode_medicaid_type(x, "full")
 )
-#> # A tibble: 3 × 3
-#>   code  abbr  full                    
+#> # A tibble: 2 × 3
+#>   x     abbr  full                    
 #>   <chr> <chr> <chr>                   
 #> 1 A     SNF   Skilled Nursing Facility
 #> 2 K     HHA   Home Health Agency      
-#> 3 NA    NA    NA                      
 ```

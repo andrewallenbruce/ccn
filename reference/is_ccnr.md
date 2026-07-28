@@ -1,6 +1,6 @@
-# Is x a ccnr?
+# Is `x` a ccnr?
 
-Is x a ccnr?
+Is `x` a ccnr?
 
 ## Usage
 

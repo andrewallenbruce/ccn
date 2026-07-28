@@ -39,3 +39,6 @@
 
 - [`recode_state()`](https://andrewallenbruce.github.io/ccn/reference/recode_state.md)
   : Recode State Codes
+
+- [`recode_unit_type()`](https://andrewallenbruce.github.io/ccn/reference/recode_unit_type.md)
+  : Recode Unit Facility Types
