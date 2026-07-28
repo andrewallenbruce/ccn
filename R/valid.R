@@ -1,6 +1,6 @@
 #' @noRd
 is_valid_state <- function(x) {
-  vctrs::vec_in(substring(x, 1L, 2L), ccn::states$code)
+  vctrs::vec_in(substring(x, 1L, 2L), ccn::states[["code"]])
 }
 
 #' @noRd

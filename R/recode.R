@@ -1,11 +1,17 @@
 #' Recode State Codes
 #'
-#' @param x `<chr>` vector
-#' @param as `<chr>` "abbr", "full"
+#' @param x `<chr>` vector of CCN state codes.
+#' @param as `<chr>` format to return; one of:
+#'    * "abbr": state abbreviation (default)
+#'    * "full": state name
+#' @returns `<chr>` vector of state names/abbreviations
 #' @examples
-#' recode_state(c("00", "01", "A5", NA))
-#' recode_state(c("00", "01", "A5", NA), "full")
-#' @noRd
+#' tibble::tibble(
+#'   code = c("00", "01", "A5", NA),
+#'   abbr = recode_state(code, "abbr"),
+#'   full = recode_state(code, "full")
+#' )
+#' @export
 recode_state <- function(x, as = c("abbr", "full")) {
   vctrs::vec_recode_values(
     x,
@@ -18,30 +24,52 @@ recode_state <- function(x, as = c("abbr", "full")) {
   )
 }
 
-#' Recode Region Codes
+#' Recode CMS Region Codes
 #'
-#' @param x `<chr>` vector
-#' @param as `<chr>` "number", "roman", "abbr", "full"
+#' @param x `<chr>` vector of CCN state codes.
+#' @param as `<chr>` format to return; one of:
+#'    * "number": CMS region number (default)
+#'    * "roman": CMS region number as a roman numeral
+#'    * "abbr": CMS region's office location abbreviation
+#'    * "full": CMS region's office location name
+#' @returns `<chr>` vector of CMS region names/abbreviations
 #' @examples
-#' recode_region(c("00", "01", "A5", NA))
-#' recode_region(c("00", "01", "A5", NA), "full")
-#' @noRd
+#' tibble::tibble(
+#'   state = c("00", "01", "A5", NA),
+#'   number = recode_region(state, "number"),
+#'   roman = recode_region(state, "roman"),
+#'   abbr = recode_region(state, "abbr"),
+#'   full = recode_region(state, "full")
+#' )
+#' @export
 recode_region <- function(x, as = c("number", "roman", "abbr", "full")) {
   vctrs::vec_recode_values(
     x,
-    from = ccn::regions$state,
+    from = ccn::regions[["state"]],
     to = switch(
       rlang::arg_match(as),
-      number = ccn::regions$code,
-      roman = ccn::regions$roman,
-      abbr = ccn::regions$office_abbr,
-      full = ccn::regions$office_full
+      number = ccn::regions[["code"]],
+      roman = ccn::regions[["roman"]],
+      abbr = ccn::regions[["office_abbr"]],
+      full = ccn::regions[["office_full"]]
     )
   )
 }
 
-# recode_medicaid_type(c("A", "K", NA))
-#' @noRd
+#' Recode Medicaid Facility Types
+#'
+#' @param x `<chr>` vector of CCN Medicaid facility type characters.
+#' @param as `<chr>` format to return; one of:
+#'    * "abbr": state abbreviation (default)
+#'    * "full": state name
+#' @returns `<chr>` vector of Medicaid facility type names/abbreviations
+#' @examples
+#' tibble::tibble(
+#'   code = c("A", "K", NA),
+#'   abbr = recode_medicaid_type(code, "abbr"),
+#'   full = recode_medicaid_type(code, "full")
+#' )
+#' @export
 recode_medicaid_type <- function(x, as = c("abbr", "full")) {
   vctrs::vec_recode_values(
     x,
@@ -111,5 +139,33 @@ recode_other_type <- function(x, as = c("abbr", "full")) {
         NA_character_
       )
     )
+  )
+}
+
+# decode_medicare_range(c(1L, 2099L, NA))
+#' @noRd
+decode_medicare_range <- function(x, as = c("abbr", "range", "full")) {
+  vctrs::vec_slice(
+    switch(
+      rlang::arg_match(as),
+      abbr = ccn::medicare_ranges$abbr,
+      full = ccn::medicare_ranges$desc,
+      range = ccn::medicare_ranges$range
+    ),
+    ivs::iv_locate_between(x, ccn::medicare_ranges$iv)$haystack
+  )
+}
+
+# decode_medicaid_range(c(1L, 209L, NA, 1000))
+#' @noRd
+decode_medicaid_range <- function(x, as = c("abbr", "range", "full")) {
+  vctrs::vec_slice(
+    switch(
+      rlang::arg_match(as),
+      abbr = ccn::medicaid_ranges$abbr,
+      full = ccn::medicaid_ranges$desc,
+      range = ccn::medicaid_ranges$range
+    ),
+    ivs::iv_locate_between(x, ccn::medicaid_ranges$iv)$haystack
   )
 }

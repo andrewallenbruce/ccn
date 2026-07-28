@@ -2,14 +2,11 @@
 % Please edit documentation in R/ccn_vctr.R, R/index.R
 \name{ccn}
 \alias{ccn}
-\alias{new_ccn}
 \alias{is_ccn}
 \alias{index_ccn_types}
 \title{Construct a \code{ccn} object}
 \usage{
 ccn(x = character())
-
-new_ccn(x = character())
 
 is_ccn(x)
 
@@ -43,4 +40,3 @@ tibble::tibble(x = x, ccn = y)
 index_ccn_types(y)
 
 }
-\keyword{internal}

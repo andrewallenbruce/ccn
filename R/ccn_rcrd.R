@@ -23,14 +23,12 @@ ccnr <- function(
 ) {
   .c(entity, ccn, state, number, type) %=%
     vctrs::vec_cast_common(entity, ccn, state, number, type, .to = character())
-  .c(ccn, entity, state, number, type) %=%
+  .c(entity, ccn, state, number, type) %=%
     vctrs::vec_recycle_common(entity, ccn, state, number, type)
   new_ccnr(entity, ccn, state, number, type)
 }
 
-#' @keywords internal
-#' @export
-#' @rdname ccnr
+#' @noRd
 new_ccnr <- function(
   entity = character(),
   ccn = character(),
@@ -50,8 +48,12 @@ new_ccnr <- function(
   )
 }
 
+#' Is x a ccnr?
+#'
+#' @param x description
+#' @returns logical
+#' @keywords internal
 #' @export
-#' @rdname ccnr
 is_ccnr <- function(x) {
   inherits(x, "ccnr")
 }

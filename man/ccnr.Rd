@@ -2,8 +2,6 @@
 % Please edit documentation in R/ccn_rcrd.R
 \name{ccnr}
 \alias{ccnr}
-\alias{new_ccnr}
-\alias{is_ccnr}
 \title{Construct a \code{ccnr} object}
 \usage{
 ccnr(
@@ -13,16 +11,6 @@ ccnr(
   number = character(),
   type = character()
 )
-
-new_ccnr(
-  entity = character(),
-  ccn = character(),
-  state = character(),
-  number = character(),
-  type = character()
-)
-
-is_ccnr(x)
 }
 \arguments{
 \item{entity}{\verb{<chr>} a vector of CCN Entity types}
@@ -47,4 +35,3 @@ tibble::tibble(
   ccn = as_ccn(x),
   ccnr = as_ccnr(ccn))
 }
-\keyword{internal}

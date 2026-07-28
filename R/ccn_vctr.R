@@ -28,9 +28,7 @@ ccn <- function(x = character()) {
   new_ccn(x)
 }
 
-#' @keywords internal
-#' @export
-#' @rdname ccn
+#' @noRd
 new_ccn <- function(x = character()) {
   x <- clean_ccn(x)
   vctrs::vec_assert(x, character())
