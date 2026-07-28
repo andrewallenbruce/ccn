@@ -1,86 +1,61 @@
-#' @noRd
-str_state <- function(x) {
-  substring(x, 1L, 2L)
-}
-
-#' @noRd
-str_ext <- function(x, ext) {
-  if (ext) substring(x, first = 7L) else NA_character_
-}
-
-#' @noRd
-str_ccn <- function(x, ext) {
-  if (ext) substring(x, 1L, 6L) else x
-}
-
 # Medicare: 670055 => 67 0055
 #' @noRd
-ccnr_Medicare <- function(x, ext = FALSE) {
+ccnr_Medicare <- function(x) {
   ccnr(
-    ccn = str_ccn(x, ext),
     entity = "Medicare",
-    state = str_state(x),
+    ccn = substring(x, 1L, 6L),
+    state = substring(x, 1L, 2L),
     number = substring(x, 3L, 6L),
-    type = NA_character_,
-    parent = NA_character_,
-    ext = str_ext(x, ext)
+    type = NA_character_
   )
 }
 
 # Medicaid: 01L008 => 01 L 008
 # Hospital: 01J008 => 01 J 008
 #' @noRd
-ccnr_Medicaid <- function(x, ext = FALSE) {
+ccnr_Medicaid <- function(x) {
   ccnr(
-    ccn = str_ccn(x, ext),
     entity = "Medicaid",
-    state = str_state(x),
+    ccn = substring(x, 1L, 6L),
+    state = substring(x, 1L, 2L),
     number = substring(x, 4L, 6L),
-    type = substr_(x, 3L),
-    parent = NA_character_,
-    ext = str_ext(x, ext)
+    type = substring(x, 3L, 3L)
   )
 }
 
 # Emergency: 12345E => 12 345 E
 #' @noRd
-ccnr_Emergency <- function(x, ext = FALSE) {
+ccnr_Emergency <- function(x) {
   ccnr(
-    ccn = x,
     entity = "Emergency",
-    state = str_state(x),
+    ccn = substring(x, 1L, 6L),
+    state = substring(x, 1L, 2L),
     number = substring(x, 3L, 5L),
-    type = substr_(x, 6L),
-    parent = NA_character_,
-    ext = NA_character_
+    type = substring(x, 6L, 6L)
   )
 }
 
 # Organ: 05P001 => 05 P 001
 #' @noRd
-ccnr_Organ <- function(x, ext = FALSE) {
+ccnr_Organ <- function(x) {
   ccnr(
-    ccn = x,
     entity = "Organ",
-    state = str_state(x),
+    ccn = substring(x, 1L, 6L),
+    state = substring(x, 1L, 2L),
     number = substring(x, 4L, 6L),
-    type = substr_(x, 3L),
-    parent = NA_character_,
-    ext = NA_character_
+    type = substring(x, 3L, 3L)
   )
 }
 
 # Hospital Unit: 21T101 => 21 T 101
 #' @noRd
-ccnr_Unit <- function(x, ext = FALSE) {
+ccnr_Unit <- function(x) {
   ccnr(
-    ccn = str_ccn(x, ext),
     entity = "Unit",
-    state = str_state(x),
+    ccn = substring(x, 1L, 6L),
+    state = substring(x, 1L, 2L),
     number = substring(x, 4L, 6L),
-    type = substr_(x, 3L),
-    parent = NA_character_,
-    ext = str_ext(x, ext)
+    type = substring(x, 3L, 3L)
   )
 }
 
@@ -88,13 +63,11 @@ ccnr_Unit <- function(x, ext = FALSE) {
 #' @noRd
 ccnr_Subunit <- function(x, ext = FALSE) {
   ccnr(
-    ccn = x,
     entity = "Subunit",
-    state = str_state(x),
+    ccn = substring(x, 1L, 6L),
+    state = substring(x, 1L, 2L),
     number = substring(x, 5L, 6L),
-    type = substr_(x, 3L),
-    parent = substr_(x, 4L),
-    ext = NA_character_
+    type = substring(x, 3L, 4L)
   )
 }
 
@@ -102,12 +75,10 @@ ccnr_Subunit <- function(x, ext = FALSE) {
 #' @noRd
 ccnr_Supplier <- function(x, ext = FALSE) {
   ccnr(
-    ccn = x,
     entity = "Supplier",
-    state = str_state(x),
+    ccn = substring(x, 1L, 10L),
+    state = substring(x, 1L, 2L),
     number = substring(x, 4L, 10L),
-    type = substr_(x, 3L),
-    parent = NA_character_,
-    ext = NA_character_
+    type = substring(x, 3L, 3L)
   )
 }

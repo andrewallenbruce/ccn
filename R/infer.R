@@ -66,6 +66,6 @@ infer_provider_ext <- function(x) {
       "Subunit_Ext",
       NA_character_
     ),
-    default = "<UNKNOWN> Provider Ext>"
+    default = "<UNKNOWN> Provider Ext"
   )
 }

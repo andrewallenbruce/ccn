@@ -4,10 +4,6 @@
 \alias{ccn}
 \alias{new_ccn}
 \alias{is_ccn}
-\alias{as_ccn}
-\alias{as_ccn.default}
-\alias{as_ccn.character}
-\alias{as_ccn.ccnr}
 \alias{index_ccn_types}
 \title{Construct a \code{ccn} object}
 \usage{
@@ -17,20 +13,10 @@ new_ccn(x = character())
 
 is_ccn(x)
 
-as_ccn(x, ...)
-
-\method{as_ccn}{default}(x, ...)
-
-\method{as_ccn}{character}(x, ...)
-
-\method{as_ccn}{ccnr}(x, ...)
-
 index_ccn_types(x)
 }
 \arguments{
-\item{x}{a vector}
-
-\item{...}{Passed on to methods.}
+\item{x}{\verb{<chr>} A vector of CCNs.}
 }
 \value{
 An S3 vector of class \verb{<ccn>}
@@ -44,8 +30,17 @@ An S3 vector of class \verb{<ccn>}
 }
 \examples{
 x <- get_pin("ccn")
+
 y <- ccn(x)
+
+is_ccn(x)
+is_ccn(y)
+
 vctrs::vec_c(x[1:5], y[100:150], x[1:50])
-tibble::tibble(x = x, ccn = as_ccn(x))
-index_ccn_types(x)
+
+tibble::tibble(x = x, ccn = y)
+
+index_ccn_types(y)
+
 }
+\keyword{internal}

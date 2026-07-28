@@ -45,11 +45,11 @@ recode_region <- function(x, as = c("number", "roman", "abbr", "full")) {
 recode_medicaid_type <- function(x, as = c("abbr", "full")) {
   vctrs::vec_recode_values(
     x,
-    from = ccn::medicaid_types$code,
+    from = ccn::medicaid_types[["code"]],
     to = switch(
       rlang::arg_match(as),
-      abbr = ccn::medicaid_types$abbr,
-      full = ccn::medicaid_types$desc
+      abbr = ccn::medicaid_types[["abbr"]],
+      full = ccn::medicaid_types[["desc"]]
     )
   )
 }
@@ -59,13 +59,13 @@ recode_medicaid_type <- function(x, as = c("abbr", "full")) {
 recode_unit_type <- function(x, as = c("abbr", "full", "infix", "eipps")) {
   vctrs::vec_recode_values(
     x,
-    from = ccn::unit_types$code,
+    from = ccn::unit_types[["code"]],
     to = switch(
       rlang::arg_match(as),
-      abbr = ccn::unit_types$abbr,
-      full = ccn::unit_types$desc,
-      infix = ccn::unit_types$infix,
-      eipps = ccn::unit_types$eipps
+      abbr = ccn::unit_types[["abbr"]],
+      full = ccn::unit_types[["desc"]],
+      infix = ccn::unit_types[["infix"]],
+      eipps = ccn::unit_types[["eipps"]]
     )
   )
 }
@@ -74,12 +74,12 @@ recode_unit_type <- function(x, as = c("abbr", "full", "infix", "eipps")) {
 #' @noRd
 recode_subunit_type <- function(x, as = c("prefix", "abbr")) {
   vctrs::vec_recode_values(
-    x,
-    from = ccn::subunit_types$code,
+    vctrs::vec_if_else(nchar(x) >= 2L, substring(x, 1L, 1L), x),
+    from = ccn::subunit_types[["code"]],
     to = switch(
       rlang::arg_match(as),
-      abbr = ccn::subunit_types$abbr,
-      prefix = ccn::subunit_types$prefix
+      abbr = ccn::subunit_types[["abbr"]],
+      prefix = ccn::subunit_types[["prefix"]]
     )
   )
 }

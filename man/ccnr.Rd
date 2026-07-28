@@ -4,52 +4,36 @@
 \alias{ccnr}
 \alias{new_ccnr}
 \alias{is_ccnr}
-\alias{as_ccnr}
-\alias{decode_ccnr}
 \title{Construct a \code{ccnr} object}
 \usage{
 ccnr(
-  ccn = character(),
   entity = character(),
+  ccn = character(),
   state = character(),
   number = character(),
-  type = character(),
-  parent = character(),
-  ext = character()
+  type = character()
 )
 
 new_ccnr(
-  ccn = character(),
   entity = character(),
+  ccn = character(),
   state = character(),
   number = character(),
-  type = character(),
-  parent = character(),
-  ext = character()
+  type = character()
 )
 
 is_ccnr(x)
-
-as_ccnr(x)
-
-decode_ccnr(x)
 }
 \arguments{
-\item{ccn}{a vector}
+\item{entity}{\verb{<chr>} a vector of CCN Entity types}
 
-\item{entity}{a vector}
+\item{ccn}{\verb{<chr>} A vector of CCNs}
 
-\item{state}{Passed on to methods}
+\item{state}{\verb{<chr>} Passed on to methods}
 
-\item{number}{a vector}
+\item{number}{\verb{<chr>} a vector}
 
-\item{type}{a vector}
-
-\item{parent}{a vector}
-
-\item{ext}{a vector}
-
-\item{x}{object}
+\item{type}{\verb{<chr>} a vector}
 }
 \value{
 An S3 vector of class \verb{<ccnr>}
@@ -58,10 +42,9 @@ An S3 vector of class \verb{<ccnr>}
 Construct a \code{ccnr} object
 }
 \examples{
-x <- get_pin("ccn")
-
 tibble::tibble(
-  x = x,
+  x = get_pin("ccn"),
   ccn = as_ccn(x),
   ccnr = as_ccnr(ccn))
 }
+\keyword{internal}

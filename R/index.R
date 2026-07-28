@@ -28,10 +28,6 @@ index_ccn_types <- function(x) {
 
   res <- vctrs::vec_c(g, e, p)
 
-  # if (all(c("Medicare", "Medicare_Ext") %in% names(res))) {
-  #   vctrs::vec_sort(vctrs::vec_c(res$Medicare_Ext, res$Medicare))
-  # }
-
   structure(res, class = "ccn_type_index")
 }
 

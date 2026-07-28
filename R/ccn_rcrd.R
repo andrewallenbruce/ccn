@@ -2,69 +2,49 @@ methods::setOldClass(c("ccnr", "vctrs_vctr"))
 
 #' Construct a `ccnr` object
 #'
-#' @param ccn a vector
-#' @param entity a vector
-#' @param state Passed on to methods
-#' @param number a vector
-#' @param type a vector
-#' @param parent a vector
-#' @param ext a vector
-#' @param x object
+#' @param entity `<chr>` a vector of CCN Entity types
+#' @param ccn `<chr>` A vector of CCNs
+#' @param state `<chr>` Passed on to methods
+#' @param number `<chr>` a vector
+#' @param type `<chr>` a vector
 #' @returns An S3 vector of class `<ccnr>`
 #' @examples
-#' x <- get_pin("ccn")
-#'
 #' tibble::tibble(
-#'   x = x,
+#'   x = get_pin("ccn"),
 #'   ccn = as_ccn(x),
 #'   ccnr = as_ccnr(ccn))
 #' @export
 ccnr <- function(
-  ccn = character(),
   entity = character(),
+  ccn = character(),
   state = character(),
   number = character(),
-  type = character(),
-  parent = character(),
-  ext = character()
+  type = character()
 ) {
-  .c(ccn, entity, state, number, type, parent, ext) %=%
-    vctrs::vec_cast_common(
-      ccn,
-      entity,
-      state,
-      number,
-      type,
-      parent,
-      ext,
-      .to = character()
-    )
-  .c(ccn, entity, state, number, type, parent, ext) %=%
-    vctrs::vec_recycle_common(ccn, entity, state, number, type, parent, ext)
-
-  new_ccnr(ccn, entity, state, number, type, parent, ext)
+  .c(entity, ccn, state, number, type) %=%
+    vctrs::vec_cast_common(entity, ccn, state, number, type, .to = character())
+  .c(ccn, entity, state, number, type) %=%
+    vctrs::vec_recycle_common(entity, ccn, state, number, type)
+  new_ccnr(entity, ccn, state, number, type)
 }
 
+#' @keywords internal
 #' @export
 #' @rdname ccnr
 new_ccnr <- function(
-  ccn = character(),
   entity = character(),
+  ccn = character(),
   state = character(),
   number = character(),
-  type = character(),
-  parent = character(),
-  ext = character()
+  type = character()
 ) {
   vctrs::new_rcrd(
     list(
-      ccn = ccn,
       entity = entity,
+      ccn = ccn,
       state = state,
       number = number,
-      type = type,
-      parent = parent,
-      ext = ext
+      type = type
     ),
     class = "ccnr"
   )
@@ -81,6 +61,7 @@ is_ccnr <- function(x) {
 #' Dispatch methods to support [vctrs::vec_proxy_equal()].
 #'
 #' @inheritParams vctrs::vec_proxy_equal
+#' @keywords internal
 #' @method vec_proxy_equal ccnr
 #' @export
 #' @export vec_proxy_equal.ccnr
@@ -107,48 +88,6 @@ vec_ptype_full.ccnr <- function(x, ...) {
   "ccn_rcrd"
 }
 
-#' @noRd
-has_ccnr <- function(x, index, key, .fn, ext = FALSE) {
-  if (rlang::has_name(index, key)) {
-    i <- index[[key]]
-    .fn(x[i], ext = ext)
-  } else {
-    NULL
-  }
-}
-
-#' @export
-#' @rdname ccnr
-as_ccnr <- function(x) {
-  i <- index_ccn_types(x)
-
-  vctrs::vec_c(
-    has_ccnr(x, i, "Medicare", ccnr_Medicare),
-    has_ccnr(x, i, "Medicaid", ccnr_Medicaid),
-    has_ccnr(x, i, "Unit", ccnr_Unit),
-    has_ccnr(x, i, "Subunit", ccnr_Subunit),
-    has_ccnr(x, i, "Organ", ccnr_Organ),
-    has_ccnr(x, i, "Emergency", ccnr_Emergency),
-    has_ccnr(x, i, "Supplier", ccnr_Supplier),
-    has_ccnr(x, i, "Medicare_Ext", ccnr_Medicare, TRUE),
-    has_ccnr(x, i, "Medicaid_Ext", ccnr_Medicaid, TRUE),
-    has_ccnr(x, i, "Unit_Ext", ccnr_Unit, TRUE),
-  )
-}
-
-
-# if (rlang::has_name(i, "Emergency")) {
-#   x[["facility"]][i[["Emergency"]]] <- recode_other_type(x[["type"]][i[["Emergency"]]])
-# }
-#
-# if (rlang::has_name(i, "Supplier")) {
-#   x[["facility"]][i[["Supplier"]]] <- recode_other_type(x[["type"]][i[["Supplier"]]])
-# }
-#
-# if (rlang::has_name(i, "Organ")) {
-#   x[["facility"]][i[["Organ"]]] <- recode_other_type(x[["type"]][i[["Organ"]]])
-# }
-
 # has_idx(x, i, "Emergency", "type", "facility", recode_other_type)
 #' @noRd
 has_idx <- function(x, index, key, from, to, .fn) {
@@ -166,8 +105,14 @@ has_idx <- function(x, index, key, from, to, .fn) {
 # decode_ccnr(as_ccn(NA))
 #
 # as_ccnr(as_ccn("")) == NULL
+
+#' Decode a `ccnr` object
+#'
+#' @param x `<chr>` a vector of CCNs
+#' @returns An S3 vector of class `<ccnr>`
+#' @examples
+#' decode_ccnr(get_pin("ccn"))
 #' @export
-#' @rdname ccnr
 decode_ccnr <- function(x) {
   x <- if (is_ccnr(x)) {
     tibble::tibble(vctrs::vec_data(x))
@@ -195,54 +140,46 @@ decode_ccnr <- function(x) {
   x <- has_idx(x, i, "Emergency", "type", "facility", recode_other_type)
   x <- has_idx(x, i, "Supplier", "type", "facility", recode_other_type)
   x <- has_idx(x, i, "Organ", "type", "facility", recode_other_type)
+  x <- has_idx(x, i, "Medicaid", "type", "facility", recode_medicaid_type)
+  x <- has_idx(x, i, "Unit", "type", "facility", recode_unit_type)
+  x <- has_idx(x, i, "Subunit", "type", "facility", recode_unit_type)
+  x <- has_idx(x, i, "Medicare", "number", "facility", decode_medicare_range)
 
-  if (rlang::has_name(i, "Medicaid")) {
-    x[["facility"]][i[["Medicaid"]]] <- recode_medicaid_type(x[["type"]][i[[
-      "Medicaid"
-    ]]])
+  if (collapse::anyv(x[["facility"]], "MOH")) {
+    idx <- x[["facility"]] %==% "MOH"
 
-    if (collapse::anyv(x[["facility"]], "MOH")) {
-      idx <- x[["facility"]] %==% "MOH"
-
-      x[["facility"]][idx] <- decode_medicaid_range(x[["number"]][idx])
-    }
-  }
-
-  if (rlang::has_name(i, "Medicare")) {
-    xi <- vctrs::vec_slice(x, i[["Medicare"]])
-    xii <- decode_medicare_range(xi[["number"]])
-    vctrs::vec_slice(x, i[["Medicare"]])$facility <- xii
-  }
-
-  if (rlang::has_name(i, "Unit")) {
-    xi <- vctrs::vec_slice(x, i[["Unit"]])
-    vctrs::vec_slice(x, i[["Unit"]])$facility <- recode_unit_type(xi[["type"]])
-
-    p <- paste0(
-      str_state(xi[["ccn"]]),
-      recode_unit_type(xi[["type"]], "infix"),
-      substring(xi[["ccn"]], 4L, 6L)
-    )
-
-    vctrs::vec_slice(x, i[["Unit"]])$parent <- p
-  }
-
-  if (rlang::has_name(i, "Subunit")) {
-    xi <- vctrs::vec_slice(x, i[["Subunit"]])
-    xii <- recode_unit_type(xi[["type"]]) # TODO
-    vctrs::vec_slice(x, i[["Subunit"]])$facility <- xii
-
-    p <- paste0(
-      str_state(x[i$Subunit, ]$ccn),
-      recode_subunit_type(x[i$Subunit, ]$parent),
-      substring(x[i$Subunit, ]$ccn, 5L, 6L)
-    )
-
-    x[i$Subunit, ]$parent <- p
+    x[["facility"]][idx] <- decode_medicaid_range(x[["number"]][idx])
   }
 
   collapse::gv(
     x,
-    c("ccn", "entity", "state", "facility", "parent", "number", "type")
+    c("ccn", "entity", "state", "facility", "number", "type")
   )
 }
+
+# if (rlang::has_name(i, "Unit")) {
+#   xi <- vctrs::vec_slice(x, i[["Unit"]])
+#   vctrs::vec_slice(x, i[["Unit"]])$facility <- recode_unit_type(xi[["type"]])
+#
+#   p <- paste0(
+#     str_state(xi[["ccn"]]),
+#     recode_unit_type(xi[["type"]], "infix"),
+#     substring(xi[["ccn"]], 4L, 6L)
+#   )
+#
+#   vctrs::vec_slice(x, i[["Unit"]])$parent <- p
+# }
+#
+# if (rlang::has_name(i, "Subunit")) {
+#   xi <- vctrs::vec_slice(x, i[["Subunit"]])
+#   xii <- recode_unit_type(xi[["type"]])
+#   vctrs::vec_slice(x, i[["Subunit"]])$facility <- xii
+#
+#   p <- paste0(
+#     str_state(x[i$Subunit, ]$ccn),
+#     recode_subunit_type(x[i$Subunit, ]$parent),
+#     substring(x[i$Subunit, ]$ccn, 5L, 6L)
+#   )
+#
+#   x[i$Subunit, ]$parent <- p
+# }

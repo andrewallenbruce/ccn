@@ -18,3 +18,4 @@ incompatible types (see \code{\link[vctrs:stop_incompatible_type]{stop_incompati
 \description{
 Double dispatch methods to support \code{\link[vctrs:vec_ptype2]{vctrs::vec_ptype2()}}.
 }
+\keyword{internal}

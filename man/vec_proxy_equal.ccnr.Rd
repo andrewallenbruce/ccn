@@ -14,3 +14,4 @@
 \description{
 Dispatch methods to support \code{\link[vctrs:vec_proxy_equal]{vctrs::vec_proxy_equal()}}.
 }
+\keyword{internal}

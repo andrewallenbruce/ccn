@@ -6,21 +6,29 @@ methods::setOldClass(c("ccn", "vctrs_vctr"))
 #'    - `ccn()` constructs an npi object from a vector.
 #'    - `as_ccn()` and `is_ccn()` forward to [vctrs::vec_cast()] and [inherits()], respectively.
 #'
-#' @param x a vector
-#' @param ... Passed on to methods.
+#' @param x `<chr>` A vector of CCNs.
 #' @returns An S3 vector of class `<ccn>`
 #' @examples
 #' x <- get_pin("ccn")
+#'
 #' y <- ccn(x)
+#'
+#' is_ccn(x)
+#' is_ccn(y)
+#'
 #' vctrs::vec_c(x[1:5], y[100:150], x[1:50])
-#' tibble::tibble(x = x, ccn = as_ccn(x))
-#' index_ccn_types(x)
+#'
+#' tibble::tibble(x = x, ccn = y)
+#'
+#' index_ccn_types(y)
+#'
 #' @export
 ccn <- function(x = character()) {
   x <- vctrs::vec_cast(x, character())
   new_ccn(x)
 }
 
+#' @keywords internal
 #' @export
 #' @rdname ccn
 new_ccn <- function(x = character()) {
@@ -35,35 +43,12 @@ is_ccn <- function(x) {
   inherits(x, "ccn")
 }
 
-#' @export
-#' @rdname ccn
-as_ccn <- function(x, ...) {
-  UseMethod("as_ccn")
-}
-
-#' @export
-#' @rdname ccn
-as_ccn.default <- function(x, ...) {
-  vctrs::vec_cast(x, new_ccn())
-}
-
-#' @export
-#' @rdname ccn
-as_ccn.character <- function(x, ...) {
-  new_ccn(x)
-}
-
-#' @export
-#' @rdname ccn
-as_ccn.ccnr <- function(x, ...) {
-  new_ccn(vctrs::field(x, "ccn"))
-}
-
 #' Coercion
 #'
 #' Double dispatch methods to support [vctrs::vec_ptype2()].
 #'
 #' @inheritParams vctrs::vec_ptype2
+#' @keywords internal
 #' @method vec_ptype2 ccn
 #' @export
 #' @export vec_ptype2.ccn
@@ -71,24 +56,28 @@ vec_ptype2.ccn <- function(x, y, ..., x_arg = "", y_arg = "") {
   UseMethod("vec_ptype2.ccn", y)
 }
 
+#' @keywords internal
 #' @method vec_ptype2.ccn default
 #' @export
 vec_ptype2.ccn.default <- function(x, y, ..., x_arg = "", y_arg = "") {
   vctrs::vec_default_ptype2(x, y, x_arg = x_arg, y_arg = y_arg)
 }
 
+#' @keywords internal
 #' @method vec_ptype2.ccn ccn
 #' @export
 vec_ptype2.ccn.ccn <- function(x, y, ...) {
   new_ccn()
 }
 
+#' @keywords internal
 #' @method vec_ptype2.ccn character
 #' @export
 vec_ptype2.ccn.character <- function(x, y, ...) {
   x
 }
 
+#' @keywords internal
 #' @method vec_ptype2.character ccn
 #' @export
 vec_ptype2.character.ccn <- function(x, y, ...) {
