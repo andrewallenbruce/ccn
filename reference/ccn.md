@@ -4,7 +4,8 @@
 
 - `ccn()` constructs an npi object from a vector.
 
-- `as_ccn()` and `is_ccn()` forward to
+- [`as_ccn()`](https://andrewallenbruce.github.io/ccn/reference/as_ccn.md)
+  and `is_ccn()` forward to
   [`vctrs::vec_cast()`](https://vctrs.r-lib.org/reference/vec_cast.html)
   and [`inherits()`](https://rdrr.io/r/base/class.html), respectively.
 
@@ -17,17 +18,6 @@ new_ccn(x = character())
 
 is_ccn(x)
 
-as_ccn(x, ...)
-
-# Default S3 method
-as_ccn(x, ...)
-
-# S3 method for class 'character'
-as_ccn(x, ...)
-
-# S3 method for class 'ccnr'
-as_ccn(x, ...)
-
 index_ccn_types(x)
 ```
 
@@ -35,11 +25,7 @@ index_ccn_types(x)
 
 - x:
 
-  a vector
-
-- ...:
-
-  Passed on to methods.
+  `<chr>` A vector of CCNs.
 
 ## Value
 
@@ -49,7 +35,14 @@ An S3 vector of class `<ccn>`
 
 ``` r
 x <- get_pin("ccn")
+
 y <- ccn(x)
+
+is_ccn(x)
+#> [1] FALSE
+is_ccn(y)
+#> [1] TRUE
+
 vctrs::vec_c(x[1:5], y[100:150], x[1:50])
 #> <ccn_vctr[106]>
 #>   [1] 001500 001502 001503 001509 001510 010131 010138 010139 010144 010148
@@ -63,7 +56,8 @@ vctrs::vec_c(x[1:5], y[100:150], x[1:50])
 #>  [81] 001557 001561 001562 001563 001568 001570 001571 001572 001574 001575
 #>  [91] 010001 010005 010006 010007 010008 010011 010012 010016 010018 010019
 #> [101] 010021 010022 010023 010024 010029 010033
-tibble::tibble(x = x, ccn = as_ccn(x))
+
+tibble::tibble(x = x, ccn = y)
 #> # A tibble: 52,287 × 2
 #>    x      ccn   
 #>    <chr>  <ccn> 
@@ -78,7 +72,8 @@ tibble::tibble(x = x, ccn = as_ccn(x))
 #>  9 001515 001515
 #> 10 001517 001517
 #> # ℹ 52,277 more rows
-index_ccn_types(x)
+
+index_ccn_types(y)
 #> <ccn_type_index[52287]>
 #>     Supplier :  5488
 #> Medicaid_Ext :     1

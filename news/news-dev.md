@@ -457,7 +457,7 @@
 
 ## ccn 0.0.0.9104 (2026-04-08)
 
-- [`as_ccnr()`](https://andrewallenbruce.github.io/ccn/reference/ccnr.md)
+- [`as_ccnr()`](https://andrewallenbruce.github.io/ccn/reference/as_ccnr.md)
   method
 
 ## ccn 0.0.0.9105 (2026-04-09)
@@ -539,3 +539,7 @@
 
 - updated data documentation
 - has_idx helper
+
+## ccn 0.0.0.9124 (2026-07-28)
+
+- cleaning up and somesuch

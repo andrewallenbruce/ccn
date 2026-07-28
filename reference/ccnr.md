@@ -6,65 +6,45 @@ Construct a `ccnr` object
 
 ``` r
 ccnr(
-  ccn = character(),
   entity = character(),
+  ccn = character(),
   state = character(),
   number = character(),
-  type = character(),
-  parent = character(),
-  ext = character()
+  type = character()
 )
 
 new_ccnr(
-  ccn = character(),
   entity = character(),
+  ccn = character(),
   state = character(),
   number = character(),
-  type = character(),
-  parent = character(),
-  ext = character()
+  type = character()
 )
 
 is_ccnr(x)
-
-as_ccnr(x)
-
-decode_ccnr(x)
 ```
 
 ## Arguments
 
-- ccn:
-
-  a vector
-
 - entity:
 
-  a vector
+  `<chr>` a vector of CCN Entity types
+
+- ccn:
+
+  `<chr>` A vector of CCNs
 
 - state:
 
-  Passed on to methods
+  `<chr>` Passed on to methods
 
 - number:
 
-  a vector
+  `<chr>` a vector
 
 - type:
 
-  a vector
-
-- parent:
-
-  a vector
-
-- ext:
-
-  a vector
-
-- x:
-
-  object
+  `<chr>` a vector
 
 ## Value
 
@@ -73,24 +53,22 @@ An S3 vector of class `<ccnr>`
 ## Examples
 
 ``` r
-x <- get_pin("ccn")
-
 tibble::tibble(
-  x = x,
+  x = get_pin("ccn"),
   ccn = as_ccn(x),
   ccnr = as_ccnr(ccn))
 #> # A tibble: 52,287 × 3
-#>    x      ccn      ccnr
-#>    <chr>  <ccn>  <ccnr>
-#>  1 001500 001500 001500
-#>  2 001502 001502 001502
-#>  3 001503 001503 001503
-#>  4 001509 001509 001509
-#>  5 001510 001510 001510
-#>  6 001511 001511 001511
-#>  7 001513 001513 001513
-#>  8 001514 001514 001514
-#>  9 001515 001515 001515
-#> 10 001517 001517 001517
+#>    x      ccn        ccnr
+#>    <chr>  <ccn>    <ccnr>
+#>  1 001500 001500 Medicare
+#>  2 001502 001502 Medicare
+#>  3 001503 001503 Medicare
+#>  4 001509 001509 Medicare
+#>  5 001510 001510 Medicare
+#>  6 001511 001511 Medicare
+#>  7 001513 001513 Medicare
+#>  8 001514 001514 Medicare
+#>  9 001515 001515 Medicare
+#> 10 001517 001517 Medicare
 #> # ℹ 52,277 more rows
 ```
