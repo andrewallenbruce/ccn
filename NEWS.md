@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9128 (2026-07-29)
+
+* decode generic
+
+
 # ccn 0.0.0.9127 (2026-07-29)
 
 * more
