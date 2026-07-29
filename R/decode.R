@@ -5,8 +5,10 @@
 #' @returns An S3 vector of class `<ccn>`
 #' @examples
 #' x = get_pin("ccn")
-#' decode(as_ccn(x))
-#' decode(as_ccnr(x))
+#' a = as_ccn(x)
+#' b = as_ccnr(x)
+#' decode(a)
+#' decode(b)
 #' @export
 decode <- function(x, ...) {
   UseMethod("decode")
@@ -17,6 +19,10 @@ decode <- function(x, ...) {
 decode.ccn <- function(x, ...) {
   x <- tibble::tibble(vctrs::vec_data(as_ccnr(x)))
   collapse::settfmv(x, collapse::gv(x, "number", return = 3L), as.integer)
+  collapse::gv(
+    x,
+    c("ccn", "entity", "state", "number", "type")
+  )
 }
 
 # has_(x, i, "Emergency", "type", "facility", recode_other_type)

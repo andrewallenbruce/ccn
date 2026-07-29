@@ -4,7 +4,7 @@
 #' @param ... Passed on to methods.
 #' @returns An S3 vector of class `<ccn>`
 #' @examples
-#' as_ccn(get_pin("ccn"))
+#' head(as_ccn(get_pin("ccn")))
 #' @export
 as_ccn <- function(x, ...) {
   UseMethod("as_ccn")
@@ -40,7 +40,7 @@ as_ccn.ccnr <- function(x, ...) {
 #' @param ... Passed on to methods.
 #' @returns An S3 vector of class `<ccnr>`
 #' @examples
-#' as_ccnr(get_pin("ccn"))
+#' head(as_ccnr(get_pin("ccn")))
 #' @export
 as_ccnr <- function(x, ...) {
   UseMethod("as_ccnr")

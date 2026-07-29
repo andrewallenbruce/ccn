@@ -25,6 +25,8 @@ Decode \code{ccn}/\code{ccnr} objects
 }
 \examples{
 x = get_pin("ccn")
-decode(as_ccn(x))
-decode(as_ccnr(x))
+a = as_ccn(x)
+b = as_ccnr(x)
+decode(a)
+decode(b)
 }
