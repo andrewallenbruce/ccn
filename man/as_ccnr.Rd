@@ -27,10 +27,5 @@ An S3 vector of class \verb{<ccnr>}
 Convert to a \code{ccnr} object
 }
 \examples{
-tibble::tibble(
-  x = get_pin("ccn"),
-  ccnr = as_ccnr(x),
-  ccn = as_ccn(ccnr),
-  ccnr2 = as_ccnr(ccnr)
-)
+as_ccnr(get_pin("ccn"))
 }

@@ -2,26 +2,15 @@ methods::setOldClass(c("ccn", "vctrs_vctr"))
 
 #' Construct a `ccn` object
 #'
-#'    - `new_ccn()` is a low-level constructor that takes a vector.
-#'    - `ccn()` constructs an npi object from a vector.
-#'    - `as_ccn()` and `is_ccn()` forward to [vctrs::vec_cast()] and [inherits()], respectively.
-#'
 #' @param x `<chr>` A vector of CCNs.
 #' @returns An S3 vector of class `<ccn>`
 #' @examples
 #' x <- get_pin("ccn")
-#'
 #' y <- ccn(x)
-#'
 #' is_ccn(x)
 #' is_ccn(y)
-#'
 #' vctrs::vec_c(x[1:5], y[100:150], x[1:50])
-#'
-#' tibble::tibble(x = x, ccn = y)
-#'
-#' index_ccn_types(y)
-#'
+#' tibble::tibble(x = x, ccn = ccn(x))
 #' @export
 ccn <- function(x = character()) {
   x <- vctrs::vec_cast(x, character())

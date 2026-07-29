@@ -72,17 +72,21 @@ infer_provider_ext <- function(x) {
 
 #' @noRd
 grp_split <- function(.fn, x, i = NULL) {
-  x <- if (is.null(i)) {
-    collapse::GRP(.fn(x), call = FALSE)
-  } else {
-    collapse::GRP(.fn(x[i]), call = FALSE)
-  }
-  collapse::gsplit(i, x, use.g.names = TRUE)
+  collapse::gsplit(
+    i,
+    collapse::GRP(X = if (is.null(i)) .fn(x) else .fn(x[i]), call = FALSE),
+    use.g.names = TRUE
+  )
 }
 
+#' Index a `ccn` object
+#'
+#' @param x `<chr>` A vector of CCNs.
+#' @returns An S3 vector of class `<ccn_index>`
+#' @examples
+#' index_ccn(as_ccn(get_pin("ccn")))
 #' @export
-#' @rdname ccn
-index_ccn_types <- function(x) {
+index_ccn <- function(x) {
   x <- if (is_ccn(x)) vctrs::vec_data(x) else x
   e <- p <- NULL
 
@@ -100,17 +104,17 @@ index_ccn_types <- function(x) {
 
   structure(
     vctrs::vec_c(g, e, p),
-    class = "ccn_type_index"
+    class = "ccn_index"
   )
 }
 
-#' @method format ccn_type_index
+#' @method format ccn_index
 #' @export
-format.ccn_type_index <- function(x, ...) {
+format.ccn_index <- function(x, ...) {
   z <- collapse::vlengths(x)
   n <- collapse::fsum(unname(z))
 
-  id <- paste0("<ccn_type_index[", n, "]>")
+  id <- paste0("<ccn_index[", n, "]>")
 
   cat(id, sep = "\n")
 
@@ -122,9 +126,9 @@ format.ccn_type_index <- function(x, ...) {
   invisible(x)
 }
 
-#' @method print ccn_type_index
+#' @method print ccn_index
 #' @export
-print.ccn_type_index <- function(x, ...) {
+print.ccn_index <- function(x, ...) {
   format(x, ...)
 }
 

@@ -4,12 +4,7 @@
 #' @param ... Passed on to methods.
 #' @returns An S3 vector of class `<ccn>`
 #' @examples
-#' tibble::tibble(
-#'   x = get_pin("ccn"),
-#'   ccn = as_ccn(x),
-#'   ccnr = as_ccnr(ccn),
-#'   ccn2 = as_ccn(ccnr)
-#' )
+#' as_ccn(get_pin("ccn"))
 #' @export
 as_ccn <- function(x, ...) {
   UseMethod("as_ccn")
@@ -45,12 +40,7 @@ as_ccn.ccnr <- function(x, ...) {
 #' @param ... Passed on to methods.
 #' @returns An S3 vector of class `<ccnr>`
 #' @examples
-#' tibble::tibble(
-#'   x = get_pin("ccn"),
-#'   ccnr = as_ccnr(x),
-#'   ccn = as_ccn(ccnr),
-#'   ccnr2 = as_ccnr(ccnr)
-#' )
+#' as_ccnr(get_pin("ccn"))
 #' @export
 as_ccnr <- function(x, ...) {
   UseMethod("as_ccnr")
@@ -84,7 +74,7 @@ has_ccnr <- function(x, index, key, .fn) {
 
 #' @noRd
 as_ccnr_ <- function(x) {
-  i <- index_ccn_types(x)
+  i <- index_ccn(x)
 
   vctrs::vec_c(
     has_ccnr(x, i, "Medicare", ccnr_Medicare),
