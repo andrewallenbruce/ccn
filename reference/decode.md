@@ -1,32 +1,51 @@
-# Decode CMS Certification Numbers
+# Decode `ccn`/`ccnr` objects
 
-Convert various codes to their associated names.
+Decode `ccn`/`ccnr` objects
 
 ## Usage
 
 ``` r
-decode(x)
+decode(x, ...)
+
+# S3 method for class 'ccn'
+decode(x, ...)
+
+# S3 method for class 'ccnr'
+decode(x, ...)
 ```
 
 ## Arguments
 
 - x:
 
-  character vector of codes to look up.
+  `<chr>` A vector of CCNs.
+
+- ...:
+
+  Passed on to methods.
 
 ## Value
 
-S7 object of class `Medicare`.
+An S3 vector of class `<ccn>`
 
 ## Examples
 
 ``` r
-x = c("670055", "21034E", "01L008", "01J008",
-      "05P001", "21U101", "21TA26", "45D0634589")
-
-purrr::map(x, decode)
-#> Warning: Unknown or uninitialised column: `name`.
-#> Error in purrr::map(x, decode): ℹ In index: 1.
-#> Caused by error in `kit::vswitch()`:
-#> ! Length of 'values' and 'outputs' are different. Please make sure they are the same.
+x = get_pin("ccn")
+decode(as_ccn(x))
+decode(as_ccnr(x))
+#> # A tibble: 54,567 × 6
+#>    ccn    entity   state facility number type 
+#>    <chr>  <chr>    <chr> <chr>     <int> <chr>
+#>  1 001500 Medicare AZ    Hospice    1500 NA   
+#>  2 001502 Medicare AZ    Hospice    1502 NA   
+#>  3 001503 Medicare AZ    Hospice    1503 NA   
+#>  4 001509 Medicare AZ    Hospice    1509 NA   
+#>  5 001510 Medicare AZ    Hospice    1510 NA   
+#>  6 001511 Medicare AZ    Hospice    1511 NA   
+#>  7 001513 Medicare AZ    Hospice    1513 NA   
+#>  8 001514 Medicare AZ    Hospice    1514 NA   
+#>  9 001515 Medicare AZ    Hospice    1515 NA   
+#> 10 001517 Medicare AZ    Hospice    1517 NA   
+#> # ℹ 54,557 more rows
 ```

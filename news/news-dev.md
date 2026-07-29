@@ -316,7 +316,9 @@
 
 ## ccn 0.0.0.9072 (2025-12-15)
 
-- fix: `decode()` handles parsed or unparsed input now
+- fix:
+  [`decode()`](https://andrewallenbruce.github.io/ccn/reference/decode.md)
+  handles parsed or unparsed input now
 
 ## ccn 0.0.0.9073 (2025-12-15)
 
@@ -551,3 +553,7 @@
 ## ccn 0.0.0.9126 (2026-07-28)
 
 - clean up more good
+
+## ccn 0.0.0.9127 (2026-07-29)
+
+- more

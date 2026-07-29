@@ -1,13 +1,6 @@
 # Construct a `ccn` object
 
-- `new_ccn()` is a low-level constructor that takes a vector.
-
-- `ccn()` constructs an npi object from a vector.
-
-- [`as_ccn()`](https://andrewallenbruce.github.io/ccn/reference/as_ccn.md)
-  and `is_ccn()` forward to
-  [`vctrs::vec_cast()`](https://vctrs.r-lib.org/reference/vec_cast.html)
-  and [`inherits()`](https://rdrr.io/r/base/class.html), respectively.
+Construct a `ccn` object
 
 ## Usage
 
@@ -15,8 +8,6 @@
 ccn(x = character())
 
 is_ccn(x)
-
-index_ccn_types(x)
 ```
 
 ## Arguments
@@ -33,14 +24,11 @@ An S3 vector of class `<ccn>`
 
 ``` r
 x <- get_pin("ccn")
-
 y <- ccn(x)
-
 is_ccn(x)
 #> [1] FALSE
 is_ccn(y)
 #> [1] TRUE
-
 vctrs::vec_c(x[1:5], y[100:150], x[1:50])
 #> <ccn_vctr[106]>
 #>   [1] 001500 001502 001503 001509 001510 010131 010138 010139 010144 010148
@@ -54,8 +42,7 @@ vctrs::vec_c(x[1:5], y[100:150], x[1:50])
 #>  [81] 001557 001561 001562 001563 001568 001570 001571 001572 001574 001575
 #>  [91] 010001 010005 010006 010007 010008 010011 010012 010016 010018 010019
 #> [101] 010021 010022 010023 010024 010029 010033
-
-tibble::tibble(x = x, ccn = y)
+tibble::tibble(x = x, ccn = ccn(x))
 #> # A tibble: 54,567 × 2
 #>    x      ccn   
 #>    <chr>  <ccn> 
@@ -70,16 +57,4 @@ tibble::tibble(x = x, ccn = y)
 #>  9 001515 001515
 #> 10 001517 001517
 #> # ℹ 54,557 more rows
-
-index_ccn_types(y)
-#> <ccn_type_index[54567]>
-#>     Supplier :  5488
-#> Medicaid_Ext :     1
-#> Medicare_Ext :   327
-#>     Unit_Ext :    14
-#>    Emergency :   166
-#>     Medicare : 45249
-#>        Organ :    55
-#>      Subunit :    49
-#>         Unit :  3218
 ```

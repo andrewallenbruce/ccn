@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ccn</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9126</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9127</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +35,7 @@
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Construct a <code>ccnr</code> object</h1>
-      <small class="dont-index">Source: <a href="https://github.com/andrewallenbruce/ccn/blob/master/R/ccn_rcrd.R" class="external-link"><code>R/ccn_rcrd.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/andrewallenbruce/ccn/blob/master/R/ccnr.R" class="external-link"><code>R/ccnr.R</code></a></small>
       <div class="d-none name"><code>ccnr.Rd</code></div>
     </div>
 
@@ -85,24 +85,18 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>  x <span class="op">=</span> <span class="fu"><a href="get_pin.html">get_pin</a></span><span class="op">(</span><span class="st">"ccn"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  ccn <span class="op">=</span> <span class="fu"><a href="as_ccn.html">as_ccn</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  ccnr <span class="op">=</span> <span class="fu"><a href="as_ccnr.html">as_ccnr</a></span><span class="op">(</span><span class="va">ccn</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 54,567 × 3</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    x      ccn      ccnr</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;ccn&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;ccnr&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 001500 001500 001500</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 001502 001502 001502</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 001503 001503 001503</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 001509 001509 001509</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 001510 001510 001510</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 001511 001511 001511</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 001513 001513 001513</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 001514 001514 001514</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 001515 001515 001515</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 001517 001517 001517</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 54,557 more rows</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">ccnr</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn_rcrd[0]&gt;</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">ccnr</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  entity <span class="op">=</span> <span class="st">"Medicare"</span>,</span></span>
+<span class="r-in"><span>  ccn <span class="op">=</span> <span class="st">"001234"</span>,</span></span>
+<span class="r-in"><span>  state <span class="op">=</span> <span class="st">"00"</span>,</span></span>
+<span class="r-in"><span>  number <span class="op">=</span> <span class="st">"1234"</span>,</span></span>
+<span class="r-in"><span>  type <span class="op">=</span> <span class="cn">NA_character_</span></span></span>
+<span class="r-in"><span> <span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn_rcrd[1]&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 001234</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

@@ -17,7 +17,6 @@
 
 - [`ccn()`](https://andrewallenbruce.github.io/ccn/reference/ccn.md)
   [`is_ccn()`](https://andrewallenbruce.github.io/ccn/reference/ccn.md)
-  [`index_ccn_types()`](https://andrewallenbruce.github.io/ccn/reference/ccn.md)
   :
 
   Construct a `ccn` object
@@ -26,10 +25,15 @@
 
   Construct a `ccnr` object
 
-- [`decode_ccnr()`](https://andrewallenbruce.github.io/ccn/reference/decode_ccnr.md)
+- [`decode()`](https://andrewallenbruce.github.io/ccn/reference/decode.md)
   :
 
-  Decode a `ccnr` object
+  Decode `ccn`/`ccnr` objects
+
+- [`index_ccn()`](https://andrewallenbruce.github.io/ccn/reference/index_ccn.md)
+  :
+
+  Index a `ccn` object
 
 - [`recode_medicaid_type()`](https://andrewallenbruce.github.io/ccn/reference/recode_medicaid_type.md)
   : Recode Medicaid Facility Types
