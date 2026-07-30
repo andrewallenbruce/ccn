@@ -21,7 +21,9 @@
 
   Construct a `ccn` object
 
-- [`ccnr()`](https://andrewallenbruce.github.io/ccn/reference/ccnr.md) :
+- [`ccnr()`](https://andrewallenbruce.github.io/ccn/reference/ccnr.md)
+  [`is_ccnr()`](https://andrewallenbruce.github.io/ccn/reference/ccnr.md)
+  :
 
   Construct a `ccnr` object
 
@@ -35,14 +37,12 @@
 
   Index a `ccn` object
 
+- [`recode_state()`](https://andrewallenbruce.github.io/ccn/reference/recode-location.md)
+  [`recode_region()`](https://andrewallenbruce.github.io/ccn/reference/recode-location.md)
+  : Recode CMS State/Region Codes
+
 - [`recode_medicaid_type()`](https://andrewallenbruce.github.io/ccn/reference/recode_medicaid_type.md)
   : Recode Medicaid Facility Types
-
-- [`recode_region()`](https://andrewallenbruce.github.io/ccn/reference/recode_region.md)
-  : Recode CMS Region Codes
-
-- [`recode_state()`](https://andrewallenbruce.github.io/ccn/reference/recode_state.md)
-  : Recode State Codes
 
 - [`recode_unit_type()`](https://andrewallenbruce.github.io/ccn/reference/recode_unit_type.md)
   : Recode Unit Facility Types

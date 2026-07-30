@@ -561,3 +561,7 @@
 ## ccn 0.0.0.9128 (2026-07-29)
 
 - decode generic
+
+## ccn 0.0.0.9129 (2026-07-30)
+
+- Cleaning up documentation

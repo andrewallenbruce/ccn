@@ -12,6 +12,8 @@ ccnr(
   number = character(),
   type = character()
 )
+
+is_ccnr(x)
 ```
 
 ## Arguments
