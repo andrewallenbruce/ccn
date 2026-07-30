@@ -1,16 +1,34 @@
-#' Recode State Codes
+#' Recode CMS State/Region Codes
 #'
 #' @param x `<chr>` vector of CCN state codes.
 #' @param as `<chr>` format to return; one of:
+#'
+#'    ### for `recode_state()`:
+#'
 #'    * `"abbr"`: state abbreviation (default)
 #'    * `"full"`: state name
-#' @returns `<chr>` vector of state names/abbreviations
+#'
+#'    ### for `recode_region()`:
+#'
+#'    * `"number"`: CMS region number (default)
+#'    * `"roman"`: CMS region number as a roman numeral
+#'    * `"abbr"`: CMS region's office location abbreviation
+#'    * `"full"`: CMS region's office location name
+#'
+#' @returns `<chr>` vector of CMS state/region/office names/abbreviations
+#'
 #' @examples
 #' tibble::tibble(
 #'   x = c("00", "01", "A5"),
-#'   abbr = recode_state(x, "abbr"),
-#'   full = recode_state(x, "full")
+#'   state = recode_state(x, "abbr"),
+#'   number = recode_region(x, "number"),
+#'   office = recode_region(x, "full")
 #' )
+#'
+#' @name recode-location
+NULL
+
+#' @rdname recode-location
 #' @export
 recode_state <- function(x, as = c("abbr", "full")) {
   vctrs::vec_recode_values(
@@ -24,23 +42,7 @@ recode_state <- function(x, as = c("abbr", "full")) {
   )
 }
 
-#' Recode CMS Region Codes
-#'
-#' @param x `<chr>` vector of CCN state codes.
-#' @param as `<chr>` format to return; one of:
-#'    * `"number"`: CMS region number (default)
-#'    * `"roman"`: CMS region number as a roman numeral
-#'    * `"abbr"`: CMS region's office location abbreviation
-#'    * `"full"`: CMS region's office location name
-#' @returns `<chr>` vector of CMS region/region office names/abbreviations
-#' @examples
-#' tibble::tibble(
-#'   x = c("00", "01", "A5"),
-#'   number = recode_region(x, "number"),
-#'   roman = recode_region(x, "roman"),
-#'   abbr = recode_region(x, "abbr"),
-#'   full = recode_region(x, "full")
-#' )
+#' @rdname recode-location
 #' @export
 recode_region <- function(x, as = c("number", "roman", "abbr", "full")) {
   vctrs::vec_recode_values(

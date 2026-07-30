@@ -53,12 +53,8 @@ new_ccnr <- function(
   )
 }
 
-#' Is `x` a ccnr?
-#'
-#' @param x description
-#' @returns logical
-#' @keywords internal
 #' @export
+#' @rdname ccnr
 is_ccnr <- function(x) {
   inherits(x, "ccnr")
 }

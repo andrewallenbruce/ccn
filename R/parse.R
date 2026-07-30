@@ -1,3 +1,35 @@
+#' @examplesIf FALSE
+#' # Medicare: 670055 => 67 0055
+#' to_ccnr(
+#'   x = ccn::get_pin("ccn"),
+#'   entity = "Medicare",
+#'   number = substring(x, 3L, 6L),
+#'   type = NA_character_
+#' )
+#'
+#' @noRd
+to_ccnr <- function(x, entity) {
+  ENT <- rlang::arg_match(
+    x,
+    c(
+      "Emergency",
+      "Medicare",
+      "Medicaid",
+      "Organ",
+      "Unit",
+      "Subunit",
+      "Supplier"
+    )
+  )
+  ccnr(
+    entity = ENT,
+    ccn = substring(x, 1L, 6L),
+    state = substring(x, 1L, 2L),
+    number = number,
+    type = type
+  )
+}
+
 # Medicare: 670055 => 67 0055
 #' @noRd
 ccnr_Medicare <- function(x) {

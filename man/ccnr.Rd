@@ -2,6 +2,7 @@
 % Please edit documentation in R/ccnr.R
 \name{ccnr}
 \alias{ccnr}
+\alias{is_ccnr}
 \title{Construct a \code{ccnr} object}
 \usage{
 ccnr(
@@ -11,6 +12,8 @@ ccnr(
   number = character(),
   type = character()
 )
+
+is_ccnr(x)
 }
 \arguments{
 \item{entity}{\verb{<chr>} vector of ccn entity types}
