@@ -35,20 +35,14 @@ occasionally assist with some of these duties.
 
   Convert to a `ccn`/`ccnr` object
 
+- [`ccn()`](https://andrewallenbruce.github.io/ccn/reference/ccn-ccnr.md)
+  [`ccnr()`](https://andrewallenbruce.github.io/ccn/reference/ccn-ccnr.md)
+  :
+
+  Construct a `ccn`/`ccnr` object
+
 - [`ccn-package`](https://andrewallenbruce.github.io/ccn/reference/ccn-package.md)
   : ccn: CMS Certification Numbers
-
-- [`ccn()`](https://andrewallenbruce.github.io/ccn/reference/ccn.md)
-  [`is_ccn()`](https://andrewallenbruce.github.io/ccn/reference/ccn.md)
-  :
-
-  Construct a `ccn` object
-
-- [`ccnr()`](https://andrewallenbruce.github.io/ccn/reference/ccnr.md)
-  [`is_ccnr()`](https://andrewallenbruce.github.io/ccn/reference/ccnr.md)
-  :
-
-  Construct a `ccnr` object
 
 - [`decode()`](https://andrewallenbruce.github.io/ccn/reference/decode.md)
   :

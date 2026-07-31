@@ -582,3 +582,7 @@
 ## ccn 0.0.0.9133 (2026-07-31)
 
 - added vec_restore method
+
+## ccn 0.0.0.9134 (2026-07-31)
+
+- `ccn` vctr now indexes upon instantiation

@@ -21,7 +21,7 @@ An S3 vector of class `<ccn_index>`
 ## Examples
 
 ``` r
-index_ccn(as_ccn(get_pin("ccn")))
+index_ccn(get_pin("ccn"))
 #> <ccn_index[54567]>
 #>     Supplier :  5488
 #> Medicaid_Ext :     1

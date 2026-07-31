@@ -1,11 +1,11 @@
-# Is `x` a `ccnr`?
+# Is `x` a `ccn`?
 
-Is `x` a `ccnr`?
+Is `x` a `ccn`?
 
 ## Usage
 
 ``` r
-is_ccnr(x)
+is_ccn(x)
 ```
 
 ## Arguments

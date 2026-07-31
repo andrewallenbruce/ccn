@@ -14,17 +14,17 @@ recode_medicaid_range(x, as = c("abbr", "full", "range"))
 
 - x:
 
-  `<int>` vector of CCN facility ranges.
+  `<int>` vector of CCN facility sequence numbers.
 
 - as:
 
   `<chr>` format to return; one of:
 
-  - `"abbr"`: facility range abbreviation (default)
+  - `"abbr"`: facility abbreviation (default)
 
-  - `"full"`: facility range full description
+  - `"full"`: facility full description
 
-  - `"range"`: facility range text representation
+  - `"range"`: facility range
 
 ## Value
 
@@ -55,23 +55,19 @@ tibble::tibble(
 #> # ℹ 33 more rows
 
 tibble::tibble(
-  x = ccn::medicare_ranges[["start"]],
+  x = ccn::medicaid_ranges[["start"]],
   abbr = recode_medicaid_range(x, "abbr"),
   range = recode_medicaid_range(x, "range"),
   facility = recode_medicaid_range(x, "full")
 )
-#> # A tibble: 43 × 4
-#>        x abbr     range   facility                      
-#>    <int> <chr>    <chr>   <chr>                         
-#>  1     1 Acute    001-099 Short-Term Acute Care Hospital
-#>  2   880 Reserved 600-999 Reserved for Future Use       
-#>  3   900 Reserved 600-999 Reserved for Future Use       
-#>  4  1000 NA       NA      NA                            
-#>  5  1200 NA       NA      NA                            
-#>  6  1225 NA       NA      NA                            
-#>  7  1300 NA       NA      NA                            
-#>  8  1400 NA       NA      NA                            
-#>  9  1500 NA       NA      NA                            
-#> 10  1800 NA       NA      NA                            
-#> # ℹ 33 more rows
+#> # A tibble: 7 × 4
+#>       x abbr        range   facility                       
+#>   <int> <chr>       <chr>   <chr>                          
+#> 1     1 Acute       001-099 Short-Term Acute Care Hospital 
+#> 2   100 Child       100-199 Children's Hospital            
+#> 3   200 Child-Psych 200-299 Children's Psychiatric Hospital
+#> 4   300 Psych       300-399 Psychiatric Hospital           
+#> 5   400 IRF         400-499 Rehabilitation Hospital        
+#> 6   500 LTCH        500-599 Long-Term Hospital             
+#> 7   600 Reserved    600-999 Reserved for Future Use        
 ```
