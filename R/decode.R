@@ -31,6 +31,7 @@ has_ <- function(x, index, key, .fn, from = "type", to = "facility") {
   if (rlang::has_name(index, key)) {
     i <- index[[key]]
     x[[to]][i] <- .fn(x[[from]][i])
+    # collapse::setv(x[[to]], i, .fn(x[[from]][i]))
   }
   return(x)
 }

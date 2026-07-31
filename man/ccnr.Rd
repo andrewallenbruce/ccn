@@ -25,6 +25,8 @@ is_ccnr(x)
 \item{number}{\verb{<chr>} vector of ccn code sequence numbers}
 
 \item{type}{\verb{<chr>} vector of ccn code facility types}
+
+\item{x}{\verb{<chr>} A vector of CCNs.}
 }
 \value{
 An S3 vector of class \verb{<ccnr>}

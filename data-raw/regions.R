@@ -1,5 +1,5 @@
 regions <- tibble::tribble(
-  ~code       , ~roman        , ~state        , ~office_abbr  , ~office_full    ,
+  ~code       , ~roman        , ~state        , ~abbr         , ~full           ,
   NA_integer_ , NA_character_ , "CN"          , NA_character_ , NA_character_   ,
   NA_integer_ , NA_character_ , "FC"          , NA_character_ , NA_character_   ,
   NA_integer_ , NA_character_ , "MX"          , NA_character_ , NA_character_   ,
@@ -62,19 +62,20 @@ regions <- tibble::tribble(
   NA_integer_ , NA_character_ , NA_character_ , NA_character_ , NA_character_   ,
 )
 
-regions$code <- as.character(regions$code)
+# regions$code <- as.character(regions$code)
+#
+# regions <- collapse::join(
+#   regions,
+#   ccn::states,
+#   on = c("state" = "abbr"),
+#   multiple = TRUE
+# ) |>
+#   collapse::ss(j = c(-3, -7)) |>
+#   collapse::rnm("code_y" = "state") |>
+#   collapse::ss(j = c(1:2, 5, 3:4)) |>
+#   collapse::roworderv(c("state"))
+#
+# as.roman(regions$roman)
 
-regions <- collapse::join(
-  regions,
-  ccn::states,
-  on = c("state" = "abbr"),
-  multiple = TRUE
-) |>
-  collapse::ss(j = c(-3, -7)) |>
-  collapse::rnm("code_y" = "state") |>
-  collapse::ss(j = c(1:2, 5, 3:4)) |>
-  collapse::roworderv(c("state"))
-
-as.roman(regions$roman)
-
+regions <- collapse::colorderv(regions, "state")
 usethis::use_data(regions, overwrite = TRUE)

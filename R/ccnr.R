@@ -53,6 +53,7 @@ new_ccnr <- function(
   )
 }
 
+#' @param x `<chr>` A vector of CCNs.
 #' @export
 #' @rdname ccnr
 is_ccnr <- function(x) {

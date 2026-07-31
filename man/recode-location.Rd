@@ -8,7 +8,7 @@
 \usage{
 recode_state(x, as = c("abbr", "full"))
 
-recode_region(x, as = c("number", "roman", "abbr", "full"))
+recode_region(x, as = c("code", "roman", "abbr", "full"))
 }
 \arguments{
 \item{x}{\verb{<chr>} vector of CCN state codes.}
@@ -23,8 +23,8 @@ recode_region(x, as = c("number", "roman", "abbr", "full"))
 
 \subsection{for \code{recode_region()}:}{
 \itemize{
-\item \code{"number"}: CMS region number (default)
-\item \code{"roman"}: CMS region number as a roman numeral
+\item \code{"code"}: CMS region code (default)
+\item \code{"roman"}: CMS region code as a roman numeral
 \item \code{"abbr"}: CMS region's office location abbreviation
 \item \code{"full"}: CMS region's office location name
 }
@@ -38,10 +38,9 @@ Recode CMS State/Region Codes
 }
 \examples{
 tibble::tibble(
-  x = c("00", "01", "A5"),
+  x = c("00", "01", "A5", "B3", "B4", "B5", "D6"),
   state = recode_state(x, "abbr"),
-  number = recode_region(x, "number"),
-  office = recode_region(x, "full")
+  region = recode_region(state, "code"),
+  office = recode_region(state, "full")
 )
-
 }

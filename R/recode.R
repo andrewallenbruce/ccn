@@ -10,8 +10,8 @@
 #'
 #'    ### for `recode_region()`:
 #'
-#'    * `"number"`: CMS region number (default)
-#'    * `"roman"`: CMS region number as a roman numeral
+#'    * `"code"`: CMS region code (default)
+#'    * `"roman"`: CMS region code as a roman numeral
 #'    * `"abbr"`: CMS region's office location abbreviation
 #'    * `"full"`: CMS region's office location name
 #'
@@ -19,12 +19,11 @@
 #'
 #' @examples
 #' tibble::tibble(
-#'   x = c("00", "01", "A5"),
+#'   x = c("00", "01", "A5", "B3", "B4", "B5", "D6"),
 #'   state = recode_state(x, "abbr"),
-#'   number = recode_region(x, "number"),
-#'   office = recode_region(x, "full")
+#'   region = recode_region(state, "code"),
+#'   office = recode_region(state, "full")
 #' )
-#'
 #' @name recode-location
 NULL
 
@@ -44,16 +43,16 @@ recode_state <- function(x, as = c("abbr", "full")) {
 
 #' @rdname recode-location
 #' @export
-recode_region <- function(x, as = c("number", "roman", "abbr", "full")) {
+recode_region <- function(x, as = c("code", "roman", "abbr", "full")) {
   vctrs::vec_recode_values(
     x,
     from = ccn::regions[["state"]],
     to = switch(
       rlang::arg_match(as),
-      number = ccn::regions[["code"]],
+      code = ccn::regions[["code"]],
       roman = ccn::regions[["roman"]],
-      abbr = ccn::regions[["office_abbr"]],
-      full = ccn::regions[["office_full"]]
+      abbr = ccn::regions[["abbr"]],
+      full = ccn::regions[["full"]]
     )
   )
 }

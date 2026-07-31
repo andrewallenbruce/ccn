@@ -109,6 +109,10 @@ states <- tibble::tribble(
   "B0"          , "KY"          , "Kentucky"             ,
   "B1"          , "WV"          , "West Virginia"        ,
   "B2"          , "CA"          , "California"           ,
+  "B3"          , "CA"          , "California"           ,
+  "B4"          , "CA"          , "California"           ,
+  "B5"          , "CA"          , "California"           ,
+  "D6"          , "CA"          , "California"           ,
   NA_character_ , NA_character_ , NA_character_
 )
 
