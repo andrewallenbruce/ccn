@@ -14,20 +14,19 @@ recode_region(x, as = c("code", "roman", "abbr", "full"))
 \item{x}{\verb{<chr>} vector of CCN state codes.}
 
 \item{as}{\verb{<chr>} format to return; one of:
-\subsection{for \code{recode_state()}:}{
+
+For \code{recode_state()}:
 \itemize{
 \item \code{"abbr"}: state abbreviation (default)
 \item \code{"full"}: state name
 }
-}
 
-\subsection{for \code{recode_region()}:}{
+For \code{recode_region()}:
 \itemize{
 \item \code{"code"}: CMS region code (default)
 \item \code{"roman"}: CMS region code as a roman numeral
 \item \code{"abbr"}: CMS region's office location abbreviation
 \item \code{"full"}: CMS region's office location name
-}
 }}
 }
 \value{

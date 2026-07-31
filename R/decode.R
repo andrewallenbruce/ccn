@@ -58,12 +58,12 @@ decode.ccnr <- function(x, ...) {
   x <- has_(x, i, "Medicaid", recode_medicaid_type)
   x <- has_(x, i, "Unit", recode_unit_type)
   x <- has_(x, i, "Subunit", recode_unit_type)
-  x <- has_(x, i, "Medicare", decode_medicare_range, "number")
+  x <- has_(x, i, "Medicare", recode_medicare_range, "number")
 
   if (collapse::anyv(x[["facility"]], "MOH")) {
     idx <- x[["facility"]] %==% "MOH"
 
-    x[["facility"]][idx] <- decode_medicaid_range(x[["number"]][idx])
+    x[["facility"]][idx] <- recode_medicaid_range(x[["number"]][idx])
   }
 
   collapse::gv(
@@ -109,12 +109,12 @@ decode_ccnr <- function(x) {
   x <- has_(x, i, "Medicaid", "type", "facility", recode_medicaid_type)
   x <- has_(x, i, "Unit", "type", "facility", recode_unit_type)
   x <- has_(x, i, "Subunit", "type", "facility", recode_unit_type)
-  x <- has_(x, i, "Medicare", "number", "facility", decode_medicare_range)
+  x <- has_(x, i, "Medicare", "number", "facility", recode_medicare_range)
 
   if (collapse::anyv(x[["facility"]], "MOH")) {
     idx <- x[["facility"]] %==% "MOH"
 
-    x[["facility"]][idx] <- decode_medicaid_range(x[["number"]][idx])
+    x[["facility"]][idx] <- recode_medicaid_range(x[["number"]][idx])
   }
 
   collapse::gv(

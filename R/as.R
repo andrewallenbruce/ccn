@@ -1,65 +1,67 @@
-#' Convert to a `ccn` object
+#' Convert to a `ccn`/`ccnr` object
 #'
 #' @param x `<chr>` A vector of CCNs.
 #' @param ... Passed on to methods.
-#' @returns An S3 vector of class `<ccn>`
+#' @returns An S3 vector of class `<ccn>` or `<ccnr>`
 #' @examples
-#' head(as_ccn(get_pin("ccn")))
+#' x = get_pin("ccn")
+#'
+#' head(as_ccn(x))
+#'
+#' head(as_ccnr(x))
+#'
+#' @name as
+NULL
+
 #' @export
+#' @rdname as
 as_ccn <- function(x, ...) {
   UseMethod("as_ccn")
 }
 
 #' @export
-#' @rdname as_ccn
+#' @rdname as
 as_ccn.default <- function(x, ...) {
   vctrs::vec_cast(x, new_ccn())
 }
 
 #' @export
-#' @rdname as_ccn
+#' @rdname as
 as_ccn.character <- function(x, ...) {
   new_ccn(x)
 }
 
 #' @export
-#' @rdname as_ccn
+#' @rdname as
 as_ccn.ccn <- function(x, ...) {
   x
 }
 
 #' @export
-#' @rdname as_ccn
+#' @rdname as
 as_ccn.ccnr <- function(x, ...) {
   new_ccn(vctrs::field(x, "ccn"))
 }
 
-#' Convert to a `ccnr` object
-#'
-#' @param x `<chr>` A vector of CCNs.
-#' @param ... Passed on to methods.
-#' @returns An S3 vector of class `<ccnr>`
-#' @examples
-#' head(as_ccnr(get_pin("ccn")))
 #' @export
+#' @rdname as
 as_ccnr <- function(x, ...) {
   UseMethod("as_ccnr")
 }
 
 #' @export
-#' @rdname as_ccnr
+#' @rdname as
 as_ccnr.character <- function(x, ...) {
   as_ccnr_(x)
 }
-
 #' @export
-#' @rdname as_ccnr
+#' @rdname as
 as_ccnr.ccn <- function(x, ...) {
   as_ccnr_(x)
 }
 
 #' @export
-#' @rdname as_ccnr
+#' @rdname as
 as_ccnr.ccnr <- function(x, ...) {
   x
 }

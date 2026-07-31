@@ -3,12 +3,12 @@
 #' @param x `<chr>` vector of CCN state codes.
 #' @param as `<chr>` format to return; one of:
 #'
-#'    ### for `recode_state()`:
+#'    For `recode_state()`:
 #'
 #'    * `"abbr"`: state abbreviation (default)
 #'    * `"full"`: state name
 #'
-#'    ### for `recode_region()`:
+#'    For `recode_region()`:
 #'
 #'    * `"code"`: CMS region code (default)
 #'    * `"roman"`: CMS region code as a roman numeral
@@ -57,19 +57,66 @@ recode_region <- function(x, as = c("code", "roman", "abbr", "full")) {
   )
 }
 
-#' Recode Medicaid Facility Types
+#' Recode CMS Facility Types
 #'
-#' @param x `<chr>` vector of CCN Medicaid facility type characters.
+#' @param x `<chr>` vector of CCN facility type characters.
+#'
 #' @param as `<chr>` format to return; one of:
+#'
+#'    For `recode_medicaid_type()`:
+#'
 #'    * `"abbr"`: facility type abbreviation (default)
 #'    * `"full"`: facility type name
-#' @returns `<chr>` vector of Medicaid facility type names/abbreviations
+#'
+#'    For `recode_unit_type()`:
+#'
+#'    * `"abbr"`: unit abbreviation (default)
+#'    * `"full"`: unit name
+#'    * `"infix"`: unit parent ccn infix
+#'    * `"eipps"`: is type IPPS-excluded?
+#'
+#'    For `recode_subunit_type()`:
+#'
+#'    * `"prefix"`: subunit parent ccn infix (default)
+#'    * `"abbr"`: subunit abbreviation
+#'
+#'    For `recode_other_type()`:
+#'
+#'    * `"abbr"`: facility type abbreviation (default)
+#'    * `"full"`: facility type name
+#'
+#' @returns `<chr>` vector of facility type names/abbreviations
+#'
 #' @examples
 #' tibble::tibble(
 #'   x = ccn::medicaid_types[["code"]],
 #'   abbr = recode_medicaid_type(x, "abbr"),
 #'   full = recode_medicaid_type(x, "full")
 #' )
+#'
+#' tibble::tibble(
+#'   x = ccn::unit_types[["code"]],
+#'   abbr = recode_unit_type(x, "abbr"),
+#'   full = recode_unit_type(x, "full"),
+#'   infix = recode_unit_type(x, "infix"),
+#'   eipps = recode_unit_type(x, "eipps"),
+#' )
+#'
+#' tibble::tibble(
+#'   x = ccn::subunit_types[["code"]],
+#'   prefix = recode_subunit_type(x, "prefix"),
+#'   abbr = recode_subunit_type(x, "abbr")
+#' )
+#'
+#' tibble::tibble(
+#'   x = c("C", "D", "E", "F", "P", "X"),
+#'   abbr = recode_other_type(x, "abbr"),
+#'   full = recode_other_type(x, "full")
+#' )
+#' @name recode-types
+NULL
+
+#' @rdname recode-types
 #' @export
 recode_medicaid_type <- function(x, as = c("abbr", "full")) {
   vctrs::vec_recode_values(
@@ -83,23 +130,7 @@ recode_medicaid_type <- function(x, as = c("abbr", "full")) {
   )
 }
 
-#' Recode Unit Facility Types
-#'
-#' @param x `<chr>` vector of CCN Unit facility type characters.
-#' @param as `<chr>` format to return; one of:
-#'    * `"abbr"`: unit abbreviation (default)
-#'    * `"full"`: unit name
-#'    * `"infix"`: unit parent ccn infix
-#'    * `"eipps"`: is type IPPS-excluded?
-#' @returns `<chr>` vector of Unit facility type names/abbreviations/parent infixes/IPPS exclusion statuses
-#' @examples
-#' tibble::tibble(
-#'   x = ccn::unit_types[["code"]],
-#'   abbr = recode_unit_type(x, "abbr"),
-#'   full = recode_unit_type(x, "full"),
-#'   infix = recode_unit_type(x, "infix"),
-#'   eipps = recode_unit_type(x, "eipps"),
-#' )
+#' @rdname recode-types
 #' @export
 recode_unit_type <- function(x, as = c("abbr", "full", "infix", "eipps")) {
   vctrs::vec_recode_values(
@@ -115,19 +146,7 @@ recode_unit_type <- function(x, as = c("abbr", "full", "infix", "eipps")) {
   )
 }
 
-#' Recode Subunit Facility Types
-#'
-#' @param x `<chr>` vector of CCN Subunit facility type characters.
-#' @param as `<chr>` format to return; one of:
-#'    * `"prefix"`: subunit parent ccn infix (default)
-#'    * `"abbr"`: subunit abbreviation
-#' @returns `<chr>` vector of Subunit facility type abbreviations/parent prefixes
-#' @examples
-#' tibble::tibble(
-#'   x = ccn::subunit_types[["code"]],
-#'   prefix = recode_subunit_type(x, "prefix"),
-#'   abbr = recode_subunit_type(x, "abbr")
-#' )
+#' @rdname recode-types
 #' @export
 recode_subunit_type <- function(x, as = c("prefix", "abbr")) {
   vctrs::vec_recode_values(
@@ -141,19 +160,7 @@ recode_subunit_type <- function(x, as = c("prefix", "abbr")) {
   )
 }
 
-#' Recode Other Facility Types
-#'
-#' @param x `<chr>` vector of CCN Other facility type characters.
-#' @param as `<chr>` format to return; one of:
-#'    * `"abbr"`: facility type abbreviation (default)
-#'    * `"full"`: facility type name
-#' @returns `<chr>` vector of Other facility type names/abbreviations
-#' @examples
-#' tibble::tibble(
-#'   x = c("C", "D", "E", "F", "P", "X", NA_character_),
-#'   abbr = recode_other_type(x, "abbr"),
-#'   full = recode_other_type(x, "full")
-#' )
+#' @rdname recode-types
 #' @export
 recode_other_type <- function(x, as = c("abbr", "full")) {
   vctrs::vec_recode_values(
@@ -183,9 +190,38 @@ recode_other_type <- function(x, as = c("abbr", "full")) {
   )
 }
 
-# decode_medicare_range(c(1L, 2099L, NA))
-#' @noRd
-decode_medicare_range <- function(x, as = c("abbr", "range", "full")) {
+#' Recode CMS Facility Ranges
+#'
+#' @param x `<int>` vector of CCN facility ranges.
+#'
+#' @param as `<chr>` format to return; one of:
+#'
+#'    * `"abbr"`: facility range abbreviation (default)
+#'    * `"full"`: facility range full description
+#'    * `"range"`: facility range text representation
+#'
+#' @returns `<chr>` vector of CMS facility range information
+#'
+#' @examples
+#' tibble::tibble(
+#'   x = c(1L, 2099L),
+#'   abbr = recode_medicare_range(x, "abbr"),
+#'   range = recode_medicare_range(x, "range"),
+#'   facility = recode_medicare_range(x, "full")
+#' )
+#'
+#' tibble::tibble(
+#'   x = c(1L, 2099L),
+#'   abbr = recode_medicaid_range(x, "abbr"),
+#'   range = recode_medicaid_range(x, "range"),
+#'   facility = recode_medicaid_range(x, "full")
+#' )
+#' @name recode-ranges
+NULL
+
+#' @rdname recode-ranges
+#' @export
+recode_medicare_range <- function(x, as = c("abbr", "full", "range")) {
   vctrs::vec_slice(
     switch(
       rlang::arg_match(as),
@@ -197,9 +233,9 @@ decode_medicare_range <- function(x, as = c("abbr", "range", "full")) {
   )
 }
 
-# decode_medicaid_range(c(1L, 209L, NA, 1000))
-#' @noRd
-decode_medicaid_range <- function(x, as = c("abbr", "range", "full")) {
+#' @rdname recode-ranges
+#' @export
+recode_medicaid_range <- function(x, as = c("abbr", "full", "range")) {
   vctrs::vec_slice(
     switch(
       rlang::arg_match(as),
