@@ -21,6 +21,9 @@ as_ccn(x, ...)
 
 as_ccnr(x, ...)
 
+# Default S3 method
+as_ccnr(x, ...)
+
 # S3 method for class 'character'
 as_ccnr(x, ...)
 
