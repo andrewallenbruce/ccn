@@ -578,3 +578,7 @@
 ## ccn 0.0.0.9132 (2026-07-31)
 
 - recode documentation
+
+## ccn 0.0.0.9133 (2026-07-31)
+
+- added vec_restore method
