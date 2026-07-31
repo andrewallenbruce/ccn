@@ -66,7 +66,7 @@ recode_region <- function(x, as = c("code", "roman", "abbr", "full")) {
 #' @returns `<chr>` vector of Medicaid facility type names/abbreviations
 #' @examples
 #' tibble::tibble(
-#'   x = c("A", "K"),
+#'   x = ccn::medicaid_types[["code"]],
 #'   abbr = recode_medicaid_type(x, "abbr"),
 #'   full = recode_medicaid_type(x, "full")
 #' )
@@ -94,7 +94,7 @@ recode_medicaid_type <- function(x, as = c("abbr", "full")) {
 #' @returns `<chr>` vector of Unit facility type names/abbreviations/parent infixes/IPPS exclusion statuses
 #' @examples
 #' tibble::tibble(
-#'   x = c("M", "T", "Z"),
+#'   x = ccn::unit_types[["code"]],
 #'   abbr = recode_unit_type(x, "abbr"),
 #'   full = recode_unit_type(x, "full"),
 #'   infix = recode_unit_type(x, "infix"),
@@ -115,8 +115,20 @@ recode_unit_type <- function(x, as = c("abbr", "full", "infix", "eipps")) {
   )
 }
 
-# recode_subunit_type(c("A", "K", NA))
-#' @noRd
+#' Recode Subunit Facility Types
+#'
+#' @param x `<chr>` vector of CCN Subunit facility type characters.
+#' @param as `<chr>` format to return; one of:
+#'    * `"prefix"`: subunit parent ccn infix (default)
+#'    * `"abbr"`: subunit abbreviation
+#' @returns `<chr>` vector of Subunit facility type abbreviations/parent prefixes
+#' @examples
+#' tibble::tibble(
+#'   x = ccn::subunit_types[["code"]],
+#'   prefix = recode_subunit_type(x, "prefix"),
+#'   abbr = recode_subunit_type(x, "abbr")
+#' )
+#' @export
 recode_subunit_type <- function(x, as = c("prefix", "abbr")) {
   vctrs::vec_recode_values(
     vctrs::vec_if_else(nchar(x) >= 2L, substring(x, 1L, 1L), x),
@@ -129,8 +141,20 @@ recode_subunit_type <- function(x, as = c("prefix", "abbr")) {
   )
 }
 
-# recode_other_type(c("C", "D", "E", "F", "P", "X", NA))
-#' @noRd
+#' Recode Other Facility Types
+#'
+#' @param x `<chr>` vector of CCN Other facility type characters.
+#' @param as `<chr>` format to return; one of:
+#'    * `"abbr"`: facility type abbreviation (default)
+#'    * `"full"`: facility type name
+#' @returns `<chr>` vector of Other facility type names/abbreviations
+#' @examples
+#' tibble::tibble(
+#'   x = c("C", "D", "E", "F", "P", "X", NA_character_),
+#'   abbr = recode_other_type(x, "abbr"),
+#'   full = recode_other_type(x, "full")
+#' )
+#' @export
 recode_other_type <- function(x, as = c("abbr", "full")) {
   vctrs::vec_recode_values(
     x,

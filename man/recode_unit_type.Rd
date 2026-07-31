@@ -25,7 +25,7 @@ Recode Unit Facility Types
 }
 \examples{
 tibble::tibble(
-  x = c("M", "T", "Z"),
+  x = ccn::unit_types[["code"]],
   abbr = recode_unit_type(x, "abbr"),
   full = recode_unit_type(x, "full"),
   infix = recode_unit_type(x, "infix"),

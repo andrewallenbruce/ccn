@@ -30,50 +30,50 @@ is_type_medicare <- function(x) {
 
 #' @noRd
 is_type_medicaid <- function(x) {
-  vctrs::vec_in(substr_(x, 3L), ccn::medicaid_types$code)
+  vctrs::vec_in(substring(x, 3L, 3L), ccn::medicaid_types[["code"]])
 }
 
 #' @noRd
 is_type_medicaid_hospital <- function(x) {
-  vctrs::vec_equal(substr_(x, 3L), "J")
+  vctrs::vec_equal(substring(x, 3L, 3L), "J")
 }
 
 #' @noRd
 is_type_emergency <- function(x) {
-  vctrs::vec_in(substr_(x, 6L), c("E", "F"))
+  vctrs::vec_in(substring(x, 6L, 6L), c("E", "F"))
 }
 
 #' @noRd
 is_type_organ <- function(x) {
-  vctrs::vec_equal(substr_(x, 3L), "P")
+  vctrs::vec_equal(substring(x, 3L, 3L), "P")
 }
 
 #' @noRd
 is_type_supplier <- function(x) {
-  vctrs::vec_in(substr_(x, 3L), c("C", "D", "X"))
+  vctrs::vec_in(substring(x, 3L, 3L), c("C", "D", "X"))
 }
 
 #' @noRd
 .is_unit <- function(x) {
-  vctrs::vec_in(substr_(x, 3L), ccn::unit_types$code)
+  vctrs::vec_in(substring(x, 3L, 3L), ccn::unit_types[["code"]])
 }
 
 #' @noRd
 is_type_unit <- function(x) {
-  .is_unit(x) & is_numeric(substr_(x, 4L))
+  .is_unit(x) & is_numeric(substring(x, 4L, 4L))
 }
 
 #' @noRd
 is_type_subunit <- function(x) {
-  .is_unit(x) & vctrs::vec_in(substr_(x, 4L), ccn::subunit_types$code)
+  .is_unit(x) & vctrs::vec_in(substring(x, 4L, 4L), ccn::subunit_types[["code"]])
 }
 
 #' @noRd
 is_type_eipps <- function(x) {
-  vctrs::vec_in(x, ccn::eipps_types$code)
+  vctrs::vec_in(x, ccn::eipps_types[["code"]])
 }
 
 #' @noRd
 is_eipps_range <- function(x) {
-  ivs::iv_between(x, ccn::eipps_ranges$iv)
+  ivs::iv_between(x, ccn::eipps_ranges[["iv"]])
 }

@@ -7,13 +7,13 @@
 \format{
 \subsection{\code{regions}}{
 
-A data frame with 109 rows and 5 columns:
+A data frame with 60 rows and 5 columns:
 \describe{
-\item{code}{Region number}
-\item{roman}{Region roman numeral}
 \item{state}{State abbreviation}
-\item{office_abbr}{Regional office city abbreviation}
-\item{office_full}{Regional office city full name}
+\item{code}{Region code}
+\item{roman}{Region roman numeral}
+\item{abbr}{Regional office city abbreviation}
+\item{full}{Regional office city full name}
 ...
 }
 }

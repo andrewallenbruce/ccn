@@ -64,6 +64,62 @@ as_ccnr.ccnr <- function(x, ...) {
   x
 }
 
+#' @examplesIf FALSE
+#' to_ccnr("001500", "Medicare")
+#' @noRd
+to_ccnr <- function(x, entity) {
+  ENTITY <- rlang::arg_match(
+    entity,
+    c(
+      "Emergency",
+      "Medicare",
+      "Medicare_Ext",
+      "Medicaid",
+      "Organ",
+      "Unit",
+      "Subunit",
+      "Supplier"
+    )
+  )
+  ccnr(
+    entity = switch(
+      ENTITY,
+      Medicare_Ext = "Medicare",
+      Medicaid_Ext = "Medicaid",
+      Unit_Ext = "Unit",
+      ENTITY
+    ),
+    ccn = substring(x, 1L, 6L),
+    state = substring(x, 1L, 2L),
+    number = switch(
+      ENTITY,
+      Medicare_Ext = ,
+      Medicare = substring(x, 3L, 6L),
+      Organ = ,
+      Unit_Ext = ,
+      Unit = ,
+      Medicaid_Ext = ,
+      Medicaid = substring(x, 4L, 6L),
+      Subunit = substring(x, 5L, 6L),
+      Supplier = substring(x, 4L, 10L),
+      Emergency = substring(x, 3L, 5L)
+    ),
+    type = switch(
+      ENTITY,
+      Medicare_Ext = ,
+      Medicare = NA_character_,
+      Organ = ,
+      Unit_Ext = ,
+      Unit = ,
+      Subunit = ,
+      Supplier = ,
+      Medicaid_Ext = ,
+      Medicaid = substring(x, 3L, 3L),
+      Emergency = substring(x, 6L, 6L)
+    )
+  )
+}
+
 #' @noRd
 has_ccnr <- function(x, index, key, .fn) {
   if (!rlang::has_name(index, key)) {

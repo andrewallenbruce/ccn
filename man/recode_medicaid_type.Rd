@@ -23,7 +23,7 @@ Recode Medicaid Facility Types
 }
 \examples{
 tibble::tibble(
-  x = c("A", "K"),
+  x = ccn::medicaid_types[["code"]],
   abbr = recode_medicaid_type(x, "abbr"),
   full = recode_medicaid_type(x, "full")
 )
