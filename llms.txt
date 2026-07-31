@@ -29,15 +29,11 @@ occasionally assist with some of these duties.
 
 ## All functions
 
-- [`as_ccn()`](https://andrewallenbruce.github.io/ccn/reference/as_ccn.md)
+- [`as_ccn()`](https://andrewallenbruce.github.io/ccn/reference/as.md)
+  [`as_ccnr()`](https://andrewallenbruce.github.io/ccn/reference/as.md)
   :
 
-  Convert to a `ccn` object
-
-- [`as_ccnr()`](https://andrewallenbruce.github.io/ccn/reference/as_ccnr.md)
-  :
-
-  Convert to a `ccnr` object
+  Convert to a `ccn`/`ccnr` object
 
 - [`ccn-package`](https://andrewallenbruce.github.io/ccn/reference/ccn-package.md)
   : ccn: CMS Certification Numbers
@@ -68,15 +64,13 @@ occasionally assist with some of these duties.
   [`recode_region()`](https://andrewallenbruce.github.io/ccn/reference/recode-location.md)
   : Recode CMS State/Region Codes
 
-- [`recode_medicaid_type()`](https://andrewallenbruce.github.io/ccn/reference/recode_medicaid_type.md)
-  : Recode Medicaid Facility Types
+- [`recode_medicare_range()`](https://andrewallenbruce.github.io/ccn/reference/recode-ranges.md)
+  [`recode_medicaid_range()`](https://andrewallenbruce.github.io/ccn/reference/recode-ranges.md)
+  : Recode CMS Facility Ranges
 
-- [`recode_other_type()`](https://andrewallenbruce.github.io/ccn/reference/recode_other_type.md)
-  : Recode Other Facility Types
-
-- [`recode_subunit_type()`](https://andrewallenbruce.github.io/ccn/reference/recode_subunit_type.md)
-  : Recode Subunit Facility Types
-
-- [`recode_unit_type()`](https://andrewallenbruce.github.io/ccn/reference/recode_unit_type.md)
-  : Recode Unit Facility Types
+- [`recode_medicaid_type()`](https://andrewallenbruce.github.io/ccn/reference/recode-types.md)
+  [`recode_unit_type()`](https://andrewallenbruce.github.io/ccn/reference/recode-types.md)
+  [`recode_subunit_type()`](https://andrewallenbruce.github.io/ccn/reference/recode-types.md)
+  [`recode_other_type()`](https://andrewallenbruce.github.io/ccn/reference/recode-types.md)
+  : Recode CMS Facility Types
 

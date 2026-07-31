@@ -459,7 +459,7 @@
 
 ## ccn 0.0.0.9104 (2026-04-08)
 
-- [`as_ccnr()`](https://andrewallenbruce.github.io/ccn/reference/as_ccnr.md)
+- [`as_ccnr()`](https://andrewallenbruce.github.io/ccn/reference/as.md)
   method
 
 ## ccn 0.0.0.9105 (2026-04-09)
@@ -574,3 +574,7 @@
 ## ccn 0.0.0.9131 (2026-07-30)
 
 - exported recodes
+
+## ccn 0.0.0.9132 (2026-07-31)
+
+- recode documentation

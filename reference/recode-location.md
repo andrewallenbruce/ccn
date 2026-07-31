@@ -20,13 +20,13 @@ recode_region(x, as = c("code", "roman", "abbr", "full"))
 
   `<chr>` format to return; one of:
 
-  ### for `recode_state()`:
+  For `recode_state()`:
 
   - `"abbr"`: state abbreviation (default)
 
   - `"full"`: state name
 
-  ### for `recode_region()`:
+  For `recode_region()`:
 
   - `"code"`: CMS region code (default)
 

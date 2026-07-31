@@ -7,8 +7,7 @@
 <url><loc>https://andrewallenbruce.github.io/ccn/index.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/ccn/news/index.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/ccn/news/news-dev.html</loc></url>
-<url><loc>https://andrewallenbruce.github.io/ccn/reference/as_ccn.html</loc></url>
-<url><loc>https://andrewallenbruce.github.io/ccn/reference/as_ccnr.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/ccn/reference/as.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/ccn/reference/ccn-package.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/ccn/reference/ccn.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/ccn/reference/ccnr.html</loc></url>
@@ -22,10 +21,8 @@
 <url><loc>https://andrewallenbruce.github.io/ccn/reference/medicaid_types.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/ccn/reference/medicare_ranges.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/ccn/reference/recode-location.html</loc></url>
-<url><loc>https://andrewallenbruce.github.io/ccn/reference/recode_medicaid_type.html</loc></url>
-<url><loc>https://andrewallenbruce.github.io/ccn/reference/recode_other_type.html</loc></url>
-<url><loc>https://andrewallenbruce.github.io/ccn/reference/recode_subunit_type.html</loc></url>
-<url><loc>https://andrewallenbruce.github.io/ccn/reference/recode_unit_type.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/ccn/reference/recode-ranges.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/ccn/reference/recode-types.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/ccn/reference/regions.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/ccn/reference/states.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/ccn/reference/subunit_types.html</loc></url>
