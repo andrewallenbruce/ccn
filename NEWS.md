@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9133 (2026-07-31)
+
+* added vec_restore method
+
+
 # ccn 0.0.0.9132 (2026-07-31)
 
 * recode documentation
