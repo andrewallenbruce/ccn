@@ -30,13 +30,21 @@ recode_medicaid_type(x, as = c("abbr", "full"))
 
 ``` r
 tibble::tibble(
-  x = c("A", "K"),
+  x = ccn::medicaid_types[["code"]],
   abbr = recode_medicaid_type(x, "abbr"),
   full = recode_medicaid_type(x, "full")
 )
-#> # A tibble: 2 × 3
-#>   x     abbr  full                    
-#>   <chr> <chr> <chr>                   
-#> 1 A     SNF   Skilled Nursing Facility
-#> 2 K     HHA   Home Health Agency      
+#> # A tibble: 10 × 3
+#>    x     abbr  full                                      
+#>    <chr> <chr> <chr>                                     
+#>  1 A     SNF   Skilled Nursing Facility                  
+#>  2 B     SNF   Skilled Nursing Facility                  
+#>  3 E     SNF   Skilled Nursing Facility                  
+#>  4 F     SNF   Skilled Nursing Facility                  
+#>  5 G     ICF   Intermediate Care Facility                
+#>  6 H     ICF   Intermediate Care Facility                
+#>  7 J     MOH   Medicaid-Only Hospital                    
+#>  8 K     HHA   Home Health Agency                        
+#>  9 L     PRTF  Psychiatric Residential Treatment Facility
+#> 10 NA    NA    NA                                        
 ```

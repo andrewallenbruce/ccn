@@ -12,24 +12,24 @@ regions
 
 ### `regions`
 
-A data frame with 109 rows and 5 columns:
-
-- code:
-
-  Region number
-
-- roman:
-
-  Region roman numeral
+A data frame with 60 rows and 5 columns:
 
 - state:
 
   State abbreviation
 
-- office_abbr:
+- code:
+
+  Region code
+
+- roman:
+
+  Region roman numeral
+
+- abbr:
 
   Regional office city abbreviation
 
-- office_full:
+- full:
 
   Regional office city full name

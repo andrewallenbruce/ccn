@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ccn</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9130</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9131</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,18 +72,25 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>  x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"M"</span>, <span class="st">"T"</span>, <span class="st">"Z"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  x <span class="op">=</span> <span class="fu">ccn</span><span class="fu">::</span><span class="va"><a href="unit_types.html">unit_types</a></span><span class="op">[[</span><span class="st">"code"</span><span class="op">]</span><span class="op">]</span>,</span></span>
 <span class="r-in"><span>  abbr <span class="op">=</span> <span class="fu">recode_unit_type</span><span class="op">(</span><span class="va">x</span>, <span class="st">"abbr"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  full <span class="op">=</span> <span class="fu">recode_unit_type</span><span class="op">(</span><span class="va">x</span>, <span class="st">"full"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  infix <span class="op">=</span> <span class="fu">recode_unit_type</span><span class="op">(</span><span class="va">x</span>, <span class="st">"infix"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  eipps <span class="op">=</span> <span class="fu">recode_unit_type</span><span class="op">(</span><span class="va">x</span>, <span class="st">"eipps"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 5</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   x     abbr        full                     infix eipps</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> M     Psych (CAH) Psychiatric Unit (CAH)   <span style="color: #949494;">"</span>1<span style="color: #949494;">"</span>   TRUE </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> T     Rehab       Rehabilitation Unit      <span style="color: #949494;">""</span>    TRUE </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> Z     Swing (CAH) Swing-Bed Approval (CAH) <span style="color: #949494;">"</span>1<span style="color: #949494;">"</span>   FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10 × 5</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    x     abbr          full                       infix eipps</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> M     Psych (CAH)   Psychiatric Unit (CAH)     <span style="color: #949494;">"</span>1<span style="color: #949494;">"</span>   TRUE </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> R     Rehab (CAH)   Rehabilitation Unit (CAH)  <span style="color: #949494;">"</span>1<span style="color: #949494;">"</span>   TRUE </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> S     Psych         Psychiatric Unit           <span style="color: #949494;">""</span>    TRUE </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> T     Rehab         Rehabilitation Unit        <span style="color: #949494;">""</span>    TRUE </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> U     Swing (Acute) Swing-Bed Approval (Acute) <span style="color: #949494;">"</span>0<span style="color: #949494;">"</span>   FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> V     ADU           Alcohol-Drug Unit          <span style="color: #949494;">""</span>    TRUE </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> W     Swing (LTC)   Swing-Bed Approval (LTC)   <span style="color: #949494;">"</span>2<span style="color: #949494;">"</span>   FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Y     Swing (IRF)   Swing-Bed Approval (IRF)   <span style="color: #949494;">"</span>3<span style="color: #949494;">"</span>   FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Z     Swing (CAH)   Swing-Bed Approval (CAH)   <span style="color: #949494;">"</span>1<span style="color: #949494;">"</span>   FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>            <span style="color: #BB0000;">NA</span>                          <span style="color: #BB0000;">NA</span>   <span style="color: #BB0000;">NA</span>   </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

@@ -44,5 +44,11 @@
 - [`recode_medicaid_type()`](https://andrewallenbruce.github.io/ccn/reference/recode_medicaid_type.md)
   : Recode Medicaid Facility Types
 
+- [`recode_other_type()`](https://andrewallenbruce.github.io/ccn/reference/recode_other_type.md)
+  : Recode Other Facility Types
+
+- [`recode_subunit_type()`](https://andrewallenbruce.github.io/ccn/reference/recode_subunit_type.md)
+  : Recode Subunit Facility Types
+
 - [`recode_unit_type()`](https://andrewallenbruce.github.io/ccn/reference/recode_unit_type.md)
   : Recode Unit Facility Types
