@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ccn</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9129</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9130</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,7 +47,7 @@
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">recode_state</span><span class="op">(</span><span class="va">x</span>, as <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"abbr"</span>, <span class="st">"full"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">recode_region</span><span class="op">(</span><span class="va">x</span>, as <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"number"</span>, <span class="st">"roman"</span>, <span class="st">"abbr"</span>, <span class="st">"full"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">recode_region</span><span class="op">(</span><span class="va">x</span>, as <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"code"</span>, <span class="st">"roman"</span>, <span class="st">"abbr"</span>, <span class="st">"full"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -69,8 +69,8 @@
 <div class="section">
 <h3 id="for-recode-region-">for <code>recode_region()</code>:<a class="anchor" aria-label="anchor" href="#for-recode-region-"></a></h3>
 
-<ul><li><p><code>"number"</code>: CMS region number (default)</p></li>
-<li><p><code>"roman"</code>: CMS region number as a roman numeral</p></li>
+<ul><li><p><code>"code"</code>: CMS region code (default)</p></li>
+<li><p><code>"roman"</code>: CMS region code as a roman numeral</p></li>
 <li><p><code>"abbr"</code>: CMS region's office location abbreviation</p></li>
 <li><p><code>"full"</code>: CMS region's office location name</p></li>
 </ul></div></dd>
@@ -84,18 +84,21 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>  x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"00"</span>, <span class="st">"01"</span>, <span class="st">"A5"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"00"</span>, <span class="st">"01"</span>, <span class="st">"A5"</span>, <span class="st">"B3"</span>, <span class="st">"B4"</span>, <span class="st">"B5"</span>, <span class="st">"D6"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  state <span class="op">=</span> <span class="fu">recode_state</span><span class="op">(</span><span class="va">x</span>, <span class="st">"abbr"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  number <span class="op">=</span> <span class="fu">recode_region</span><span class="op">(</span><span class="va">x</span>, <span class="st">"number"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  office <span class="op">=</span> <span class="fu">recode_region</span><span class="op">(</span><span class="va">x</span>, <span class="st">"full"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  region <span class="op">=</span> <span class="fu">recode_region</span><span class="op">(</span><span class="va">state</span>, <span class="st">"code"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  office <span class="op">=</span> <span class="fu">recode_region</span><span class="op">(</span><span class="va">state</span>, <span class="st">"full"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 4</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   x     state number office       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 00    AZ    9      San Francisco</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 01    AL    4      Atlanta      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> A5    MS    4      Atlanta      </span>
-<span class="r-in"><span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 7 × 4</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   x     state region office       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 00    AZ         9 San Francisco</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 01    AL         4 Atlanta      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> A5    MS         4 Atlanta      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> B3    CA         9 San Francisco</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> B4    CA         9 San Francisco</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> B5    CA         9 San Francisco</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span> D6    CA         9 San Francisco</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

@@ -38,6 +38,10 @@ is_ccnr(x)
 
   `<chr>` vector of ccn code facility types
 
+- x:
+
+  `<chr>` A vector of CCNs.
+
 ## Value
 
 An S3 vector of class `<ccnr>`

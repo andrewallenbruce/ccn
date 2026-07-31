@@ -565,3 +565,8 @@
 ## ccn 0.0.0.9129 (2026-07-30)
 
 - Cleaning up documentation
+
+## ccn 0.0.0.9130 (2026-07-30)
+
+- added missing state codes (closes
+  [\#14](https://github.com/andrewallenbruce/ccn/issues/14))
