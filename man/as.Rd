@@ -8,6 +8,7 @@
 \alias{as_ccn.ccn}
 \alias{as_ccn.ccnr}
 \alias{as_ccnr}
+\alias{as_ccnr.default}
 \alias{as_ccnr.character}
 \alias{as_ccnr.ccn}
 \alias{as_ccnr.ccnr}
@@ -24,6 +25,8 @@ as_ccn(x, ...)
 \method{as_ccn}{ccnr}(x, ...)
 
 as_ccnr(x, ...)
+
+\method{as_ccnr}{default}(x, ...)
 
 \method{as_ccnr}{character}(x, ...)
 

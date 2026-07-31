@@ -32,12 +32,12 @@ NULL
 #' @export
 ccn <- function(x = character()) {
   x <- vctrs::vec_cast(x, character())
+  x <- clean_ccn(x)
   new_ccn(x)
 }
 
 #' @noRd
 new_ccn <- function(x = character()) {
-  x <- clean_ccn(x)
   vctrs::vec_assert(x, character())
   new_vctr(x, index = index_ccn(x), class = "ccn")
 }
@@ -94,14 +94,21 @@ vec_ptype2.ccn.ccn <- function(x, y, ...) {
 #' @method vec_ptype2.ccn character
 #' @export
 vec_ptype2.ccn.character <- function(x, y, ...) {
-  x
+  new_ccn()
 }
 
 #' @keywords internal
 #' @method vec_ptype2.character ccn
 #' @export
 vec_ptype2.character.ccn <- function(x, y, ...) {
-  y
+  new_ccn()
+}
+
+#' @keywords internal
+#' @method vec_ptype2.ccn ccnr
+#' @export
+vec_ptype2.ccn.ccnr <- function(x, y, ...) {
+  new_ccnr()
 }
 
 #' Casting
@@ -121,6 +128,13 @@ vec_cast.ccn <- function(x, to, ...) {
 #' @export
 vec_cast.ccn.ccn <- function(x, to, ...) {
   x
+}
+
+#' @method vec_cast.ccn ccnr
+#' @export
+vec_cast.ccn.ccnr <- function(x, to, ...) {
+  x <- vctrs::field(x, "ccn")
+  ccn(x)
 }
 
 #' @method vec_cast.ccn character
@@ -239,4 +253,75 @@ vec_ptype_abbr.ccnr <- function(x, ...) {
 #' @export
 vec_ptype_full.ccnr <- function(x, ...) {
   "ccn_rcrd"
+}
+
+#' Coercion
+#'
+#' Double dispatch methods to support [vctrs::vec_ptype2()].
+#'
+#' @inheritParams vctrs::vec_ptype2
+#' @keywords internal
+#' @method vec_ptype2 ccnr
+#' @export
+#' @export vec_ptype2.ccnr
+vec_ptype2.ccnr <- function(x, y, ..., x_arg = "", y_arg = "") {
+  UseMethod("vec_ptype2.ccnr", y)
+}
+
+#' @keywords internal
+#' @method vec_ptype2.ccnr default
+#' @export
+vec_ptype2.ccnr.default <- function(x, y, ..., x_arg = "", y_arg = "") {
+  vctrs::vec_default_ptype2(x, y, x_arg = x_arg, y_arg = y_arg)
+}
+
+#' @keywords internal
+#' @method vec_ptype2.ccnr ccnr
+#' @export
+vec_ptype2.ccnr.ccnr <- function(x, y, ...) {
+  new_ccnr()
+}
+
+#' @keywords internal
+#' @method vec_ptype2.ccnr ccn
+#' @export
+vec_ptype2.ccnr.ccn <- function(x, y, ...) {
+  new_ccnr()
+}
+
+#' Casting
+#'
+#' Double dispatch methods to support [vctrs::vec_cast()].
+#'
+#' @inheritParams vctrs::vec_cast
+#' @keywords internal
+#' @method vec_cast ccnr
+#' @export
+#' @export vec_cast.ccnr
+vec_cast.ccnr <- function(x, to, ...) {
+  UseMethod("vec_cast.ccnr")
+}
+
+#' @method vec_cast.ccnr ccnr
+#' @export
+vec_cast.ccnr.ccnr <- function(x, to, ...) {
+  x
+}
+
+#' @method vec_cast.ccnr ccn
+#' @export
+vec_cast.ccnr.ccn <- function(x, to, ...) {
+  as_ccnr(x)
+}
+
+#' @method vec_cast.ccnr character
+#' @export
+vec_cast.ccnr.character <- function(x, to, ...) {
+  as_ccnr(ccn(x))
+}
+
+#' @method vec_cast.character ccnr
+#' @export
+vec_cast.character.ccnr <- function(x, to, ...) {
+  vctrs::field(x, "ccn")
 }

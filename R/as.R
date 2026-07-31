@@ -51,6 +51,12 @@ as_ccnr <- function(x, ...) {
 
 #' @export
 #' @rdname as
+as_ccnr.default <- function(x, ...) {
+  vctrs::vec_cast(x, new_ccnr())
+}
+
+#' @export
+#' @rdname as
 as_ccnr.character <- function(x, ...) {
   as_ccnr_(as_ccn(x))
 }
