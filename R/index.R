@@ -50,8 +50,8 @@ infer_provider_ext <- function(x) {
   vctrs::vec_case_when(
     conditions = list(
       is_type_medicare(x),
-      is_type_organ(x),
-      is_type_emergency(x),
+      # is_type_organ(x),
+      # is_type_emergency(x),
       is_type_medicaid(x),
       is_type_unit(x),
       is_type_subunit(x),
@@ -59,8 +59,8 @@ infer_provider_ext <- function(x) {
     ),
     values = list(
       "Medicare_Ext",
-      "Organ_Ext",
-      "Emergency_Ext",
+      # "Organ_Ext",
+      # "Emergency_Ext",
       "Medicaid_Ext",
       "Unit_Ext",
       "Subunit_Ext",
@@ -84,7 +84,7 @@ grp_split <- function(.fn, x, i = NULL) {
 #' @param x `<chr>` A vector of CCNs.
 #' @returns An S3 vector of class `<ccn_index>`
 #' @examples
-#' index_ccn(as_ccn(get_pin("ccn")))
+#' index_ccn(get_pin("ccn"))
 #' @export
 index_ccn <- function(x) {
   x <- if (is_ccn(x)) vctrs::vec_data(x) else x

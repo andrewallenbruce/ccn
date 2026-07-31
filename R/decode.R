@@ -25,9 +25,8 @@ decode.ccn <- function(x, ...) {
   )
 }
 
-# has_(x, i, "Emergency", "type", "facility", recode_other_type)
 #' @noRd
-has_ <- function(x, index, key, .fn, from = "type", to = "facility") {
+rec_ <- function(x, index, key, .fn, from = "type", to = "facility") {
   if (rlang::has_name(index, key)) {
     i <- index[[key]]
     x[[to]][i] <- .fn(x[[from]][i])
@@ -52,13 +51,13 @@ decode.ccnr <- function(x, ...) {
     }
   )
 
-  x <- has_(x, i, "Emergency", recode_other_type)
-  x <- has_(x, i, "Supplier", recode_other_type)
-  x <- has_(x, i, "Organ", recode_other_type)
-  x <- has_(x, i, "Medicaid", recode_medicaid_type)
-  x <- has_(x, i, "Unit", recode_unit_type)
-  x <- has_(x, i, "Subunit", recode_unit_type)
-  x <- has_(x, i, "Medicare", recode_medicare_range, "number")
+  x <- rec_(x, i, "Emergency", recode_other_type)
+  x <- rec_(x, i, "Supplier", recode_other_type)
+  x <- rec_(x, i, "Organ", recode_other_type)
+  x <- rec_(x, i, "Medicaid", recode_medicaid_type)
+  x <- rec_(x, i, "Unit", recode_unit_type)
+  x <- rec_(x, i, "Subunit", recode_unit_type)
+  x <- rec_(x, i, "Medicare", recode_medicare_range, "number")
 
   if (collapse::anyv(x[["facility"]], "MOH")) {
     idx <- x[["facility"]] %==% "MOH"
@@ -78,50 +77,6 @@ decode.ccnr <- function(x, ...) {
 # decode_ccnr(NULL)
 # decode_ccnr(as_ccn(NA))
 # as_ccnr(as_ccn("")) == NULL
-#' @noRd
-decode_ccnr <- function(x) {
-  x <- if (is_ccnr(x)) {
-    tibble::tibble(vctrs::vec_data(x))
-  } else if (is_ccn(x)) {
-    tibble::tibble(vctrs::vec_data(as_ccnr(x)))
-  } else {
-    ix <- as_ccnr(as_ccn(x))
-    if (is.null(ix)) {
-      rlang::abort("`x` cannot be an empty character vector or `NULL`")
-    }
-    tibble::tibble(vctrs::vec_data(ix))
-  }
-
-  collapse::settfmv(x, collapse::gv(x, "number", return = 3L), as.integer)
-  collapse::settfmv(x, collapse::gv(x, "state", return = 3L), recode_state)
-  x[["facility"]] <- vctrs::vec_init(character(), vctrs::vec_size(x))
-
-  i <- purrr::imap(
-    rlang::set_names(collapse::funique(x[["entity"]])),
-    function(n, i) {
-      purrr::pluck(x, "entity") %==% n
-    }
-  )
-
-  x <- has_(x, i, "Emergency", "type", "facility", recode_other_type)
-  x <- has_(x, i, "Supplier", "type", "facility", recode_other_type)
-  x <- has_(x, i, "Organ", "type", "facility", recode_other_type)
-  x <- has_(x, i, "Medicaid", "type", "facility", recode_medicaid_type)
-  x <- has_(x, i, "Unit", "type", "facility", recode_unit_type)
-  x <- has_(x, i, "Subunit", "type", "facility", recode_unit_type)
-  x <- has_(x, i, "Medicare", "number", "facility", recode_medicare_range)
-
-  if (collapse::anyv(x[["facility"]], "MOH")) {
-    idx <- x[["facility"]] %==% "MOH"
-
-    x[["facility"]][idx] <- recode_medicaid_range(x[["number"]][idx])
-  }
-
-  collapse::gv(
-    x,
-    c("ccn", "entity", "state", "facility", "number", "type")
-  )
-}
 
 # if (rlang::has_name(i, "Unit")) {
 #   xi <- vctrs::vec_slice(x, i[["Unit"]])

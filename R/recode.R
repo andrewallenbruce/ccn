@@ -150,7 +150,7 @@ recode_unit_type <- function(x, as = c("abbr", "full", "infix", "eipps")) {
 #' @export
 recode_subunit_type <- function(x, as = c("prefix", "abbr")) {
   vctrs::vec_recode_values(
-    vctrs::vec_if_else(nchar(x) >= 2L, substring(x, 1L, 1L), x),
+    x,
     from = ccn::subunit_types[["code"]],
     to = switch(
       rlang::arg_match(as),
@@ -192,13 +192,13 @@ recode_other_type <- function(x, as = c("abbr", "full")) {
 
 #' Recode CMS Facility Ranges
 #'
-#' @param x `<int>` vector of CCN facility ranges.
+#' @param x `<int>` vector of CCN facility sequence numbers.
 #'
 #' @param as `<chr>` format to return; one of:
 #'
-#'    * `"abbr"`: facility range abbreviation (default)
-#'    * `"full"`: facility range full description
-#'    * `"range"`: facility range text representation
+#'    * `"abbr"`: facility abbreviation (default)
+#'    * `"full"`: facility full description
+#'    * `"range"`: facility range
 #'
 #' @returns `<chr>` vector of CMS facility range information
 #'
@@ -211,7 +211,7 @@ recode_other_type <- function(x, as = c("abbr", "full")) {
 #' )
 #'
 #' tibble::tibble(
-#'   x = ccn::medicare_ranges[["start"]],
+#'   x = ccn::medicaid_ranges[["start"]],
 #'   abbr = recode_medicaid_range(x, "abbr"),
 #'   range = recode_medicaid_range(x, "range"),
 #'   facility = recode_medicaid_range(x, "full")

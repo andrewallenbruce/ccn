@@ -11,13 +11,13 @@ recode_medicare_range(x, as = c("abbr", "full", "range"))
 recode_medicaid_range(x, as = c("abbr", "full", "range"))
 }
 \arguments{
-\item{x}{\verb{<int>} vector of CCN facility ranges.}
+\item{x}{\verb{<int>} vector of CCN facility sequence numbers.}
 
 \item{as}{\verb{<chr>} format to return; one of:
 \itemize{
-\item \code{"abbr"}: facility range abbreviation (default)
-\item \code{"full"}: facility range full description
-\item \code{"range"}: facility range text representation
+\item \code{"abbr"}: facility abbreviation (default)
+\item \code{"full"}: facility full description
+\item \code{"range"}: facility range
 }}
 }
 \value{
@@ -35,7 +35,7 @@ tibble::tibble(
 )
 
 tibble::tibble(
-  x = ccn::medicare_ranges[["start"]],
+  x = ccn::medicaid_ranges[["start"]],
   abbr = recode_medicaid_range(x, "abbr"),
   range = recode_medicaid_range(x, "range"),
   facility = recode_medicaid_range(x, "full")
