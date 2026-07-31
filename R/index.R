@@ -88,24 +88,19 @@ grp_split <- function(.fn, x, i = NULL) {
 #' @export
 index_ccn <- function(x) {
   x <- if (is_ccn(x)) vctrs::vec_data(x) else x
-  e <- p <- NULL
-
   g <- grp_split(infer_ccn_type, x)
 
   if (rlang::has_name(g, "Provider_Ext")) {
-    e <- grp_split(infer_provider_ext, x, g[["Provider_Ext"]])
+    g <- c(g, grp_split(infer_provider_ext, x, g[["Provider_Ext"]]))
     g[["Provider_Ext"]] <- NULL
   }
 
   if (rlang::has_name(g, "Provider")) {
-    p <- grp_split(infer_provider_type, x, g[["Provider"]])
+    g <- c(g, grp_split(infer_provider_type, x, g[["Provider"]]))
     g[["Provider"]] <- NULL
   }
 
-  structure(
-    vctrs::vec_c(g, e, p),
-    class = "ccn_index"
-  )
+  structure(g, class = "ccn_index")
 }
 
 #' @method format ccn_index

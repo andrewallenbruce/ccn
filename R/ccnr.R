@@ -27,9 +27,18 @@ ccnr <- function(
   type = character()
 ) {
   .c(entity, ccn, state, number, type) %=%
-    vctrs::vec_cast_common(entity, ccn, state, number, type, .to = character())
+    vctrs::vec_cast_common(
+      entity,
+      ccn,
+      state,
+      number,
+      type,
+      .to = character()
+    )
+
   .c(entity, ccn, state, number, type) %=%
     vctrs::vec_recycle_common(entity, ccn, state, number, type)
+
   new_ccnr(entity, ccn, state, number, type)
 }
 

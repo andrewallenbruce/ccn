@@ -28,14 +28,14 @@ Recode CMS Facility Ranges
 }
 \examples{
 tibble::tibble(
-  x = c(1L, 2099L),
+  x = ccn::medicare_ranges[["start"]],
   abbr = recode_medicare_range(x, "abbr"),
   range = recode_medicare_range(x, "range"),
   facility = recode_medicare_range(x, "full")
 )
 
 tibble::tibble(
-  x = c(1L, 2099L),
+  x = ccn::medicare_ranges[["start"]],
   abbr = recode_medicaid_range(x, "abbr"),
   range = recode_medicaid_range(x, "range"),
   facility = recode_medicaid_range(x, "full")

@@ -77,8 +77,10 @@ to_ccnr <- function(x, entity) {
       "Medicare",
       "Medicare_Ext",
       "Medicaid",
+      "Medicaid_Ext",
       "Organ",
       "Unit",
+      "Unit_Ext",
       "Subunit",
       "Supplier"
     )
@@ -86,12 +88,17 @@ to_ccnr <- function(x, entity) {
   ccnr(
     entity = switch(
       ENTITY,
+      Organ = ,
       Medicare_Ext = "Medicare",
       Medicaid_Ext = "Medicaid",
       Unit_Ext = "Unit",
       ENTITY
     ),
-    ccn = substring(x, 1L, 6L),
+    ccn = if (ENTITY == "Supplier") {
+      substring(x, 1L, 10L)
+    } else {
+      substring(x, 1L, 6L)
+    },
     state = substring(x, 1L, 2L),
     number = switch(
       ENTITY,
@@ -123,27 +130,40 @@ to_ccnr <- function(x, entity) {
 }
 
 #' @noRd
-has_ccnr <- function(x, index, key, .fn) {
+has_ccnr <- function(x, index, key) {
   if (!rlang::has_name(index, key)) {
     return(NULL)
   }
-  .fn(x[index[[key]]])
+  # .fn(x[index[[key]]])
+  to_ccnr(x[index[[key]]], key)
 }
 
 #' @noRd
 as_ccnr_ <- function(x) {
   i <- index_ccn(x)
 
+  # vctrs::vec_c(
+  #   has_ccnr(x, i, "Medicare", ccnr_Medicare),
+  #   has_ccnr(x, i, "Medicare_Ext", ccnr_Medicare),
+  #   has_ccnr(x, i, "Medicaid", ccnr_Medicaid),
+  #   has_ccnr(x, i, "Medicaid_Ext", ccnr_Medicaid),
+  #   has_ccnr(x, i, "Unit", ccnr_Unit),
+  #   has_ccnr(x, i, "Unit_Ext", ccnr_Unit),
+  #   has_ccnr(x, i, "Subunit", ccnr_Subunit),
+  #   has_ccnr(x, i, "Organ", ccnr_Organ),
+  #   has_ccnr(x, i, "Emergency", ccnr_Emergency),
+  #   has_ccnr(x, i, "Supplier", ccnr_Supplier)
+  # )
   vctrs::vec_c(
-    has_ccnr(x, i, "Medicare", ccnr_Medicare),
-    has_ccnr(x, i, "Medicare_Ext", ccnr_Medicare),
-    has_ccnr(x, i, "Medicaid", ccnr_Medicaid),
-    has_ccnr(x, i, "Medicaid_Ext", ccnr_Medicaid),
-    has_ccnr(x, i, "Unit", ccnr_Unit),
-    has_ccnr(x, i, "Unit_Ext", ccnr_Unit),
-    has_ccnr(x, i, "Subunit", ccnr_Subunit),
-    has_ccnr(x, i, "Organ", ccnr_Organ),
-    has_ccnr(x, i, "Emergency", ccnr_Emergency),
-    has_ccnr(x, i, "Supplier", ccnr_Supplier)
+    has_ccnr(x, i, "Medicare"),
+    has_ccnr(x, i, "Medicare_Ext"),
+    has_ccnr(x, i, "Medicaid"),
+    has_ccnr(x, i, "Medicaid_Ext"),
+    has_ccnr(x, i, "Unit"),
+    has_ccnr(x, i, "Unit_Ext"),
+    has_ccnr(x, i, "Subunit"),
+    has_ccnr(x, i, "Organ"),
+    has_ccnr(x, i, "Emergency"),
+    has_ccnr(x, i, "Supplier")
   )
 }

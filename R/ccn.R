@@ -21,13 +21,24 @@ ccn <- function(x = character()) {
 new_ccn <- function(x = character()) {
   x <- clean_ccn(x)
   vctrs::vec_assert(x, character())
-  new_vctr(x, class = "ccn")
+  new_vctr(x, index = index_ccn(x), class = "ccn")
 }
 
 #' @export
 #' @rdname ccn
 is_ccn <- function(x) {
   inherits(x, "ccn")
+}
+
+#' Restore
+#'
+#' @inheritParams vctrs::vec_restore
+#' @keywords internal
+#' @method vec_restore ccn
+#' @export
+#' @export vec_restore.ccn
+vec_restore.ccn <- function(x, to, ..., i = NULL) {
+  ccn(x)
 }
 
 #' Coercion
