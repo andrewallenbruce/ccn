@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9130 (2026-07-30)
+
+* added missing state codes (closes #14)
+
+
 # ccn 0.0.0.9129 (2026-07-30)
 
 * Cleaning up documentation
