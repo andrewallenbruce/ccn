@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9135 (2026-07-31)
+
+* `vctrs` casting is more confusing than it should be
+
+
 # ccn 0.0.0.9134 (2026-07-31)
 
 * `ccn` vctr now indexes upon instantiation
