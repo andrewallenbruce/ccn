@@ -3,10 +3,16 @@
 \name{ccn-ccnr}
 \alias{ccn-ccnr}
 \alias{ccn}
+\alias{index}
+\alias{index.ccn}
 \alias{ccnr}
 \title{Construct a \code{ccn}/\code{ccnr} object}
 \usage{
 ccn(x = character())
+
+index(x)
+
+\method{index}{ccn}(x, ...)
 
 ccnr(
   entity = character(),
@@ -18,6 +24,8 @@ ccnr(
 }
 \arguments{
 \item{x}{\verb{<chr>} A vector of CCNs.}
+
+\item{...}{description}
 
 \item{entity}{\verb{<chr>} vector of ccn entity types}
 
@@ -38,6 +46,8 @@ Construct a \code{ccn}/\code{ccnr} object
 \examples{
 x = get_pin("ccn")
 y = ccn(x)
+index(y)
+
 vctrs::vec_c(x[1:5], y[100:150], x[1:50])
 tibble::tibble(x = x, ccn = ccn(x))
 

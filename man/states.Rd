@@ -7,7 +7,7 @@
 \format{
 \subsection{\code{states}}{
 
-A data frame with 109 rows and 3 columns:
+A data frame with 139 rows and 3 columns:
 \describe{
 \item{code}{State code}
 \item{abbr}{State abbreviation}
@@ -15,6 +15,9 @@ A data frame with 109 rows and 3 columns:
 ...
 }
 }
+}
+\source{
+Updated (12-06-24) Provider State Codes - CMS Manual System Pub. 100-07: \href{https://www.cms.gov/files/document/r226soma.pdf}{State Operations Manual Revisions, section 2779A1}
 }
 \usage{
 states

@@ -9,12 +9,15 @@ methods::setOldClass(c("ccnr", "vctrs_vctr"))
 #' @param state `<chr>` vector of state codes
 #' @param number `<chr>` vector of sequence numbers
 #' @param type `<chr>` vector of facility types
+#' @param ... description
 #'
 #' @returns An S3 vector of class `<ccn>` or `<ccnr>`
 #'
 #' @examples
 #' x = get_pin("ccn")
 #' y = ccn(x)
+#' index(y)
+#'
 #' vctrs::vec_c(x[1:5], y[100:150], x[1:50])
 #' tibble::tibble(x = x, ccn = ccn(x))
 #'
@@ -34,6 +37,18 @@ ccn <- function(x = character()) {
   x <- vctrs::vec_cast(x, character())
   x <- clean_ccn(x)
   new_ccn(x)
+}
+
+#' @rdname ccn-ccnr
+#' @export
+index <- function(x) {
+  UseMethod("index")
+}
+
+#' @rdname ccn-ccnr
+#' @export
+index.ccn <- function(x, ...) {
+  attr(x, "index", exact = TRUE)
 }
 
 #' @noRd

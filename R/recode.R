@@ -19,7 +19,7 @@
 #'
 #' @examples
 #' tibble::tibble(
-#'   x = c("00", "01", "A5", "B3", "B4", "B5", "D6"),
+#'   x = ccn::states[["code"]],
 #'   state = recode_state(x, "abbr"),
 #'   region = recode_region(state, "code"),
 #'   office = recode_region(state, "full")
