@@ -590,3 +590,7 @@
 ## ccn 0.0.0.9135 (2026-07-31)
 
 - `vctrs` casting is more confusing than it should be
+
+## ccn 0.0.0.9136 (2026-08-01)
+
+- index, parent constructor

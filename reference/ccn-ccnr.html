@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ccn</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9135</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9136</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,6 +47,11 @@
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ccn</span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
+<span><span class="fu">index</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for class 'ccn'</span></span>
+<span><span class="fu">index</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
 <span><span class="fu">ccnr</span><span class="op">(</span></span>
 <span>  entity <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  ccn <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="op">)</span>,</span>
@@ -62,6 +67,10 @@
 
 <dl><dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
 <dd><p><code>&lt;chr&gt;</code> A vector of CCNs.</p></dd>
+
+
+<dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
+<dd><p>description</p></dd>
 
 
 <dt id="arg-entity">entity<a class="anchor" aria-label="anchor" href="#arg-entity"></a></dt>
@@ -93,6 +102,18 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="get_pin.html">get_pin</a></span><span class="op">(</span><span class="st">"ccn"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">y</span> <span class="op">=</span> <span class="fu">ccn</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">index</span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn_index[54567]&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     Supplier :  5488</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Medicaid_Ext :     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Medicare_Ext :   327</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     Unit_Ext :    14</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Emergency :   166</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     Medicare : 45249</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        Organ :    55</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      Subunit :    49</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         Unit :  3218</span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">vctrs</span><span class="fu">::</span><span class="fu"><a href="https://vctrs.r-lib.org/reference/vec_c.html" class="external-link">vec_c</a></span><span class="op">(</span><span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span>, <span class="va">y</span><span class="op">[</span><span class="fl">100</span><span class="op">:</span><span class="fl">150</span><span class="op">]</span>, <span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">50</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn_vctr[106]&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 001500 001502 001503 001509 001510 010131 010138 010139 010144 010148</span>

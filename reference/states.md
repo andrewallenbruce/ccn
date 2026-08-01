@@ -12,7 +12,7 @@ states
 
 ### `states`
 
-A data frame with 109 rows and 3 columns:
+A data frame with 139 rows and 3 columns:
 
 - code:
 
@@ -25,3 +25,9 @@ A data frame with 109 rows and 3 columns:
 - full:
 
   State full name
+
+## Source
+
+Updated (12-06-24) Provider State Codes - CMS Manual System Pub. 100-07:
+[State Operations Manual Revisions, section
+2779A1](https://www.cms.gov/files/document/r226soma.pdf)

@@ -44,19 +44,23 @@ recode_region(x, as = c("code", "roman", "abbr", "full"))
 
 ``` r
 tibble::tibble(
-  x = c("00", "01", "A5", "B3", "B4", "B5", "D6"),
+  x = ccn::states[["code"]],
   state = recode_state(x, "abbr"),
   region = recode_region(state, "code"),
   office = recode_region(state, "full")
 )
-#> # A tibble: 7 × 4
-#>   x     state region office       
-#>   <chr> <chr>  <int> <chr>        
-#> 1 00    AZ         9 San Francisco
-#> 2 01    AL         4 Atlanta      
-#> 3 A5    MS         4 Atlanta      
-#> 4 B3    CA         9 San Francisco
-#> 5 B4    CA         9 San Francisco
-#> 6 B5    CA         9 San Francisco
-#> 7 D6    CA         9 San Francisco
+#> # A tibble: 139 × 4
+#>    x     state region office       
+#>    <chr> <chr>  <int> <chr>        
+#>  1 00    AZ         9 San Francisco
+#>  2 01    AL         4 Atlanta      
+#>  3 02    AK        10 Seattle      
+#>  4 03    AZ         9 San Francisco
+#>  5 04    AR         6 Dallas       
+#>  6 05    CA         9 San Francisco
+#>  7 06    CO         8 Denver       
+#>  8 07    CT         1 Boston       
+#>  9 08    DE         3 Philadelphia 
+#> 10 09    DC         3 Philadelphia 
+#> # ℹ 129 more rows
 ```

@@ -7,6 +7,11 @@ Construct a `ccn`/`ccnr` object
 ``` r
 ccn(x = character())
 
+index(x)
+
+# S3 method for class 'ccn'
+index(x, ...)
+
 ccnr(
   entity = character(),
   ccn = character(),
@@ -21,6 +26,10 @@ ccnr(
 - x:
 
   `<chr>` A vector of CCNs.
+
+- ...:
+
+  description
 
 - entity:
 
@@ -51,6 +60,18 @@ An S3 vector of class `<ccn>` or `<ccnr>`
 ``` r
 x = get_pin("ccn")
 y = ccn(x)
+index(y)
+#> <ccn_index[54567]>
+#>     Supplier :  5488
+#> Medicaid_Ext :     1
+#> Medicare_Ext :   327
+#>     Unit_Ext :    14
+#>    Emergency :   166
+#>     Medicare : 45249
+#>        Organ :    55
+#>      Subunit :    49
+#>         Unit :  3218
+
 vctrs::vec_c(x[1:5], y[100:150], x[1:50])
 #> <ccn_vctr[106]>
 #>   [1] 001500 001502 001503 001509 001510 010131 010138 010139 010144 010148
