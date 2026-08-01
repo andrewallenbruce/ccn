@@ -18,7 +18,7 @@
 #' tibble::tibble(
 #'   subunit = x[index(x)$Subunit],
 #'   parent = parent_subunit(x[index(x)$Subunit]))
-#' @name sub-unit
+#' @name unit
 NULL
 
 #' @noRd
@@ -41,7 +41,7 @@ subunit_prefix <- function(x) {
   )
 }
 
-#' @rdname sub-unit
+#' @rdname unit
 #' @export
 parent_unit <- function(x) {
   fix <- unit_infix(substring(x, 3L, 3L))
@@ -53,7 +53,7 @@ parent_unit <- function(x) {
 }
 
 
-#' @rdname sub-unit
+#' @rdname unit
 #' @export
 parent_subunit <- function(x) {
   paste0(
