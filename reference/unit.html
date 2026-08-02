@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ccn</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9136</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9137</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +35,7 @@
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Assemble Unit/Subunit Parent CCN</h1>
-      <small class="dont-index">Source: <a href="https://github.com/andrewallenbruce/ccn/blob/master/R/sub_unit.R" class="external-link"><code>R/sub_unit.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/andrewallenbruce/ccn/blob/master/R/parents.R" class="external-link"><code>R/parents.R</code></a></small>
       <div class="d-none name"><code>unit.Rd</code></div>
     </div>
 
@@ -71,17 +71,44 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "212026" "212026" "022001" "043038" "522005"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="vctrs.html">ccn</a></span><span class="op">(</span><span class="fu"><a href="get_pin.html">get_pin</a></span><span class="op">(</span><span class="st">"ccn"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">i</span> <span class="op">=</span> <span class="fu"><a href="vctrs.html">get_index</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>  unit <span class="op">=</span> <span class="va">x</span><span class="op">[</span><span class="fu">index</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">$</span><span class="va">Unit</span><span class="op">]</span>,</span></span>
-<span class="r-in"><span>  parent <span class="op">=</span> <span class="fu">parent_unit</span><span class="op">(</span><span class="va">x</span><span class="op">[</span><span class="fu">index</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">$</span><span class="va">Unit</span><span class="op">]</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  unit <span class="op">=</span> <span class="va">x</span><span class="op">[</span><span class="va">i</span><span class="op">$</span><span class="va">Unit</span><span class="op">]</span>,</span></span>
+<span class="r-in"><span>  parent <span class="op">=</span> <span class="fu">parent_unit</span><span class="op">(</span><span class="va">x</span><span class="op">[</span><span class="va">i</span><span class="op">$</span><span class="va">Unit</span><span class="op">]</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu">collapse</span><span class="fu">::</span><span class="fu"><a href="https://fastverse.org/collapse/reference/efficient-programming.html" class="external-link">na_omit</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in index(x):</span> could not find function "index"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1,695 × 2</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    unit   parent</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;ccn&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;ccn&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 01M307 011307</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 01M308 011308</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 01U007 010007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 01U012 010012</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 01U021 010021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 01U034 010034</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 01U044 010044</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 01U045 010045</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 01U046 010046</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 01U049 010049</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 1,685 more rows</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>  subunit <span class="op">=</span> <span class="va">x</span><span class="op">[</span><span class="fu">index</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">$</span><span class="va">Subunit</span><span class="op">]</span>,</span></span>
-<span class="r-in"><span>  parent <span class="op">=</span> <span class="fu">parent_subunit</span><span class="op">(</span><span class="va">x</span><span class="op">[</span><span class="fu">index</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">$</span><span class="va">Subunit</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in index(x):</span> could not find function "index"</span>
+<span class="r-in"><span>  subunit <span class="op">=</span> <span class="va">x</span><span class="op">[</span><span class="va">i</span><span class="op">$</span><span class="va">Subunit</span><span class="op">]</span>,</span></span>
+<span class="r-in"><span>  parent <span class="op">=</span> <span class="fu">parent_subunit</span><span class="op">(</span><span class="va">x</span><span class="op">[</span><span class="va">i</span><span class="op">$</span><span class="va">Subunit</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 49 × 2</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    subunit parent</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;ccn&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 02TA01  022001</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 04SD38  043038</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 05TA46  052046</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 06TA09  062009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 10TA09  102009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 10TA10  102010</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 10TA15  102015</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 10TA20  102020</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 10TA24  102024</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 10TA25  102025</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 39 more rows</span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
