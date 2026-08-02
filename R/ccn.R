@@ -16,7 +16,7 @@ methods::setOldClass(c("ccnr", "vctrs_vctr"))
 #' @examples
 #' x = get_pin("ccn")
 #' y = ccn(x)
-#' index(y)
+#' get_index(y)
 #'
 #' vctrs::vec_c(x[1:5], y[100:150], x[1:50])
 #' tibble::tibble(x = x, ccn = ccn(x))
@@ -28,10 +28,10 @@ methods::setOldClass(c("ccnr", "vctrs_vctr"))
 #'   number = "1234",
 #'   type = NA_character_
 #'  )
-#' @name ccn-ccnr
+#' @name vctrs
 NULL
 
-#' @rdname ccn-ccnr
+#' @rdname vctrs
 #' @export
 ccn <- function(x = character()) {
   x <- vctrs::vec_cast(x, character())
@@ -39,15 +39,15 @@ ccn <- function(x = character()) {
   new_ccn(x)
 }
 
-#' @rdname ccn-ccnr
+#' @rdname vctrs
 #' @export
-index <- function(x) {
-  UseMethod("index")
+get_index <- function(x) {
+  UseMethod("get_index")
 }
 
-#' @rdname ccn-ccnr
+#' @rdname vctrs
 #' @export
-index.ccn <- function(x, ...) {
+get_index.ccn <- function(x, ...) {
   attr(x, "index", exact = TRUE)
 }
 
@@ -183,7 +183,7 @@ vec_ptype_full.ccn <- function(x, ...) {
   "ccn_vctr"
 }
 
-#' @rdname ccn-ccnr
+#' @rdname vctrs
 #' @export
 ccnr <- function(
   entity = character(),

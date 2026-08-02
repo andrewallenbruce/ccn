@@ -1,9 +1,4 @@
 #' @noRd
-clean_ccn <- function(x) {
-  remove_any_spaces(remove_non_alnums(toupper(x)))
-}
-
-#' @noRd
 unlist_ <- function(x, ...) {
   unlist(x, use.names = FALSE, ...)
 }
@@ -35,7 +30,7 @@ remove_any_spaces <- function(x) {
 
 # clean("adsfgd ;.-")
 #' @noRd
-clean <- function(x) {
+clean_ccn <- function(x) {
   remove_any_spaces(remove_non_alnums(toupper(x)))
 }
 
