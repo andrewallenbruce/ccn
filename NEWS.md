@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9137 (2026-08-02)
+
+* `parents` methods
+
+
 # ccn 0.0.0.9136 (2026-08-01)
 
 * index, parent constructor
