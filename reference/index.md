@@ -16,10 +16,10 @@
 
   Decode `ccn`/`ccnr` objects
 
-- [`index_ccn()`](https://andrewallenbruce.github.io/ccn/reference/index_ccn.md)
-  :
-
-  Index a `ccn` object
+- [`parent_unit()`](https://andrewallenbruce.github.io/ccn/reference/parent.md)
+  [`parent_subunit()`](https://andrewallenbruce.github.io/ccn/reference/parent.md)
+  [`has_parent()`](https://andrewallenbruce.github.io/ccn/reference/parent.md)
+  : Assemble Unit/Subunit Parent CCN
 
 - [`recode_state()`](https://andrewallenbruce.github.io/ccn/reference/recode-location.md)
   [`recode_region()`](https://andrewallenbruce.github.io/ccn/reference/recode-location.md)
@@ -35,13 +35,9 @@
   [`recode_other_type()`](https://andrewallenbruce.github.io/ccn/reference/recode-types.md)
   : Recode CMS Facility Types
 
-- [`parent_unit()`](https://andrewallenbruce.github.io/ccn/reference/unit.md)
-  [`parent_subunit()`](https://andrewallenbruce.github.io/ccn/reference/unit.md)
-  : Assemble Unit/Subunit Parent CCN
-
 - [`ccn()`](https://andrewallenbruce.github.io/ccn/reference/vctrs.md)
-  [`get_index()`](https://andrewallenbruce.github.io/ccn/reference/vctrs.md)
   [`ccnr()`](https://andrewallenbruce.github.io/ccn/reference/vctrs.md)
+  [`get_index()`](https://andrewallenbruce.github.io/ccn/reference/vctrs.md)
   :
 
   Construct a `ccn`/`ccnr` object

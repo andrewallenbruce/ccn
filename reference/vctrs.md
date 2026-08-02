@@ -7,11 +7,6 @@ Construct a `ccn`/`ccnr` object
 ``` r
 ccn(x = character())
 
-get_index(x)
-
-# S3 method for class 'ccn'
-get_index(x, ...)
-
 ccnr(
   entity = character(),
   ccn = character(),
@@ -19,6 +14,11 @@ ccnr(
   number = character(),
   type = character()
 )
+
+get_index(x)
+
+# S3 method for class 'ccn'
+get_index(x, ...)
 ```
 
 ## Arguments
@@ -26,10 +26,6 @@ ccnr(
 - x:
 
   `<chr>` A vector of CCNs.
-
-- ...:
-
-  description
 
 - entity:
 
@@ -50,6 +46,10 @@ ccnr(
 - type:
 
   `<chr>` vector of facility types
+
+- ...:
+
+  description
 
 ## Value
 

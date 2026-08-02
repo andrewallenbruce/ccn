@@ -1,5 +1,9 @@
 # Changelog
 
+## ccn 0.0.0.9138 (2026-08-02)
+
+- `has_parent` helper
+
 ## ccn 0.0.0.9137 (2026-08-02)
 
 - `parents` methods
