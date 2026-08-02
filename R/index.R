@@ -50,8 +50,6 @@ infer_provider_ext <- function(x) {
   vctrs::vec_case_when(
     conditions = list(
       is_type_medicare(x),
-      # is_type_organ(x),
-      # is_type_emergency(x),
       is_type_medicaid(x),
       is_type_unit(x),
       is_type_subunit(x),
@@ -59,8 +57,6 @@ infer_provider_ext <- function(x) {
     ),
     values = list(
       "Medicare_Ext",
-      # "Organ_Ext",
-      # "Emergency_Ext",
       "Medicaid_Ext",
       "Unit_Ext",
       "Subunit_Ext",
@@ -99,6 +95,7 @@ index_ccn <- function(x) {
     g <- c(g, grp_split(infer_provider_type, x, g[["Provider"]]))
     g[["Provider"]] <- NULL
   }
+  # g = g[sort(names(g))]
 
   structure(g, class = "ccn_index")
 }

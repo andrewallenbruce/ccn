@@ -9,15 +9,16 @@
 #' parent_subunit(c("21SA26", "21TA26", "02TA01", "04SD38", "52TA05"))
 #'
 #' x = ccn(get_pin("ccn"))
+#' i = get_index(x)
 #'
 #' tibble::tibble(
-#'   unit = x[index(x)$Unit],
-#'   parent = parent_unit(x[index(x)$Unit])) |>
+#'   unit = x[i$Unit],
+#'   parent = parent_unit(x[i$Unit])) |>
 #'   collapse::na_omit()
 #'
 #' tibble::tibble(
-#'   subunit = x[index(x)$Subunit],
-#'   parent = parent_subunit(x[index(x)$Subunit]))
+#'   subunit = x[i$Subunit],
+#'   parent = parent_subunit(x[i$Subunit]))
 #' @name unit
 NULL
 
