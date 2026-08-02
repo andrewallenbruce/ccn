@@ -8,12 +8,6 @@
 
   Convert to a `ccn`/`ccnr` object
 
-- [`ccn()`](https://andrewallenbruce.github.io/ccn/reference/ccn-ccnr.md)
-  [`ccnr()`](https://andrewallenbruce.github.io/ccn/reference/ccn-ccnr.md)
-  :
-
-  Construct a `ccn`/`ccnr` object
-
 - [`ccn-package`](https://andrewallenbruce.github.io/ccn/reference/ccn-package.md)
   : ccn: CMS Certification Numbers
 
@@ -40,3 +34,14 @@
   [`recode_subunit_type()`](https://andrewallenbruce.github.io/ccn/reference/recode-types.md)
   [`recode_other_type()`](https://andrewallenbruce.github.io/ccn/reference/recode-types.md)
   : Recode CMS Facility Types
+
+- [`parent_unit()`](https://andrewallenbruce.github.io/ccn/reference/unit.md)
+  [`parent_subunit()`](https://andrewallenbruce.github.io/ccn/reference/unit.md)
+  : Assemble Unit/Subunit Parent CCN
+
+- [`ccn()`](https://andrewallenbruce.github.io/ccn/reference/vctrs.md)
+  [`get_index()`](https://andrewallenbruce.github.io/ccn/reference/vctrs.md)
+  [`ccnr()`](https://andrewallenbruce.github.io/ccn/reference/vctrs.md)
+  :
+
+  Construct a `ccn`/`ccnr` object

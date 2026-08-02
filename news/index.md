@@ -1,3 +1,596 @@
-# News
+# Changelog
 
-- [Version dev](https://andrewallenbruce.github.io/ccn/news/news-dev.md)
+## ccn 0.0.0.9136 (2026-08-01)
+
+- index, parent constructor
+
+## ccn 0.0.0.9135 (2026-07-31)
+
+- `vctrs` casting is more confusing than it should be
+
+## ccn 0.0.0.9134 (2026-07-31)
+
+- `ccn` vctr now indexes upon instantiation
+
+## ccn 0.0.0.9133 (2026-07-31)
+
+- added vec_restore method
+
+## ccn 0.0.0.9132 (2026-07-31)
+
+- recode documentation
+
+## ccn 0.0.0.9131 (2026-07-30)
+
+- exported recodes
+
+## ccn 0.0.0.9130 (2026-07-30)
+
+- added missing state codes (closes
+  [\#14](https://github.com/andrewallenbruce/ccn/issues/14))
+
+## ccn 0.0.0.9129 (2026-07-30)
+
+- Cleaning up documentation
+
+## ccn 0.0.0.9128 (2026-07-29)
+
+- decode generic
+
+## ccn 0.0.0.9127 (2026-07-29)
+
+- more
+
+## ccn 0.0.0.9126 (2026-07-28)
+
+- clean up more good
+
+## ccn 0.0.0.9125 (2026-07-28)
+
+- many. new. changes.
+
+## ccn 0.0.0.9124 (2026-07-28)
+
+- cleaning up and somesuch
+
+## ccn 0.0.0.9123 (2026-07-27)
+
+- updated data documentation
+- has_idx helper
+
+## ccn 0.0.0.9122 (2026-07-27)
+
+- consistent naming of indices
+
+## ccn 0.0.0.9121 (2026-07-26)
+
+- reorganizing, internal data changes
+
+## ccn 0.0.0.9120 (2026-07-25)
+
+- vctrs only implementation
+
+## ccn 0.0.0.9119 (2026-07-25)
+
+- clean up
+- `index_types` -\> `index_ccn_types`
+
+## ccn 0.0.0.9118 (2026-07-23)
+
+- “form” -\> “entity”
+- corrected abbreviations lettercase
+
+## ccn 0.0.0.9117 (2026-07-23)
+
+- recode/decode naming scheme
+
+## ccn 0.0.0.9116 (2026-07-19)
+
+- vctrs_decode work
+
+## ccn 0.0.0.9115 (2026-07-15)
+
+- refactored decode methods
+
+## ccn 0.0.0.9114 (2026-07-14)
+
+- fixed bug in ccnr\_\*
+- added subgroups swing-bed example data
+
+## ccn 0.0.0.9113 (2026-07-14)
+
+- refactoring ccnr decoding
+
+## ccn 0.0.0.9112 (2026-07-13)
+
+- cleaning up for refactor
+
+## ccn 0.0.0.9111 (2026-07-06)
+
+- updated dependencies
+
+## ccn 0.0.0.9110 (2026-07-06)
+
+- updated github actions pkgdown workflow
+
+## ccn 0.0.0.9109 (2026-04-10)
+
+- more decoding
+
+## ccn 0.0.0.9108 (2026-04-10)
+
+- decoding implementations
+
+## ccn 0.0.0.9107 (2026-04-10)
+
+- added `decode_*` functions
+
+## ccn 0.0.0.9106 (2026-04-09)
+
+- `cli` =\> 3.6.6
+
+## ccn 0.0.0.9105 (2026-04-09)
+
+- refactored reused code into helpers
+
+## ccn 0.0.0.9104 (2026-04-08)
+
+- [`as_ccnr()`](https://andrewallenbruce.github.io/ccn/reference/as.md)
+  method
+
+## ccn 0.0.0.9103 (2026-04-08)
+
+- reorganization of files
+
+## ccn 0.0.0.9102 (2026-04-08)
+
+- added internal ccn parsing implementations
+
+## ccn 0.0.0.9101 (2026-04-07)
+
+- clean up, formatting
+
+## ccn 0.0.0.9100 (2026-04-07)
+
+- `rlang` 1.1.7 =\> 1.2.0
+- added `vec_proxy_equal` method for `ccnr` class
+
+## ccn 0.0.0.9099 (2026-04-07)
+
+- refactored `infer_form()`
+
+## ccn 0.0.0.9098 (2026-04-07)
+
+- refactoring parsing implementation
+
+## ccn 0.0.0.9097 (2026-04-06)
+
+- fleshed out rcrd class
+
+## ccn 0.0.0.9096 (2026-04-05)
+
+- work on parser
+
+## ccn 0.0.0.9095 (2026-04-04)
+
+- fixed bug in `infer_form()`
+- initial sketch of `rcrd vctr`
+
+## ccn 0.0.0.9094 (2026-04-03)
+
+- updated internal datasets
+
+## ccn 0.0.0.9093 (2026-04-03)
+
+- added init vctrs ccn class
+
+## ccn 0.0.0.9092 (2026-03-27)
+
+- Added HRSA SNF dataset
+
+## ccn 0.0.0.9091 (2026-03-23)
+
+- Updated dep versions
+- Fixed exported S3 methods
+
+## ccn 0.0.0.9090 (2026-03-23)
+
+- HRSA test data
+
+## ccn 0.0.0.9089 (2026-03-15)
+
+- Same as previous version.
+
+## ccn 0.0.0.9088 (2026-01-30)
+
+- `as_data_frame` rename
+- `check_range` refinement
+  ([\#11](https://github.com/andrewallenbruce/ccn/issues/11))
+
+## ccn 0.0.0.9087 (2026-01-29)
+
+- bump vctrs version
+
+## ccn 0.0.0.9086 (2025-12-30)
+
+- `ccn_state` vctr class
+
+## ccn 0.0.0.9085 (2025-12-28)
+
+- experimenting with S3 vctrs classes
+
+## ccn 0.0.0.9084 (2025-12-25)
+
+- update internal data
+
+## ccn 0.0.0.9083 (2025-12-25)
+
+- updates to internal datasets
+
+## ccn 0.0.0.9082 (2025-12-24)
+
+- updated dependencies
+
+## ccn 0.0.0.9081 (2025-12-18)
+
+- refactored S3 and S7 `as.data.frame` methods
+
+## ccn 0.0.0.9080 (2025-12-17)
+
+- parent generic and methods
+
+## ccn 0.0.0.9079 (2025-12-17)
+
+- initial Unit `@parent` implementation
+- `as.data.frame` method for decoded ccns (closes
+  [\#2](https://github.com/andrewallenbruce/ccn/issues/2))
+
+## ccn 0.0.0.9078 (2025-12-17)
+
+- `unit_parents` internal dataset
+- `check_state` assertion
+- class preserved in `as.data.frame` method
+
+## ccn 0.0.0.9077 (2025-12-16)
+
+- fix: bug in `provider_type`
+- fix: states internal dataset
+
+## ccn 0.0.0.9076 (2025-12-16)
+
+- `as.data.frame` method for `parse`
+  ([\#2](https://github.com/andrewallenbruce/ccn/issues/2))
+- facility ranges check
+
+## ccn 0.0.0.9075 (2025-12-16)
+
+- `parent` method
+
+## ccn 0.0.0.9074 (2025-12-16)
+
+- fix: `eipps_types` internal dataset
+- chore: documentation
+
+## ccn 0.0.0.9073 (2025-12-15)
+
+- checks for range boundaries
+
+## ccn 0.0.0.9072 (2025-12-15)
+
+- fix:
+  [`decode()`](https://andrewallenbruce.github.io/ccn/reference/decode.md)
+  handles parsed or unparsed input now
+
+## ccn 0.0.0.9071 (2025-12-15)
+
+- refactoring `Subunit` class
+
+## ccn 0.0.0.9070 (2025-12-14)
+
+- added region and office slots to `State` class
+
+## ccn 0.0.0.9069 (2025-12-14)
+
+- added CMS Regional Office internal data
+
+## ccn 0.0.0.9068 (2025-12-14)
+
+- print method madness
+
+## ccn 0.0.0.9067 (2025-12-14)
+
+- adding more print methods
+
+## ccn 0.0.0.9066 (2025-12-13)
+
+- initial `decode` generic
+
+## ccn 0.0.0.9065 (2025-12-13)
+
+- added slot `@eipps`
+- updated internal data structures
+
+## ccn 0.0.0.9064 (2025-12-13)
+
+- simplifying classes again
+
+## ccn 0.0.0.9063 (2025-12-13)
+
+- adding input checks
+
+## ccn 0.0.0.9062 (2025-12-13)
+
+- simplifying the interface
+
+## ccn 0.0.0.9061 (2025-12-12)
+
+- print method for slices
+
+## ccn 0.0.0.9060 (2025-12-12)
+
+- cleaned up arg checks in State class
+
+## ccn 0.0.0.9059 (2025-12-12)
+
+- removed `@sequence` slot from classes
+
+## ccn 0.0.0.9058 (2025-12-11)
+
+- `State` class now has constructor, only accepts length 1 input
+- Fixed mistake in MOF range label
+
+## ccn 0.0.0.9057 (2025-12-10)
+
+- all `slice_` fns now identify entity type
+
+## ccn 0.0.0.9056 (2025-12-10)
+
+- fix bug in emergency
+
+## ccn 0.0.0.9055 (2025-12-09)
+
+- updated medicare ranges table
+
+## ccn 0.0.0.9054 (2025-12-09)
+
+- sliced vectors now have names
+
+## ccn 0.0.0.9053 (2025-12-09)
+
+- fixed slicing ccns with extensions
+
+## ccn 0.0.0.9052 (2025-12-09)
+
+- updated state codes internal data
+
+## ccn 0.0.0.9051 (2025-12-08)
+
+- `slice()` implementation
+
+## ccn 0.0.0.9050 (2025-12-08)
+
+- `slice` sketch
+
+## ccn 0.0.0.9049 (2025-12-08)
+
+- `init` sketch
+
+## ccn 0.0.0.9048 (2025-12-07)
+
+- `ccn_` sketch of S7 initial parser
+- added `air` as formatter
+
+## ccn 0.0.0.9047 (2025-12-07)
+
+- fix: another `medicaid()` bug
+
+## ccn 0.0.0.9046 (2025-12-06)
+
+- fixed bug in `medicaid()`
+
+## ccn 0.0.0.9045 (2025-12-06)
+
+- simplifying classes
+
+## ccn 0.0.0.9044 (2025-12-05)
+
+- `medicaid` consolidated into one class
+
+## ccn 0.0.0.9043 (2025-12-04)
+
+- IPPS-Excluded: `unit`, `subunit`, `parent`
+
+## ccn 0.0.0.9042 (2025-12-04)
+
+- renamed `parse_` functions
+
+## ccn 0.0.0.9041 (2025-12-04)
+
+- `eipps_parent` variation
+
+## ccn 0.0.0.9040 (2025-12-04)
+
+- testing data has been organized and minimized.
+
+## ccn 0.0.0.9039 (2025-12-02)
+
+- eipps implementation work (parent lookup)
+
+## ccn 0.0.0.9038 (2025-12-02)
+
+- ipps structure
+
+## ccn 0.0.0.9037 (2025-12-01)
+
+- trying
+  [`data.table::between`](https://rdrr.io/pkg/data.table/man/between.html)
+  &
+  [`data.table::inrange`](https://rdrr.io/pkg/data.table/man/between.html)
+  for facility ranges
+
+## ccn 0.0.0.9036 (2025-11-30)
+
+- [`parse()`](https://rdrr.io/r/base/parse.html) development
+  ([\#3](https://github.com/andrewallenbruce/ccn/issues/3))
+
+## ccn 0.0.0.9035 (2025-11-30)
+
+- work on [`parse()`](https://rdrr.io/r/base/parse.html)
+  ([\#3](https://github.com/andrewallenbruce/ccn/issues/3))
+
+## ccn 0.0.0.9034 (2025-11-30)
+
+- more restructuring
+
+## ccn 0.0.0.9033 (2025-11-29)
+
+- reconstructing internal data sources
+
+## ccn 0.0.0.9032 (2025-11-28)
+
+- medicaid ranges/types overhaul
+
+## ccn 0.0.0.9031 (2025-11-28)
+
+- rewrite
+
+## ccn 0.0.0.9030 (2025-11-23)
+
+- added state code dataset
+
+## ccn 0.0.0.9029 (2025-11-22)
+
+- added initial base parsing methods
+  ([\#3](https://github.com/andrewallenbruce/ccn/issues/3))
+
+## ccn 0.0.0.9028 (2025-11-22)
+
+- reorganization/refactoring
+
+## ccn 0.0.0.9027 (2025-11-22)
+
+- refactored to uncouple S7 classes
+
+## ccn 0.0.0.9026 (2025-11-21)
+
+- `as_list` methods
+  ([\#2](https://github.com/andrewallenbruce/ccn/issues/2))
+- fixed: bug in `range_supplier`
+
+## ccn 0.0.0.9025 (2025-11-21)
+
+- Same as previous version.
+
+## ccn 0.0.0.9024 (2025-11-21)
+
+- `as_data_frame` methods implemented
+  ([\#2](https://github.com/andrewallenbruce/ccn/issues/2))
+- `ranges` converted to integer vectors
+  ([\#1](https://github.com/andrewallenbruce/ccn/issues/1))
+
+## ccn 0.0.0.9023 (2025-11-21)
+
+- `as_data_frame` methods added
+
+## ccn 0.0.0.9022 (2025-11-20)
+
+- added `EmergencySequence` class
+- converted Emergency, Supplier and OPO ranges to `integer`s
+  ([\#1](https://github.com/andrewallenbruce/ccn/issues/1))
+
+## ccn 0.0.0.9021 (2025-11-20)
+
+- added `IppsExcludedUnitParent` class
+
+## ccn 0.0.0.9020 (2025-11-20)
+
+- `IPPSExcludedUnit` now working
+- standard `is_*` prefix added to logical predicates
+- `OPOSequence` -\> `OpoSequence` & `OPOType` -\> `OpoType`, standard
+  CamelCase convention for class names
+- initial base [`parse()`](https://rdrr.io/r/base/parse.html) sketch
+
+## ccn 0.0.0.9019 (2025-11-19)
+
+- initial `as_data_frame` method
+  ([\#2](https://github.com/andrewallenbruce/ccn/issues/2))
+- added `MedicaidOnlySequence`, `MedicaidOnlyType`, `IPPSExcludedType`
+
+## ccn 0.0.0.9018 (2025-11-18)
+
+- tidying, re-render README
+
+## ccn 0.0.0.9017 (2025-11-18)
+
+- `Sequence` & `FullSequence`
+- standardizing classes
+
+## ccn 0.0.0.9016 (2025-11-18)
+
+- Type, State, Sequence classes
+- added dedicated `State` class
+
+## ccn 0.0.0.9015 (2025-11-17)
+
+- length check added, extension can be `NULL` now
+
+## ccn 0.0.0.9014 (2025-11-17)
+
+- added `extended` slot for Multi-Campus Hospital ccn type
+
+## ccn 0.0.0.9013 (2025-11-17)
+
+- added `esrd`, `irf` & `ltch` testing data
+
+## ccn 0.0.0.9012 (2025-11-17)
+
+- `type_parent` -\> `type_unit`
+
+## ccn 0.0.0.9011 (2025-11-16)
+
+- props renamed: ccn -\> number, sequence_number -\> sequence
+- namespace `convert` methods
+
+## ccn 0.0.0.9010 (2025-11-14)
+
+- `IPPSExcludedUnit` class, convert method
+
+## ccn 0.0.0.9009 (2025-11-14)
+
+- Same as previous version.
+
+## ccn 0.0.0.9008 (2025-11-13)
+
+- standardized facility type slots
+- removed roxyglobals dependency
+
+## ccn 0.0.0.9007 (2025-11-12)
+
+- `convert_` helpers
+
+## ccn 0.0.0.9006 (2025-11-12)
+
+- Provider superclass is now child class of Unknown
+- Medicare range/name lookups
+- Added to `MedicareProvider` class
+
+## ccn 0.0.0.9005 (2025-11-10)
+
+- added `asc` pin, redid `aff` pin
+
+## ccn 0.0.0.9004 (2025-11-09)
+
+- `decode` S7 generic first pass
+
+## ccn 0.0.0.9003 (2025-11-08)
+
+- `S7` CCN classes
+
+## ccn 0.0.0.9002 (2025-11-04)
+
+- `is_ipps_excluded_type`, `is_medicaid_facility_type` tests
+- `decode` sketch
+
+## ccn 0.0.0.9001 (2025-10-31)
+
+- Initial commit
