@@ -16,5 +16,8 @@ An S3 vector of class \verb{<ccn_index>}
 Index a \code{ccn} object
 }
 \examples{
+\dontshow{if (FALSE) withAutoprint(\{ # examplesIf}
 index_ccn(get_pin("ccn"))
+\dontshow{\}) # examplesIf}
 }
+\keyword{internal}

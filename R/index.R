@@ -79,8 +79,9 @@ grp_split <- function(.fn, x, i = NULL) {
 #'
 #' @param x `<chr>` A vector of CCNs.
 #' @returns An S3 vector of class `<ccn_index>`
-#' @examples
+#' @examplesIf FALSE
 #' index_ccn(get_pin("ccn"))
+#' @keywords internal
 #' @export
 index_ccn <- function(x) {
   x <- if (is_ccn(x)) vctrs::vec_data(x) else x
@@ -100,41 +101,14 @@ index_ccn <- function(x) {
   structure(g, class = "ccn_index")
 }
 
-#' @method format ccn_index
+#' @rdname vctrs
 #' @export
-format.ccn_index <- function(x, ...) {
-  z <- collapse::vlengths(x)
-  n <- collapse::fsum(unname(z))
-
-  id <- paste0("<ccn_index[", n, "]>")
-
-  cat(id, sep = "\n")
-
-  if (n == 0L) {
-    return(invisible(NULL))
-  }
-
-  cat(fmt_idx(z), sep = "\n")
-  invisible(x)
+get_index <- function(x) {
+  UseMethod("get_index")
 }
 
-#' @method print ccn_index
+#' @rdname vctrs
 #' @export
-print.ccn_index <- function(x, ...) {
-  format(x, ...)
-}
-
-#' @noRd
-fmt_idx <- function(x) {
-  paste(
-    format(
-      names(x),
-      justify = "right"
-    ),
-    ":",
-    format(
-      unname(x),
-      justify = "left"
-    )
-  )
+get_index.ccn <- function(x, ...) {
+  attr(x, "index", exact = TRUE)
 }

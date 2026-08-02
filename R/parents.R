@@ -9,17 +9,16 @@
 #' parent_subunit(c("21SA26", "21TA26", "02TA01", "04SD38", "52TA05"))
 #'
 #' x = ccn(get_pin("ccn"))
-#' i = get_index(x)
 #'
 #' tibble::tibble(
-#'   unit = x[i$Unit],
-#'   parent = parent_unit(x[i$Unit])) |>
+#'   unit = has_parent(x)$Unit,
+#'   parent = parent_unit(has_parent(x)$Unit)) |>
 #'   collapse::na_omit()
 #'
 #' tibble::tibble(
-#'   subunit = x[i$Subunit],
-#'   parent = parent_subunit(x[i$Subunit]))
-#' @name unit
+#'   subunit = has_parent(x)$Subunit,
+#'   parent = parent_subunit(has_parent(x)$Subunit))
+#' @name parent
 NULL
 
 #' @noRd
@@ -42,7 +41,7 @@ subunit_prefix <- function(x) {
   )
 }
 
-#' @rdname unit
+#' @rdname parent
 #' @export
 parent_unit <- function(x) {
   fix <- unit_infix(substring(x, 3L, 3L))
@@ -54,7 +53,7 @@ parent_unit <- function(x) {
 }
 
 
-#' @rdname unit
+#' @rdname parent
 #' @export
 parent_subunit <- function(x) {
   paste0(
@@ -63,5 +62,30 @@ parent_subunit <- function(x) {
       subunit_prefix(substring(x, 4L, 4L)),
       substring(x, 5L, 6L)
     )
+  )
+}
+
+#' @rdname parent
+#' @export
+has_parent <- function(x) {
+  UseMethod("has_parent")
+}
+
+#' @rdname parent
+#' @export
+has_parent.ccn <- function(x) {
+  i <- collapse::get_elem(get_index(x), "Unit|Subunit", regex = TRUE)
+  list(
+    Unit = x[i$Unit][
+      substring(x[i$Unit], 3L, 3L) %iin%
+        ccn::unit_types[["code"]][collapse::whichNA(
+          ccn::unit_types[["infix"]],
+          invert = TRUE
+        )]
+    ],
+    Subunit = x[i$Subunit][
+      substring(x[i$Subunit], 4L, 4L) %iin%
+        collapse::na_rm(ccn::subunit_types[["code"]])
+    ]
   )
 }
