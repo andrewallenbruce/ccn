@@ -5,10 +5,10 @@
 #' @returns An S3 vector of class `<ccn>`
 #' @examples
 #' x = get_pin("ccn")
-#' a = as_ccn(x)
 #' b = as_ccnr(x)
-#' decode(a)
+#' decode(as_ccn(x))
 #' decode(b)
+#' collapse::qDF(collapse::fcountv(decode(b), c("entity", "facility")))
 #' @export
 decode <- function(x, ...) {
   UseMethod("decode")
@@ -26,10 +26,10 @@ decode.ccn <- function(x, ...) {
 }
 
 #' @noRd
-rec_ <- function(x, index, key, .fn, from = "type", to = "facility") {
+rec_ <- function(x, index, key, .fn, from = "type", to = "facility", ...) {
   if (rlang::has_name(index, key)) {
     i <- index[[key]]
-    x[[to]][i] <- .fn(x[[from]][i])
+    x[[to]][i] <- .fn(x[[from]][i], ...)
     # collapse::setv(x[[to]], i, .fn(x[[from]][i]))
   }
   return(x)
@@ -42,6 +42,8 @@ decode.ccnr <- function(x, ...) {
 
   collapse::settfmv(x, collapse::gv(x, "number", return = 3L), as.integer)
   collapse::settfmv(x, collapse::gv(x, "state", return = 3L), recode_state)
+  x[["region"]] <- as_region(x[["state"]])
+  x[["range"]] <- vctrs::vec_init(character(), vctrs::vec_size(x))
   x[["facility"]] <- vctrs::vec_init(character(), vctrs::vec_size(x))
 
   i <- purrr::imap(
@@ -58,16 +60,26 @@ decode.ccnr <- function(x, ...) {
   x <- rec_(x, i, "Unit", recode_unit_type)
   x <- rec_(x, i, "Subunit", recode_unit_type)
   x <- rec_(x, i, "Medicare", recode_medicare_range, "number")
+  x <- rec_(
+    x = x,
+    index = i,
+    key = "Medicare",
+    .fn = recode_medicare_range,
+    from = "number",
+    to = "range",
+    as = "range"
+  )
 
   if (collapse::anyv(x[["facility"]], "MOH")) {
     idx <- x[["facility"]] %==% "MOH"
 
     x[["facility"]][idx] <- recode_medicaid_range(x[["number"]][idx])
+    x[["range"]][idx] <- recode_medicaid_range(x[["number"]][idx], as = "range")
   }
 
   collapse::gv(
     x,
-    c("ccn", "entity", "state", "facility", "number", "type")
+    c("ccn", "state", "region", "entity", "facility", "range")
   )
 }
 

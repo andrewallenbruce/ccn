@@ -15,7 +15,7 @@ infer_ccn_type <- function(x) {
       "Supplier_Ext",
       NA_character_
     ),
-    default = "<UNKNOWN> Type"
+    default = NA_character_
   )
 }
 
@@ -40,7 +40,7 @@ infer_provider_type <- function(x) {
       "Subunit",
       NA_character_
     ),
-    default = "<UNKNOWN> Provider"
+    default = NA_character_
   )
 }
 
@@ -62,7 +62,7 @@ infer_provider_ext <- function(x) {
       "Subunit_Ext",
       NA_character_
     ),
-    default = "<UNKNOWN> Provider Ext"
+    default = NA_character_
   )
 }
 
@@ -96,8 +96,6 @@ index_ccn <- function(x) {
     g <- c(g, grp_split(infer_provider_type, x, g[["Provider"]]))
     g[["Provider"]] <- NULL
   }
-  # g = g[sort(names(g))]
-
   structure(g, class = "ccn_index")
 }
 

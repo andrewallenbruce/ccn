@@ -25,8 +25,8 @@ Decode \code{ccn}/\code{ccnr} objects
 }
 \examples{
 x = get_pin("ccn")
-a = as_ccn(x)
 b = as_ccnr(x)
-decode(a)
+decode(as_ccn(x))
 decode(b)
+collapse::qDF(collapse::fcountv(decode(b), c("entity", "facility")))
 }

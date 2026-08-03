@@ -21,8 +21,7 @@
 #' tibble::tibble(
 #'   x = ccn::states[["code"]],
 #'   state = recode_state(x, "abbr"),
-#'   region = recode_region(state, "code"),
-#'   office = recode_region(state, "full")
+#'   region = as_region(state)
 #' )
 #' @name recode-location
 NULL
@@ -55,6 +54,12 @@ recode_region <- function(x, as = c("code", "roman", "abbr", "full")) {
       full = ccn::regions[["full"]]
     )
   )
+}
+
+#' @rdname recode-location
+#' @export
+as_region <- function(x) {
+  paste0("(", recode_region(x, "roman"), ") ", recode_region(x, "full"))
 }
 
 #' Recode CMS Facility Types

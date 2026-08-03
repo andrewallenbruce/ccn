@@ -4,11 +4,14 @@
 \alias{recode-location}
 \alias{recode_state}
 \alias{recode_region}
+\alias{as_region}
 \title{Recode CMS State/Region Codes}
 \usage{
 recode_state(x, as = c("abbr", "full"))
 
 recode_region(x, as = c("code", "roman", "abbr", "full"))
+
+as_region(x)
 }
 \arguments{
 \item{x}{\verb{<chr>} vector of CCN state codes.}
@@ -39,7 +42,6 @@ Recode CMS State/Region Codes
 tibble::tibble(
   x = ccn::states[["code"]],
   state = recode_state(x, "abbr"),
-  region = recode_region(state, "code"),
-  office = recode_region(state, "full")
+  region = as_region(state)
 )
 }
