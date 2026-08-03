@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ccn</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9138</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9139</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -74,9 +74,8 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="get_pin.html">get_pin</a></span><span class="op">(</span><span class="st">"ccn"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">a</span> <span class="op">=</span> <span class="fu"><a href="as.html">as_ccn</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">b</span> <span class="op">=</span> <span class="fu"><a href="as.html">as_ccnr</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="va">a</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="fu"><a href="as.html">as_ccn</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 54,567 × 5</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    ccn    entity   state number type </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
@@ -93,19 +92,57 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 54,557 more rows</span></span>
 <span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="va">b</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 54,567 × 6</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    ccn    entity   state facility number type </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 001500 Medicare AZ    Hospice    <span style="text-decoration: underline;">1</span>500 <span style="color: #BB0000;">NA</span>   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 001502 Medicare AZ    Hospice    <span style="text-decoration: underline;">1</span>502 <span style="color: #BB0000;">NA</span>   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 001503 Medicare AZ    Hospice    <span style="text-decoration: underline;">1</span>503 <span style="color: #BB0000;">NA</span>   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 001509 Medicare AZ    Hospice    <span style="text-decoration: underline;">1</span>509 <span style="color: #BB0000;">NA</span>   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 001510 Medicare AZ    Hospice    <span style="text-decoration: underline;">1</span>510 <span style="color: #BB0000;">NA</span>   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 001511 Medicare AZ    Hospice    <span style="text-decoration: underline;">1</span>511 <span style="color: #BB0000;">NA</span>   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 001513 Medicare AZ    Hospice    <span style="text-decoration: underline;">1</span>513 <span style="color: #BB0000;">NA</span>   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 001514 Medicare AZ    Hospice    <span style="text-decoration: underline;">1</span>514 <span style="color: #BB0000;">NA</span>   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 001515 Medicare AZ    Hospice    <span style="text-decoration: underline;">1</span>515 <span style="color: #BB0000;">NA</span>   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 001517 Medicare AZ    Hospice    <span style="text-decoration: underline;">1</span>517 <span style="color: #BB0000;">NA</span>   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    ccn    state region             entity   facility range    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 001500 AZ    (IX) San Francisco Medicare Hospice  1500-1799</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 001502 AZ    (IX) San Francisco Medicare Hospice  1500-1799</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 001503 AZ    (IX) San Francisco Medicare Hospice  1500-1799</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 001509 AZ    (IX) San Francisco Medicare Hospice  1500-1799</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 001510 AZ    (IX) San Francisco Medicare Hospice  1500-1799</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 001511 AZ    (IX) San Francisco Medicare Hospice  1500-1799</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 001513 AZ    (IX) San Francisco Medicare Hospice  1500-1799</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 001514 AZ    (IX) San Francisco Medicare Hospice  1500-1799</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 001515 AZ    (IX) San Francisco Medicare Hospice  1500-1799</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 001517 AZ    (IX) San Francisco Medicare Hospice  1500-1799</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 54,557 more rows</span></span>
+<span class="r-in"><span><span class="fu">collapse</span><span class="fu">::</span><span class="fu"><a href="https://fastverse.org/collapse/reference/quick-conversion.html" class="external-link">qDF</a></span><span class="op">(</span><span class="fu">collapse</span><span class="fu">::</span><span class="fu"><a href="https://fastverse.org/collapse/reference/fcount.html" class="external-link">fcountv</a></span><span class="op">(</span><span class="fu">decode</span><span class="op">(</span><span class="va">b</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"entity"</span>, <span class="st">"facility"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       entity      facility     N</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1   Medicare       Hospice  5114</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   Medicare         Acute  3234</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   Medicare           CAH  1382</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4   Medicare          LTCH   332</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   Medicare        ESRD-H   220</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   Medicare        ESRD-I  7211</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7   Medicare           IRF   407</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8   Medicare         Child    95</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9   Medicare         Psych   667</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10  Medicare           SNF 14674</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11  Medicare           HHA 10121</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12  Medicare        HHA-NP  1019</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13  Medicare        HHA-SL   715</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14  Medicare           TXC   233</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15  Medicare       ESRD-HS   139</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16  Medicare          FQHC     2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17  Medicare       ESRD-IP     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18  Medicare           OCM     9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19  Medicare       ESRD-HP     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20  Medicaid           SNF     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21      Unit   Psych (CAH)    46</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22      Unit         Psych   745</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23      Unit         Rehab   792</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24      Unit Swing (Acute)   297</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25      Unit   Swing (CAH)  1342</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26      Unit   Rehab (CAH)     7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27      Unit   Swing (LTC)     2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28      Unit   Swing (IRF)     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29   Subunit         Rehab    41</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30   Subunit         Psych     8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31     Organ           OPO    55</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32 Emergency           ERF   164</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33 Emergency           ERN     2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34  Supplier           ASC  5473</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35  Supplier          CLIA     9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36  Supplier          PXRF     6</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

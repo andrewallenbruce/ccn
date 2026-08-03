@@ -23,6 +23,7 @@
 
 - [`recode_state()`](https://andrewallenbruce.github.io/ccn/reference/recode-location.md)
   [`recode_region()`](https://andrewallenbruce.github.io/ccn/reference/recode-location.md)
+  [`as_region()`](https://andrewallenbruce.github.io/ccn/reference/recode-location.md)
   : Recode CMS State/Region Codes
 
 - [`recode_medicare_range()`](https://andrewallenbruce.github.io/ccn/reference/recode-ranges.md)

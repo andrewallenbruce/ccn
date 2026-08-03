@@ -1,5 +1,9 @@
 # Changelog
 
+## ccn 0.0.0.9139 (2026-08-02)
+
+- decode.ccnr refactoring
+
 ## ccn 0.0.0.9138 (2026-08-02)
 
 - `has_parent` helper
