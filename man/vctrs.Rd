@@ -47,8 +47,9 @@ Construct a \code{ccn}/\code{ccnr} object
 x = get_pin("ccn")
 y = ccn(x)
 get_index(y)
+z = as_ccnr(x)
 
-vctrs::vec_c(x[1:5], y[100:150], x[1:50])
+vctrs::vec_c(x[1:5], y[100:150], x[1:50], z[100:150])
 tibble::tibble(x = x, ccn = ccn(x))
 
 ccnr(
