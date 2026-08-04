@@ -38,13 +38,17 @@ rec_ <- function(x, index, key, .fn, from = "type", to = "facility", ...) {
 #' @export
 #' @rdname decode
 decode.ccnr <- function(x, ...) {
+  # i <- get_index(as_ccn(x))
   x <- tibble::tibble(vctrs::vec_data(x))
 
   collapse::settfmv(x, collapse::gv(x, "number", return = 3L), as.integer)
   collapse::settfmv(x, collapse::gv(x, "state", return = 3L), recode_state)
   x[["region"]] <- as_region(x[["state"]])
-  x[["range"]] <- vctrs::vec_init(character(), vctrs::vec_size(x))
-  x[["facility"]] <- vctrs::vec_init(character(), vctrs::vec_size(x))
+  x[["facility"]] <- x[["range"]] <- vctrs::vec_init(
+    character(),
+    vctrs::vec_size(x)
+  )
+  # x[["facility"]] <- vctrs::vec_init(character(), vctrs::vec_size(x))
 
   i <- purrr::imap(
     rlang::set_names(collapse::funique(x[["entity"]])),

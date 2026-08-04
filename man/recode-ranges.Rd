@@ -4,11 +4,17 @@
 \alias{recode-ranges}
 \alias{recode_medicare_range}
 \alias{recode_medicaid_range}
+\alias{recode_other_range}
+\alias{recode_supplier_range}
 \title{Recode CMS Facility Ranges}
 \usage{
 recode_medicare_range(x, as = c("abbr", "full", "range"))
 
 recode_medicaid_range(x, as = c("abbr", "full", "range"))
+
+recode_other_range(x)
+
+recode_supplier_range(x)
 }
 \arguments{
 \item{x}{\verb{<int>} vector of CCN facility sequence numbers.}

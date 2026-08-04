@@ -251,3 +251,15 @@ recode_medicaid_range <- function(x, as = c("abbr", "full", "range")) {
     ivs::iv_locate_between(x, ccn::medicaid_ranges[["iv"]])$haystack
   )
 }
+
+#' @rdname recode-ranges
+#' @export
+recode_other_range <- function(x) {
+  vctrs::vec_if_else(is_other_range(x), "001-999", NA_character_)
+}
+
+#' @rdname recode-ranges
+#' @export
+recode_supplier_range <- function(x) {
+  vctrs::vec_if_else(is_supplier_range(x), "0000001-9999999", NA_character_)
+}

@@ -73,6 +73,7 @@ as_ccnr.ccnr <- function(x, ...) {
   x
 }
 
+# ccnr(entity = c("Medicare", "Organ"), ccn = c("001500", "00P030"), state = NA_character_, number = NA_character_, type = NA_character_)
 # to_ccnr("001500", "Medicare")
 # to_ccnr("00P030", "Organ")
 #' @noRd
@@ -101,20 +102,21 @@ to_ccnr <- function(x, entity) {
       Subunit_Ext = "Subunit",
       ENTITY
     ),
-    ccn = switch(
-      ENTITY,
-      Medicare_Ext = ,
-      Medicaid_Ext = ,
-      Unit_Ext = ,
-      Subunit_Ext = substring(x, 1L, nchar(x)),
-      Medicare = ,
-      Organ = ,
-      Unit = ,
-      Medicaid = ,
-      Subunit = ,
-      Emergency = substring(x, 1L, 6L),
-      Supplier = substring(x, 1L, 10L)
-    ),
+    ccn = x,
+    # ccn = switch(
+    #   ENTITY,
+    #   Medicare_Ext = ,
+    #   Medicaid_Ext = ,
+    #   Unit_Ext = ,
+    #   Subunit_Ext = substring(x, 1L, nchar(x)),
+    #   Medicare = ,
+    #   Organ = ,
+    #   Unit = ,
+    #   Medicaid = ,
+    #   Subunit = ,
+    #   Emergency = substring(x, 1L, 6L),
+    #   Supplier = substring(x, 1L, 10L)
+    # ),
     state = substring(x, 1L, 2L),
     number = switch(
       ENTITY,

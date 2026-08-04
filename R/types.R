@@ -65,7 +65,8 @@ is_type_unit <- function(x) {
 
 #' @noRd
 is_type_subunit <- function(x) {
-  .is_unit(x) & vctrs::vec_in(substring(x, 4L, 4L), ccn::subunit_types[["code"]])
+  .is_unit(x) &
+    vctrs::vec_in(substring(x, 4L, 4L), ccn::subunit_types[["code"]])
 }
 
 #' @noRd
@@ -76,4 +77,14 @@ is_type_eipps <- function(x) {
 #' @noRd
 is_eipps_range <- function(x) {
   ivs::iv_between(x, ccn::eipps_ranges[["iv"]])
+}
+
+#' @noRd
+is_other_range <- function(x) {
+  ivs::iv_between(x, ivs::iv(1L, 1000L))
+}
+
+#' @noRd
+is_supplier_range <- function(x) {
+  ivs::iv_between(x, ivs::iv(1L, 10000000L))
 }

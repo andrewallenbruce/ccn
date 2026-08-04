@@ -32,6 +32,12 @@ methods::setOldClass(c("ccnr", "vctrs_vctr"))
 #' @name vctrs
 NULL
 
+#' @noRd
+new_ccn <- function(x = character()) {
+  vctrs::vec_assert(x, character())
+  vctrs::new_vctr(x, index = index_ccn(x), class = "ccn")
+}
+
 #' @rdname vctrs
 #' @export
 ccn <- function(x = character()) {
@@ -41,11 +47,24 @@ ccn <- function(x = character()) {
 }
 
 #' @noRd
-new_ccn <- function(x = character()) {
-  vctrs::vec_assert(x, character())
-  vctrs::new_vctr(x, index = index_ccn(x), class = "ccn")
+new_ccnr <- function(
+  entity = character(),
+  ccn = character(),
+  state = character(),
+  number = character(),
+  type = character()
+) {
+  vctrs::new_rcrd(
+    list(
+      entity = entity,
+      ccn = ccn,
+      state = state,
+      number = number,
+      type = type
+    ),
+    class = "ccnr"
+  )
 }
-
 
 #' @rdname vctrs
 #' @export
@@ -70,26 +89,6 @@ ccnr <- function(
     vctrs::vec_recycle_common(entity, ccn, state, number, type)
 
   new_ccnr(entity, ccn, state, number, type)
-}
-
-#' @noRd
-new_ccnr <- function(
-  entity = character(),
-  ccn = character(),
-  state = character(),
-  number = character(),
-  type = character()
-) {
-  vctrs::new_rcrd(
-    list(
-      entity = entity,
-      ccn = ccn,
-      state = state,
-      number = number,
-      type = type
-    ),
-    class = "ccnr"
-  )
 }
 
 #' Is `x` a `ccn`?
