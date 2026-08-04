@@ -11,8 +11,8 @@
 ccn(x = character())
 
 ccnr(
-  entity = character(),
   ccn = character(),
+  entity = character(),
   state = character(),
   number = character(),
   type = character()
@@ -25,9 +25,9 @@ get_index(x)
 \arguments{
 \item{x}{\verb{<chr>} A vector of CCNs.}
 
-\item{entity}{\verb{<chr>} vector of ccn entity types}
-
 \item{ccn}{\verb{<chr>} vector of ccns}
+
+\item{entity}{\verb{<chr>} vector of ccn entity types}
 
 \item{state}{\verb{<chr>} vector of state codes}
 
@@ -53,8 +53,8 @@ vctrs::vec_c(x[1:5], y[100:150], x[1:50], z[100:150])
 tibble::tibble(x = x, ccn = ccn(x))
 
 ccnr(
-  entity = "Medicare",
   ccn = "001234",
+  entity = "Medicare",
   state = "00",
   number = "1234",
   type = NA_character_

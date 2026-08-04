@@ -93,30 +93,3 @@ decode.ccnr <- function(x, ...) {
 # decode_ccnr(NULL)
 # decode_ccnr(as_ccn(NA))
 # as_ccnr(as_ccn("")) == NULL
-
-# if (rlang::has_name(i, "Unit")) {
-#   xi <- vctrs::vec_slice(x, i[["Unit"]])
-#   vctrs::vec_slice(x, i[["Unit"]])$facility <- recode_unit_type(xi[["type"]])
-#
-#   p <- paste0(
-#     str_state(xi[["ccn"]]),
-#     recode_unit_type(xi[["type"]], "infix"),
-#     substring(xi[["ccn"]], 4L, 6L)
-#   )
-#
-#   vctrs::vec_slice(x, i[["Unit"]])$parent <- p
-# }
-#
-# if (rlang::has_name(i, "Subunit")) {
-#   xi <- vctrs::vec_slice(x, i[["Subunit"]])
-#   xii <- recode_unit_type(xi[["type"]])
-#   vctrs::vec_slice(x, i[["Subunit"]])$facility <- xii
-#
-#   p <- paste0(
-#     str_state(x[i$Subunit, ]$ccn),
-#     recode_subunit_type(x[i$Subunit, ]$parent),
-#     substring(x[i$Subunit, ]$ccn, 5L, 6L)
-#   )
-#
-#   x[i$Subunit, ]$parent <- p
-# }

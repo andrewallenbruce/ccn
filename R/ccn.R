@@ -4,8 +4,8 @@ methods::setOldClass(c("ccnr", "vctrs_vctr"))
 #' Construct a `ccn`/`ccnr` object
 #'
 #' @param x `<chr>` A vector of CCNs.
-#' @param entity `<chr>` vector of ccn entity types
 #' @param ccn `<chr>` vector of ccns
+#' @param entity `<chr>` vector of ccn entity types
 #' @param state `<chr>` vector of state codes
 #' @param number `<chr>` vector of sequence numbers
 #' @param type `<chr>` vector of facility types
@@ -23,8 +23,8 @@ methods::setOldClass(c("ccnr", "vctrs_vctr"))
 #' tibble::tibble(x = x, ccn = ccn(x))
 #'
 #' ccnr(
-#'   entity = "Medicare",
 #'   ccn = "001234",
+#'   entity = "Medicare",
 #'   state = "00",
 #'   number = "1234",
 #'   type = NA_character_
@@ -48,16 +48,16 @@ ccn <- function(x = character()) {
 
 #' @noRd
 new_ccnr <- function(
-  entity = character(),
   ccn = character(),
+  entity = character(),
   state = character(),
   number = character(),
   type = character()
 ) {
   vctrs::new_rcrd(
     list(
-      entity = entity,
       ccn = ccn,
+      entity = entity,
       state = state,
       number = number,
       type = type
@@ -69,26 +69,26 @@ new_ccnr <- function(
 #' @rdname vctrs
 #' @export
 ccnr <- function(
-  entity = character(),
   ccn = character(),
+  entity = character(),
   state = character(),
   number = character(),
   type = character()
 ) {
-  .c(entity, ccn, state, number, type) %=%
+  .c(ccn, entity, state, number, type) %=%
     vctrs::vec_cast_common(
-      entity,
       ccn,
+      entity,
       state,
       number,
       type,
       .to = character()
     )
 
-  .c(entity, ccn, state, number, type) %=%
-    vctrs::vec_recycle_common(entity, ccn, state, number, type)
+  .c(ccn, entity, state, number, type) %=%
+    vctrs::vec_recycle_common(ccn, entity, state, number, type)
 
-  new_ccnr(entity, ccn, state, number, type)
+  new_ccnr(ccn, entity, state, number, type)
 }
 
 #' Is `x` a `ccn`?
