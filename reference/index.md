@@ -28,6 +28,8 @@
 
 - [`recode_medicare_range()`](https://andrewallenbruce.github.io/ccn/reference/recode-ranges.md)
   [`recode_medicaid_range()`](https://andrewallenbruce.github.io/ccn/reference/recode-ranges.md)
+  [`recode_other_range()`](https://andrewallenbruce.github.io/ccn/reference/recode-ranges.md)
+  [`recode_supplier_range()`](https://andrewallenbruce.github.io/ccn/reference/recode-ranges.md)
   : Recode CMS Facility Ranges
 
 - [`recode_medicaid_type()`](https://andrewallenbruce.github.io/ccn/reference/recode-types.md)

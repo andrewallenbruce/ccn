@@ -8,6 +8,10 @@ Recode CMS Facility Ranges
 recode_medicare_range(x, as = c("abbr", "full", "range"))
 
 recode_medicaid_range(x, as = c("abbr", "full", "range"))
+
+recode_other_range(x)
+
+recode_supplier_range(x)
 ```
 
 ## Arguments
