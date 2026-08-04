@@ -8,8 +8,8 @@ Construct a `ccn`/`ccnr` object
 ccn(x = character())
 
 ccnr(
-  entity = character(),
   ccn = character(),
+  entity = character(),
   state = character(),
   number = character(),
   type = character()
@@ -27,13 +27,13 @@ get_index(x, ...)
 
   `<chr>` A vector of CCNs.
 
-- entity:
-
-  `<chr>` vector of ccn entity types
-
 - ccn:
 
   `<chr>` vector of ccns
+
+- entity:
+
+  `<chr>` vector of ccn entity types
 
 - state:
 
@@ -108,8 +108,8 @@ tibble::tibble(x = x, ccn = ccn(x))
 #> # ℹ 54,557 more rows
 
 ccnr(
-  entity = "Medicare",
   ccn = "001234",
+  entity = "Medicare",
   state = "00",
   number = "1234",
   type = NA_character_
