@@ -61,7 +61,7 @@ An S3 vector of class `<ccn>` or `<ccnr>`
 x = get_pin("ccn")
 y = ccn(x)
 get_index(y)
-#> <ccn_index[54567]>
+#> <ccn<index[54567]>>
 #>     Supplier :  5488
 #> Medicaid_Ext :     1
 #> Medicare_Ext :   327
