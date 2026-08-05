@@ -1,5 +1,11 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9142 (2026-08-05)
+
+* added `ccnr_index` method
+* added `description` column to decoded `ccnr` data frame
+
+
 # ccn 0.0.0.9141 (2026-08-04)
 
 * refactored decode
