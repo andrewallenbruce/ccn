@@ -22,7 +22,7 @@ format.ccn_index <- function(x, ...) {
   z <- collapse::vlengths(x)
   n <- collapse::fsum(unname(z))
 
-  id <- paste0("<ccn<index[", n, "]>>")
+  id <- paste0("<ccn_vctr<index[", n, "]>>")
 
   cat(id, sep = "\n")
 
@@ -37,6 +37,30 @@ format.ccn_index <- function(x, ...) {
 #' @method print ccn_index
 #' @export
 print.ccn_index <- function(x, ...) {
+  format(x, ...)
+}
+
+#' @method format ccnr_index
+#' @export
+format.ccnr_index <- function(x, ...) {
+  z <- collapse::vlengths(x)
+  n <- collapse::fsum(unname(z))
+
+  id <- paste0("<ccn_rcrd<index[", n, "]>>")
+
+  cat(id, sep = "\n")
+
+  if (n == 0L) {
+    return(invisible(NULL))
+  }
+
+  cat(fmt_idx(z), sep = "\n")
+  invisible(x)
+}
+
+#' @method print ccnr_index
+#' @export
+print.ccnr_index <- function(x, ...) {
   format(x, ...)
 }
 

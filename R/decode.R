@@ -5,10 +5,11 @@
 #' @returns An S3 vector of class `<ccn>`
 #' @examples
 #' x = get_pin("ccn")
-#' b = as_ccnr(x)
 #' decode(as_ccn(x))
-#' decode(b)
-#' collapse::qDF(collapse::fcountv(decode(b), c("entity", "facility")))
+#' b = decode(as_ccnr(x))
+#' b
+#' collapse::qDF(collapse::fcountv(b, c("entity", "description")))
+#' with(b, collapse::qtab(facility, entity))
 #' @export
 decode <- function(x, ...) {
   UseMethod("decode")
@@ -17,30 +18,32 @@ decode <- function(x, ...) {
 #' @export
 #' @rdname decode
 decode.ccn <- function(x, ...) {
-  x <- tibble::tibble(vctrs::vec_data(as_ccnr(x)))
+  x <- vctrs::vec_data(as_ccnr(x))
   collapse::settfmv(x, collapse::gv(x, "number", return = 3L), as.integer)
-  collapse::gv(
+  collapse::qTBL(collapse::gv(
     x,
     c("ccn", "entity", "state", "number", "type")
-  )
+  ))
 }
 
 #' @noRd
-rec_type <- function(x, index, key, .fn, ...) {
+rec_type <- function(x, index, key, .fn) {
   if (rlang::has_name(index, key)) {
     i <- index[[key]]
-    x[["facility"]][i] <- .fn(x[["type"]][i], ...)
+    x[["facility"]][i] <- .fn(x[["type"]][i], "abbr")
+    x[["description"]][i] <- .fn(x[["type"]][i], "full")
   }
   return(x)
 }
 
 #' @noRd
-rec_range <- function(x, index, key, .fn, ...) {
+rec_range <- function(x, index, key, .fn) {
   if (rlang::has_name(index, key)) {
     i <- index[[key]]
     if (key == "Medicare") {
-      x[["facility"]][i] <- .fn(x[["number"]][i], ...)
-      x[["range"]][i] <- .fn(x[["number"]][i], as = "range", ...)
+      x[["facility"]][i] <- .fn(x[["number"]][i], "abbr")
+      x[["description"]][i] <- .fn(x[["number"]][i], "full")
+      x[["range"]][i] <- .fn(x[["number"]][i], "range")
     } else {
       x[["range"]][i] <- .fn(x[["number"]][i])
     }
@@ -51,6 +54,7 @@ rec_range <- function(x, index, key, .fn, ...) {
 #' @export
 #' @rdname decode
 decode.ccnr <- function(x, ...) {
+  i <- get_index(x)
   x <- vctrs::vec_data(x)
 
   collapse::settfmv(x, collapse::gv(x, "number", return = 3L), as.integer)
@@ -60,10 +64,10 @@ decode.ccnr <- function(x, ...) {
     x,
     region = as_region(x[["state"]]),
     facility = cheapr::na_init("", vctrs::vec_size(x)),
-    range = cheapr::na_init("", vctrs::vec_size(x))
+    range = cheapr::na_init("", vctrs::vec_size(x)),
+    description = cheapr::na_init("", vctrs::vec_size(x))
   )
 
-  i <- index_ccnr(x)
 
   x <- rec_type(x, i, "Emergency", recode_other_type)
   x <- rec_type(x, i, "Organ", recode_other_type)
@@ -80,13 +84,14 @@ decode.ccnr <- function(x, ...) {
   if (collapse::anyv(x[["facility"]], "MOH")) {
     idx <- x[["facility"]] %==% "MOH"
 
-    x[["facility"]][idx] <- recode_medicaid_range(x[["number"]][idx])
+    x[["facility"]][idx] <- recode_medicaid_range(x[["number"]][idx], "abbr")
+    x[["description"]][idx] <- recode_medicaid_range(x[["number"]][idx], "full")
     x[["range"]][idx] <- recode_medicaid_range(x[["number"]][idx], "range")
   }
 
   collapse::qTBL(collapse::gv(
     x,
-    c("ccn", "state", "region", "entity", "facility", "range")
+    c("ccn", "state", "region", "entity", "facility", "range", "description")
   ))
 }
 

@@ -6,6 +6,7 @@
 \alias{ccnr}
 \alias{get_index}
 \alias{get_index.ccn}
+\alias{get_index.ccnr}
 \title{Construct a \code{ccn}/\code{ccnr} object}
 \usage{
 ccn(x = character())
@@ -21,6 +22,8 @@ ccnr(
 get_index(x)
 
 \method{get_index}{ccn}(x, ...)
+
+\method{get_index}{ccnr}(x, ...)
 }
 \arguments{
 \item{x}{\verb{<chr>} A vector of CCNs.}
@@ -48,15 +51,8 @@ x = get_pin("ccn")
 y = ccn(x)
 get_index(y)
 z = as_ccnr(x)
+get_index(z)
 
 vctrs::vec_c(x[1:5], y[100:150], x[1:50], z[100:150])
 tibble::tibble(x = x, ccn = ccn(x))
-
-ccnr(
-  ccn = "001234",
-  entity = "Medicare",
-  state = "00",
-  number = "1234",
-  type = NA_character_
- )
 }

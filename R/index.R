@@ -99,6 +99,25 @@ index_ccn <- function(x) {
   structure(g, class = "ccn_index")
 }
 
+#' Index a `ccnr` object
+#'
+#' @param x `<chr>` A vector of CCNs.
+#' @returns An S3 vector of class `<ccnr_index>`
+#' @examplesIf FALSE
+#' index_ccnr(get_pin("ccn"))
+#' @keywords internal
+#' @export
+index_ccnr <- function(x) {
+  x <- if (is_ccnr(x)) vctrs::vec_data(x) else x
+  i <- purrr::imap(
+    rlang::set_names(collapse::funique(x[["entity"]])),
+    function(n, i) {
+      purrr::pluck(x, "entity") %==% n
+    }
+  )
+  structure(i, class = "ccnr_index")
+}
+
 #' @rdname vctrs
 #' @export
 get_index <- function(x) {
@@ -111,12 +130,8 @@ get_index.ccn <- function(x, ...) {
   attr(x, "index", exact = TRUE)
 }
 
-#' @noRd
-index_ccnr <- function(x) {
-  purrr::imap(
-    rlang::set_names(collapse::funique(x[["entity"]])),
-    function(n, i) {
-      purrr::pluck(x, "entity") %==% n
-    }
-  )
+#' @rdname vctrs
+#' @export
+get_index.ccnr <- function(x, ...) {
+  index_ccnr(x)
 }
