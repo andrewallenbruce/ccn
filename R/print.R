@@ -22,7 +22,7 @@ format.ccn_index <- function(x, ...) {
   z <- collapse::vlengths(x)
   n <- collapse::fsum(unname(z))
 
-  id <- paste0("<ccn_index[", n, "]>")
+  id <- paste0("<ccn<index[", n, "]>>")
 
   cat(id, sep = "\n")
 

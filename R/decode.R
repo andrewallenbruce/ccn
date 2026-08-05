@@ -26,11 +26,24 @@ decode.ccn <- function(x, ...) {
 }
 
 #' @noRd
-rec_ <- function(x, index, key, .fn, from = "type", to = "facility", ...) {
+rec_type <- function(x, index, key, .fn, ...) {
   if (rlang::has_name(index, key)) {
     i <- index[[key]]
-    x[[to]][i] <- .fn(x[[from]][i], ...)
-    # collapse::setv(x[[to]], i, .fn(x[[from]][i]))
+    x[["facility"]][i] <- .fn(x[["type"]][i], ...)
+  }
+  return(x)
+}
+
+#' @noRd
+rec_range <- function(x, index, key, .fn, ...) {
+  if (rlang::has_name(index, key)) {
+    i <- index[[key]]
+    if (key == "Medicare") {
+      x[["facility"]][i] <- .fn(x[["number"]][i], ...)
+      x[["range"]][i] <- .fn(x[["number"]][i], as = "range", ...)
+    } else {
+      x[["range"]][i] <- .fn(x[["number"]][i])
+    }
   }
   return(x)
 }
@@ -38,53 +51,43 @@ rec_ <- function(x, index, key, .fn, from = "type", to = "facility", ...) {
 #' @export
 #' @rdname decode
 decode.ccnr <- function(x, ...) {
-  # i <- get_index(as_ccn(x))
-  x <- tibble::tibble(vctrs::vec_data(x))
+  x <- vctrs::vec_data(x)
 
   collapse::settfmv(x, collapse::gv(x, "number", return = 3L), as.integer)
   collapse::settfmv(x, collapse::gv(x, "state", return = 3L), recode_state)
-  x[["region"]] <- as_region(x[["state"]])
-  x[["facility"]] <- x[["range"]] <- vctrs::vec_init(
-    character(),
-    vctrs::vec_size(x)
-  )
-  # x[["facility"]] <- vctrs::vec_init(character(), vctrs::vec_size(x))
 
-  i <- purrr::imap(
-    rlang::set_names(collapse::funique(x[["entity"]])),
-    function(n, i) {
-      purrr::pluck(x, "entity") %==% n
-    }
+  x <- collapse::av(
+    x,
+    region = as_region(x[["state"]]),
+    facility = cheapr::na_init("", vctrs::vec_size(x)),
+    range = cheapr::na_init("", vctrs::vec_size(x))
   )
 
-  x <- rec_(x, i, "Emergency", recode_other_type)
-  x <- rec_(x, i, "Supplier", recode_other_type)
-  x <- rec_(x, i, "Organ", recode_other_type)
-  x <- rec_(x, i, "Medicaid", recode_medicaid_type)
-  x <- rec_(x, i, "Unit", recode_unit_type)
-  x <- rec_(x, i, "Subunit", recode_unit_type)
-  x <- rec_(x, i, "Medicare", recode_medicare_range, "number")
-  x <- rec_(
-    x = x,
-    index = i,
-    key = "Medicare",
-    .fn = recode_medicare_range,
-    from = "number",
-    to = "range",
-    as = "range"
-  )
+  i <- index_ccnr(x)
+
+  x <- rec_type(x, i, "Emergency", recode_other_type)
+  x <- rec_type(x, i, "Organ", recode_other_type)
+  x <- rec_type(x, i, "Supplier", recode_other_type)
+  x <- rec_type(x, i, "Medicaid", recode_medicaid_type)
+  x <- rec_type(x, i, "Unit", recode_unit_type)
+  x <- rec_type(x, i, "Subunit", recode_unit_type)
+
+  x <- rec_range(x, i, "Medicare", recode_medicare_range)
+  x <- rec_range(x, i, "Emergency", recode_other_range)
+  x <- rec_range(x, i, "Organ", recode_other_range)
+  x <- rec_range(x, i, "Supplier", recode_supplier_range)
 
   if (collapse::anyv(x[["facility"]], "MOH")) {
     idx <- x[["facility"]] %==% "MOH"
 
     x[["facility"]][idx] <- recode_medicaid_range(x[["number"]][idx])
-    x[["range"]][idx] <- recode_medicaid_range(x[["number"]][idx], as = "range")
+    x[["range"]][idx] <- recode_medicaid_range(x[["number"]][idx], "range")
   }
 
-  collapse::gv(
+  collapse::qTBL(collapse::gv(
     x,
     c("ccn", "state", "region", "entity", "facility", "range")
-  )
+  ))
 }
 
 # `x` must be a vector, not `NULL`.

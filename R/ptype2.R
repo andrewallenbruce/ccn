@@ -72,7 +72,7 @@ vec_ptype2.ccnr <- function(x, y, ..., x_arg = "", y_arg = "") {
 #' @keywords internal
 #' @method vec_ptype2.ccnr default
 #' @export
-vec_ptype2.ccnr.default <- function(x, y, ..., x_arg = "", y_arg = "") {
+vec_ptype2.ccnr.default <- function(x, y, ..., x_arg = "x", y_arg = "y") {
   vctrs::vec_default_ptype2(x, y, x_arg = x_arg, y_arg = y_arg)
 }
 

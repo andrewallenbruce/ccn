@@ -110,3 +110,13 @@ get_index <- function(x) {
 get_index.ccn <- function(x, ...) {
   attr(x, "index", exact = TRUE)
 }
+
+#' @noRd
+index_ccnr <- function(x) {
+  purrr::imap(
+    rlang::set_names(collapse::funique(x[["entity"]])),
+    function(n, i) {
+      purrr::pluck(x, "entity") %==% n
+    }
+  )
+}
