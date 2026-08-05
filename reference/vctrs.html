@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ccn</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9141</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9142</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,6 +58,9 @@
 <span><span class="fu">get_index</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for class 'ccn'</span></span>
+<span><span class="fu">get_index</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for class 'ccnr'</span></span>
 <span><span class="fu">get_index</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -103,7 +106,7 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="get_pin.html">get_pin</a></span><span class="op">(</span><span class="st">"ccn"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">y</span> <span class="op">=</span> <span class="fu">ccn</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">get_index</span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn&lt;index[54567]&gt;&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn_vctr&lt;index[54567]&gt;&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     Supplier :  5488</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Medicaid_Ext :     1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Medicare_Ext :   327</span>
@@ -114,6 +117,15 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>      Subunit :    49</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         Unit :  3218</span>
 <span class="r-in"><span><span class="va">z</span> <span class="op">=</span> <span class="fu"><a href="as.html">as_ccnr</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">get_index</span><span class="op">(</span><span class="va">z</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn_rcrd&lt;index[54567]&gt;&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Medicare : 45576</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Medicaid :     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      Unit :  3232</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Subunit :    49</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     Organ :    55</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Emergency :   166</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Supplier :  5488</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">vctrs</span><span class="fu">::</span><span class="fu"><a href="https://vctrs.r-lib.org/reference/vec_c.html" class="external-link">vec_c</a></span><span class="op">(</span><span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span>, <span class="va">y</span><span class="op">[</span><span class="fl">100</span><span class="op">:</span><span class="fl">150</span><span class="op">]</span>, <span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">50</span><span class="op">]</span>, <span class="va">z</span><span class="op">[</span><span class="fl">100</span><span class="op">:</span><span class="fl">150</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn_rcrd[157]&gt;</span>
@@ -148,16 +160,6 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 001515 001515</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 001517 001517</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 54,557 more rows</span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">ccnr</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  ccn <span class="op">=</span> <span class="st">"001234"</span>,</span></span>
-<span class="r-in"><span>  entity <span class="op">=</span> <span class="st">"Medicare"</span>,</span></span>
-<span class="r-in"><span>  state <span class="op">=</span> <span class="st">"00"</span>,</span></span>
-<span class="r-in"><span>  number <span class="op">=</span> <span class="st">"1234"</span>,</span></span>
-<span class="r-in"><span>  type <span class="op">=</span> <span class="cn">NA_character_</span></span></span>
-<span class="r-in"><span> <span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;ccn_rcrd[1]&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 001234</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

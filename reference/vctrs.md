@@ -19,6 +19,9 @@ get_index(x)
 
 # S3 method for class 'ccn'
 get_index(x, ...)
+
+# S3 method for class 'ccnr'
+get_index(x, ...)
 ```
 
 ## Arguments
@@ -61,7 +64,7 @@ An S3 vector of class `<ccn>` or `<ccnr>`
 x = get_pin("ccn")
 y = ccn(x)
 get_index(y)
-#> <ccn<index[54567]>>
+#> <ccn_vctr<index[54567]>>
 #>     Supplier :  5488
 #> Medicaid_Ext :     1
 #> Medicare_Ext :   327
@@ -72,6 +75,15 @@ get_index(y)
 #>      Subunit :    49
 #>         Unit :  3218
 z = as_ccnr(x)
+get_index(z)
+#> <ccn_rcrd<index[54567]>>
+#>  Medicare : 45576
+#>  Medicaid :     1
+#>      Unit :  3232
+#>   Subunit :    49
+#>     Organ :    55
+#> Emergency :   166
+#>  Supplier :  5488
 
 vctrs::vec_c(x[1:5], y[100:150], x[1:50], z[100:150])
 #> <ccn_rcrd[157]>
@@ -106,14 +118,4 @@ tibble::tibble(x = x, ccn = ccn(x))
 #>  9 001515 001515
 #> 10 001517 001517
 #> # ℹ 54,557 more rows
-
-ccnr(
-  ccn = "001234",
-  entity = "Medicare",
-  state = "00",
-  number = "1234",
-  type = NA_character_
- )
-#> <ccn_rcrd[1]>
-#> [1] 001234
 ```

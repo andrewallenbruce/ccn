@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ccn</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9141</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9142</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -74,7 +74,6 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="get_pin.html">get_pin</a></span><span class="op">(</span><span class="st">"ccn"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">b</span> <span class="op">=</span> <span class="fu"><a href="as.html">as_ccnr</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="fu"><a href="as.html">as_ccn</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 54,567 × 5</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    ccn    entity   state number type </span>
@@ -90,59 +89,95 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 001515 Medicare 00      <span style="text-decoration: underline;">1</span>515 <span style="color: #BB0000;">NA</span>   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 001517 Medicare 00      <span style="text-decoration: underline;">1</span>517 <span style="color: #BB0000;">NA</span>   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 54,557 more rows</span></span>
-<span class="r-in"><span><span class="fu">decode</span><span class="op">(</span><span class="va">b</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 54,567 × 6</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    ccn    state region             entity   facility range    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 001500 AZ    (IX) San Francisco Medicare Hospice  1500-1799</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 001502 AZ    (IX) San Francisco Medicare Hospice  1500-1799</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 001503 AZ    (IX) San Francisco Medicare Hospice  1500-1799</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 001509 AZ    (IX) San Francisco Medicare Hospice  1500-1799</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 001510 AZ    (IX) San Francisco Medicare Hospice  1500-1799</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 001511 AZ    (IX) San Francisco Medicare Hospice  1500-1799</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 001513 AZ    (IX) San Francisco Medicare Hospice  1500-1799</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 001514 AZ    (IX) San Francisco Medicare Hospice  1500-1799</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 001515 AZ    (IX) San Francisco Medicare Hospice  1500-1799</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 001517 AZ    (IX) San Francisco Medicare Hospice  1500-1799</span>
+<span class="r-in"><span><span class="va">b</span> <span class="op">=</span> <span class="fu">decode</span><span class="op">(</span><span class="fu"><a href="as.html">as_ccnr</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">b</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 54,567 × 7</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    ccn    state region             entity   facility range     description</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 001500 AZ    (IX) San Francisco Medicare Hospice  1500-1799 Hospice    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 001502 AZ    (IX) San Francisco Medicare Hospice  1500-1799 Hospice    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 001503 AZ    (IX) San Francisco Medicare Hospice  1500-1799 Hospice    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 001509 AZ    (IX) San Francisco Medicare Hospice  1500-1799 Hospice    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 001510 AZ    (IX) San Francisco Medicare Hospice  1500-1799 Hospice    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 001511 AZ    (IX) San Francisco Medicare Hospice  1500-1799 Hospice    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 001513 AZ    (IX) San Francisco Medicare Hospice  1500-1799 Hospice    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 001514 AZ    (IX) San Francisco Medicare Hospice  1500-1799 Hospice    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 001515 AZ    (IX) San Francisco Medicare Hospice  1500-1799 Hospice    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 001517 AZ    (IX) San Francisco Medicare Hospice  1500-1799 Hospice    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 54,557 more rows</span></span>
-<span class="r-in"><span><span class="fu">collapse</span><span class="fu">::</span><span class="fu"><a href="https://fastverse.org/collapse/reference/quick-conversion.html" class="external-link">qDF</a></span><span class="op">(</span><span class="fu">collapse</span><span class="fu">::</span><span class="fu"><a href="https://fastverse.org/collapse/reference/fcount.html" class="external-link">fcountv</a></span><span class="op">(</span><span class="fu">decode</span><span class="op">(</span><span class="va">b</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"entity"</span>, <span class="st">"facility"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       entity      facility     N</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   Medicare       Hospice  5114</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   Medicare         Acute  3234</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   Medicare           CAH  1382</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   Medicare          LTCH   332</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   Medicare        ESRD-H   220</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   Medicare        ESRD-I  7211</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7   Medicare           IRF   407</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   Medicare         Child    95</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   Medicare         Psych   667</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  Medicare           SNF 14674</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11  Medicare           HHA 10121</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12  Medicare        HHA-NP  1019</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13  Medicare        HHA-SL   715</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14  Medicare           TXC   233</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15  Medicare       ESRD-HS   139</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16  Medicare          FQHC     2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17  Medicare       ESRD-IP     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18  Medicare           OCM     9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19  Medicare       ESRD-HP     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20  Medicaid           SNF     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21      Unit   Psych (CAH)    46</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22      Unit         Psych   745</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23      Unit         Rehab   792</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24      Unit Swing (Acute)   297</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25      Unit   Swing (CAH)  1342</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26      Unit   Rehab (CAH)     7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27      Unit   Swing (LTC)     2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28      Unit   Swing (IRF)     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29   Subunit         Rehab    41</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30   Subunit         Psych     8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31     Organ           OPO    55</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32 Emergency           ERF   164</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33 Emergency           ERN     2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34  Supplier           ASC  5473</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35  Supplier          CLIA     9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36  Supplier          PXRF     6</span>
+<span class="r-in"><span><span class="fu">collapse</span><span class="fu">::</span><span class="fu"><a href="https://fastverse.org/collapse/reference/quick-conversion.html" class="external-link">qDF</a></span><span class="op">(</span><span class="fu">collapse</span><span class="fu">::</span><span class="fu"><a href="https://fastverse.org/collapse/reference/fcount.html" class="external-link">fcountv</a></span><span class="op">(</span><span class="va">b</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"entity"</span>, <span class="st">"description"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       entity                                            description     N</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1   Medicare                                                Hospice  5114</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   Medicare              Short-Term Hospital (General &amp; Specialty)  3234</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   Medicare                               Critical Access Hospital  1382</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4   Medicare                                Long-Term Care Hospital   332</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   Medicare                 Hospital-based Renal Dialysis Facility   220</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   Medicare                    Independent Renal Dialysis Facility  7211</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7   Medicare                                Rehabilitation Hospital   407</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8   Medicare                                    Children's Hospital    95</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9   Medicare                                   Psychiatric Hospital   667</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10  Medicare                               Skilled Nursing Facility 14674</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11  Medicare                                     Home Health Agency 10121</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12  Medicare                  Home Health Agency Subunit (Non/Prop)  1019</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13  Medicare               Home Health Agency Subunit (State/Local)   715</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14  Medicare                                      Transplant Center   233</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15  Medicare       Hospital-based Satellite Renal Dialysis Facility   139</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16  Medicare                      Federally Qualified Health Center     2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17  Medicare    Independent Special Purpose Renal Dialysis Facility     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18  Medicare  Hospital in Oncology Care Model Demonstration Project     9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19  Medicare Hospital-based Special Purpose Renal Dialysis Facility     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20  Medicaid                               Skilled Nursing Facility     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21      Unit                                 Psychiatric Unit (CAH)    46</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22      Unit                                       Psychiatric Unit   745</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23      Unit                                    Rehabilitation Unit   792</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24      Unit                             Swing-Bed Approval (Acute)   297</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25      Unit                               Swing-Bed Approval (CAH)  1342</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26      Unit                              Rehabilitation Unit (CAH)     7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27      Unit                               Swing-Bed Approval (LTC)     2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28      Unit                               Swing-Bed Approval (IRF)     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29   Subunit                                    Rehabilitation Unit    41</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30   Subunit                                       Psychiatric Unit     8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31     Organ                         Organ Procurement Organization    55</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32 Emergency                           Emergency Hospital (Federal)   164</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33 Emergency                       Emergency Hospital (Non-Federal)     2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34  Supplier                             Ambulatory Surgical Center  5473</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35  Supplier                                    Clinical Laboratory     9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36  Supplier                                Portable X-Ray Facility     6</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/with.html" class="external-link">with</a></span><span class="op">(</span><span class="va">b</span>, <span class="fu">collapse</span><span class="fu">::</span><span class="fu"><a href="https://fastverse.org/collapse/reference/qtab.html" class="external-link">qtab</a></span><span class="op">(</span><span class="va">facility</span>, <span class="va">entity</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                entity</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> facility        Emergency Medicaid Medicare Organ Subunit Supplier  Unit</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ASC                   0        0        0     0       0     5473     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Acute                 0        0     3234     0       0        0     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   CAH                   0        0     1382     0       0        0     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   CLIA                  0        0        0     0       0        9     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Child                 0        0       95     0       0        0     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ERF                 164        0        0     0       0        0     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ERN                   2        0        0     0       0        0     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ESRD-H                0        0      220     0       0        0     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ESRD-HP               0        0        1     0       0        0     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ESRD-HS               0        0      139     0       0        0     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ESRD-I                0        0     7211     0       0        0     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ESRD-IP               0        0        1     0       0        0     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   FQHC                  0        0        2     0       0        0     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   HHA                   0        0    10121     0       0        0     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   HHA-NP                0        0     1019     0       0        0     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   HHA-SL                0        0      715     0       0        0     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Hospice               0        0     5114     0       0        0     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   IRF                   0        0      407     0       0        0     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   LTCH                  0        0      332     0       0        0     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   OCM                   0        0        9     0       0        0     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   OPO                   0        0        0    55       0        0     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   PXRF                  0        0        0     0       0        6     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Psych                 0        0      667     0       8        0   745</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Psych (CAH)           0        0        0     0       0        0    46</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Rehab                 0        0        0     0      41        0   792</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Rehab (CAH)           0        0        0     0       0        0     7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   SNF                   0        1    14674     0       0        0     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Swing (Acute)         0        0        0     0       0        0   297</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Swing (CAH)           0        0        0     0       0        0  1342</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Swing (IRF)           0        0        0     0       0        0     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Swing (LTC)           0        0        0     0       0        0     2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   TXC                   0        0      233     0       0        0     0</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
