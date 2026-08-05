@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9141 (2026-08-04)
+
+* refactored decode
+
+
 # ccn 0.0.0.9140 (2026-08-04)
 
 * other/supplier range checks
