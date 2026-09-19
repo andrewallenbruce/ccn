@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9143 (2026-09-19)
+
+* updated dependencies
+
+
 # ccn 0.0.0.9142 (2026-08-05)
 
 * added `ccnr_index` method
