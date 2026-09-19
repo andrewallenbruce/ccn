@@ -1,5 +1,9 @@
 # Changelog
 
+## ccn 0.0.0.9143 (2026-09-19)
+
+- updated dependencies
+
 ## ccn 0.0.0.9142 (2026-08-05)
 
 - added `ccnr_index` method
@@ -447,11 +451,8 @@
 
 ## ccn 0.0.0.9037 (2025-12-01)
 
-- trying
-  [`data.table::between`](https://rdrr.io/pkg/data.table/man/between.html)
-  &
-  [`data.table::inrange`](https://rdrr.io/pkg/data.table/man/between.html)
-  for facility ranges
+- trying `data.table::between` & `data.table::inrange` for facility
+  ranges
 
 ## ccn 0.0.0.9036 (2025-11-30)
 
