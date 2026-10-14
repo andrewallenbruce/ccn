@@ -49,20 +49,19 @@ parent_unit <- function(x) {
   idx <- cheapr::which_not_na(fix)
   collapse::setv(x, cheapr::which_na(fix), NA)
   collapse::setv(x, idx, out[idx])
-  return(x)
+  as_ccn(x)
 }
 
 
 #' @rdname parent
 #' @export
 parent_subunit <- function(x) {
-  paste0(
-    substring(x, 1L, 2L),
-    paste0(
-      subunit_prefix(substring(x, 4L, 4L)),
-      substring(x, 5L, 6L)
-    )
-  )
+  fix <- subunit_prefix(substring(x, 4L, 4L))
+  out <- paste0(substring(x, 1L, 2L), fix, substring(x, 5L, 6L))
+  idx <- cheapr::which_not_na(fix)
+  collapse::setv(x, cheapr::which_na(fix), NA)
+  collapse::setv(x, idx, out[idx])
+  as_ccn(x)
 }
 
 #' @rdname parent
@@ -76,16 +75,7 @@ has_parent <- function(x) {
 has_parent.ccn <- function(x) {
   i <- collapse::get_elem(get_index(x), "Unit|Subunit", regex = TRUE)
   list(
-    Unit = x[i$Unit][
-      substring(x[i$Unit], 3L, 3L) %iin%
-        ccn::unit_types[["code"]][collapse::whichNA(
-          ccn::unit_types[["infix"]],
-          invert = TRUE
-        )]
-    ],
-    Subunit = x[i$Subunit][
-      substring(x[i$Subunit], 4L, 4L) %iin%
-        collapse::na_rm(ccn::subunit_types[["code"]])
-    ]
-  )
+    Unit = x[i$Unit][substring(x[i$Unit], 3L, 3L) %iin% ccn::unit_types[["code"]][collapse::whichNA(ccn::unit_types[["infix"]], invert = TRUE)]],
+    Subunit = x[i$Subunit][substring(x[i$Subunit], 4L, 4L) %iin% collapse::na_rm(ccn::subunit_types[["code"]])]
+    )
 }
