@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ccn 0.0.0.9144 (2026-10-14)
+
+* update/re-render roxygen2 documentation
+
+
 # ccn 0.0.0.9143 (2026-09-19)
 
 * updated dependencies
