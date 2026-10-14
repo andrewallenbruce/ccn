@@ -1,5 +1,9 @@
 # Changelog
 
+## ccn 0.0.0.9144 (2026-10-14)
+
+- update/re-render roxygen2 documentation
+
 ## ccn 0.0.0.9143 (2026-09-19)
 
 - updated dependencies
