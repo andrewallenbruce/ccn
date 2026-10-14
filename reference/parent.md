@@ -29,9 +29,11 @@ A `<chr>` vector of parent CCNs
 
 ``` r
 parent_unit(c("45S788", "25U050", "39S027", "34S155", "29Z307"))
-#> [1] NA       "250050" NA       NA       "291307"
+#> <ccn_vctr[5]>
+#> [1] <NA>   250050 <NA>   <NA>   291307
 parent_subunit(c("21SA26", "21TA26", "02TA01", "04SD38", "52TA05"))
-#> [1] "212026" "212026" "022001" "043038" "522005"
+#> <ccn_vctr[5]>
+#> [1] 212026 212026 022001 043038 522005
 
 x = ccn(get_pin("ccn"))
 
@@ -59,7 +61,7 @@ tibble::tibble(
   parent = parent_subunit(has_parent(x)$Subunit))
 #> # A tibble: 49 × 2
 #>    subunit parent
-#>    <ccn>   <chr> 
+#>    <ccn>   <ccn> 
 #>  1 02TA01  022001
 #>  2 04SD38  043038
 #>  3 05TA46  052046
